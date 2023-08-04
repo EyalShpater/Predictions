@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class Entity {
     static private int population;
     private String name;
-    private ArrayList<Property> properties;
+    private ArrayList<Property> properties = new ArrayList<>();
 
     public static int getPopulation() {
         return population;
@@ -21,6 +21,14 @@ public class Entity {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public void addProperty(Property newProperty) {
+        if (newProperty == null) {
+            throw new NullPointerException("Can not add empty property!");
+        }
+
+        properties.add(newProperty);
     }
 
     @Override

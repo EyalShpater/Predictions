@@ -6,6 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="27d35137-667f-4e37-a519-ab836acc0a06" name="Changes" comment="with project settings">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logic/src/simulation/propety/entity/model/Entity.java" beforeDir="false" afterPath="$PROJECT_DIR$/logic/src/simulation/propety/entity/model/Entity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logic/src/simulation/propety/entity/model/Property.java" beforeDir="false" afterPath="$PROJECT_DIR$/logic/src/simulation/propety/entity/model/Property.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui/src/program/Program.java" beforeDir="false" afterPath="$PROJECT_DIR$/ui/src/program/Program.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -76,6 +79,26 @@
       <recent name="$PROJECT_DIR$/logic/src" />
     </key>
   </component>
+  <component name="RunManager">
+    <configuration name="Program" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="program.Program" />
+      <module name="ui" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="program.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Program" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -87,7 +110,7 @@
       <workItem from="1690896483947" duration="1002000" />
       <workItem from="1691015153692" duration="3000" />
       <workItem from="1691132943902" duration="2149000" />
-      <workItem from="1691139059991" duration="7456000" />
+      <workItem from="1691139059991" duration="9033000" />
     </task>
     <task id="LOCAL‎-00001" summary="init">
       <option name="closed" value="true" />
@@ -113,7 +136,15 @@
       <option name="project" value="LOCAL‎" />
       <updated>1691147966820</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL‎-00004" summary="with project settings">
+      <option name="closed" value="true" />
+      <created>1691148528935</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL‎-00004" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1691148528935</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -126,5 +157,10 @@
     <MESSAGE value="with project settings" />
     <option name="LAST_COMMIT_MESSAGE" value="with project settings" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/Predictions$Program.ic" NAME="Program Coverage Results" MODIFIED="1691163970698" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>program.*</FILTER>
+    </SUITE>
   </component>
 </project>
