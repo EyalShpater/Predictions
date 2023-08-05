@@ -6,6 +6,20 @@ public class Property {
     private Range range = null;
     boolean isNeedToBeInitialize = true;
 
+    public Property(String title, PropertyType type, boolean isNeedToBeInitialize) {
+        if (title.isEmpty()) {
+            throw new NullPointerException("Title can not be empty!");
+        }
+
+        this.title = title;
+        this.type = type;
+        this.isNeedToBeInitialize = isNeedToBeInitialize;
+    }
+
+    public Property(String title, PropertyType type, boolean isNeedToBeInitialize, Range range) {
+        this(title, type, isNeedToBeInitialize);
+        this.range = range;
+    }
 
     public void setTitle(String title) {
         if (title.isEmpty()) {

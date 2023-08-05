@@ -4,10 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="27d35137-667f-4e37-a519-ab836acc0a06" name="Changes" comment="more toString functions">
+    <list default="true" id="27d35137-667f-4e37-a519-ab836acc0a06" name="Changes" comment="Activation">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logic/src/simulation/propety/law/rule/Activation.java" beforeDir="false" afterPath="$PROJECT_DIR$/logic/src/simulation/propety/law/rule/Activation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logic/src/simulation/propety/law/rule/Rule.java" beforeDir="false" afterPath="$PROJECT_DIR$/logic/src/simulation/propety/law/rule/Rule.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logic/src/simulation/propety/entity/model/Entity.java" beforeDir="false" afterPath="$PROJECT_DIR$/logic/src/simulation/propety/entity/model/Entity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logic/src/simulation/propety/entity/model/Property.java" beforeDir="false" afterPath="$PROJECT_DIR$/logic/src/simulation/propety/entity/model/Property.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui/src/program/Program.java" beforeDir="false" afterPath="$PROJECT_DIR$/ui/src/program/Program.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -110,7 +111,7 @@
       <workItem from="1691015153692" duration="3000" />
       <workItem from="1691132943902" duration="2149000" />
       <workItem from="1691139059991" duration="9224000" />
-      <workItem from="1691191043772" duration="4073000" />
+      <workItem from="1691191043772" duration="5200000" />
     </task>
     <task id="LOCAL‎-00001" summary="init">
       <option name="closed" value="true" />
@@ -160,7 +161,15 @@
       <option name="project" value="LOCAL‎" />
       <updated>1691200642371</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL‎-00007" summary="Activation">
+      <option name="closed" value="true" />
+      <created>1691201509813</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL‎-00007" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1691201509813</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -173,7 +182,8 @@
     <MESSAGE value="with project settings" />
     <MESSAGE value="a little nit tString implementations and main test" />
     <MESSAGE value="more toString functions" />
-    <option name="LAST_COMMIT_MESSAGE" value="more toString functions" />
+    <MESSAGE value="Activation" />
+    <option name="LAST_COMMIT_MESSAGE" value="Activation" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">

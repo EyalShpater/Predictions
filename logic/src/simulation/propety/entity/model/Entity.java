@@ -1,17 +1,22 @@
 package simulation.propety.entity.model;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Entity {
     static private int population;
     private String name;
-    private ArrayList<Property> properties = new ArrayList<>();
+    private List<Property> properties = new ArrayList<>();
 
     public static int getPopulation() {
         return population;
     }
 
     public static void setPopulation(int population) {
+        if (population <= 0) {
+            throw new IllegalArgumentException("Population must be a positive number.");
+        }
+
         Entity.population = population;
     }
 
@@ -20,6 +25,10 @@ public class Entity {
     }
 
     public void setName(String name) {
+        if (name.isEmpty()) {
+            throw new NullPointerException("Name can not be empty");
+        }
+        
         this.name = name;
     }
 
