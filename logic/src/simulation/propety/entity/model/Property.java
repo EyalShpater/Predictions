@@ -3,8 +3,8 @@ package simulation.propety.entity.model;
 public class Property {
     private String title;
     private PropertyType type;
-    private Range range;
-    boolean isNeedToBeInitialize;
+    private Range range = null;
+    boolean isNeedToBeInitialize = true;
 
 
     public void setTitle(String title) {
@@ -29,6 +29,16 @@ public class Property {
 
     @Override
     public String toString() {
-        return "title= " + title;
+        StringBuilder str = new StringBuilder();
+
+        str.append(this.title).append(System.lineSeparator());
+        str.append("Type: ").append(type).append(System.lineSeparator());
+        if (range != null) {
+            str.append("Range: ").append(range).append(System.lineSeparator());
+        }
+
+        str.append(isNeedToBeInitialize ? "Not random" : "Random").append(" initialize");
+
+        return str.toString();
     }
 }
