@@ -1,23 +1,25 @@
 package simulation.propety.entity.model;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class Entity {
-    static private int population;
+    private int population;
     private String name;
     private List<Property> properties = new ArrayList<>();
 
-    public static int getPopulation() {
+    public int getPopulation() {
         return population;
     }
 
-    public static void setPopulation(int population) {
+    public void setPopulation(int population) {
         if (population <= 0) {
             throw new IllegalArgumentException("Population must be a positive number.");
         }
 
-        Entity.population = population;
+        this.population = population;
     }
 
     public String getName() {
@@ -30,6 +32,16 @@ public class Entity {
         }
         
         this.name = name;
+    }
+
+    public Map<String, Object> getPropertiesAsObjects() {
+        Map<String, Object> res = new HashMap<>();
+
+        for (Property property : properties) {
+            res.put(property.getTitle(), property.getValue());
+        }
+
+        return res;
     }
 
     public void addProperty(Property newProperty) {

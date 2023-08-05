@@ -1,10 +1,8 @@
 package simulation.propety.entity.model;
 
-import java.util.InvalidPropertiesFormatException;
-
 public class Range {
-    double from;
-    double to;
+    double min;
+    double max;
 
     public Range(double from, double to) {
         if (from > to) {
@@ -12,12 +10,20 @@ public class Range {
                     + "first argument must be lower than second.");
         }
 
-        this.from = from;
-        this.to = to;
+        this.min = from;
+        this.max = to;
+    }
+
+    public double getMin() {
+        return min;
+    }
+
+    public double getMax() {
+        return max;
     }
 
     @Override
     public String toString() {
-        return String.format("%f - %f", from, to);
+        return String.format("%f - %f", min, max);
     }
 }
