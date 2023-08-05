@@ -44,11 +44,11 @@ public class Entity {
     public String toString() {
         StringBuilder result = new StringBuilder();
 
-        result.append("Name: " + name + System.lineSeparator());
-        result.append("Population: " + population + System.lineSeparator());
-        result.append("Properties:" + System.lineSeparator());
+        result.append("Name: ").append(name).append(System.lineSeparator());
+        result.append("Population: ").append(population).append(System.lineSeparator());
+        result.append("Properties:").append(System.lineSeparator());
         for (Property prop : properties) {
-            result.append(prop + System.lineSeparator());
+            result.append(prop).append(System.lineSeparator());
         }
 
         return result.toString();
