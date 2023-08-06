@@ -1,7 +1,6 @@
 package simulation.propety.entity.model;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 public class EntityInstance {
     private final String entityName;
@@ -16,45 +15,9 @@ public class EntityInstance {
         List<PropertyInstance> properties = new ArrayList<>();
 
         for (int i = 0; i <= entity.getNumOfProperties(); i++) {
-            properties.add(createPropertyInstanceFromProperty(entity.propertyAt(i)));
+            properties.add(new PropertyInstance(entity.propertyAt(i)));
         }
 
         return properties;
     }
-
-    private PropertyInstance createPropertyInstanceFromProperty(Property propertyDefinition) {
-        PropertyInstance instance = null;
-
-
-        return instance;
-    }
 }
-
-
-
-
-
-
-
-
-/*
-
-Name: Smoker
-Population: 100
-
-[{"LCP, double, Range, ...}, {KFD, int, ...}]
-
-
-----------------------------------------------
-
-
-Name: Smoker
-
-
-object LCP = Double (1);
-object KFD = Integer (23);
-
-if(properties[0] instance of Integer)
-
-
- */

@@ -1,13 +1,10 @@
 package simulation.propety.entity.model;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class Entity {
-    private int population;
     private String name;
+    private int population;
     private List<Property> properties = new ArrayList<>();
 
     public int getPopulation() {
