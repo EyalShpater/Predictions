@@ -34,22 +34,20 @@ public class Entity {
         this.name = name;
     }
 
-    public Map<String, Object> getPropertiesAsObjects() {
-        Map<String, Object> res = new HashMap<>();
-
-        for (Property property : properties) {
-            res.put(property.getTitle(), property.getValue());
-        }
-
-        return res;
-    }
-
     public void addProperty(Property newProperty) {
         if (newProperty == null) {
             throw new NullPointerException("Can not add empty property!");
         }
 
         properties.add(newProperty);
+    }
+
+    public Property propertyAt(int index) {
+        return properties.get(index);
+    }
+
+    public int getNumOfProperties() {
+        return properties.size();
     }
 
     @Override

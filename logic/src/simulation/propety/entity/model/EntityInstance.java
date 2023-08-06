@@ -1,14 +1,32 @@
 package simulation.propety.entity.model;
 
-import java.util.Map;
+import java.util.ArrayList;
+import java.util.List;
 
 public class EntityInstance {
     private final String entityName;
-    private Map<String, Object> properties;
+    private List<PropertyInstance> properties;
 
     EntityInstance(Entity entity) {
         entityName = entity.getName();
-        properties = entity.getPropertiesAsObjects();
+        properties = setProperties(entity);
+    }
+
+    private List<PropertyInstance> setProperties(Entity entity) {
+        List<PropertyInstance> properties = new ArrayList<>();
+
+        for (int i = 0; i <= entity.getNumOfProperties(); i++) {
+            properties.add(createPropertyInstanceFromProperty(entity.propertyAt(i)));
+        }
+
+        return properties;
+    }
+
+    private PropertyInstance createPropertyInstanceFromProperty(Property propertyDefinition) {
+        PropertyInstance instance = null;
+
+
+        return instance;
     }
 }
 
