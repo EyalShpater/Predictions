@@ -97,4 +97,5 @@ public class PropertyInstanceImpl implements PropertyInstance {
     public String getName() {
         return propertyDefinition.getName();
     }
+
 }
