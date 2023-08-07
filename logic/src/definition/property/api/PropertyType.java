@@ -1,4 +1,4 @@
-package simulation.propety.entity.model;
+package definition.property.api;
 
 public enum PropertyType {
     INT("Integer Number"),

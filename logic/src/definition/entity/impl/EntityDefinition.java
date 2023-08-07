@@ -1,11 +1,14 @@
-package simulation.propety.entity.model;
+package definition.entity.impl;
+
+import definition.entity.api.EntityDefinitionInterface;
+import definition.property.impl.PropertyDefinition;
 
 import java.util.*;
 
-public class Entity {
+public class EntityDefinition implements EntityDefinitionInterface {
     private String name;
     private int population;
-    private List<Property> properties = new ArrayList<>();
+    private List<PropertyDefinition> properties = new ArrayList<>();
 
     public int getPopulation() {
         return population;
@@ -27,11 +30,11 @@ public class Entity {
         if (name.isEmpty()) {
             throw new NullPointerException("Name can not be empty");
         }
-        
+
         this.name = name;
     }
 
-    public void addProperty(Property newProperty) {
+    public void addProperty(PropertyDefinition newProperty) {
         if (newProperty == null) {
             throw new NullPointerException("Can not add empty property!");
         }
@@ -39,7 +42,7 @@ public class Entity {
         properties.add(newProperty);
     }
 
-    public Property propertyAt(int index) {
+    public PropertyDefinition propertyAt(int index) {
         return properties.get(index);
     }
 
@@ -54,7 +57,7 @@ public class Entity {
         result.append("Name: ").append(name).append(System.lineSeparator());
         result.append("Population: ").append(population).append(System.lineSeparator());
         result.append("Properties:").append(System.lineSeparator());
-        for (Property prop : properties) {
+        for (PropertyDefinition prop : properties) {
             result.append(prop).append(System.lineSeparator());
         }
 

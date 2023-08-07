@@ -1,15 +1,19 @@
-package simulation.propety.entity.model;
+package instance.property.impl;
+
+import definition.property.impl.PropertyDefinition;
+import instance.property.api.PropertyInstanceInterface;
+import simulation.propety.entity.model.Range;
 
 import java.util.Random;
 
-public class PropertyInstance {
+public class PropertyInstance implements PropertyInstanceInterface {
     private final static String VALID_RANDOM_CHARS = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789().-_,?! ";
     private final static int MIN_STRING_LENGTH = 1;
     private final static int MAX_STRING_LENGTH = 50;
-    Property propertyDefinition;
+    PropertyDefinition propertyDefinition;
     Object value;
 
-    public PropertyInstance(Property propertyDefinition) {
+    public PropertyInstance(PropertyDefinition propertyDefinition) {
         if (propertyDefinition == null) {
             throw new NullPointerException("Property can not be null!");
         }
@@ -84,4 +88,13 @@ public class PropertyInstance {
     }
 
 
+    @Override
+    public Object getValue() {
+        return value;
+    }
+
+    @Override
+    public String getName() {
+        return propertyDefinition.getName();
+    }
 }

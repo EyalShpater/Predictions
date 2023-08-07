@@ -1,11 +1,5 @@
 package program;
 
-import simulation.propety.entity.model.Entity;
-import simulation.propety.entity.model.Property;
-import simulation.propety.entity.model.PropertyType;
-import simulation.propety.entity.model.Range;
-import simulation.world.World;
-
 public class Program {
     public static void main(String[] args) {
 //        System.out.println("hello");
