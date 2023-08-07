@@ -1,6 +1,8 @@
 package rule.impl;
 
-public class Activation {
+import rule.api.Activation;
+
+public class ActivationImpl implements Activation {
     private int numOfTicksToActivate;
     private double probabilityToActivate = 1;
 
@@ -27,5 +29,9 @@ public class Activation {
 
         this.probabilityToActivate = probability;
     }
-}
 
+    @Override
+    public boolean isActive(int tickNumber, double probability) {
+        return (tickNumber % numOfTicksToActivate == 0) || (probability < probabilityToActivate);
+    }
+}
