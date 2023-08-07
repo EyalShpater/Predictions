@@ -1,17 +1,17 @@
 package definition.property.impl;
 
-import definition.property.api.PropertyDefinitionInterface;
+import definition.property.api.PropertyDefinition;
 import definition.property.api.PropertyType;
 import simulation.propety.entity.model.Range;
 
-public class PropertyDefinition implements PropertyDefinitionInterface {
+public class PropertyDefinitionImpl implements PropertyDefinition {
     private String name;
     private final PropertyType type;
     private Range range = null;
     boolean isValueInitializeRandomly;
     Object defaultValue = null;
 
-    private PropertyDefinition(String name, PropertyType type, boolean isValueInitializeRandomly) {
+    private PropertyDefinitionImpl(String name, PropertyType type, boolean isValueInitializeRandomly) {
         if (name.isEmpty()) {
             throw new NullPointerException("Title can not be empty!");
         }
@@ -25,12 +25,12 @@ public class PropertyDefinition implements PropertyDefinitionInterface {
         this.isValueInitializeRandomly = isValueInitializeRandomly();
     }
 
-    public PropertyDefinition(String name, PropertyType type, boolean isValueInitializeRandomly, Range range) {
+    public PropertyDefinitionImpl(String name, PropertyType type, boolean isValueInitializeRandomly, Range range) {
         this(name, type, isValueInitializeRandomly);
         this.range = range;
     }
 
-    public PropertyDefinition(String name, PropertyType type, boolean isValueInitializeRandomly, Object value) {
+    public PropertyDefinitionImpl(String name, PropertyType type, boolean isValueInitializeRandomly, Object value) {
         this(name, type, isValueInitializeRandomly);
         if (value == null) {
             throw new IllegalArgumentException("Value can not be null!");

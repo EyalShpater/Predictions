@@ -1,14 +1,14 @@
 package definition.entity.impl;
 
-import definition.entity.api.EntityDefinitionInterface;
-import definition.property.impl.PropertyDefinition;
+import definition.entity.api.EntityDefinition;
+import definition.property.impl.PropertyDefinitionImpl;
 
 import java.util.*;
 
-public class EntityDefinition implements EntityDefinitionInterface {
+public class EntityDefinitionImpl implements EntityDefinition {
     private String name;
     private int population;
-    private List<PropertyDefinition> properties = new ArrayList<>();
+    private List<PropertyDefinitionImpl> properties = new ArrayList<>();
 
     public int getPopulation() {
         return population;
@@ -34,7 +34,7 @@ public class EntityDefinition implements EntityDefinitionInterface {
         this.name = name;
     }
 
-    public void addProperty(PropertyDefinition newProperty) {
+    public void addProperty(PropertyDefinitionImpl newProperty) {
         if (newProperty == null) {
             throw new NullPointerException("Can not add empty property!");
         }
@@ -42,7 +42,7 @@ public class EntityDefinition implements EntityDefinitionInterface {
         properties.add(newProperty);
     }
 
-    public PropertyDefinition propertyAt(int index) {
+    public PropertyDefinitionImpl propertyAt(int index) {
         return properties.get(index);
     }
 
@@ -57,7 +57,7 @@ public class EntityDefinition implements EntityDefinitionInterface {
         result.append("Name: ").append(name).append(System.lineSeparator());
         result.append("Population: ").append(population).append(System.lineSeparator());
         result.append("Properties:").append(System.lineSeparator());
-        for (PropertyDefinition prop : properties) {
+        for (PropertyDefinitionImpl prop : properties) {
             result.append(prop).append(System.lineSeparator());
         }
 

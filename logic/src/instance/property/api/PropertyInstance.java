@@ -1,6 +1,6 @@
 package instance.property.api;
 
-public interface PropertyInstanceInterface {
+public interface PropertyInstance {
     Object getValue();
 
     String getName();

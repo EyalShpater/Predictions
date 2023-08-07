@@ -1,6 +1,6 @@
 package instance.entity.api;
 
-public interface EntityInstanceInterface {
+public interface EntityInstance {
     int getId();
 
 }

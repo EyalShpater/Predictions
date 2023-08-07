@@ -1,6 +1,6 @@
 package definition.property.api;
 
-public interface PropertyDefinitionInterface {
+public interface PropertyDefinition {
     String getName();
 
     PropertyType getType();
