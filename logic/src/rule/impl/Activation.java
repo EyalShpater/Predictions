@@ -1,6 +1,4 @@
-package simulation.propety.law.rule;
-
-import jdk.nashorn.internal.runtime.regexp.joni.exception.ValueException;
+package rule.impl;
 
 public class Activation {
     private int numOfTicksToActivate;
@@ -30,3 +28,4 @@ public class Activation {
         this.probabilityToActivate = probability;
     }
 }
+
