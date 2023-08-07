@@ -5,15 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="27d35137-667f-4e37-a519-ab836acc0a06" name="Changes" comment="edit Property and Entity classes">
-      <change beforePath="$PROJECT_DIR$/logic/src/definition/entity/api/EntityDefinitionInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/logic/src/definition/entity/api/EntityDefinition.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logic/src/definition/entity/impl/EntityDefinition.java" beforeDir="false" afterPath="$PROJECT_DIR$/logic/src/definition/entity/impl/EntityDefinitionImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logic/src/definition/property/api/PropertyDefinitionInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/logic/src/definition/property/api/PropertyDefinition.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logic/src/definition/property/impl/PropertyDefinition.java" beforeDir="false" afterPath="$PROJECT_DIR$/logic/src/definition/property/impl/PropertyDefinitionImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logic/src/instance/entity/api/EntityInstanceInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/logic/src/instance/entity/api/EntityInstance.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logic/src/instance/entity/impl/EntityInstance.java" beforeDir="false" afterPath="$PROJECT_DIR$/logic/src/instance/entity/impl/EntityInstanceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logic/src/instance/property/api/PropertyInstanceInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/logic/src/instance/property/api/PropertyInstance.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logic/src/instance/property/impl/PropertyInstance.java" beforeDir="false" afterPath="$PROJECT_DIR$/logic/src/instance/property/impl/PropertyInstanceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logic/src/simulation/world/World.java" beforeDir="false" afterPath="$PROJECT_DIR$/logic/src/simulation/world/World.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logic/src/rule/impl/Rule.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logic/src/rule/api/Rule.java" beforeDir="false" afterPath="$PROJECT_DIR$/logic/src/rule/api/Rule.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -137,7 +130,7 @@
       <workItem from="1691257619608" duration="88000" />
       <workItem from="1691305290125" duration="7740000" />
       <workItem from="1691367260518" duration="13000" />
-      <workItem from="1691375026329" duration="152000" />
+      <workItem from="1691375026329" duration="533000" />
     </task>
     <task id="LOCAL‎-00001" summary="init">
       <option name="closed" value="true" />
@@ -235,7 +228,15 @@
       <option name="project" value="LOCAL‎" />
       <updated>1691319084792</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL‎-00013" summary="edit Property and Entity classes">
+      <option name="closed" value="true" />
+      <created>1691375204783</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL‎-00013" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1691375204783</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
