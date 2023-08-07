@@ -2,7 +2,7 @@ package instance.property.impl;
 
 import definition.property.impl.PropertyDefinitionImpl;
 import instance.property.api.PropertyInstance;
-import simulation.propety.entity.model.Range;
+import definition.property.api.Range;
 
 import java.util.Random;
 

@@ -2,7 +2,7 @@ package definition.property.impl;
 
 import definition.property.api.PropertyDefinition;
 import definition.property.api.PropertyType;
-import simulation.propety.entity.model.Range;
+import definition.property.api.Range;
 
 public class PropertyDefinitionImpl implements PropertyDefinition {
     private String name;
