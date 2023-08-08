@@ -7,10 +7,7 @@ import java.util.*;
 
 public interface Data {
     List<EntityDefinition> getEntities();
-
     String getEndOfSimulationReason();
-
     Date getRunTime();
-
     double getPropertyValueAverage(EntityInstance entity, String propertyName);
 }
