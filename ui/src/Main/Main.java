@@ -6,7 +6,6 @@ import definition.property.api.PropertyDefinition;
 import definition.property.api.PropertyType;
 import definition.property.api.Range;
 import definition.property.impl.PropertyDefinitionImpl;
-import instance.entity.api.EntityInstance;
 import instance.entity.manager.api.EntityInstanceManager;
 import instance.entity.manager.impl.EntityInstanceManagerImpl;
 import instance.property.api.PropertyInstance;
