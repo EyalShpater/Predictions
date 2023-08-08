@@ -11,7 +11,7 @@ public class PropertyDefinitionImpl implements PropertyDefinition {
     boolean isValueInitializeRandomly;
     Object defaultValue = null;
 
-    private PropertyDefinitionImpl(String name, PropertyType type, boolean isValueInitializeRandomly) {
+    public PropertyDefinitionImpl(String name, PropertyType type, boolean isValueInitializeRandomly) {
         if (name.isEmpty()) {
             throw new NullPointerException("Title can not be empty!");
         }
@@ -22,7 +22,7 @@ public class PropertyDefinitionImpl implements PropertyDefinition {
 
         this.name = name;
         this.type = type;
-        this.isValueInitializeRandomly = isValueInitializeRandomly();
+        this.isValueInitializeRandomly = isValueInitializeRandomly;
     }
 
     public PropertyDefinitionImpl(String name, PropertyType type, boolean isValueInitializeRandomly, Range range) {
@@ -47,22 +47,22 @@ public class PropertyDefinitionImpl implements PropertyDefinition {
         this.name = name;
     }
 
-    public void setValueInitializeRandomly(boolean valueInitializeRandomly) {
-        isValueInitializeRandomly = valueInitializeRandomly;
-    }
-
+    @Override
     public PropertyType getType() {
         return type;
     }
 
+    @Override
     public Range getRange() {
         return range;
     }
 
+    @Override
     public boolean isValueInitializeRandomly() {
         return isValueInitializeRandomly;
     }
 
+    @Override
     public Object getDefaultValue() {
         return defaultValue;
     }

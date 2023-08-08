@@ -4,18 +4,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="27d35137-667f-4e37-a519-ab836acc0a06" name="Changes" comment="more changes">
-      <change afterPath="$PROJECT_DIR$/logic/src/execution/enviornment/api/EnvironmentVariable.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/logic/src/execution/simulation/api/Data.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/logic/src/execution/simulation/api/PredictionsLogic.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/logic/src/execution/simulation/api/Simulation.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/logic/src/execution/simulation/api/Termination.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/logic/src/execution/simulation/impl/SimulationImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/logic/src/execution/world/api/World.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/logic/src/execution/world/impl/WorldImpl.java" afterDir="false" />
+    <list default="true" id="27d35137-667f-4e37-a519-ab836acc0a06" name="Changes" comment="World Simulation etc..">
+      <change afterPath="$PROJECT_DIR$/logic/src/instance/entity/manager/api/EntityInstanceManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logic/src/instance/entity/manager/impl/EntityInstanceManagerImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ui/src/Main/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logic/src/definition/entity/api/EntityDefinition.java" beforeDir="false" afterPath="$PROJECT_DIR$/logic/src/definition/entity/api/EntityDefinition.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logic/src/definition/entity/impl/EntityDefinitionImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/logic/src/definition/entity/impl/EntityDefinitionImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logic/src/definition/property/api/PropertyDefinition.java" beforeDir="false" afterPath="$PROJECT_DIR$/logic/src/definition/property/api/PropertyDefinition.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logic/src/definition/property/impl/PropertyDefinitionImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/logic/src/definition/property/impl/PropertyDefinitionImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logic/src/instance/entity/api/EntityInstance.java" beforeDir="false" afterPath="$PROJECT_DIR$/logic/src/instance/entity/api/EntityInstance.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logic/src/instance/entity/impl/EntityInstanceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/logic/src/instance/entity/impl/EntityInstanceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logic/src/instance/property/api/PropertyInstance.java" beforeDir="false" afterPath="$PROJECT_DIR$/logic/src/instance/property/api/PropertyInstance.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logic/src/instance/property/impl/PropertyInstanceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/logic/src/instance/property/impl/PropertyInstanceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui/src/program/Program.java" beforeDir="false" />
     </list>
-    <list id="bdacfe9a-0b76-4674-8fa7-d07260ab0c3f" name="Changes by ASUS" comment="Changes by ASUS" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -30,8 +33,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Enum" />
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -65,36 +68,49 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "extract.method.default.visibility": "private",
-    "full.screen.before.presentation.mode": "false",
-    "git-widget-placeholder": "main",
-    "jdk.selected.JAVA_MODULE": "1.8",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;extract.method.default.visibility&quot;: &quot;private&quot;,
+    &quot;full.screen.before.presentation.mode&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;1.8&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/logic/src" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.Main">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Main.Main" />
+      <module name="ui" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Main.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Program" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="program.Program" />
       <module name="ui" />
@@ -110,6 +126,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Main" />
         <item itemvalue="Application.Program" />
       </list>
     </recent_temporary>
@@ -138,7 +155,8 @@
       <workItem from="1691305290125" duration="7740000" />
       <workItem from="1691367260518" duration="13000" />
       <workItem from="1691375026329" duration="591000" />
-      <workItem from="1691411144444" duration="9825000" />
+      <workItem from="1691411144444" duration="9863000" />
+      <workItem from="1691449789391" duration="7967000" />
     </task>
     <task id="LOCAL‎-00001" summary="init">
       <option name="closed" value="true" />
@@ -276,7 +294,15 @@
       <option name="project" value="LOCAL‎" />
       <updated>1691415657096</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL‎-00018" summary="World Simulation etc..">
+      <option name="closed" value="true" />
+      <created>1691422779738</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL‎-00018" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1691422779738</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -306,8 +332,25 @@
     <MESSAGE value="Rule and Action" />
     <MESSAGE value="Changes by ASUS" />
     <MESSAGE value="more changes" />
-    <option name="LAST_COMMIT_MESSAGE" value="more changes" />
+    <MESSAGE value="World Simulation etc.." />
+    <option name="LAST_COMMIT_MESSAGE" value="World Simulation etc.." />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/ui/src/Main/Main.java</url>
+          <line>33</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+    <pin-to-top-manager>
+      <pinned-members>
+        <PinnedItemInfo parentTag="instance.property.impl.PropertyInstanceImpl" memberName="value" />
+      </pinned-members>
+    </pin-to-top-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

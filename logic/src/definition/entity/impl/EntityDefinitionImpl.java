@@ -1,14 +1,19 @@
 package definition.entity.impl;
 
 import definition.entity.api.EntityDefinition;
-import definition.property.impl.PropertyDefinitionImpl;
+import definition.property.api.PropertyDefinition;
 
 import java.util.*;
 
 public class EntityDefinitionImpl implements EntityDefinition {
     private String name;
     private int population;
-    private List<PropertyDefinitionImpl> properties = new ArrayList<>();
+    private List<PropertyDefinition> properties = new ArrayList<>();
+
+    public EntityDefinitionImpl(String name, int population) {
+        setName(name);
+        setPopulation(population);
+    }
 
     public int getPopulation() {
         return population;
@@ -22,6 +27,7 @@ public class EntityDefinitionImpl implements EntityDefinition {
         this.population = population;
     }
 
+    @Override
     public String getName() {
         return name;
     }
@@ -34,7 +40,7 @@ public class EntityDefinitionImpl implements EntityDefinition {
         this.name = name;
     }
 
-    public void addProperty(PropertyDefinitionImpl newProperty) {
+    public void addProperty(PropertyDefinition newProperty) {
         if (newProperty == null) {
             throw new NullPointerException("Can not add empty property!");
         }
@@ -42,10 +48,18 @@ public class EntityDefinitionImpl implements EntityDefinition {
         properties.add(newProperty);
     }
 
-    public PropertyDefinitionImpl propertyAt(int index) {
+    @Override
+    public PropertyDefinition propertyAt(int index) {
         return properties.get(index);
     }
 
+    @Override
+    public PropertyDefinition getPropertyByName(String name) {
+        //
+        return null;
+    }
+
+    @Override
     public int getNumOfProperties() {
         return properties.size();
     }
@@ -57,7 +71,7 @@ public class EntityDefinitionImpl implements EntityDefinition {
         result.append("Name: ").append(name).append(System.lineSeparator());
         result.append("Population: ").append(population).append(System.lineSeparator());
         result.append("Properties:").append(System.lineSeparator());
-        for (PropertyDefinitionImpl prop : properties) {
+        for (PropertyDefinition prop : properties) {
             result.append(prop).append(System.lineSeparator());
         }
 

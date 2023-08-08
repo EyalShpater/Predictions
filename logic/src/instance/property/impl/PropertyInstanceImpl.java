@@ -1,5 +1,6 @@
 package instance.property.impl;
 
+import definition.property.api.PropertyDefinition;
 import definition.property.impl.PropertyDefinitionImpl;
 import instance.property.api.PropertyInstance;
 import definition.property.api.Range;
@@ -10,17 +11,17 @@ public class PropertyInstanceImpl implements PropertyInstance {
     private final static String VALID_RANDOM_CHARS = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789().-_,?! ";
     private final static int MIN_STRING_LENGTH = 1;
     private final static int MAX_STRING_LENGTH = 50;
-    PropertyDefinitionImpl propertyDefinition;
+    PropertyDefinition propertyDefinition;
     Object value;
 
-    public PropertyInstanceImpl(PropertyDefinitionImpl propertyDefinition) {
+    public PropertyInstanceImpl(PropertyDefinition propertyDefinition) {
         if (propertyDefinition == null) {
             throw new NullPointerException("Property can not be null!");
         }
 
-        if (!propertyDefinition.isValueInitializeRandomly()) {
-            throw new IllegalArgumentException("Value must be included!");
-        }
+//        if (!propertyDefinition.isValueInitializeRandomly()) {
+//            throw new IllegalArgumentException("Value must be included!");
+//        }
 
         this.propertyDefinition = propertyDefinition;
 
