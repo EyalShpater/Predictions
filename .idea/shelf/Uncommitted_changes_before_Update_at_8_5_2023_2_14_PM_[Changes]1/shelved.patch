@@ -1,0 +1,20 @@
+Index: ui/src/menu/item/impl/menu.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/ui/src/menu/item/impl/menu.java b/ui/src/menu/item/impl/menu.java
+new file mode 100644
+--- /dev/null	
++++ b/ui/src/menu/item/impl/menu.java	
+@@ -0,0 +1,10 @@
++package menu.item.impl;
++
++import java.util.Scanner;
++
++public class menu {
++//    System.out.println("hello");
++
++    Scanner scanner  = new Scanner(System.in);
++
++}

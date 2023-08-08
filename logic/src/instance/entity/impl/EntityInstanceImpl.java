@@ -26,7 +26,7 @@ public class EntityInstanceImpl implements EntityInstance {
             properties.put(currentPropertyDefinition.getName(),
                     new PropertyInstanceImpl(currentPropertyDefinition));
         }
-
+        //why does a set method returns the map ?
         return properties;
     }
 

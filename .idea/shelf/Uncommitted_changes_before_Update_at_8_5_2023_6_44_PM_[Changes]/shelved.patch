@@ -1,0 +1,156 @@
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<project version=\"4\">\n  <component name=\"AutoImportSettings\">\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\n  </component>\n  <component name=\"ChangeListManager\">\n    <list default=\"true\" id=\"27d35137-667f-4e37-a519-ab836acc0a06\" name=\"Changes\" comment=\"more changes\">\n      <change beforePath=\"$PROJECT_DIR$/.idea/misc.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/misc.xml\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/logic/src/simulation/propety/entity/model/Entity.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/logic/src/simulation/propety/entity/model/Entity.java\" afterDir=\"false\" />\n    </list>\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\n  </component>\n  <component name=\"ChangesViewManager\">\n    <option name=\"groupingKeys\">\n      <option value=\"module\" />\n    </option>\n  </component>\n  <component name=\"FileTemplateManagerImpl\">\n    <option name=\"RECENT_TEMPLATES\">\n      <list>\n        <option value=\"Enum\" />\n        <option value=\"Interface\" />\n        <option value=\"Class\" />\n      </list>\n    </option>\n  </component>\n  <component name=\"Git.Settings\">\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\n  </component>\n  <component name=\"GitHubPullRequestSearchHistory\">{\n  &quot;lastFilter&quot;: {\n    &quot;state&quot;: &quot;OPEN&quot;\n  }\n}</component>\n  <component name=\"GithubPullRequestsUISettings\">\n    <option name=\"selectedUrlAndAccountId\">\n      <UrlAndAccount>\n        <option name=\"accountId\" value=\"9cc3aab3-e4ea-441d-aac0-911b18d0961a\" />\n        <option name=\"url\" value=\"https://github.com/shpater1234/Predictions.git\" />\n      </UrlAndAccount>\n    </option>\n  </component>\n  <component name=\"ProblemsViewState\">\n    <option name=\"selectedTabId\" value=\"CurrentFile\" />\n  </component>\n  <component name=\"ProjectColorInfo\"><![CDATA[{\n  \"customColor\": \"\",\n  \"associatedIndex\": -1\n}]]></component>\n  <component name=\"ProjectId\" id=\"2TNvit2DlKI6tHEAdQf9y4Hxtig\" />\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\">\n    <ConfirmationsSetting value=\"2\" id=\"Add\" />\n  </component>\n  <component name=\"ProjectViewState\">\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\n    <option name=\"showLibraryContents\" value=\"true\" />\n  </component>\n  <component name=\"PropertiesComponent\"><![CDATA[{\n  \"keyToString\": {\n    \"ASKED_ADD_EXTERNAL_FILES\": \"true\",\n    \"ASKED_SHARE_PROJECT_CONFIGURATION_FILES\": \"true\",\n    \"RunOnceActivity.OpenProjectViewOnStart\": \"true\",\n    \"RunOnceActivity.ShowReadmeOnStart\": \"true\",\n    \"SHARE_PROJECT_CONFIGURATION_FILES\": \"true\",\n    \"WebServerToolWindowFactoryState\": \"false\",\n    \"extract.method.default.visibility\": \"private\",\n    \"git-widget-placeholder\": \"main\",\n    \"jdk.selected.JAVA_MODULE\": \"1.8\",\n    \"node.js.detected.package.eslint\": \"true\",\n    \"node.js.detected.package.tslint\": \"true\",\n    \"node.js.selected.package.eslint\": \"(autodetect)\",\n    \"node.js.selected.package.tslint\": \"(autodetect)\",\n    \"nodejs_package_manager_path\": \"npm\",\n    \"project.structure.last.edited\": \"Modules\",\n    \"project.structure.proportion\": \"0.15\",\n    \"project.structure.side.proportion\": \"0.2\",\n    \"settings.editor.selected.configurable\": \"reference.settings.ide.settings.new.ui\",\n    \"vue.rearranger.settings.migration\": \"true\"\n  }\n}]]></component>\n  <component name=\"RecentsManager\">\n    <key name=\"MoveFile.RECENT_KEYS\">\n      <recent name=\"$PROJECT_DIR$/logic/src\" />\n    </key>\n  </component>\n  <component name=\"RunManager\">\n    <configuration name=\"Program\" type=\"Application\" factoryName=\"Application\" temporary=\"true\" nameIsGenerated=\"true\">\n      <option name=\"MAIN_CLASS_NAME\" value=\"program.Program\" />\n      <module name=\"ui\" />\n      <extension name=\"coverage\">\n        <pattern>\n          <option name=\"PATTERN\" value=\"program.*\" />\n          <option name=\"ENABLED\" value=\"true\" />\n        </pattern>\n      </extension>\n      <method v=\"2\">\n        <option name=\"Make\" enabled=\"true\" />\n      </method>\n    </configuration>\n    <recent_temporary>\n      <list>\n        <item itemvalue=\"Application.Program\" />\n      </list>\n    </recent_temporary>\n  </component>\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\n  <component name=\"TaskManager\">\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\n      <changelist id=\"27d35137-667f-4e37-a519-ab836acc0a06\" name=\"Changes\" comment=\"\" />\n      <created>1690896482933</created>\n      <option name=\"number\" value=\"Default\" />\n      <option name=\"presentableId\" value=\"Default\" />\n      <updated>1690896482933</updated>\n      <workItem from=\"1690896483947\" duration=\"1002000\" />\n      <workItem from=\"1691015153692\" duration=\"3000\" />\n      <workItem from=\"1691132943902\" duration=\"2149000\" />\n      <workItem from=\"1691139059991\" duration=\"9224000\" />\n      <workItem from=\"1691191043772\" duration=\"5889000\" />\n      <workItem from=\"1691203914142\" duration=\"93000\" />\n      <workItem from=\"1691204014732\" duration=\"333000\" />\n    </task>\n    <task id=\"LOCAL\u200E-00001\" summary=\"init\">\n      <option name=\"closed\" value=\"true\" />\n      <created>1690897579787</created>\n      <option name=\"number\" value=\"00001\" />\n      <option name=\"presentableId\" value=\"LOCAL\u200E-00001\" />\n      <option name=\"project\" value=\"LOCAL\u200E\" />\n      <updated>1690897579787</updated>\n    </task>\n    <task id=\"LOCAL\u200E-00002\" summary=\"added classes\">\n      <option name=\"closed\" value=\"true\" />\n      <created>1691147926064</created>\n      <option name=\"number\" value=\"00002\" />\n      <option name=\"presentableId\" value=\"LOCAL\u200E-00002\" />\n      <option name=\"project\" value=\"LOCAL\u200E\" />\n      <updated>1691147926064</updated>\n    </task>\n    <task id=\"LOCAL\u200E-00003\" summary=\"with project settings\">\n      <option name=\"closed\" value=\"true\" />\n      <created>1691147966820</created>\n      <option name=\"number\" value=\"00003\" />\n      <option name=\"presentableId\" value=\"LOCAL\u200E-00003\" />\n      <option name=\"project\" value=\"LOCAL\u200E\" />\n      <updated>1691147966820</updated>\n    </task>\n    <task id=\"LOCAL\u200E-00004\" summary=\"with project settings\">\n      <option name=\"closed\" value=\"true\" />\n      <created>1691148528935</created>\n      <option name=\"number\" value=\"00004\" />\n      <option name=\"presentableId\" value=\"LOCAL\u200E-00004\" />\n      <option name=\"project\" value=\"LOCAL\u200E\" />\n      <updated>1691148528935</updated>\n    </task>\n    <task id=\"LOCAL\u200E-00005\" summary=\"a little nit tString implementations and main test\">\n      <option name=\"closed\" value=\"true\" />\n      <created>1691164730197</created>\n      <option name=\"number\" value=\"00005\" />\n      <option name=\"presentableId\" value=\"LOCAL\u200E-00005\" />\n      <option name=\"project\" value=\"LOCAL\u200E\" />\n      <updated>1691164730197</updated>\n    </task>\n    <task id=\"LOCAL\u200E-00006\" summary=\"more toString functions\">\n      <option name=\"closed\" value=\"true\" />\n      <created>1691200642371</created>\n      <option name=\"number\" value=\"00006\" />\n      <option name=\"presentableId\" value=\"LOCAL\u200E-00006\" />\n      <option name=\"project\" value=\"LOCAL\u200E\" />\n      <updated>1691200642371</updated>\n    </task>\n    <task id=\"LOCAL\u200E-00007\" summary=\"Activation\">\n      <option name=\"closed\" value=\"true\" />\n      <created>1691201509813</created>\n      <option name=\"number\" value=\"00007\" />\n      <option name=\"presentableId\" value=\"LOCAL\u200E-00007\" />\n      <option name=\"project\" value=\"LOCAL\u200E\" />\n      <updated>1691201509813</updated>\n    </task>\n    <task id=\"LOCAL\u200E-00008\" summary=\"more changes\">\n      <option name=\"closed\" value=\"true\" />\n      <created>1691202654175</created>\n      <option name=\"number\" value=\"00008\" />\n      <option name=\"presentableId\" value=\"LOCAL\u200E-00008\" />\n      <option name=\"project\" value=\"LOCAL\u200E\" />\n      <updated>1691202654175</updated>\n    </task>\n    <option name=\"localTasksCounter\" value=\"9\" />\n    <servers />\n  </component>\n  <component name=\"TypeScriptGeneratedFilesManager\">\n    <option name=\"version\" value=\"3\" />\n  </component>\n  <component name=\"Vcs.Log.Tabs.Properties\">\n    <option name=\"TAB_STATES\">\n      <map>\n        <entry key=\"MAIN\">\n          <value>\n            <State />\n          </value>\n        </entry>\n      </map>\n    </option>\n  </component>\n  <component name=\"VcsManagerConfiguration\">\n    <option name=\"ADD_EXTERNAL_FILES_SILENTLY\" value=\"true\" />\n    <MESSAGE value=\"init\" />\n    <MESSAGE value=\"added classes\" />\n    <MESSAGE value=\"with project settings\" />\n    <MESSAGE value=\"a little nit tString implementations and main test\" />\n    <MESSAGE value=\"more toString functions\" />\n    <MESSAGE value=\"Activation\" />\n    <MESSAGE value=\"more changes\" />\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"more changes\" />\n    <option name=\"REFORMAT_BEFORE_PROJECT_COMMIT\" value=\"true\" />\n  </component>\n  <component name=\"XSLT-Support.FileAssociations.UIState\">\n    <expand />\n    <select />\n  </component>\n  <component name=\"com.intellij.coverage.CoverageDataManagerImpl\">\n    <SUITE FILE_PATH=\"coverage/Predictions$Program.ic\" NAME=\"Program Coverage Results\" MODIFIED=\"1691163970698\" SOURCE_PROVIDER=\"com.intellij.coverage.DefaultCoverageFileProvider\" RUNNER=\"idea\" COVERAGE_BY_TEST_ENABLED=\"false\" COVERAGE_TRACING_ENABLED=\"false\">\n      <FILTER>program.*</FILTER>\n    </SUITE>\n  </component>\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision 470c334e781d7a8d5b983669576b5be926dca9df)
++++ b/.idea/workspace.xml	(date 1691239564532)
+@@ -4,11 +4,7 @@
+     <option name="autoReloadType" value="SELECTIVE" />
+   </component>
+   <component name="ChangeListManager">
+-    <list default="true" id="27d35137-667f-4e37-a519-ab836acc0a06" name="Changes" comment="more changes">
+-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/logic/src/simulation/propety/entity/model/Entity.java" beforeDir="false" afterPath="$PROJECT_DIR$/logic/src/simulation/propety/entity/model/Entity.java" afterDir="false" />
+-    </list>
++    <list default="true" id="27d35137-667f-4e37-a519-ab836acc0a06" name="Changes" comment="added menu" />
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+@@ -47,10 +43,10 @@
+   <component name="ProblemsViewState">
+     <option name="selectedTabId" value="CurrentFile" />
+   </component>
+-  <component name="ProjectColorInfo"><![CDATA[{
+-  "customColor": "",
+-  "associatedIndex": -1
+-}]]></component>
++  <component name="ProjectColorInfo">{
++  &quot;customColor&quot;: &quot;&quot;,
++  &quot;associatedIndex&quot;: -1
++}</component>
+   <component name="ProjectId" id="2TNvit2DlKI6tHEAdQf9y4Hxtig" />
+   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+     <ConfirmationsSetting value="2" id="Add" />
+@@ -59,29 +55,29 @@
+     <option name="hideEmptyMiddlePackages" value="true" />
+     <option name="showLibraryContents" value="true" />
+   </component>
+-  <component name="PropertiesComponent"><![CDATA[{
+-  "keyToString": {
+-    "ASKED_ADD_EXTERNAL_FILES": "true",
+-    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+-    "RunOnceActivity.OpenProjectViewOnStart": "true",
+-    "RunOnceActivity.ShowReadmeOnStart": "true",
+-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+-    "WebServerToolWindowFactoryState": "false",
+-    "extract.method.default.visibility": "private",
+-    "git-widget-placeholder": "main",
+-    "jdk.selected.JAVA_MODULE": "1.8",
+-    "node.js.detected.package.eslint": "true",
+-    "node.js.detected.package.tslint": "true",
+-    "node.js.selected.package.eslint": "(autodetect)",
+-    "node.js.selected.package.tslint": "(autodetect)",
+-    "nodejs_package_manager_path": "npm",
+-    "project.structure.last.edited": "Modules",
+-    "project.structure.proportion": "0.15",
+-    "project.structure.side.proportion": "0.2",
+-    "settings.editor.selected.configurable": "reference.settings.ide.settings.new.ui",
+-    "vue.rearranger.settings.migration": "true"
++  <component name="PropertiesComponent">{
++  &quot;keyToString&quot;: {
++    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
++    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
++    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
++    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
++    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
++    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
++    &quot;extract.method.default.visibility&quot;: &quot;private&quot;,
++    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
++    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;1.8&quot;,
++    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
++    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
++    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
++    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
++    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
++    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
++    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
++    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
++    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.ide.settings.new.ui&quot;,
++    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+   }
+-}]]></component>
++}</component>
+   <component name="RecentsManager">
+     <key name="MoveFile.RECENT_KEYS">
+       <recent name="$PROJECT_DIR$/logic/src" />
+@@ -187,18 +183,52 @@
+       <option name="project" value="LOCAL‎" />
+       <updated>1691202654175</updated>
+     </task>
+-    <option name="localTasksCounter" value="9" />
++    <task id="LOCAL-00009" summary="added menu">
++      <created>1691239340760</created>
++      <option name="number" value="00009" />
++      <option name="presentableId" value="LOCAL-00009" />
++      <option name="project" value="LOCAL" />
++      <updated>1691239340760</updated>
++    </task>
++    <option name="localTasksCounter" value="10" />
+     <servers />
+   </component>
+   <component name="TypeScriptGeneratedFilesManager">
+     <option name="version" value="3" />
+   </component>
+   <component name="Vcs.Log.Tabs.Properties">
++    <option name="RECENT_FILTERS">
++      <map>
++        <entry key="Branch">
++          <value>
++            <list>
++              <RecentGroup>
++                <option name="FILTER_VALUES">
++                  <option value="origin/main" />
++                </option>
++              </RecentGroup>
++            </list>
++          </value>
++        </entry>
++      </map>
++    </option>
+     <option name="TAB_STATES">
+       <map>
+         <entry key="MAIN">
+           <value>
+-            <State />
++            <State>
++              <option name="FILTERS">
++                <map>
++                  <entry key="branch">
++                    <value>
++                      <list>
++                        <option value="origin/main" />
++                      </list>
++                    </value>
++                  </entry>
++                </map>
++              </option>
++            </State>
+           </value>
+         </entry>
+       </map>
+@@ -213,7 +243,9 @@
+     <MESSAGE value="more toString functions" />
+     <MESSAGE value="Activation" />
+     <MESSAGE value="more changes" />
+-    <option name="LAST_COMMIT_MESSAGE" value="more changes" />
++    <MESSAGE value="added hello" />
++    <MESSAGE value="added menu" />
++    <option name="LAST_COMMIT_MESSAGE" value="added menu" />
+     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
+   </component>
+   <component name="XSLT-Support.FileAssociations.UIState">

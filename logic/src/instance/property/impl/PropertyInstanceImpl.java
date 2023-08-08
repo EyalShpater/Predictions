@@ -99,4 +99,8 @@ public class PropertyInstanceImpl implements PropertyInstance {
         return propertyDefinition.getName();
     }
 
+    //needed for comparison in increaseAction
+    public PropertyDefinition getPropertyDefinition() {
+        return propertyDefinition;
+    }
 }
