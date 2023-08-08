@@ -4,13 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="27d35137-667f-4e37-a519-ab836acc0a06" name="Changes" comment="rule has to activate if both ticknumber and probability is correct and p">
+    <list default="true" id="27d35137-667f-4e37-a519-ab836acc0a06" name="Changes" comment="added code to increase action , need to decipher how to implement expression">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logic/src/action/api/Action.java" beforeDir="false" afterPath="$PROJECT_DIR$/logic/src/action/api/Action.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logic/src/action/impl/IncreaseAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/logic/src/action/impl/IncreaseAction.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logic/src/instance/entity/impl/EntityInstanceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/logic/src/instance/entity/impl/EntityInstanceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logic/src/instance/property/api/PropertyInstance.java" beforeDir="false" afterPath="$PROJECT_DIR$/logic/src/instance/property/api/PropertyInstance.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logic/src/instance/property/impl/PropertyInstanceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/logic/src/instance/property/impl/PropertyInstanceImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -247,7 +242,14 @@
       <option name="project" value="LOCAL" />
       <updated>1691482781860</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="added code to increase action , need to decipher how to implement expression">
+      <created>1691490841113</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1691490841113</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -275,7 +277,8 @@
     <MESSAGE value="more changes" />
     <MESSAGE value="edit Property and Entity classes" />
     <MESSAGE value="rule has to activate if both ticknumber and probability is correct and p" />
-    <option name="LAST_COMMIT_MESSAGE" value="rule has to activate if both ticknumber and probability is correct and p" />
+    <MESSAGE value="added code to increase action , need to decipher how to implement expression" />
+    <option name="LAST_COMMIT_MESSAGE" value="added code to increase action , need to decipher how to implement expression" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
