@@ -6,7 +6,7 @@ public abstract class AbstractExpression implements expression {
 
     public AbstractExpression(String byExpression) {
         this.byExpression = byExpression;
-        expressionTypeDecipherer expDecipher = new expressionTypeDecipherer();
+        expressionTypeDecipherer expDecipher;
         this.expressionType = expDecipher.deciphere(byExpression);
     }
 }
