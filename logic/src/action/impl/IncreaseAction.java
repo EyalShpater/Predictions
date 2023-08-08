@@ -16,6 +16,6 @@ public class IncreaseAction extends AbstractAction {
 
     @Override
     public void invoke() {
-        //entity.getProertyByName().
+        //entity.getPropertyByName().
     }
 }
