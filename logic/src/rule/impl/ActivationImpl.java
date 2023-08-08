@@ -32,6 +32,6 @@ public class ActivationImpl implements Activation {
 
     @Override
     public boolean isActive(int tickNumber, double probability) {
-        return (tickNumber % numOfTicksToActivate == 0) || (probability < probabilityToActivate);
+        return (tickNumber % numOfTicksToActivate == 0) && (probability < probabilityToActivate);
     }
 }
