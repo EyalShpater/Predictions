@@ -10,7 +10,7 @@ import instance.property.api.PropertyInstance;
 
 public class IncreaseAction extends AbstractAction {
     private final String propertyName;
-    private final String byExpression;
+    private final String byExpression; //Expression instead of String?
 
     public IncreaseAction(EntityDefinition entity, String propertyName, String byExpression) {
         super(entity, ActionType.INCREASE);
@@ -20,14 +20,11 @@ public class IncreaseAction extends AbstractAction {
 
     @Override
     public void invoke(EntityInstance invokeOnMe) {
-
         //entity.getPropertyByName().
         PropertyInstance theProperty = invokeOnMe.getPropertyByName(propertyName);
         if (!checkIfThePropertyIsNumeric(theProperty.getPropertyDefinition())) {
             throw new IllegalArgumentException("value must be of numeric type ");
         }
-
-
     }
 
     public boolean checkIfThePropertyIsNumeric(PropertyDefinition PropertyDefinitionToCheck) {
