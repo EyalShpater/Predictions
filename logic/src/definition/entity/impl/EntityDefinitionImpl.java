@@ -3,6 +3,7 @@ package definition.entity.impl;
 import definition.entity.api.EntityInstance;
 import definition.property.api.PropertyDefinition;
 
+import javax.swing.text.html.Option;
 import java.util.*;
 
 public class EntityDefinitionImpl implements EntityInstance {

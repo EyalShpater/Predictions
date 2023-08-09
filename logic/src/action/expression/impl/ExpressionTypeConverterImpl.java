@@ -22,7 +22,7 @@ public class ExpressionTypeConverterImpl implements ExpressionTypeConverter {
             expressionInstance = new ValueExpression(expression, entityInstance);
         }
 
-        return type;
+        return expressionInstance;
     }
 
     private boolean isHelperFunction(String expression) {

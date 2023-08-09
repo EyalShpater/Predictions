@@ -11,11 +11,13 @@ public class FunctionExpression extends AbstractExpression {
 
     @Override
     public AbstractExpression convert() {
-        return null;
+
+        return new FunctionExpression(this.expression, this.entityInstance);
     }
 
     @Override
     public Object getValue() {
+        //activation of helper functions
         return null;
     }
 }
