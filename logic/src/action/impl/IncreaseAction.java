@@ -24,6 +24,7 @@ public class IncreaseAction extends AbstractAction {
         if (!checkIfThePropertyIsNumeric(theProperty.getPropertyDefinition())) {
             throw new IllegalArgumentException("value must be of numeric type ");
         }
+
     }
 
     public boolean checkIfThePropertyIsNumeric(PropertyDefinition PropertyDefinitionToCheck) {
