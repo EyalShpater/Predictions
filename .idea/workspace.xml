@@ -4,31 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="27d35137-667f-4e37-a519-ab836acc0a06" name="Changes" comment="epressions">
+    <list default="true" id="27d35137-667f-4e37-a519-ab836acc0a06" name="Changes" comment="expression implementation">
+      <change afterPath="$PROJECT_DIR$/logic/src/definition/environment/api/EnvironmentVariableManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logic/src/definition/environment/impl/EnvironmentVariableManagerImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logic/src/instance/enviornment/impl/ActiveEnvironmentImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logic/src/action/api/AbstractAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/logic/src/action/api/AbstractAction.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logic/src/action/api/Action.java" beforeDir="false" afterPath="$PROJECT_DIR$/logic/src/action/api/Action.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logic/src/action/expression/api/AbstractExpression.java" beforeDir="false" afterPath="$PROJECT_DIR$/logic/src/action/expression/api/AbstractExpression.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logic/src/action/expression/api/ExpressionTypeConverter.java" beforeDir="false" afterPath="$PROJECT_DIR$/logic/src/action/expression/api/ExpressionTypeConverter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logic/src/action/expression/impl/ExpressionTypeConverterImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/logic/src/action/expression/impl/ExpressionTypeConverterImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logic/src/action/expression/impl/FunctionExpression.java" beforeDir="false" afterPath="$PROJECT_DIR$/logic/src/action/expression/impl/FunctionExpression.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logic/src/action/expression/impl/ValueExpression.java" beforeDir="false" afterPath="$PROJECT_DIR$/logic/src/action/expression/impl/ValueExpression.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logic/src/action/impl/IncreaseAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/logic/src/action/impl/IncreaseAction.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logic/src/definition/entity/api/EntityDefinition.java" beforeDir="false" afterPath="$PROJECT_DIR$/logic/src/definition/entity/api/EntityInstance.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logic/src/definition/entity/impl/EntityDefinitionImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/logic/src/definition/entity/impl/EntityDefinitionImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logic/src/execution/simulation/api/Data.java" beforeDir="false" afterPath="$PROJECT_DIR$/logic/src/execution/simulation/api/Data.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logic/src/execution/enviornment/api/EnvironmentVariable.java" beforeDir="false" afterPath="$PROJECT_DIR$/logic/src/instance/enviornment/api/ActiveEnvironment.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/logic/src/execution/world/impl/WorldImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/logic/src/execution/world/impl/WorldImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logic/src/instance/entity/impl/EntityInstanceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/logic/src/instance/entity/impl/EntityInstanceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logic/src/instance/entity/manager/api/EntityInstanceManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/logic/src/instance/entity/manager/api/EntityInstanceManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logic/src/instance/entity/manager/impl/EntityInstanceManagerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/logic/src/instance/entity/manager/impl/EntityInstanceManagerImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logic/src/rule/api/Rule.java" beforeDir="false" afterPath="$PROJECT_DIR$/logic/src/rule/api/Rule.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logic/src/rule/impl/RuleImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/logic/src/rule/impl/RuleImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui/src/Main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/ui/src/Main/Main.java" afterDir="false" />
     </list>
-    <list id="e9cdd9b2-1c4a-4640-9142-4450b9d88283" name="Changes by ASUS" comment="">
-      <change beforePath="$PROJECT_DIR$/logic/src/action/expression/api/Expression.java" beforeDir="false" afterPath="$PROJECT_DIR$/logic/src/action/expression/api/Expression.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logic/src/action/expression/impl/PropertyExpression.java" beforeDir="false" afterPath="$PROJECT_DIR$/logic/src/action/expression/impl/PropertyExpression.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logic/src/definition/entity/impl/EntityDefinitionImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/logic/src/definition/entity/impl/EntityDefinitionImpl.java" afterDir="false" />
+    <list id="e9cdd9b2-1c4a-4640-9142-4450b9d88283" name="Changes by ASUS" comment="expression implementation">
+      <change beforePath="$PROJECT_DIR$/logic/src/action/impl/IncreaseAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/logic/src/action/impl/IncreaseAction.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,8 +28,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Interface" />
         <option value="Enum" />
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -64,17 +49,6 @@
         <option name="url" value="https://github.com/shpater1234/Predictions.git" />
       </UrlAndAccount>
     </option>
-  </component>
-  <component name="LineStatusTrackerManager">
-    <file path="$PROJECT_DIR$/logic/src/definition/entity/impl/EntityDefinitionImpl.java">
-      <ranges>
-        <range start1="2" end1="3" start2="2" end2="3" changelist="27d35137-667f-4e37-a519-ab836acc0a06" />
-        <range start1="5" end1="5" start2="5" end2="6" changelist="e9cdd9b2-1c4a-4640-9142-4450b9d88283" />
-        <range start1="7" end1="8" start2="8" end2="9" changelist="27d35137-667f-4e37-a519-ab836acc0a06" />
-        <range start1="17" end1="17" start2="18" end2="19" changelist="27d35137-667f-4e37-a519-ab836acc0a06" />
-        <range start1="57" end1="59" start2="59" end2="62" changelist="27d35137-667f-4e37-a519-ab836acc0a06" />
-      </ranges>
-    </file>
   </component>
   <component name="ProblemsViewState">
     <option name="selectedTabId" value="CurrentFile" />
@@ -111,7 +85,7 @@
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "settings.editor.selected.configurable": "inlay.hints",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -180,7 +154,8 @@
       <workItem from="1691375026329" duration="591000" />
       <workItem from="1691411144444" duration="9863000" />
       <workItem from="1691449789391" duration="8600000" />
-      <workItem from="1691565393472" duration="2873000" />
+      <workItem from="1691565393472" duration="6277000" />
+      <workItem from="1691574348789" duration="1677000" />
     </task>
     <task id="LOCAL‎-00001" summary="init">
       <option name="closed" value="true" />
@@ -342,7 +317,23 @@
       <option name="project" value="LOCAL‎" />
       <updated>1691508000206</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL‎-00021" summary="expression implementation">
+      <option name="closed" value="true" />
+      <created>1691569155699</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL‎-00021" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1691569155699</updated>
+    </task>
+    <task id="LOCAL‎-00022" summary="expression implementation">
+      <option name="closed" value="true" />
+      <created>1691569162918</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL‎-00022" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1691569162918</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -375,10 +366,20 @@
     <MESSAGE value="World Simulation etc.." />
     <MESSAGE value="Entity and Property is fine" />
     <MESSAGE value="epressions" />
-    <option name="LAST_COMMIT_MESSAGE" value="epressions" />
+    <MESSAGE value="expression implementation" />
+    <option name="LAST_COMMIT_MESSAGE" value="expression implementation" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/logic/src/instance/enviornment/impl/ActiveEnvironmentImpl.java</url>
+          <line>24</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
     <pin-to-top-manager>
       <pinned-members>
         <PinnedItemInfo parentTag="instance.property.impl.PropertyInstanceImpl" memberName="value" />
