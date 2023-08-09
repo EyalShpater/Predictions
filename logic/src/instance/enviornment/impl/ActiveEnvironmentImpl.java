@@ -7,7 +7,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class ActiveEnvironmentImpl implements ActiveEnvironment {
-    Map<String, PropertyInstance> propNameToPropInstance = new HashMap();
+    Map<String, PropertyInstance> propNameToPropInstance = new HashMap<>();
 
     @Override
     public void addPropertyInstance(PropertyInstance property) {
