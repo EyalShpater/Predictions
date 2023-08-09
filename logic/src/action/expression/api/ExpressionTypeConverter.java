@@ -1,7 +1,7 @@
 package action.expression.api;
 
-import definition.entity.api.EntityDefinition;
+import instance.entity.api.EntityInstance;
 
 public interface ExpressionTypeConverter {
-    AbstractExpression convert(String byExpression, EntityDefinition entityDefinition);
+    AbstractExpression convert(String byExpression, EntityInstance entityInstance);
 }

@@ -1,16 +1,14 @@
 package action.expression.api;
 
-import action.expression.impl.ExpressionTypeConverterImpl;
-import definition.entity.api.EntityDefinition;
 import instance.entity.api.EntityInstance;
 
 public abstract class AbstractExpression implements Expression {
-    private String byExpression;
-    private EntityDefinition entityDefinition;
+    protected String expression;
+    protected EntityInstance entityInstance;
 
-    public AbstractExpression(String byExpression, EntityDefinition entityDefinition) {
-        this.byExpression = byExpression;
-        this.entityDefinition = entityDefinition;
+    public AbstractExpression(String expression, EntityInstance entityInstance) {
+        this.expression = expression;
+        this.entityInstance = entityInstance;
     }
 
     public abstract AbstractExpression convert();

@@ -1,26 +1,25 @@
 package action.expression.impl;
 
 import action.expression.api.AbstractExpression;
-import action.expression.api.ExpressionType;
 import action.expression.api.ExpressionTypeConverter;
 import action.helper.function.api.HelperFunctionType;
-import definition.entity.api.EntityDefinition;
+import instance.entity.api.EntityInstance;
 
 public class ExpressionTypeConverterImpl implements ExpressionTypeConverter {
     private final char HELPER_FUNCTION_TOKEN = '(';
     private final int NOT_FOUND = -1;
 
     @Override
-    public AbstractExpression convert(String expression, EntityDefinition entityDefinition) {
-        AbstractExpression type;
+    public AbstractExpression convert(String expression, EntityInstance entityInstance) {
+        AbstractExpression expressionInstance;
         expression = expression.trim();
 
         if (isHelperFunction(expression)) {
-            type = new FunctionExpression();//ExpressionType.FUNCTION_EXP;
-        } else if (isProperty(expression, entityDefinition)) {
-            type = new PropertyExpression();
+            expressionInstance = new FunctionExpression(expression, entityInstance);//ExpressionType.FUNCTION_EXP;
+        } else if (isProperty(expression, entityInstance)) {
+            expressionInstance = new PropertyExpression(expression, entityInstance);
         } else {//return to the logic of checking the OTHER_EXP context
-            type = new ValueExpression();
+            expressionInstance = new ValueExpression(expression, entityInstance);
         }
 
         return type;
@@ -49,7 +48,7 @@ public class ExpressionTypeConverterImpl implements ExpressionTypeConverter {
         return isExist;
     }
 
-    private boolean isProperty(String expression, EntityDefinition entityDefinition) {
-        return entityDefinition.getPropertyByName(expression) != null;
+    private boolean isProperty(String expression, EntityInstance entityInstance) {
+        return entityInstance.getPropertyByName(expression) != null;
     }
 }

@@ -1,11 +1,11 @@
 package definition.entity.impl;
 
-import definition.entity.api.EntityDefinition;
+import definition.entity.api.EntityInstance;
 import definition.property.api.PropertyDefinition;
 
 import java.util.*;
 
-public class EntityDefinitionImpl implements EntityDefinition {
+public class EntityDefinitionImpl implements EntityInstance {
     private String name;
     private int population;
     private List<PropertyDefinition> properties = new ArrayList<>();
@@ -14,6 +14,7 @@ public class EntityDefinitionImpl implements EntityDefinition {
         setName(name);
         setPopulation(population);
     }
+
 
     public int getPopulation() {
         return population;
@@ -55,8 +56,9 @@ public class EntityDefinitionImpl implements EntityDefinition {
 
     @Override
     public PropertyDefinition getPropertyByName(String name) {
-        //
-        return null;
+        Optional<PropertyDefinition> theProperty = properties.stream().filter(property -> property.getName().equals(name)).findFirst();
+        return theProperty.get();
+
     }
 
     @Override

@@ -1,9 +1,8 @@
 package definition.entity.api;
 
 import definition.property.api.PropertyDefinition;
-import definition.property.impl.PropertyDefinitionImpl;
 
-public interface EntityDefinition {
+public interface EntityInstance {
     String getName();
     int getPopulation();
 

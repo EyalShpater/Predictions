@@ -1,6 +1,6 @@
 package Main;
 
-import definition.entity.api.EntityDefinition;
+import definition.entity.api.EntityInstance;
 import definition.entity.impl.EntityDefinitionImpl;
 import definition.property.api.PropertyDefinition;
 import definition.property.api.PropertyType;
@@ -16,7 +16,7 @@ public class Main {
         PropertyDefinition p1 = new PropertyDefinitionImpl("name", PropertyType.STRING, false, "Avi");
         PropertyDefinition p2 = new PropertyDefinitionImpl("age", PropertyType.INT, true, new Range(10, 50));
 
-        EntityDefinition student = new EntityDefinitionImpl("Student", 140);
+        EntityInstance student = new EntityDefinitionImpl("Student", 140);
         student.addProperty(p1);
         student.addProperty(p2);
 
