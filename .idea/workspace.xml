@@ -4,24 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="27d35137-667f-4e37-a519-ab836acc0a06" name="Changes" comment="environment">
-      <change afterPath="$PROJECT_DIR$/logic/src/instance/property/value/generator/RandomValueGenerator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logic/src/action/api/AbstractAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/logic/src/action/api/AbstractAction.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logic/src/action/api/Action.java" beforeDir="false" afterPath="$PROJECT_DIR$/logic/src/action/api/Action.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logic/src/action/impl/IncreaseAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/logic/src/action/impl/IncreaseAction.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logic/src/definition/entity/api/EntityInstance.java" beforeDir="false" afterPath="$PROJECT_DIR$/logic/src/definition/entity/api/EntityDefinition.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logic/src/definition/entity/impl/EntityDefinitionImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/logic/src/definition/entity/impl/EntityDefinitionImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logic/src/execution/simulation/api/Data.java" beforeDir="false" afterPath="$PROJECT_DIR$/logic/src/execution/simulation/api/Data.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logic/src/execution/world/impl/WorldImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/logic/src/execution/world/impl/WorldImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logic/src/instance/entity/impl/EntityInstanceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/logic/src/instance/entity/impl/EntityInstanceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logic/src/instance/entity/manager/api/EntityInstanceManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/logic/src/instance/entity/manager/api/EntityInstanceManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logic/src/instance/entity/manager/impl/EntityInstanceManagerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/logic/src/instance/entity/manager/impl/EntityInstanceManagerImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logic/src/instance/property/impl/PropertyInstanceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/logic/src/instance/property/impl/PropertyInstanceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logic/src/rule/api/Rule.java" beforeDir="false" afterPath="$PROJECT_DIR$/logic/src/rule/api/Rule.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logic/src/rule/impl/RuleImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/logic/src/rule/impl/RuleImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui/src/Main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/ui/src/Main/Main.java" afterDir="false" />
-    </list>
+    <list default="true" id="27d35137-667f-4e37-a519-ab836acc0a06" name="Changes" comment="random PropertyInstance value in a new class" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -163,7 +146,7 @@
       <workItem from="1691449789391" duration="8600000" />
       <workItem from="1691565393472" duration="6277000" />
       <workItem from="1691574348789" duration="5588000" />
-      <workItem from="1691654067007" duration="2235000" />
+      <workItem from="1691654067007" duration="2559000" />
     </task>
     <task id="LOCAL‎-00001" summary="init">
       <option name="closed" value="true" />
@@ -373,7 +356,23 @@
       <option name="project" value="LOCAL‎" />
       <updated>1691577239761</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL‎-00027" summary="random PropertyInstance value in a new class">
+      <option name="closed" value="true" />
+      <created>1691656368478</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL‎-00027" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1691656368478</updated>
+    </task>
+    <task id="LOCAL‎-00028" summary="random PropertyInstance value in a new class">
+      <option name="closed" value="true" />
+      <created>1691656466753</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL‎-00028" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1691656466753</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -408,7 +407,8 @@
     <MESSAGE value="epressions" />
     <MESSAGE value="environment" />
     <MESSAGE value="expression implementation" />
-    <option name="LAST_COMMIT_MESSAGE" value="expression implementation" />
+    <MESSAGE value="random PropertyInstance value in a new class" />
+    <option name="LAST_COMMIT_MESSAGE" value="random PropertyInstance value in a new class" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
