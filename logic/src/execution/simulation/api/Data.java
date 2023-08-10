@@ -1,11 +1,11 @@
 package execution.simulation.api;
 
-import definition.entity.api.EntityInstance;
+import definition.entity.api.EntityDefinition;
 
 import java.util.*;
 
 public interface Data {
-    List<EntityInstance> getEntities();
+    List<EntityDefinition> getEntities();
     String getEndOfSimulationReason();
     Date getRunTime();
 

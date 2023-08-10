@@ -1,12 +1,11 @@
 package definition.entity.impl;
 
-import definition.entity.api.EntityInstance;
+import definition.entity.api.EntityDefinition;
 import definition.property.api.PropertyDefinition;
 
-import javax.swing.text.html.Option;
 import java.util.*;
 
-public class EntityDefinitionImpl implements EntityInstance {
+public class EntityDefinitionImpl implements EntityDefinition {
     private String name;
     private int population;
     private List<PropertyDefinition> properties = new ArrayList<>();

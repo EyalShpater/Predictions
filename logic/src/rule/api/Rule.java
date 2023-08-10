@@ -1,6 +1,6 @@
 package rule.api;
 
-import definition.entity.api.EntityInstance;
+import definition.entity.api.EntityDefinition;
 import action.api.Action;
 
 public interface Rule {
@@ -8,6 +8,6 @@ public interface Rule {
 
     boolean isActive(int tickNumber, double probability);
 
-    void invoke(EntityInstance entity);
+    void invoke(EntityDefinition entity);
     void addAction(Action action);
 }

@@ -1,12 +1,12 @@
 package action.api;
 
-import definition.entity.api.EntityInstance;
+import definition.entity.api.EntityDefinition;
 
 public interface Action {
-    EntityInstance applyOn();
+    EntityDefinition applyOn();
 
     ActionType getActionType();
 
-    void invoke(instance.entity.api.EntityInstance invokeOnMe);
+    void invoke(EntityDefinition invokeOnMe);
 
 }

@@ -1,6 +1,6 @@
 package instance.entity.manager.impl;
 
-import definition.entity.api.EntityInstance;
+import definition.entity.api.EntityDefinition;
 import instance.entity.impl.EntityInstanceImpl;
 import instance.entity.manager.api.EntityInstanceManager;
 
@@ -15,7 +15,7 @@ public class EntityInstanceManagerImpl implements EntityInstanceManager {
     }
 
     @Override
-    public void create(EntityInstance entityDefinition) {
+    public void create(EntityDefinition entityDefinition) {
         instances.add(new EntityInstanceImpl(entityDefinition));
     }
 

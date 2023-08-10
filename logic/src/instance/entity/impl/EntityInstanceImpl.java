@@ -1,6 +1,6 @@
 package instance.entity.impl;
 
-import definition.entity.api.EntityInstance;
+import definition.entity.api.EntityDefinition;
 import definition.property.api.PropertyDefinition;
 import instance.property.api.PropertyInstance;
 import instance.property.impl.PropertyInstanceImpl;
@@ -11,12 +11,12 @@ public class EntityInstanceImpl implements instance.entity.api.EntityInstance {
     private final String entityName;
     private Map<String, PropertyInstance> properties;
 
-    public EntityInstanceImpl(EntityInstance entity) {
+    public EntityInstanceImpl(EntityDefinition entity) {
         entityName = entity.getName();
         properties = setProperties(entity);
     }
 
-    private Map<String, PropertyInstance> setProperties(EntityInstance entity) {
+    private Map<String, PropertyInstance> setProperties(EntityDefinition entity) {
         Map<String, PropertyInstance> properties = new HashMap<>();
         PropertyDefinition currentPropertyDefinition;
 

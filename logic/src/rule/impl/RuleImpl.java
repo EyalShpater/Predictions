@@ -1,7 +1,7 @@
 package rule.impl;
 
 import action.api.Action;
-import definition.entity.api.EntityInstance;
+import definition.entity.api.EntityDefinition;
 import rule.api.Activation;
 import rule.api.Rule;
 import java.util.List;
@@ -23,7 +23,7 @@ public class RuleImpl implements Rule {
 
 
     @Override
-    public void invoke(EntityInstance entity) {
+    public void invoke(EntityDefinition entity) {
         actions.forEach(action -> invoke(entity));
     }
 
