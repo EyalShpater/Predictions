@@ -8,7 +8,7 @@ import java.util.*;
 
 public class SimulationManager {
     private int serialNumber;
-    Map<Integer, Simulation> simulations;
+    private Map<Integer, Simulation> simulations;
 
     public SimulationManager() {
         serialNumber = 1;
