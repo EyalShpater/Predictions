@@ -7,16 +7,17 @@ import instance.property.impl.PropertyInstanceImpl;
 import java.util.*;
 
 public class EntityInstanceImpl implements instance.entity.api.EntityInstance {
-    private static int id = 1;
+    private final int id;
     private final String entityName;
-    private Map<String, PropertyInstance> properties;
+    private Map<String, PropertyInstance> propNameToPropInstance;
 
-    public EntityInstanceImpl(EntityDefinition entity) {
+    public EntityInstanceImpl(EntityDefinition entity, int id) {
         entityName = entity.getName();
-        properties = setProperties(entity);
+        propNameToPropInstance = createPropertyInstancesFromDefinition(entity);
+        this.id = id;
     }
 
-    private Map<String, PropertyInstance> setProperties(EntityDefinition entity) {
+    private Map<String, PropertyInstance> createPropertyInstancesFromDefinition(EntityDefinition entity) {
         Map<String, PropertyInstance> properties = new HashMap<>();
         PropertyDefinition currentPropertyDefinition;
 
@@ -25,13 +26,13 @@ public class EntityInstanceImpl implements instance.entity.api.EntityInstance {
             properties.put(currentPropertyDefinition.getName(),
                     new PropertyInstanceImpl(currentPropertyDefinition));
         }
-        //why does a set method returns the map ?
+
         return properties;
     }
 
     @Override
     public PropertyInstance getPropertyByName(String name) {
-        return properties.get(name);
+        return propNameToPropInstance.get(name);
     }
 
     @Override

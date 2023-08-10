@@ -6,12 +6,10 @@ import instance.enviornment.api.ActiveEnvironment;
 import instance.enviornment.impl.ActiveEnvironmentImpl;
 import instance.property.impl.PropertyInstanceImpl;
 
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 public class EnvironmentVariableManagerImpl implements EnvironmentVariableManager {
-    Map<String, PropertyDefinition> propNameToPropDefinition = new HashMap<>();
+    private Map<String, PropertyDefinition> propNameToPropDefinition = new HashMap<>();
 
     @Override
     public void addEnvironmentVariable(PropertyDefinition property) {

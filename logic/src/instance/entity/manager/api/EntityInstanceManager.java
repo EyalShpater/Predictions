@@ -1,11 +1,11 @@
 package instance.entity.manager.api;
 
 import definition.entity.api.EntityDefinition;
-
+import instance.entity.api.EntityInstance;
 import java.util.List;
 
 public interface EntityInstanceManager {
     void create(EntityDefinition entityDefinition);
 
-    List<instance.entity.api.EntityInstance> getInstances();
+    List<EntityInstance> getInstances();
 }

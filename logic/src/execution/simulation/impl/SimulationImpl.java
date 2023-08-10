@@ -32,13 +32,3 @@ public class SimulationImpl implements Simulation {
         //run simulation with ticks and collect the data to Data (member)...
     }
 }
-
-
-/*
-
-Smoker.population = 100
-Cigarette. population = 3000
-
-[{ smoker1, smoker2, ..., smoker100 }, { cigarette1, ...., cigarette3000 }]
-
- */

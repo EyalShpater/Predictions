@@ -1,26 +1,29 @@
 package instance.entity.manager.impl;
 
 import definition.entity.api.EntityDefinition;
+import instance.entity.api.EntityInstance;
 import instance.entity.impl.EntityInstanceImpl;
 import instance.entity.manager.api.EntityInstanceManager;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 public class EntityInstanceManagerImpl implements EntityInstanceManager {
-    List<instance.entity.api.EntityInstance> instances;
+    private int id;
+    private List<EntityInstance> instances;
 
     public EntityInstanceManagerImpl() {
         instances = new ArrayList<>();
+        id = 1;
     }
 
     @Override
     public void create(EntityDefinition entityDefinition) {
-        instances.add(new EntityInstanceImpl(entityDefinition));
+        instances.add(new EntityInstanceImpl(entityDefinition, id));
+        id++;
     }
 
     @Override
-    public List<instance.entity.api.EntityInstance> getInstances() {
+    public List<EntityInstance> getInstances() {
         return instances;
     }
 }

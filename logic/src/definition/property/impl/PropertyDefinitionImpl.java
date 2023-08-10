@@ -8,8 +8,8 @@ public class PropertyDefinitionImpl implements PropertyDefinition {
     private String name;
     private final PropertyType type;
     private Range range = null;
-    boolean isValueInitializeRandomly;
-    Object defaultValue = null;
+    private boolean isValueInitializeRandomly;
+    private Object defaultValue = null;
 
     public PropertyDefinitionImpl(String name, PropertyType type, boolean isValueInitializeRandomly) {
         if (name.isEmpty()) {

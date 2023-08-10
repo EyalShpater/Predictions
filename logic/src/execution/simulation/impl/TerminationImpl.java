@@ -5,9 +5,9 @@ import execution.simulation.api.Termination;
 import java.util.*;
 
 public class TerminationImpl implements Termination {
-    int ticksToTerminate;
-    int secondsToTerminate;
-    Date secondsSinceStart;
+    private int ticksToTerminate;
+    private int secondsToTerminate;
+    private Date secondsSinceStart;
 
     public TerminationImpl(int ticksToTerminate, int secondsToTerminate) {
         this.ticksToTerminate = ticksToTerminate;

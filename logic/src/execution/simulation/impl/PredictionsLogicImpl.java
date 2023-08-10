@@ -7,8 +7,8 @@ import execution.world.api.World;
 import execution.world.impl.WorldImpl;
 
 public class PredictionsLogicImpl implements PredictionsLogic {
-    SimulationManager allSimulations;
-    World world;
+    private SimulationManager allSimulations;
+    private World world;
 
     public PredictionsLogicImpl() {
         this.allSimulations = new SimulationManager();

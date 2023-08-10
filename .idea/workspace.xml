@@ -4,9 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="27d35137-667f-4e37-a519-ab836acc0a06" name="Changes" comment="random PropertyInstance value in a new class">
-      <change afterPath="$PROJECT_DIR$/logic/src/execution/simulation/manager/SimulationManager.java" afterDir="false" />
+    <list default="true" id="27d35137-667f-4e37-a519-ab836acc0a06" name="Changes" comment="added simulation manager class">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logic/src/execution/simulation/impl/SimulationImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/logic/src/execution/simulation/impl/SimulationImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logic/src/instance/entity/impl/EntityInstanceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/logic/src/instance/entity/impl/EntityInstanceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logic/src/instance/entity/manager/api/EntityInstanceManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/logic/src/instance/entity/manager/api/EntityInstanceManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logic/src/instance/entity/manager/impl/EntityInstanceManagerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/logic/src/instance/entity/manager/impl/EntityInstanceManagerImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -151,6 +154,7 @@
       <workItem from="1691574348789" duration="5588000" />
       <workItem from="1691654067007" duration="2559000" />
       <workItem from="1691656651159" duration="429000" />
+      <workItem from="1691660436823" duration="2983000" />
     </task>
     <task id="LOCAL‎-00001" summary="init">
       <option name="closed" value="true" />
@@ -384,7 +388,23 @@
       <option name="project" value="LOCAL‎" />
       <updated>1691656660449</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL‎-00030" summary="added simulation manager class">
+      <option name="closed" value="true" />
+      <created>1691665845263</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL‎-00030" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1691665845263</updated>
+    </task>
+    <task id="LOCAL‎-00031" summary="added simulation manager class">
+      <option name="closed" value="true" />
+      <created>1691665898554</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL‎-00031" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1691665898554</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -420,7 +440,8 @@
     <MESSAGE value="environment" />
     <MESSAGE value="expression implementation" />
     <MESSAGE value="random PropertyInstance value in a new class" />
-    <option name="LAST_COMMIT_MESSAGE" value="random PropertyInstance value in a new class" />
+    <MESSAGE value="added simulation manager class" />
+    <option name="LAST_COMMIT_MESSAGE" value="added simulation manager class" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
