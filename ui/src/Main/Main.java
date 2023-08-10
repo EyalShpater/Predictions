@@ -29,7 +29,7 @@ public class Main {
 
         EntityInstanceManager manager = new EntityInstanceManagerImpl();
 
-        for (int i = 1; i <= 100; i++) {
+        for (int i = 1; i <= 50; i++) {
             manager.create(student);
         }
 
