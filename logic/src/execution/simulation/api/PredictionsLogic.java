@@ -5,7 +5,7 @@ public interface PredictionsLogic {
 
     /* need to think about return vale */ void getSimulationDetails();
 
-    Data run();
+    Data runNewSimulation();
 
     /* need to think about return vale */ Data getAllPreviousSimulationData();
 }

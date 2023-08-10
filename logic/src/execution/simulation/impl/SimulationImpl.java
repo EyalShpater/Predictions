@@ -5,14 +5,13 @@ import execution.simulation.api.Simulation;
 import execution.world.api.World;
 
 public class SimulationImpl implements Simulation {
-    private static int serialNumberGenerator = 1;
-    private int serialNumber;
-    World world;
-    Data data;
+    private final int serialNumber;
+    private World world;
+    private Data data;
 
-    public SimulationImpl(World world) {
+    public SimulationImpl(World world, int serialNumber) {
         this.world = world;
-        serialNumber = serialNumberGenerator++;
+        this.serialNumber = serialNumber;
         data = null;
     }
 

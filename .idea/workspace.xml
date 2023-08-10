@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="27d35137-667f-4e37-a519-ab836acc0a06" name="Changes" comment="random PropertyInstance value in a new class" />
+    <list default="true" id="27d35137-667f-4e37-a519-ab836acc0a06" name="Changes" comment="random PropertyInstance value in a new class">
+      <change afterPath="$PROJECT_DIR$/logic/src/execution/simulation/manager/SimulationManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -147,6 +150,7 @@
       <workItem from="1691565393472" duration="6277000" />
       <workItem from="1691574348789" duration="5588000" />
       <workItem from="1691654067007" duration="2559000" />
+      <workItem from="1691656651159" duration="429000" />
     </task>
     <task id="LOCAL‎-00001" summary="init">
       <option name="closed" value="true" />
@@ -372,7 +376,15 @@
       <option name="project" value="LOCAL‎" />
       <updated>1691656466753</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL‎-00029" summary="random PropertyInstance value in a new class">
+      <option name="closed" value="true" />
+      <created>1691656660448</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL‎-00029" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1691656660449</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
