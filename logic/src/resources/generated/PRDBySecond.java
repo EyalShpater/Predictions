@@ -6,7 +6,7 @@
 //
 
 
-package generated;
+package resources.generated;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -24,8 +24,7 @@ import javax.xml.bind.annotation.XmlType;
  * &lt;complexType>
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
- *       &lt;attribute name="to" use="required" type="{http://www.w3.org/2001/XMLSchema}double" />
- *       &lt;attribute name="from" use="required" type="{http://www.w3.org/2001/XMLSchema}double" />
+ *       &lt;attribute name="count" use="required" type="{http://www.w3.org/2001/XMLSchema}int" />
  *     &lt;/restriction>
  *   &lt;/complexContent>
  * &lt;/complexType>
@@ -33,40 +32,24 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "")
-@XmlRootElement(name = "PRD-range")
-public class PRDRange {
+@XmlRootElement(name = "PRD-by-second")
+public class PRDBySecond {
 
-    @XmlAttribute(name = "to", required = true)
-    protected double to;
-    @XmlAttribute(name = "from", required = true)
-    protected double from;
+    @XmlAttribute(name = "count", required = true)
+    protected int count;
 
     /**
-     * Gets the value of the to property.
+     * Gets the value of the count property.
      */
-    public double getTo() {
-        return to;
+    public int getCount() {
+        return count;
     }
 
     /**
-     * Sets the value of the to property.
+     * Sets the value of the count property.
      */
-    public void setTo(double value) {
-        this.to = value;
-    }
-
-    /**
-     * Gets the value of the from property.
-     */
-    public double getFrom() {
-        return from;
-    }
-
-    /**
-     * Sets the value of the from property.
-     */
-    public void setFrom(double value) {
-        this.from = value;
+    public void setCount(int value) {
+        this.count = value;
     }
 
 }

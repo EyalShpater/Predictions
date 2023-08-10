@@ -6,7 +6,7 @@
 //
 
 
-package generated;
+package resources.generated;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -26,8 +26,8 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element ref="{}PRD-population"/>
- *         &lt;element ref="{}PRD-properties"/>
+ *         &lt;element ref="{}PRD-actions"/>
+ *         &lt;element ref="{}PRD-activation" minOccurs="0"/>
  *       &lt;/sequence>
  *       &lt;attribute name="name" use="required" type="{http://www.w3.org/2001/XMLSchema}string" />
  *     &lt;/restriction>
@@ -37,51 +37,57 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-        "prdPopulation",
-        "prdProperties"
+        "prdActions",
+        "prdActivation"
 })
-@XmlRootElement(name = "PRD-entity")
-public class PRDEntity {
+@XmlRootElement(name = "PRD-rule")
+public class PRDRule {
 
-    @XmlElement(name = "PRD-population")
-    protected int prdPopulation;
-    @XmlElement(name = "PRD-properties", required = true)
-    protected PRDProperties prdProperties;
+    @XmlElement(name = "PRD-actions", required = true)
+    protected PRDActions prdActions;
+    @XmlElement(name = "PRD-activation")
+    protected PRDActivation prdActivation;
     @XmlAttribute(name = "name", required = true)
     protected String name;
 
     /**
-     * Gets the value of the prdPopulation property.
-     */
-    public int getPRDPopulation() {
-        return prdPopulation;
-    }
-
-    /**
-     * Sets the value of the prdPopulation property.
-     */
-    public void setPRDPopulation(int value) {
-        this.prdPopulation = value;
-    }
-
-    /**
-     * Gets the value of the prdProperties property.
+     * Gets the value of the prdActions property.
      *
      * @return possible object is
-     * {@link PRDProperties }
+     * {@link PRDActions }
      */
-    public PRDProperties getPRDProperties() {
-        return prdProperties;
+    public PRDActions getPRDActions() {
+        return prdActions;
     }
 
     /**
-     * Sets the value of the prdProperties property.
+     * Sets the value of the prdActions property.
      *
      * @param value allowed object is
-     *              {@link PRDProperties }
+     *              {@link PRDActions }
      */
-    public void setPRDProperties(PRDProperties value) {
-        this.prdProperties = value;
+    public void setPRDActions(PRDActions value) {
+        this.prdActions = value;
+    }
+
+    /**
+     * Gets the value of the prdActivation property.
+     *
+     * @return possible object is
+     * {@link PRDActivation }
+     */
+    public PRDActivation getPRDActivation() {
+        return prdActivation;
+    }
+
+    /**
+     * Sets the value of the prdActivation property.
+     *
+     * @param value allowed object is
+     *              {@link PRDActivation }
+     */
+    public void setPRDActivation(PRDActivation value) {
+        this.prdActivation = value;
     }
 
     /**

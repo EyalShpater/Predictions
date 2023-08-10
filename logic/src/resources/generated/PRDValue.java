@@ -6,7 +6,7 @@
 //
 
 
-package generated;
+package resources.generated;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -24,8 +24,8 @@ import javax.xml.bind.annotation.XmlType;
  * &lt;complexType>
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
- *       &lt;attribute name="ticks" type="{http://www.w3.org/2001/XMLSchema}int" />
- *       &lt;attribute name="probability" type="{http://www.w3.org/2001/XMLSchema}double" />
+ *       &lt;attribute name="random-initialize" use="required" type="{http://www.w3.org/2001/XMLSchema}boolean" />
+ *       &lt;attribute name="init" type="{http://www.w3.org/2001/XMLSchema}string" />
  *     &lt;/restriction>
  *   &lt;/complexContent>
  * &lt;/complexType>
@@ -33,52 +33,46 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "")
-@XmlRootElement(name = "PRD-activation")
-public class PRDActivation {
+@XmlRootElement(name = "PRD-value")
+public class PRDValue {
 
-    @XmlAttribute(name = "ticks")
-    protected Integer ticks;
-    @XmlAttribute(name = "probability")
-    protected Double probability;
+    @XmlAttribute(name = "random-initialize", required = true)
+    protected boolean randomInitialize;
+    @XmlAttribute(name = "init")
+    protected String init;
 
     /**
-     * Gets the value of the ticks property.
+     * Gets the value of the randomInitialize property.
+     */
+    public boolean isRandomInitialize() {
+        return randomInitialize;
+    }
+
+    /**
+     * Sets the value of the randomInitialize property.
+     */
+    public void setRandomInitialize(boolean value) {
+        this.randomInitialize = value;
+    }
+
+    /**
+     * Gets the value of the init property.
      *
      * @return possible object is
-     * {@link Integer }
+     * {@link String }
      */
-    public Integer getTicks() {
-        return ticks;
+    public String getInit() {
+        return init;
     }
 
     /**
-     * Sets the value of the ticks property.
+     * Sets the value of the init property.
      *
      * @param value allowed object is
-     *              {@link Integer }
+     *              {@link String }
      */
-    public void setTicks(Integer value) {
-        this.ticks = value;
-    }
-
-    /**
-     * Gets the value of the probability property.
-     *
-     * @return possible object is
-     * {@link Double }
-     */
-    public Double getProbability() {
-        return probability;
-    }
-
-    /**
-     * Sets the value of the probability property.
-     *
-     * @param value allowed object is
-     *              {@link Double }
-     */
-    public void setProbability(Double value) {
-        this.probability = value;
+    public void setInit(String value) {
+        this.init = value;
     }
 
 }

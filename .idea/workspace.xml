@@ -4,12 +4,37 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="27d35137-667f-4e37-a519-ab836acc0a06" name="Changes" comment="added simulation manager class">
+    <list default="true" id="27d35137-667f-4e37-a519-ab836acc0a06" name="Changes" comment="added access modifies">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logic/src/execution/simulation/impl/SimulationImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/logic/src/execution/simulation/impl/SimulationImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logic/src/instance/entity/impl/EntityInstanceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/logic/src/instance/entity/impl/EntityInstanceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logic/src/instance/entity/manager/api/EntityInstanceManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/logic/src/instance/entity/manager/api/EntityInstanceManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logic/src/instance/entity/manager/impl/EntityInstanceManagerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/logic/src/instance/entity/manager/impl/EntityInstanceManagerImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logic/src/generated/ObjectFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/logic/src/resources/generated/ObjectFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logic/src/generated/PRDAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/logic/src/resources/generated/PRDAction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logic/src/generated/PRDActions.java" beforeDir="false" afterPath="$PROJECT_DIR$/logic/src/resources/generated/PRDActions.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logic/src/generated/PRDActivation.java" beforeDir="false" afterPath="$PROJECT_DIR$/logic/src/resources/generated/PRDActivation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logic/src/generated/PRDBySecond.java" beforeDir="false" afterPath="$PROJECT_DIR$/logic/src/resources/generated/PRDBySecond.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logic/src/generated/PRDByTicks.java" beforeDir="false" afterPath="$PROJECT_DIR$/logic/src/resources/generated/PRDByTicks.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logic/src/generated/PRDCondition.java" beforeDir="false" afterPath="$PROJECT_DIR$/logic/src/resources/generated/PRDCondition.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logic/src/generated/PRDDivide.java" beforeDir="false" afterPath="$PROJECT_DIR$/logic/src/resources/generated/PRDDivide.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logic/src/generated/PRDElse.java" beforeDir="false" afterPath="$PROJECT_DIR$/logic/src/resources/generated/PRDElse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logic/src/generated/PRDEntities.java" beforeDir="false" afterPath="$PROJECT_DIR$/logic/src/resources/generated/PRDEntities.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logic/src/generated/PRDEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/logic/src/resources/generated/PRDEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logic/src/generated/PRDEnvProperty.java" beforeDir="false" afterPath="$PROJECT_DIR$/logic/src/resources/generated/PRDEnvProperty.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logic/src/generated/PRDEvironment.java" beforeDir="false" afterPath="$PROJECT_DIR$/logic/src/resources/generated/PRDEvironment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logic/src/generated/PRDMultiply.java" beforeDir="false" afterPath="$PROJECT_DIR$/logic/src/resources/generated/PRDMultiply.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logic/src/generated/PRDProperties.java" beforeDir="false" afterPath="$PROJECT_DIR$/logic/src/resources/generated/PRDProperties.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logic/src/generated/PRDProperty.java" beforeDir="false" afterPath="$PROJECT_DIR$/logic/src/resources/generated/PRDProperty.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logic/src/generated/PRDRange.java" beforeDir="false" afterPath="$PROJECT_DIR$/logic/src/resources/generated/PRDRange.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logic/src/generated/PRDRule.java" beforeDir="false" afterPath="$PROJECT_DIR$/logic/src/resources/generated/PRDRule.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logic/src/generated/PRDRules.java" beforeDir="false" afterPath="$PROJECT_DIR$/logic/src/resources/generated/PRDRules.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logic/src/generated/PRDTermination.java" beforeDir="false" afterPath="$PROJECT_DIR$/logic/src/resources/generated/PRDTermination.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logic/src/generated/PRDThen.java" beforeDir="false" afterPath="$PROJECT_DIR$/logic/src/resources/generated/PRDThen.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logic/src/generated/PRDValue.java" beforeDir="false" afterPath="$PROJECT_DIR$/logic/src/resources/generated/PRDValue.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logic/src/generated/PRDWorld.java" beforeDir="false" afterPath="$PROJECT_DIR$/logic/src/resources/generated/PRDWorld.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/ex1-cigarets.xml" beforeDir="false" afterPath="$PROJECT_DIR$/logic/src/resources/ex1-cigarets.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/ex1-error-2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/logic/src/resources/ex1-error-2.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/ex1-error-4.xml" beforeDir="false" afterPath="$PROJECT_DIR$/logic/src/resources/ex1-error-4.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/ex1-error-6.xml" beforeDir="false" afterPath="$PROJECT_DIR$/logic/src/resources/ex1-error-6.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/master-ex1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/logic/src/resources/master-ex1.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/predictions-v1.xsd" beforeDir="false" afterPath="$PROJECT_DIR$/logic/src/resources/predictions-v1.xsd" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -88,6 +113,7 @@
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/logic/src" />
+      <recent name="$PROJECT_DIR$/logic" />
     </key>
   </component>
   <component name="RunManager" selected="Application.Main">
@@ -154,7 +180,8 @@
       <workItem from="1691574348789" duration="5588000" />
       <workItem from="1691654067007" duration="2559000" />
       <workItem from="1691656651159" duration="429000" />
-      <workItem from="1691660436823" duration="2983000" />
+      <workItem from="1691660436823" duration="3756000" />
+      <workItem from="1691677422866" duration="96000" />
     </task>
     <task id="LOCAL‎-00001" summary="init">
       <option name="closed" value="true" />
@@ -404,7 +431,15 @@
       <option name="project" value="LOCAL‎" />
       <updated>1691665898554</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL‎-00032" summary="added access modifies">
+      <option name="closed" value="true" />
+      <created>1691670232681</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL‎-00032" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1691670232681</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -441,7 +476,8 @@
     <MESSAGE value="expression implementation" />
     <MESSAGE value="random PropertyInstance value in a new class" />
     <MESSAGE value="added simulation manager class" />
-    <option name="LAST_COMMIT_MESSAGE" value="added simulation manager class" />
+    <MESSAGE value="added access modifies" />
+    <option name="LAST_COMMIT_MESSAGE" value="added access modifies" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">

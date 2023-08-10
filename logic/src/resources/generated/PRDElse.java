@@ -6,7 +6,7 @@
 //
 
 
-package generated;
+package resources.generated;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -38,8 +38,8 @@ import javax.xml.bind.annotation.XmlType;
 @XmlType(name = "", propOrder = {
         "prdAction"
 })
-@XmlRootElement(name = "PRD-then")
-public class PRDThen {
+@XmlRootElement(name = "PRD-else")
+public class PRDElse {
 
     @XmlElement(name = "PRD-action", required = true)
     protected List<PRDAction> prdAction;

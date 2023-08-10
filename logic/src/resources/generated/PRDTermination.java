@@ -6,13 +6,14 @@
 //
 
 
-package generated;
+package resources.generated;
 
 import java.util.ArrayList;
 import java.util.List;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlElements;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 
@@ -26,9 +27,10 @@ import javax.xml.bind.annotation.XmlType;
  * &lt;complexType>
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
- *       &lt;sequence>
- *         &lt;element ref="{}PRD-entity" maxOccurs="unbounded"/>
- *       &lt;/sequence>
+ *       &lt;choice maxOccurs="2">
+ *         &lt;element ref="{}PRD-by-ticks"/>
+ *         &lt;element ref="{}PRD-by-second"/>
+ *       &lt;/choice>
  *     &lt;/restriction>
  *   &lt;/complexContent>
  * &lt;/complexType>
@@ -36,39 +38,43 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-        "prdEntity"
+        "prdByTicksOrPRDBySecond"
 })
-@XmlRootElement(name = "PRD-entities")
-public class PRDEntities {
+@XmlRootElement(name = "PRD-termination")
+public class PRDTermination {
 
-    @XmlElement(name = "PRD-entity", required = true)
-    protected List<PRDEntity> prdEntity;
+    @XmlElements({
+            @XmlElement(name = "PRD-by-ticks", type = PRDByTicks.class),
+            @XmlElement(name = "PRD-by-second", type = PRDBySecond.class)
+    })
+    protected List<Object> prdByTicksOrPRDBySecond;
 
     /**
-     * Gets the value of the prdEntity property.
+     * Gets the value of the prdByTicksOrPRDBySecond property.
      *
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the prdEntity property.
+     * This is why there is not a <CODE>set</CODE> method for the prdByTicksOrPRDBySecond property.
      *
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
-     *    getPRDEntity().add(newItem);
+     *    getPRDByTicksOrPRDBySecond().add(newItem);
      * </pre>
      *
      *
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link PRDEntity }
+     * {@link PRDByTicks }
+     * {@link PRDBySecond }
      */
-    public List<PRDEntity> getPRDEntity() {
-        if (prdEntity == null) {
-            prdEntity = new ArrayList<PRDEntity>();
+    public List<Object> getPRDByTicksOrPRDBySecond() {
+        if (prdByTicksOrPRDBySecond == null) {
+            prdByTicksOrPRDBySecond = new ArrayList<Object>();
         }
-        return this.prdEntity;
+        return this.prdByTicksOrPRDBySecond;
     }
 
 }
