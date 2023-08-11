@@ -4,8 +4,6 @@ import api.DTO;
 import execution.simulation.api.Simulation;
 import execution.simulation.impl.SimulationImpl;
 import execution.world.api.World;
-import temporary.SomeObject;
-
 import java.util.*;
 
 public class SimulationManager {

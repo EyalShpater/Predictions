@@ -6,8 +6,6 @@ import execution.simulation.api.PredictionsLogic;
 import execution.simulation.manager.SimulationManager;
 import execution.world.api.World;
 import execution.world.impl.WorldImpl;
-import temporary.SomeObject;
-
 import java.util.List;
 
 public class PredictionsLogicImpl implements PredictionsLogic {

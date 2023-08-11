@@ -14,8 +14,6 @@ import instance.entity.manager.api.EntityInstanceManager;
 import instance.entity.manager.impl.EntityInstanceManagerImpl;
 import instance.property.api.PropertyInstance;
 import instance.property.impl.PropertyInstanceImpl;
-import temporary.SomeObject;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;

@@ -4,7 +4,6 @@ import api.DTO;
 import execution.simulation.api.Data;
 import execution.simulation.api.Simulation;
 import execution.world.api.World;
-import temporary.SomeObject;
 
 public class SimulationImpl implements Simulation {
     private final int serialNumber;
