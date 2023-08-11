@@ -1,11 +1,14 @@
 package execution.simulation.impl;
 
+import api.DTO;
 import execution.simulation.api.Data;
 import execution.simulation.api.PredictionsLogic;
 import execution.simulation.manager.SimulationManager;
 import execution.world.api.World;
 import execution.world.impl.WorldImpl;
 import temporary.SomeObject;
+
+import java.util.List;
 
 public class PredictionsLogicImpl implements PredictionsLogic {
     private SimulationManager allSimulations;
@@ -22,27 +25,27 @@ public class PredictionsLogicImpl implements PredictionsLogic {
     }
 
     @Override
-    public SomeObject getEnvironmentVariablesToSet() {
+    public List<DTO> getEnvironmentVariablesToSet() {
         return null;
     }
 
     @Override
-    public void setEnvironmentVariablesValues(SomeObject variablesValues) {
+    public void setEnvironmentVariablesValues(List<DTO> variablesValues) {
         world.setEnvironmentVariablesValues(variablesValues);
     }
 
     @Override
-    public SomeObject getSimulationDetails() {
+    public DTO getSimulationDetails() {
         return null;
     }
 
     @Override
-    public SomeObject runNewSimulation() {
+    public DTO runNewSimulation() {
         return allSimulations.runNewSimulation(world);
     }
 
     @Override
-    public SomeObject getAllPreviousSimulationData() {
+    public List<DTO> getAllPreviousSimulationData() {
         return null;
     }
 }

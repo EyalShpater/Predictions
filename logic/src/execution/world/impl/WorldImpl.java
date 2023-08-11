@@ -1,14 +1,14 @@
 package execution.world.impl;
 
+import api.DTO;
 import definition.entity.api.EntityDefinition;
 import definition.environment.api.EnvironmentVariableManager;
-import instance.enviornment.api.ActiveEnvironment;
+import environment.variable.EnvironmentVariableDTO;
 import execution.simulation.api.Termination;
 import execution.world.api.World;
 import rule.api.Rule;
-import temporary.SomeObject;
-
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class WorldImpl implements World {
     private List<EntityDefinition> entitiesDefinition;
@@ -17,7 +17,26 @@ public class WorldImpl implements World {
     private Termination terminate;
 
     @Override
-    public void setEnvironmentVariablesValues(SomeObject values) {
+    public void setEnvironmentVariablesValues(List<DTO> values) {
 
+    }
+
+    @Override
+    public List<DTO> getEnvironmentVariables() {
+        return environmentVariables.getEnvironmentVariables()
+                .stream()
+                .map(propertyDefinition -> new EnvironmentVariableDTO(
+                        propertyDefinition.getName(),
+                        propertyDefinition.getType().toString(),
+                        propertyDefinition.getRange() != null
+                                ? propertyDefinition.getRange().getMin()
+                                : null,
+                        propertyDefinition.getRange() != null
+                                ? propertyDefinition.getRange().getMax()
+                                : null,
+                        propertyDefinition.isValueInitializeRandomly(),
+                        propertyDefinition.getDefaultValue()
+                ))
+                .collect(Collectors.toList());
     }
 }

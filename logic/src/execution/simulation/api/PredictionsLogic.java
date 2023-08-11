@@ -1,17 +1,19 @@
 package execution.simulation.api;
 
-import temporary.SomeObject;
+import api.DTO;
+
+import java.util.*;
 
 public interface PredictionsLogic {
     void loadXML(String path);
 
-    SomeObject getEnvironmentVariablesToSet();
+    List<DTO> getEnvironmentVariablesToSet();
 
-    void setEnvironmentVariablesValues(SomeObject variablesValues);
+    void setEnvironmentVariablesValues(List<DTO> variablesValues);
 
-    SomeObject getSimulationDetails();
+    DTO getSimulationDetails();
 
-    SomeObject runNewSimulation();
+    DTO runNewSimulation();
 
-    SomeObject getAllPreviousSimulationData();
+    Collection<DTO> getAllPreviousSimulationData();
 }

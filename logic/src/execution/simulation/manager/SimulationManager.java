@@ -1,5 +1,6 @@
 package execution.simulation.manager;
 
+import api.DTO;
 import execution.simulation.api.Simulation;
 import execution.simulation.impl.SimulationImpl;
 import execution.world.api.World;
@@ -16,9 +17,9 @@ public class SimulationManager {
         simulations = new HashMap<>();
     }
 
-    public SomeObject runNewSimulation(World world) {
+    public DTO runNewSimulation(World world) {
         Simulation simulation = new SimulationImpl(world, serialNumber);
-        SomeObject simulationResult;
+        DTO simulationResult;
 
         simulationResult = simulation.run();
         simulations.put(serialNumber, simulation);

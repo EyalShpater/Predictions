@@ -1,5 +1,6 @@
 package execution.simulation.impl;
 
+import api.DTO;
 import execution.simulation.api.Data;
 import execution.simulation.api.Simulation;
 import execution.world.api.World;
@@ -27,7 +28,7 @@ public class SimulationImpl implements Simulation {
     }
 
     @Override
-    public SomeObject run() {
+    public DTO run() {
         //create entity instances
         //create environment variables instances
         //run simulation with ticks and collect the data to Data (member)...
