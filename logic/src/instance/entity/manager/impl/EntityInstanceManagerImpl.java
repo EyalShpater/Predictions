@@ -6,6 +6,7 @@ import instance.entity.impl.EntityInstanceImpl;
 import instance.entity.manager.api.EntityInstanceManager;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 public class EntityInstanceManagerImpl implements EntityInstanceManager {
     private int id;
@@ -25,5 +26,12 @@ public class EntityInstanceManagerImpl implements EntityInstanceManager {
     @Override
     public List<EntityInstance> getInstances() {
         return instances;
+    }
+
+    @Override
+    public void killEntity(int idToKill) {
+        instances = instances.stream().
+                filter(instance -> instance.getId() != idToKill).
+                collect(Collectors.toList());
     }
 }

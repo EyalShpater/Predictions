@@ -9,6 +9,7 @@ import action.expression.impl.ExpressionFactory;
 import action.expression.impl.NewNumericValueGeneratorImpl;
 import definition.property.api.PropertyDefinition;
 import definition.property.api.PropertyType;
+import execution.context.api.Context;
 import instance.entity.api.EntityInstance;
 import instance.property.api.PropertyInstance;
 
@@ -23,8 +24,9 @@ public class IncreaseAction extends AbstractAction {
     }
 
     @Override
-    public void invoke(EntityInstance invokeOnMe) {
+    public void invoke(Context context) {
         //entity.getPropertyByName().
+        EntityInstance invokeOnMe = context.getPrimaryEntityInstance();
         PropertyInstance theProperty = invokeOnMe.getPropertyByName(propertyName);
         if (!checkIfThePropertyIsNumeric(theProperty.getPropertyDefinition())) {
             throw new IllegalArgumentException("value must be of numeric type ");

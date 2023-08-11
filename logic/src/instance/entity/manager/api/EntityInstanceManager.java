@@ -7,5 +7,7 @@ import java.util.List;
 public interface EntityInstanceManager {
     void create(EntityDefinition entityDefinition);
 
+    void killEntity(int idToKill);
+
     List<EntityInstance> getInstances();
 }

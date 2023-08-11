@@ -2,6 +2,7 @@ package action.api;
 
 import definition.entity.api.EntityDefinition;
 
+import execution.context.api.Context;
 import instance.entity.api.EntityInstance;
 
 public interface Action {
@@ -9,6 +10,6 @@ public interface Action {
 
     ActionType getActionType();
 
-    void invoke(EntityInstance invokeOnMe);
+    void invoke(Context context);
 
 }

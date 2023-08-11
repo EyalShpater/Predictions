@@ -2,6 +2,7 @@ package rule.impl;
 
 import action.api.Action;
 import definition.entity.api.EntityDefinition;
+import execution.context.api.Context;
 import rule.api.Activation;
 import rule.api.Rule;
 
@@ -32,8 +33,8 @@ public class RuleImpl implements Rule {
     }
 
     @Override
-    public void invoke(EntityInstance entity) {
-        actions.forEach(action -> action.invoke(entity));
+    public void invoke(Context context) {
+        actions.forEach(action -> action.invoke(context));
     }
 
     @Override
