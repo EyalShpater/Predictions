@@ -1,5 +1,7 @@
 package execution.world.api;
 
-public interface World {
+import temporary.SomeObject;
 
+public interface World {
+    void setEnvironmentVariablesValues(SomeObject values);
 }

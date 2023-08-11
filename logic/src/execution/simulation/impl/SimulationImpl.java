@@ -3,6 +3,7 @@ package execution.simulation.impl;
 import execution.simulation.api.Data;
 import execution.simulation.api.Simulation;
 import execution.world.api.World;
+import temporary.SomeObject;
 
 public class SimulationImpl implements Simulation {
     private final int serialNumber;
@@ -26,9 +27,10 @@ public class SimulationImpl implements Simulation {
     }
 
     @Override
-    public void run() {
+    public SomeObject run() {
         //create entity instances
         //create environment variables instances
         //run simulation with ticks and collect the data to Data (member)...
+        return null;
     }
 }

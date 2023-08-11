@@ -1,11 +1,17 @@
 package execution.simulation.api;
 
+import temporary.SomeObject;
+
 public interface PredictionsLogic {
     void loadXML(String path);
 
-    /* need to think about return vale */ void getSimulationDetails();
+    SomeObject getEnvironmentVariablesToSet();
 
-    Data runNewSimulation();
+    void setEnvironmentVariablesValues(SomeObject variablesValues);
 
-    /* need to think about return vale */ Data getAllPreviousSimulationData();
+    SomeObject getSimulationDetails();
+
+    SomeObject runNewSimulation();
+
+    SomeObject getAllPreviousSimulationData();
 }

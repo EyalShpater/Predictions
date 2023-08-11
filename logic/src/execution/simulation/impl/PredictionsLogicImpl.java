@@ -5,6 +5,7 @@ import execution.simulation.api.PredictionsLogic;
 import execution.simulation.manager.SimulationManager;
 import execution.world.api.World;
 import execution.world.impl.WorldImpl;
+import temporary.SomeObject;
 
 public class PredictionsLogicImpl implements PredictionsLogic {
     private SimulationManager allSimulations;
@@ -21,18 +22,27 @@ public class PredictionsLogicImpl implements PredictionsLogic {
     }
 
     @Override
-    public void getSimulationDetails() {
-
-    }
-
-    @Override
-    public Data runNewSimulation() {
-        allSimulations.runNewSimulation(world);
+    public SomeObject getEnvironmentVariablesToSet() {
         return null;
     }
 
     @Override
-    public Data getAllPreviousSimulationData() {
+    public void setEnvironmentVariablesValues(SomeObject variablesValues) {
+        world.setEnvironmentVariablesValues(variablesValues);
+    }
+
+    @Override
+    public SomeObject getSimulationDetails() {
+        return null;
+    }
+
+    @Override
+    public SomeObject runNewSimulation() {
+        return allSimulations.runNewSimulation(world);
+    }
+
+    @Override
+    public SomeObject getAllPreviousSimulationData() {
         return null;
     }
 }

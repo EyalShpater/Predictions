@@ -21,7 +21,6 @@ public class RuleImpl implements Rule {
         return activation.isActive(tickNumber, probability);
     }
 
-
     @Override
     public void invoke(EntityDefinition entity) {
         actions.forEach(action -> invoke(entity));
