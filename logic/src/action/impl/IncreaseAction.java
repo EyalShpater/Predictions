@@ -2,22 +2,23 @@ package action.impl;
 
 import action.api.AbstractAction;
 import action.api.ActionType;
-import definition.entity.api.EntityDefinition;
+//import definition.entity.api.EntityDefinition;
 import definition.property.api.PropertyDefinition;
 import definition.property.api.PropertyType;
+import instance.entity.api.EntityInstance;
 
 public class IncreaseAction extends AbstractAction {
     private final String propertyName;
     private final String byExpression; //Expression instead of String?
 
-    public IncreaseAction(EntityDefinition entity, String propertyName, String byExpression) {
+    public IncreaseAction(EntityInstance entity, String propertyName, String byExpression) {
         super(entity, ActionType.INCREASE);
         this.propertyName = propertyName;
         this.byExpression = byExpression;
     }
 
     @Override
-    public void invoke(EntityDefinition invokeOnMe) {
+    public void invoke(EntityInstance invokeOnMe) {
         //entity.getPropertyByName().
         //PropertyInstance theProperty = invokeOnMe.getPropertyByName(propertyName);
 //        if (!checkIfThePropertyIsNumeric(theProperty.getPropertyDefinition())) {

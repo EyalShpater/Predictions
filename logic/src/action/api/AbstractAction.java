@@ -1,18 +1,20 @@
 package action.api;
 
-import definition.entity.api.EntityDefinition;
+//import definition.entity.api.EntityDefinition;
+
+import instance.entity.api.EntityInstance;
 
 public abstract class AbstractAction implements Action {
-    private final EntityDefinition entity;
+    private final EntityInstance entity;
     private final ActionType type;
 
-    public AbstractAction(EntityDefinition entity, ActionType type) {
+    public AbstractAction(EntityInstance entity, ActionType type) {
         this.entity = entity;
         this.type = type;
     }
 
     @Override
-    public EntityDefinition applyOn() {
+    public EntityInstance applyOn() {
         return entity;
     }
 

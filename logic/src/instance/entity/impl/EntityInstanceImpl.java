@@ -4,9 +4,11 @@ import definition.entity.api.EntityDefinition;
 import definition.property.api.PropertyDefinition;
 import instance.property.api.PropertyInstance;
 import instance.property.impl.PropertyInstanceImpl;
+import instance.entity.api.EntityInstance;
+
 import java.util.*;
 
-public class EntityInstanceImpl implements instance.entity.api.EntityInstance {
+public class EntityInstanceImpl implements EntityInstance {
     private final int id;
     private final String entityName;
     private Map<String, PropertyInstance> propNameToPropInstance;
