@@ -1,11 +1,11 @@
 package action.api;
 
-//import definition.entity.api.EntityDefinition;
+import definition.entity.api.EntityDefinition;
 
 import instance.entity.api.EntityInstance;
 
 public interface Action {
-    EntityInstance applyOn();
+    EntityDefinition applyOn();
 
     ActionType getActionType();
 

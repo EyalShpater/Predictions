@@ -36,4 +36,9 @@ public class PropertyInstanceImpl implements PropertyInstance {
     public PropertyDefinition getPropertyDefinition() {
         return propertyDefinition;
     }
+
+    @Override
+    public void updateValue(Object val) {
+        this.value = val;
+    }
 }

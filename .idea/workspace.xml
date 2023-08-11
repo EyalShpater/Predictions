@@ -4,18 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="27d35137-667f-4e37-a519-ab836acc0a06" name="Changes" comment="added DTO Dummy object, so we could act like we develop one to see what we need to develop">
+    <list default="true" id="27d35137-667f-4e37-a519-ab836acc0a06" name="Changes" comment="Fixed the EntityInstance problem">
+      <change afterPath="$PROJECT_DIR$/logic/src/action/expression/api/NewNumericValueGenerator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logic/src/action/expression/impl/NewNumericValueGeneratorImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DTO/src/SomeObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/DTO/src/temporary/SomeObject.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logic/logic.iml" beforeDir="false" afterPath="$PROJECT_DIR$/logic/logic.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logic/src/execution/simulation/api/PredictionsLogic.java" beforeDir="false" afterPath="$PROJECT_DIR$/logic/src/execution/simulation/api/PredictionsLogic.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logic/src/execution/simulation/api/Simulation.java" beforeDir="false" afterPath="$PROJECT_DIR$/logic/src/execution/simulation/api/Simulation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logic/src/execution/simulation/impl/PredictionsLogicImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/logic/src/execution/simulation/impl/PredictionsLogicImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logic/src/execution/simulation/impl/SimulationImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/logic/src/execution/simulation/impl/SimulationImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logic/src/execution/simulation/manager/SimulationManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/logic/src/execution/simulation/manager/SimulationManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logic/src/action/api/AbstractAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/logic/src/action/api/AbstractAction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logic/src/action/api/Action.java" beforeDir="false" afterPath="$PROJECT_DIR$/logic/src/action/api/Action.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logic/src/action/expression/impl/ExpressionFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/logic/src/action/expression/impl/ExpressionFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logic/src/action/impl/IncreaseAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/logic/src/action/impl/IncreaseAction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logic/src/instance/property/api/PropertyInstance.java" beforeDir="false" afterPath="$PROJECT_DIR$/logic/src/instance/property/api/PropertyInstance.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logic/src/instance/property/impl/PropertyInstanceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/logic/src/instance/property/impl/PropertyInstanceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/logic/src/rule/impl/RuleImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/logic/src/rule/impl/RuleImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ui/src/Main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/ui/src/Main/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui/ui.iml" beforeDir="false" afterPath="$PROJECT_DIR$/ui/ui.iml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,8 +31,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Enum" />
-        <option value="Interface" />
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -428,7 +428,14 @@
       <option name="project" value="LOCAL‎" />
       <updated>1691677690580</updated>
     </task>
-    <option name="localTasksCounter" value="34" />
+    <task id="LOCAL-00034" summary="Fixed the EntityInstance problem">
+      <created>1691746931845</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1691746931845</updated>
+    </task>
+    <option name="localTasksCounter" value="35" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -468,7 +475,8 @@
     <MESSAGE value="added access modifies" />
     <MESSAGE value="added DTO Dummy object so we could act like we develop one to see what we need to develop" />
     <MESSAGE value="added DTO Dummy object, so we could act like we develop one to see what we need to develop" />
-    <option name="LAST_COMMIT_MESSAGE" value="added DTO Dummy object, so we could act like we develop one to see what we need to develop" />
+    <MESSAGE value="Fixed the EntityInstance problem" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed the EntityInstance problem" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">

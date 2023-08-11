@@ -14,9 +14,15 @@ import instance.entity.manager.api.EntityInstanceManager;
 import instance.entity.manager.impl.EntityInstanceManagerImpl;
 import instance.property.api.PropertyInstance;
 import instance.property.impl.PropertyInstanceImpl;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
+
+import rule.api.Rule;
+import rule.impl.RuleImpl;
+import action.impl.IncreaseAction;
+import instance.entity.api.EntityInstance;
 
 public class Main {
     public static void main(String[] args) {
@@ -76,5 +82,66 @@ public class Main {
 //
 //        System.out.println(dto);
 
+  /*
+
+     THIS IS SHAVIT'S MAIN FUNCTION FOR CHECKING RULE AND ACTIONS
+        PropertyDefinition agePropertyDefinition = new PropertyDefinitionImpl("age", PropertyType.INT, true, new Range(10, 50));
+        PropertyDefinition smokingInDayPropertyDefinition = new PropertyDefinitionImpl("smokingInDay", PropertyType.DOUBLE, false,11.5 );
+
+        EntityDefinition smokerEntityDefinition = new EntityDefinitionImpl("smoker", 100);
+        smokerEntityDefinition.addProperty(agePropertyDefinition);
+        smokerEntityDefinition.addProperty(smokingInDayPropertyDefinition);
+
+        Rule rule1 = new RuleImpl("rule 1");
+        rule1.addAction(new IncreaseAction(smokerEntityDefinition, "age", "1"));
+        rule1.addAction(new IncreaseAction(smokerEntityDefinition, "smokingInDay", "3"));
+
+        EntityInstanceManager manager = new EntityInstanceManagerImpl();
+        for (int i = 1; i <= 3; i++) {
+            manager.create(smokerEntityDefinition);
+        }
+        EntityInstance entityInstance = manager.getInstances().get(0);
+
+        System.out.println("before the change the value of age is :"+entityInstance.getPropertyByName("age").getValue());
+        System.out.println("before the change the value of smokingInDay is :"+entityInstance.getPropertyByName("smokingInDay").getValue());
+        rule1.invoke(entityInstance);
+
+        System.out.println("After the change the value of age is :"+entityInstance.getPropertyByName("age").getValue());
+        System.out.println("After the change the value of smokingInDay is :"+entityInstance.getPropertyByName("smokingInDay").getValue());
+
+*/
+        /*
+          // definition phase - happens as part of file read and validity checks
+        IntegerPropertyDefinition agePropertyDefinition = new IntegerPropertyDefinition("age", ValueGeneratorFactory.createRandomInteger(10, 50));
+        IntegerPropertyDefinition smokingInDayPropertyDefinition = new IntegerPropertyDefinition("smokingInDay", ValueGeneratorFactory.createFixed(10));
+
+        EntityDefinition smokerEntityDefinition = new EntityDefinitionImpl("smoker", 100);
+        smokerEntityDefinition.getProps().add(agePropertyDefinition);
+        smokerEntityDefinition.getProps().add(smokingInDayPropertyDefinition);
+
+        // define rules by creating instances of actions
+        Rule rule1 = new RuleImpl("rule 1");
+        rule1.addAction(new IncreaseAction(smokerEntityDefinition, "age", "1"));
+        rule1.addAction(new IncreaseAction(smokerEntityDefinition, "smokingInDay", "3"));
+
+        // execution phase - happens upon command 3
+
+        // creating entity instance manager
+        EntityInstanceManager entityInstanceManager = new EntityInstanceManagerImpl();
+
+        // create 3 instance of the smokerEntityDefinition smoker
+        for (int i = 0; i < smokerEntityDefinition.getPopulation(); i++) {
+            entityInstanceManager.create(smokerEntityDefinition);
+        }
+
+        // given an instance...
+        EntityInstance entityInstance = entityInstanceManager.getInstances().get(0);
+
+        if (rule1.getActivation().isActive(1)) {
+            rule1
+                    .getActionsToPerform()
+                    .forEach(action ->
+                            action.invoke(entityInstance));
+        } */
     }
 }

@@ -8,4 +8,6 @@ public interface PropertyInstance {
     String getName();
 
     PropertyDefinition getPropertyDefinition();
+
+    void updateValue(Object val);
 }

@@ -5,6 +5,7 @@ import definition.entity.api.EntityDefinition;
 import rule.api.Activation;
 import rule.api.Rule;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import instance.entity.api.EntityInstance;
@@ -14,6 +15,11 @@ public class RuleImpl implements Rule {
     private String name;
     private List<Action> actions;
     private Activation activation;
+
+    public RuleImpl(String name) {
+        this.name = name;
+        actions = new ArrayList<>();
+    }
 
     @Override
     public String getName() {
@@ -27,7 +33,7 @@ public class RuleImpl implements Rule {
 
     @Override
     public void invoke(EntityInstance entity) {
-        actions.forEach(action -> invoke(entity));
+        actions.forEach(action -> action.invoke(entity));
     }
 
     @Override
@@ -38,6 +44,7 @@ public class RuleImpl implements Rule {
 
         actions.add(action);
     }
+
 
     @Override
     public String toString() {
