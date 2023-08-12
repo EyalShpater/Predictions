@@ -13,6 +13,8 @@ public class EntityInstanceImpl implements EntityInstance {
     private final String entityName;
     private Map<String, PropertyInstance> propNameToPropInstance;
 
+    private String firstName;//NOTE: For debugging
+
     public EntityInstanceImpl(EntityDefinition entity, int id) {
         entityName = entity.getName();
         propNameToPropInstance = createPropertyInstancesFromDefinition(entity);
@@ -40,5 +42,13 @@ public class EntityInstanceImpl implements EntityInstance {
     @Override
     public int getId() {
         return id;
+    }
+
+    public void setEntityFirstName(String name) {
+        this.firstName = name;
+    }
+
+    public String getEntityFirstName() {
+        return firstName;
     }
 }

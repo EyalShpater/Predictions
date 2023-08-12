@@ -4,17 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="27d35137-667f-4e37-a519-ab836acc0a06" name="Changes" comment="Fixed the EntityInstance problem">
-      <change afterPath="$PROJECT_DIR$/logic/src/action/expression/api/NewNumericValueGenerator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/logic/src/action/expression/impl/NewNumericValueGeneratorImpl.java" afterDir="false" />
+    <list default="true" id="27d35137-667f-4e37-a519-ab836acc0a06" name="Changes" comment="added deacreaseAction based on IncreaseAction logic&#10;added an abstract class for calcs">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logic/src/action/api/AbstractAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/logic/src/action/api/AbstractAction.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logic/src/action/api/Action.java" beforeDir="false" afterPath="$PROJECT_DIR$/logic/src/action/api/Action.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logic/src/action/expression/impl/ExpressionFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/logic/src/action/expression/impl/ExpressionFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logic/src/action/impl/IncreaseAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/logic/src/action/impl/IncreaseAction.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logic/src/instance/property/api/PropertyInstance.java" beforeDir="false" afterPath="$PROJECT_DIR$/logic/src/instance/property/api/PropertyInstance.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logic/src/instance/property/impl/PropertyInstanceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/logic/src/instance/property/impl/PropertyInstanceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logic/src/rule/impl/RuleImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/logic/src/rule/impl/RuleImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logic/src/instance/entity/api/EntityInstance.java" beforeDir="false" afterPath="$PROJECT_DIR$/logic/src/instance/entity/api/EntityInstance.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logic/src/instance/entity/impl/EntityInstanceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/logic/src/instance/entity/impl/EntityInstanceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ui/src/Main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/ui/src/Main/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -31,13 +24,14 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Enum" />
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RESET_MODE" value="HARD" />
   </component>
   <component name="GitHubPullRequestSearchHistory">{
   &quot;lastFilter&quot;: {
@@ -435,7 +429,21 @@
       <option name="project" value="LOCAL" />
       <updated>1691746931845</updated>
     </task>
-    <option name="localTasksCounter" value="35" />
+    <task id="LOCAL-00035" summary="added deacreaseAction based on IncreaseAction logic&#10;added an abstract class for calcs">
+      <created>1691824938625</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1691824938625</updated>
+    </task>
+    <task id="LOCAL-00036" summary="added deacreaseAction based on IncreaseAction logic&#10;added an abstract class for calcs">
+      <created>1691825085908</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1691825085908</updated>
+    </task>
+    <option name="localTasksCounter" value="37" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -476,7 +484,8 @@
     <MESSAGE value="added DTO Dummy object so we could act like we develop one to see what we need to develop" />
     <MESSAGE value="added DTO Dummy object, so we could act like we develop one to see what we need to develop" />
     <MESSAGE value="Fixed the EntityInstance problem" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed the EntityInstance problem" />
+    <MESSAGE value="added deacreaseAction based on IncreaseAction logic&#10;added an abstract class for calcs" />
+    <option name="LAST_COMMIT_MESSAGE" value="added deacreaseAction based on IncreaseAction logic&#10;added an abstract class for calcs" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
@@ -487,6 +496,10 @@
           <line>25</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.lang.NullPointerException" package="java.lang" />
+          <option name="timeStamp" value="3" />
+        </breakpoint>
       </breakpoints>
     </breakpoint-manager>
     <pin-to-top-manager>
