@@ -87,23 +87,25 @@ public class Main {
 //                .collect(Collectors.toList());
 //
 //        System.out.println(dto);
-
   /*
 
      THIS IS SHAVIT'S MAIN FUNCTION FOR CHECKING RULE AND ACTIONS
         PropertyDefinition agePropertyDefinition = new PropertyDefinitionImpl("age", PropertyType.INT, true, new Range(10, 50));
         PropertyDefinition smokingInDayPropertyDefinition = new PropertyDefinitionImpl("smokingInDay", PropertyType.DOUBLE, false,11.5 );
         PropertyDefinition cancerPrecentage = new PropertyDefinitionImpl("cancerPrecentage", PropertyType.DOUBLE, true, new Range(0, 100) );
+        PropertyDefinition cancerAdvanement = new PropertyDefinitionImpl("cancerAdvancement", PropertyType.DOUBLE, true, new Range(0, 150) );
 
         EntityDefinition smokerEntityDefinition = new EntityDefinitionImpl("smoker", 100);
         smokerEntityDefinition.addProperty(agePropertyDefinition);
         smokerEntityDefinition.addProperty(smokingInDayPropertyDefinition);
         smokerEntityDefinition.addProperty(cancerPrecentage);
+        smokerEntityDefinition.addProperty(cancerAdvanement);
 
         Rule rule1 = new RuleImpl("rule 1");
         rule1.addAction(new IncreaseAction(smokerEntityDefinition, "age", "1"));
         rule1.addAction(new IncreaseAction(smokerEntityDefinition, "smokingInDay", "3"));
         rule1.addAction(new decreaseAction(smokerEntityDefinition, "cancerPrecentage", "5"));
+        rule1.addAction(new IncreaseAction(smokerEntityDefinition, "cancerAdvancement", "cancerPrecentage"));
 
         EnvironmentVariableManager envVariablesManager = new EnvironmentVariableManagerImpl();
         EntityInstanceManager manager = new EntityInstanceManagerImpl();
@@ -126,11 +128,13 @@ public class Main {
                     System.out.println("before the change the value of age is :"+instance.getPropertyByName("age").getValue());
                     System.out.println("before the change the value of smokingInDay is :"+instance.getPropertyByName("smokingInDay").getValue());
                     System.out.println("before the change the value of cancerP is :"+instance.getPropertyByName("cancerPrecentage").getValue());
+                    System.out.println("before the change the value of cancerAdvancement is :"+instance.getPropertyByName("cancerAdvancement").getValue());
                     rule1.invoke(context);
                     System.out.println("----------------------------------------------");
                     System.out.println("after the change the value of age is :"+instance.getPropertyByName("age").getValue());
                     System.out.println("after the change the value of smokingInDay is :"+instance.getPropertyByName("smokingInDay").getValue());
                     System.out.println("after the change the value of cancerP is :"+instance.getPropertyByName("cancerPrecentage").getValue());
+                    System.out.println("after the change the value of cancerAdvancement is :"+instance.getPropertyByName("cancerAdvancement").getValue());
                     System.out.println("----------------------------------------------------------------------------------------------");
 
                 });
