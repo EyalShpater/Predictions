@@ -1,10 +1,15 @@
 package action.helper.function.api;
 
-import action.helper.function.context.api.HelperFunctionContext;
+import execution.context.api.Context;
 
 public abstract class AbstractHelperFunction implements HelperFunctionValueGenerator {
 
+    HelperFunctionType type;
+
+    public AbstractHelperFunction(HelperFunctionType type) {
+        this.type = type;
+    }
 
     @Override
-    public abstract Object getValueFromHelperFunction(HelperFunctionContext context);
+    public abstract Object getValueFromHelperFunction(Context context);
 }

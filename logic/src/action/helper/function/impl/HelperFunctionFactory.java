@@ -6,20 +6,27 @@ import action.expression.impl.ValueExpression;
 import action.helper.function.api.AbstractHelperFunction;
 import action.helper.function.api.HelperFunctionType;
 import action.helper.function.api.HelperFunctionValueGenerator;
-import action.helper.function.context.api.HelperFunctionContext;
+import execution.context.api.Context;
 
 public class HelperFunctionFactory implements HelperFunctionValueGenerator {
     @Override
-    public Object getValueFromHelperFunction(HelperFunctionContext context) {
-        AbstractHelperFunction helperFunction = convert(context.getTheStringValue());
+    public Object getValueFromHelperFunction(Context context) {
+        AbstractHelperFunction helperFunction = convert(context);
+
         return helperFunction.getValueFromHelperFunction(context);
     }
 
-    public AbstractHelperFunction convert(String theStringValue) {
+    public AbstractHelperFunction convert(Context context) {
+        //TODO: First thing in the morning to change the setExpression
+        String theStringValue = context.getExpressionStringValue();
         if (theStringValue.startsWith("environment")) {
-            return new EnvironmentHelperFunction();
+            String extractedValue = theStringValue.substring(12, theStringValue.length() - 1);
+            context.setExpression(extractedValue);
+            return new EnvironmentHelperFunction(HelperFunctionType.ENVIRONMENT);
         } else if (theStringValue.startsWith("random")) {
-            return new RandomHelperFunction();
+            String extractedValue = theStringValue.substring(7, theStringValue.length() - 1);
+            context.setExpression(extractedValue);
+            return new RandomHelperFunction(HelperFunctionType.RANDOM);
         } else {
             throw new IllegalArgumentException("Unsported function");
         }

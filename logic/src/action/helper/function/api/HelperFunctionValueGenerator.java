@@ -1,8 +1,8 @@
 package action.helper.function.api;
 
-import action.helper.function.context.api.HelperFunctionContext;
+import execution.context.api.Context;
 
 public interface HelperFunctionValueGenerator {
 
-    Object getValueFromHelperFunction(HelperFunctionContext context);
+    Object getValueFromHelperFunction(Context context);
 }

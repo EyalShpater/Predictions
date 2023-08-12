@@ -3,6 +3,7 @@ package action.expression.impl;
 import action.expression.api.AbstractExpression;
 import action.expression.api.Expression;
 import action.expression.api.ExpressionTypeConverter;
+import execution.context.api.Context;
 import instance.entity.api.EntityInstance;
 
 public class ExpressionFactory implements Expression {
@@ -15,9 +16,10 @@ public class ExpressionFactory implements Expression {
     }
 
     @Override
-    public Object getValue() {
+    public Object getValue(Context context) {
         ExpressionTypeConverter converter = new ExpressionTypeConverterImpl();
         AbstractExpression expressionInstance = converter.convert(expression, entityInstance);
-        return expressionInstance.getValue();
+        return expressionInstance.getValue(context);
     }
+
 }

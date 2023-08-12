@@ -35,9 +35,14 @@ public class IncreaseAction extends AbstractAction {
         //create a new expression factory to generate the expression we need
         Expression theExpression = new ExpressionFactory(byExpression, invokeOnMe);
 
+        //TODO: Ask eyal about get method (theExpression.getValue()) getting a HelperFunctionContext variable
+        //TODO: because we need to iterate the environment variables in the EnvironmentHelperFunction
+        //TODO: the risk is that it gets a lot of data that it does not need , but i do not see another way to solve it
+        //TODO: because even if i want to give it the activeEnvironment i cant , there is no get method on context
         //generate the updated value from the expression
+        context.setExpression(byExpression);
         NewNumericValueGenerator valueGeneratorForTheProperty = new NewIncreaseNumericValueGeneratorImpl();
-        Object newValue = valueGeneratorForTheProperty.calcUpdatedValue(theExpression.getValue(), theProperty.getValue());
+        Object newValue = valueGeneratorForTheProperty.calcUpdatedValue(theExpression.getValue(context), theProperty.getValue());
 
         //set the property for the entity
         invokeOnMe.getPropertyByName(propertyName).updateValue(newValue);

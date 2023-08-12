@@ -1,6 +1,7 @@
 package action.expression.impl;
 
 import action.expression.api.AbstractExpression;
+import execution.context.api.Context;
 import instance.entity.api.EntityInstance;
 
 
@@ -15,7 +16,7 @@ public class ValueExpression extends AbstractExpression {
     }
 
     @Override
-    public Object getValue() {
+    public Object getValue(Context context) {
         Object value = expression;
 
         if (isBoolean()) {
@@ -38,4 +39,5 @@ public class ValueExpression extends AbstractExpression {
     private boolean isBoolean() {
         return expression.equals("true") || expression.equals("false");
     }
+
 }

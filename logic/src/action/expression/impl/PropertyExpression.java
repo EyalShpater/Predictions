@@ -1,6 +1,7 @@
 package action.expression.impl;
 
 import action.expression.api.AbstractExpression;
+import execution.context.api.Context;
 import instance.entity.api.EntityInstance;
 
 
@@ -15,7 +16,7 @@ public class PropertyExpression extends AbstractExpression {
     }
 
     @Override
-    public Object getValue() {
+    public Object getValue(Context context) {
         return entityInstance.getPropertyByName(expression).getValue();
     }
 }

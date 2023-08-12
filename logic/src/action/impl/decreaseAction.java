@@ -38,7 +38,7 @@ public class decreaseAction extends AbstractAction {
 
         //generate the updated value from the expression
         NewNumericValueGenerator valueGeneratorForTheProperty = new NewdecreaseNumericValueGeneratorImpl();
-        Object newValue = valueGeneratorForTheProperty.calcUpdatedValue(theExpression.getValue(), theProperty.getValue());
+        Object newValue = valueGeneratorForTheProperty.calcUpdatedValue(theExpression.getValue(context), theProperty.getValue());
 
         //set the property for the entity
         invokeOnMe.getPropertyByName(propertyName).updateValue(newValue);

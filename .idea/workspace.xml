@@ -4,17 +4,36 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="27d35137-667f-4e37-a519-ab836acc0a06" name="Changes" comment="Updated the main to check for ProperyExpression">
-      <change afterPath="$PROJECT_DIR$/logic/src/action/helper/function/api/AbstractHelperFunction.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/logic/src/action/helper/function/api/HelperFunctionValueGenerator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/logic/src/action/helper/function/context/api/HelperFunctionContext.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/logic/src/action/helper/function/context/impl/HelperFunctionContextImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/logic/src/action/helper/function/impl/EnvironmentHelperFunction.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/logic/src/action/helper/function/impl/HelperFunctionFactory.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/logic/src/action/helper/function/impl/RandomHelperFunction.java" afterDir="false" />
+    <list default="true" id="27d35137-667f-4e37-a519-ab836acc0a06" name="Changes" comment="created a factory for HelperFunctions from here on need to ask eyal">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logic/src/action/expression/api/Expression.java" beforeDir="false" afterPath="$PROJECT_DIR$/logic/src/action/expression/api/Expression.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logic/src/action/expression/impl/ExpressionFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/logic/src/action/expression/impl/ExpressionFactory.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/logic/src/action/expression/impl/FunctionExpression.java" beforeDir="false" afterPath="$PROJECT_DIR$/logic/src/action/expression/impl/FunctionExpression.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logic/src/action/expression/impl/PropertyExpression.java" beforeDir="false" afterPath="$PROJECT_DIR$/logic/src/action/expression/impl/PropertyExpression.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logic/src/action/expression/impl/ValueExpression.java" beforeDir="false" afterPath="$PROJECT_DIR$/logic/src/action/expression/impl/ValueExpression.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logic/src/action/helper/function/api/AbstractHelperFunction.java" beforeDir="false" afterPath="$PROJECT_DIR$/logic/src/action/helper/function/api/AbstractHelperFunction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logic/src/action/helper/function/api/HelperFunctionValueGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/logic/src/action/helper/function/api/HelperFunctionValueGenerator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logic/src/action/helper/function/context/api/HelperFunctionContext.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/logic/src/action/helper/function/context/impl/HelperFunctionContextImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/logic/src/action/helper/function/impl/EnvironmentHelperFunction.java" beforeDir="false" afterPath="$PROJECT_DIR$/logic/src/action/helper/function/impl/EnvironmentHelperFunction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logic/src/action/helper/function/impl/HelperFunctionFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/logic/src/action/helper/function/impl/HelperFunctionFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logic/src/action/helper/function/impl/RandomHelperFunction.java" beforeDir="false" afterPath="$PROJECT_DIR$/logic/src/action/helper/function/impl/RandomHelperFunction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logic/src/action/impl/IncreaseAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/logic/src/action/impl/IncreaseAction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logic/src/action/impl/decreaseAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/logic/src/action/impl/decreaseAction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logic/src/execution/context/api/Context.java" beforeDir="false" afterPath="$PROJECT_DIR$/logic/src/execution/context/api/Context.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logic/src/execution/context/impl/ContextImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/logic/src/execution/context/impl/ContextImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/logic/action/expression/api/Expression.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/logic/action/expression/api/Expression.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/logic/action/expression/impl/ExpressionFactory.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/logic/action/expression/impl/ExpressionFactory.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/logic/action/expression/impl/FunctionExpression.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/logic/action/expression/impl/FunctionExpression.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/logic/action/expression/impl/PropertyExpression.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/logic/action/expression/impl/PropertyExpression.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/logic/action/expression/impl/ValueExpression.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/logic/action/expression/impl/ValueExpression.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/logic/action/helper/function/api/HelperFunctionValueGenerator.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/logic/action/helper/function/api/HelperFunctionValueGenerator.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/logic/action/helper/function/context/api/HelperFunctionContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/logic/action/helper/function/impl/HelperFunctionFactory.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/logic/action/helper/function/impl/HelperFunctionFactory.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/logic/action/impl/IncreaseAction.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/logic/action/impl/IncreaseAction.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/logic/action/impl/decreaseAction.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/logic/action/impl/decreaseAction.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/logic/execution/context/api/Context.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/logic/execution/context/api/Context.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/logic/execution/context/impl/ContextImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/logic/execution/context/impl/ContextImpl.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/ui/Main/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ui/Main/Main.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ui/src/Main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/ui/src/Main/Main.java" afterDir="false" />
     </list>
@@ -465,7 +484,28 @@
       <option name="project" value="LOCAL" />
       <updated>1691834018427</updated>
     </task>
-    <option name="localTasksCounter" value="39" />
+    <task id="LOCAL-00039" summary="created a factory for HelperFunctions from here on need to ask eyal">
+      <created>1691848032025</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1691848032025</updated>
+    </task>
+    <task id="LOCAL-00040" summary="created a factory for HelperFunctions from here on need to ask eyal">
+      <created>1691848060542</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1691848060542</updated>
+    </task>
+    <task id="LOCAL-00041" summary="created a factory for HelperFunctions from here on need to ask eyal">
+      <created>1691848157296</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1691848157296</updated>
+    </task>
+    <option name="localTasksCounter" value="42" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -484,7 +524,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="init" />
     <MESSAGE value="added classes" />
     <MESSAGE value="with project settings" />
     <MESSAGE value="a little nit tString implementations and main test" />
@@ -509,7 +548,8 @@
     <MESSAGE value="added deacreaseAction based on IncreaseAction logic&#10;added an abstract class for calcs" />
     <MESSAGE value="Updated the main to fit context change" />
     <MESSAGE value="Updated the main to check for ProperyExpression" />
-    <option name="LAST_COMMIT_MESSAGE" value="Updated the main to check for ProperyExpression" />
+    <MESSAGE value="created a factory for HelperFunctions from here on need to ask eyal" />
+    <option name="LAST_COMMIT_MESSAGE" value="created a factory for HelperFunctions from here on need to ask eyal" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
@@ -520,9 +560,28 @@
           <line>25</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/logic/src/action/impl/IncreaseAction.java</url>
+          <line>44</line>
+          <option name="timeStamp" value="9" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/logic/src/action/impl/IncreaseAction.java</url>
+          <line>35</line>
+          <option name="timeStamp" value="10" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/logic/src/action/expression/impl/FunctionExpression.java</url>
+          <line>22</line>
+          <option name="timeStamp" value="11" />
+        </line-breakpoint>
         <breakpoint enabled="true" type="java-exception">
           <properties class="java.lang.NullPointerException" package="java.lang" />
           <option name="timeStamp" value="3" />
+        </breakpoint>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.lang.IllegalArgumentException" package="java.lang" />
+          <option name="timeStamp" value="8" />
         </breakpoint>
       </breakpoints>
     </breakpoint-manager>

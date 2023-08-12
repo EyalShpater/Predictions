@@ -1,10 +1,12 @@
 package action.expression.api;
 
+import execution.context.api.Context;
 import instance.entity.api.EntityInstance;
 
 public interface Expression {
     //ExpressionType getType();
-    Object getValue();
+    Object getValue(Context context);
+
     //EntityInstance getPrimaryEntity();
 
     //    void DecipherExpression();
