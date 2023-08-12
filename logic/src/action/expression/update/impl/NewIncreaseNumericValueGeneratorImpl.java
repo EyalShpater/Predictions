@@ -1,8 +1,9 @@
-package action.expression.impl;
+package action.expression.update.impl;
 
-import action.expression.api.*;
+import action.expression.update.api.AbstractNewNumericValueGenerator;
+import action.expression.update.api.NewNumericValueGenerator;
 
-public class NewNumericValueGeneratorImpl implements NewNumericValueGenerator {
+public class NewIncreaseNumericValueGeneratorImpl extends AbstractNewNumericValueGenerator implements NewNumericValueGenerator {
     @Override
     public Object calcUpdatedValue(Object expressionToConvert, Object propertyValue) {
         //TODO: Need to add a property range check

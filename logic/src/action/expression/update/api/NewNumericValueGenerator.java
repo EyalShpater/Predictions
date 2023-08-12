@@ -1,4 +1,4 @@
-package action.expression.api;
+package action.expression.update.api;
 
 public interface NewNumericValueGenerator {
 

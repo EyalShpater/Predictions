@@ -2,22 +2,23 @@ package action.impl;
 
 import action.api.AbstractAction;
 import action.api.ActionType;
-import definition.entity.api.EntityDefinition;
 import action.expression.api.Expression;
-import action.expression.update.api.NewNumericValueGenerator;
 import action.expression.impl.ExpressionFactory;
+import action.expression.update.api.NewNumericValueGenerator;
 import action.expression.update.impl.NewIncreaseNumericValueGeneratorImpl;
+import action.expression.update.impl.NewdecreaseNumericValueGeneratorImpl;
+import definition.entity.api.EntityDefinition;
 import definition.property.api.PropertyDefinition;
 import definition.property.api.PropertyType;
 import execution.context.api.Context;
 import instance.entity.api.EntityInstance;
 import instance.property.api.PropertyInstance;
 
-public class IncreaseAction extends AbstractAction {
+public class decreaseAction extends AbstractAction {
     private final String propertyName;
     private final String byExpression; //Expression instead of String?
 
-    public IncreaseAction(EntityDefinition entity, String propertyName, String byExpression) {
+    public decreaseAction(EntityDefinition entity, String propertyName, String byExpression) {
         super(entity, ActionType.INCREASE);
         this.propertyName = propertyName;
         this.byExpression = byExpression;
@@ -36,7 +37,7 @@ public class IncreaseAction extends AbstractAction {
         Expression theExpression = new ExpressionFactory(byExpression, invokeOnMe);
 
         //generate the updated value from the expression
-        NewNumericValueGenerator valueGeneratorForTheProperty = new NewIncreaseNumericValueGeneratorImpl();
+        NewNumericValueGenerator valueGeneratorForTheProperty = new NewdecreaseNumericValueGeneratorImpl();
         Object newValue = valueGeneratorForTheProperty.calcUpdatedValue(theExpression.getValue(), theProperty.getValue());
 
         //set the property for the entity
@@ -56,4 +57,3 @@ public class IncreaseAction extends AbstractAction {
         return PropertyDefinitionToCheck.getType().equals(PropertyType.DOUBLE);
     }
 }
-
