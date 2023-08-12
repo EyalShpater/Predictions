@@ -139,6 +139,20 @@ public class Main {
 
                 });
 */
+        String inputString = "environment(4)"; // Replace this with your input string
+        String extractedValue = "";
+
+        if (inputString.startsWith("environment")) {
+            extractedValue = inputString.substring(12, inputString.length() - 1);
+        } else if (inputString.startsWith("random")) {
+            extractedValue = inputString.substring(7, inputString.length() - 1);
+        }
+
+        if (!extractedValue.isEmpty()) {
+            System.out.println("Extracted value: " + extractedValue);
+        } else {
+            System.out.println("No value extracted.");
+        }
     }
 
 }
