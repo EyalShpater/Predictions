@@ -7,6 +7,8 @@ public interface Expression {
     //ExpressionType getType();
     Object getValue(Context context);
 
+    String getExpressionString();
+
     //EntityInstance getPrimaryEntity();
 
     //    void DecipherExpression();

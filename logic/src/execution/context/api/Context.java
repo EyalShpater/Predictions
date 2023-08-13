@@ -13,6 +13,10 @@ public interface Context {
 
     String getExpressionStringValue();
 
-    void setExpression(String value);
+    void setExpressionStringValue(String value);
+
+    Expression getExpression();
+
+    void setExpression(Expression expression);
 
 }

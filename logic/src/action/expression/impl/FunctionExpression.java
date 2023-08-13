@@ -24,4 +24,9 @@ public class FunctionExpression extends AbstractExpression {
         return valueGenerator.getValueFromHelperFunction(context);
     }
 
+    @Override
+    public String getExpressionString() {
+        return expression;
+    }
+
 }

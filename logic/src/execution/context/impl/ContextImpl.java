@@ -11,6 +11,7 @@ public class ContextImpl implements Context {
     private EntityInstance primaryEntityInstance;
     private EntityInstanceManager entityInstanceManager;
     private ActiveEnvironment activeEnvironment;
+    private Expression expression;
     private String expressionStringValue = "";
 
     public ContextImpl(EntityInstance primaryEntityInstance, EntityInstanceManager entityInstanceManager, ActiveEnvironment activeEnvironment) {
@@ -40,8 +41,18 @@ public class ContextImpl implements Context {
     }
 
     @Override
-    public void setExpression(String value) {
+    public void setExpressionStringValue(String value) {
         this.expressionStringValue = value;
+    }
+
+    @Override
+    public Expression getExpression() {
+        return this.expression;
+    }
+
+    @Override
+    public void setExpression(Expression expression) {
+        this.expression = expression;
     }
 
 }

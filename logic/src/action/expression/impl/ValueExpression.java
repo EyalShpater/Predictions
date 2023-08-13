@@ -40,4 +40,8 @@ public class ValueExpression extends AbstractExpression {
         return expression.equals("true") || expression.equals("false");
     }
 
+    @Override
+    public String getExpressionString() {
+        return expression;
+    }
 }

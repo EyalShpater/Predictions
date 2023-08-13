@@ -19,4 +19,9 @@ public class PropertyExpression extends AbstractExpression {
     public Object getValue(Context context) {
         return entityInstance.getPropertyByName(expression).getValue();
     }
+
+    @Override
+    public String getExpressionString() {
+        return expression;
+    }
 }

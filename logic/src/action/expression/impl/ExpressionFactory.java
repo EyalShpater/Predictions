@@ -22,4 +22,9 @@ public class ExpressionFactory implements Expression {
         return expressionInstance.getValue(context);
     }
 
+    @Override
+    public String getExpressionString() {
+        return expression;
+    }
+
 }

@@ -40,7 +40,7 @@ public class IncreaseAction extends AbstractAction {
         //TODO: the risk is that it gets a lot of data that it does not need , but i do not see another way to solve it
         //TODO: because even if i want to give it the activeEnvironment i cant , there is no get method on context
         //generate the updated value from the expression
-        context.setExpression(byExpression);
+        context.setExpression(theExpression);
         NewNumericValueGenerator valueGeneratorForTheProperty = new NewIncreaseNumericValueGeneratorImpl();
         Object newValue = valueGeneratorForTheProperty.calcUpdatedValue(theExpression.getValue(context), theProperty.getValue());
 

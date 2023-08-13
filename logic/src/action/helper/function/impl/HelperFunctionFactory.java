@@ -12,20 +12,19 @@ public class HelperFunctionFactory implements HelperFunctionValueGenerator {
     @Override
     public Object getValueFromHelperFunction(Context context) {
         AbstractHelperFunction helperFunction = convert(context);
-
         return helperFunction.getValueFromHelperFunction(context);
     }
 
     public AbstractHelperFunction convert(Context context) {
         //TODO: First thing in the morning to change the setExpression
-        String theStringValue = context.getExpressionStringValue();
+        String theStringValue = context.getExpression().getExpressionString();
         if (theStringValue.startsWith("environment")) {
             String extractedValue = theStringValue.substring(12, theStringValue.length() - 1);
-            context.setExpression(extractedValue);
+            context.setExpressionStringValue(extractedValue);
             return new EnvironmentHelperFunction(HelperFunctionType.ENVIRONMENT);
         } else if (theStringValue.startsWith("random")) {
             String extractedValue = theStringValue.substring(7, theStringValue.length() - 1);
-            context.setExpression(extractedValue);
+            context.setExpressionStringValue(extractedValue);
             return new RandomHelperFunction(HelperFunctionType.RANDOM);
         } else {
             throw new IllegalArgumentException("Unsported function");
