@@ -1,6 +1,6 @@
 package Main;
 
-import action.impl.decreaseAction;
+import action.impl.DecreaseAction;
 import api.DTO;
 import definition.entity.api.EntityDefinition;
 import definition.entity.impl.EntityDefinitionImpl;
@@ -57,12 +57,12 @@ public class Main {
 //            System.out.println(manager.getInstances().get(i).getPropertyByName("age").getValue());
 //        }
 
-        PredictionsLogic system = new PredictionsLogicImpl();
-        system.loadXML("bla bla bla");
-        List<DTO> values = system.getEnvironmentVariablesToSet();
-        system.setEnvironmentVariablesValues(values);
-        system.runNewSimulation();
-        system.getSimulationDetails();
+//        PredictionsLogic system = new PredictionsLogicImpl();
+//        system.loadXML("bla bla bla");
+//        List<DTO> values = system.getEnvironmentVariablesToSet();
+//        system.setEnvironmentVariablesValues(values);
+//        system.runNewSimulation();
+//        system.getSimulationDetails();
 //
 //        PropertyDefinition p1 = new PropertyDefinitionImpl("name", PropertyType.STRING, false, "Avi");
 //        PropertyDefinition p2 = new PropertyDefinitionImpl("age", PropertyType.INT, true, new Range(10, 50));
@@ -153,7 +153,7 @@ public class Main {
         Rule rule1 = new RuleImpl("rule 1");
         rule1.addAction(new IncreaseAction(smokerEntityDefinition, "age", "random(4)"));
         rule1.addAction(new IncreaseAction(smokerEntityDefinition, "smokingInDay", "3"));
-        rule1.addAction(new decreaseAction(smokerEntityDefinition, "cancerPrecentage", "5"));
+        rule1.addAction(new DecreaseAction(smokerEntityDefinition, "cancerPrecentage", "5"));
         rule1.addAction(new IncreaseAction(smokerEntityDefinition, "cancerAdvancement", "environment(tax-amount)"));
 
         EnvironmentVariableManager envVariablesManager = new EnvironmentVariableManagerImpl();

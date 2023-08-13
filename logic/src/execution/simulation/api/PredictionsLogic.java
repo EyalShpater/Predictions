@@ -13,7 +13,7 @@ public interface PredictionsLogic {
 
     DTO getSimulationDetails();
 
-    DTO runNewSimulation();
+    DTO runNewSimulation(DTO environmentVariables);
 
     Collection<DTO> getAllPreviousSimulationData();
 }

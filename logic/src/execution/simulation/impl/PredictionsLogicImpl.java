@@ -1,11 +1,10 @@
 package execution.simulation.impl;
 
 import api.DTO;
-import execution.simulation.api.Data;
 import execution.simulation.api.PredictionsLogic;
 import execution.simulation.manager.SimulationManager;
-import execution.world.api.World;
-import execution.world.impl.WorldImpl;
+import definition.world.api.World;
+import definition.world.impl.WorldImpl;
 import java.util.List;
 
 public class PredictionsLogicImpl implements PredictionsLogic {
@@ -38,8 +37,8 @@ public class PredictionsLogicImpl implements PredictionsLogic {
     }
 
     @Override
-    public DTO runNewSimulation() {
-        return allSimulations.runNewSimulation(world);
+    public DTO runNewSimulation(DTO environmentVariables) {
+        return allSimulations.runNewSimulation(world, environmentVariables);
     }
 
     @Override

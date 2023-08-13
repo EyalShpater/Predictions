@@ -3,7 +3,7 @@ package execution.simulation.manager;
 import api.DTO;
 import execution.simulation.api.Simulation;
 import execution.simulation.impl.SimulationImpl;
-import execution.world.api.World;
+import definition.world.api.World;
 import java.util.*;
 
 public class SimulationManager {
@@ -15,11 +15,11 @@ public class SimulationManager {
         simulations = new HashMap<>();
     }
 
-    public DTO runNewSimulation(World world) {
+    public DTO runNewSimulation(World world, DTO environmentVariables) {
         Simulation simulation = new SimulationImpl(world, serialNumber);
         DTO simulationResult;
 
-        simulationResult = simulation.run();
+        simulationResult = simulation.run(environmentVariables);
         simulations.put(serialNumber, simulation);
         serialNumber++;
 

@@ -4,7 +4,110 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="27d35137-667f-4e37-a519-ab836acc0a06" name="Changes" comment="changed the context and expression to contain the expression and the string value of it , added getters and setters for it to work , dogma: &#10;- expression = &quot;environment(e1)&quot;&#10;- expressionStringValue = e1" />
+    <list default="true" id="27d35137-667f-4e37-a519-ab836acc0a06" name="Changes" comment="small compilation error fix">
+      <change afterPath="$PROJECT_DIR$/logic/src/action/impl/DecreaseAction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logic/src/action/impl/decreaseAction.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/logic/src/definition/environment/api/EnvironmentVariableManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/logic/src/definition/environment/api/EnvironmentVariableManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logic/src/definition/environment/impl/EnvironmentVariableManagerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/logic/src/definition/environment/impl/EnvironmentVariableManagerImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logic/src/execution/simulation/api/Simulation.java" beforeDir="false" afterPath="$PROJECT_DIR$/logic/src/execution/simulation/api/Simulation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logic/src/execution/simulation/api/Termination.java" beforeDir="false" afterPath="$PROJECT_DIR$/logic/src/execution/simulation/termination/api/Termination.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logic/src/execution/simulation/impl/PredictionsLogicImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/logic/src/execution/simulation/impl/PredictionsLogicImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logic/src/execution/simulation/impl/SimulationImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/logic/src/execution/simulation/impl/SimulationImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logic/src/execution/simulation/impl/TerminationImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/logic/src/execution/simulation/termination/impl/TerminationImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logic/src/execution/simulation/manager/SimulationManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/logic/src/execution/simulation/manager/SimulationManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logic/src/execution/world/api/World.java" beforeDir="false" afterPath="$PROJECT_DIR$/logic/src/definition/world/api/World.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logic/src/execution/world/impl/WorldImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/logic/src/definition/world/impl/WorldImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/DTO/api/DTO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/DTO/environment/variable/EnvironmentVariableDTO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/logic/action/api/AbstractAction.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/logic/action/api/Action.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/logic/action/api/ActionType.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/logic/action/expression/api/AbstractExpression.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/logic/action/expression/api/Expression.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/logic/action/expression/api/ExpressionTypeConverter.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/logic/action/expression/impl/ExpressionFactory.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/logic/action/expression/impl/ExpressionTypeConverterImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/logic/action/expression/impl/FunctionExpression.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/logic/action/expression/impl/PropertyExpression.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/logic/action/expression/impl/ValueExpression.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/logic/action/expression/update/api/AbstractNewNumericValueGenerator.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/logic/action/expression/update/api/NewNumericValueGenerator.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/logic/action/expression/update/impl/NewIncreaseNumericValueGeneratorImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/logic/action/expression/update/impl/NewdecreaseNumericValueGeneratorImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/logic/action/helper/function/api/HelperFunctionType.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/logic/action/helper/function/api/HelperFunctionValueGenerator.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/logic/action/helper/function/impl/HelperFunctionFactory.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/logic/action/impl/IncreaseAction.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/logic/action/impl/decreaseAction.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/logic/definition/entity/api/EntityDefinition.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/logic/definition/entity/impl/EntityDefinitionImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/logic/definition/environment/api/EnvironmentVariableManager.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/logic/definition/environment/impl/EnvironmentVariableManagerImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/logic/definition/property/api/PropertyDefinition.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/logic/definition/property/api/PropertyType.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/logic/definition/property/api/Range.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/logic/definition/property/impl/PropertyDefinitionImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/logic/execution/context/api/Context.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/logic/execution/context/impl/ContextImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/logic/execution/simulation/api/Data.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/logic/execution/simulation/api/PredictionsLogic.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/logic/execution/simulation/api/Simulation.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/logic/execution/simulation/api/Termination.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/logic/execution/simulation/impl/PredictionsLogicImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/logic/execution/simulation/impl/SimulationImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/logic/execution/simulation/impl/TerminationImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/logic/execution/simulation/manager/SimulationManager.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/logic/execution/world/api/World.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/logic/execution/world/impl/WorldImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/logic/instance/entity/api/EntityInstance.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/logic/instance/entity/impl/EntityInstanceImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/logic/instance/entity/manager/api/EntityInstanceManager.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/logic/instance/entity/manager/impl/EntityInstanceManagerImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/logic/instance/enviornment/api/ActiveEnvironment.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/logic/instance/enviornment/impl/ActiveEnvironmentImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/logic/instance/property/api/PropertyInstance.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/logic/instance/property/impl/PropertyInstanceImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/logic/instance/property/value/generator/RandomValueGenerator$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/logic/instance/property/value/generator/RandomValueGenerator.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/logic/resources/ex1-cigarets.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/logic/resources/ex1-error-2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/logic/resources/ex1-error-4.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/logic/resources/ex1-error-6.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/logic/resources/generated/ObjectFactory.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/logic/resources/generated/PRDAction.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/logic/resources/generated/PRDActions.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/logic/resources/generated/PRDActivation.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/logic/resources/generated/PRDBySecond.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/logic/resources/generated/PRDByTicks.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/logic/resources/generated/PRDCondition.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/logic/resources/generated/PRDDivide.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/logic/resources/generated/PRDElse.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/logic/resources/generated/PRDEntities.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/logic/resources/generated/PRDEntity.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/logic/resources/generated/PRDEnvProperty.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/logic/resources/generated/PRDEvironment.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/logic/resources/generated/PRDMultiply.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/logic/resources/generated/PRDProperties.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/logic/resources/generated/PRDProperty.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/logic/resources/generated/PRDRange.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/logic/resources/generated/PRDRule.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/logic/resources/generated/PRDRules.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/logic/resources/generated/PRDTermination.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/logic/resources/generated/PRDThen.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/logic/resources/generated/PRDValue.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/logic/resources/generated/PRDWorld.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/logic/resources/master-ex1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/logic/resources/predictions-v1.xsd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/logic/rule/api/Activation.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/logic/rule/api/Rule.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/logic/rule/impl/ActivationImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/logic/rule/impl/RuleImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ui/Main/Main.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ui/menu/item/impl/logic/menuLogic.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ui/menu/item/impl/ui/menuUI.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui/src/Main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/ui/src/Main/Main.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -55,32 +158,32 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "codeWithMe.voiceChat.enabledByDefault": "false",
-    "extract.method.default.visibility": "private",
-    "full.screen.before.presentation.mode": "false",
-    "git-widget-placeholder": "main",
-    "jdk.selected.JAVA_MODULE": "1.8",
-    "last_opened_file_path": "C:/Users/ASUS/IdeaProjects/Predictions",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "inlay.hints",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
+    &quot;extract.method.default.visibility&quot;: &quot;private&quot;,
+    &quot;full.screen.before.presentation.mode&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;1.8&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/ASUS/IdeaProjects/Predictions&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;inlay.hints&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/logic/src" />
@@ -154,6 +257,7 @@
       <workItem from="1691660436823" duration="3756000" />
       <workItem from="1691677422866" duration="3218000" />
       <workItem from="1691904249600" duration="1845000" />
+      <workItem from="1691915438586" duration="1736000" />
     </task>
     <task id="LOCAL‎-00001" summary="init">
       <option name="closed" value="true" />
@@ -539,11 +643,6 @@
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/logic/src/instance/enviornment/impl/ActiveEnvironmentImpl.java</url>
-          <line>25</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
         <breakpoint enabled="true" type="java-exception">
           <properties class="java.lang.NullPointerException" package="java.lang" />
           <option name="timeStamp" value="3" />

@@ -1,5 +1,6 @@
 package definition.environment.impl;
 
+import api.DTO;
 import definition.environment.api.EnvironmentVariableManager;
 import definition.property.api.PropertyDefinition;
 import instance.enviornment.api.ActiveEnvironment;
@@ -36,5 +37,11 @@ public class EnvironmentVariableManagerImpl implements EnvironmentVariableManage
         }
 
         return environment;
+    }
+
+    //TODO: implement
+    @Override
+    public void mapEnvironmentVariableDTOtoEnvironmentVariableManager(DTO environmentVariables) {
+
     }
 }

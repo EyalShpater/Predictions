@@ -6,5 +6,5 @@ public interface Simulation {
     int getSerialNumber();
     Data getData();
 
-    DTO run();
+    DTO run(DTO environmentVariables);
 }
