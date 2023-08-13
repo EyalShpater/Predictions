@@ -1,7 +1,7 @@
-package execution.context.impl;
+package action.context.impl;
 
+import action.context.api.Context;
 import action.expression.api.Expression;
-import execution.context.api.Context;
 import instance.entity.api.EntityInstance;
 import instance.entity.manager.api.EntityInstanceManager;
 import instance.enviornment.api.ActiveEnvironment;

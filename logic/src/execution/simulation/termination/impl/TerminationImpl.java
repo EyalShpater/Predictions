@@ -15,6 +15,7 @@ public class TerminationImpl implements Termination {
         secondsSinceStart = new Date(); // not real use
     }
 
+    // TODO: finish this class
     @Override
     public boolean isTerminate(int currentTick) {
         return ticksToTerminate == currentTick /* || secondsToTerminate == secondsSinceStart.getSeconds() */;

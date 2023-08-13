@@ -1,6 +1,6 @@
 package action.helper.function.api;
 
-import execution.context.api.Context;
+import action.context.api.Context;
 
 public abstract class AbstractHelperFunction implements HelperFunctionValueGenerator {
 

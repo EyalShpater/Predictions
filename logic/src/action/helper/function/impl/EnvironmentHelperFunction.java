@@ -2,12 +2,9 @@ package action.helper.function.impl;
 
 import action.helper.function.api.AbstractHelperFunction;
 import action.helper.function.api.HelperFunctionType;
-import action.helper.function.api.HelperFunctionValueGenerator;
 
-import execution.context.api.Context;
+import action.context.api.Context;
 import instance.property.api.PropertyInstance;
-
-import java.util.Optional;
 
 public class EnvironmentHelperFunction extends AbstractHelperFunction {
 
@@ -21,7 +18,7 @@ public class EnvironmentHelperFunction extends AbstractHelperFunction {
         try {
             return environmentVariable.getValue();
         } catch (Exception e) {
-            throw new IllegalArgumentException("Unsported function");
+            throw new IllegalArgumentException("Unsupported function");
         }
     }
 }

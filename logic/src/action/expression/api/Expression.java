@@ -1,7 +1,6 @@
 package action.expression.api;
 
-import execution.context.api.Context;
-import instance.entity.api.EntityInstance;
+import action.context.api.Context;
 
 public interface Expression {
     //ExpressionType getType();

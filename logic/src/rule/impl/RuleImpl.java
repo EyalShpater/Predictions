@@ -1,15 +1,12 @@
 package rule.impl;
 
 import action.api.Action;
-import definition.entity.api.EntityDefinition;
-import execution.context.api.Context;
+import action.context.api.Context;
 import rule.api.Activation;
 import rule.api.Rule;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import instance.entity.api.EntityInstance;
 
 
 public class RuleImpl implements Rule {

@@ -3,9 +3,8 @@ package action.expression.impl;
 import action.expression.api.AbstractExpression;
 import action.helper.function.api.HelperFunctionValueGenerator;
 import action.helper.function.impl.HelperFunctionFactory;
-import execution.context.api.Context;
+import action.context.api.Context;
 import instance.entity.api.EntityInstance;
-import instance.property.api.PropertyInstance;
 
 public class FunctionExpression extends AbstractExpression {
 

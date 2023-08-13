@@ -1,7 +1,6 @@
 package Main;
 
 import action.impl.DecreaseAction;
-import api.DTO;
 import definition.entity.api.EntityDefinition;
 import definition.entity.impl.EntityDefinitionImpl;
 import definition.environment.api.EnvironmentVariableManager;
@@ -10,20 +9,13 @@ import definition.property.api.PropertyDefinition;
 import definition.property.api.PropertyType;
 import definition.property.api.Range;
 import definition.property.impl.PropertyDefinitionImpl;
-import environment.variable.EnvironmentVariableDTO;
-import execution.context.api.Context;
-import execution.context.impl.ContextImpl;
-import execution.simulation.api.PredictionsLogic;
-import execution.simulation.impl.PredictionsLogicImpl;
+import action.context.api.Context;
+import action.context.impl.ContextImpl;
 import instance.entity.manager.api.EntityInstanceManager;
 import instance.entity.manager.impl.EntityInstanceManagerImpl;
 import instance.enviornment.api.ActiveEnvironment;
 import instance.property.api.PropertyInstance;
 import instance.property.impl.PropertyInstanceImpl;
-
-import java.util.ArrayList;
-import java.util.List;
-import java.util.stream.Collectors;
 
 import rule.api.Rule;
 import rule.impl.RuleImpl;

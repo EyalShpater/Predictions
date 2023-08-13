@@ -2,8 +2,7 @@ package action.api;
 
 import definition.entity.api.EntityDefinition;
 
-import execution.context.api.Context;
-import instance.entity.api.EntityInstance;
+import action.context.api.Context;
 
 public interface Action {
     EntityDefinition applyOn();

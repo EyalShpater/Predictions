@@ -1,9 +1,7 @@
 package rule.api;
 
-import definition.entity.api.EntityDefinition;
 import action.api.Action;
-import execution.context.api.Context;
-import instance.entity.api.EntityInstance;
+import action.context.api.Context;
 
 
 public interface Rule {

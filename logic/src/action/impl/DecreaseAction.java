@@ -5,12 +5,11 @@ import action.api.ActionType;
 import action.expression.api.Expression;
 import action.expression.impl.ExpressionFactory;
 import action.expression.update.api.NewNumericValueGenerator;
-import action.expression.update.impl.NewIncreaseNumericValueGeneratorImpl;
 import action.expression.update.impl.NewdecreaseNumericValueGeneratorImpl;
 import definition.entity.api.EntityDefinition;
 import definition.property.api.PropertyDefinition;
 import definition.property.api.PropertyType;
-import execution.context.api.Context;
+import action.context.api.Context;
 import instance.entity.api.EntityInstance;
 import instance.property.api.PropertyInstance;
 
@@ -45,11 +44,11 @@ public class DecreaseAction extends AbstractAction {
     }
 
     public boolean checkIfThePropertyIsNumeric(PropertyDefinition PropertyDefinitionToCheck) {
-        return checkIfThePropertyIsInterger(PropertyDefinitionToCheck) ||
+        return checkIfThePropertyIsInteger(PropertyDefinitionToCheck) ||
                 checkIfThePropertyIsDouble(PropertyDefinitionToCheck);
     }
 
-    public boolean checkIfThePropertyIsInterger(PropertyDefinition PropertyDefinitionToCheck) {
+    public boolean checkIfThePropertyIsInteger(PropertyDefinition PropertyDefinitionToCheck) {
         return PropertyDefinitionToCheck.getType().equals(PropertyType.INT);
     }
 
