@@ -81,6 +81,5 @@ public class DecreaseAction extends AbstractAction {
             propertyToUpdate.setValue(result);
         }
 
-
     }
 }
