@@ -51,7 +51,6 @@ public class SetAction extends AbstractAction {
     private void setDouble(PropertyInstance propertyToUpdate , Object newValue) {
 
         checkRangeAndUpdateNumericValue(propertyToUpdate, (Number) newValue);
-
     }
 
     private void checkRangeAndUpdateNumericValue(PropertyInstance propertyToUpdate, Number result){

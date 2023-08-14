@@ -142,12 +142,13 @@ public class Main {
         smokerEntityDefinition.addProperty(smokingInDayPropertyDefinition);
         smokerEntityDefinition.addProperty(cancerPrecentage);
         smokerEntityDefinition.addProperty(cancerAdvanement);
+        smokerEntityDefinition.addProperty(isCancerPositive);
 
         Rule rule1 = new RuleImpl("rule 1");
-        rule1.addAction(new IncreaseAction(smokerEntityDefinition, "age", "50"));
+        rule1.addAction(new IncreaseAction(smokerEntityDefinition, "age", "2"));
         rule1.addAction(new SetAction(smokerEntityDefinition, "cancerPositive", "true"));
         rule1.addAction(new IncreaseAction(smokerEntityDefinition, "smokingInDay", "3.5"));
-        rule1.addAction(new DecreaseAction(smokerEntityDefinition, "cancerPrecentage", "100"));
+        rule1.addAction(new DecreaseAction(smokerEntityDefinition, "cancerPrecentage", "random(15)"));
         rule1.addAction(new IncreaseAction(smokerEntityDefinition, "cancerAdvancement", "environment(tax-amount)"));
         rule1.addAction(new MultiplyAction(smokerEntityDefinition,"cancerAdvancement" ,"environment(tax-amount)" , "random(2)"));
 

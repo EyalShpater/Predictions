@@ -45,7 +45,7 @@ public class DecreaseAction extends AbstractAction {
         Integer propertyValue = (Integer) propertyToUpdate.getValue();
         Integer result = propertyValue - (Integer) decreaseBy;
 
-        checkRangeAndUpdateValue(propertyToUpdate , result , true);
+        checkRangeAndUpdateNumericValue(propertyToUpdate , result);
 
     }
 
@@ -54,7 +54,7 @@ public class DecreaseAction extends AbstractAction {
         if (decreaseBy instanceof Number){
             double res  = ((Number)decreaseBy).doubleValue();
             Double result = propertyValue - res;
-            checkRangeAndUpdateValue(propertyToUpdate , result , false);
+            checkRangeAndUpdateNumericValue(propertyToUpdate , result );
         }else{
             throw new IllegalArgumentException("Increase can get only numeric values.");
         }
@@ -66,25 +66,20 @@ public class DecreaseAction extends AbstractAction {
             checkRangeAndUpdateValue(propertyToUpdate , result , false);
         }*/
     }
-    private void checkRangeAndUpdateValue(PropertyInstance propertyToUpdate , Number result , boolean isResultInteger){
+    private void checkRangeAndUpdateNumericValue(PropertyInstance propertyToUpdate, Number result){
         Range range = propertyToUpdate.getPropertyDefinition().getRange();
-        if(range != null){
+
+        if (range != null) {
             double min = range.getMin();
             double max = range.getMax();
-            if (isResultInteger){
-                Integer IntegerResult = (Integer) result;
-                if(IntegerResult>min && IntegerResult<max){
-                    propertyToUpdate.setValue(result);
-                }
-            }else{
-                Double DoubleResult = (Double) result;
-                if(DoubleResult>min && DoubleResult<max){
-                    propertyToUpdate.setValue(result);
-                }
+
+            double resultValue = result.doubleValue(); // Convert Number to double
+
+            if (resultValue > min && resultValue < max) {
+                propertyToUpdate.setValue(result);
             }
-        }else{
+        } else {
             propertyToUpdate.setValue(result);
         }
-
     }
 }

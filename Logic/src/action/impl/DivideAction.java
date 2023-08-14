@@ -41,29 +41,28 @@ public class DivideAction extends AbstractAction {
         }
     }
 
-    private void divideInteger(PropertyInstance propertyToUpdate, Object firstExpressionValue , Object secoundExpressionValue){
+    private void divideInteger(PropertyInstance propertyToUpdate, Object firstExpressionValue , Object secondExpressionValue){
 
-        if (!(areBothIntegers(firstExpressionValue,secoundExpressionValue ))){
-            throw new IllegalArgumentException("Multiply on integer number can get only two integers.");
+        if (!(areBothIntegers(firstExpressionValue,secondExpressionValue ))){
+            throw new IllegalArgumentException("Divide on integer number can get only two integers.");
         }
 
-        if ((Integer) secoundExpressionValue == 0) {
+        if ((Integer) secondExpressionValue == 0) {
             throw new IllegalArgumentException("Cannot divide by 0");
         }
 
         //if the division is not Integer
-        if ((Integer) firstExpressionValue % (Integer) secoundExpressionValue != 0){
-            throw new IllegalArgumentException("New value of Integer must be Integer ");
+        if ((Integer) firstExpressionValue % (Integer) secondExpressionValue != 0){
+            throw new IllegalArgumentException("New value of Integer property must be Integer ");
         }
 
-        Integer result = (Integer) firstExpressionValue / (Integer) secoundExpressionValue;
-
-        checkRangeAndUpdateValue(propertyToUpdate , result , true);
+        Integer result = (Integer) firstExpressionValue / (Integer) secondExpressionValue;
+        checkRangeAndUpdateNumericValue(propertyToUpdate , result);
     }
 
     private void divideDouble(PropertyInstance propertyToUpdate, Object firstExpressionValue , Object secondExpressionValue){
 
-        Double result = 0.0;
+        /*Double result = 0.0;
         if (!areExpressionsNumeric(firstExpressionValue,secondExpressionValue)){
             throw new IllegalArgumentException("value of expression must be numeric");
         }
@@ -79,55 +78,40 @@ public class DivideAction extends AbstractAction {
         } else if (firstIntegerSecondDouble(firstExpressionValue , secondExpressionValue)) {
             result = (Integer) firstExpressionValue / (Double) secondExpressionValue;
         }
-        checkRangeAndUpdateValue(propertyToUpdate , result , false);
-
+        checkRangeAndUpdateValue(propertyToUpdate , result , false);*/
+        if (!areExpressionsNumeric(firstExpressionValue,secondExpressionValue)){
+            throw new IllegalArgumentException("value of expression must be numeric");
+        }
+        if (secondExpressionValue.equals(0)) {
+            throw new IllegalArgumentException("Cannot divide by 0");
+        }
+        Double arg1 = ((Number) firstExpressionValue).doubleValue();
+        Double arg2 = ((Number) secondExpressionValue).doubleValue();
+        Double result = arg1 / arg2;
+        checkRangeAndUpdateNumericValue(propertyToUpdate , result);
     }
 
 
 
     private boolean areExpressionsNumeric(Object firstExpressionValue , Object secondExpressionValue){
-        return (areBothIntegers(firstExpressionValue,secondExpressionValue)||
-                areBothDoubles( firstExpressionValue , secondExpressionValue)||
-                areMixedTypes( firstExpressionValue , secondExpressionValue));
+        return (firstExpressionValue instanceof Number &&secondExpressionValue instanceof Number);
     }
 
     private boolean areBothIntegers(Object firstExpressionValue , Object secondExpressionValue){
         return firstExpressionValue instanceof Integer && secondExpressionValue instanceof Integer;
     }
 
-    private boolean areBothDoubles(Object firstExpressionValue , Object secondExpressionValue){
-        return firstExpressionValue instanceof Double && secondExpressionValue instanceof Double;
-    }
-
-    private boolean areMixedTypes(Object firstExpressionValue , Object secondExpressionValue){
-        return (firstIntegerSecondDouble(firstExpressionValue ,secondExpressionValue)||
-                firstDoubleSecondInteger(firstExpressionValue ,secondExpressionValue));
-    }
-
-    private boolean firstDoubleSecondInteger(Object firstExpressionValue , Object secondExpressionValue){
-        return firstExpressionValue instanceof Double && secondExpressionValue instanceof Integer;
-    }
-
-    private boolean firstIntegerSecondDouble(Object firstExpressionValue , Object secondExpressionValue){
-        return firstExpressionValue instanceof Integer && secondExpressionValue instanceof Double;
-    }
-
-
-    private void checkRangeAndUpdateValue(PropertyInstance propertyToUpdate, Number result, boolean isResultInteger) {
+    private void checkRangeAndUpdateNumericValue(PropertyInstance propertyToUpdate, Number result){
         Range range = propertyToUpdate.getPropertyDefinition().getRange();
+
         if (range != null) {
             double min = range.getMin();
             double max = range.getMax();
-            if (isResultInteger) {
-                Integer IntegerResult = (Integer) result;
-                if (IntegerResult > min && IntegerResult < max) {
-                    propertyToUpdate.setValue(result);
-                }
-            } else {
-                Double DoubleResult = (Double) result;
-                if (DoubleResult > min && DoubleResult < max) {
-                    propertyToUpdate.setValue(result);
-                }
+
+            double resultValue = result.doubleValue(); // Convert Number to double
+
+            if (resultValue > min && resultValue < max) {
+                propertyToUpdate.setValue(result);
             }
         } else {
             propertyToUpdate.setValue(result);

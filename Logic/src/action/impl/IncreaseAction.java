@@ -72,7 +72,7 @@ public class IncreaseAction extends AbstractAction {
         Integer propertyValue = (Integer) propertyToUpdate.getValue();
         Integer result = propertyValue + (Integer) increaseBy;
 
-        checkRangeAndUpdateValue(propertyToUpdate , result , true);
+        checkRangeAndUpdateNumericValue(propertyToUpdate , result );
     }
 
     private void increaseDouble(PropertyInstance propertyToUpdate, Object increaseBy) {
@@ -80,7 +80,7 @@ public class IncreaseAction extends AbstractAction {
         if (increaseBy instanceof Number){
             double res  = ((Number)increaseBy).doubleValue();
             Double result = propertyValue + res;
-            checkRangeAndUpdateValue(propertyToUpdate , result , false);
+            checkRangeAndUpdateNumericValue(propertyToUpdate , result );
         }else {
             throw new IllegalArgumentException("Increase can get only numeric values.");
         }
@@ -95,6 +95,24 @@ public class IncreaseAction extends AbstractAction {
 
     }
 
+    private void checkRangeAndUpdateNumericValue(PropertyInstance propertyToUpdate, Number result){
+        Range range = propertyToUpdate.getPropertyDefinition().getRange();
+
+        if (range != null) {
+            double min = range.getMin();
+            double max = range.getMax();
+
+            double resultValue = result.doubleValue(); // Convert Number to double
+
+            if (resultValue > min && resultValue < max) {
+                propertyToUpdate.setValue(result);
+            }
+        } else {
+            propertyToUpdate.setValue(result);
+        }
+    }
+    /*
+    OLD VERSION
     private void checkRangeAndUpdateValue(PropertyInstance propertyToUpdate , Number result , boolean isResultInteger){
         Range range = propertyToUpdate.getPropertyDefinition().getRange();
         if(range != null){
@@ -116,6 +134,6 @@ public class IncreaseAction extends AbstractAction {
             propertyToUpdate.setValue(result);
         }
 
-    }
+    }*/
 }
 
