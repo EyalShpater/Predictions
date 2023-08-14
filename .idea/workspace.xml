@@ -7,8 +7,6 @@
     <list default="true" id="27d35137-667f-4e37-a519-ab836acc0a06" name="Changes" comment="Action and helper are working!">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ConsoleUI/src/Main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/ConsoleUI/src/Main/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/action/context/api/Context.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/action/context/api/Context.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/action/context/impl/ContextImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/action/context/impl/ContextImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Logic/src/action/impl/DecreaseAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/action/impl/DecreaseAction.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Logic/src/action/impl/IncreaseAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/action/impl/IncreaseAction.java" afterDir="false" />
     </list>
@@ -165,6 +163,7 @@
       <workItem from="1691967182056" duration="846000" />
       <workItem from="1691968080818" duration="2621000" />
       <workItem from="1691971648940" duration="9821000" />
+      <workItem from="1692000022571" duration="2572000" />
     </task>
     <task id="LOCAL‎-00001" summary="init">
       <option name="closed" value="true" />
@@ -532,7 +531,14 @@
       <option name="project" value="LOCAL‎" />
       <updated>1691981503388</updated>
     </task>
-    <option name="localTasksCounter" value="48" />
+    <task id="LOCAL-00048" summary="Action and helper are working!">
+      <created>1692000107329</created>
+      <option name="number" value="00048" />
+      <option name="presentableId" value="LOCAL-00048" />
+      <option name="project" value="LOCAL" />
+      <updated>1692000107329</updated>
+    </task>
+    <option name="localTasksCounter" value="49" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -589,6 +595,20 @@
           <properties class="java.lang.IllegalArgumentException" package="java.lang" />
           <option name="timeStamp" value="8" />
         </breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/Logic/src/action/impl/IncreaseAction.java</url>
+          <line>49</line>
+          <option name="timeStamp" value="9" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/Logic/src/action/impl/IncreaseAction.java</url>
+          <line>76</line>
+          <properties class="action.impl.IncreaseAction" method="increaseDouble">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="10" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
     <pin-to-top-manager>

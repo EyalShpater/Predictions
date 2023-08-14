@@ -37,25 +37,27 @@ public class DecreaseAction extends AbstractAction {
         }
     }
 
-    private void decreaseInteger(PropertyInstance propertyToUpdate, Object increaseBy) {
-        if (!(increaseBy instanceof Integer)) {
+    private void decreaseInteger(PropertyInstance propertyToUpdate, Object decreaseBy) {
+        if (!(decreaseBy instanceof Integer)) {
             throw new IllegalArgumentException("Increase on integer number can get only another integer.");
         }
 
         Integer propertyValue = (Integer) propertyToUpdate.getValue();
-        Integer result = propertyValue - (Integer) increaseBy;
+        Integer result = propertyValue - (Integer) decreaseBy;
 
         propertyToUpdate.setValue(result);
     }
 
-    private void decreaseDouble(PropertyInstance propertyToUpdate, Object increaseBy) {
-        if (!(increaseBy instanceof Integer || increaseBy instanceof Double)) {
+    private void decreaseDouble(PropertyInstance propertyToUpdate, Object decreaseBy) {
+        Double propertyValue = (Double) propertyToUpdate.getValue();
+        if(decreaseBy instanceof Integer){
+            Double result = propertyValue - (Integer)decreaseBy;
+            propertyToUpdate.setValue(result);
+        } else if (decreaseBy instanceof Double) {
+            Double result = propertyValue - (Double)decreaseBy;
+            propertyToUpdate.setValue(result);
+        }else{
             throw new IllegalArgumentException("Increase can get only numeric values.");
         }
-
-        Double propertyValue = (Double) propertyToUpdate.getValue();
-        Double result = propertyValue - (Double) increaseBy;
-
-        propertyToUpdate.setValue(result);
     }
 }
