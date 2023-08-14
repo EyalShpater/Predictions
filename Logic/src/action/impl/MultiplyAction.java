@@ -55,8 +55,16 @@ public class MultiplyAction extends AbstractAction {
 
     private void multiplyDouble(PropertyInstance propertyToUpdate, Object firstExpressionValue , Object secoundExpressionValue){
 
-        if (firstExpressionValue instanceof Double || secoundExpressionValue instanceof Double)
+        if (!areExpressionsNumeric(firstExpressionValue,secoundExpressionValue)){
+            throw new IllegalArgumentException("value of expression must be numeric");
+        }
 
+    }
+
+    private boolean areExpressionsNumeric(Object firstExpressionValue , Object secoundExpressionValue){
+        return (areBothIntegers(firstExpressionValue,secoundExpressionValue)||
+                areBothDoubles( firstExpressionValue , secoundExpressionValue)||
+                areMixedTypes( firstExpressionValue , secoundExpressionValue));
     }
 
     private boolean areBothIntegers(Object firstExpressionValue , Object secoundExpressionValue){
@@ -68,8 +76,16 @@ public class MultiplyAction extends AbstractAction {
     }
 
     private boolean areMixedTypes(Object firstExpressionValue , Object secoundExpressionValue){
-        return ((firstExpressionValue instanceof Integer && secoundExpressionValue instanceof Double)||
-                (firstExpressionValue instanceof Double && secoundExpressionValue instanceof Integer));
+        return (firstIntegerSecoundDouble(firstExpressionValue ,secoundExpressionValue)||
+                firstDoubleSecoundInteger(firstExpressionValue ,secoundExpressionValue));
+    }
+
+    private boolean firstDoubleSecoundInteger(Object firstExpressionValue , Object secoundExpressionValue){
+        return firstExpressionValue instanceof Double && secoundExpressionValue instanceof Integer);
+    }
+
+    private boolean firstIntegerSecoundDouble(Object firstExpressionValue , Object secoundExpressionValue){
+        return firstExpressionValue instanceof Integer && secoundExpressionValue instanceof Double;
     }
 
 

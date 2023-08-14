@@ -4,10 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="27d35137-667f-4e37-a519-ab836acc0a06" name="Changes" comment="added range check for IncreaseAction and DecreaseAction">
-      <change afterPath="$PROJECT_DIR$/Logic/src/action/impl/MultiplyAction.java" afterDir="false" />
+    <list default="true" id="27d35137-667f-4e37-a519-ab836acc0a06" name="Changes" comment="added MultiplyAction">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/action/impl/DecreaseAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/action/impl/DecreaseAction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/action/impl/MultiplyAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/action/impl/MultiplyAction.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -162,15 +161,7 @@
       <workItem from="1691967182056" duration="846000" />
       <workItem from="1691968080818" duration="2621000" />
       <workItem from="1691971648940" duration="9821000" />
-      <workItem from="1692000022571" duration="9190000" />
-    </task>
-    <task id="LOCAL‎-00002" summary="added classes">
-      <option name="closed" value="true" />
-      <created>1691147926064</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL‎-00002" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1691147926064</updated>
+      <workItem from="1692000022571" duration="10549000" />
     </task>
     <task id="LOCAL‎-00003" summary="with project settings">
       <option name="closed" value="true" />
@@ -543,7 +534,14 @@
       <option name="project" value="LOCAL" />
       <updated>1692006162956</updated>
     </task>
-    <option name="localTasksCounter" value="51" />
+    <task id="LOCAL-00051" summary="added MultiplyAction">
+      <created>1692010383541</created>
+      <option name="number" value="00051" />
+      <option name="presentableId" value="LOCAL-00051" />
+      <option name="project" value="LOCAL" />
+      <updated>1692010383541</updated>
+    </task>
+    <option name="localTasksCounter" value="52" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -562,7 +560,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Changes by ASUS" />
     <MESSAGE value="more changes" />
     <MESSAGE value="World Simulation etc.." />
     <MESSAGE value="Entity and Property is fine" />
@@ -587,7 +584,8 @@
     <MESSAGE value="Action and helper are working!" />
     <MESSAGE value="fixed IncreaseAction DecreaseAction to work on my main , problem was trying to cast Integer to Double" />
     <MESSAGE value="added range check for IncreaseAction and DecreaseAction" />
-    <option name="LAST_COMMIT_MESSAGE" value="added range check for IncreaseAction and DecreaseAction" />
+    <MESSAGE value="added MultiplyAction" />
+    <option name="LAST_COMMIT_MESSAGE" value="added MultiplyAction" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
