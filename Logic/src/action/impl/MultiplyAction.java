@@ -31,6 +31,7 @@ public class MultiplyAction extends AbstractAction {
         Object firstExpressionValue = firstExpression.getValue(context);
         Expression secoundExpression = new ExpressionFactory(this.Expression2, invokeOn);
         Object secoundExpressionValue = secoundExpression.getValue(context);
+
         if (propertyToUpdate.getPropertyDefinition().isNumeric()) {
             if (propertyToUpdate.getPropertyDefinition().isInteger()) {
                 multiplyInteger(propertyToUpdate, firstExpressionValue ,secoundExpressionValue );
@@ -55,9 +56,20 @@ public class MultiplyAction extends AbstractAction {
 
     private void multiplyDouble(PropertyInstance propertyToUpdate, Object firstExpressionValue , Object secoundExpressionValue){
 
+        Double result = 0.0;
         if (!areExpressionsNumeric(firstExpressionValue,secoundExpressionValue)){
             throw new IllegalArgumentException("value of expression must be numeric");
         }
+        if (areBothIntegers(firstExpressionValue,secoundExpressionValue)){
+            result = (double)((Integer) firstExpressionValue * (Integer) secoundExpressionValue);
+        } else if (areBothDoubles(firstExpressionValue,secoundExpressionValue)) {
+            result = (Double) firstExpressionValue * (Double) secoundExpressionValue;
+        } else if (firstDoubleSecoundInteger(firstExpressionValue , secoundExpressionValue)) {
+            result = (Double) firstExpressionValue * (Integer) secoundExpressionValue;
+        } else if (firstIntegerSecoundDouble(firstExpressionValue , secoundExpressionValue)) {
+            result = (Integer) firstExpressionValue * (Double) secoundExpressionValue;
+        }
+        checkRangeAndUpdateValue(propertyToUpdate , result , false);
 
     }
 
@@ -109,4 +121,5 @@ public class MultiplyAction extends AbstractAction {
             propertyToUpdate.setValue(result);
         }
     }
+
 }

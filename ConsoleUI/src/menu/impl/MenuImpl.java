@@ -46,16 +46,14 @@ public class MenuImpl implements Menu {
 
     }
 
-    public void displayMenu() {
-
-        System.out.println("************** Welcome to our prediction program **************");
-        System.out.println("===============================================================");
-        System.out.println("            Please choose one of the following option:         ");
-        System.out.println("            1.Load a simulation:                               ");
-        System.out.println("            2.Present simulation details:                      ");
-        System.out.println("            3.Play the simulation:                             ");
-        System.out.println("            4.Present description of previous simulation:      ");
-        System.out.println("            5.Exit program :                                   ");
+    private void displayMenu() {
+        printTitle("Menu");
+        System.out.println("Please choose one of the following options");
+        System.out.println(MenuOptions.LOAD_FILE.getValue() + ". Load file");
+        System.out.println(MenuOptions.SHOW_SIMULATION_DETAILS.getValue() + ". Present simulation details");
+        System.out.println(MenuOptions.RUN_SIMULATION.getValue() + ". Play the simulation");
+        System.out.println(MenuOptions.SHOW_PREVIOUS_SIMULATIONS.getValue() + ". Present description of previous simulation");
+        System.out.println(MenuOptions.EXIT.getValue() + ". Exit program");
     }
 
     private void loadFileFromUser() {
