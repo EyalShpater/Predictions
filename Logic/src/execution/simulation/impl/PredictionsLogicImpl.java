@@ -15,10 +15,13 @@ public class PredictionsLogicImpl implements PredictionsLogic {
         this.allSimulations = new SimulationManager();
     }
 
+    // TODO: impl
     @Override
-    public void loadXML(String path) {
+    public boolean loadXML(String path) {
         world = new WorldImpl();
         //read data from file and put it in world.
+
+        return true;
     }
 
     @Override

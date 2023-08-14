@@ -83,7 +83,7 @@ public class IncreaseAction extends AbstractAction {
         } else if (increaseBy instanceof Double) {
             Double result = propertyValue + (Double)increaseBy;
             checkRangeAndUpdateValue(propertyToUpdate , result , false);
-        }else{
+        } else {
             throw new IllegalArgumentException("Increase can get only numeric values.");
         }
     }

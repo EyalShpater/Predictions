@@ -5,7 +5,7 @@ import api.DTO;
 import java.util.*;
 
 public interface PredictionsLogic {
-    void loadXML(String path);
+    boolean loadXML(String path);
 
     List<DTO> getEnvironmentVariablesToSet();
 

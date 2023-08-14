@@ -4,8 +4,24 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="27d35137-667f-4e37-a519-ab836acc0a06" name="Changes" comment="added MultiplyAction">
+    <list default="true" id="27d35137-667f-4e37-a519-ab836acc0a06" name="Changes" comment="fixed IncreaseAction DecreaseAction to work on my main , problem was trying to cast Integer to Double">
+      <change afterPath="$PROJECT_DIR$/ConsoleUI/src/menu/api/Menu.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ConsoleUI/src/menu/api/MenuOptions.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ConsoleUI/src/testmain/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_8_7_2023_12_13_PM_[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_8_7_2023_12_13_PM__Changes_.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConsoleUI/src/Main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/ConsoleUI/src/Main/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConsoleUI/src/menu/item/impl/logic/menuLogic.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConsoleUI/src/menu/item/impl/ui/menuUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/ConsoleUI/src/menu/impl/MenuImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/action/impl/IncreaseAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/action/impl/IncreaseAction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/action/impl/MultiplyAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/action/impl/MultiplyAction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/definition/world/impl/WorldImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/definition/world/impl/WorldImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/execution/simulation/api/PredictionsLogic.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/execution/simulation/api/PredictionsLogic.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/execution/simulation/impl/PredictionsLogicImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/execution/simulation/impl/PredictionsLogicImpl.java" afterDir="false" />
+    </list>
+    <list id="f807c731-7b2e-4c67-a176-e2fb7f9a4aa9" name="Changes by ASUS" comment="">
+      <change beforePath="$PROJECT_DIR$/ConsoleUI/src/menu/item/impl/ui/menuUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/ConsoleUI/src/menu/impl/MenuImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Logic/src/action/impl/MultiplyAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/action/impl/MultiplyAction.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -21,9 +37,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Enum" />
-        <option value="Interface" />
         <option value="Class" />
+        <option value="Interface" />
+        <option value="Enum" />
       </list>
     </option>
   </component>
@@ -44,6 +60,27 @@
       </UrlAndAccount>
     </option>
   </component>
+  <component name="LineStatusTrackerManager">
+    <file path="$PROJECT_DIR$/Logic/src/action/impl/MultiplyAction.java">
+      <ranges>
+        <range start1="33" end1="33" start2="33" end2="34" changelist="f807c731-7b2e-4c67-a176-e2fb7f9a4aa9" />
+        <range start1="57" end1="57" start2="58" end2="59" changelist="f807c731-7b2e-4c67-a176-e2fb7f9a4aa9" />
+        <range start1="60" end1="60" start2="62" end2="72" changelist="f807c731-7b2e-4c67-a176-e2fb7f9a4aa9" />
+        <range start1="83" end1="84" start2="95" end2="96" changelist="27d35137-667f-4e37-a519-ab836acc0a06" />
+        <range start1="111" end1="111" start2="123" end2="124" changelist="f807c731-7b2e-4c67-a176-e2fb7f9a4aa9" />
+      </ranges>
+    </file>
+    <file path="$PROJECT_DIR$/ConsoleUI/src/menu/impl/MenuImpl.java">
+      <ranges>
+        <range start1="0" end1="1" start2="0" end2="6" changelist="27d35137-667f-4e37-a519-ab836acc0a06" />
+        <range start1="4" end1="7" start2="9" end2="10" changelist="27d35137-667f-4e37-a519-ab836acc0a06" />
+        <range start1="8" end1="9" start2="11" end2="47" changelist="27d35137-667f-4e37-a519-ab836acc0a06" />
+        <range start1="10" end1="20" start2="48" end2="56" changelist="f807c731-7b2e-4c67-a176-e2fb7f9a4aa9" />
+        <range start1="22" end1="24" start2="58" end2="72" changelist="27d35137-667f-4e37-a519-ab836acc0a06" />
+        <range start1="25" end1="25" start2="73" end2="117" changelist="27d35137-667f-4e37-a519-ab836acc0a06" />
+      </ranges>
+    </file>
+  </component>
   <component name="ProblemsViewState">
     <option name="selectedTabId" value="CurrentFile" />
   </component>
@@ -58,40 +95,52 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
-    &quot;extract.method.default.visibility&quot;: &quot;private&quot;,
-    &quot;full.screen.before.presentation.mode&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;1.8&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/ASUS/IdeaProjects/Predictions&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;inlay.hints&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "extract.method.default.visibility": "private",
+    "full.screen.before.presentation.mode": "false",
+    "git-widget-placeholder": "main",
+    "jdk.selected.JAVA_MODULE": "1.8",
+    "last_opened_file_path": "C:/Users/ASUS/IdeaProjects/Predictions",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "inlay.hints",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/logic/src" />
       <recent name="$PROJECT_DIR$/logic" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Main">
+  <component name="RunManager" selected="Application.Main.Main">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="testmain.Main" />
+      <module name="ConsoleUI" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="testmain.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Main.Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main.Main" />
       <module name="ConsoleUI" />
       <extension name="coverage">
@@ -119,6 +168,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Main.Main" />
         <item itemvalue="Application.Main" />
         <item itemvalue="Application.Program" />
       </list>
@@ -161,7 +211,23 @@
       <workItem from="1691967182056" duration="846000" />
       <workItem from="1691968080818" duration="2621000" />
       <workItem from="1691971648940" duration="9821000" />
-      <workItem from="1692000022571" duration="10549000" />
+      <workItem from="1692000022571" duration="5167000" />
+    </task>
+    <task id="LOCAL‎-00001" summary="init">
+      <option name="closed" value="true" />
+      <created>1690897579787</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL‎-00001" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1690897579787</updated>
+    </task>
+    <task id="LOCAL‎-00002" summary="added classes">
+      <option name="closed" value="true" />
+      <created>1691147926064</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL‎-00002" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1691147926064</updated>
     </task>
     <task id="LOCAL‎-00003" summary="with project settings">
       <option name="closed" value="true" />
@@ -527,21 +593,7 @@
       <option name="project" value="LOCAL" />
       <updated>1692003349312</updated>
     </task>
-    <task id="LOCAL-00050" summary="added range check for IncreaseAction and DecreaseAction">
-      <created>1692006162956</created>
-      <option name="number" value="00050" />
-      <option name="presentableId" value="LOCAL-00050" />
-      <option name="project" value="LOCAL" />
-      <updated>1692006162956</updated>
-    </task>
-    <task id="LOCAL-00051" summary="added MultiplyAction">
-      <created>1692010383541</created>
-      <option name="number" value="00051" />
-      <option name="presentableId" value="LOCAL-00051" />
-      <option name="project" value="LOCAL" />
-      <updated>1692010383541</updated>
-    </task>
-    <option name="localTasksCounter" value="52" />
+    <option name="localTasksCounter" value="50" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -560,6 +612,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="Rule and Action" />
+    <MESSAGE value="Changes by ASUS" />
     <MESSAGE value="more changes" />
     <MESSAGE value="World Simulation etc.." />
     <MESSAGE value="Entity and Property is fine" />
@@ -583,9 +637,7 @@
     <MESSAGE value="changed modules names, update Increase,Decrease." />
     <MESSAGE value="Action and helper are working!" />
     <MESSAGE value="fixed IncreaseAction DecreaseAction to work on my main , problem was trying to cast Integer to Double" />
-    <MESSAGE value="added range check for IncreaseAction and DecreaseAction" />
-    <MESSAGE value="added MultiplyAction" />
-    <option name="LAST_COMMIT_MESSAGE" value="added MultiplyAction" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed IncreaseAction DecreaseAction to work on my main , problem was trying to cast Integer to Double" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -598,6 +650,11 @@
           <properties class="java.lang.IllegalArgumentException" package="java.lang" />
           <option name="timeStamp" value="8" />
         </breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/ConsoleUI/src/Main/Main.java</url>
+          <line>9</line>
+          <option name="timeStamp" value="9" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
     <pin-to-top-manager>

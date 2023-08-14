@@ -81,7 +81,7 @@ public class MultiplyAction extends AbstractAction {
     }
 
     private boolean firstDoubleSecoundInteger(Object firstExpressionValue , Object secoundExpressionValue){
-        return firstExpressionValue instanceof Double && secoundExpressionValue instanceof Integer);
+        return firstExpressionValue instanceof Double && secoundExpressionValue instanceof Integer;
     }
 
     private boolean firstIntegerSecoundDouble(Object firstExpressionValue , Object secoundExpressionValue){
