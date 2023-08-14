@@ -6,6 +6,7 @@ import definition.entity.api.EntityDefinition;
 import action.expression.api.Expression;
 import action.expression.impl.ExpressionFactory;
 import action.context.api.Context;
+import definition.property.api.Range;
 import instance.entity.api.EntityInstance;
 import instance.property.api.PropertyInstance;
 
@@ -71,20 +72,43 @@ public class IncreaseAction extends AbstractAction {
         Integer propertyValue = (Integer) propertyToUpdate.getValue();
         Integer result = propertyValue + (Integer) increaseBy;
 
-        propertyToUpdate.setValue(result);
+        checkRangeAndUpdateValue(propertyToUpdate , result , true);
     }
 
     private void increaseDouble(PropertyInstance propertyToUpdate, Object increaseBy) {
         Double propertyValue = (Double) propertyToUpdate.getValue();
         if(increaseBy instanceof Integer){
             Double result = propertyValue + (Integer)increaseBy;
-            propertyToUpdate.setValue(result);
+            checkRangeAndUpdateValue(propertyToUpdate , result , false);
         } else if (increaseBy instanceof Double) {
             Double result = propertyValue + (Double)increaseBy;
-            propertyToUpdate.setValue(result);
+            checkRangeAndUpdateValue(propertyToUpdate , result , false);
         }else{
             throw new IllegalArgumentException("Increase can get only numeric values.");
         }
+    }
+
+    private void checkRangeAndUpdateValue(PropertyInstance propertyToUpdate , Number result , boolean isResultInteger){
+        Range range = propertyToUpdate.getPropertyDefinition().getRange();
+        if(range != null){
+            double min = range.getMin();
+            double max = range.getMax();
+
+            if (isResultInteger){
+                Integer IntegerResult = (Integer) result;
+                if(IntegerResult>min && IntegerResult<max){
+                    propertyToUpdate.setValue(result);
+                }
+            }else{
+                Double DoubleResult = (Double) result;
+                if(DoubleResult>min && DoubleResult<max){
+                    propertyToUpdate.setValue(result);
+                }
+            }
+        }else{
+            propertyToUpdate.setValue(result);
+        }
+
     }
 }
 

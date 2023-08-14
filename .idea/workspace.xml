@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="27d35137-667f-4e37-a519-ab836acc0a06" name="Changes" comment="Action and helper are working!">
+    <list default="true" id="27d35137-667f-4e37-a519-ab836acc0a06" name="Changes" comment="fixed IncreaseAction DecreaseAction to work on my main , problem was trying to cast Integer to Double">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ConsoleUI/src/Main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/ConsoleUI/src/Main/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Logic/src/action/impl/DecreaseAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/action/impl/DecreaseAction.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Logic/src/action/impl/IncreaseAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/action/impl/IncreaseAction.java" afterDir="false" />
     </list>
@@ -163,7 +162,7 @@
       <workItem from="1691967182056" duration="846000" />
       <workItem from="1691968080818" duration="2621000" />
       <workItem from="1691971648940" duration="9821000" />
-      <workItem from="1692000022571" duration="2572000" />
+      <workItem from="1692000022571" duration="5167000" />
     </task>
     <task id="LOCAL‎-00001" summary="init">
       <option name="closed" value="true" />
@@ -538,7 +537,14 @@
       <option name="project" value="LOCAL" />
       <updated>1692000107329</updated>
     </task>
-    <option name="localTasksCounter" value="49" />
+    <task id="LOCAL-00049" summary="fixed IncreaseAction DecreaseAction to work on my main , problem was trying to cast Integer to Double">
+      <created>1692003349312</created>
+      <option name="number" value="00049" />
+      <option name="presentableId" value="LOCAL-00049" />
+      <option name="project" value="LOCAL" />
+      <updated>1692003349312</updated>
+    </task>
+    <option name="localTasksCounter" value="50" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -557,7 +563,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="minor changes" />
     <MESSAGE value="Rule and Action" />
     <MESSAGE value="Changes by ASUS" />
     <MESSAGE value="more changes" />
@@ -582,7 +587,8 @@
     <MESSAGE value="better" />
     <MESSAGE value="changed modules names, update Increase,Decrease." />
     <MESSAGE value="Action and helper are working!" />
-    <option name="LAST_COMMIT_MESSAGE" value="Action and helper are working!" />
+    <MESSAGE value="fixed IncreaseAction DecreaseAction to work on my main , problem was trying to cast Integer to Double" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed IncreaseAction DecreaseAction to work on my main , problem was trying to cast Integer to Double" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -595,20 +601,6 @@
           <properties class="java.lang.IllegalArgumentException" package="java.lang" />
           <option name="timeStamp" value="8" />
         </breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/Logic/src/action/impl/IncreaseAction.java</url>
-          <line>49</line>
-          <option name="timeStamp" value="9" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/Logic/src/action/impl/IncreaseAction.java</url>
-          <line>76</line>
-          <properties class="action.impl.IncreaseAction" method="increaseDouble">
-            <option name="EMULATED" value="true" />
-            <option name="WATCH_EXIT" value="false" />
-          </properties>
-          <option name="timeStamp" value="10" />
-        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
     <pin-to-top-manager>

@@ -140,9 +140,9 @@ public class Main {
         smokerEntityDefinition.addProperty(cancerAdvanement);
 
         Rule rule1 = new RuleImpl("rule 1");
-        rule1.addAction(new IncreaseAction(smokerEntityDefinition, "age", "3"));
+        rule1.addAction(new IncreaseAction(smokerEntityDefinition, "age", "50"));
         rule1.addAction(new IncreaseAction(smokerEntityDefinition, "smokingInDay", "3.5"));
-        rule1.addAction(new DecreaseAction(smokerEntityDefinition, "cancerPrecentage", "5"));
+        rule1.addAction(new DecreaseAction(smokerEntityDefinition, "cancerPrecentage", "100"));
         rule1.addAction(new IncreaseAction(smokerEntityDefinition, "cancerAdvancement", "environment(tax-amount)"));
 
         EnvironmentVariableManager envVariablesManager = new EnvironmentVariableManagerImpl();
