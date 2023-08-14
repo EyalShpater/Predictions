@@ -1,6 +1,5 @@
 package menu.impl;
 
-import action.helper.function.impl.Environment;
 import api.DTO;
 import environment.variable.EnvironmentVariableDTO;
 import execution.simulation.api.PredictionsLogic;
@@ -25,6 +24,7 @@ public class MenuImpl implements Menu {
         while (choice != EXIT) {
             displayMenu();
             choice = scanner.nextInt();
+            scanner.nextLine();
 
             switch (MenuOptions.fromInt(choice)) {
                 case LOAD_FILE:
@@ -40,11 +40,9 @@ public class MenuImpl implements Menu {
                     showPreviousSimulation();
                     break;
                 case EXIT:
-                    choice = EXIT;
+                    // save to file (bonus)
                     break;
-
             }
-
         }
     }
 
@@ -59,7 +57,7 @@ public class MenuImpl implements Menu {
     }
 
     private void loadFileFromUser() {
-        String filePath = "";
+        String filePath;
         boolean isLegalPath = false;
 
         printLoadFileMenu();
@@ -121,14 +119,25 @@ public class MenuImpl implements Menu {
 
     private void setEnvironmentVariables() {
         List<DTO> environmentVariables = engine.getEnvironmentVariablesToSet();
-        List<DTO> updatedVariables = new ArrayList<>();
+        int choice = -1;
 
-        environmentVariables.forEach(environmentVariable -> {
-            DTO updated = initEnvironmentVariableDTOFromUserInput((EnvironmentVariableDTO)environmentVariable);
-            updatedVariables.add(updated);
-        });
+        printTitle("Set Environment Variables");
+        for (int i = 1; i <= environmentVariables.size(); i++) {
+            System.out.print(i + ". ");
+            printEnvironmentVariableDTO(environmentVariables.get(i - 1));
+            System.out.print(System.lineSeparator());
+        }
 
-        engine.setEnvironmentVariablesValues(updatedVariables);
+        System.out.println(System.lineSeparator());
+        System.out.println("Please enter the number of variable you want to set");
+        choice = getIntFromUserInRange(1, environmentVariables.size());
+        while (choice != 0) {
+            // get user input
+
+        }
+
+
+//        engine.setEnvironmentVariablesValues(updatedVariables);
     }
 
     private DTO SetEnvironmentVariableFromUser(DTO environmentVariable) {
@@ -169,7 +178,16 @@ public class MenuImpl implements Menu {
 
 
 
-    private void printEnvironmentVariableDTO(EnvironmentVariableDTO dto) {
+    private void printEnvironmentVariableDTO(DTO environmentVariable) {
+        EnvironmentVariableDTO dto =
+                environmentVariable instanceof EnvironmentVariableDTO ?
+                (EnvironmentVariableDTO) environmentVariable :
+                null;
+
+        if (dto == null) {
+            throw new IllegalArgumentException();
+        }
+
         System.out.println("Variable name: " + dto.getName());
         System.out.println("Type: " + dto.getType());
         if (dto.getFrom() != null) {
@@ -186,44 +204,67 @@ public class MenuImpl implements Menu {
         System.out.println(NO + ". No");
     }
 
-    private int getIntFromUserInRange(int from, int to) {
-        int choice = from - 1;
-        boolean isValid = false;
-
-        while (!isValid) {
-            try {
-                choice = scanner.nextInt();
-                isValid = (choice >= from && choice <= to);
-
-                if (!isValid) {
-                    System.out.println("Input must be between " + from + " and " + to);
-                }
-            } catch (Exception e){
-                System.out.println("You must insert an integer!");
-            }
-        }
-
-        return choice;
-    }
-
     private double getDoubleFromUserInRange(double from, double to) {
         double choice = from - 1;
         boolean isValid = false;
 
         while (!isValid) {
-            try {
-                choice = scanner.nextDouble();
-                isValid = (choice >= from && choice <= to);
-
-                if (!isValid) {
-                    System.out.println("Input must be between " + from + " and " + to);
-                }
-            } catch (Exception e) {
-                System.out.println("You must insert an double!");
+            choice = getDoubleFromUser();
+            isValid = choice >= from && choice <= to;
+            if (!isValid) {
+                System.out.println("The value must be between " + from + " to " + to);
             }
         }
 
         return choice;
     }
 
+    private int getIntFromUserInRange(int from, int to) {
+        int choice = from - 1;
+        boolean isValid = false;
+
+        while (!isValid) {
+            choice = getIntFromUser();
+            isValid = choice >= from && choice <= to;
+            if (!isValid) {
+                System.out.println("The value must be between " + from + " to " + to);
+            }
+        }
+
+        return choice;
+    }
+
+    private double getDoubleFromUser(){
+        double userDoubleInput = -1;
+        boolean validInput;
+
+        do {
+            try {
+                userDoubleInput = scanner.nextInt();
+                validInput = true;
+            } catch (InputMismatchException exception) {
+                System.out.println("This is not a real number!!!");
+                validInput = false;
+            }
+        } while (!validInput);
+
+        return userDoubleInput;
+    }
+
+    private int getIntFromUser() {
+        int userIntegerInput = -1;
+        boolean validInput;
+
+        do {
+            try {
+                userIntegerInput = scanner.nextInt();
+                validInput = true;
+            } catch (InputMismatchException exception) {
+                System.out.println("This is not an integer number!!!");
+                validInput = false;
+            }
+        } while (!validInput);
+
+        return userIntegerInput;
+    }
 }
