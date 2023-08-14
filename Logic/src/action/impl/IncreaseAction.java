@@ -77,15 +77,22 @@ public class IncreaseAction extends AbstractAction {
 
     private void increaseDouble(PropertyInstance propertyToUpdate, Object increaseBy) {
         Double propertyValue = (Double) propertyToUpdate.getValue();
-        if(increaseBy instanceof Integer){
-            Double result = propertyValue + (Integer)increaseBy;
+        if (increaseBy instanceof Number){
+            double res  = ((Number)increaseBy).doubleValue();
+            Double result = propertyValue + res;
             checkRangeAndUpdateValue(propertyToUpdate , result , false);
+        }else {
+            throw new IllegalArgumentException("Increase can get only numeric values.");
+        }
+
+        /*if(increaseBy instanceof Integer){
+            Double result = propertyValue + (Integer)increaseBy;
+
         } else if (increaseBy instanceof Double) {
             Double result = propertyValue + (Double)increaseBy;
             checkRangeAndUpdateValue(propertyToUpdate , result , false);
-        } else {
-            throw new IllegalArgumentException("Increase can get only numeric values.");
-        }
+        }*/
+
     }
 
     private void checkRangeAndUpdateValue(PropertyInstance propertyToUpdate , Number result , boolean isResultInteger){

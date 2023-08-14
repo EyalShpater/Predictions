@@ -51,15 +51,20 @@ public class DecreaseAction extends AbstractAction {
 
     private void decreaseDouble(PropertyInstance propertyToUpdate, Object decreaseBy) {
         Double propertyValue = (Double) propertyToUpdate.getValue();
-        if(decreaseBy instanceof Integer){
+        if (decreaseBy instanceof Number){
+            double res  = ((Number)decreaseBy).doubleValue();
+            Double result = propertyValue - res;
+            checkRangeAndUpdateValue(propertyToUpdate , result , false);
+        }else{
+            throw new IllegalArgumentException("Increase can get only numeric values.");
+        }
+        /*if(decreaseBy instanceof Integer){
             Double result = propertyValue - (Integer)decreaseBy;
             checkRangeAndUpdateValue(propertyToUpdate , result , false);
         } else if (decreaseBy instanceof Double) {
             Double result = propertyValue - (Double)decreaseBy;
             checkRangeAndUpdateValue(propertyToUpdate , result , false);
-        }else{
-            throw new IllegalArgumentException("Increase can get only numeric values.");
-        }
+        }*/
     }
     private void checkRangeAndUpdateValue(PropertyInstance propertyToUpdate , Number result , boolean isResultInteger){
         Range range = propertyToUpdate.getPropertyDefinition().getRange();

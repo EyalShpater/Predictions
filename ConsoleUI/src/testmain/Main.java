@@ -4,6 +4,7 @@ import action.expression.api.Expression;
 import action.expression.impl.ExpressionFactory;
 import action.impl.DecreaseAction;
 import action.impl.MultiplyAction;
+import action.impl.SetAction;
 import definition.entity.api.EntityDefinition;
 import definition.entity.impl.EntityDefinitionImpl;
 import definition.environment.api.EnvironmentVariableManager;
@@ -133,6 +134,8 @@ public class Main {
         PropertyDefinition smokingInDayPropertyDefinition = new PropertyDefinitionImpl("smokingInDay", PropertyType.DOUBLE, false, 11.5);
         PropertyDefinition cancerPrecentage = new PropertyDefinitionImpl("cancerPrecentage", PropertyType.DOUBLE, true, new Range(0, 100));
         PropertyDefinition cancerAdvanement = new PropertyDefinitionImpl("cancerAdvancement", PropertyType.DOUBLE, true, new Range(0, 150));
+        PropertyDefinition isCancerPositive = new PropertyDefinitionImpl("cancerPositive", PropertyType.BOOLEAN,false,true);
+
 
         EntityDefinition smokerEntityDefinition = new EntityDefinitionImpl("smoker", 100);
         smokerEntityDefinition.addProperty(agePropertyDefinition);
@@ -142,6 +145,7 @@ public class Main {
 
         Rule rule1 = new RuleImpl("rule 1");
         rule1.addAction(new IncreaseAction(smokerEntityDefinition, "age", "50"));
+        rule1.addAction(new SetAction(smokerEntityDefinition, "cancerPositive", "true"));
         rule1.addAction(new IncreaseAction(smokerEntityDefinition, "smokingInDay", "3.5"));
         rule1.addAction(new DecreaseAction(smokerEntityDefinition, "cancerPrecentage", "100"));
         rule1.addAction(new IncreaseAction(smokerEntityDefinition, "cancerAdvancement", "environment(tax-amount)"));
