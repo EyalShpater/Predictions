@@ -1,7 +1,7 @@
 package action.expression.impl;
 
 import action.expression.api.AbstractExpression;
-import action.helper.function.api.HelperFunctionValueGenerator;
+import action.helper.function.api.HelperFunction;
 import action.helper.function.impl.HelperFunctionFactory;
 import action.context.api.Context;
 import instance.entity.api.EntityInstance;
@@ -19,8 +19,10 @@ public class FunctionExpression extends AbstractExpression {
 
     @Override
     public Object getValue(Context context) {
-        HelperFunctionValueGenerator valueGenerator = new HelperFunctionFactory();
-        return valueGenerator.getValueFromHelperFunction(context);
+        HelperFunctionFactory valueGenerator = new HelperFunctionFactory();
+        HelperFunction function= valueGenerator.convert(context, expression);
+
+        return function.getValue();
     }
 
     @Override

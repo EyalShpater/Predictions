@@ -4,8 +4,6 @@ import action.api.AbstractAction;
 import action.api.ActionType;
 import action.expression.api.Expression;
 import action.expression.impl.ExpressionFactory;
-import action.expression.update.api.NewNumericValueGenerator;
-import action.expression.update.impl.NewdecreaseNumericValueGeneratorImpl;
 import definition.entity.api.EntityDefinition;
 import definition.property.api.PropertyDefinition;
 import definition.property.api.PropertyType;

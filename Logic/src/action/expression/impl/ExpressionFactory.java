@@ -19,6 +19,7 @@ public class ExpressionFactory implements Expression {
     public Object getValue(Context context) {
         ExpressionTypeConverter converter = new ExpressionTypeConverterImpl();
         AbstractExpression expressionInstance = converter.convert(expression, entityInstance);
+
         return expressionInstance.getValue(context);
     }
 

@@ -6,17 +6,7 @@ import instance.property.api.PropertyInstance;
 
 public interface Context {
     EntityInstance getPrimaryEntityInstance();
-
-    void removeEntity(EntityInstance entityInstance);
-
     PropertyInstance getEnvironmentVariable(String name);
-
     String getExpressionStringValue();
-
-    void setExpressionStringValue(String value);
-
     Expression getExpression();
-
-    void setExpression(Expression expression);
-
 }

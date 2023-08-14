@@ -26,11 +26,6 @@ public class ContextImpl implements Context {
     }
 
     @Override
-    public void removeEntity(EntityInstance entityInstance) {
-        entityInstanceManager.killEntity(entityInstance.getId());
-    }
-
-    @Override
     public PropertyInstance getEnvironmentVariable(String name) {
         return activeEnvironment.getPropertyByName(name);
     }
@@ -41,18 +36,8 @@ public class ContextImpl implements Context {
     }
 
     @Override
-    public void setExpressionStringValue(String value) {
-        this.expressionStringValue = value;
-    }
-
-    @Override
     public Expression getExpression() {
         return this.expression;
-    }
-
-    @Override
-    public void setExpression(Expression expression) {
-        this.expression = expression;
     }
 
 }
