@@ -6,4 +6,14 @@ public interface PropertyDefinition {
     Range getRange();
     boolean isValueInitializeRandomly();
     Object getDefaultValue();
+
+    boolean isInteger();
+
+    boolean isDouble();
+
+    boolean isString();
+
+    boolean isBoolean();
+
+    boolean isNumeric();
 }

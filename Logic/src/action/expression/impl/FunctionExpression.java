@@ -27,5 +27,4 @@ public class FunctionExpression extends AbstractExpression {
     public String getExpressionString() {
         return expression;
     }
-
 }

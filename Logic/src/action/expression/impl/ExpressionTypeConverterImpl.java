@@ -15,10 +15,10 @@ public class ExpressionTypeConverterImpl implements ExpressionTypeConverter {
         expression = expression.trim();
 
         if (isHelperFunction(expression)) {
-            expressionInstance = new FunctionExpression(expression, entityInstance);//ExpressionType.FUNCTION_EXP;
+            expressionInstance = new FunctionExpression(expression, entityInstance);
         } else if (isProperty(expression, entityInstance)) {
             expressionInstance = new PropertyExpression(expression, entityInstance);
-        } else {//return to the logic of checking the OTHER_EXP context
+        } else {
             expressionInstance = new ValueExpression(expression, entityInstance);
         }
 

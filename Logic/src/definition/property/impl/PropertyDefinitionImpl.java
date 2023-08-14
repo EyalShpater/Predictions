@@ -73,6 +73,31 @@ public class PropertyDefinitionImpl implements PropertyDefinition {
     }
 
     @Override
+    public boolean isInteger() {
+        return type.equals(PropertyType.INT);
+    }
+
+    @Override
+    public boolean isDouble() {
+        return type.equals(PropertyType.DOUBLE);
+    }
+
+    @Override
+    public boolean isString() {
+        return type.equals(PropertyType.STRING);
+    }
+
+    @Override
+    public boolean isBoolean() {
+        return type.equals(PropertyType.BOOLEAN);
+    }
+
+    @Override
+    public boolean isNumeric() {
+        return isDouble() || isInteger();
+    }
+
+    @Override
     public String toString() {
         StringBuilder str = new StringBuilder();
 

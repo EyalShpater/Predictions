@@ -9,5 +9,5 @@ public interface PropertyInstance {
 
     PropertyDefinition getPropertyDefinition();
 
-    void updateValue(Object val);
+    void setValue(Object val);
 }
