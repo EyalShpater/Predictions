@@ -6,10 +6,16 @@ import execution.simulation.api.PredictionsLogic;
 import execution.simulation.impl.PredictionsLogicImpl;
 import menu.api.Menu;
 import menu.api.MenuOptions;
+import menu.helper.PrintToScreen;
+import menu.helper.TypesScanner;
+
 import java.util.*;
 
 public class MenuImpl implements Menu {
     private static final Scanner scanner = new Scanner(System.in);
+    private static final TypesScanner typeScanner = new TypesScanner();
+    private static final PrintToScreen printer = new PrintToScreen();
+
     private static final int EXIT = 5;
     private static final int YES = 1;
     private static final int NO = 2;
@@ -22,7 +28,7 @@ public class MenuImpl implements Menu {
 
         loadFileFromUser();
         while (choice != EXIT) {
-            displayMenu();
+            printer.displayMenu();
             choice = scanner.nextInt();
             scanner.nextLine();
 
@@ -46,21 +52,11 @@ public class MenuImpl implements Menu {
         }
     }
 
-    private void displayMenu() {
-        printTitle("Menu");
-        System.out.println("Please choose one of the following options");
-        System.out.println(MenuOptions.LOAD_FILE.getValue() + ". Load file");
-        System.out.println(MenuOptions.SHOW_SIMULATION_DETAILS.getValue() + ". Present simulation details");
-        System.out.println(MenuOptions.RUN_SIMULATION.getValue() + ". Play the simulation");
-        System.out.println(MenuOptions.SHOW_PREVIOUS_SIMULATIONS.getValue() + ". Present description of previous simulation");
-        System.out.println(MenuOptions.EXIT.getValue() + ". Exit program");
-    }
-
     private void loadFileFromUser() {
         String filePath;
         boolean isLegalPath = false;
 
-        printLoadFileMenu();
+        printer.printLoadFileMenu();
         while (!isLegalPath) {
             filePath = scanner.nextLine();
             isLegalPath = engine.loadXML(filePath);
@@ -88,73 +84,23 @@ public class MenuImpl implements Menu {
 
     }
 
-    private void printLoadFileMenu() {
-        printTitle("Welcome to our prediction program");
-        System.out.println("Please enter XML simulation file path:");
-    }
-
-    private void printTitle(String title) {
-       final int NUM_OF_STARS = 10;
-
-        printStars(NUM_OF_STARS);
-        System.out.printf(" %s ", title);
-        printStars(NUM_OF_STARS);
-        System.out.print(System.lineSeparator());
-        printLine(NUM_OF_STARS * 2 + 2 + title.length(), '=');
-    }
-
-    private void printStars(int numOfStars) {
-        for (int i = 1; i <= numOfStars; i++) {
-            System.out.print("*");
-        }
-    }
-
-    private void printLine(int length, char c) {
-        for (int i = 1; i <= length; i++) {
-            System.out.print(c);
-        }
-
-        System.out.print(System.lineSeparator());
-    }
-
+    //todo: separate it to sub functions.
     private void setEnvironmentVariables() {
         List<DTO> environmentVariables = engine.getEnvironmentVariablesToSet();
         int choice = -1;
 
-        printTitle("Set Environment Variables");
-        for (int i = 1; i <= environmentVariables.size(); i++) {
-            System.out.print(i + ". ");
-            printEnvironmentVariableDTO(environmentVariables.get(i - 1));
-            System.out.print(System.lineSeparator());
-        }
-
+        printer.printTitle("Set Environment Variables");
+        printer.printEnvironmentVariableDTOList(environmentVariables);
         System.out.println(System.lineSeparator());
         System.out.println("Please enter the number of variable you want to set");
-        choice = getIntFromUserInRange(1, environmentVariables.size());
+        choice = typeScanner.getIntFromUserInRange(1, environmentVariables.size());
         while (choice != 0) {
-            // get user input
-
+            EnvironmentVariableDTO toUpdate = (EnvironmentVariableDTO) environmentVariables.get(choice - 1);
+            environmentVariables.set(choice - 1, initEnvironmentVariableDTOFromUserInput(toUpdate));
+            System.out.println("Please enter the number of variable you want to set");
+            choice = typeScanner.getIntFromUserInRange(1, environmentVariables.size());
         }
-
-
 //        engine.setEnvironmentVariablesValues(updatedVariables);
-    }
-
-    private DTO SetEnvironmentVariableFromUser(DTO environmentVariable) {
-        EnvironmentVariableDTO dto = (EnvironmentVariableDTO) environmentVariable;
-        int choice;
-
-        printEnvironmentVariableDTO(dto);
-        askUserIfHeWantToUpdateTheVariable(dto.getName());
-        choice = getIntFromUserInRange(YES, NO);
-        switch (choice) {
-            case YES:
-                return initEnvironmentVariableDTOFromUserInput(dto);
-            case NO:
-                return dto;
-            default:
-                throw new IllegalArgumentException();
-        }
     }
 
     private DTO initEnvironmentVariableDTOFromUserInput(EnvironmentVariableDTO variableDTO) {
@@ -176,95 +122,9 @@ public class MenuImpl implements Menu {
         return null;
     }
 
-
-
-    private void printEnvironmentVariableDTO(DTO environmentVariable) {
-        EnvironmentVariableDTO dto =
-                environmentVariable instanceof EnvironmentVariableDTO ?
-                (EnvironmentVariableDTO) environmentVariable :
-                null;
-
-        if (dto == null) {
-            throw new IllegalArgumentException();
-        }
-
-        System.out.println("Variable name: " + dto.getName());
-        System.out.println("Type: " + dto.getType());
-        if (dto.getFrom() != null) {
-            System.out.println("Minimum value: " + dto.getFrom());
-        }
-        if (dto.getTo() != null) {
-            System.out.println("Maximum value: " + dto.getTo());
-        }
-    }
-
     private void askUserIfHeWantToUpdateTheVariable(String name) {
         System.out.println("Do you want to update " + name + "'s value?");
         System.out.println(YES + ". Yes");
         System.out.println(NO + ". No");
-    }
-
-    private double getDoubleFromUserInRange(double from, double to) {
-        double choice = from - 1;
-        boolean isValid = false;
-
-        while (!isValid) {
-            choice = getDoubleFromUser();
-            isValid = choice >= from && choice <= to;
-            if (!isValid) {
-                System.out.println("The value must be between " + from + " to " + to);
-            }
-        }
-
-        return choice;
-    }
-
-    private int getIntFromUserInRange(int from, int to) {
-        int choice = from - 1;
-        boolean isValid = false;
-
-        while (!isValid) {
-            choice = getIntFromUser();
-            isValid = choice >= from && choice <= to;
-            if (!isValid) {
-                System.out.println("The value must be between " + from + " to " + to);
-            }
-        }
-
-        return choice;
-    }
-
-    private double getDoubleFromUser(){
-        double userDoubleInput = -1;
-        boolean validInput;
-
-        do {
-            try {
-                userDoubleInput = scanner.nextInt();
-                validInput = true;
-            } catch (InputMismatchException exception) {
-                System.out.println("This is not a real number!!!");
-                validInput = false;
-            }
-        } while (!validInput);
-
-        return userDoubleInput;
-    }
-
-    private int getIntFromUser() {
-        int userIntegerInput = -1;
-        boolean validInput;
-
-        do {
-            try {
-                userIntegerInput = scanner.nextInt();
-                validInput = true;
-            } catch (InputMismatchException exception) {
-                System.out.println("This is not an integer number!!!");
-                validInput = false;
-            }
-        } while (!validInput);
-
-        return userIntegerInput;
     }
 }

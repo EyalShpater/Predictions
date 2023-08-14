@@ -4,8 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="27d35137-667f-4e37-a519-ab836acc0a06" name="Changes" comment="Divide added">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="27d35137-667f-4e37-a519-ab836acc0a06" name="Changes" comment="menu">
+      <change afterPath="$PROJECT_DIR$/ConsoleUI/src/menu/helper/PrintToScreen.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ConsoleUI/src/menu/helper/TypesScanner.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ConsoleUI/src/menu/impl/MenuImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/ConsoleUI/src/menu/impl/MenuImpl.java" afterDir="false" />
     </list>
     <list id="f807c731-7b2e-4c67-a176-e2fb7f9a4aa9" name="Changes by ASUS" comment="Changes by ASUS" />
@@ -176,15 +177,7 @@
       <workItem from="1691968080818" duration="2621000" />
       <workItem from="1691971648940" duration="9821000" />
       <workItem from="1692000022571" duration="5167000" />
-      <workItem from="1692037560207" duration="3431000" />
-    </task>
-    <task id="LOCAL‎-00004" summary="with project settings">
-      <option name="closed" value="true" />
-      <created>1691148528935</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL‎-00004" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1691148528935</updated>
+      <workItem from="1692037560207" duration="4226000" />
     </task>
     <task id="LOCAL‎-00005" summary="a little nit tString implementations and main test">
       <option name="closed" value="true" />
@@ -558,7 +551,15 @@
       <option name="project" value="LOCAL‎" />
       <updated>1692022417983</updated>
     </task>
-    <option name="localTasksCounter" value="53" />
+    <task id="LOCAL‎-00053" summary="menu">
+      <option name="closed" value="true" />
+      <created>1692041021924</created>
+      <option name="number" value="00053" />
+      <option name="presentableId" value="LOCAL‎-00053" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1692041021925</updated>
+    </task>
+    <option name="localTasksCounter" value="54" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -577,7 +578,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="World Simulation etc.." />
     <MESSAGE value="Entity and Property is fine" />
     <MESSAGE value="epressions" />
     <MESSAGE value="environment" />
@@ -602,7 +602,8 @@
     <MESSAGE value="ConsoleUI menu implement - not full implementation." />
     <MESSAGE value="Changes by ASUS" />
     <MESSAGE value="Divide added" />
-    <option name="LAST_COMMIT_MESSAGE" value="Divide added" />
+    <MESSAGE value="menu" />
+    <option name="LAST_COMMIT_MESSAGE" value="menu" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
