@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="27d35137-667f-4e37-a519-ab836acc0a06" name="Changes" comment="menu">
-      <change afterPath="$PROJECT_DIR$/ConsoleUI/src/menu/helper/PrintToScreen.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ConsoleUI/src/menu/helper/TypesScanner.java" afterDir="false" />
+    <list default="true" id="27d35137-667f-4e37-a519-ab836acc0a06" name="Changes" comment="separate the Menu class to subclasses">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ConsoleUI/src/menu/impl/MenuImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/ConsoleUI/src/menu/impl/MenuImpl.java" afterDir="false" />
     </list>
     <list id="f807c731-7b2e-4c67-a176-e2fb7f9a4aa9" name="Changes by ASUS" comment="Changes by ASUS" />
@@ -177,15 +176,7 @@
       <workItem from="1691968080818" duration="2621000" />
       <workItem from="1691971648940" duration="9821000" />
       <workItem from="1692000022571" duration="5167000" />
-      <workItem from="1692037560207" duration="4226000" />
-    </task>
-    <task id="LOCAL‎-00005" summary="a little nit tString implementations and main test">
-      <option name="closed" value="true" />
-      <created>1691164730197</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL‎-00005" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1691164730197</updated>
+      <workItem from="1692037560207" duration="4957000" />
     </task>
     <task id="LOCAL‎-00006" summary="more toString functions">
       <option name="closed" value="true" />
@@ -559,7 +550,15 @@
       <option name="project" value="LOCAL‎" />
       <updated>1692041021925</updated>
     </task>
-    <option name="localTasksCounter" value="54" />
+    <task id="LOCAL‎-00054" summary="separate the Menu class to subclasses">
+      <option name="closed" value="true" />
+      <created>1692042189426</created>
+      <option name="number" value="00054" />
+      <option name="presentableId" value="LOCAL‎-00054" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1692042189426</updated>
+    </task>
+    <option name="localTasksCounter" value="55" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -578,7 +577,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Entity and Property is fine" />
     <MESSAGE value="epressions" />
     <MESSAGE value="environment" />
     <MESSAGE value="expression implementation" />
@@ -603,7 +601,8 @@
     <MESSAGE value="Changes by ASUS" />
     <MESSAGE value="Divide added" />
     <MESSAGE value="menu" />
-    <option name="LAST_COMMIT_MESSAGE" value="menu" />
+    <MESSAGE value="separate the Menu class to subclasses" />
+    <option name="LAST_COMMIT_MESSAGE" value="separate the Menu class to subclasses" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
