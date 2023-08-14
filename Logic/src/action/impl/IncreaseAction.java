@@ -47,7 +47,7 @@ public class IncreaseAction extends AbstractAction {
 
     @Override
     public void invoke(Context context) {
-        EntityInstance invokeOn = context.getPrimaryEntityInstance();
+        EntityInstance invokeOn = context.getEntityInstance();
         PropertyInstance propertyToUpdate = invokeOn.getPropertyByName(propertyName);
         Expression expression = new ExpressionFactory(byExpression, invokeOn);
         Object increaseBy = expression.getValue(context);

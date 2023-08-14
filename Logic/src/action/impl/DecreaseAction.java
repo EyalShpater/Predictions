@@ -5,8 +5,6 @@ import action.api.ActionType;
 import action.expression.api.Expression;
 import action.expression.impl.ExpressionFactory;
 import definition.entity.api.EntityDefinition;
-import definition.property.api.PropertyDefinition;
-import definition.property.api.PropertyType;
 import action.context.api.Context;
 import instance.entity.api.EntityInstance;
 import instance.property.api.PropertyInstance;
@@ -23,7 +21,7 @@ public class DecreaseAction extends AbstractAction {
 
     @Override
     public void invoke(Context context) {
-        EntityInstance invokeOn = context.getPrimaryEntityInstance();
+        EntityInstance invokeOn = context.getEntityInstance();
         PropertyInstance propertyToUpdate = invokeOn.getPropertyByName(propertyName);
         Expression expression = new ExpressionFactory(byExpression, invokeOn);
         Object increaseBy = expression.getValue(context);

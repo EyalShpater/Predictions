@@ -8,36 +8,23 @@ import instance.enviornment.api.ActiveEnvironment;
 import instance.property.api.PropertyInstance;
 
 public class ContextImpl implements Context {
-    private EntityInstance primaryEntityInstance;
+    private EntityInstance entityInstance;
     private EntityInstanceManager entityInstanceManager;
     private ActiveEnvironment activeEnvironment;
-    private Expression expression;
-    private String expressionStringValue = "";
 
-    public ContextImpl(EntityInstance primaryEntityInstance, EntityInstanceManager entityInstanceManager, ActiveEnvironment activeEnvironment) {
-        this.primaryEntityInstance = primaryEntityInstance;
+    public ContextImpl(EntityInstance entityInstance, EntityInstanceManager entityInstanceManager, ActiveEnvironment activeEnvironment) {
+        this.entityInstance = entityInstance;
         this.entityInstanceManager = entityInstanceManager;
         this.activeEnvironment = activeEnvironment;
     }
 
     @Override
-    public EntityInstance getPrimaryEntityInstance() {
-        return primaryEntityInstance;
+    public EntityInstance getEntityInstance() {
+        return entityInstance;
     }
 
     @Override
     public PropertyInstance getEnvironmentVariable(String name) {
         return activeEnvironment.getPropertyByName(name);
     }
-
-    @Override
-    public String getExpressionStringValue() {
-        return expressionStringValue;
-    }
-
-    @Override
-    public Expression getExpression() {
-        return this.expression;
-    }
-
 }

@@ -197,8 +197,5 @@ public class Main {
         String expression = "name";
         Expression value = new ExpressionFactory(expression, manager.getInstances().get(0));
         System.out.println(value.getValue(new ContextImpl(manager.getInstances().get(0), manager, environment)));
-
-
-
     }
 }

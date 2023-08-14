@@ -5,8 +5,6 @@ import instance.entity.api.EntityInstance;
 import instance.property.api.PropertyInstance;
 
 public interface Context {
-    EntityInstance getPrimaryEntityInstance();
+    EntityInstance getEntityInstance();
     PropertyInstance getEnvironmentVariable(String name);
-    String getExpressionStringValue();
-    Expression getExpression();
 }

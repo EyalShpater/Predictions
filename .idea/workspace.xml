@@ -4,25 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="27d35137-667f-4e37-a519-ab836acc0a06" name="Changes" comment="changed modules names, update Increase,Decrease.">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Logic/src/action/helper/function/api/HelperFunction.java" afterDir="false" />
+    <list default="true" id="27d35137-667f-4e37-a519-ab836acc0a06" name="Changes" comment="Action and helper are working!">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ConsoleUI/src/Main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/ConsoleUI/src/Main/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Logic/src/action/context/api/Context.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/action/context/api/Context.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Logic/src/action/context/impl/ContextImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/action/context/impl/ContextImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/action/expression/impl/ExpressionFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/action/expression/impl/ExpressionFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/action/expression/impl/FunctionExpression.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/action/expression/impl/FunctionExpression.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/action/expression/update/api/AbstractNewNumericValueGenerator.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/action/expression/update/api/NewNumericValueGenerator.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/action/expression/update/impl/NewIncreaseNumericValueGeneratorImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/action/expression/update/impl/NewdecreaseNumericValueGeneratorImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/action/helper/function/api/AbstractHelperFunction.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/action/helper/function/api/HelperFunctionValueGenerator.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/action/helper/function/impl/EnvironmentHelperFunction.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/action/helper/function/impl/Environment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/action/helper/function/impl/HelperFunctionFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/action/helper/function/impl/HelperFunctionFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/action/helper/function/impl/RandomHelperFunction.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/action/helper/function/impl/RandomHelper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Logic/src/action/impl/DecreaseAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/action/impl/DecreaseAction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/action/impl/IncreaseAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/action/impl/IncreaseAction.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -176,7 +164,7 @@
       <workItem from="1691915438586" duration="5682000" />
       <workItem from="1691967182056" duration="846000" />
       <workItem from="1691968080818" duration="2621000" />
-      <workItem from="1691971648940" duration="8620000" />
+      <workItem from="1691971648940" duration="9821000" />
     </task>
     <task id="LOCAL‎-00001" summary="init">
       <option name="closed" value="true" />
@@ -536,7 +524,15 @@
       <option name="project" value="LOCAL‎" />
       <updated>1691972528900</updated>
     </task>
-    <option name="localTasksCounter" value="47" />
+    <task id="LOCAL‎-00047" summary="Action and helper are working!">
+      <option name="closed" value="true" />
+      <created>1691981503388</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL‎-00047" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1691981503388</updated>
+    </task>
+    <option name="localTasksCounter" value="48" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -555,7 +551,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="edit Property and Entity classes" />
     <MESSAGE value="minor changes" />
     <MESSAGE value="Rule and Action" />
     <MESSAGE value="Changes by ASUS" />
@@ -580,7 +575,8 @@
     <MESSAGE value="SimulationImpl structure" />
     <MESSAGE value="better" />
     <MESSAGE value="changed modules names, update Increase,Decrease." />
-    <option name="LAST_COMMIT_MESSAGE" value="changed modules names, update Increase,Decrease." />
+    <MESSAGE value="Action and helper are working!" />
+    <option name="LAST_COMMIT_MESSAGE" value="Action and helper are working!" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
