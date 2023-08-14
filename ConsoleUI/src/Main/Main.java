@@ -177,6 +177,7 @@ public class Main {
 //
 //                });
 
+        System.out.println("hi");
         PropertyDefinition p1 = new PropertyDefinitionImpl("name", PropertyType.STRING, false, "Avi");
         PropertyDefinition p2 = new PropertyDefinitionImpl("age", PropertyType.INT, true, new Range(10, 50));
 
