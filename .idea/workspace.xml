@@ -4,26 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="27d35137-667f-4e37-a519-ab836acc0a06" name="Changes" comment="fixed IncreaseAction DecreaseAction to work on my main , problem was trying to cast Integer to Double">
-      <change afterPath="$PROJECT_DIR$/ConsoleUI/src/menu/api/Menu.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ConsoleUI/src/menu/api/MenuOptions.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ConsoleUI/src/testmain/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_8_7_2023_12_13_PM_[Changes]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_8_7_2023_12_13_PM__Changes_.xml" beforeDir="false" />
+    <list default="true" id="27d35137-667f-4e37-a519-ab836acc0a06" name="Changes" comment="ConsoleUI menu implement - not full implementation.">
+      <change afterPath="$PROJECT_DIR$/Logic/src/action/impl/DivideAction.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/questions" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ConsoleUI/src/Main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/ConsoleUI/src/Main/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ConsoleUI/src/menu/item/impl/logic/menuLogic.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ConsoleUI/src/menu/item/impl/ui/menuUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/ConsoleUI/src/menu/impl/MenuImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/action/impl/IncreaseAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/action/impl/IncreaseAction.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/action/impl/MultiplyAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/action/impl/MultiplyAction.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/definition/world/impl/WorldImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/definition/world/impl/WorldImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/execution/simulation/api/PredictionsLogic.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/execution/simulation/api/PredictionsLogic.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/execution/simulation/impl/PredictionsLogicImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/execution/simulation/impl/PredictionsLogicImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConsoleUI/src/menu/impl/MenuImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/ConsoleUI/src/menu/impl/MenuImpl.java" afterDir="false" />
     </list>
-    <list id="f807c731-7b2e-4c67-a176-e2fb7f9a4aa9" name="Changes by ASUS" comment="">
-      <change beforePath="$PROJECT_DIR$/ConsoleUI/src/menu/item/impl/ui/menuUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/ConsoleUI/src/menu/impl/MenuImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/action/impl/MultiplyAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/action/impl/MultiplyAction.java" afterDir="false" />
-    </list>
+    <list id="f807c731-7b2e-4c67-a176-e2fb7f9a4aa9" name="Changes by ASUS" comment="Changes by ASUS" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -37,9 +24,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="Interface" />
         <option value="Enum" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -59,27 +46,6 @@
         <option name="url" value="https://github.com/shpater1234/Predictions.git" />
       </UrlAndAccount>
     </option>
-  </component>
-  <component name="LineStatusTrackerManager">
-    <file path="$PROJECT_DIR$/Logic/src/action/impl/MultiplyAction.java">
-      <ranges>
-        <range start1="33" end1="33" start2="33" end2="34" changelist="f807c731-7b2e-4c67-a176-e2fb7f9a4aa9" />
-        <range start1="57" end1="57" start2="58" end2="59" changelist="f807c731-7b2e-4c67-a176-e2fb7f9a4aa9" />
-        <range start1="60" end1="60" start2="62" end2="72" changelist="f807c731-7b2e-4c67-a176-e2fb7f9a4aa9" />
-        <range start1="83" end1="84" start2="95" end2="96" changelist="27d35137-667f-4e37-a519-ab836acc0a06" />
-        <range start1="111" end1="111" start2="123" end2="124" changelist="f807c731-7b2e-4c67-a176-e2fb7f9a4aa9" />
-      </ranges>
-    </file>
-    <file path="$PROJECT_DIR$/ConsoleUI/src/menu/impl/MenuImpl.java">
-      <ranges>
-        <range start1="0" end1="1" start2="0" end2="6" changelist="27d35137-667f-4e37-a519-ab836acc0a06" />
-        <range start1="4" end1="7" start2="9" end2="10" changelist="27d35137-667f-4e37-a519-ab836acc0a06" />
-        <range start1="8" end1="9" start2="11" end2="47" changelist="27d35137-667f-4e37-a519-ab836acc0a06" />
-        <range start1="10" end1="20" start2="48" end2="56" changelist="f807c731-7b2e-4c67-a176-e2fb7f9a4aa9" />
-        <range start1="22" end1="24" start2="58" end2="72" changelist="27d35137-667f-4e37-a519-ab836acc0a06" />
-        <range start1="25" end1="25" start2="73" end2="117" changelist="27d35137-667f-4e37-a519-ab836acc0a06" />
-      </ranges>
-    </file>
   </component>
   <component name="ProblemsViewState">
     <option name="selectedTabId" value="CurrentFile" />
@@ -168,8 +134,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Main.Main" />
         <item itemvalue="Application.Main" />
+        <item itemvalue="Application.Main.Main" />
         <item itemvalue="Application.Program" />
       </list>
     </recent_temporary>
@@ -212,22 +178,6 @@
       <workItem from="1691968080818" duration="2621000" />
       <workItem from="1691971648940" duration="9821000" />
       <workItem from="1692000022571" duration="5167000" />
-    </task>
-    <task id="LOCAL‎-00001" summary="init">
-      <option name="closed" value="true" />
-      <created>1690897579787</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL‎-00001" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1690897579787</updated>
-    </task>
-    <task id="LOCAL‎-00002" summary="added classes">
-      <option name="closed" value="true" />
-      <created>1691147926064</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL‎-00002" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1691147926064</updated>
     </task>
     <task id="LOCAL‎-00003" summary="with project settings">
       <option name="closed" value="true" />
@@ -593,7 +543,23 @@
       <option name="project" value="LOCAL" />
       <updated>1692003349312</updated>
     </task>
-    <option name="localTasksCounter" value="50" />
+    <task id="LOCAL‎-00050" summary="ConsoleUI menu implement - not full implementation.">
+      <option name="closed" value="true" />
+      <created>1692017668201</created>
+      <option name="number" value="00050" />
+      <option name="presentableId" value="LOCAL‎-00050" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1692017668203</updated>
+    </task>
+    <task id="LOCAL‎-00051" summary="Changes by ASUS">
+      <option name="closed" value="true" />
+      <created>1692017705996</created>
+      <option name="number" value="00051" />
+      <option name="presentableId" value="LOCAL‎-00051" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1692017705996</updated>
+    </task>
+    <option name="localTasksCounter" value="52" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -612,8 +578,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Rule and Action" />
-    <MESSAGE value="Changes by ASUS" />
     <MESSAGE value="more changes" />
     <MESSAGE value="World Simulation etc.." />
     <MESSAGE value="Entity and Property is fine" />
@@ -637,7 +601,9 @@
     <MESSAGE value="changed modules names, update Increase,Decrease." />
     <MESSAGE value="Action and helper are working!" />
     <MESSAGE value="fixed IncreaseAction DecreaseAction to work on my main , problem was trying to cast Integer to Double" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixed IncreaseAction DecreaseAction to work on my main , problem was trying to cast Integer to Double" />
+    <MESSAGE value="ConsoleUI menu implement - not full implementation." />
+    <MESSAGE value="Changes by ASUS" />
+    <option name="LAST_COMMIT_MESSAGE" value="Changes by ASUS" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

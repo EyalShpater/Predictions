@@ -1,15 +1,19 @@
 package menu.impl;
 
+import action.helper.function.impl.Environment;
+import api.DTO;
+import environment.variable.EnvironmentVariableDTO;
 import execution.simulation.api.PredictionsLogic;
 import execution.simulation.impl.PredictionsLogicImpl;
 import menu.api.Menu;
 import menu.api.MenuOptions;
-
-import java.util.Scanner;
+import java.util.*;
 
 public class MenuImpl implements Menu {
-    private final Scanner scanner = new Scanner(System.in);
-    private final int EXIT = 5;
+    private static final Scanner scanner = new Scanner(System.in);
+    private static final int EXIT = 5;
+    private static final int YES = 1;
+    private static final int NO = 2;
 
     private PredictionsLogic engine = new PredictionsLogicImpl();
 
@@ -42,8 +46,6 @@ public class MenuImpl implements Menu {
             }
 
         }
-
-
     }
 
     private void displayMenu() {
@@ -78,7 +80,9 @@ public class MenuImpl implements Menu {
     }
 
     //todo :impel
-    private void runSimulation() {}
+    private void runSimulation() {
+        setEnvironmentVariables();
+    }
 
     //todo: impel
     private void showPreviousSimulation() {
@@ -112,6 +116,102 @@ public class MenuImpl implements Menu {
         }
 
         System.out.print(System.lineSeparator());
+    }
+
+    private void setEnvironmentVariables() {
+        List<DTO> environmentVariables = engine.getEnvironmentVariablesToSet();
+        List<DTO> updatedVariables = new ArrayList<>();
+
+        environmentVariables.forEach(environmentVariable -> {
+
+        });
+    }
+
+    private DTO SetEnvironmentVariableFromUser(DTO environmentVariable) {
+        EnvironmentVariableDTO dto = (EnvironmentVariableDTO) environmentVariable;
+        int choice;
+
+        printEnvironmentVariableDTO(dto);
+        askUserIfHeWantToUpdateTheVariable(dto.getName());
+        choice = getIntFromUserInRange(YES, NO);
+        switch (choice) {
+            case YES:
+                return initEnvironmentVariableDTOFromUserInput(dto);
+            case NO:
+                return dto;
+            default:
+                throw new IllegalArgumentException();
+        }
+    }
+
+    private DTO initEnvironmentVariableDTOFromUserInput(EnvironmentVariableDTO variableDTO) {
+        String input;
+        Object value;
+        boolean isValid = false;
+
+        while (!isValid) {
+            System.out.println("Please enter a value");
+            input = scanner.nextLine();
+
+            switch (variableDTO.getType()) {
+                case "Integer Number":
+
+
+            }
+        }
+
+        return null;
+    }
+
+
+
+    private void printEnvironmentVariableDTO(EnvironmentVariableDTO dto) {
+        System.out.println("Variable name: " + dto.getName());
+        System.out.println("Type: " + dto.getType());
+        if (dto.getFrom() != null) {
+            System.out.println("Minimum value: " + dto.getFrom());
+        }
+        if (dto.getTo() != null) {
+            System.out.println("Maximum value: " + dto.getTo());
+        }
+    }
+
+    private void askUserIfHeWantToUpdateTheVariable(String name) {
+        System.out.println("Do you want to update " + name + "'s value?");
+        System.out.println(YES + ". Yes");
+        System.out.println(NO + ". No");
+    }
+
+    private int getIntFromUserInRange(int from, int to) {
+        int choice = from - 1;
+        boolean isValid = false;
+
+        while (!isValid) {
+            choice = scanner.nextInt();
+            isValid = (choice >= from && choice <= to);
+
+            if (!isValid) {
+                System.out.println("Input must be between " + from + " and " + to);
+            }
+        }
+
+        return choice;
+    }
+
+    private double getDoubleFromUserInRange(double from, double to) {
+        double choice = from - 1;
+        boolean isValid = false;
+
+        while (!isValid) {
+            choice = scanner.nextDouble();
+            isValid = (choice >= from && choice <= to);
+
+            if (!isValid) {
+                System.out.println("Input must be between " + from + " and " + to);
+            }
+        }
+
+        return choice;
     }
 
 }
