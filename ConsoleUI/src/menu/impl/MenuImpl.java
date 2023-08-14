@@ -82,6 +82,7 @@ public class MenuImpl implements Menu {
     //todo :impel
     private void runSimulation() {
         setEnvironmentVariables();
+        //engine.runNewSimulation();
     }
 
     //todo: impel
@@ -123,8 +124,11 @@ public class MenuImpl implements Menu {
         List<DTO> updatedVariables = new ArrayList<>();
 
         environmentVariables.forEach(environmentVariable -> {
-
+            DTO updated = initEnvironmentVariableDTOFromUserInput((EnvironmentVariableDTO)environmentVariable);
+            updatedVariables.add(updated);
         });
+
+        engine.setEnvironmentVariablesValues(updatedVariables);
     }
 
     private DTO SetEnvironmentVariableFromUser(DTO environmentVariable) {
@@ -155,7 +159,7 @@ public class MenuImpl implements Menu {
 
             switch (variableDTO.getType()) {
                 case "Integer Number":
-
+                   // todo: complete!
 
             }
         }
@@ -187,11 +191,15 @@ public class MenuImpl implements Menu {
         boolean isValid = false;
 
         while (!isValid) {
-            choice = scanner.nextInt();
-            isValid = (choice >= from && choice <= to);
+            try {
+                choice = scanner.nextInt();
+                isValid = (choice >= from && choice <= to);
 
-            if (!isValid) {
-                System.out.println("Input must be between " + from + " and " + to);
+                if (!isValid) {
+                    System.out.println("Input must be between " + from + " and " + to);
+                }
+            } catch (Exception e){
+                System.out.println("You must insert an integer!");
             }
         }
 
@@ -203,11 +211,15 @@ public class MenuImpl implements Menu {
         boolean isValid = false;
 
         while (!isValid) {
-            choice = scanner.nextDouble();
-            isValid = (choice >= from && choice <= to);
+            try {
+                choice = scanner.nextDouble();
+                isValid = (choice >= from && choice <= to);
 
-            if (!isValid) {
-                System.out.println("Input must be between " + from + " and " + to);
+                if (!isValid) {
+                    System.out.println("Input must be between " + from + " and " + to);
+                }
+            } catch (Exception e) {
+                System.out.println("You must insert an double!");
             }
         }
 

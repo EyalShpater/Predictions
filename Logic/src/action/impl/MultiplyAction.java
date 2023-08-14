@@ -64,40 +64,40 @@ public class MultiplyAction extends AbstractAction {
             result = (double)((Integer) firstExpressionValue * (Integer) secoundExpressionValue);
         } else if (areBothDoubles(firstExpressionValue,secoundExpressionValue)) {
             result = (Double) firstExpressionValue * (Double) secoundExpressionValue;
-        } else if (firstDoubleSecoundInteger(firstExpressionValue , secoundExpressionValue)) {
+        } else if (firstDoubleSecondInteger(firstExpressionValue , secoundExpressionValue)) {
             result = (Double) firstExpressionValue * (Integer) secoundExpressionValue;
-        } else if (firstIntegerSecoundDouble(firstExpressionValue , secoundExpressionValue)) {
+        } else if (firstIntegerSecondDouble(firstExpressionValue , secoundExpressionValue)) {
             result = (Integer) firstExpressionValue * (Double) secoundExpressionValue;
         }
         checkRangeAndUpdateValue(propertyToUpdate , result , false);
 
     }
 
-    private boolean areExpressionsNumeric(Object firstExpressionValue , Object secoundExpressionValue){
-        return (areBothIntegers(firstExpressionValue,secoundExpressionValue)||
-                areBothDoubles( firstExpressionValue , secoundExpressionValue)||
-                areMixedTypes( firstExpressionValue , secoundExpressionValue));
+    private boolean areExpressionsNumeric(Object firstExpressionValue , Object secondExpressionValue){
+        return (areBothIntegers(firstExpressionValue,secondExpressionValue)||
+                areBothDoubles( firstExpressionValue , secondExpressionValue)||
+                areMixedTypes( firstExpressionValue , secondExpressionValue));
     }
 
-    private boolean areBothIntegers(Object firstExpressionValue , Object secoundExpressionValue){
-        return firstExpressionValue instanceof Integer && secoundExpressionValue instanceof Integer;
+    private boolean areBothIntegers(Object firstExpressionValue , Object secondExpressionValue){
+        return firstExpressionValue instanceof Integer && secondExpressionValue instanceof Integer;
     }
 
-    private boolean areBothDoubles(Object firstExpressionValue , Object secoundExpressionValue){
-        return firstExpressionValue instanceof Double && secoundExpressionValue instanceof Double;
+    private boolean areBothDoubles(Object firstExpressionValue , Object secondExpressionValue){
+        return firstExpressionValue instanceof Double && secondExpressionValue instanceof Double;
     }
 
-    private boolean areMixedTypes(Object firstExpressionValue , Object secoundExpressionValue){
-        return (firstIntegerSecoundDouble(firstExpressionValue ,secoundExpressionValue)||
-                firstDoubleSecoundInteger(firstExpressionValue ,secoundExpressionValue));
+    private boolean areMixedTypes(Object firstExpressionValue , Object secondExpressionValue){
+        return (firstIntegerSecondDouble(firstExpressionValue ,secondExpressionValue)||
+                firstDoubleSecondInteger(firstExpressionValue ,secondExpressionValue));
     }
 
-    private boolean firstDoubleSecoundInteger(Object firstExpressionValue , Object secoundExpressionValue){
-        return firstExpressionValue instanceof Double && secoundExpressionValue instanceof Integer;
+    private boolean firstDoubleSecondInteger(Object firstExpressionValue , Object secondExpressionValue){
+        return firstExpressionValue instanceof Double && secondExpressionValue instanceof Integer;
     }
 
-    private boolean firstIntegerSecoundDouble(Object firstExpressionValue , Object secoundExpressionValue){
-        return firstExpressionValue instanceof Integer && secoundExpressionValue instanceof Double;
+    private boolean firstIntegerSecondDouble(Object firstExpressionValue , Object secondExpressionValue){
+        return firstExpressionValue instanceof Integer && secondExpressionValue instanceof Double;
     }
 
 

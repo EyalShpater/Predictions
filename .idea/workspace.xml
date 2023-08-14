@@ -4,13 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="27d35137-667f-4e37-a519-ab836acc0a06" name="Changes" comment="ConsoleUI menu implement - not full implementation.">
-      <change afterPath="$PROJECT_DIR$/Logic/src/action/impl/DivideAction.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/questions" afterDir="false" />
+    <list default="true" id="27d35137-667f-4e37-a519-ab836acc0a06" name="Changes" comment="Divide added">
+      <change afterPath="$PROJECT_DIR$/Logic/src/action/impl/SetAction.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ConsoleUI/src/menu/impl/MenuImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/ConsoleUI/src/menu/impl/MenuImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/action/impl/MultiplyAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/action/impl/MultiplyAction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/questions" beforeDir="false" afterPath="$PROJECT_DIR$/questions" afterDir="false" />
     </list>
-    <list id="f807c731-7b2e-4c67-a176-e2fb7f9a4aa9" name="Changes by ASUS" comment="Changes by ASUS" />
+    <list id="f807c731-7b2e-4c67-a176-e2fb7f9a4aa9" name="Changes by ASUS" comment="Changes by ASUS">
+      <change beforePath="$PROJECT_DIR$/ConsoleUI/src/testmain/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/ConsoleUI/src/testmain/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/action/impl/DecreaseAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/action/impl/DecreaseAction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/action/impl/IncreaseAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/action/impl/IncreaseAction.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -178,14 +183,6 @@
       <workItem from="1691968080818" duration="2621000" />
       <workItem from="1691971648940" duration="9821000" />
       <workItem from="1692000022571" duration="5167000" />
-    </task>
-    <task id="LOCAL‎-00003" summary="with project settings">
-      <option name="closed" value="true" />
-      <created>1691147966820</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL‎-00003" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1691147966820</updated>
     </task>
     <task id="LOCAL‎-00004" summary="with project settings">
       <option name="closed" value="true" />
@@ -559,7 +556,15 @@
       <option name="project" value="LOCAL‎" />
       <updated>1692017705996</updated>
     </task>
-    <option name="localTasksCounter" value="52" />
+    <task id="LOCAL‎-00052" summary="Divide added">
+      <option name="closed" value="true" />
+      <created>1692022417983</created>
+      <option name="number" value="00052" />
+      <option name="presentableId" value="LOCAL‎-00052" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1692022417983</updated>
+    </task>
+    <option name="localTasksCounter" value="53" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -578,7 +583,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="more changes" />
     <MESSAGE value="World Simulation etc.." />
     <MESSAGE value="Entity and Property is fine" />
     <MESSAGE value="epressions" />
@@ -603,7 +607,8 @@
     <MESSAGE value="fixed IncreaseAction DecreaseAction to work on my main , problem was trying to cast Integer to Double" />
     <MESSAGE value="ConsoleUI menu implement - not full implementation." />
     <MESSAGE value="Changes by ASUS" />
-    <option name="LAST_COMMIT_MESSAGE" value="Changes by ASUS" />
+    <MESSAGE value="Divide added" />
+    <option name="LAST_COMMIT_MESSAGE" value="Divide added" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -620,6 +625,15 @@
           <url>file://$PROJECT_DIR$/ConsoleUI/src/Main/Main.java</url>
           <line>9</line>
           <option name="timeStamp" value="9" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/Logic/src/action/impl/SetAction.java</url>
+          <line>24</line>
+          <properties class="action.impl.SetAction" method="invoke">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="11" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
