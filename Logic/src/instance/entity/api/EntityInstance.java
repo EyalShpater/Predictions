@@ -9,6 +9,8 @@ public interface EntityInstance {
 
     void setEntityFirstName(String name);
 
+    String getName();
+
     String getEntityFirstName();
 
     boolean isAlive();

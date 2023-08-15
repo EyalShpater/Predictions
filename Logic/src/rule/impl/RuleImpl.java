@@ -38,7 +38,9 @@ public class RuleImpl implements Rule {
 
     @Override
     public void invoke(Context context) {
-        actions.forEach(action -> action.invoke(context));
+        if (relevantEntities.contains(context.getEntityInstance().getName()) && context.getEntityInstance().isAlive()) {
+            actions.forEach(action -> action.invoke(context));
+        }
     }
 
     @Override

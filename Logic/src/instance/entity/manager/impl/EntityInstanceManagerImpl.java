@@ -10,22 +10,22 @@ import java.util.stream.Collectors;
 
 public class EntityInstanceManagerImpl implements EntityInstanceManager {
     private int id;
-    private List<EntityInstance> instances;
+    private Map<Integer, EntityInstance> instances;
 
     public EntityInstanceManagerImpl() {
-        instances = new ArrayList<>();
+        instances = new HashMap<>();
         id = 1;
     }
 
     @Override
     public void create(EntityDefinition entityDefinition) {
-        instances.add(new EntityInstanceImpl(entityDefinition, id));
+        instances.put(id, new EntityInstanceImpl(entityDefinition, id));
         id++;
     }
 
     @Override
     public List<EntityInstance> getInstances() {
-        return instances;
+        return new ArrayList<EntityInstance>(instances.values());
     }
 
     @Override

@@ -10,14 +10,14 @@ import java.util.*;
 
 public class EntityInstanceImpl implements EntityInstance {
     private final int id;
-    private final String entityName;
+    private final String name;
     private Map<String, PropertyInstance> propNameToPropInstance;
     private boolean isAlive = true;
 
     private String firstName;//NOTE: For debugging
 
     public EntityInstanceImpl(EntityDefinition entity, int id) {
-        entityName = entity.getName();
+        name = entity.getName();
         propNameToPropInstance = createPropertyInstancesFromDefinition(entity);
         this.id = id;
     }
@@ -43,6 +43,11 @@ public class EntityInstanceImpl implements EntityInstance {
     @Override
     public int getId() {
         return id;
+    }
+
+    @Override
+    public String getName() {
+        return name;
     }
 
     public void setEntityFirstName(String name) {
