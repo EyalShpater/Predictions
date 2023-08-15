@@ -30,17 +30,12 @@ public class PredictionsLogicImpl implements PredictionsLogic {
     }
 
     @Override
-    public void setEnvironmentVariablesValues(List<DTO> variablesValues) {
-        world.setEnvironmentVariablesValues(variablesValues);
-    }
-
-    @Override
     public DTO getSimulationDetails() {
         return null;
     }
 
     @Override
-    public DTO runNewSimulation(DTO environmentVariables) {
+    public DTO runNewSimulation(List<DTO> environmentVariables) {
         return allSimulations.runNewSimulation(world, environmentVariables);
     }
 

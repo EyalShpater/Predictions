@@ -9,11 +9,9 @@ public interface PredictionsLogic {
 
     List<DTO> getEnvironmentVariablesToSet();
 
-    void setEnvironmentVariablesValues(List<DTO> variablesValues);
-
     DTO getSimulationDetails();
 
-    DTO runNewSimulation(DTO environmentVariables);
+    DTO runNewSimulation(List<DTO> environmentVariables);
 
     Collection<DTO> getAllPreviousSimulationData();
 }

@@ -6,6 +6,12 @@ public class ActivationImpl implements Activation {
     private int numOfTicksToActivate;
     private double probabilityToActivate = 1;
 
+    // todo: input check
+    public ActivationImpl(int numOfTicksToActivate, double probabilityToActivate) {
+        this.numOfTicksToActivate = numOfTicksToActivate;
+        this.probabilityToActivate = probabilityToActivate;
+    }
+
     public int getNumOfTicksToActivate() {
         return numOfTicksToActivate;
     }

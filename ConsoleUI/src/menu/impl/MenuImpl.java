@@ -75,8 +75,8 @@ public class MenuImpl implements Menu {
 
     //todo :impel
     private void runSimulation() {
-        setEnvironmentVariables();
-        //engine.runNewSimulation();
+        List<DTO> updatedEnvironmentVariables = setEnvironmentVariables();
+        engine.runNewSimulation(updatedEnvironmentVariables);
     }
 
     //todo: impel
@@ -85,7 +85,7 @@ public class MenuImpl implements Menu {
     }
 
     //todo: separate it to sub functions.
-    private void setEnvironmentVariables() {
+    private List<DTO> setEnvironmentVariables() {
         List<DTO> environmentVariables = engine.getEnvironmentVariablesToSet();
         int choice = -1;
 
@@ -100,7 +100,8 @@ public class MenuImpl implements Menu {
             System.out.println("Please enter the number of variable you want to set");
             choice = typeScanner.getIntFromUserInRange(1, environmentVariables.size());
         }
-//        engine.setEnvironmentVariablesValues(updatedVariables);
+
+        return environmentVariables;
     }
 
     private DTO initEnvironmentVariableDTOFromUserInput(EnvironmentVariableDTO variableDTO) {

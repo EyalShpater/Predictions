@@ -3,9 +3,11 @@ package definition.world.impl;
 import api.DTO;
 import definition.entity.api.EntityDefinition;
 import definition.environment.api.EnvironmentVariableManager;
+import definition.environment.impl.EnvironmentVariableManagerImpl;
 import environment.variable.EnvironmentVariableDTO;
 import execution.simulation.termination.api.Termination;
 import definition.world.api.World;
+import instance.enviornment.api.ActiveEnvironment;
 import rule.api.Rule;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
@@ -17,14 +19,16 @@ public class WorldImpl implements World {
     private EnvironmentVariableManager environmentVariables;
     private Termination terminate;
 
-    // TODO: impel
     @Override
     public void setEnvironmentVariablesValues(List<DTO> values) {
+        EnvironmentVariableManager variableDefinitions = new EnvironmentVariableManagerImpl();
 
+        values.forEach(variableDefinitions::mapEnvironmentVariableDTOtoEnvironmentVariableAndCreateIt);
+        this.environmentVariables = variableDefinitions;
     }
 
     @Override
-    public List<DTO> getEnvironmentVariables() {
+    public List<DTO> getEnvironmentVariablesDTO() {
         return environmentVariables.getEnvironmentVariables()
                 .stream()
                 .map(propertyDefinition -> new EnvironmentVariableDTO(
@@ -43,6 +47,11 @@ public class WorldImpl implements World {
     }
 
     @Override
+    public ActiveEnvironment createActiveEnvironment() {
+        return environmentVariables.createActiveEnvironment();
+    }
+
+    @Override
     public List<EntityDefinition> getEntities() {
         return entitiesDefinition;
     }
@@ -50,5 +59,20 @@ public class WorldImpl implements World {
     @Override
     public boolean isActive(int currentTick, long startTime) {
         return !terminate.isTerminate(currentTick, startTime);
+    }
+
+    @Override
+    public List<Rule> getRules() {
+        return rules;
+    }
+
+    @Override
+    public void addRule(Rule newRule) {
+        if (newRule != null) {
+            rules.add(newRule);
+        }
+        else {
+            throw new NullPointerException("Rule can not be null!");
+        }
     }
 }

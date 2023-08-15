@@ -1,31 +1,33 @@
 package execution.simulation.impl;
 
+import action.context.api.Context;
+import action.context.impl.ContextImpl;
 import api.DTO;
-import definition.entity.api.EntityDefinition;
-import definition.environment.api.EnvironmentVariableManager;
-import definition.environment.impl.EnvironmentVariableManagerImpl;
-import environment.variable.EnvironmentVariableDTO;
-import execution.simulation.api.Data;
 import execution.simulation.api.Simulation;
 import definition.world.api.World;
 import instance.entity.api.EntityInstance;
-import instance.entity.impl.EntityInstanceImpl;
+import instance.entity.manager.api.EntityInstanceManager;
+import instance.entity.manager.impl.EntityInstanceManagerImpl;
 import instance.enviornment.api.ActiveEnvironment;
 import instance.enviornment.impl.ActiveEnvironmentImpl;
 import instance.property.impl.PropertyInstanceImpl;
+import rule.api.Rule;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Random;
 
 public class SimulationImpl implements Simulation {
     private final int serialNumber;
+    private final Random random;
     private World world;
-    private Data data;
+    private EntityInstanceManager entities;
+    private ActiveEnvironment environmentVariables;
 
     public SimulationImpl(World world, int serialNumber) {
         this.world = world;
         this.serialNumber = serialNumber;
-        data = null;
+        this.random = new Random();
+        this.entities = null;
+        this.environmentVariables = null;
     }
 
     @Override
@@ -34,53 +36,53 @@ public class SimulationImpl implements Simulation {
     }
 
     @Override
-    public Data getData() {
-        return data;
-    }
-
-    @Override
-    public DTO run(DTO environmentVariables) {
-        List<EntityInstance> instances = createEntityInstancesFromWorld();
-        ActiveEnvironment environmentVariableInstances = createActiveEnvironmentVariables(environmentVariables);
-        DTO simulationResult = runSimulation(instances, environmentVariableInstances);
+    public DTO run() {
+        DTO simulationResult = runSimulation();
 
         return simulationResult;
     }
 
-    private List<EntityInstance> createEntityInstancesFromWorld() {
-        List<EntityInstance> instances = new ArrayList<>();
+    private void initEntities() {
+        EntityInstanceManager instances = new EntityInstanceManagerImpl();
 
-        for (EntityDefinition entity : world.getEntities()) {
-            for (int i = 1, population = entity.getPopulation(); i <= population; i++) {
-                instances.add(new EntityInstanceImpl(entity, i));
-            }
-        }
-
-        return instances;
+        world.getEntities().forEach(instances::create);
+        entities = instances;
     }
 
-    private ActiveEnvironment createActiveEnvironmentVariables(DTO environmentVariables) {
-        EnvironmentVariableManager variableDefinitions = new EnvironmentVariableManagerImpl();
-        ActiveEnvironment variableInstances = new ActiveEnvironmentImpl();
-
-        variableDefinitions.mapEnvironmentVariableDTOtoEnvironmentVariableManager(environmentVariables);
-        variableDefinitions
-                .getEnvironmentVariables()
-                .forEach(propertyDefinition ->
-                        variableInstances.addPropertyInstance(new PropertyInstanceImpl(propertyDefinition)));
-
-        return variableInstances;
+    private void initEnvironmentVariables() {
+        this.environmentVariables = world.createActiveEnvironment();
     }
 
     //TODO: impl
-    private DTO runSimulation(List<EntityInstance> entities, ActiveEnvironment environmentVariables) {
+    private DTO runSimulation() {
         long startTime = System.currentTimeMillis();
         int tick = 0;
 
         while (world.isActive(tick, startTime)) {
+            if (tick == 0) {
+                initEntities();
+                initEnvironmentVariables();
+            }
 
+            executeRules(tick);
+
+
+
+            tick++;
         }
 
         return null;
+    }
+
+    private void executeRules(int tick) {
+        for (EntityInstance entity : entities.getInstances()) {
+            for (Rule rule : world.getRules()) {
+                double probability = random.nextDouble();
+
+                if (rule.isActive(tick, probability)) {
+                    rule.invoke(new ContextImpl(entity, entities, environmentVariables));
+                }
+            }
+        }
     }
 }

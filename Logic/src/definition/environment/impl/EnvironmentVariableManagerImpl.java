@@ -21,7 +21,6 @@ public class EnvironmentVariableManagerImpl implements EnvironmentVariableManage
         propNameToPropDefinition.put(property.getName(), property);
     }
 
-    //return map because map is not iterable via indexes
     @Override
     public Collection<PropertyDefinition> getEnvironmentVariables() {
         return propNameToPropDefinition.values();
@@ -41,7 +40,7 @@ public class EnvironmentVariableManagerImpl implements EnvironmentVariableManage
 
     //TODO: implement
     @Override
-    public void mapEnvironmentVariableDTOtoEnvironmentVariableManager(DTO environmentVariables) {
+    public void mapEnvironmentVariableDTOtoEnvironmentVariableAndCreateIt(DTO environmentVariables) {
 
     }
 }

@@ -5,18 +5,25 @@ import action.context.api.Context;
 import rule.api.Activation;
 import rule.api.Rule;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 
 public class RuleImpl implements Rule {
     private String name;
+    private SortedSet<String> relevantEntities;
     private List<Action> actions;
     private Activation activation;
 
     public RuleImpl(String name) {
         this.name = name;
         actions = new ArrayList<>();
+    }
+
+    public RuleImpl(String name, List<Action> actions, Activation activation, String... relevantEntity) {
+        this.name = name;
+        this.actions = actions;
+        this.activation = activation;
+        initRelevantEntities(Arrays.asList(relevantEntity));
     }
 
     @Override
@@ -43,7 +50,6 @@ public class RuleImpl implements Rule {
         actions.add(action);
     }
 
-
     @Override
     public String toString() {
         StringBuilder str = new StringBuilder();
@@ -56,5 +62,10 @@ public class RuleImpl implements Rule {
         }
 
         return str.toString();
+    }
+
+    private void initRelevantEntities(List<String> names) {
+        relevantEntities = new TreeSet<>();
+        relevantEntities.addAll(names);
     }
 }
