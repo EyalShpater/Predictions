@@ -17,11 +17,11 @@ public class XmlValidator {
         this.path = path;
     }
 
-    private boolean isValid(){
+    public boolean isValid(){
         // 1) check xml exist and type of xml
         if(!checkIfPathExist()) {
             throw new IllegalArgumentException("File path does not exist");
-        } else if (checkIfXmlType()) {
+        } else if (!checkIfXmlType()) {
             throw new IllegalArgumentException("File path must end with .xml .");
         }
 
@@ -97,6 +97,8 @@ public class XmlValidator {
         return !hasEqualStrings;
 
     }
+
+    //logic is not correct
     private boolean checkPropertiesNames(PRDEntities entities){
 
         boolean hasEqualStrings = false;
@@ -123,6 +125,7 @@ public class XmlValidator {
         return !hasEqualStrings;
     }
 
+    //logic is not correct
     private boolean checkIfEntityExistInActions(PRDWorld world){
 
         List<PRDEntity> entityList = world.getPRDEntities().getPRDEntity();
