@@ -2,9 +2,7 @@ package testmain;
 
 import action.expression.api.Expression;
 import action.expression.impl.ExpressionFactory;
-import action.impl.DecreaseAction;
-import action.impl.MultiplyAction;
-import action.impl.SetAction;
+import action.impl.*;
 import definition.entity.api.EntityDefinition;
 import definition.entity.impl.EntityDefinitionImpl;
 import definition.environment.api.EnvironmentVariableManager;
@@ -25,7 +23,6 @@ import instance.property.impl.PropertyInstanceImpl;
 
 import rule.api.Rule;
 import rule.impl.RuleImpl;
-import action.impl.IncreaseAction;
 import instance.entity.api.EntityInstance;
 
 public class Main {
@@ -130,11 +127,12 @@ public class Main {
 
                 });
 */
-        PropertyDefinition agePropertyDefinition = new PropertyDefinitionImpl("age", PropertyType.INT, true, new Range(10, 50));
-        PropertyDefinition smokingInDayPropertyDefinition = new PropertyDefinitionImpl("smokingInDay", PropertyType.DOUBLE, false, 11.5);
+        PropertyDefinition agePropertyDefinition = new PropertyDefinitionImpl("age", PropertyType.INT, true, new Range(15, 90));
+        PropertyDefinition smokingInDayPropertyDefinition = new PropertyDefinitionImpl("smokingInDay", PropertyType.DOUBLE, false,7.5);
         PropertyDefinition cancerPrecentage = new PropertyDefinitionImpl("cancerPrecentage", PropertyType.DOUBLE, true, new Range(0, 100));
         PropertyDefinition cancerAdvanement = new PropertyDefinitionImpl("cancerAdvancement", PropertyType.DOUBLE, true, new Range(0, 150));
-        PropertyDefinition isCancerPositive = new PropertyDefinitionImpl("cancerPositive", PropertyType.BOOLEAN,false,true);
+        PropertyDefinition isCancerPositive = new PropertyDefinitionImpl("cancerPositive", PropertyType.BOOLEAN,false,false);
+        PropertyDefinition CancerSerialString = new PropertyDefinitionImpl("CancerSerialString", PropertyType.STRING,true);
 
 
         EntityDefinition smokerEntityDefinition = new EntityDefinitionImpl("smoker", 100);
@@ -143,14 +141,34 @@ public class Main {
         smokerEntityDefinition.addProperty(cancerPrecentage);
         smokerEntityDefinition.addProperty(cancerAdvanement);
         smokerEntityDefinition.addProperty(isCancerPositive);
+        smokerEntityDefinition.addProperty(CancerSerialString);
 
-        Rule rule1 = new RuleImpl("rule 1");
+        Rule rule1 = new RuleImpl("First_User_Rule");
+        rule1.addAction(new IncreaseAction(smokerEntityDefinition, "age", "random(10)"));
+        rule1.addAction(new IncreaseAction(smokerEntityDefinition, "smokingInDay", "3.5"));
+        rule1.addAction(new SetAction(smokerEntityDefinition, "cancerPositive", "true"));
+        rule1.addAction(new DecreaseAction(smokerEntityDefinition, "cancerPrecentage", "random(15)"));
+        rule1.addAction(new KillAction(smokerEntityDefinition));
+
+        Rule rule2 = new RuleImpl("Second_User_Rule");
+        rule1.addAction(new MultiplyAction(smokerEntityDefinition,"cancerAdvancement" ,"environment(tax-amount)" , "random(2)"));
+        rule1.addAction(new IncreaseAction(smokerEntityDefinition, "smokingInDay", "12"));
+        rule1.addAction(new SetAction(smokerEntityDefinition, "cancerPositive", "true"));
+        rule1.addAction(new KillAction(smokerEntityDefinition));
+
+        Rule rule3 = new RuleImpl("Third_User_Rule");
+        rule1.addAction(new IncreaseAction(smokerEntityDefinition, "age", "10"));
+        rule1.addAction(new SetAction(smokerEntityDefinition, "smokingInDay", "0"));
+
+
+
+        /*rule1.addAction(new KillAction(smokerEntityDefinition));
         rule1.addAction(new IncreaseAction(smokerEntityDefinition, "age", "2"));
         rule1.addAction(new SetAction(smokerEntityDefinition, "cancerPositive", "true"));
         rule1.addAction(new IncreaseAction(smokerEntityDefinition, "smokingInDay", "3.5"));
         rule1.addAction(new DecreaseAction(smokerEntityDefinition, "cancerPrecentage", "random(15)"));
         rule1.addAction(new IncreaseAction(smokerEntityDefinition, "cancerAdvancement", "environment(tax-amount)"));
-        rule1.addAction(new MultiplyAction(smokerEntityDefinition,"cancerAdvancement" ,"environment(tax-amount)" , "random(2)"));
+        rule1.addAction(new MultiplyAction(smokerEntityDefinition,"cancerAdvancement" ,"environment(tax-amount)" , "random(2)"));*/
 
         EnvironmentVariableManager envVariablesManager = new EnvironmentVariableManagerImpl();
         EntityInstanceManager manager = new EntityInstanceManagerImpl();
@@ -164,8 +182,48 @@ public class Main {
         PropertyInstance taxAmountEnvironmentVariablePropertyInstance = new PropertyInstanceImpl(taxAmountEnvironmentVariablePropertyDefinition);
         activeEnvironment.addPropertyInstance(taxAmountEnvironmentVariablePropertyInstance);
 
-        EntityInstance entityInstance = manager.getInstances().get(0);
-        manager.
+        EntityInstance entityInstance1 = manager.getInstances().get(0);
+        Context context1 = new ContextImpl(entityInstance1 ,manager, activeEnvironment);
+        System.out.println("first name :" + entityInstance1.getEntityFirstName());
+        System.out.println("before the change the value of age is :" + entityInstance1.getPropertyByName("age").getValue());
+        System.out.println("before the change the value of smokingInDay is :" + entityInstance1.getPropertyByName("smokingInDay").getValue());
+        System.out.println("before the change the value of cancerPositive is :" + entityInstance1.getPropertyByName("cancerPositive").getValue());
+        System.out.println("before the change the value of cancerPrecentage is :" + entityInstance1.getPropertyByName("cancerPrecentage").getValue());
+        rule1.invoke(context1);
+        System.out.println("----------------------------------------------");
+        System.out.println("first name :" + entityInstance1.getEntityFirstName());
+        System.out.println("after the change the value of age is :" + entityInstance1.getPropertyByName("age").getValue());
+        System.out.println("after the change the value of smokingInDay is :" + entityInstance1.getPropertyByName("smokingInDay").getValue());
+        System.out.println("after the change the value of cancerPositive is :" + entityInstance1.getPropertyByName("cancerPositive").getValue());
+        System.out.println("after the change the value of cancerPrecentage is :" + entityInstance1.getPropertyByName("cancerPrecentage").getValue());
+
+        System.out.println("----------------------------------------------------------------------------------------------");
+
+        EntityInstance entityInstance2 = manager.getInstances().get(1);
+        Context context2 = new ContextImpl(entityInstance2 ,manager, activeEnvironment);
+        System.out.println("before the change the value of cancerAdvancement is :" + entityInstance2.getPropertyByName("cancerAdvancement").getValue());
+        System.out.println("before the change the value of smokingInDay is :" + entityInstance2.getPropertyByName("smokingInDay").getValue());
+        System.out.println("before the change the value of cancerPositive is :" + entityInstance2.getPropertyByName("cancerPositive").getValue());
+        rule2.invoke(context2);
+        System.out.println("----------------------------------------------");
+        System.out.println("after the change the value of cancerAdvancement is :" + entityInstance2.getPropertyByName("cancerAdvancement").getValue());
+        System.out.println("after the change the value of smokingInDay is :" + entityInstance2.getPropertyByName("smokingInDay").getValue());
+        System.out.println("after the change the value of cancerPositive is :" + entityInstance2.getPropertyByName("cancerPositive").getValue());
+
+        System.out.println("----------------------------------------------------------------------------------------------");
+
+        EntityInstance entityInstance3 = manager.getInstances().get(2);
+        Context context3 = new ContextImpl(entityInstance2 ,manager, activeEnvironment);
+        System.out.println("before the change the value of age is :" + entityInstance3.getPropertyByName("age").getValue());
+        System.out.println("before the change the value of smokingInDay is :" + entityInstance3.getPropertyByName("smokingInDay").getValue());
+        rule3.invoke(context3);
+        System.out.println("----------------------------------------------");
+        System.out.println("after the change the value of age is :" + entityInstance3.getPropertyByName("age").getValue());
+        System.out.println("after the change the value of smokingInDay is :" + entityInstance3.getPropertyByName("smokingInDay").getValue());
+
+
+
+       /* manager.
                 getInstances().
                 forEach(instance -> {
                     Context context = new ContextImpl(instance, manager, activeEnvironment);
@@ -183,7 +241,7 @@ public class Main {
                     System.out.println("----------------------------------------------------------------------------------------------");
 
                 });
-
+*/
         /*System.out.println("hi");
         PropertyDefinition p1 = new PropertyDefinitionImpl("name", PropertyType.STRING, false, "Avi");
         PropertyDefinition p2 = new PropertyDefinitionImpl("age", PropertyType.INT, true, new Range(10, 50));

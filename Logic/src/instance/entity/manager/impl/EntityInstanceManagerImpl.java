@@ -30,8 +30,6 @@ public class EntityInstanceManagerImpl implements EntityInstanceManager {
 
     @Override
     public void killEntity(int idToKill) {
-        instances = instances.stream().
-                filter(instance -> instance.getId() != idToKill).
-                collect(Collectors.toList());
+        instances.stream().findAny();
     }
 }

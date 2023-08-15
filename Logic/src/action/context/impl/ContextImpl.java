@@ -17,6 +17,10 @@ public class ContextImpl implements Context {
         this.entityInstanceManager = entityInstanceManager;
         this.activeEnvironment = activeEnvironment;
     }
+    @Override
+    public void removeEntity(EntityInstance entityInstance) {
+        entityInstanceManager.killEntity(entityInstance.getId());
+    }
 
     @Override
     public EntityInstance getEntityInstance() {

@@ -7,4 +7,5 @@ import instance.property.api.PropertyInstance;
 public interface Context {
     EntityInstance getEntityInstance();
     PropertyInstance getEnvironmentVariable(String name);
+    void removeEntity(EntityInstance entityInstance);
 }

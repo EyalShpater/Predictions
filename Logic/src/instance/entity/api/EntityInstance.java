@@ -11,4 +11,8 @@ public interface EntityInstance {
 
     String getEntityFirstName();
 
+    boolean isAlive();
+
+    void kill();
+
 }

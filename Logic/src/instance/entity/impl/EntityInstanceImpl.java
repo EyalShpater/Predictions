@@ -12,6 +12,7 @@ public class EntityInstanceImpl implements EntityInstance {
     private final int id;
     private final String entityName;
     private Map<String, PropertyInstance> propNameToPropInstance;
+    private boolean isAlive = true;
 
     private String firstName;//NOTE: For debugging
 
@@ -50,5 +51,15 @@ public class EntityInstanceImpl implements EntityInstance {
 
     public String getEntityFirstName() {
         return firstName;
+    }
+
+    @Override
+    public boolean isAlive() {
+        return isAlive;
+    }
+
+    @Override
+    public void kill(){
+        this.isAlive = false;
     }
 }
