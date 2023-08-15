@@ -74,6 +74,12 @@ public class SimulationImpl implements Simulation {
 
     //TODO: impl
     private DTO runSimulation(List<EntityInstance> entities, ActiveEnvironment environmentVariables) {
+        long startTime = System.currentTimeMillis();
+        int tick = 0;
+
+        while (world.isActive(tick, startTime)) {
+
+        }
 
         return null;
     }

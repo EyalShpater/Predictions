@@ -3,21 +3,21 @@ package execution.simulation.termination.impl;
 import execution.simulation.termination.api.Termination;
 
 import java.util.*;
+import java.util.concurrent.TimeUnit;
 
 public class TerminationImpl implements Termination {
-    private int ticksToTerminate;
-    private int secondsToTerminate;
-    private Date secondsSinceStart;
+    private final int ticksToTerminate;
+    private final long secondsToTerminate;
 
     public TerminationImpl(int ticksToTerminate, int secondsToTerminate) {
         this.ticksToTerminate = ticksToTerminate;
         this.secondsToTerminate = secondsToTerminate;
-        secondsSinceStart = new Date(); // not real use
     }
 
-    // TODO: finish this class
     @Override
-    public boolean isTerminate(int currentTick) {
-        return ticksToTerminate == currentTick /* || secondsToTerminate == secondsSinceStart.getSeconds() */;
+    public boolean isTerminate(int currentTick, long startTimeInMillis) {
+        long secondsSinceStart = TimeUnit.MILLISECONDS.toSeconds(System.currentTimeMillis() - startTimeInMillis);
+
+        return ticksToTerminate >= currentTick || secondsSinceStart >= secondsToTerminate;
     }
 }

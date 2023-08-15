@@ -8,6 +8,7 @@ import execution.simulation.termination.api.Termination;
 import definition.world.api.World;
 import rule.api.Rule;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 import java.util.stream.Collectors;
 
 public class WorldImpl implements World {
@@ -44,5 +45,10 @@ public class WorldImpl implements World {
     @Override
     public List<EntityDefinition> getEntities() {
         return entitiesDefinition;
+    }
+
+    @Override
+    public boolean isActive(int currentTick, long startTime) {
+        return !terminate.isTerminate(currentTick, startTime);
     }
 }

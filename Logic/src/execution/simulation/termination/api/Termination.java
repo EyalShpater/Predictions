@@ -1,5 +1,5 @@
 package execution.simulation.termination.api;
 
 public interface Termination {
-    boolean isTerminate(int currentTick);
+    boolean isTerminate(int currentTick, long startTimeInMillis);
 }
