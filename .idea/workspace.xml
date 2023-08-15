@@ -5,16 +5,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="27d35137-667f-4e37-a519-ab836acc0a06" name="Changes" comment="execute rules impl">
+      <change afterPath="$PROJECT_DIR$/Logic/src/action/impl/condition/Condition.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Logic/src/action/impl/condition/impl/multiple/And.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Logic/src/action/impl/condition/impl/multiple/MultipleCondition.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Logic/src/action/impl/condition/impl/multiple/Or.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Logic/src/action/impl/condition/impl/single/BiggerThan.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Logic/src/action/impl/condition/impl/single/Equal.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Logic/src/action/impl/condition/impl/single/NotEqual.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Logic/src/action/impl/condition/impl/single/SingleCondition.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/instance/entity/api/EntityInstance.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/instance/entity/api/EntityInstance.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/instance/entity/impl/EntityInstanceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/instance/entity/impl/EntityInstanceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/instance/entity/manager/api/EntityInstanceManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/instance/entity/manager/api/EntityInstanceManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/instance/entity/manager/impl/EntityInstanceManagerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/instance/entity/manager/impl/EntityInstanceManagerImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/action/impl/DivideAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/action/impl/DivideAction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/definition/world/impl/WorldImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/definition/world/impl/WorldImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/execution/simulation/impl/SimulationImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/execution/simulation/impl/SimulationImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Logic/src/rule/impl/RuleImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/rule/impl/RuleImpl.java" afterDir="false" />
     </list>
     <list id="f807c731-7b2e-4c67-a176-e2fb7f9a4aa9" name="Changes by ASUS" comment="Kill impl">
-      <change beforePath="$PROJECT_DIR$/Logic/src/execution/simulation/impl/SimulationImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/execution/simulation/impl/SimulationImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/instance/entity/manager/impl/EntityInstanceManagerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/instance/entity/manager/impl/EntityInstanceManagerImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Logic/src/action/impl/condition/impl/single/LowerThan.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,8 +35,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Interface" />
         <option value="Enum" />
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -51,17 +57,6 @@
         <option name="url" value="https://github.com/shpater1234/Predictions.git" />
       </UrlAndAccount>
     </option>
-  </component>
-  <component name="LineStatusTrackerManager">
-    <file path="$PROJECT_DIR$/Logic/src/instance/entity/manager/impl/EntityInstanceManagerImpl.java">
-      <ranges>
-        <range start1="12" end1="13" start2="12" end2="13" changelist="27d35137-667f-4e37-a519-ab836acc0a06" />
-        <range start1="15" end1="16" start2="15" end2="16" changelist="27d35137-667f-4e37-a519-ab836acc0a06" />
-        <range start1="21" end1="22" start2="21" end2="22" changelist="27d35137-667f-4e37-a519-ab836acc0a06" />
-        <range start1="27" end1="28" start2="27" end2="28" changelist="27d35137-667f-4e37-a519-ab836acc0a06" />
-        <range start1="32" end1="33" start2="32" end2="39" changelist="f807c731-7b2e-4c67-a176-e2fb7f9a4aa9" />
-      </ranges>
-    </file>
   </component>
   <component name="ProblemsViewState">
     <option name="selectedTabId" value="CurrentFile" />
@@ -85,7 +80,6 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
-    "codeWithMe.voiceChat.enabledByDefault": "false",
     "extract.method.default.visibility": "private",
     "full.screen.before.presentation.mode": "false",
     "git-widget-placeholder": "main",
@@ -196,23 +190,7 @@
       <workItem from="1691971648940" duration="9821000" />
       <workItem from="1692000022571" duration="5167000" />
       <workItem from="1692037560207" duration="5112000" />
-      <workItem from="1692078869430" duration="9830000" />
-    </task>
-    <task id="LOCAL‎-00010" summary="more changes">
-      <option name="closed" value="true" />
-      <created>1691250120748</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL‎-00010" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1691250120749</updated>
-    </task>
-    <task id="LOCAL‎-00011" summary="edit Property and Entity classes">
-      <option name="closed" value="true" />
-      <created>1691318001719</created>
-      <option name="number" value="00011" />
-      <option name="presentableId" value="LOCAL‎-00011" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1691318001719</updated>
+      <workItem from="1692078869430" duration="15109000" />
     </task>
     <task id="LOCAL‎-00012" summary="edit Property and Entity classes">
       <option name="closed" value="true" />
@@ -578,7 +556,23 @@
       <option name="project" value="LOCAL‎" />
       <updated>1692087561984</updated>
     </task>
-    <option name="localTasksCounter" value="59" />
+    <task id="LOCAL‎-00059" summary="execute rules impl">
+      <option name="closed" value="true" />
+      <created>1692088940713</created>
+      <option name="number" value="00059" />
+      <option name="presentableId" value="LOCAL‎-00059" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1692088940713</updated>
+    </task>
+    <task id="LOCAL‎-00060" summary="Kill impl">
+      <option name="closed" value="true" />
+      <created>1692088945272</created>
+      <option name="number" value="00060" />
+      <option name="presentableId" value="LOCAL‎-00060" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1692088945273</updated>
+    </task>
+    <option name="localTasksCounter" value="61" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

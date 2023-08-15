@@ -28,13 +28,13 @@ public class DivideAction extends AbstractAction {
         Expression firstExpression = new ExpressionFactory(this.Expression1, invokeOn);
         Object firstExpressionValue = firstExpression.getValue(context);
         Expression secoundExpression = new ExpressionFactory(this.Expression2, invokeOn);
-        Object secoundExpressionValue = secoundExpression.getValue(context);
+        Object secondExpressionValue = secoundExpression.getValue(context);
 
         if (propertyToUpdate.getPropertyDefinition().isNumeric()) {
             if (propertyToUpdate.getPropertyDefinition().isInteger()) {
-                divideInteger(propertyToUpdate, firstExpressionValue ,secoundExpressionValue );
+                divideInteger(propertyToUpdate, firstExpressionValue ,secondExpressionValue );
             } else {
-                divideDouble(propertyToUpdate, firstExpressionValue ,secoundExpressionValue);
+                divideDouble(propertyToUpdate, firstExpressionValue ,secondExpressionValue);
             }
         } else {
             throw new IllegalArgumentException("Increase action only available  on numeric type!");

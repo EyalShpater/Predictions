@@ -53,21 +53,16 @@ public class SimulationImpl implements Simulation {
         this.environmentVariables = world.createActiveEnvironment();
     }
 
-    //TODO: impl
+    //TODO: impl simulationResults.
     private DTO runSimulation() {
         long startTime = System.currentTimeMillis();
-        int tick = 0;
+        int tick = 1;
+
+        initEntities();
+        initEnvironmentVariables();
 
         while (world.isActive(tick, startTime)) {
-            if (tick == 0) {
-                initEntities();
-                initEnvironmentVariables();
-            }
-
             executeRules(tick);
-
-
-
             tick++;
         }
 
@@ -79,7 +74,7 @@ public class SimulationImpl implements Simulation {
             for (Rule rule : world.getRules()) {
                 double probability = random.nextDouble();
 
-                if (rule.isActive(tick, probability)||entity.isAlive()) {
+                if (rule.isActive(tick, probability)) {
                     rule.invoke(new ContextImpl(entity, entities, environmentVariables));
                 }
             }

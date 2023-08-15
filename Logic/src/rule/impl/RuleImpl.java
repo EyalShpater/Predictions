@@ -9,7 +9,7 @@ import java.util.*;
 
 
 public class RuleImpl implements Rule {
-    private String name;
+    private final String name;
     private SortedSet<String> relevantEntities;
     private List<Action> actions;
     private Activation activation;
@@ -64,6 +64,19 @@ public class RuleImpl implements Rule {
         }
 
         return str.toString();
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        RuleImpl rule = (RuleImpl) o;
+        return Objects.equals(name, rule.name);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name);
     }
 
     private void initRelevantEntities(List<String> names) {

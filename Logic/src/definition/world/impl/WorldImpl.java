@@ -68,11 +68,15 @@ public class WorldImpl implements World {
 
     @Override
     public void addRule(Rule newRule) {
-        if (newRule != null) {
+        if (newRule != null && !isRuleNameExist(newRule.getName())) {
             rules.add(newRule);
         }
         else {
             throw new NullPointerException("Rule can not be null!");
         }
+    }
+
+    private boolean isRuleNameExist(String name) {
+        return rules.contains(name);
     }
 }
