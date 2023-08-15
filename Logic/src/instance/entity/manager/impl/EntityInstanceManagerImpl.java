@@ -30,6 +30,12 @@ public class EntityInstanceManagerImpl implements EntityInstanceManager {
 
     @Override
     public void killEntity(int idToKill) {
-        instances.stream().findAny();
+        EntityInstance instanceToKill = instances.get(idToKill);
+
+        if (instanceToKill == null) {
+            throw new IllegalArgumentException("ID is not valid");
+        }
+
+        instanceToKill.kill();
     }
 }

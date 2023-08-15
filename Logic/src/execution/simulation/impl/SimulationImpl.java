@@ -79,7 +79,7 @@ public class SimulationImpl implements Simulation {
             for (Rule rule : world.getRules()) {
                 double probability = random.nextDouble();
 
-                if (rule.isActive(tick, probability)) {
+                if (rule.isActive(tick, probability)||entity.isAlive()) {
                     rule.invoke(new ContextImpl(entity, entities, environmentVariables));
                 }
             }
