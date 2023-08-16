@@ -132,24 +132,26 @@ public class XmlValidator {
 
         List<PRDRule> ruleList = world.getPRDRules().getPRDRule();
 
-        boolean found = false;
+        boolean foundEntityInAction = false;
+        boolean isValidAction = true;
+
 
         for(PRDRule rule : ruleList){//for every rule
             PRDActions actions = rule.getPRDActions();
             List<PRDAction> actionList = actions.getPRDAction();
             for(PRDAction action : actionList){ // for every action inside a rule
                 for (PRDEntity entity : entityList){ // for every entity in the world
-                    if (entity.getName().equals(action.getEntity())){ // check that the entity exist in the world
-                        found = true;
-                        break;
+                    if (entity.getName().equals(action.getEntity())){ // check that the entity specified in action exist in the world
+                        foundEntityInAction = true;
+
                     }
                 }
+                isValidAction = isValidAction && foundEntityInAction;
+                foundEntityInAction = false;
             }
         }
 
-        return found;
+        return isValidAction;
 
     }
-
-
 }
