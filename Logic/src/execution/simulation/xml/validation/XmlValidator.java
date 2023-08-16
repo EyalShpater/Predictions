@@ -219,26 +219,68 @@ public class XmlValidator {
     private boolean checkPropertyExistInEntityForActions(PRDEntity entity , PRDAction action){
 
         if(entity.getName().equals(action.getEntity())){
-
             boolean isPropertyExistInEntity = false;
-
-            PRDProperties entityProperties = entity.getPRDProperties();
-            List <PRDProperty> entityPropertyList = entityProperties.getPRDProperty();
-
-            for(PRDProperty entityProperty : entityPropertyList){
-
-                if(action.getProperty() != null){
-
-                    isPropertyExistInEntity =checkPropertyOfActionNameInEntityProperties(action.getProperty(), entityProperty.getPRDName()  );
-                    if (isPropertyExistInEntity){
-                        break;
-                    }
-                }
-
+            if (!action.getType().equals("condition")){
+                isPropertyExistInEntity = checkPropertyExistInEntityNonConditionVersion(entity.getPRDProperties(), action);
+            } else {
+                isPropertyExistInEntity = checkPropertyExistInEntityConditionVersion(action.getPRDCondition() , entity , action);
             }
             return isPropertyExistInEntity;
         }
         return false;
+    }
+
+    private boolean checkPropertyExistInEntityConditionVersion(PRDCondition condition ,PRDEntity entity , PRDAction action) {
+
+        boolean isValid = true;
+
+        if (condition.getSingularity().equals("single")){
+            return checkPropertyExistInEntitySingleConditionVersion(condition, entity.getPRDProperties());
+        } else if (condition.getSingularity().equals("multiple")) {
+
+            List<PRDCondition> conditionList = condition.getPRDCondition();
+            for (PRDCondition smallerCondition : conditionList) {
+                isValid = isValid && checkPropertyExistInEntityConditionVersion(smallerCondition, entity , action);
+            }
+        }
+        return isValid;
+    }
+
+    private boolean checkPropertyExistInEntitySingleConditionVersion(PRDCondition condition ,PRDProperties entityProperties){
+
+        List <PRDProperty> entityPropertyList = entityProperties.getPRDProperty();
+
+        boolean isPropertyExistInEntity = false;
+
+        for(PRDProperty entityProperty : entityPropertyList){
+
+            isPropertyExistInEntity = checkPropertyOfActionNameInEntityProperties(condition.getProperty(), entityProperty.getPRDName() );
+            if (isPropertyExistInEntity) {
+                break;
+            }
+
+        }
+        return isPropertyExistInEntity;
+    }
+
+
+    private boolean checkPropertyExistInEntityNonConditionVersion(PRDProperties entityProperties ,PRDAction action ){
+
+        List <PRDProperty> entityPropertyList = entityProperties.getPRDProperty();
+
+        boolean isPropertyExistInEntity = false;
+
+        for(PRDProperty entityProperty : entityPropertyList){
+
+            if(action.getProperty() != null){
+
+                isPropertyExistInEntity = checkPropertyOfActionNameInEntityProperties(action.getProperty(), entityProperty.getPRDName()  );
+                if (isPropertyExistInEntity){
+                    break;
+                }
+            }
+        }
+        return isPropertyExistInEntity;
     }
 
     private boolean checkPropertyOfActionNameInEntityProperties(String actionPropertyName , String entityProperty){
