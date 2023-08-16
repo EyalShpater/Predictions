@@ -4,10 +4,13 @@ import api.DTO;
 import api.DTOConvertible;
 import definition.entity.api.EntityDefinition;
 import definition.property.api.PropertyDefinition;
+import impl.EntityDefinitionDTO;
+import impl.PropertyDefinitionDTO;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
-public class EntityDefinitionImpl implements EntityDefinition, DTOConvertible {
+public class EntityDefinitionImpl implements EntityDefinition {
     private String name;
     private int population;
     private List<PropertyDefinition> properties = new ArrayList<>();
@@ -69,6 +72,17 @@ public class EntityDefinitionImpl implements EntityDefinition, DTOConvertible {
     }
 
     @Override
+    public DTO convertToDTO() {
+        return new EntityDefinitionDTO(
+                name,
+                population,
+                properties.stream()
+                        .map(propertyDefinition -> (PropertyDefinitionDTO) propertyDefinition.convertToDTO())
+                        .collect(Collectors.toList())
+        );
+    }
+
+    @Override
     public String toString() {
         StringBuilder result = new StringBuilder();
 
@@ -80,10 +94,5 @@ public class EntityDefinitionImpl implements EntityDefinition, DTOConvertible {
         }
 
         return result.toString();
-    }
-
-    @Override
-    public DTO convertToDTO() {
-        return null;
     }
 }

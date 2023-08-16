@@ -1,8 +1,9 @@
 package definition.entity.api;
 
+import api.DTOConvertible;
 import definition.property.api.PropertyDefinition;
 
-public interface EntityDefinition {
+public interface EntityDefinition extends DTOConvertible {
     String getName();
     int getPopulation();
 

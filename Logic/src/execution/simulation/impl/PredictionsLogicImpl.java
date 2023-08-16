@@ -1,11 +1,14 @@
 package execution.simulation.impl;
 
 import api.DTO;
+import api.DTO.*;
 import execution.simulation.api.PredictionsLogic;
 import execution.simulation.data.api.SimulationData;
 import execution.simulation.manager.SimulationManager;
 import definition.world.api.World;
 import definition.world.impl.WorldImpl;
+import impl.WorldDTO;
+
 import java.util.List;
 
 public class PredictionsLogicImpl implements PredictionsLogic {
@@ -30,8 +33,8 @@ public class PredictionsLogicImpl implements PredictionsLogic {
     }
 
     @Override
-    public DTO getSimulationDetails() {
-        return null;
+    public WorldDTO getSimulationDetails() {
+        return (WorldDTO) world.convertToDTO();
     }
 
     @Override

@@ -1,6 +1,7 @@
 package execution.simulation.api;
 
 import api.DTO;
+import impl.WorldDTO;
 
 import java.util.*;
 
@@ -9,7 +10,7 @@ public interface PredictionsLogic {
 
     List<DTO> getEnvironmentVariablesToSet();
 
-    DTO getSimulationDetails();
+    WorldDTO getSimulationDetails();
 
     void runNewSimulation(List<DTO> environmentVariables);
 

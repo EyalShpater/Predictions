@@ -19,7 +19,12 @@ public abstract class AbstractAction implements Action {
     }
 
     @Override
-    public ActionType getActionType() {
+    public ActionType getType() {
         return type;
+    }
+
+    @Override
+    public String getName() {
+        return type.name();
     }
 }

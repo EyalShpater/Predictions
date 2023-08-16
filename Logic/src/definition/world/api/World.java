@@ -2,13 +2,14 @@ package definition.world.api;
 
 
 import api.DTO;
+import api.DTOConvertible;
 import definition.entity.api.EntityDefinition;
 import instance.enviornment.api.ActiveEnvironment;
 import rule.api.Rule;
 
 import java.util.List;
 
-public interface World {
+public interface World extends DTOConvertible {
     void setEnvironmentVariablesValues(List<DTO> values);
     List<DTO> getEnvironmentVariablesDTO();
     ActiveEnvironment createActiveEnvironment();
@@ -16,5 +17,4 @@ public interface World {
     boolean isActive(int currentTick, long startTime);
     List<Rule> getRules();
     void addRule(Rule newRule);
-    DTO convertToDTO();
 }

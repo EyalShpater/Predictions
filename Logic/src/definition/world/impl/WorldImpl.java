@@ -1,12 +1,16 @@
 package definition.world.impl;
 
 import api.DTO;
+import api.DTOConvertible;
 import definition.entity.api.EntityDefinition;
 import definition.environment.api.EnvironmentVariableManager;
 import definition.environment.impl.EnvironmentVariableManagerImpl;
-import impl.PropertyDefinitionDTO;
 import execution.simulation.termination.api.Termination;
 import definition.world.api.World;
+import impl.EntityDefinitionDTO;
+import impl.RuleDTO;
+import impl.TerminationDTO;
+import impl.WorldDTO;
 import instance.enviornment.api.ActiveEnvironment;
 import rule.api.Rule;
 import java.util.List;
@@ -30,18 +34,7 @@ public class WorldImpl implements World {
     public List<DTO> getEnvironmentVariablesDTO() {
         return environmentVariables.getEnvironmentVariables()
                 .stream()
-                .map(propertyDefinition -> new PropertyDefinitionDTO(
-                        propertyDefinition.getName(),
-                        propertyDefinition.getType().toString(),
-                        propertyDefinition.getRange() != null
-                                ? propertyDefinition.getRange().getMin()
-                                : null,
-                        propertyDefinition.getRange() != null
-                                ? propertyDefinition.getRange().getMax()
-                                : null,
-                        propertyDefinition.isValueInitializeRandomly(),
-                        propertyDefinition.getDefaultValue()
-                ))
+                .map(DTOConvertible::convertToDTO)
                 .collect(Collectors.toList());
     }
 
@@ -77,7 +70,15 @@ public class WorldImpl implements World {
 
     @Override
     public DTO convertToDTO() {
-        return null;
+        return new WorldDTO(
+                entitiesDefinition.stream()
+                        .map(entityDefinition -> (EntityDefinitionDTO) entityDefinition.convertToDTO())
+                        .collect(Collectors.toList()),
+                rules.stream()
+                        .map(rule -> (RuleDTO) rule.convertToDTO())
+                        .collect(Collectors.toList()),
+                (TerminationDTO) terminate.convertToDTO()
+        );
     }
 
     private boolean isRuleNameExist(String name) {

@@ -3,15 +3,31 @@ package rule.impl;
 import rule.api.Activation;
 
 public class ActivationImpl implements Activation {
-    private int numOfTicksToActivate;
-    private double probabilityToActivate = 1;
+    private static final int DEFAULT_NUM_OF_TICKS = 1;
+    private static final double DEFAULT_PROBABILITY = 1;
 
-    // todo: input check
-    public ActivationImpl(int numOfTicksToActivate, double probabilityToActivate) {
-        this.numOfTicksToActivate = numOfTicksToActivate;
-        this.probabilityToActivate = probabilityToActivate;
+    private int numOfTicksToActivate;
+    private double probabilityToActivate;
+
+    public ActivationImpl() {
+        this(DEFAULT_NUM_OF_TICKS, DEFAULT_PROBABILITY);
     }
 
+    public ActivationImpl(int numOfTicksToActivate) {
+        this(numOfTicksToActivate, DEFAULT_PROBABILITY);
+    }
+
+    public ActivationImpl(double probabilityToActivate) {
+        this(DEFAULT_NUM_OF_TICKS, probabilityToActivate);
+    }
+
+    // TODO: input check
+    public ActivationImpl(int numOfTicksToActivate, double probabilityToActivate) {
+        setNumOfTicksToActivate(numOfTicksToActivate);
+        setProbabilityToActivate(probabilityToActivate);
+    }
+
+    @Override
     public int getNumOfTicksToActivate() {
         return numOfTicksToActivate;
     }
@@ -24,6 +40,7 @@ public class ActivationImpl implements Activation {
         this.numOfTicksToActivate = numOfTicksToActivate;
     }
 
+    @Override
     public double getProbabilityToActivate() {
         return probabilityToActivate;
     }

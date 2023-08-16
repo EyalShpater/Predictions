@@ -1,6 +1,8 @@
 package definition.property.api;
 
-public interface PropertyDefinition {
+import api.DTOConvertible;
+
+public interface PropertyDefinition extends DTOConvertible {
     String getName();
     PropertyType getType();
     Range getRange();

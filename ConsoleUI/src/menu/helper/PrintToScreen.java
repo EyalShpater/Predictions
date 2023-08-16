@@ -1,7 +1,11 @@
 package menu.helper;
 
 import api.DTO;
+import definition.entity.api.EntityDefinition;
+import definition.property.api.PropertyDefinition;
+import impl.EntityDefinitionDTO;
 import impl.PropertyDefinitionDTO;
+import impl.WorldDTO;
 import menu.api.MenuOptions;
 
 import java.util.List;
@@ -47,24 +51,15 @@ public class PrintToScreen {
         System.out.println(MenuOptions.EXIT.getValue() + ". Exit program");
     }
 
-    public void printEnvironmentVariableDTOList(List<DTO> environmentVariables) {
-        for (int i = 1; i <= environmentVariables.size(); i++) {
+    public void printPropertyDefinitionDTOList(List<PropertyDefinitionDTO> properties) {
+        for (int i = 1; i <= properties.size(); i++) {
             System.out.print(i + ". ");
-            printEnvironmentVariableDTO(environmentVariables.get(i - 1));
+            printPropertyDefinitionDTO(properties.get(i - 1));
             System.out.print(System.lineSeparator());
         }
     }
 
-    public void printEnvironmentVariableDTO(DTO environmentVariable) {
-        PropertyDefinitionDTO dto =
-                environmentVariable instanceof PropertyDefinitionDTO ?
-                        (PropertyDefinitionDTO) environmentVariable :
-                        null;
-
-        if (dto == null) {
-            throw new IllegalArgumentException();
-        }
-
+    public void printPropertyDefinitionDTO(PropertyDefinitionDTO dto) {
         System.out.println("Variable name: " + dto.getName());
         System.out.println("Type: " + dto.getType());
         if (dto.getFrom() != null) {
@@ -74,4 +69,25 @@ public class PrintToScreen {
             System.out.println("Maximum value: " + dto.getTo());
         }
     }
+
+    private void printEntityDefinitionDTOList(List<EntityDefinitionDTO> entities) {
+        for (int i = 1; i <= entities.size(); i++) {
+            System.out.print(i + ". ");
+            printEntityDefinitionDTO(entities.get(i - 1));
+            System.out.print(System.lineSeparator());
+        }
+    }
+
+    public void printEntityDefinitionDTO(EntityDefinitionDTO entity) {
+        System.out.println("Name: " + entity.getName());
+        System.out.println("Population: " + entity.getPopulation());
+        printPropertyDefinitionDTOList(entity.getProperties());
+    }
+
+    public void printWorldDTO(WorldDTO world) {
+        printTitle("Entities:");
+        printEntityDefinitionDTOList(world.getEntities());
+        // TODO: IMPLEMENT RULES AND TERMINATE
+    }
+
 }

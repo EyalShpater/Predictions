@@ -1,15 +1,18 @@
 package menu.impl;
 
 import api.DTO;
+import definition.property.api.PropertyDefinition;
 import impl.PropertyDefinitionDTO;
 import execution.simulation.api.PredictionsLogic;
 import execution.simulation.impl.PredictionsLogicImpl;
+import impl.WorldDTO;
 import menu.api.Menu;
 import menu.api.MenuOptions;
 import menu.helper.PrintToScreen;
 import menu.helper.TypesScanner;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 public class MenuImpl implements Menu {
     private static final Scanner scanner = new Scanner(System.in);
@@ -70,6 +73,7 @@ public class MenuImpl implements Menu {
 
     //todo: impel
     private void showSimulationDetails() {
+        WorldDTO details = engine.getSimulationDetails();
 
     }
 
@@ -91,7 +95,12 @@ public class MenuImpl implements Menu {
         int choice = -1;
 
         printer.printTitle("Set Environment Variables");
-        printer.printEnvironmentVariableDTOList(environmentVariables);
+        printer.printPropertyDefinitionDTOList(
+                environmentVariables
+                .stream()
+                .map(variable -> (PropertyDefinitionDTO) variable)
+                .collect(Collectors.toList())
+        );
         System.out.println(System.lineSeparator());
         System.out.println("Please enter the number of variable you want to set");
         choice = typeScanner.getIntFromUserInRange(1, environmentVariables.size());

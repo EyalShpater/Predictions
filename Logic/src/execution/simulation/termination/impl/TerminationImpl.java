@@ -1,6 +1,8 @@
 package execution.simulation.termination.impl;
 
+import api.DTO;
 import execution.simulation.termination.api.Termination;
+import impl.TerminationDTO;
 
 import java.util.*;
 import java.util.concurrent.TimeUnit;
@@ -19,5 +21,10 @@ public class TerminationImpl implements Termination {
         long secondsSinceStart = TimeUnit.MILLISECONDS.toSeconds(System.currentTimeMillis() - startTimeInMillis);
 
         return ticksToTerminate >= currentTick || secondsSinceStart >= secondsToTerminate;
+    }
+
+    @Override
+    public DTO convertToDTO() {
+        return new TerminationDTO(ticksToTerminate, secondsToTerminate);
     }
 }

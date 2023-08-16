@@ -5,8 +5,11 @@ import api.DTOConvertible;
 import definition.property.api.PropertyDefinition;
 import definition.property.api.PropertyType;
 import definition.property.api.Range;
+import impl.PropertyDefinitionDTO;
 
-public class PropertyDefinitionImpl implements PropertyDefinition, DTOConvertible {
+import java.util.stream.Collectors;
+
+public class PropertyDefinitionImpl implements PropertyDefinition {
     private String name;
     private final PropertyType type;
     private Range range = null;
@@ -101,7 +104,18 @@ public class PropertyDefinitionImpl implements PropertyDefinition, DTOConvertibl
 
     @Override
     public DTO convertToDTO() {
-        return null;
+        return new PropertyDefinitionDTO(
+                name,
+                type.toString(),
+                range != null ?
+                        range.getMin() :
+                        null,
+                range != null ?
+                        range.getMax() :
+                        null,
+                isValueInitializeRandomly,
+                defaultValue
+        );
     }
 
     @Override

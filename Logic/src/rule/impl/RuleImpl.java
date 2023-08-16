@@ -2,10 +2,13 @@ package rule.impl;
 
 import action.api.Action;
 import action.context.api.Context;
+import api.DTO;
+import impl.RuleDTO;
 import rule.api.Activation;
 import rule.api.Rule;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 
 public class RuleImpl implements Rule {
@@ -50,6 +53,18 @@ public class RuleImpl implements Rule {
         }
 
         actions.add(action);
+    }
+
+    @Override
+    public DTO convertToDTO() {
+        return new RuleDTO(
+                name,
+                activation.getNumOfTicksToActivate(),
+                activation.getProbabilityToActivate(),
+                actions.stream()
+                        .map(Action::getName)
+                        .collect(Collectors.toList())
+        );
     }
 
     @Override

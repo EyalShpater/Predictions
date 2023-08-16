@@ -7,7 +7,9 @@ import action.context.api.Context;
 public interface Action {
     EntityDefinition applyOn();
 
-    ActionType getActionType();
+    ActionType getType();
+
+    String getName();
 
     void invoke(Context context);
 
