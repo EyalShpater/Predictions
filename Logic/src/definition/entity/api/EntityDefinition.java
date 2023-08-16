@@ -5,6 +5,7 @@ import definition.property.api.PropertyDefinition;
 
 public interface EntityDefinition extends DTOConvertible {
     String getName();
+
     int getPopulation();
 
     PropertyDefinition propertyAt(int index);
