@@ -1,11 +1,13 @@
 package definition.entity.impl;
 
+import api.DTO;
+import api.DTOConvertible;
 import definition.entity.api.EntityDefinition;
 import definition.property.api.PropertyDefinition;
 
 import java.util.*;
 
-public class EntityDefinitionImpl implements EntityDefinition {
+public class EntityDefinitionImpl implements EntityDefinition, DTOConvertible {
     private String name;
     private int population;
     private List<PropertyDefinition> properties = new ArrayList<>();
@@ -80,5 +82,8 @@ public class EntityDefinitionImpl implements EntityDefinition {
         return result.toString();
     }
 
-
+    @Override
+    public DTO convertToDTO() {
+        return null;
+    }
 }

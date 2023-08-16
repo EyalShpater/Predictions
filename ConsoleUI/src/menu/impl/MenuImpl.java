@@ -1,7 +1,7 @@
 package menu.impl;
 
 import api.DTO;
-import environment.variable.EnvironmentVariableDTO;
+import impl.PropertyDefinitionDTO;
 import execution.simulation.api.PredictionsLogic;
 import execution.simulation.impl.PredictionsLogicImpl;
 import menu.api.Menu;
@@ -75,7 +75,8 @@ public class MenuImpl implements Menu {
 
     //todo :impel
     private void runSimulation() {
-        List<DTO> updatedEnvironmentVariables = setEnvironmentVariables();
+        List<DTO> updatedEnvironmentVariables = getEnvironmentVariablesFromUser();
+
         engine.runNewSimulation(updatedEnvironmentVariables);
     }
 
@@ -85,7 +86,7 @@ public class MenuImpl implements Menu {
     }
 
     //todo: separate it to sub functions.
-    private List<DTO> setEnvironmentVariables() {
+    private List<DTO> getEnvironmentVariablesFromUser() {
         List<DTO> environmentVariables = engine.getEnvironmentVariablesToSet();
         int choice = -1;
 
@@ -94,8 +95,9 @@ public class MenuImpl implements Menu {
         System.out.println(System.lineSeparator());
         System.out.println("Please enter the number of variable you want to set");
         choice = typeScanner.getIntFromUserInRange(1, environmentVariables.size());
+
         while (choice != 0) {
-            EnvironmentVariableDTO toUpdate = (EnvironmentVariableDTO) environmentVariables.get(choice - 1);
+            PropertyDefinitionDTO toUpdate = (PropertyDefinitionDTO) environmentVariables.get(choice - 1);
             environmentVariables.set(choice - 1, initEnvironmentVariableDTOFromUserInput(toUpdate));
             System.out.println("Please enter the number of variable you want to set");
             choice = typeScanner.getIntFromUserInRange(1, environmentVariables.size());
@@ -104,7 +106,7 @@ public class MenuImpl implements Menu {
         return environmentVariables;
     }
 
-    private DTO initEnvironmentVariableDTOFromUserInput(EnvironmentVariableDTO variableDTO) {
+    private DTO initEnvironmentVariableDTOFromUserInput(PropertyDefinitionDTO variableDTO) {
         String input;
         Object value;
         boolean isValid = false;

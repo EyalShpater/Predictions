@@ -1,7 +1,7 @@
 package menu.helper;
 
 import api.DTO;
-import environment.variable.EnvironmentVariableDTO;
+import impl.PropertyDefinitionDTO;
 import menu.api.MenuOptions;
 
 import java.util.List;
@@ -56,9 +56,9 @@ public class PrintToScreen {
     }
 
     public void printEnvironmentVariableDTO(DTO environmentVariable) {
-        EnvironmentVariableDTO dto =
-                environmentVariable instanceof EnvironmentVariableDTO ?
-                        (EnvironmentVariableDTO) environmentVariable :
+        PropertyDefinitionDTO dto =
+                environmentVariable instanceof PropertyDefinitionDTO ?
+                        (PropertyDefinitionDTO) environmentVariable :
                         null;
 
         if (dto == null) {

@@ -1,16 +1,16 @@
-package environment.variable;
+package impl;
 
 import api.DTO;
 
-public class EnvironmentVariableDTO implements DTO {
-    private String name;
-    private String type;
-    private Double from;
-    private Double to;
-    private boolean isRandom;
-    private Object defaultValue;
+public class PropertyDefinitionDTO implements DTO {
+    private final String name;
+    private final String type;
+    private final Double from;
+    private final Double to;
+    private final boolean isRandom;
+    private final Object defaultValue;
 
-    public EnvironmentVariableDTO(String name, String type, Double from, Double to, boolean isRandom, Object defaultValue) {
+    public PropertyDefinitionDTO(String name, String type, Double from, Double to, boolean isRandom, Object defaultValue) {
         this.name = name;
         this.type = type;
         this.from = from;

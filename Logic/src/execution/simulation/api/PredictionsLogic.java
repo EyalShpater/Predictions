@@ -11,7 +11,7 @@ public interface PredictionsLogic {
 
     DTO getSimulationDetails();
 
-    DTO runNewSimulation(List<DTO> environmentVariables);
+    void runNewSimulation(List<DTO> environmentVariables);
 
     Collection<DTO> getAllPreviousSimulationData();
 }

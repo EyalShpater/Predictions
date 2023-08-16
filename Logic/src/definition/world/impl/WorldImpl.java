@@ -4,13 +4,12 @@ import api.DTO;
 import definition.entity.api.EntityDefinition;
 import definition.environment.api.EnvironmentVariableManager;
 import definition.environment.impl.EnvironmentVariableManagerImpl;
-import environment.variable.EnvironmentVariableDTO;
+import impl.PropertyDefinitionDTO;
 import execution.simulation.termination.api.Termination;
 import definition.world.api.World;
 import instance.enviornment.api.ActiveEnvironment;
 import rule.api.Rule;
 import java.util.List;
-import java.util.concurrent.TimeUnit;
 import java.util.stream.Collectors;
 
 public class WorldImpl implements World {
@@ -31,7 +30,7 @@ public class WorldImpl implements World {
     public List<DTO> getEnvironmentVariablesDTO() {
         return environmentVariables.getEnvironmentVariables()
                 .stream()
-                .map(propertyDefinition -> new EnvironmentVariableDTO(
+                .map(propertyDefinition -> new PropertyDefinitionDTO(
                         propertyDefinition.getName(),
                         propertyDefinition.getType().toString(),
                         propertyDefinition.getRange() != null
@@ -74,6 +73,11 @@ public class WorldImpl implements World {
         else {
             throw new NullPointerException("Rule can not be null!");
         }
+    }
+
+    @Override
+    public DTO convertToDTO() {
+        return null;
     }
 
     private boolean isRuleNameExist(String name) {

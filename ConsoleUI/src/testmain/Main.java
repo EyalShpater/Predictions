@@ -150,7 +150,7 @@ public class Main {
         rule1.addAction(new DecreaseAction(smokerEntityDefinition, "cancerPrecentage", "random(15)"));
         rule1.addAction(new KillAction(smokerEntityDefinition));
 
-        Rule rule2 = new RuleImpl("Second_User_Rule");
+        /*Rule rule2 = new RuleImpl("Second_User_Rule");
         rule1.addAction(new MultiplyAction(smokerEntityDefinition,"cancerAdvancement" ,"environment(tax-amount)" , "random(2)"));
         rule1.addAction(new IncreaseAction(smokerEntityDefinition, "smokingInDay", "12"));
         rule1.addAction(new SetAction(smokerEntityDefinition, "cancerPositive", "true"));
@@ -162,7 +162,7 @@ public class Main {
 
 
 
-        /*rule1.addAction(new KillAction(smokerEntityDefinition));
+        rule1.addAction(new KillAction(smokerEntityDefinition));
         rule1.addAction(new IncreaseAction(smokerEntityDefinition, "age", "2"));
         rule1.addAction(new SetAction(smokerEntityDefinition, "cancerPositive", "true"));
         rule1.addAction(new IncreaseAction(smokerEntityDefinition, "smokingInDay", "3.5"));
@@ -182,7 +182,7 @@ public class Main {
         PropertyInstance taxAmountEnvironmentVariablePropertyInstance = new PropertyInstanceImpl(taxAmountEnvironmentVariablePropertyDefinition);
         activeEnvironment.addPropertyInstance(taxAmountEnvironmentVariablePropertyInstance);
 
-        EntityInstance entityInstance1 = manager.getInstances().get(0);
+       /* EntityInstance entityInstance1 = manager.getInstances().get(0);
         Context context1 = new ContextImpl(entityInstance1 ,manager, activeEnvironment);
         System.out.println("first name :" + entityInstance1.getEntityFirstName());
         System.out.println("before the change the value of age is :" + entityInstance1.getPropertyByName("age").getValue());
@@ -220,10 +220,10 @@ public class Main {
         System.out.println("----------------------------------------------");
         System.out.println("after the change the value of age is :" + entityInstance3.getPropertyByName("age").getValue());
         System.out.println("after the change the value of smokingInDay is :" + entityInstance3.getPropertyByName("smokingInDay").getValue());
+*/
 
 
-
-       /* manager.
+        manager.
                 getInstances().
                 forEach(instance -> {
                     Context context = new ContextImpl(instance, manager, activeEnvironment);
@@ -241,7 +241,6 @@ public class Main {
                     System.out.println("----------------------------------------------------------------------------------------------");
 
                 });
-*/
         /*System.out.println("hi");
         PropertyDefinition p1 = new PropertyDefinitionImpl("name", PropertyType.STRING, false, "Avi");
         PropertyDefinition p2 = new PropertyDefinitionImpl("age", PropertyType.INT, true, new Range(10, 50));

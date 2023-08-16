@@ -1,16 +1,14 @@
 package execution.simulation.impl;
 
-import action.context.api.Context;
 import action.context.impl.ContextImpl;
-import api.DTO;
 import execution.simulation.api.Simulation;
 import definition.world.api.World;
+import execution.simulation.data.api.SimulationData;
+import execution.simulation.data.impl.SimulationDataImpl;
 import instance.entity.api.EntityInstance;
 import instance.entity.manager.api.EntityInstanceManager;
 import instance.entity.manager.impl.EntityInstanceManagerImpl;
 import instance.enviornment.api.ActiveEnvironment;
-import instance.enviornment.impl.ActiveEnvironmentImpl;
-import instance.property.impl.PropertyInstanceImpl;
 import rule.api.Rule;
 
 import java.util.Random;
@@ -21,6 +19,7 @@ public class SimulationImpl implements Simulation {
     private World world;
     private EntityInstanceManager entities;
     private ActiveEnvironment environmentVariables;
+    private SimulationData data;
 
     public SimulationImpl(World world, int serialNumber) {
         this.world = world;
@@ -28,6 +27,7 @@ public class SimulationImpl implements Simulation {
         this.random = new Random();
         this.entities = null;
         this.environmentVariables = null;
+        this.data = null;
     }
 
     @Override
@@ -36,25 +36,7 @@ public class SimulationImpl implements Simulation {
     }
 
     @Override
-    public DTO run() {
-        DTO simulationResult = runSimulation();
-
-        return simulationResult;
-    }
-
-    private void initEntities() {
-        EntityInstanceManager instances = new EntityInstanceManagerImpl();
-
-        world.getEntities().forEach(instances::create);
-        entities = instances;
-    }
-
-    private void initEnvironmentVariables() {
-        this.environmentVariables = world.createActiveEnvironment();
-    }
-
-    //TODO: impl simulationResults.
-    private DTO runSimulation() {
+    public void run() {
         long startTime = System.currentTimeMillis();
         int tick = 1;
 
@@ -66,7 +48,18 @@ public class SimulationImpl implements Simulation {
             tick++;
         }
 
-        return null;
+        data = new SimulationDataImpl(serialNumber, startTime, world.getEntities(), entities);
+    }
+
+    private void initEntities() {
+        EntityInstanceManager instances = new EntityInstanceManagerImpl();
+
+        world.getEntities().forEach(instances::create);
+        entities = instances;
+    }
+
+    private void initEnvironmentVariables() {
+        this.environmentVariables = world.createActiveEnvironment();
     }
 
     private void executeRules(int tick) {

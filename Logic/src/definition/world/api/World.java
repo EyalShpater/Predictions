@@ -1,5 +1,6 @@
 package definition.world.api;
 
+
 import api.DTO;
 import definition.entity.api.EntityDefinition;
 import instance.enviornment.api.ActiveEnvironment;
@@ -15,4 +16,5 @@ public interface World {
     boolean isActive(int currentTick, long startTime);
     List<Rule> getRules();
     void addRule(Rule newRule);
+    DTO convertToDTO();
 }

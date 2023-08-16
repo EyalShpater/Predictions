@@ -1,8 +1,8 @@
 package execution.simulation.api;
 
-import api.DTO;
+import execution.simulation.data.api.SimulationData;
 
 public interface Simulation {
     int getSerialNumber();
-    DTO run();
+    void run();
 }

@@ -1,10 +1,12 @@
 package definition.property.impl;
 
+import api.DTO;
+import api.DTOConvertible;
 import definition.property.api.PropertyDefinition;
 import definition.property.api.PropertyType;
 import definition.property.api.Range;
 
-public class PropertyDefinitionImpl implements PropertyDefinition {
+public class PropertyDefinitionImpl implements PropertyDefinition, DTOConvertible {
     private String name;
     private final PropertyType type;
     private Range range = null;
@@ -95,6 +97,11 @@ public class PropertyDefinitionImpl implements PropertyDefinition {
     @Override
     public boolean isNumeric() {
         return isDouble() || isInteger();
+    }
+
+    @Override
+    public DTO convertToDTO() {
+        return null;
     }
 
     @Override
