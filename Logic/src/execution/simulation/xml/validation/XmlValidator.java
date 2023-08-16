@@ -16,28 +16,25 @@ public class XmlValidator {
         this.path = path;
     }
 
-    public boolean isValid(){
+    public boolean isValid() throws IllegalArgumentException{
         // 1) check xml exist and type of xml
-        if(!checkIfPathExist()) {
-            throw new IllegalArgumentException("File path does not exist");
-        } else if (!checkIfXmlType()) {
-            throw new IllegalArgumentException("File path must end with .xml .");
-        }
+        checkIfPathExist();
+        checkIfXmlType();
 
         PRDWorld world = loadXmlToWorld();
-
+        
         // 2) check env-vars to have different names
-        if (!checkEnvVarsNames(world.getPRDEvironment())){
-            throw new IllegalArgumentException("Environment variable names must be different .");
-        }
+        checkEnvVarsNames(world.getPRDEvironment());
+        
 
         // 3) check properties to have different names
         checkPropertiesNames(world.getPRDEntities());
 
         // 4) check that in action no call to an entity that doesnt exist
-        if (!iterateRulesForEntityNameInAction(world)){
+        areAllRulesValid(world);
+        /*if (!iterateRulesForEntityNameInAction(world)){
             throw new IllegalArgumentException("One of the entities you provided for specific action does not exist");
-        }
+        }*/
 
         // 5) check that in action no call to a property that doesnt exist
         if (!checkIfPropertySpecifiedInActionExistInEntity(world)){
@@ -51,19 +48,19 @@ public class XmlValidator {
 
 
     //11111111111111111111111
-    private boolean checkIfPathExist(){
+
+    private void checkIfPathExist(){
         Path xmlpath = Paths.get(this.path);
+
         if (!Files.exists(xmlpath)) {
-            return false;
+            throw new IllegalArgumentException("File path does not exist");
         }
-        return true;
     }
 
-    private boolean checkIfXmlType(){
-        if(!path.endsWith(".xml")){
-            return false;
+    private void checkIfXmlType(){
+        if(!path.endsWith(".xml")) {
+            throw new IllegalArgumentException("File path must end with .xml .");
         }
-        return true;
     }
 
     private PRDWorld loadXmlToWorld(){
@@ -85,26 +82,28 @@ public class XmlValidator {
 
 
     //222222222222222222222222
-    //TODO: make the bubble sort style generic in checkEnvVarsNames ,checkPropertiesNames
-    private boolean checkEnvVarsNames(PRDEvironment environment){
-
-        boolean hasEqualStrings = false;
+    private void checkEnvVarsNames(PRDEvironment environment){
 
         List<PRDEnvProperty> EnvPropertyList = environment.getPRDEnvProperty();
         for (int i = 0; i < EnvPropertyList.size() - 1; i++) {
             for (int j = i + 1; j < EnvPropertyList.size(); j++) {
-                if (EnvPropertyList.get(i).getPRDName().equals(EnvPropertyList.get(j).getPRDName())) {
-                    hasEqualStrings = true;
-                    break;
-                }
+                checkVarsNamesToBeDifferent( EnvPropertyList.get(i).getPRDName() , EnvPropertyList.get(j).getPRDName() );
             }
-            if (hasEqualStrings) {
-                break;
-            }
+            checkVarsNamesToNotHaveSpaces(EnvPropertyList.get(i).getPRDName());
         }
+    }
+    
+    private void checkVarsNamesToBeDifferent(String name1 ,String name2 ){
 
-        return !hasEqualStrings;
+        if (name1.equals(name2)) {
+            throw new IllegalArgumentException("The environment variable " +name1+" appears more than one time");
+        }
+    }
 
+    private void checkVarsNamesToNotHaveSpaces(String envVarName){
+        if (envVarName.contains(" ")) {
+            throw new IllegalArgumentException("Environment variable "+ envVarName +" should not contain spaces.");
+        }
     }
 
     //33333333333333333333
@@ -125,8 +124,61 @@ public class XmlValidator {
 
 
     //4444444444444444444444
-    //TODO: Make the rule iteration generic
-    private boolean iterateRulesForEntityNameInAction(PRDWorld world){
+
+    private void areAllRulesValid(PRDWorld world){
+
+        List<PRDEntity> entityList = world.getPRDEntities().getPRDEntity();
+        List<PRDRule> ruleList = world.getPRDRules().getPRDRule();
+
+        for(PRDRule rule : ruleList){
+            checkIfEntityNamesInsideActionExistActionIterator( entityList , rule );
+        }
+
+    }
+
+    private void checkIfEntityNamesInsideActionExistActionIterator(List<PRDEntity>entityList , PRDRule rule) {
+
+        PRDActions actions = rule.getPRDActions();
+        List<PRDAction> actionList = actions.getPRDAction();
+
+        for(PRDAction action : actionList){
+            if(action.getType().equals("condition")){
+
+            }
+        }
+    }
+
+
+    /*
+
+    isFileValid(){
+
+    areAllRulesValid(rules);
+    }
+
+
+    areAllRulesValid(List<Rule>) {
+        for (...) {
+            checkFormat();
+            isEntitiesInsideRuleExist(rule);
+        }
+    }
+
+    isEntitiesInsideRuleExist(Rule rule){
+        for (Entity entity : rule.getEntities()) {
+            isEntityExsist(entity.getName());
+        }
+    }
+
+    isEntityExsist(String name) {
+    List<EntityDefinition> entities;
+
+    }
+
+
+     */
+
+    /*private boolean iterateRulesForEntityNameInAction(PRDWorld world){
 
         List<PRDEntity> entityList = world.getPRDEntities().getPRDEntity();
         List<PRDRule> ruleList = world.getPRDRules().getPRDRule();
@@ -165,7 +217,7 @@ public class XmlValidator {
 
     private boolean checkIfEntityNameExist(String entityName, String entityInAction){
         return entityName.equals(entityInAction);
-    }
+    }*/
 
     //5555555555555555555\
 
