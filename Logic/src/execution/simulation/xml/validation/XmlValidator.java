@@ -22,10 +22,10 @@ public class XmlValidator {
         checkIfXmlType();
 
         PRDWorld world = loadXmlToWorld();
-        
+
         // 2) check env-vars to have different names
         checkEnvVarsNames(world.getPRDEvironment());
-        
+
 
         // 3) check properties to have different names
         checkPropertiesNames(world.getPRDEntities());
@@ -92,7 +92,7 @@ public class XmlValidator {
             checkVarsNamesToNotHaveSpaces(EnvPropertyList.get(i).getPRDName());
         }
     }
-    
+
     private void checkVarsNamesToBeDifferent(String name1 ,String name2 ){
 
         if (name1.equals(name2)) {
@@ -131,52 +131,61 @@ public class XmlValidator {
         List<PRDRule> ruleList = world.getPRDRules().getPRDRule();
 
         for(PRDRule rule : ruleList){
-            checkIfEntityNamesInsideActionExistActionIterator( entityList , rule );
+            areAllActionsInsideRulesValid( entityList , rule );
         }
 
     }
 
-    private void checkIfEntityNamesInsideActionExistActionIterator(List<PRDEntity>entityList , PRDRule rule) {
+    private void areAllActionsInsideRulesValid(List<PRDEntity>entityList , PRDRule rule) {
 
         PRDActions actions = rule.getPRDActions();
         List<PRDAction> actionList = actions.getPRDAction();
 
         for(PRDAction action : actionList){
             if(action.getType().equals("condition")){
-
+                checkIfEntityNameExistInConditionAction( entityList ,  action );
+                //execute then and else
+            }else{
+                checkIfEntityNameExistInNonConditionAction( entityList , action );
             }
         }
     }
 
+    private void checkIfEntityNameExistInConditionAction(List<PRDEntity>entityList , PRDAction action ){
+        PRDCondition condition = action.getPRDCondition();
+        if (condition.getSingularity().equals("single")){
 
-    /*
+        } else if (condition.getSingularity().equals("multiple")) {
 
-    isFileValid(){
+        }
 
-    areAllRulesValid(rules);
+
     }
 
+    private void checkIfEntityNameExistInSingleConditionAction(List<PRDEntity>entityList , PRDAction action){
+        boolean isEntityNameExistInSingleConditionAction = false;
+        for (PRDEntity entity : entityList ){
 
-    areAllRulesValid(List<Rule>) {
-        for (...) {
-            checkFormat();
-            isEntitiesInsideRuleExist(rule);
         }
     }
 
-    isEntitiesInsideRuleExist(Rule rule){
-        for (Entity entity : rule.getEntities()) {
-            isEntityExsist(entity.getName());
+    private void checkIfEntityNameExistInNonConditionAction(List<PRDEntity>entityList , PRDAction action ){
+        checkIfEntityNameExistInEntityList( entityList ,  action );
+    }
+
+    private void checkIfEntityNameExistInEntityList( List<PRDEntity>entityList , PRDAction action ){
+        boolean isEntityNameInActionExistInEntityList = false;
+        for (PRDEntity entity : entityList){
+            if(entity.getName().equals(action.getEntity())){
+                isEntityNameInActionExistInEntityList = true;
+            }
+        }
+        if(!isEntityNameInActionExistInEntityList){
+            throw new IllegalArgumentException("The entity name "+ action.getEntity()
+                    + " that appears in the action that attempts to change"+ action.getProperty()
+                    +" does not appear in the system ");
         }
     }
-
-    isEntityExsist(String name) {
-    List<EntityDefinition> entities;
-
-    }
-
-
-     */
 
     /*private boolean iterateRulesForEntityNameInAction(PRDWorld world){
 
