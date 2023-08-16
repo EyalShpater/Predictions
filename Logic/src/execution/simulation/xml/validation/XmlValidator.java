@@ -32,9 +32,8 @@ public class XmlValidator {
         }
 
         // 3) check properties to have different names
-        if (!checkPropertiesNames(world.getPRDEntities())){
-            throw new IllegalArgumentException("The names of properties inside entity definition must be different  .");
-        }
+        checkPropertiesNames(world.getPRDEntities());
+
         // 4) check that in action no call to an entity that doesnt exist
         if (!iterateRulesForEntityNameInAction(world)){
             throw new IllegalArgumentException("One of the entities you provided for specific action does not exist");
@@ -109,30 +108,19 @@ public class XmlValidator {
     }
 
     //33333333333333333333
-    private boolean checkPropertiesNames(PRDEntities entities){
 
-        boolean hasEqualStrings = false;
-
+    private void checkPropertiesNames(PRDEntities entities){
         List<PRDEntity> entityList = entities.getPRDEntity();
-        for (PRDEntity entity: entityList )
-        {
+        for (PRDEntity entity: entityList ) {
             PRDProperties properties = entity.getPRDProperties();
-            List<PRDProperty> PropertyList = properties.getPRDProperty();
-            for (int i = 0; i < PropertyList.size() - 1; i++) {
-                for (int j = i + 1; j < PropertyList.size(); j++) {
-                    if (PropertyList.get(i).getPRDName().equals(PropertyList.get(j).getPRDName())) {
-                        hasEqualStrings = true;
-                        break;
-                    }
+            List<PRDProperty> propertyList = properties.getPRDProperty();
+            for (int i = 0; i < propertyList.size() - 1; i++) {
+                for (int j = i + 1; j < propertyList.size(); j++) {
+                    checkVarsNamesToBeDifferent( propertyList.get(i).getPRDName() , propertyList.get(j).getPRDName() );
                 }
-                if (hasEqualStrings) {
-                    break;
-                }
+                checkVarsNamesToNotHaveSpaces(propertyList.get(i).getPRDName());
             }
         }
-
-
-        return !hasEqualStrings;
     }
 
 

@@ -22,6 +22,7 @@ import instance.property.api.PropertyInstance;
 import instance.property.impl.PropertyInstanceImpl;
 
 import rule.api.Rule;
+import rule.impl.ActivationImpl;
 import rule.impl.RuleImpl;
 import instance.entity.api.EntityInstance;
 
@@ -143,7 +144,7 @@ public class Main {
         smokerEntityDefinition.addProperty(isCancerPositive);
         smokerEntityDefinition.addProperty(CancerSerialString);
 
-        Rule rule1 = new RuleImpl("First_User_Rule");
+        Rule rule1 = new RuleImpl("First_User_Rule", new ActivationImpl(2), "smoker");
         rule1.addAction(new IncreaseAction(smokerEntityDefinition, "age", "random(10)"));
         rule1.addAction(new IncreaseAction(smokerEntityDefinition, "smokingInDay", "3.5"));
         rule1.addAction(new SetAction(smokerEntityDefinition, "cancerPositive", "true"));

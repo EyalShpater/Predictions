@@ -17,14 +17,10 @@ public class RuleImpl implements Rule {
     private List<Action> actions;
     private Activation activation;
 
-    public RuleImpl(String name) {
+    
+    public RuleImpl(String name, Activation activation, String... relevantEntity) {
         this.name = name;
-        actions = new ArrayList<>();
-    }
-
-    public RuleImpl(String name, List<Action> actions, Activation activation, String... relevantEntity) {
-        this.name = name;
-        this.actions = actions;
+        this.actions = new ArrayList<>();
         this.activation = activation;
         initRelevantEntities(Arrays.asList(relevantEntity));
     }

@@ -29,7 +29,8 @@ public class MenuImpl implements Menu {
     public void show() {
         int choice = 0;
 
-        loadFileFromUser();
+        //loadFileFromUser();
+        engine.hardCodeWorldInit();
         while (choice != EXIT) {
             printer.displayMenu();
             choice = scanner.nextInt();
@@ -55,6 +56,8 @@ public class MenuImpl implements Menu {
         }
     }
 
+
+
     private void loadFileFromUser() {
         String filePath;
         boolean isLegalPath = false;
@@ -71,10 +74,10 @@ public class MenuImpl implements Menu {
         }
     }
 
-    //todo: impel
     private void showSimulationDetails() {
         WorldDTO details = engine.getSimulationDetails();
 
+        printer.printWorldDTO(details);
     }
 
     //todo :impel
@@ -94,22 +97,24 @@ public class MenuImpl implements Menu {
         List<DTO> environmentVariables = engine.getEnvironmentVariablesToSet();
         int choice = -1;
 
-        printer.printTitle("Set Environment Variables");
-        printer.printPropertyDefinitionDTOList(
-                environmentVariables
-                .stream()
-                .map(variable -> (PropertyDefinitionDTO) variable)
-                .collect(Collectors.toList())
-        );
-        System.out.println(System.lineSeparator());
-        System.out.println("Please enter the number of variable you want to set");
-        choice = typeScanner.getIntFromUserInRange(1, environmentVariables.size());
-
-        while (choice != 0) {
-            PropertyDefinitionDTO toUpdate = (PropertyDefinitionDTO) environmentVariables.get(choice - 1);
-            environmentVariables.set(choice - 1, initEnvironmentVariableDTOFromUserInput(toUpdate));
+        if (environmentVariables != null) {
+            printer.printTitle("Set Environment Variables");
+            printer.printPropertyDefinitionDTOList(
+                    environmentVariables
+                            .stream()
+                            .map(variable -> (PropertyDefinitionDTO) variable)
+                            .collect(Collectors.toList())
+            );
+            System.out.println(System.lineSeparator());
             System.out.println("Please enter the number of variable you want to set");
             choice = typeScanner.getIntFromUserInRange(1, environmentVariables.size());
+
+            while (choice != 0) {
+                PropertyDefinitionDTO toUpdate = (PropertyDefinitionDTO) environmentVariables.get(choice - 1);
+                environmentVariables.set(choice - 1, initEnvironmentVariableDTOFromUserInput(toUpdate));
+                System.out.println("Please enter the number of variable you want to set");
+                choice = typeScanner.getIntFromUserInRange(1, environmentVariables.size());
+            }
         }
 
         return environmentVariables;

@@ -1,6 +1,7 @@
 package execution.simulation.impl;
 
 import action.context.impl.ContextImpl;
+import definition.entity.api.EntityDefinition;
 import execution.simulation.api.Simulation;
 import definition.world.api.World;
 import execution.simulation.data.api.SimulationData;
@@ -54,7 +55,12 @@ public class SimulationImpl implements Simulation {
     private void initEntities() {
         EntityInstanceManager instances = new EntityInstanceManagerImpl();
 
-        world.getEntities().forEach(instances::create);
+        for (EntityDefinition entityDefinition : world.getEntities()) {
+            for (int i = 1; i <= entityDefinition.getPopulation(); i++) {
+                instances.create(entityDefinition);
+            }
+        }
+
         entities = instances;
     }
 

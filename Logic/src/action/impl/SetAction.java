@@ -17,7 +17,7 @@ public class SetAction extends AbstractAction {
     private final String newProp; //Expression instead of String?
 
     public SetAction(EntityDefinition entity, String propertyName, String newProperty) {
-        super(entity, ActionType.INCREASE);
+        super(entity, ActionType.SET);
         this.propertyName = propertyName;
         this.newProp = newProperty;
     }

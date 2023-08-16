@@ -1,14 +1,10 @@
 package menu.helper;
 
-import api.DTO;
-import definition.entity.api.EntityDefinition;
-import definition.property.api.PropertyDefinition;
-import impl.EntityDefinitionDTO;
-import impl.PropertyDefinitionDTO;
-import impl.WorldDTO;
+import impl.*;
 import menu.api.MenuOptions;
 
 import java.util.List;
+import java.util.stream.IntStream;
 
 public class PrintToScreen {
 
@@ -84,10 +80,36 @@ public class PrintToScreen {
         printPropertyDefinitionDTOList(entity.getProperties());
     }
 
+    private void printRuleDTOList(List<RuleDTO> rules) {
+        for (int i = 1; i <= rules.size(); i++) {
+            System.out.print(i + ". ");
+            printRuleDTO(rules.get(i - 1));
+            System.out.print(System.lineSeparator());
+        }
+    }
+
+    private void printRuleDTO(RuleDTO rule) {
+        System.out.println("Rule name: " + rule.getName());
+        System.out.printf("Activate every %d ticks, with a probability of %.2f", rule.getTicks(), rule.getProbability());
+        System.out.println(rule.getName() + " has " + rule.getActionsNames().size() + " actions:");
+        IntStream.range(0, rule.getActionsNames().size())
+                .forEach(i -> System.out.println((i + 1) + ". " + rule.getActionsNames().get(i)));
+    }
+
+    private void printTerminationDTO(TerminationDTO termination) {
+        System.out.println(termination.getSecondsToTerminate() + " seconds to terminate");
+        System.out.println(termination.getTicksToTerminate() + " ticks to terminate");
+    }
+
     public void printWorldDTO(WorldDTO world) {
         printTitle("Entities:");
         printEntityDefinitionDTOList(world.getEntities());
-        // TODO: IMPLEMENT RULES AND TERMINATE
+        System.out.println(System.lineSeparator());
+        printTitle("Rules:");
+        printRuleDTOList(world.getRules());
+        System.out.println(System.lineSeparator());
+        printTitle("Termination");
+        printTerminationDTO(world.getTermination());
     }
 
 }

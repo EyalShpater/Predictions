@@ -15,4 +15,7 @@ public interface PredictionsLogic {
     void runNewSimulation(List<DTO> environmentVariables);
 
     Collection<DTO> getAllPreviousSimulationData();
+
+    //TODO: DELETE! ONLY FOR DEBUGGING.
+    void hardCodeWorldInit();
 }

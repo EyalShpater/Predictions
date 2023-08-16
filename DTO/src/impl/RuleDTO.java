@@ -29,7 +29,7 @@ public class RuleDTO implements DTO {
         return probability;
     }
 
-    public List<String> getActions() {
+    public List<String> getActionsNames() {
         return actions;
     }
 }

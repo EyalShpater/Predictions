@@ -20,7 +20,7 @@ public class TerminationImpl implements Termination {
     public boolean isTerminate(int currentTick, long startTimeInMillis) {
         long secondsSinceStart = TimeUnit.MILLISECONDS.toSeconds(System.currentTimeMillis() - startTimeInMillis);
 
-        return ticksToTerminate >= currentTick || secondsSinceStart >= secondsToTerminate;
+        return currentTick >= ticksToTerminate || secondsSinceStart >= secondsToTerminate;
     }
 
     @Override

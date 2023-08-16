@@ -4,6 +4,7 @@ package definition.world.api;
 import api.DTO;
 import api.DTOConvertible;
 import definition.entity.api.EntityDefinition;
+import execution.simulation.termination.api.Termination;
 import instance.enviornment.api.ActiveEnvironment;
 import rule.api.Rule;
 
@@ -17,4 +18,6 @@ public interface World extends DTOConvertible {
     boolean isActive(int currentTick, long startTime);
     List<Rule> getRules();
     void addRule(Rule newRule);
+    void addEntity(EntityDefinition newEntity);
+    void setTermination(Termination terminate);
 }

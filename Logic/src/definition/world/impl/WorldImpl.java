@@ -7,12 +7,15 @@ import definition.environment.api.EnvironmentVariableManager;
 import definition.environment.impl.EnvironmentVariableManagerImpl;
 import execution.simulation.termination.api.Termination;
 import definition.world.api.World;
+import execution.simulation.termination.impl.TerminationImpl;
 import impl.EntityDefinitionDTO;
 import impl.RuleDTO;
 import impl.TerminationDTO;
 import impl.WorldDTO;
 import instance.enviornment.api.ActiveEnvironment;
 import rule.api.Rule;
+
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -22,12 +25,19 @@ public class WorldImpl implements World {
     private EnvironmentVariableManager environmentVariables;
     private Termination terminate;
 
+    public WorldImpl() {
+        entitiesDefinition = new ArrayList<>();
+        rules = new ArrayList<>();
+    }
+
     @Override
     public void setEnvironmentVariablesValues(List<DTO> values) {
         EnvironmentVariableManager variableDefinitions = new EnvironmentVariableManagerImpl();
 
-        values.forEach(variableDefinitions::mapEnvironmentVariableDTOtoEnvironmentVariableAndCreateIt);
-        this.environmentVariables = variableDefinitions;
+        if (values != null) {
+            values.forEach(variableDefinitions::mapEnvironmentVariableDTOtoEnvironmentVariableAndCreateIt);
+            this.environmentVariables = variableDefinitions;
+        }
     }
 
     @Override
@@ -40,7 +50,11 @@ public class WorldImpl implements World {
 
     @Override
     public ActiveEnvironment createActiveEnvironment() {
-        return environmentVariables.createActiveEnvironment();
+        if (environmentVariables != null) {
+            return environmentVariables.createActiveEnvironment();
+        }
+
+        return null;
     }
 
     @Override
@@ -69,6 +83,15 @@ public class WorldImpl implements World {
     }
 
     @Override
+    public void setTermination(Termination terminate) {
+        if (terminate == null) {
+            throw new NullPointerException("Termination can not be null");
+        }
+
+        this.terminate = terminate;
+    }
+
+    @Override
     public DTO convertToDTO() {
         return new WorldDTO(
                 entitiesDefinition.stream()
@@ -83,5 +106,14 @@ public class WorldImpl implements World {
 
     private boolean isRuleNameExist(String name) {
         return rules.contains(name);
+    }
+
+    @Override
+    public void addEntity(EntityDefinition newEntity) {
+        if (newEntity == null) {
+            throw new NullPointerException("Can not add null entity!");
+        }
+
+        entitiesDefinition.add(newEntity);
     }
 }
