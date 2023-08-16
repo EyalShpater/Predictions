@@ -8,7 +8,6 @@ import javax.xml.bind.Unmarshaller;
 import java.io.File;
 import java.nio.file.*;
 import java.util.List;
-import java.util.Objects;
 
 public class XmlValidator {
 
@@ -37,17 +36,26 @@ public class XmlValidator {
             throw new IllegalArgumentException("The names of properties inside entity definition must be different  .");
         }
         // 4) check that in action no call to an entity that doesnt exist
-        if (!checkIfEntityExistInActions(world)){
+        if (!iterateRulesForEntityNameInAction(world)){
             throw new IllegalArgumentException("One of the entities you provided for specific action does not exist");
         }
+
+        // 5) check that in action no call to a property that doesnt exist
+        if (!checkIfPropertySpecifiedInActionExistInEntity(world)){
+            throw new IllegalArgumentException("One of the properties you provided for specific action does not match the entity you provided");
+        }
+
+
         // 6) check that in (calculation \ increase \ decrease) the args are numbers only including helper functions
         return true;
     }
 
+
+    //11111111111111111111111
     private boolean checkIfPathExist(){
         Path xmlpath = Paths.get(this.path);
-         if (!Files.exists(xmlpath)) {
-             return false;
+        if (!Files.exists(xmlpath)) {
+            return false;
         }
         return true;
     }
@@ -76,6 +84,8 @@ public class XmlValidator {
         return null;
     }
 
+
+    //222222222222222222222222
     //TODO: make the bubble sort style generic in checkEnvVarsNames ,checkPropertiesNames
     private boolean checkEnvVarsNames(PRDEvironment environment){
 
@@ -98,7 +108,7 @@ public class XmlValidator {
 
     }
 
-    //logic is not correct
+    //33333333333333333333
     private boolean checkPropertiesNames(PRDEntities entities){
 
         boolean hasEqualStrings = false;
@@ -125,33 +135,114 @@ public class XmlValidator {
         return !hasEqualStrings;
     }
 
-    //logic is not correct
-    private boolean checkIfEntityExistInActions(PRDWorld world){
+
+    //4444444444444444444444
+    //TODO: Make the rule iteration generic
+    private boolean iterateRulesForEntityNameInAction(PRDWorld world){
 
         List<PRDEntity> entityList = world.getPRDEntities().getPRDEntity();
-
         List<PRDRule> ruleList = world.getPRDRules().getPRDRule();
 
-        boolean foundEntityInAction = false;
-        boolean isValidAction = true;
+        boolean areActionsForThisRuleValid = false;
 
+        for(PRDRule rule : ruleList){
 
-        for(PRDRule rule : ruleList){//for every rule
-            PRDActions actions = rule.getPRDActions();
-            List<PRDAction> actionList = actions.getPRDAction();
-            for(PRDAction action : actionList){ // for every action inside a rule
-                for (PRDEntity entity : entityList){ // for every entity in the world
-                    if (entity.getName().equals(action.getEntity())){ // check that the entity specified in action exist in the world
-                        foundEntityInAction = true;
+            areActionsForThisRuleValid = checkIfAllTheRulesAreValid(entityList ,rule );
 
-                    }
-                }
-                isValidAction = isValidAction && foundEntityInAction;
-                foundEntityInAction = false;
+            if(!areActionsForThisRuleValid){
+                return false;
             }
         }
-
-        return isValidAction;
-
+        return true;
     }
+
+    private boolean checkIfAllTheRulesAreValid(List<PRDEntity>entityList ,PRDRule rule){
+
+        PRDActions actions = rule.getPRDActions();
+        List<PRDAction> actionList = actions.getPRDAction();
+
+        boolean isActionForThisRuleValid = false;
+
+        for(PRDAction action : actionList){
+
+            for (PRDEntity entity : entityList){
+                isActionForThisRuleValid = checkIfEntityNameExist(entity.getName(), action.getEntity() );
+            }
+            if (!isActionForThisRuleValid){
+                return false;
+            }
+        }
+        return true;
+    }
+
+    private boolean checkIfEntityNameExist(String entityName, String entityInAction){
+        return entityName.equals(entityInAction);
+    }
+
+    //5555555555555555555\
+
+    private boolean checkIfPropertySpecifiedInActionExistInEntity(PRDWorld world){
+        List<PRDEntity> entityList = world.getPRDEntities().getPRDEntity();
+        List<PRDRule> ruleList = world.getPRDRules().getPRDRule();
+
+        boolean areActionsForThisRuleValid = false;
+
+        for(PRDRule rule : ruleList){
+
+            areActionsForThisRuleValid = checkPropertyExistInEntityForRules( entityList ,rule );
+
+            if(!areActionsForThisRuleValid){
+                return false;
+            }
+        }
+        return true;
+    }
+
+    private boolean checkPropertyExistInEntityForRules(List<PRDEntity>entityList ,PRDRule rule){
+        PRDActions actions = rule.getPRDActions();
+        List<PRDAction> actionList = actions.getPRDAction();
+
+        boolean isActionForThisRuleValid = false;
+
+        for(PRDAction action : actionList){
+
+            for (PRDEntity entity : entityList){
+                isActionForThisRuleValid = checkPropertyExistInEntityForActions( entity, action );
+            }
+            if (!isActionForThisRuleValid){
+                return false;
+            }
+        }
+        return true;
+    }
+
+    private boolean checkPropertyExistInEntityForActions(PRDEntity entity , PRDAction action){
+
+        if(entity.getName().equals(action.getEntity())){
+
+            boolean isPropertyExistInEntity = false;
+
+            PRDProperties entityProperties = entity.getPRDProperties();
+            List <PRDProperty> entityPropertyList = entityProperties.getPRDProperty();
+
+            for(PRDProperty entityProperty : entityPropertyList){
+
+                if(action.getProperty() != null){
+
+                    isPropertyExistInEntity =checkPropertyOfActionNameInEntityProperties(action.getProperty(), entityProperty.getPRDName()  );
+                    if (isPropertyExistInEntity){
+                        break;
+                    }
+                }
+
+            }
+            return isPropertyExistInEntity;
+        }
+        return false;
+    }
+
+    private boolean checkPropertyOfActionNameInEntityProperties(String actionPropertyName , String entityProperty){
+        return actionPropertyName.equals(entityProperty);
+    }
+
 }
