@@ -51,7 +51,7 @@ public class WorldImpl implements World {
     }
 
     @Override
-    public List<DTO> getEnvironmentVariablesDTO() {
+    public List<PropertyDefinitionDTO> getEnvironmentVariablesDTO() {
         return environmentVariables.getEnvironmentVariables()
                 .stream()
                 .map(DTOConvertible::convertToDTO)

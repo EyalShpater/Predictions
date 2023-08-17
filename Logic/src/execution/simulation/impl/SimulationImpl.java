@@ -6,6 +6,7 @@ import execution.simulation.api.Simulation;
 import definition.world.api.World;
 import execution.simulation.data.api.SimulationData;
 import execution.simulation.data.impl.SimulationDataImpl;
+import impl.SimulationDTO;
 import instance.entity.api.EntityInstance;
 import instance.entity.manager.api.EntityInstanceManager;
 import instance.entity.manager.impl.EntityInstanceManagerImpl;
@@ -17,10 +18,12 @@ import java.util.Random;
 public class SimulationImpl implements Simulation {
     private final int serialNumber;
     private final Random random;
+
     private World world;
     private EntityInstanceManager entities;
     private ActiveEnvironment environmentVariables;
     private SimulationData data;
+    private long startTime;
 
     public SimulationImpl(World world, int serialNumber) {
         this.world = world;
@@ -29,6 +32,7 @@ public class SimulationImpl implements Simulation {
         this.entities = null;
         this.environmentVariables = null;
         this.data = null;
+        this.startTime = 0;
     }
 
     @Override
@@ -38,9 +42,9 @@ public class SimulationImpl implements Simulation {
 
     @Override
     public void run() {
-        long startTime = System.currentTimeMillis();
         int tick = 1;
 
+        startTime = System.currentTimeMillis();
         initEntities();
         initEnvironmentVariables();
 
@@ -78,5 +82,16 @@ public class SimulationImpl implements Simulation {
                 }
             }
         }
+    }
+
+    @Override
+    public SimulationDTO convertToDTO() {
+        return new SimulationDTO(startTime, serialNumber);
+    }
+
+    // todo: think of that
+    @Override
+    public Simulation revertFromDTO(SimulationDTO dto) {
+        return null;
     }
 }

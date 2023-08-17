@@ -2,6 +2,7 @@ package execution.simulation.api;
 
 import api.DTO;
 import impl.PropertyDefinitionDTO;
+import impl.SimulationDTO;
 import impl.WorldDTO;
 
 import java.util.*;
@@ -15,7 +16,7 @@ public interface PredictionsLogic {
 
     void runNewSimulation(List<PropertyDefinitionDTO> environmentVariables);
 
-    Collection<DTO> getAllPreviousSimulationData();
+    List<SimulationDTO> getPreviousSimulations();
 
     //TODO: DELETE! ONLY FOR DEBUGGING.
     void hardCodeWorldInit();

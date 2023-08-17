@@ -1,10 +1,9 @@
 package menu.impl;
 
-import api.DTO;
-import definition.property.api.PropertyDefinition;
 import impl.PropertyDefinitionDTO;
 import execution.simulation.api.PredictionsLogic;
 import execution.simulation.impl.PredictionsLogicImpl;
+import impl.SimulationDTO;
 import impl.WorldDTO;
 import menu.api.Menu;
 import menu.api.MenuOptions;
@@ -56,8 +55,6 @@ public class MenuImpl implements Menu {
         }
     }
 
-
-
     private void loadFileFromUser() {
         String filePath;
         boolean isLegalPath = false;
@@ -80,15 +77,20 @@ public class MenuImpl implements Menu {
         printer.printWorldDTO(details);
     }
 
-    //todo :impel
     private void runSimulation() {
         List<PropertyDefinitionDTO> updatedEnvironmentVariables = getEnvironmentVariablesFromUser();
 
         engine.runNewSimulation(updatedEnvironmentVariables);
     }
 
-    //todo: impel
     private void showPreviousSimulation() {
+        List<SimulationDTO> allSimulations = engine.getPreviousSimulations();
+
+        printer.printTitle("Get Previous Simulations Data");
+        System.out.println("Please choose a simulation");
+        printer.showAllSimulationsDTO(allSimulations);
+        typeScanner.getIntFromUserInRange(1, allSimulations.size());
+        printer.printSimulationDetailViewOptions();
 
     }
 

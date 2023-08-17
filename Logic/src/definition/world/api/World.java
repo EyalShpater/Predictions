@@ -15,7 +15,7 @@ import java.util.List;
 
 public interface World extends DTOConvertible<World, WorldDTO> {
     void setEnvironmentVariablesValues(List<PropertyDefinitionDTO> values);
-    List<DTO> getEnvironmentVariablesDTO();
+    List<PropertyDefinitionDTO> getEnvironmentVariablesDTO();
     ActiveEnvironment createActiveEnvironment();
     List<EntityDefinition> getEntities();
     boolean isActive(int currentTick, long startTime);

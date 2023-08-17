@@ -4,7 +4,6 @@ import action.impl.DecreaseAction;
 import action.impl.IncreaseAction;
 import action.impl.KillAction;
 import action.impl.SetAction;
-import api.DTO;
 import definition.entity.api.EntityDefinition;
 import definition.entity.impl.EntityDefinitionImpl;
 import definition.property.api.PropertyDefinition;
@@ -12,12 +11,12 @@ import definition.property.api.PropertyType;
 import definition.property.api.Range;
 import definition.property.impl.PropertyDefinitionImpl;
 import execution.simulation.api.PredictionsLogic;
-import execution.simulation.data.api.SimulationData;
 import execution.simulation.manager.SimulationManager;
 import definition.world.api.World;
 import definition.world.impl.WorldImpl;
 import execution.simulation.termination.impl.TerminationImpl;
 import impl.PropertyDefinitionDTO;
+import impl.SimulationDTO;
 import impl.WorldDTO;
 import rule.api.Rule;
 import rule.impl.ActivationImpl;
@@ -41,10 +40,9 @@ public class PredictionsLogicImpl implements PredictionsLogic {
         return true;
     }
 
-    //TODO: impl
     @Override
     public List<PropertyDefinitionDTO> getEnvironmentVariablesToSet() {
-        return null;
+        return world.getEnvironmentVariablesDTO();
     }
 
     @Override
@@ -58,15 +56,9 @@ public class PredictionsLogicImpl implements PredictionsLogic {
     }
 
     @Override
-    public List<DTO> getAllPreviousSimulationData() {
+    public List<SimulationDTO> getPreviousSimulations() {
         return null;
     }
-
-    //TODO: impl
-    private DTO convertSimulationDateToSimulationDataDTO(SimulationData originalData) {
-        return null;
-    }
-
 
     //TODO: DELETE! ONLY FOR DEBUGGING.
     @Override

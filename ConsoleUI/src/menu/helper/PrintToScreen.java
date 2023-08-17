@@ -3,6 +3,9 @@ package menu.helper;
 import impl.*;
 import menu.api.MenuOptions;
 
+import javax.sound.midi.Soundbank;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 import java.util.stream.IntStream;
 
@@ -110,6 +113,36 @@ public class PrintToScreen {
         System.out.println(System.lineSeparator());
         printTitle("Termination");
         printTerminationDTO(world.getTermination());
+    }
+
+    public void showAllSimulationsDTO(List<SimulationDTO> simulations) {
+        printTitle("All simulations:");
+
+        int count = 1;
+        for (SimulationDTO simulation : simulations) {
+            System.out.print(count + ". ");
+            printSimulationDTO(simulation);
+            count++;
+        }
+    }
+
+    private void printSimulationDTO(SimulationDTO dto) {
+        System.out.println("Simulation serial number: " + dto.getSerialNumber());
+        System.out.println("Run time: ");
+        printTime(dto.getStartDate());
+        System.out.print(System.lineSeparator());
+    }
+
+    private void printTime(long time) {
+        Date date = new Date(time);
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd-MM-yyyy | hh.mm.ss");
+
+        System.out.print(simpleDateFormat.format(date));
+    }
+
+    public void printSimulationDetailViewOptions() {
+        System.out.println("1. Show entities amount");
+        System.out.println("2. Show property histogram");
     }
 
 }

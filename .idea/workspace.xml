@@ -5,26 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="27d35137-667f-4e37-a519-ab836acc0a06" name="Changes" comment="xml validator">
+      <change afterPath="$PROJECT_DIR$/DTO/src/impl/SimulationDTO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConsoleUI/src/menu/helper/PrintToScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/ConsoleUI/src/menu/helper/PrintToScreen.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ConsoleUI/src/menu/impl/MenuImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/ConsoleUI/src/menu/impl/MenuImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DTO/src/api/DTOConvertible.java" beforeDir="false" afterPath="$PROJECT_DIR$/DTO/src/api/DTOConvertible.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/action/expression/api/Expression.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/action/expression/api/Expression.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/definition/entity/api/EntityDefinition.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/definition/entity/api/EntityDefinition.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/definition/entity/impl/EntityDefinitionImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/definition/entity/impl/EntityDefinitionImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/definition/environment/api/EnvironmentVariableManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/definition/environment/api/EnvironmentVariableManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/definition/environment/impl/EnvironmentVariableManagerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/definition/environment/impl/EnvironmentVariableManagerImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/definition/property/api/PropertyDefinition.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/definition/property/api/PropertyDefinition.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/definition/property/impl/PropertyDefinitionImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/definition/property/impl/PropertyDefinitionImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Logic/src/definition/world/api/World.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/definition/world/api/World.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Logic/src/definition/world/impl/WorldImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/definition/world/impl/WorldImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Logic/src/execution/simulation/api/PredictionsLogic.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/execution/simulation/api/PredictionsLogic.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/execution/simulation/api/Simulation.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/execution/simulation/api/Simulation.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Logic/src/execution/simulation/impl/PredictionsLogicImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/execution/simulation/impl/PredictionsLogicImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/execution/simulation/impl/SimulationImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/execution/simulation/impl/SimulationImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Logic/src/execution/simulation/manager/SimulationManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/execution/simulation/manager/SimulationManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/execution/simulation/termination/api/Termination.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/execution/simulation/termination/api/Termination.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/execution/simulation/termination/impl/TerminationImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/execution/simulation/termination/impl/TerminationImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/execution/simulation/xml/validation/XmlValidator.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/execution/simulation/xml/validation/XmlValidator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/rule/api/Rule.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/rule/api/Rule.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/rule/impl/RuleImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/rule/impl/RuleImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,8 +31,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Enum" />
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -209,23 +200,7 @@
       <workItem from="1691971648940" duration="9821000" />
       <workItem from="1692000022571" duration="5167000" />
       <workItem from="1692027270981" duration="1391000" />
-      <workItem from="1692256597011" duration="10244000" />
-    </task>
-    <task id="LOCAL‎-00017" summary="more changes">
-      <option name="closed" value="true" />
-      <created>1691415657096</created>
-      <option name="number" value="00017" />
-      <option name="presentableId" value="LOCAL‎-00017" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1691415657096</updated>
-    </task>
-    <task id="LOCAL‎-00018" summary="World Simulation etc..">
-      <option name="closed" value="true" />
-      <created>1691422779738</created>
-      <option name="number" value="00018" />
-      <option name="presentableId" value="LOCAL‎-00018" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1691422779738</updated>
+      <workItem from="1692256597011" duration="16730000" />
     </task>
     <task id="LOCAL‎-00019" summary="Entity and Property is fine">
       <option name="closed" value="true" />
@@ -587,7 +562,23 @@
       <option name="project" value="LOCAL‎" />
       <updated>1692257155486</updated>
     </task>
-    <option name="localTasksCounter" value="66" />
+    <task id="LOCAL‎-00066" summary="dto almost complete">
+      <option name="closed" value="true" />
+      <created>1692271712969</created>
+      <option name="number" value="00066" />
+      <option name="presentableId" value="LOCAL‎-00066" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1692271712969</updated>
+    </task>
+    <task id="LOCAL‎-00067" summary="xml validator">
+      <option name="closed" value="true" />
+      <created>1692271728261</created>
+      <option name="number" value="00067" />
+      <option name="presentableId" value="LOCAL‎-00067" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1692271728261</updated>
+    </task>
+    <option name="localTasksCounter" value="68" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -606,7 +597,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="added DTO Dummy object so we could act like we develop one to see what we need to develop" />
     <MESSAGE value="added DTO Dummy object, so we could act like we develop one to see what we need to develop" />
     <MESSAGE value="Fixed the EntityInstance problem" />
     <MESSAGE value="added deacreaseAction based on IncreaseAction logic&#10;added an abstract class for calcs" />
@@ -630,6 +620,7 @@
     <MESSAGE value="method 2 is some what completed" />
     <MESSAGE value="XML checks" />
     <MESSAGE value="refactor the DTOConvertible interface." />
+    <MESSAGE value="dto almost complete" />
     <MESSAGE value="xml validator" />
     <option name="LAST_COMMIT_MESSAGE" value="xml validator" />
   </component>
@@ -644,11 +635,6 @@
           <properties class="java.lang.NullPointerException" package="java.lang" />
           <option name="timeStamp" value="24" />
         </breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/ConsoleUI/src/menu/impl/MenuImpl.java</url>
-          <line>42</line>
-          <option name="timeStamp" value="22" />
-        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
     <pin-to-top-manager>
