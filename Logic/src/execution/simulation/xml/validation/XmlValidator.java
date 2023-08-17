@@ -12,11 +12,14 @@ import java.util.List;
 public class XmlValidator {
 
     private final String path;
+
+    private final char HELPER_FUNCTION_TOKEN = '(';
+    private final int NOT_FOUND = -1;
     public XmlValidator(String path) {
         this.path = path;
     }
 
-    public boolean isValid() throws IllegalArgumentException {
+    public boolean isValid() throws IllegalArgumentException{
         // 1) check xml exist and type of xml
         checkIfPathExist();
         checkIfXmlType();
@@ -37,22 +40,20 @@ public class XmlValidator {
         // 5) check that in action no call to a property that doesnt exist
         checkRulesToNotContainActionWithPropertyWithNoMatchEntity(world);
 
-        /*if (!checkIfPropertySpecifiedInActionExistInEntity(world)){
-            throw new IllegalArgumentException("One of the properties you provided for specific action does not match the entity you provided");
-        }*/
-
 
         // 6) check that in (calculation \ increase \ decrease) the args are numbers only including helper functions
+        checkNumericCalculationActionToIncludeNumericArgs(world);
         return true;
     }
+
 
 
     //11111111111111111111111
 
     private void checkIfPathExist(){
-        Path xmlPath = Paths.get(this.path);
+        Path xmlpath = Paths.get(this.path);
 
-        if (!Files.exists(xmlPath)) {
+        if (!Files.exists(xmlpath)) {
             throw new IllegalArgumentException("File path does not exist");
         }
     }
@@ -75,52 +76,48 @@ public class XmlValidator {
             return world;
 
         }catch (JAXBException e){
-            e.printStackTrace(); // shouldn't print anything in this class
+            e.printStackTrace();
         }
         return null;
     }
 
 
     //222222222222222222222222
-    private void checkEnvVarsNames(PRDEvironment environment) {
-        List<PRDEnvProperty> EnvPropertyList = environment.getPRDEnvProperty();
+    private void checkEnvVarsNames(PRDEvironment environment){
 
+        List<PRDEnvProperty> EnvPropertyList = environment.getPRDEnvProperty();
         for (int i = 0; i < EnvPropertyList.size() - 1; i++) {
             for (int j = i + 1; j < EnvPropertyList.size(); j++) {
                 checkVarsNamesToBeDifferent( EnvPropertyList.get(i).getPRDName() , EnvPropertyList.get(j).getPRDName() );
             }
-
             checkVarsNamesToNotHaveSpaces(EnvPropertyList.get(i).getPRDName());
         }
     }
 
-    private void checkVarsNamesToBeDifferent(String name1, String name2) {
+    private void checkVarsNamesToBeDifferent(String name1 ,String name2 ){
 
         if (name1.equals(name2)) {
-            throw new IllegalArgumentException("The environment variable " + name1 + " appears more than one time");
+            throw new IllegalArgumentException("The environment variable " +name1+" appears more than one time");
         }
     }
 
     private void checkVarsNamesToNotHaveSpaces(String envVarName){
         if (envVarName.contains(" ")) {
-            throw new IllegalArgumentException("Environment variable " + envVarName + " should not contain spaces.");
+            throw new IllegalArgumentException("Environment variable "+ envVarName +" should not contain spaces.");
         }
     }
 
     //33333333333333333333
 
-    private void checkPropertiesNames(PRDEntities entities) {
+    private void checkPropertiesNames(PRDEntities entities){
         List<PRDEntity> entityList = entities.getPRDEntity();
-
         for (PRDEntity entity: entityList ) {
             PRDProperties properties = entity.getPRDProperties();
             List<PRDProperty> propertyList = properties.getPRDProperty();
-
             for (int i = 0; i < propertyList.size() - 1; i++) {
                 for (int j = i + 1; j < propertyList.size(); j++) {
                     checkVarsNamesToBeDifferent( propertyList.get(i).getPRDName() , propertyList.get(j).getPRDName() );
                 }
-
                 checkVarsNamesToNotHaveSpaces(propertyList.get(i).getPRDName());
             }
         }
@@ -137,8 +134,8 @@ public class XmlValidator {
         for(PRDRule rule : ruleList){
             try{
                 areAllActionsInsideRulesValid( entityList , rule );
-            } catch (IllegalArgumentException e) {
-                throw new IllegalArgumentException("In rule: " + rule.getName() + e.getMessage());
+            }catch (IllegalArgumentException e){
+                throw new IllegalArgumentException("In rule: " +rule.getName() + e.getMessage());
             }
 
         }
@@ -346,112 +343,145 @@ public class XmlValidator {
     }
 
 
+    //6666666666666666666
+    private void checkNumericCalculationActionToIncludeNumericArgs(PRDWorld world) {
 
-
-    /*private boolean checkIfPropertySpecifiedInActionExistInEntity(PRDWorld world){
-        List<PRDEntity> entityList = world.getPRDEntities().getPRDEntity();
+        PRDEvironment env = world.getPRDEvironment();
+        List<PRDEnvProperty> envPropertiesList = env.getPRDEnvProperty();
         List<PRDRule> ruleList = world.getPRDRules().getPRDRule();
-
-        boolean areActionsForThisRuleValid = false;
-
-        for(PRDRule rule : ruleList){
-
-            areActionsForThisRuleValid = checkPropertyExistInEntityForRules( entityList ,rule );
-
-            if(!areActionsForThisRuleValid){
-                return false;
+        List<PRDEntity> entityList = world.getPRDEntities().getPRDEntity();
+        for(PRDRule rule : ruleList) {
+            try {
+                checkNumericCalculationActionToIncludeNumericArgs(envPropertiesList , rule , entityList );
+            } catch (IllegalArgumentException e) {
+                throw new IllegalArgumentException("In rule: " + rule.getName() + e.getMessage());
             }
+
         }
-        return true;
     }
 
-    private boolean checkPropertyExistInEntityForRules(List<PRDEntity>entityList ,PRDRule rule){
+
+
+    private void checkNumericCalculationActionToIncludeNumericArgs( List<PRDEnvProperty> envPropertiesList , PRDRule rule , List<PRDEntity> entityList){
         PRDActions actions = rule.getPRDActions();
         List<PRDAction> actionList = actions.getPRDAction();
 
-        boolean isActionForThisRuleValid = false;
-
         for(PRDAction action : actionList){
-
-            for (PRDEntity entity : entityList){
-                isActionForThisRuleValid = checkPropertyExistInEntityForActions( entity, action );
-            }
-            if (!isActionForThisRuleValid){
-                return false;
-            }
+            checkIfActionIsOfTypeConditionAndSendToCheckIfActionToIncludeNumericArgs(envPropertiesList , action , entityList);
         }
-        return true;
     }
 
-    private boolean checkPropertyExistInEntityForActions(PRDEntity entity , PRDAction action){
+    private void checkIfActionIsOfTypeConditionAndSendToCheckIfActionToIncludeNumericArgs(List<PRDEnvProperty> envPropertiesList, PRDAction action , List<PRDEntity> entityList) {
 
-        if(entity.getName().equals(action.getEntity())){
-            boolean isPropertyExistInEntity = false;
-            if (!action.getType().equals("condition")){
-                isPropertyExistInEntity = checkPropertyExistInEntityNonConditionVersion(entity.getPRDProperties(), action);
-            } else {
-                isPropertyExistInEntity = checkPropertyExistInEntityConditionVersion(action.getPRDCondition() , entity , action);
-            }
-            return isPropertyExistInEntity;
+        if(action.getType().equals("condition")){
+            /*checkIfPropertyInActionExistForEntityCondition( entityList ,  action );
+            checkIfPropertyInActionExistForThenAction( entityList ,  action );
+            checkIfPropertyInActionExistForElseAction( entityList ,  action );*/
+        }else{
+            //checkIfPropertyInActionExistForEntityNonCondition( entityList , action );
+            checkIfArgsInActionAreNumericNonConditionVersion(envPropertiesList , action , entityList);
         }
-        return false;
+
     }
 
-    private boolean checkPropertyExistInEntityConditionVersion(PRDCondition condition ,PRDEntity entity , PRDAction action) {
+    private void checkIfArgsInActionAreNumericNonConditionVersion(List<PRDEnvProperty> envPropertiesList, PRDAction action , List<PRDEntity> entityList) {
 
-        boolean isValid = true;
-
-        if (condition.getSingularity().equals("single")){
-            return checkPropertyExistInEntitySingleConditionVersion(condition, entity.getPRDProperties());
-        } else if (condition.getSingularity().equals("multiple")) {
-
-            List<PRDCondition> conditionList = condition.getPRDCondition();
-            for (PRDCondition smallerCondition : conditionList) {
-                isValid = isValid && checkPropertyExistInEntityConditionVersion(smallerCondition, entity , action);
-            }
+        if(action.getType().equals("increase") || action.getType().equals("decrease")){
+            checkIfArgsInActionAreNumericIncreaseDecreaseStructure( envPropertiesList, action , entityList);
+        }else if (action.getType().equals("calculation")){
+            checkIfArgsInActionAreNumericCalculationStructure( envPropertiesList, action);
         }
-        return isValid;
     }
 
-    private boolean checkPropertyExistInEntitySingleConditionVersion(PRDCondition condition ,PRDProperties entityProperties){
+    private void checkIfArgsInActionAreNumericCalculationStructure(List<PRDEnvProperty> envPropertiesList, PRDAction action) {
+    }
 
-        List <PRDProperty> entityPropertyList = entityProperties.getPRDProperty();
+    private void checkIfArgsInActionAreNumericIncreaseDecreaseStructure(List<PRDEnvProperty> envPropertiesList,  PRDAction action , List<PRDEntity> entityList) {
+        String argument = action.getBy();
+        String entityOfAction = action.getEntity();
+        isHelperFunction(envPropertiesList , argument);
+        isProperty(entityOfAction , argument , entityList );
+    }
 
-        boolean isPropertyExistInEntity = false;
+    private void isProperty(String entityOfAction , String argument, List<PRDEntity> entityList) {
+        PRDEntity entity = findEntityFromActionInEntityList(entityList , entityOfAction);
+        List<PRDProperty> propertyList = entity.getPRDProperties().getPRDProperty();
 
-        for(PRDProperty entityProperty : entityPropertyList){
+        PRDProperty theProperty = propertyList.stream()
+                .filter(property -> property.getPRDName().equals(argument))
+                .findAny()
+                .orElse(null);
 
-            isPropertyExistInEntity = checkPropertyOfActionNameInEntityProperties(condition.getProperty(), entityProperty.getPRDName() );
-            if (isPropertyExistInEntity) {
-                break;
-            }
-
+        if ( theProperty == null ){
+            checkIfArgumentIsNumeric(argument);
         }
-        return isPropertyExistInEntity;
+
+    }
+
+    private void isHelperFunction(List<PRDEnvProperty> envPropertiesList, String argument) {
+
+        int indexOfToken = argument.indexOf(HELPER_FUNCTION_TOKEN);
+        String functionName = null;
+        String functionArgument = null;
+
+        if (indexOfToken != NOT_FOUND) {
+            functionName = argument.substring(0, indexOfToken);
+            int closingParenthesisIndex = argument.indexOf(")");
+            if (closingParenthesisIndex != NOT_FOUND && closingParenthesisIndex > indexOfToken) {
+                functionArgument = argument.substring(indexOfToken + 1, closingParenthesisIndex).trim(); // Trim to remove any leading/trailing spaces
+            }
+            isHelperFunctionExist(envPropertiesList , functionName ,functionArgument );
+        }
+    }
+
+    private void isHelperFunctionExist(List<PRDEnvProperty> envPropertiesList, String functionName , String functionArgument ) {
+        if (functionName.equals("environment")  ){
+            checkIfEnvironmentArgumentIsValid(envPropertiesList ,functionArgument );
+        } else if (functionName.equals("random")) {
+            try{
+                checkIfArgumentIsNumeric(functionArgument);
+
+            }catch (IllegalArgumentException e){
+                throw new IllegalArgumentException(" for random helper function" + e.getMessage());
+            }
+        } else {
+            throw new IllegalArgumentException(" function name provided" +functionName+ " does not exist");
+        }
+    }
+
+    private void checkIfArgumentIsNumeric(String functionArgument) {
+        if (functionArgument == null || functionArgument.isEmpty()) {
+            throw new IllegalArgumentException(" the argument provided is empty ");
+        }
+        for (int i = 0; i < functionArgument.length(); i++) {
+            char c = functionArgument.charAt(i);
+            if (!Character.isDigit(c)) {
+                throw new IllegalArgumentException(" the argument is not an integer number " );
+            }
+        }
+
+        //TODO: isProperty(entityOfAction , argument , entityList );
     }
 
 
-    private boolean checkPropertyExistInEntityNonConditionVersion(PRDProperties entityProperties ,PRDAction action ){
 
-        List <PRDProperty> entityPropertyList = entityProperties.getPRDProperty();
+    private void checkIfEnvironmentArgumentIsValid(List<PRDEnvProperty> envPropertiesList, String functionArgument) {
+        PRDEnvProperty theProperty = envPropertiesList.stream()
+                .filter(envProperty -> envProperty.getPRDName().equals(functionArgument))
+                .findAny()
+                .orElse(null);
 
-        boolean isPropertyExistInEntity = false;
-
-        for(PRDProperty entityProperty : entityPropertyList){
-
-            if(action.getProperty() != null){
-
-                isPropertyExistInEntity = checkPropertyOfActionNameInEntityProperties(action.getProperty(), entityProperty.getPRDName()  );
-                if (isPropertyExistInEntity){
-                    break;
-                }
-            }
+        if ( theProperty == null ){
+            throw new IllegalArgumentException(" the environment variable name you provided: "
+                    + functionArgument+ " for environment helper function does not exist");
         }
-        return isPropertyExistInEntity;
+
+        if (!(theProperty.getType().equals("decimal")||theProperty.getType().equals("float"))){
+            throw new IllegalArgumentException(" the environment variable name you provided: "
+                    + functionArgument+ " for environment helper function is not of numeric type");
+        }
     }
 
-    private boolean checkPropertyOfActionNameInEntityProperties(String actionPropertyName , String entityProperty){
-        return actionPropertyName.equals(entityProperty);
-    }*/
+
 
 }
