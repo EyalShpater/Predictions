@@ -88,22 +88,30 @@ public class XmlValidator {
         List<PRDEnvProperty> EnvPropertyList = environment.getPRDEnvProperty();
         for (int i = 0; i < EnvPropertyList.size() - 1; i++) {
             for (int j = i + 1; j < EnvPropertyList.size(); j++) {
-                checkVarsNamesToBeDifferent( EnvPropertyList.get(i).getPRDName() , EnvPropertyList.get(j).getPRDName() );
+                try{
+                    checkVarsNamesToBeDifferent( EnvPropertyList.get(i).getPRDName() , EnvPropertyList.get(j).getPRDName() );
+                }catch (IllegalArgumentException e){
+                    throw new IllegalArgumentException("The environment variable: "+e.getMessage());
+                }
             }
-            checkVarsNamesToNotHaveSpaces(EnvPropertyList.get(i).getPRDName());
+            try{
+                checkVarsNamesToNotHaveSpaces(EnvPropertyList.get(i).getPRDName());
+            }catch (IllegalArgumentException e){
+                throw new IllegalArgumentException("The environment variable: "+e.getMessage());
+            }
         }
     }
 
     private void checkVarsNamesToBeDifferent(String name1 ,String name2 ){
 
         if (name1.equals(name2)) {
-            throw new IllegalArgumentException("The environment variable " +name1+" appears more than one time");
+            throw new IllegalArgumentException(name1+" appears more than one time");
         }
     }
 
     private void checkVarsNamesToNotHaveSpaces(String envVarName){
         if (envVarName.contains(" ")) {
-            throw new IllegalArgumentException("Environment variable "+ envVarName +" should not contain spaces.");
+            throw new IllegalArgumentException(envVarName +" should not contain spaces.");
         }
     }
 
@@ -116,7 +124,16 @@ public class XmlValidator {
             List<PRDProperty> propertyList = properties.getPRDProperty();
             for (int i = 0; i < propertyList.size() - 1; i++) {
                 for (int j = i + 1; j < propertyList.size(); j++) {
-                    checkVarsNamesToBeDifferent( propertyList.get(i).getPRDName() , propertyList.get(j).getPRDName() );
+                    try{
+                        checkVarsNamesToBeDifferent( propertyList.get(i).getPRDName() , propertyList.get(j).getPRDName() );
+                    }catch (IllegalArgumentException e){
+                        throw new IllegalArgumentException("The property: "+e.getMessage());
+                    }
+                }
+                try{
+                    checkVarsNamesToNotHaveSpaces(propertyList.get(i).getPRDName());
+                }catch (IllegalArgumentException e){
+                    throw new IllegalArgumentException("The property: "+e.getMessage());
                 }
                 checkVarsNamesToNotHaveSpaces(propertyList.get(i).getPRDName());
             }
@@ -308,18 +325,32 @@ public class XmlValidator {
     private void checkIfSimpleConditionPropertyNameExistInEntityPropertyList(List<PRDEntity> entityList, PRDCondition condition) {
         PRDEntity entity = findEntityFromActionInEntityList( entityList , condition.getEntity() );
         if ( entity != null ){
-            findPropertyFromActionInPropertyListOfEntity( entity , condition.getProperty());
+            findPropertyFromActionInPropertyListOfEntityNonCalcVersion( entity , condition.getProperty());
         }
     }
 
     private void checkIfPropertyInActionExistForEntityNonCondition(List<PRDEntity> entityList , PRDAction action){
         PRDEntity entity = findEntityFromActionInEntityList( entityList , action.getEntity() );
         if ( entity != null ){
-            findPropertyFromActionInPropertyListOfEntity( entity , action.getProperty());
+            if (! action.getType().equals("calculation")) {
+                findPropertyFromActionInPropertyListOfEntityNonCalcVersion(entity, action.getProperty());
+            }
+            else{
+                findPropertyFromActionInPropertyListOfEntityCalcVersion(entity, action.getResultProp());
+            }
         }
     }
 
-    private void findPropertyFromActionInPropertyListOfEntity(PRDEntity entity, String propertyName) {
+
+    private void findPropertyFromActionInPropertyListOfEntityCalcVersion(PRDEntity entity, String resultProp) {
+        try{
+            findPropertyFromActionInPropertyListOfEntityNonCalcVersion( entity, resultProp);
+        }catch ( IllegalArgumentException e ){
+            throw new IllegalArgumentException(" in calculation" + e.getMessage());
+        }
+    }
+
+    private void findPropertyFromActionInPropertyListOfEntityNonCalcVersion(PRDEntity entity, String propertyName) {
         if (propertyName != null) {//might be for kill
             PRDProperties properties = entity.getPRDProperties();;
             List<PRDProperty> propertyList = properties.getPRDProperty();
@@ -374,34 +405,74 @@ public class XmlValidator {
     private void checkIfActionIsOfTypeConditionAndSendToCheckIfActionToIncludeNumericArgs(List<PRDEnvProperty> envPropertiesList, PRDAction action , List<PRDEntity> entityList) {
 
         if(action.getType().equals("condition")){
+            checkIfArgsInActionAreNumericConditionVersion(envPropertiesList , action , entityList);
+
             /*checkIfPropertyInActionExistForEntityCondition( entityList ,  action );
             checkIfPropertyInActionExistForThenAction( entityList ,  action );
             checkIfPropertyInActionExistForElseAction( entityList ,  action );*/
         }else{
-            //checkIfPropertyInActionExistForEntityNonCondition( entityList , action );
             checkIfArgsInActionAreNumericNonConditionVersion(envPropertiesList , action , entityList);
         }
 
     }
+
+    private void checkIfArgsInActionAreNumericConditionVersion(List<PRDEnvProperty> envPropertiesList, PRDAction action, List<PRDEntity> entityList) {
+        PRDThen thenBlock = action.getPRDThen();
+        PRDElse elseBloc = action.getPRDElse();
+        iterateActionListOfThenAndElseBlocksToFindIfAllArgsNumeric(envPropertiesList , thenBlock.getPRDAction() , entityList);
+        if ( elseBloc != null ){
+            iterateActionListOfThenAndElseBlocksToFindIfAllArgsNumeric(envPropertiesList , elseBloc.getPRDAction() , entityList);
+        }
+
+    }
+
+    private void iterateActionListOfThenAndElseBlocksToFindIfAllArgsNumeric(List<PRDEnvProperty> envPropertiesList, List<PRDAction> actionList, List<PRDEntity> entityList) {
+        actionList.forEach( action ->checkIfActionIsOfTypeConditionAndSendToCheckIfActionToIncludeNumericArgs(envPropertiesList , action , entityList) );
+    }
+
 
     private void checkIfArgsInActionAreNumericNonConditionVersion(List<PRDEnvProperty> envPropertiesList, PRDAction action , List<PRDEntity> entityList) {
 
         if(action.getType().equals("increase") || action.getType().equals("decrease")){
             checkIfArgsInActionAreNumericIncreaseDecreaseStructure( envPropertiesList, action , entityList);
         }else if (action.getType().equals("calculation")){
-            checkIfArgsInActionAreNumericCalculationStructure( envPropertiesList, action);
+            checkIfArgsInActionAreNumericCalculationStructure( envPropertiesList , action , entityList  );
         }
     }
 
-    private void checkIfArgsInActionAreNumericCalculationStructure(List<PRDEnvProperty> envPropertiesList, PRDAction action) {
+    private void checkIfArgsInActionAreNumericCalculationStructure(List<PRDEnvProperty> envPropertiesList, PRDAction action , List<PRDEntity> entityList) {
+        PRDMultiply multiply = action.getPRDMultiply();
+        PRDDivide divide = action.getPRDDivide();
+        if ( multiply != null ){
+            try{
+                invokeFunctionThatCheckArgType( envPropertiesList , entityList , action.getEntity() , action.getPRDMultiply().getArg1() );
+                invokeFunctionThatCheckArgType( envPropertiesList , entityList , action.getEntity() , action.getPRDMultiply().getArg2() );
+            }catch (IllegalArgumentException e){
+                throw new IllegalArgumentException(" inside multiply " + e.getMessage());
+            }
+
+        } else if ( divide != null ) {
+            try {
+                invokeFunctionThatCheckArgType(envPropertiesList, entityList, action.getEntity(), action.getPRDDivide().getArg1());
+                invokeFunctionThatCheckArgType(envPropertiesList, entityList, action.getEntity(), action.getPRDDivide().getArg2());
+            }catch (IllegalArgumentException e){
+                throw new IllegalArgumentException(" inside divide " + e.getMessage());
+            }
+        }
     }
 
-    private void checkIfArgsInActionAreNumericIncreaseDecreaseStructure(List<PRDEnvProperty> envPropertiesList,  PRDAction action , List<PRDEntity> entityList) {
+    private void checkIfArgsInActionAreNumericIncreaseDecreaseStructure(List<PRDEnvProperty> envPropertiesList, PRDAction action , List<PRDEntity> entityList) {
         String argument = action.getBy();
         String entityOfAction = action.getEntity();
-        isHelperFunction(envPropertiesList , argument);
-        isProperty(entityOfAction , argument , entityList );
+        invokeFunctionThatCheckArgType( envPropertiesList , entityList , entityOfAction , argument );
     }
+
+    private void invokeFunctionThatCheckArgType(List<PRDEnvProperty> envPropertiesList, List<PRDEntity> entityList , String entityOfAction, String argument){
+        if(!isHelperFunction(envPropertiesList , argument)){
+            isProperty(entityOfAction , argument , entityList );
+        }
+    }
+
 
     private void isProperty(String entityOfAction , String argument, List<PRDEntity> entityList) {
         PRDEntity entity = findEntityFromActionInEntityList(entityList , entityOfAction);
@@ -412,17 +483,21 @@ public class XmlValidator {
                 .findAny()
                 .orElse(null);
 
-        if ( theProperty == null ){
+        if ( theProperty == null ){//also covers numeric value ;
             checkIfArgumentIsNumeric(argument);
+        }else if (!(theProperty.getType().equals("decimal")||theProperty.getType().equals("float"))){
+            throw new IllegalArgumentException(" the property name you provided: "
+                    + argument+ " for action is not of numeric type");
         }
 
     }
 
-    private void isHelperFunction(List<PRDEnvProperty> envPropertiesList, String argument) {
+    private boolean isHelperFunction(List<PRDEnvProperty> envPropertiesList, String argument) {
 
         int indexOfToken = argument.indexOf(HELPER_FUNCTION_TOKEN);
         String functionName = null;
         String functionArgument = null;
+        boolean isHelperFunction = false;
 
         if (indexOfToken != NOT_FOUND) {
             functionName = argument.substring(0, indexOfToken);
@@ -431,7 +506,9 @@ public class XmlValidator {
                 functionArgument = argument.substring(indexOfToken + 1, closingParenthesisIndex).trim(); // Trim to remove any leading/trailing spaces
             }
             isHelperFunctionExist(envPropertiesList , functionName ,functionArgument );
+            isHelperFunction = true;
         }
+        return isHelperFunction;
     }
 
     private void isHelperFunctionExist(List<PRDEnvProperty> envPropertiesList, String functionName , String functionArgument ) {
@@ -445,7 +522,7 @@ public class XmlValidator {
                 throw new IllegalArgumentException(" for random helper function" + e.getMessage());
             }
         } else {
-            throw new IllegalArgumentException(" function name provided" +functionName+ " does not exist");
+            throw new IllegalArgumentException(" function name provided " +functionName+ " does not exist");
         }
     }
 
@@ -453,14 +530,12 @@ public class XmlValidator {
         if (functionArgument == null || functionArgument.isEmpty()) {
             throw new IllegalArgumentException(" the argument provided is empty ");
         }
-        for (int i = 0; i < functionArgument.length(); i++) {
-            char c = functionArgument.charAt(i);
-            if (!Character.isDigit(c)) {
-                throw new IllegalArgumentException(" the argument is not an integer number " );
-            }
+        double value;
+        try {
+            value = Double.parseDouble(functionArgument);
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException(" the argument "+ functionArgument +" is not an integer number " );
         }
-
-        //TODO: isProperty(entityOfAction , argument , entityList );
     }
 
 
@@ -481,7 +556,4 @@ public class XmlValidator {
                     + functionArgument+ " for environment helper function is not of numeric type");
         }
     }
-
-
-
 }

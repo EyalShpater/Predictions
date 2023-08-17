@@ -18,6 +18,7 @@ public class TypesScanner {
                 System.out.println("This is not an integer number!!!");
                 validInput = false;
             }
+
         } while (!validInput);
 
         return userIntegerInput;

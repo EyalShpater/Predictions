@@ -70,15 +70,6 @@ public class RuleImpl implements Rule {
     }
 
     @Override
-    public Rule revertFromDTO(RuleDTO dto) {
-        return new RuleImpl(
-                dto.getName(),
-                new ActivationImpl(dto.getTicks(), dto.getProbability()),
-                dto.getActionsNames().toArray(new String[0])
-        );
-    }
-
-    @Override
     public String toString() {
         StringBuilder str = new StringBuilder();
 

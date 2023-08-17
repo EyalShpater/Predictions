@@ -92,15 +92,6 @@ public class EntityDefinitionImpl implements EntityDefinition {
         );
     }
 
-    // TODO: should keep it?. not very good impl
-    @Override
-    public EntityDefinition revertFromDTO(EntityDefinitionDTO dto) {
-        return new EntityDefinitionImpl(
-                dto.getName(),
-                dto.getPopulation()
-        );
-    }
-
     @Override
     public String toString() {
         StringBuilder result = new StringBuilder();

@@ -47,4 +47,9 @@ public class EnvironmentVariableManagerImpl implements EnvironmentVariableManage
 
         propNameToPropDefinition.put(environmentVariable.getName(), new PropertyDefinitionImpl(environmentVariable));
     }
+
+    @Override
+    public boolean isEmpty() {
+        return propNameToPropDefinition.isEmpty();
+    }
 }

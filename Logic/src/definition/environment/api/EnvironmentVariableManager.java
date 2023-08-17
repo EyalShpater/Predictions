@@ -11,6 +11,6 @@ public interface EnvironmentVariableManager {
     void addEnvironmentVariable(PropertyDefinition property);
     Collection<PropertyDefinition> getEnvironmentVariables();
     ActiveEnvironment createActiveEnvironment();
-
     void addEnvironmentVariableDTO(PropertyDefinitionDTO environmentVariables);
+    boolean isEmpty();
 }

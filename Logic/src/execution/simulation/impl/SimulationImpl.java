@@ -7,6 +7,7 @@ import definition.world.api.World;
 import execution.simulation.data.api.SimulationData;
 import execution.simulation.data.impl.SimulationDataImpl;
 import impl.SimulationDTO;
+import impl.SimulationDataDTO;
 import instance.entity.api.EntityInstance;
 import instance.entity.manager.api.EntityInstanceManager;
 import instance.entity.manager.impl.EntityInstanceManagerImpl;
@@ -56,6 +57,23 @@ public class SimulationImpl implements Simulation {
         data = new SimulationDataImpl(serialNumber, startTime, world.getEntities(), entities);
     }
 
+    @Override
+    public long getRunStartTime() {
+        return startTime;
+    }
+
+    @Override
+    public SimulationDataDTO getResultAsDTO(String entityName, String propertyName) {
+        return new SimulationDataDTO(
+                world.getEntities().size(),
+                data.getStarterPopulationQuantity(entityName),
+                data.getFinalPopulationQuantity(entityName),
+                propertyName != null ?
+                        data.getPropertyOfEntityPopulationSortedByValues(entityName, propertyName) :
+                        null
+                );
+    }
+
     private void initEntities() {
         EntityInstanceManager instances = new EntityInstanceManagerImpl();
 
@@ -86,12 +104,6 @@ public class SimulationImpl implements Simulation {
 
     @Override
     public SimulationDTO convertToDTO() {
-        return new SimulationDTO(startTime, serialNumber);
-    }
-
-    // todo: think of that
-    @Override
-    public Simulation revertFromDTO(SimulationDTO dto) {
-        return null;
+        return new SimulationDTO(startTime, serialNumber, world.convertToDTO());
     }
 }

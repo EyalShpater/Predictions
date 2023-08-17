@@ -17,17 +17,19 @@ import rule.api.Rule;
 import rule.impl.RuleImpl;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 public class WorldImpl implements World {
-    private List<EntityDefinition> entitiesDefinition;
+    private Map<String, EntityDefinition> entitiesDefinition;
     private List<Rule> rules;
     private EnvironmentVariableManager environmentVariables;
     private Termination terminate;
 
     public WorldImpl() {
-        entitiesDefinition = new ArrayList<>();
+        entitiesDefinition = new HashMap<>();
         rules = new ArrayList<>();
         environmentVariables = new EnvironmentVariableManagerImpl();
     }
@@ -52,10 +54,12 @@ public class WorldImpl implements World {
 
     @Override
     public List<PropertyDefinitionDTO> getEnvironmentVariablesDTO() {
-        return environmentVariables.getEnvironmentVariables()
+        return !environmentVariables.isEmpty() ?
+                environmentVariables.getEnvironmentVariables()
                 .stream()
                 .map(DTOConvertible::convertToDTO)
-                .collect(Collectors.toList());
+                .collect(Collectors.toList()) :
+                null;
     }
 
     @Override
@@ -69,7 +73,7 @@ public class WorldImpl implements World {
 
     @Override
     public List<EntityDefinition> getEntities() {
-        return entitiesDefinition;
+        return new ArrayList<>(entitiesDefinition.values());
     }
 
     @Override
@@ -104,7 +108,8 @@ public class WorldImpl implements World {
     @Override
     public WorldDTO convertToDTO() {
         return new WorldDTO(
-                entitiesDefinition.stream()
+                entitiesDefinition.values()
+                        .stream()
                         .map(DTOConvertible::convertToDTO)
                         .collect(Collectors.toList()),
                 rules.stream()
@@ -113,17 +118,6 @@ public class WorldImpl implements World {
                 terminate.convertToDTO()
         );
     }
-
-    //TODO: think about this method
-    @Override
-    public World revertFromDTO(WorldDTO dto) {
-        World result = new WorldImpl();
-
-        return null;
-       // dto.getRules().forEach(
-    }
-
-
 
     private boolean isRuleNameExist(String name) {
         return name != null && rules.contains(name);
@@ -135,7 +129,7 @@ public class WorldImpl implements World {
             throw new NullPointerException("Can not add null entity!");
         }
 
-        entitiesDefinition.add(newEntity);
+        entitiesDefinition.put(newEntity.getName(), newEntity);
     }
 
     @Override
@@ -145,5 +139,10 @@ public class WorldImpl implements World {
         }
 
         environmentVariables.addEnvironmentVariable(newVariable);
+    }
+
+    @Override
+    public EntityDefinition getEntityByName(String name) {
+        return entitiesDefinition.get(name);
     }
 }

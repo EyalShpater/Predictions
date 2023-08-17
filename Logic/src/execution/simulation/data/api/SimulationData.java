@@ -1,5 +1,7 @@
 package execution.simulation.data.api;
 
+import api.DTOConvertible;
+
 import java.util.List;
 
 public interface SimulationData {

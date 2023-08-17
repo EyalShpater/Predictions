@@ -6,20 +6,23 @@ import instance.entity.api.EntityInstance;
 import instance.entity.manager.api.EntityInstanceManager;
 import instance.property.api.PropertyInstance;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 public class SimulationDataImpl implements SimulationData {
 
     int id;
     long startTime;
-    List<EntityDefinition> entityDefinitions;
+    Map<String, EntityDefinition> entityDefinitions;
     EntityInstanceManager entityInstances;
 
     public SimulationDataImpl(int id, long startTime, List<EntityDefinition> entityDefinitions, EntityInstanceManager entityInstances) {
         this.id = id;
         this.startTime = startTime;
-        this.entityDefinitions = entityDefinitions;
+        this.entityDefinitions = new HashMap<>();
+        entityDefinitions.forEach(entity -> this.entityDefinitions.put(entity.getName(), entity));
         this.entityInstances = entityInstances;
     }
 
@@ -82,15 +85,7 @@ public class SimulationDataImpl implements SimulationData {
     }
 
     private EntityDefinition getEntityByName(String name) {
-        EntityDefinition requestedEntity = null;
-
-        for (EntityDefinition entity : entityDefinitions) {
-            if (entity.getName().equals(name)) {
-                requestedEntity = entity;
-            }
-        }
-
-        return requestedEntity;
+        return entityDefinitions.get(name);
     }
 
     private boolean isPropertyNameValid(EntityDefinition entity, String propertyName) {

@@ -139,24 +139,6 @@ public class PropertyDefinitionImpl implements PropertyDefinition {
     }
 
     @Override
-    public PropertyDefinition revertFromDTO(PropertyDefinitionDTO dto) {
-        return dto.getFrom() == null || dto.getTo() == null ?
-                new PropertyDefinitionImpl(
-                        dto.getName(),
-                        PropertyType.valueOf(dto.getType()),
-                        dto.isRandom(),
-                        dto.getDefaultValue()
-                ) :
-                new PropertyDefinitionImpl(
-                dto.getName(),
-                PropertyType.valueOf(dto.getType()),
-                new Range(dto.getFrom(), dto.getTo()),
-                dto.isRandom(),
-                dto.getDefaultValue()
-        );
-    }
-
-    @Override
     public String toString() {
         StringBuilder str = new StringBuilder();
 

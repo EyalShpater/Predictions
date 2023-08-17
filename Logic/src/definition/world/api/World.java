@@ -24,4 +24,5 @@ public interface World extends DTOConvertible<World, WorldDTO> {
     void addEntity(EntityDefinition newEntity);
     void setTermination(Termination terminate);
     void addEnvironmentVariable(PropertyDefinition newVariable);
+    EntityDefinition getEntityByName(String name);
 }

@@ -1,10 +1,8 @@
 package menu.impl;
 
-import impl.PropertyDefinitionDTO;
+import impl.*;
 import execution.simulation.api.PredictionsLogic;
 import execution.simulation.impl.PredictionsLogicImpl;
-import impl.SimulationDTO;
-import impl.WorldDTO;
 import menu.api.Menu;
 import menu.api.MenuOptions;
 import menu.helper.PrintToScreen;
@@ -21,6 +19,8 @@ public class MenuImpl implements Menu {
     private static final int EXIT = 5;
     private static final int YES = 1;
     private static final int NO = 2;
+    private static final int AMOUNT_VIEW = 1;
+    public static final int HISTOGRAM_VIEW = 2;
 
     private PredictionsLogic engine = new PredictionsLogicImpl();
 
@@ -72,7 +72,7 @@ public class MenuImpl implements Menu {
     }
 
     private void showSimulationDetails() {
-        WorldDTO details = engine.getSimulationDetails();
+        WorldDTO details = engine.getLoadedSimulationDetails();
 
         printer.printWorldDTO(details);
     }
@@ -84,14 +84,84 @@ public class MenuImpl implements Menu {
     }
 
     private void showPreviousSimulation() {
-        List<SimulationDTO> allSimulations = engine.getPreviousSimulations();
+        List<SimulationDTO> allSimulations = engine.getPreviousSimulationsAsDTO();
 
-        printer.printTitle("Get Previous Simulations Data");
-        System.out.println("Please choose a simulation");
-        printer.showAllSimulationsDTO(allSimulations);
-        typeScanner.getIntFromUserInRange(1, allSimulations.size());
-        printer.printSimulationDetailViewOptions();
+        if (allSimulations != null && !allSimulations.isEmpty()) {
+            int simulationIndex, viewOption;
 
+            printer.printTitle("Get Previous Simulations Data", '~', '-');
+            System.out.println("Please choose a simulation");
+            printer.showAllSimulationsDTO(allSimulations);
+            simulationIndex = typeScanner.getIntFromUserInRange(1, allSimulations.size()) - 1;
+            printer.printSimulationDetailViewOptions();
+            viewOption = typeScanner.getIntFromUserInRange(1, 2);
+            showPreviousSimulationDetails(allSimulations.get(simulationIndex).getSerialNumber(), viewOption);
+        } else {
+            System.out.println("No simulations to view");
+        }
+    }
+
+    private void showPreviousSimulationDetails(int simulationSerialNumber, int viewOption) {
+        SimulationDataDTO data;
+
+        switch (viewOption) {
+            case AMOUNT_VIEW:
+                printer.showAmountViewSimulationDTO(simulationSerialNumber, engine);
+                break;
+            case HISTOGRAM_VIEW:
+                data = getInputForHistogramView(simulationSerialNumber);
+                printer.showHistogramViewSimulationDTO(data);
+                break;
+        }
+    }
+
+    private SimulationDataDTO getInputForHistogramView(int serialNumber) {
+        SimulationDataDTO data;
+        String chosenEntityName, chosenPropertyName;
+
+        chosenEntityName = getEntityNameFromUser();
+        chosenPropertyName = getPropertyNameByUser(chosenEntityName);
+        data = engine.getSimulationData(serialNumber, chosenEntityName, chosenPropertyName);
+
+        return data;
+    }
+
+    private String getEntityNameFromUser() {
+        int entityIndex, count = 1;
+        List<String> entitiesNames = engine
+                        .getLoadedSimulationDetails()
+                        .getEntities()
+                        .stream().map(EntityDefinitionDTO::getName)
+                        .collect(Collectors.toList());
+
+        for (String name : entitiesNames) {
+            System.out.println(count + ". " + name);
+            count++;
+        }
+
+        System.out.println("Please choose an entity:");
+        entityIndex = typeScanner.getIntFromUserInRange(1, entitiesNames.size());
+
+        return engine
+                .getLoadedSimulationDetails()
+                .getEntities()
+                .get(entityIndex - 1)
+                .getName();
+    }
+
+    private String getPropertyNameByUser(String entityName) {
+        List<PropertyDefinitionDTO> properties;
+        int propertyIndex;
+
+        properties = engine.getEntityPropertiesByEntityName(entityName);
+        printer.printPropertyDefinitionDTOList(properties);
+        System.out.println("Please choose property");
+        propertyIndex = typeScanner.getIntFromUserInRange(1, properties.size()) - 1;
+
+        return engine
+                .getEntityPropertiesByEntityName(entityName)
+                .get(propertyIndex)
+                .getName();
     }
 
     //todo: separate it to sub functions.
@@ -100,7 +170,7 @@ public class MenuImpl implements Menu {
         int choice = -1;
 
         if (environmentVariables != null) {
-            printer.printTitle("Set Environment Variables");
+            printer.printTitle("Set Environment Variables", '~', '-');
             printer.printPropertyDefinitionDTOList(
                     environmentVariables
                             .stream()

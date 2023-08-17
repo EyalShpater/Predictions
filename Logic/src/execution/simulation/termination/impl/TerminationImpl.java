@@ -31,9 +31,4 @@ public class TerminationImpl implements Termination {
     public TerminationDTO convertToDTO() {
         return new TerminationDTO(ticksToTerminate, secondsToTerminate);
     }
-
-    @Override
-    public Termination revertFromDTO(TerminationDTO dto) {
-        return new TerminationImpl(dto.getTicksToTerminate(), dto.getSecondsToTerminate());
-    }
 }

@@ -6,9 +6,6 @@ import action.context.api.Context;
 import definition.entity.api.EntityDefinition;
 
 public class KillAction extends AbstractAction {
-
-
-
     public KillAction(EntityDefinition entity ) {
         super(entity, ActionType.KILL);
     }

@@ -11,12 +11,14 @@ import definition.property.api.PropertyType;
 import definition.property.api.Range;
 import definition.property.impl.PropertyDefinitionImpl;
 import execution.simulation.api.PredictionsLogic;
+import execution.simulation.api.Simulation;
 import execution.simulation.manager.SimulationManager;
 import definition.world.api.World;
 import definition.world.impl.WorldImpl;
 import execution.simulation.termination.impl.TerminationImpl;
 import impl.PropertyDefinitionDTO;
 import impl.SimulationDTO;
+import impl.SimulationDataDTO;
 import impl.WorldDTO;
 import rule.api.Rule;
 import rule.impl.ActivationImpl;
@@ -46,7 +48,7 @@ public class PredictionsLogicImpl implements PredictionsLogic {
     }
 
     @Override
-    public WorldDTO getSimulationDetails() {
+    public WorldDTO getLoadedSimulationDetails() {
         return (WorldDTO) world.convertToDTO();
     }
 
@@ -56,8 +58,29 @@ public class PredictionsLogicImpl implements PredictionsLogic {
     }
 
     @Override
-    public List<SimulationDTO> getPreviousSimulations() {
-        return null;
+    public List<SimulationDTO> getPreviousSimulationsAsDTO() {
+        return allSimulations.getAllSimulationsDTO();
+    }
+
+    @Override
+    public SimulationDataDTO getSimulationData(int serialNumber, String entityName, String propertyName) {
+        return allSimulations
+                .getSimulationBySerialNumber(serialNumber)
+                .getResultAsDTO(entityName, propertyName);
+    }
+
+    @Override
+    public SimulationDTO getSimulationDTOBySerialNumber(int serialNumber) {
+        return allSimulations
+                .getSimulationBySerialNumber(serialNumber)
+                .convertToDTO();
+    }
+
+    @Override
+    public List<PropertyDefinitionDTO> getEntityPropertiesByEntityName(String name) {
+        return world.getEntityByName(name)
+                .convertToDTO()
+                .getProperties();
     }
 
     //TODO: DELETE! ONLY FOR DEBUGGING.
@@ -73,7 +96,7 @@ public class PredictionsLogicImpl implements PredictionsLogic {
         PropertyDefinition CancerSerialString = new PropertyDefinitionImpl("CancerSerialString", PropertyType.STRING,true);
 
 
-        EntityDefinition smokerEntityDefinition = new EntityDefinitionImpl("smoker", 10);
+        EntityDefinition smokerEntityDefinition = new EntityDefinitionImpl("smoker", 100000);
         smokerEntityDefinition.addProperty(agePropertyDefinition);
         smokerEntityDefinition.addProperty(smokingInDayPropertyDefinition);
         smokerEntityDefinition.addProperty(cancerPrecentage);
@@ -83,17 +106,17 @@ public class PredictionsLogicImpl implements PredictionsLogic {
 
         world.addEntity(smokerEntityDefinition);
 
-        Rule rule1 = new RuleImpl("First_User_Rule", new ActivationImpl(0.95), "smoker");
+        Rule rule1 = new RuleImpl("First_User_Rule", new ActivationImpl(0.86), "smoker");
         rule1.addAction(new IncreaseAction(smokerEntityDefinition, "age", "random(10)"));
         rule1.addAction(new IncreaseAction(smokerEntityDefinition, "smokingInDay", "3.5"));
         rule1.addAction(new SetAction(smokerEntityDefinition, "cancerPositive", "true"));
         rule1.addAction(new DecreaseAction(smokerEntityDefinition, "cancerPrecentage", "random(15)"));
-        rule1.addAction(new KillAction(smokerEntityDefinition));
+
+        Rule rule2 = new RuleImpl("Eyal_Rule", new ActivationImpl(0.20), "smoker");
+        rule2.addAction(new KillAction(smokerEntityDefinition));
 
         world.addRule(rule1);
-        world.setTermination(new TerminationImpl(100, 15));
-//        EnvironmentVariableManager envVariablesManager = new EnvironmentVariableManagerImpl();
-//        PropertyDefinition taxAmountEnvironmentVariablePropertyDefinition = new PropertyDefinitionImpl("tax-amount", PropertyType.INT, true, new Range(10, 100));
-//        envVariablesManager.addEnvironmentVariable(taxAmountEnvironmentVariablePropertyDefinition);
+        world.addRule(rule2);
+        world.setTermination(new TerminationImpl(3, 3));
     }
 }
