@@ -13,7 +13,7 @@ import rule.api.Rule;
 
 import java.util.List;
 
-public interface World extends DTOConvertible<World, WorldDTO> {
+public interface World extends DTOConvertible<WorldDTO> {
     void setEnvironmentVariablesValues(List<PropertyDefinitionDTO> values);
     List<PropertyDefinitionDTO> getEnvironmentVariablesDTO();
     ActiveEnvironment createActiveEnvironment();

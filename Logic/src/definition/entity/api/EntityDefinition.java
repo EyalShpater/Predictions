@@ -4,7 +4,7 @@ import api.DTOConvertible;
 import definition.property.api.PropertyDefinition;
 import impl.EntityDefinitionDTO;
 
-public interface EntityDefinition extends DTOConvertible<EntityDefinition, EntityDefinitionDTO> {
+public interface EntityDefinition extends DTOConvertible<EntityDefinitionDTO> {
     String getName();
 
     int getPopulation();

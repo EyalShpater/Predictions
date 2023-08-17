@@ -13,9 +13,11 @@ public class TypesScanner {
         do {
             try {
                 userIntegerInput = scanner.nextInt();
+                scanner.nextLine();
                 validInput = true;
             } catch (InputMismatchException exception) {
                 System.out.println("This is not an integer number!!!");
+                scanner.nextLine();
                 validInput = false;
             }
 
@@ -46,9 +48,11 @@ public class TypesScanner {
         do {
             try {
                 userDoubleInput = scanner.nextInt();
+                scanner.nextLine();
                 validInput = true;
             } catch (InputMismatchException exception) {
                 System.out.println("This is not a real number!!!");
+                scanner.nextLine();
                 validInput = false;
             }
         } while (!validInput);

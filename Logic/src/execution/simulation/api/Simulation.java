@@ -5,7 +5,7 @@ import execution.simulation.data.api.SimulationData;
 import impl.SimulationDTO;
 import impl.SimulationDataDTO;
 
-public interface Simulation extends DTOConvertible<Simulation, SimulationDTO> {
+public interface Simulation extends DTOConvertible<SimulationDTO> {
     int getSerialNumber();
     long getRunStartTime();
     void run();

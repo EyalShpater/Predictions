@@ -32,8 +32,7 @@ public class MenuImpl implements Menu {
         engine.hardCodeWorldInit();
         while (choice != EXIT) {
             printer.displayMenu();
-            choice = scanner.nextInt();
-            scanner.nextLine();
+            choice = typeScanner.getIntFromUserInRange(1, MenuOptions.values().length);
 
             switch (MenuOptions.fromInt(choice)) {
                 case LOAD_FILE:

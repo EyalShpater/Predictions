@@ -6,7 +6,7 @@ import api.DTOConvertible;
 import impl.RuleDTO;
 
 
-public interface Rule extends DTOConvertible<Rule, RuleDTO> {
+public interface Rule extends DTOConvertible<RuleDTO> {
     String getName();
 
     boolean isActive(int tickNumber, double probability);

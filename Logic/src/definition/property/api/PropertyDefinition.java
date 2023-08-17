@@ -3,7 +3,7 @@ package definition.property.api;
 import api.DTOConvertible;
 import impl.PropertyDefinitionDTO;
 
-public interface PropertyDefinition extends DTOConvertible<PropertyDefinition, PropertyDefinitionDTO> {
+public interface PropertyDefinition extends DTOConvertible<PropertyDefinitionDTO> {
     String getName();
     PropertyType getType();
     Range getRange();
