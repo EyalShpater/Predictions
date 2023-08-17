@@ -5,11 +5,8 @@ import action.impl.IncreaseAction;
 import action.impl.KillAction;
 import action.impl.SetAction;
 import api.DTO;
-import api.DTO.*;
 import definition.entity.api.EntityDefinition;
 import definition.entity.impl.EntityDefinitionImpl;
-import definition.environment.api.EnvironmentVariableManager;
-import definition.environment.impl.EnvironmentVariableManagerImpl;
 import definition.property.api.PropertyDefinition;
 import definition.property.api.PropertyType;
 import definition.property.api.Range;
@@ -20,12 +17,8 @@ import execution.simulation.manager.SimulationManager;
 import definition.world.api.World;
 import definition.world.impl.WorldImpl;
 import execution.simulation.termination.impl.TerminationImpl;
+import impl.PropertyDefinitionDTO;
 import impl.WorldDTO;
-import instance.entity.manager.api.EntityInstanceManager;
-import instance.entity.manager.impl.EntityInstanceManagerImpl;
-import instance.enviornment.api.ActiveEnvironment;
-import instance.property.api.PropertyInstance;
-import instance.property.impl.PropertyInstanceImpl;
 import rule.api.Rule;
 import rule.impl.ActivationImpl;
 import rule.impl.RuleImpl;
@@ -48,8 +41,9 @@ public class PredictionsLogicImpl implements PredictionsLogic {
         return true;
     }
 
+    //TODO: impl
     @Override
-    public List<DTO> getEnvironmentVariablesToSet() {
+    public List<PropertyDefinitionDTO> getEnvironmentVariablesToSet() {
         return null;
     }
 
@@ -59,7 +53,7 @@ public class PredictionsLogicImpl implements PredictionsLogic {
     }
 
     @Override
-    public void runNewSimulation(List<DTO> environmentVariables) {
+    public void runNewSimulation(List<PropertyDefinitionDTO> environmentVariables) {
         allSimulations.runNewSimulation(world, environmentVariables);
     }
 

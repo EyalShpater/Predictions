@@ -2,6 +2,7 @@ package definition.environment.api;
 
 import api.DTO;
 import definition.property.api.PropertyDefinition;
+import impl.PropertyDefinitionDTO;
 import instance.enviornment.api.ActiveEnvironment;
 
 import java.util.Collection;
@@ -11,5 +12,5 @@ public interface EnvironmentVariableManager {
     Collection<PropertyDefinition> getEnvironmentVariables();
     ActiveEnvironment createActiveEnvironment();
 
-    void mapEnvironmentVariableDTOtoEnvironmentVariableAndCreateIt(DTO environmentVariables);
+    void addEnvironmentVariableDTO(PropertyDefinitionDTO environmentVariables);
 }

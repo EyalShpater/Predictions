@@ -3,9 +3,10 @@ package rule.api;
 import action.api.Action;
 import action.context.api.Context;
 import api.DTOConvertible;
+import impl.RuleDTO;
 
 
-public interface Rule extends DTOConvertible {
+public interface Rule extends DTOConvertible<Rule, RuleDTO> {
     String getName();
 
     boolean isActive(int tickNumber, double probability);

@@ -4,6 +4,7 @@ import api.DTO;
 import api.DTOConvertible;
 import definition.entity.api.EntityDefinition;
 import definition.property.api.PropertyDefinition;
+import definition.property.impl.PropertyDefinitionImpl;
 import impl.EntityDefinitionDTO;
 import impl.PropertyDefinitionDTO;
 
@@ -18,6 +19,12 @@ public class EntityDefinitionImpl implements EntityDefinition {
     public EntityDefinitionImpl(String name, int population) {
         setName(name);
         setPopulation(population);
+    }
+
+    public EntityDefinitionImpl(EntityDefinitionDTO dto) {
+        this(dto.getName(), dto.getPopulation());
+
+        dto.getProperties().forEach(property -> addProperty(new PropertyDefinitionImpl(property)));
     }
 
 
@@ -61,9 +68,12 @@ public class EntityDefinitionImpl implements EntityDefinition {
 
     @Override
     public PropertyDefinition getPropertyByName(String name) {
-        Optional<PropertyDefinition> theProperty = properties.stream().filter(property -> property.getName().equals(name)).findFirst();
-        return theProperty.get();
+        Optional<PropertyDefinition> theProperty =
+                properties.stream()
+                .filter(property -> property.getName().equals(name))
+                .findFirst();
 
+        return theProperty.orElse(null);
     }
 
     @Override
@@ -72,13 +82,22 @@ public class EntityDefinitionImpl implements EntityDefinition {
     }
 
     @Override
-    public DTO convertToDTO() {
+    public EntityDefinitionDTO convertToDTO() {
         return new EntityDefinitionDTO(
                 name,
                 population,
                 properties.stream()
                         .map(propertyDefinition -> (PropertyDefinitionDTO) propertyDefinition.convertToDTO())
                         .collect(Collectors.toList())
+        );
+    }
+
+    // TODO: should keep it?. not very good impl
+    @Override
+    public EntityDefinition revertFromDTO(EntityDefinitionDTO dto) {
+        return new EntityDefinitionImpl(
+                dto.getName(),
+                dto.getPopulation()
         );
     }
 

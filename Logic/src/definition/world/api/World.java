@@ -4,14 +4,17 @@ package definition.world.api;
 import api.DTO;
 import api.DTOConvertible;
 import definition.entity.api.EntityDefinition;
+import definition.property.api.PropertyDefinition;
 import execution.simulation.termination.api.Termination;
+import impl.PropertyDefinitionDTO;
+import impl.WorldDTO;
 import instance.enviornment.api.ActiveEnvironment;
 import rule.api.Rule;
 
 import java.util.List;
 
-public interface World extends DTOConvertible {
-    void setEnvironmentVariablesValues(List<DTO> values);
+public interface World extends DTOConvertible<World, WorldDTO> {
+    void setEnvironmentVariablesValues(List<PropertyDefinitionDTO> values);
     List<DTO> getEnvironmentVariablesDTO();
     ActiveEnvironment createActiveEnvironment();
     List<EntityDefinition> getEntities();
@@ -20,4 +23,5 @@ public interface World extends DTOConvertible {
     void addRule(Rule newRule);
     void addEntity(EntityDefinition newEntity);
     void setTermination(Termination terminate);
+    void addEnvironmentVariable(PropertyDefinition newVariable);
 }

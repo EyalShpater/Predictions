@@ -5,6 +5,8 @@ import execution.simulation.api.Simulation;
 import execution.simulation.data.api.SimulationData;
 import execution.simulation.impl.SimulationImpl;
 import definition.world.api.World;
+import impl.PropertyDefinitionDTO;
+
 import java.util.*;
 
 public class SimulationManager {
@@ -16,7 +18,7 @@ public class SimulationManager {
         simulations = new HashMap<>();
     }
 
-    public void runNewSimulation(World world, List<DTO> environmentVariables) {
+    public void runNewSimulation(World world, List<PropertyDefinitionDTO> environmentVariables) {
         Simulation simulation;
 
         updateEnvironmentVariablesFromDTO(world, environmentVariables);
@@ -26,7 +28,7 @@ public class SimulationManager {
         serialNumber++;
     }
 
-    private void updateEnvironmentVariablesFromDTO(World world, List<DTO> environmentVariables) {
+    private void updateEnvironmentVariablesFromDTO(World world, List<PropertyDefinitionDTO> environmentVariables) {
         world.setEnvironmentVariablesValues(environmentVariables);
     }
 }

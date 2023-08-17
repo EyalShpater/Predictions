@@ -11,9 +11,13 @@ public class TerminationImpl implements Termination {
     private final int ticksToTerminate;
     private final long secondsToTerminate;
 
-    public TerminationImpl(int ticksToTerminate, int secondsToTerminate) {
+    public TerminationImpl(int ticksToTerminate, long secondsToTerminate) {
         this.ticksToTerminate = ticksToTerminate;
         this.secondsToTerminate = secondsToTerminate;
+    }
+
+    public TerminationImpl(TerminationDTO dto) {
+        this(dto.getTicksToTerminate(), dto.getSecondsToTerminate());
     }
 
     @Override
@@ -24,7 +28,12 @@ public class TerminationImpl implements Termination {
     }
 
     @Override
-    public DTO convertToDTO() {
+    public TerminationDTO convertToDTO() {
         return new TerminationDTO(ticksToTerminate, secondsToTerminate);
+    }
+
+    @Override
+    public Termination revertFromDTO(TerminationDTO dto) {
+        return new TerminationImpl(dto.getTicksToTerminate(), dto.getSecondsToTerminate());
     }
 }

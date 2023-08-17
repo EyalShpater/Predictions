@@ -44,6 +44,26 @@ public class PropertyDefinitionImpl implements PropertyDefinition {
         this.defaultValue = value;
     }
 
+    private PropertyDefinitionImpl(String name, PropertyType type, Range range, boolean isValueInitializeRandomly, Object defaultValue) {
+        this.name = name;
+        this.type = type;
+        this.range = range;
+        this.isValueInitializeRandomly = isValueInitializeRandomly;
+        this.defaultValue = defaultValue;
+    }
+
+    public PropertyDefinitionImpl(PropertyDefinitionDTO dto) {
+        this(dto.getName(),
+                PropertyType.valueOf(dto.getType()),
+                dto.isRandom(),
+                dto.getDefaultValue()
+        );
+
+        if (dto.getFrom() != null && dto.getTo() != null) {
+            range = new Range(dto.getFrom(), dto.getTo());
+        }
+    }
+
     public void setName(String name) {
         if (name.isEmpty()) {
             throw new NullPointerException("Title can not be empty!");
@@ -103,10 +123,10 @@ public class PropertyDefinitionImpl implements PropertyDefinition {
     }
 
     @Override
-    public DTO convertToDTO() {
+    public PropertyDefinitionDTO convertToDTO() {
         return new PropertyDefinitionDTO(
                 name,
-                type.toString(),
+                type.name(),
                 range != null ?
                         range.getMin() :
                         null,
@@ -115,6 +135,24 @@ public class PropertyDefinitionImpl implements PropertyDefinition {
                         null,
                 isValueInitializeRandomly,
                 defaultValue
+        );
+    }
+
+    @Override
+    public PropertyDefinition revertFromDTO(PropertyDefinitionDTO dto) {
+        return dto.getFrom() == null || dto.getTo() == null ?
+                new PropertyDefinitionImpl(
+                        dto.getName(),
+                        PropertyType.valueOf(dto.getType()),
+                        dto.isRandom(),
+                        dto.getDefaultValue()
+                ) :
+                new PropertyDefinitionImpl(
+                dto.getName(),
+                PropertyType.valueOf(dto.getType()),
+                new Range(dto.getFrom(), dto.getTo()),
+                dto.isRandom(),
+                dto.getDefaultValue()
         );
     }
 

@@ -25,6 +25,12 @@ public class RuleImpl implements Rule {
         initRelevantEntities(Arrays.asList(relevantEntity));
     }
 
+    public RuleImpl(RuleDTO dto) {
+        this(dto.getName(),
+                new ActivationImpl(dto.getTicks(), dto.getProbability()),
+                dto.getActionsNames().toArray(new String[0]));
+    }
+
     @Override
     public String getName() {
         return name;
@@ -52,7 +58,7 @@ public class RuleImpl implements Rule {
     }
 
     @Override
-    public DTO convertToDTO() {
+    public RuleDTO convertToDTO() {
         return new RuleDTO(
                 name,
                 activation.getNumOfTicksToActivate(),
@@ -60,6 +66,15 @@ public class RuleImpl implements Rule {
                 actions.stream()
                         .map(Action::getName)
                         .collect(Collectors.toList())
+        );
+    }
+
+    @Override
+    public Rule revertFromDTO(RuleDTO dto) {
+        return new RuleImpl(
+                dto.getName(),
+                new ActivationImpl(dto.getTicks(), dto.getProbability()),
+                dto.getActionsNames().toArray(new String[0])
         );
     }
 

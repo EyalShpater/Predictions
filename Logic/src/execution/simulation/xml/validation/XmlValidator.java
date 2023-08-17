@@ -50,9 +50,9 @@ public class XmlValidator {
     //11111111111111111111111
 
     private void checkIfPathExist(){
-        Path xmlpath = Paths.get(this.path);
+        Path xmlPath = Paths.get(this.path);
 
-        if (!Files.exists(xmlpath)) {
+        if (!Files.exists(xmlPath)) {
             throw new IllegalArgumentException("File path does not exist");
         }
     }
@@ -75,48 +75,52 @@ public class XmlValidator {
             return world;
 
         }catch (JAXBException e){
-            e.printStackTrace();
+            e.printStackTrace(); // shouldn't print anything in this class
         }
         return null;
     }
 
 
     //222222222222222222222222
-    private void checkEnvVarsNames(PRDEvironment environment){
-
+    private void checkEnvVarsNames(PRDEvironment environment) {
         List<PRDEnvProperty> EnvPropertyList = environment.getPRDEnvProperty();
+
         for (int i = 0; i < EnvPropertyList.size() - 1; i++) {
             for (int j = i + 1; j < EnvPropertyList.size(); j++) {
                 checkVarsNamesToBeDifferent( EnvPropertyList.get(i).getPRDName() , EnvPropertyList.get(j).getPRDName() );
             }
+
             checkVarsNamesToNotHaveSpaces(EnvPropertyList.get(i).getPRDName());
         }
     }
 
-    private void checkVarsNamesToBeDifferent(String name1 ,String name2 ){
+    private void checkVarsNamesToBeDifferent(String name1, String name2) {
 
         if (name1.equals(name2)) {
-            throw new IllegalArgumentException("The environment variable " +name1+" appears more than one time");
+            throw new IllegalArgumentException("The environment variable " + name1 + " appears more than one time");
         }
     }
 
     private void checkVarsNamesToNotHaveSpaces(String envVarName){
         if (envVarName.contains(" ")) {
-            throw new IllegalArgumentException("Environment variable "+ envVarName +" should not contain spaces.");
+            throw new IllegalArgumentException("Environment variable " + envVarName + " should not contain spaces.");
         }
     }
 
     //33333333333333333333
 
-    private void checkPropertiesNames(PRDEntities entities){
+    private void checkPropertiesNames(PRDEntities entities) {
         List<PRDEntity> entityList = entities.getPRDEntity();
+
         for (PRDEntity entity: entityList ) {
             PRDProperties properties = entity.getPRDProperties();
             List<PRDProperty> propertyList = properties.getPRDProperty();
+
             for (int i = 0; i < propertyList.size() - 1; i++) {
                 for (int j = i + 1; j < propertyList.size(); j++) {
                     checkVarsNamesToBeDifferent( propertyList.get(i).getPRDName() , propertyList.get(j).getPRDName() );
                 }
+
                 checkVarsNamesToNotHaveSpaces(propertyList.get(i).getPRDName());
             }
         }
@@ -133,8 +137,8 @@ public class XmlValidator {
         for(PRDRule rule : ruleList){
             try{
                 areAllActionsInsideRulesValid( entityList , rule );
-            }catch (IllegalArgumentException e){
-                throw new IllegalArgumentException("In rule: " +rule.getName() + e.getMessage());
+            } catch (IllegalArgumentException e) {
+                throw new IllegalArgumentException("In rule: " + rule.getName() + e.getMessage());
             }
 
         }

@@ -3,17 +3,18 @@ package definition.world.impl;
 import api.DTO;
 import api.DTOConvertible;
 import definition.entity.api.EntityDefinition;
+import definition.entity.impl.EntityDefinitionImpl;
 import definition.environment.api.EnvironmentVariableManager;
 import definition.environment.impl.EnvironmentVariableManagerImpl;
+import definition.property.api.PropertyDefinition;
 import execution.simulation.termination.api.Termination;
 import definition.world.api.World;
 import execution.simulation.termination.impl.TerminationImpl;
-import impl.EntityDefinitionDTO;
-import impl.RuleDTO;
-import impl.TerminationDTO;
+import impl.PropertyDefinitionDTO;
 import impl.WorldDTO;
 import instance.enviornment.api.ActiveEnvironment;
 import rule.api.Rule;
+import rule.impl.RuleImpl;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -28,14 +29,23 @@ public class WorldImpl implements World {
     public WorldImpl() {
         entitiesDefinition = new ArrayList<>();
         rules = new ArrayList<>();
+        environmentVariables = new EnvironmentVariableManagerImpl();
+    }
+
+    public WorldImpl(WorldDTO dto) {
+        this();
+
+        dto.getEntities().forEach(entity -> addEntity(new EntityDefinitionImpl(entity)));
+        dto.getRules().forEach(rule -> addRule(new RuleImpl(rule)));
+        this.terminate = new TerminationImpl(dto.getTermination());
     }
 
     @Override
-    public void setEnvironmentVariablesValues(List<DTO> values) {
+    public void setEnvironmentVariablesValues(List<PropertyDefinitionDTO> values) {
         EnvironmentVariableManager variableDefinitions = new EnvironmentVariableManagerImpl();
 
         if (values != null) {
-            values.forEach(variableDefinitions::mapEnvironmentVariableDTOtoEnvironmentVariableAndCreateIt);
+            values.forEach(variableDefinitions::addEnvironmentVariableDTO);
             this.environmentVariables = variableDefinitions;
         }
     }
@@ -92,20 +102,31 @@ public class WorldImpl implements World {
     }
 
     @Override
-    public DTO convertToDTO() {
+    public WorldDTO convertToDTO() {
         return new WorldDTO(
                 entitiesDefinition.stream()
-                        .map(entityDefinition -> (EntityDefinitionDTO) entityDefinition.convertToDTO())
+                        .map(DTOConvertible::convertToDTO)
                         .collect(Collectors.toList()),
                 rules.stream()
-                        .map(rule -> (RuleDTO) rule.convertToDTO())
+                        .map(DTOConvertible::convertToDTO)
                         .collect(Collectors.toList()),
-                (TerminationDTO) terminate.convertToDTO()
+                terminate.convertToDTO()
         );
     }
 
+    //TODO: think about this method
+    @Override
+    public World revertFromDTO(WorldDTO dto) {
+        World result = new WorldImpl();
+
+        return null;
+       // dto.getRules().forEach(
+    }
+
+
+
     private boolean isRuleNameExist(String name) {
-        return rules.contains(name);
+        return name != null && rules.contains(name);
     }
 
     @Override
@@ -115,5 +136,14 @@ public class WorldImpl implements World {
         }
 
         entitiesDefinition.add(newEntity);
+    }
+
+    @Override
+    public void addEnvironmentVariable(PropertyDefinition newVariable) {
+        if (newVariable == null) {
+            throw new NullPointerException();
+        }
+
+        environmentVariables.addEnvironmentVariable(newVariable);
     }
 }

@@ -82,7 +82,7 @@ public class MenuImpl implements Menu {
 
     //todo :impel
     private void runSimulation() {
-        List<DTO> updatedEnvironmentVariables = getEnvironmentVariablesFromUser();
+        List<PropertyDefinitionDTO> updatedEnvironmentVariables = getEnvironmentVariablesFromUser();
 
         engine.runNewSimulation(updatedEnvironmentVariables);
     }
@@ -93,8 +93,8 @@ public class MenuImpl implements Menu {
     }
 
     //todo: separate it to sub functions.
-    private List<DTO> getEnvironmentVariablesFromUser() {
-        List<DTO> environmentVariables = engine.getEnvironmentVariablesToSet();
+    private List<PropertyDefinitionDTO> getEnvironmentVariablesFromUser() {
+        List<PropertyDefinitionDTO> environmentVariables = engine.getEnvironmentVariablesToSet();
         int choice = -1;
 
         if (environmentVariables != null) {
@@ -120,7 +120,7 @@ public class MenuImpl implements Menu {
         return environmentVariables;
     }
 
-    private DTO initEnvironmentVariableDTOFromUserInput(PropertyDefinitionDTO variableDTO) {
+    private PropertyDefinitionDTO initEnvironmentVariableDTOFromUserInput(PropertyDefinitionDTO variableDTO) {
         String input;
         Object value;
         boolean isValid = false;

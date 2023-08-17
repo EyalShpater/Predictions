@@ -3,6 +3,8 @@ package definition.environment.impl;
 import api.DTO;
 import definition.environment.api.EnvironmentVariableManager;
 import definition.property.api.PropertyDefinition;
+import definition.property.impl.PropertyDefinitionImpl;
+import impl.PropertyDefinitionDTO;
 import instance.enviornment.api.ActiveEnvironment;
 import instance.enviornment.impl.ActiveEnvironmentImpl;
 import instance.property.impl.PropertyInstanceImpl;
@@ -37,9 +39,12 @@ public class EnvironmentVariableManagerImpl implements EnvironmentVariableManage
         return environment;
     }
 
-    //TODO: implement
     @Override
-    public void mapEnvironmentVariableDTOtoEnvironmentVariableAndCreateIt(DTO environmentVariables) {
+    public void addEnvironmentVariableDTO(PropertyDefinitionDTO environmentVariable) {
+        if (environmentVariable == null) {
+            throw new NullPointerException();
+        }
 
+        propNameToPropDefinition.put(environmentVariable.getName(), new PropertyDefinitionImpl(environmentVariable));
     }
 }
