@@ -80,5 +80,4 @@ public class PRDTermination {
         }
         return this.prdByTicksOrPRDBySecond;
     }
-
 }

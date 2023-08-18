@@ -44,7 +44,7 @@ public class PropertyDefinitionImpl implements PropertyDefinition {
         this.defaultValue = value;
     }
 
-    private PropertyDefinitionImpl(String name, PropertyType type, Range range, boolean isValueInitializeRandomly, Object defaultValue) {
+    public PropertyDefinitionImpl(String name, PropertyType type, Range range, boolean isValueInitializeRandomly, Object defaultValue) {
         this.name = name;
         this.type = type;
         this.range = range;

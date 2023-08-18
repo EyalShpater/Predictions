@@ -11,11 +11,12 @@ import definition.property.api.PropertyType;
 import definition.property.api.Range;
 import definition.property.impl.PropertyDefinitionImpl;
 import execution.simulation.api.PredictionsLogic;
-import execution.simulation.api.Simulation;
 import execution.simulation.manager.SimulationManager;
 import definition.world.api.World;
 import definition.world.impl.WorldImpl;
 import execution.simulation.termination.impl.TerminationImpl;
+import execution.simulation.xml.reader.impl.XmlReader;
+import execution.simulation.xml.validation.XmlValidator;
 import impl.PropertyDefinitionDTO;
 import impl.SimulationDTO;
 import impl.SimulationDataDTO;
@@ -37,7 +38,15 @@ public class PredictionsLogicImpl implements PredictionsLogic {
     // TODO: impl
     @Override
     public boolean loadXML(String path) {
+        boolean isXmlValid = true;
+
         world = new WorldImpl();
+
+        XmlValidator validator = new XmlValidator(path);
+        validator.isValid();
+         //TODO: NEED TO CATCH EXCEPTION SOMEWHERE
+        XmlReader reader = new XmlReader(validator.getWorld());
+        reader.readXml(world);
         //TODO: read data from file and put it in world.
         return true;
     }

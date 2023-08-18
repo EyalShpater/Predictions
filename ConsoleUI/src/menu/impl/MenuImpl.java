@@ -62,7 +62,7 @@ public class MenuImpl implements Menu {
         while (!isLegalPath) {
             filePath = scanner.nextLine();
             isLegalPath = engine.loadXML(filePath);
-
+            //TODO: need to catch exceprion here
             if (!isLegalPath) {
                 System.out.println("Cannot create a simulation using this file path.");
                 System.out.println("Please try again.");

@@ -5,16 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="27d35137-667f-4e37-a519-ab836acc0a06" name="Changes" comment="pretty good">
+      <change afterPath="$PROJECT_DIR$/Logic/src/execution/simulation/xml/reader/impl/EntityReader.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Logic/src/execution/simulation/xml/reader/impl/EnvReader.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Logic/src/execution/simulation/xml/reader/impl/PropertyReader.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Logic/src/execution/simulation/xml/reader/impl/TerminationReader.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Logic/src/execution/simulation/xml/reader/impl/XmlReader.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ConsoleUI/src/menu/helper/TypesScanner.java" beforeDir="false" afterPath="$PROJECT_DIR$/ConsoleUI/src/menu/helper/TypesScanner.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ConsoleUI/src/menu/impl/MenuImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/ConsoleUI/src/menu/impl/MenuImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DTO/src/api/DTOConvertible.java" beforeDir="false" afterPath="$PROJECT_DIR$/DTO/src/api/DTOConvertible.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/definition/entity/api/EntityDefinition.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/definition/entity/api/EntityDefinition.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/definition/property/api/PropertyDefinition.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/definition/property/api/PropertyDefinition.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/definition/world/api/World.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/definition/world/api/World.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/execution/simulation/api/Simulation.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/execution/simulation/api/Simulation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/execution/simulation/termination/api/Termination.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/execution/simulation/termination/api/Termination.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/rule/api/Rule.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/rule/api/Rule.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/definition/property/impl/PropertyDefinitionImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/definition/property/impl/PropertyDefinitionImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/execution/simulation/impl/PredictionsLogicImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/execution/simulation/impl/PredictionsLogicImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/execution/simulation/xml/validation/XmlValidator.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/execution/simulation/xml/validation/XmlValidator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/execution/simulation/xml/validation/xmlMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/execution/simulation/xml/validation/xmlMain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/resources/generated/PRDTermination.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/resources/generated/PRDTermination.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -98,7 +100,7 @@
       <recent name="$PROJECT_DIR$/logic" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Main.Main">
+  <component name="RunManager" selected="Application.xmlMain">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="testmain.Main" />
       <module name="ConsoleUI" />
@@ -153,8 +155,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Main.Main" />
         <item itemvalue="Application.xmlMain" />
+        <item itemvalue="Application.Main.Main" />
         <item itemvalue="Application.Main" />
         <item itemvalue="Application.Program" />
       </list>
@@ -200,6 +202,7 @@
       <workItem from="1692000022571" duration="5167000" />
       <workItem from="1692027270981" duration="1391000" />
       <workItem from="1692256597011" duration="37171000" />
+      <workItem from="1692337503978" duration="17093000" />
     </task>
     <task id="LOCAL‎-00021" summary="expression implementation">
       <option name="closed" value="true" />
@@ -631,21 +634,24 @@
           <option name="timeStamp" value="8" />
         </breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/ConsoleUI/src/menu/impl/MenuImpl.java</url>
-          <line>34</line>
-          <option name="timeStamp" value="33" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/ConsoleUI/src/menu/helper/TypesScanner.java</url>
           <line>14</line>
           <option name="timeStamp" value="34" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/Logic/src/execution/simulation/xml/validation/xmlMain.java</url>
+          <line>13</line>
+          <option name="timeStamp" value="46" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
     <pin-to-top-manager>
       <pinned-members>
+        <PinnedItemInfo parentTag="definition.entity.impl.EntityDefinitionImpl" memberName="population" />
         <PinnedItemInfo parentTag="instance.property.impl.PropertyInstanceImpl" memberName="value" />
         <PinnedItemInfo parentTag="resources.generated.PRDAction" memberName="entity" />
+        <PinnedItemInfo parentTag="definition.entity.impl.EntityDefinitionImpl" memberName="name" />
+        <PinnedItemInfo parentTag="definition.world.impl.WorldImpl" memberName="terminate" />
       </pinned-members>
     </pin-to-top-manager>
   </component>

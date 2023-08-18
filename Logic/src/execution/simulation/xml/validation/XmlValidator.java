@@ -10,8 +10,9 @@ import java.nio.file.*;
 import java.util.List;
 
 public class XmlValidator {
-
     private final String path;
+
+    private PRDWorld world;
 
     private final char HELPER_FUNCTION_TOKEN = '(';
     private final int NOT_FOUND = -1;
@@ -19,12 +20,12 @@ public class XmlValidator {
         this.path = path;
     }
 
-    public boolean isValid() throws IllegalArgumentException{
+    public void isValid() throws IllegalArgumentException{
         // 1) check xml exist and type of xml
         checkIfPathExist();
         checkIfXmlType();
 
-        PRDWorld world = loadXmlToWorld();
+        world = loadXmlToWorld();
 
         // 2) check env-vars to have different names
         checkEnvVarsNames(world.getPRDEvironment());
@@ -43,10 +44,9 @@ public class XmlValidator {
 
         // 6) check that in (calculation \ increase \ decrease) the args are numbers only including helper functions
         checkNumericCalculationActionToIncludeNumericArgs(world);
-        return true;
     }
 
-
+    public PRDWorld getWorld(){return this.world;}
 
     //11111111111111111111111
 
@@ -406,10 +406,6 @@ public class XmlValidator {
 
         if(action.getType().equals("condition")){
             checkIfArgsInActionAreNumericConditionVersion(envPropertiesList , action , entityList);
-
-            /*checkIfPropertyInActionExistForEntityCondition( entityList ,  action );
-            checkIfPropertyInActionExistForThenAction( entityList ,  action );
-            checkIfPropertyInActionExistForElseAction( entityList ,  action );*/
         }else{
             checkIfArgsInActionAreNumericNonConditionVersion(envPropertiesList , action , entityList);
         }
@@ -423,11 +419,10 @@ public class XmlValidator {
         if ( elseBloc != null ){
             iterateActionListOfThenAndElseBlocksToFindIfAllArgsNumeric(envPropertiesList , elseBloc.getPRDAction() , entityList);
         }
-
     }
 
     private void iterateActionListOfThenAndElseBlocksToFindIfAllArgsNumeric(List<PRDEnvProperty> envPropertiesList, List<PRDAction> actionList, List<PRDEntity> entityList) {
-        actionList.forEach( action ->checkIfActionIsOfTypeConditionAndSendToCheckIfActionToIncludeNumericArgs(envPropertiesList , action , entityList) );
+        actionList.forEach( action -> checkIfActionIsOfTypeConditionAndSendToCheckIfActionToIncludeNumericArgs(envPropertiesList , action , entityList) );
     }
 
 
