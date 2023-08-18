@@ -56,6 +56,7 @@ public class ConditionImpl extends AbstractAction implements Condition{
       /*if ( logical.equals("And")){
 
       }*/
+        return true;
     }
 
     @Override
