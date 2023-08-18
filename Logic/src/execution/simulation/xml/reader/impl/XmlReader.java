@@ -21,6 +21,8 @@ public class XmlReader {
         entityReader.read( this.prdWorld , world );
 
         //Object that read into rule
+        RuleReader ruleReader = new RuleReader();
+        ruleReader.read(this.prdWorld , world);
 
         //Object that reads into termination
         TerminationReader terminationReader = new TerminationReader();

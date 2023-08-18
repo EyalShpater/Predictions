@@ -41,7 +41,6 @@ public class PredictionsLogicImpl implements PredictionsLogic {
         boolean isXmlValid = true;
 
         world = new WorldImpl();
-
         XmlValidator validator = new XmlValidator(path);
         validator.isValid();
          //TODO: NEED TO CATCH EXCEPTION SOMEWHERE

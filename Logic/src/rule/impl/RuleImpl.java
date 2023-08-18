@@ -24,6 +24,12 @@ public class RuleImpl implements Rule {
         this.activation = activation;
         initRelevantEntities(Arrays.asList(relevantEntity));
     }
+    public RuleImpl(String name, Activation activation, List<String> relevantEntity ) {
+        this.name = name;
+        this.actions = new ArrayList<>();
+        this.activation = activation;
+        initRelevantEntities(relevantEntity);
+    }
 
     public RuleImpl(RuleDTO dto) {
         this(dto.getName(),

@@ -4,19 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="27d35137-667f-4e37-a519-ab836acc0a06" name="Changes" comment="pretty good">
-      <change afterPath="$PROJECT_DIR$/Logic/src/execution/simulation/xml/reader/impl/EntityReader.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Logic/src/execution/simulation/xml/reader/impl/EnvReader.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Logic/src/execution/simulation/xml/reader/impl/PropertyReader.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Logic/src/execution/simulation/xml/reader/impl/TerminationReader.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Logic/src/execution/simulation/xml/reader/impl/XmlReader.java" afterDir="false" />
+    <list default="true" id="27d35137-667f-4e37-a519-ab836acc0a06" name="Changes" comment="read everything to world except rule">
+      <change afterPath="$PROJECT_DIR$/Logic/src/execution/simulation/xml/reader/impl/ActionReader.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Logic/src/execution/simulation/xml/reader/impl/RuleReader.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ConsoleUI/src/menu/impl/MenuImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/ConsoleUI/src/menu/impl/MenuImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/definition/property/impl/PropertyDefinitionImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/definition/property/impl/PropertyDefinitionImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/execution/simulation/impl/PredictionsLogicImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/execution/simulation/impl/PredictionsLogicImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/execution/simulation/xml/validation/XmlValidator.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/execution/simulation/xml/validation/XmlValidator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/execution/simulation/xml/validation/xmlMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/execution/simulation/xml/validation/xmlMain.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/resources/generated/PRDTermination.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/resources/generated/PRDTermination.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/execution/simulation/xml/reader/impl/XmlReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/execution/simulation/xml/reader/impl/XmlReader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/rule/impl/RuleImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/rule/impl/RuleImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -100,7 +93,7 @@
       <recent name="$PROJECT_DIR$/logic" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.xmlMain">
+  <component name="RunManager" selected="Application.Main.Main">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="testmain.Main" />
       <module name="ConsoleUI" />
@@ -155,8 +148,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.xmlMain" />
         <item itemvalue="Application.Main.Main" />
+        <item itemvalue="Application.xmlMain" />
         <item itemvalue="Application.Main" />
         <item itemvalue="Application.Program" />
       </list>
@@ -202,15 +195,7 @@
       <workItem from="1692000022571" duration="5167000" />
       <workItem from="1692027270981" duration="1391000" />
       <workItem from="1692256597011" duration="37171000" />
-      <workItem from="1692337503978" duration="17093000" />
-    </task>
-    <task id="LOCAL‎-00021" summary="expression implementation">
-      <option name="closed" value="true" />
-      <created>1691569155699</created>
-      <option name="number" value="00021" />
-      <option name="presentableId" value="LOCAL‎-00021" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1691569155699</updated>
+      <workItem from="1692337503978" duration="27713000" />
     </task>
     <task id="LOCAL‎-00022" summary="expression implementation">
       <option name="closed" value="true" />
@@ -580,7 +565,14 @@
       <option name="project" value="LOCAL‎" />
       <updated>1692300131304</updated>
     </task>
-    <option name="localTasksCounter" value="70" />
+    <task id="LOCAL-00070" summary="read everything to world except rule">
+      <created>1692356632414</created>
+      <option name="number" value="00070" />
+      <option name="presentableId" value="LOCAL-00070" />
+      <option name="project" value="LOCAL" />
+      <updated>1692356632414</updated>
+    </task>
+    <option name="localTasksCounter" value="71" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -599,7 +591,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="added deacreaseAction based on IncreaseAction logic&#10;added an abstract class for calcs" />
     <MESSAGE value="Updated the main to fit context change" />
     <MESSAGE value="Updated the main to check for ProperyExpression" />
     <MESSAGE value="created a factory for HelperFunctions from here on need to ask eyal" />
@@ -624,7 +615,8 @@
     <MESSAGE value="xml validator" />
     <MESSAGE value="more implementations" />
     <MESSAGE value="pretty good" />
-    <option name="LAST_COMMIT_MESSAGE" value="pretty good" />
+    <MESSAGE value="read everything to world except rule" />
+    <option name="LAST_COMMIT_MESSAGE" value="read everything to world except rule" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -634,20 +626,16 @@
           <option name="timeStamp" value="8" />
         </breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/ConsoleUI/src/menu/helper/TypesScanner.java</url>
-          <line>14</line>
-          <option name="timeStamp" value="34" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/Logic/src/execution/simulation/xml/validation/xmlMain.java</url>
-          <line>13</line>
-          <option name="timeStamp" value="46" />
+          <url>file://$PROJECT_DIR$/Logic/src/execution/simulation/impl/PredictionsLogicImpl.java</url>
+          <line>44</line>
+          <option name="timeStamp" value="51" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
     <pin-to-top-manager>
       <pinned-members>
         <PinnedItemInfo parentTag="definition.entity.impl.EntityDefinitionImpl" memberName="population" />
+        <PinnedItemInfo parentTag="resources.generated.PRDRules" memberName="prdRule" />
         <PinnedItemInfo parentTag="instance.property.impl.PropertyInstanceImpl" memberName="value" />
         <PinnedItemInfo parentTag="resources.generated.PRDAction" memberName="entity" />
         <PinnedItemInfo parentTag="definition.entity.impl.EntityDefinitionImpl" memberName="name" />
