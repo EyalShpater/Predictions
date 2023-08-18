@@ -1,5 +1,6 @@
 package action.impl.condition.impl.multiple;
 
+import action.context.api.Context;
 import action.impl.condition.Condition;
 
 public class And extends MultipleCondition{
@@ -14,8 +15,8 @@ public class And extends MultipleCondition{
     }
 
     @Override
-    protected boolean evaluate(Condition condition1, Condition condition2) {
-        return condition1.evaluate() && condition2.evaluate();
+    protected boolean evaluate(Condition condition1, Condition condition2, Context context) {
+        return condition1.evaluate(context) && condition2.evaluate(context);
     }
 }
 

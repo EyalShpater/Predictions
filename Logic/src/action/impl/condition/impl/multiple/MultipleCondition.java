@@ -14,9 +14,9 @@ public abstract class MultipleCondition implements Condition{
     }
 
     @Override
-    public boolean evaluate() {
-        return evaluate(condition1, condition2);
+    public boolean evaluate(Context context) {
+        return evaluate(condition1, condition2, context);
     }
 
-    abstract protected boolean evaluate (Condition condition1, Condition condition2);
+    abstract protected boolean evaluate (Condition condition1, Condition condition2, Context context);
 }
