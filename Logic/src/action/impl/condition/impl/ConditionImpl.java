@@ -25,20 +25,20 @@ public class ConditionImpl extends AbstractAction implements Condition {
         this.notTrue = new ArrayList<>();
     }
 
-    public void addActionToThan(Action newAction) {
-        if (newAction == null) {
+    public void addThanList(List<Action> thanList) {
+        if (thanList == null) {
             throw new IllegalArgumentException();
         }
 
-        than.add(newAction);
+        this.than = thanList;
     }
 
-    public void addActionToNotTrue(Action newAction) {
-        if (newAction == null) {
+    public void addNotTrueList(List<Action> newNotTrueList) {
+        if (newNotTrueList == null) {
             throw new IllegalArgumentException();
         }
 
-        than.add(newAction);
+        this.notTrue = newNotTrueList;
     }
 
     @Override

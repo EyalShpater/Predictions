@@ -16,10 +16,10 @@ public class TerminationReader {
         if (len == 1){
             if ( terminationList.get(0) instanceof PRDByTicks ){
                 PRDByTicks byTicks = ( PRDByTicks ) terminationList.get(0);
-                world.setTermination(new TerminationImpl(byTicks.getCount() , -1));
+                world.setTermination(new TerminationImpl(byTicks.getCount() , Long.MAX_VALUE));
             }else if (terminationList.get(0) instanceof PRDBySecond){
                 PRDBySecond bySecond = ( PRDBySecond ) terminationList.get(0);
-                world.setTermination(new TerminationImpl(-1 , bySecond.getCount()));
+                world.setTermination(new TerminationImpl(Integer.MAX_VALUE , bySecond.getCount()));
             }
         }else if( len == 2 ){
             PRDByTicks byTicks = ( PRDByTicks ) terminationList.get(0);

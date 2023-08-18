@@ -9,14 +9,21 @@ import action.impl.condition.impl.multiple.MultipleCondition;
 import action.impl.condition.impl.multiple.Or;
 import action.impl.condition.impl.single.*;
 import definition.entity.api.EntityDefinition;
+import definition.world.api.World;
 import resources.generated.PRDAction;
 import resources.generated.PRDCondition;
+import resources.generated.PRDElse;
+import resources.generated.PRDThen;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class ActionReader {
 
-    public Action read(PRDAction prdAction ,EntityDefinition entityOfAction){
+    public Action read(PRDAction prdAction ,EntityDefinition entityOfAction , World world){
+        return readAction( prdAction ,entityOfAction, world);
+    }
+    private Action readAction(PRDAction prdAction , EntityDefinition entityOfAction , World world){
 
         Action action = null;
         if ( prdAction.getType().equals("increase") ){
@@ -30,14 +37,14 @@ public class ActionReader {
         }else if ( prdAction.getType().equals("calculation") ) {
             action = readPRDActionCalculationTypeAction( prdAction , entityOfAction );
         }else if ( prdAction.getType().equals("condition") ) {
-            action = readPRDActionConditionTypeAction( prdAction , entityOfAction );
+            action = readPRDActionConditionTypeAction( prdAction , entityOfAction , world );
         }else {
             throw new IllegalArgumentException("Type of action is not valid");
         }
         return action;
     }
 
-    private Action readPRDActionConditionTypeAction(PRDAction prdAction, EntityDefinition entityOfAction) {
+    private Action readPRDActionConditionTypeAction(PRDAction prdAction, EntityDefinition entityOfAction ,  World world) {
        /*
        * <PRD-action type="condition" entity="ent-1">
                     <PRD-condition singularity="multiple" logical="or">
@@ -61,16 +68,16 @@ public class ActionReader {
        * */
         PRDCondition condition = prdAction.getPRDCondition();
         if ( condition.getSingularity().equals("single") ){
-            return readPRDActionConditionSingleTypeAction(condition ,entityOfAction);
-
+            return readPRDActionConditionSingleTypeAction(world , prdAction ,entityOfAction);
         } else if (condition.getSingularity().equals("multiple")) {
-            return readPRDActionConditionMultipleTypeAction(condition ,entityOfAction);
+            return readPRDActionConditionMultipleTypeAction(world , prdAction ,entityOfAction);
         }
         return null;
     }
 
 
-    private Action readPRDActionConditionMultipleTypeAction(PRDCondition condition, EntityDefinition entityOfAction){
+    private Action readPRDActionConditionMultipleTypeAction(World world ,PRDAction prdAction, EntityDefinition entityOfAction){
+        PRDCondition condition = prdAction.getPRDCondition();
         MultipleCondition multipleCondition = null;
         if (condition.getLogical().equals("or")){
             multipleCondition = new Or();
@@ -79,7 +86,21 @@ public class ActionReader {
             multipleCondition = new And();
             addSmallerConditionToMultipleConditions(condition , multipleCondition,entityOfAction);
         }
-        return new ConditionImpl(multipleCondition , condition.getLogical(), entityOfAction);
+
+        PRDThen thenBlock = prdAction.getPRDThen();
+        PRDElse elseBloc = prdAction.getPRDElse();
+
+        List<Action> thenList = getThenListFromPRDThen(world ,thenBlock ,entityOfAction);
+        List<Action> elseList = getElseListFromPRDElse(world ,elseBloc ,entityOfAction);
+        ConditionImpl newActionCondition = new ConditionImpl(multipleCondition , condition.getLogical() , entityOfAction);
+
+        if (thenList != null ){
+            newActionCondition.addThanList(thenList);
+        }
+        if (elseList != null){
+            newActionCondition.addNotTrueList(elseList);
+        }
+        return newActionCondition;
     }
 
 
@@ -92,7 +113,7 @@ public class ActionReader {
 
     private Condition createMultipleCondition(PRDCondition condition , EntityDefinition entityOfAction){
         if (condition.getSingularity().equals("single")){
-            return  createSingleCondition(condition);
+            return createSingleCondition(condition);
         }else{
             MultipleCondition multipleCondition = null;
             if(condition.getLogical().equals("or")){
@@ -123,24 +144,66 @@ public class ActionReader {
 
 
 
-    private Action readPRDActionConditionSingleTypeAction(PRDCondition condition, EntityDefinition entityOfAction){
+    private Action readPRDActionConditionSingleTypeAction(World world , PRDAction prdAction, EntityDefinition entityOfAction){
+        PRDCondition condition = prdAction.getPRDCondition();
         Action action = null;
         if ( condition.getOperator().equals("bt") ){
-            action = createActionFromSingleTypeAction( new BiggerThan(condition.getProperty() , condition.getValue()), entityOfAction , "bt" );
+            action = createActionFromSingleTypeAction(world , prdAction, new BiggerThan(condition.getProperty() , condition.getValue()), entityOfAction , "bt" );
         }else if ( condition.getOperator().equals("=") ){
-            action = createActionFromSingleTypeAction( new Equal(condition.getProperty() , condition.getValue()), entityOfAction , "=" );
+            action = createActionFromSingleTypeAction(world , prdAction, new Equal(condition.getProperty() , condition.getValue()), entityOfAction , "=" );
         } else if ( condition.getOperator().equals("lt") ) {
-            action = createActionFromSingleTypeAction( new LowerThan(condition.getProperty() , condition.getValue()), entityOfAction , "lt" );
+            action = createActionFromSingleTypeAction(world , prdAction, new LowerThan(condition.getProperty() , condition.getValue()), entityOfAction , "lt" );
         } else if (condition.getOperator().equals("!=")) {
-            action = createActionFromSingleTypeAction( new NotEqual(condition.getProperty() , condition.getValue()), entityOfAction , "!=" );
+            action = createActionFromSingleTypeAction(world , prdAction, new NotEqual(condition.getProperty() , condition.getValue()), entityOfAction , "!=" );
         }
         return action;
     }
 
-    private Action createActionFromSingleTypeAction(SingleCondition singleCondition, EntityDefinition entityOfAction , String logical){
+    private Action createActionFromSingleTypeAction(World world ,PRDAction prdAction , SingleCondition singleCondition, EntityDefinition entityOfAction , String logical){
+        PRDCondition condition = prdAction.getPRDCondition();
+
+        PRDThen thenBlock = prdAction.getPRDThen();
+        PRDElse elseBloc = prdAction.getPRDElse();
+
+        List<Action> thenList = getThenListFromPRDThen(world ,thenBlock ,entityOfAction);
+        List<Action> elseList = getElseListFromPRDElse(world ,elseBloc ,entityOfAction);
+
         MultipleCondition multipleRepresentingASingle = new And();
         multipleRepresentingASingle.addCondition(singleCondition);
-        return new ConditionImpl(multipleRepresentingASingle , logical , entityOfAction);
+
+        ConditionImpl newActionCondition = new ConditionImpl(multipleRepresentingASingle , logical , entityOfAction);
+
+        if (thenList != null ){
+            newActionCondition.addThanList(thenList);
+        }
+        if (elseList != null){
+            newActionCondition.addNotTrueList(elseList);
+        }
+        return newActionCondition;
+    }
+
+    private List<Action> getElseListFromPRDElse(World world , PRDElse elseBloc , EntityDefinition entityOfAction) {
+        List<Action> elseList = null;
+        if (elseBloc != null ) {
+            elseList = new ArrayList<>();
+            List<PRDAction> prdActionList = elseBloc.getPRDAction();
+            for (PRDAction action: prdActionList) {
+                elseList.add(readAction(action , world.getEntityByName(action.getEntity()),world ));
+            }
+        }
+        return elseList;
+    }
+
+    private List<Action> getThenListFromPRDThen(World world ,PRDThen thenBlock , EntityDefinition entityOfAction ) {
+        List<Action> thenList = null;
+        if (thenBlock != null ) {
+            thenList = new ArrayList<>();
+            List<PRDAction> prdActionList = thenBlock.getPRDAction();
+            for (PRDAction action: prdActionList) {
+                    thenList.add(readAction(action , world.getEntityByName(action.getEntity()),world ));
+            }
+        }
+        return thenList;
     }
 
     private Action readPRDActionCalculationTypeAction(PRDAction prdAction, EntityDefinition entityOfAction) {

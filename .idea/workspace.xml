@@ -4,18 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="27d35137-667f-4e37-a519-ab836acc0a06" name="Changes" comment="ConditionImpl">
+    <list default="true" id="27d35137-667f-4e37-a519-ab836acc0a06" name="Changes" comment="read everything to world except rule">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ConsoleUI/src/menu/helper/PrintToScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/ConsoleUI/src/menu/helper/PrintToScreen.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ConsoleUI/src/menu/helper/TypesScanner.java" beforeDir="false" afterPath="$PROJECT_DIR$/ConsoleUI/src/menu/helper/TypesScanner.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ConsoleUI/src/menu/impl/MenuImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/ConsoleUI/src/menu/impl/MenuImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/definition/property/impl/PropertyDefinitionImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/definition/property/impl/PropertyDefinitionImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/execution/simulation/impl/PredictionsLogicImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/execution/simulation/impl/PredictionsLogicImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/execution/simulation/xml/validation/xmlMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/execution/simulation/xml/validation/xmlMain.java" afterDir="false" />
-    </list>
-    <list id="9eb12e0a-64d7-4be1-90c5-9941354570ea" name="Changes by ASUS" comment="ConditionImpl">
+      <change beforePath="$PROJECT_DIR$/Logic/src/action/impl/condition/impl/ConditionImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/action/impl/condition/impl/ConditionImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/execution/simulation/termination/impl/TerminationImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/execution/simulation/termination/impl/TerminationImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Logic/src/execution/simulation/xml/reader/impl/ActionReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/execution/simulation/xml/reader/impl/ActionReader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/execution/simulation/xml/reader/impl/PropertyReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/execution/simulation/xml/reader/impl/PropertyReader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/execution/simulation/xml/reader/impl/RuleReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/execution/simulation/xml/reader/impl/RuleReader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/execution/simulation/xml/reader/impl/TerminationReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/execution/simulation/xml/reader/impl/TerminationReader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/execution/simulation/xml/validation/xmlMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/execution/simulation/xml/validation/xmlMain.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,7 +50,7 @@
     </option>
   </component>
   <component name="ProblemsViewState">
-    <option name="selectedTabId" value="CurrentFile" />
+    <option name="selectedTabId" value="ProjectErrors" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 4
@@ -99,7 +95,7 @@
       <recent name="$PROJECT_DIR$/logic" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Main.Main">
+  <component name="RunManager" selected="Application.xmlMain">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="testmain.Main" />
       <module name="ConsoleUI" />
@@ -154,8 +150,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Main.Main" />
         <item itemvalue="Application.xmlMain" />
+        <item itemvalue="Application.Main.Main" />
         <item itemvalue="Application.Main" />
         <item itemvalue="Application.Program" />
       </list>
@@ -202,6 +198,38 @@
       <workItem from="1692027270981" duration="1391000" />
       <workItem from="1692256597011" duration="37171000" />
       <workItem from="1692337503978" duration="27713000" />
+    </task>
+    <task id="LOCAL‎-00022" summary="expression implementation">
+      <option name="closed" value="true" />
+      <created>1691569162918</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL‎-00022" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1691569162918</updated>
+    </task>
+    <task id="LOCAL‎-00023" summary="environment">
+      <option name="closed" value="true" />
+      <created>1691576500163</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL‎-00023" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1691576500163</updated>
+    </task>
+    <task id="LOCAL‎-00024" summary="expression implementation">
+      <option name="closed" value="true" />
+      <created>1691576510484</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL‎-00024" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1691576510484</updated>
+    </task>
+    <task id="LOCAL‎-00025" summary="environment">
+      <option name="closed" value="true" />
+      <created>1691577228947</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL‎-00025" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1691577228947</updated>
     </task>
     <task id="LOCAL‎-00026" summary="expression implementation">
       <option name="closed" value="true" />
@@ -546,39 +574,7 @@
       <option name="project" value="LOCAL" />
       <updated>1692356632414</updated>
     </task>
-    <task id="LOCAL‎-00071" summary="condition problem fixed">
-      <option name="closed" value="true" />
-      <created>1692378671103</created>
-      <option name="number" value="00071" />
-      <option name="presentableId" value="LOCAL‎-00071" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1692378671104</updated>
-    </task>
-    <task id="LOCAL‎-00072" summary="Changes by ASUS">
-      <option name="closed" value="true" />
-      <created>1692378697222</created>
-      <option name="number" value="00072" />
-      <option name="presentableId" value="LOCAL‎-00072" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1692378697222</updated>
-    </task>
-    <task id="LOCAL‎-00073" summary="ConditionImpl">
-      <option name="closed" value="true" />
-      <created>1692382302111</created>
-      <option name="number" value="00073" />
-      <option name="presentableId" value="LOCAL‎-00073" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1692382302111</updated>
-    </task>
-    <task id="LOCAL‎-00074" summary="ConditionImpl">
-      <option name="closed" value="true" />
-      <created>1692382330480</created>
-      <option name="number" value="00074" />
-      <option name="presentableId" value="LOCAL‎-00074" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1692382330480</updated>
-    </task>
-    <option name="localTasksCounter" value="75" />
+    <option name="localTasksCounter" value="71" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -597,6 +593,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="Updated the main to fit context change" />
+    <MESSAGE value="Updated the main to check for ProperyExpression" />
     <MESSAGE value="created a factory for HelperFunctions from here on need to ask eyal" />
     <MESSAGE value="the helper function is working the implementation is wrong , need to change first thing in the morning" />
     <MESSAGE value="changed the context and expression to contain the expression and the string value of it , added getters and setters for it to work , dogma: &#10;- expression = &quot;environment(e1)&quot;&#10;- expressionStringValue = e1" />
@@ -610,6 +608,7 @@
     <MESSAGE value="added xml logic" />
     <MESSAGE value="latest" />
     <MESSAGE value="simulation run complete" />
+    <MESSAGE value="Changes by ASUS" />
     <MESSAGE value="WorldDTO complete" />
     <MESSAGE value="method 2 is some what completed" />
     <MESSAGE value="XML checks" />
@@ -619,10 +618,7 @@
     <MESSAGE value="more implementations" />
     <MESSAGE value="pretty good" />
     <MESSAGE value="read everything to world except rule" />
-    <MESSAGE value="condition problem fixed" />
-    <MESSAGE value="Changes by ASUS" />
-    <MESSAGE value="ConditionImpl" />
-    <option name="LAST_COMMIT_MESSAGE" value="ConditionImpl" />
+    <option name="LAST_COMMIT_MESSAGE" value="read everything to world except rule" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -632,20 +628,26 @@
           <option name="timeStamp" value="8" />
         </breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/ConsoleUI/src/menu/impl/MenuImpl.java</url>
+          <url>file://$PROJECT_DIR$/Logic/src/execution/simulation/impl/PredictionsLogicImpl.java</url>
           <line>44</line>
-          <option name="timeStamp" value="63" />
+          <option name="timeStamp" value="51" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/Logic/src/execution/simulation/xml/validation/xmlMain.java</url>
+          <line>13</line>
+          <option name="timeStamp" value="57" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
     <pin-to-top-manager>
       <pinned-members>
-        <PinnedItemInfo parentTag="resources.generated.PRDAction" memberName="prdDivide" />
+        <PinnedItemInfo parentTag="definition.world.impl.WorldImpl" memberName="rules" />
         <PinnedItemInfo parentTag="definition.entity.impl.EntityDefinitionImpl" memberName="population" />
         <PinnedItemInfo parentTag="resources.generated.PRDRules" memberName="prdRule" />
+        <PinnedItemInfo parentTag="instance.property.impl.PropertyInstanceImpl" memberName="value" />
         <PinnedItemInfo parentTag="resources.generated.PRDAction" memberName="entity" />
         <PinnedItemInfo parentTag="definition.entity.impl.EntityDefinitionImpl" memberName="name" />
-        <PinnedItemInfo parentTag="definition.world.impl.WorldImpl" memberName="terminate" />
+        <PinnedItemInfo parentTag="rule.impl.RuleImpl" memberName="actions" />
       </pinned-members>
     </pin-to-top-manager>
   </component>

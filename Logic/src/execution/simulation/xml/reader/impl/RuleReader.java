@@ -29,7 +29,7 @@ public class RuleReader {
         List<PRDAction> prdActionsList = prdRule.getPRDActions().getPRDAction();
         for( PRDAction prdAction : prdActionsList ){
             ActionReader actionReader = new ActionReader();
-            newRule.addAction(actionReader.read(prdAction  , world.getEntityByName(prdAction.getEntity() )));
+            newRule.addAction(actionReader.read(prdAction  , world.getEntityByName(prdAction.getEntity()) , world));
         }
 
         world.addRule(newRule);

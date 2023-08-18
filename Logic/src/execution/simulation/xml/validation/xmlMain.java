@@ -8,7 +8,7 @@ public class xmlMain {
     public static void main(String[] args) {
 
         World world = new WorldImpl();
-        XmlValidator validator = new XmlValidator("/Users/eyal/Java-Course/Predictions/Logic/src/resources/master-ex1.xml");
+        XmlValidator validator = new XmlValidator("C:\\Users\\ASUS\\IdeaProjects\\Predictions\\Logic\\src\\resources\\master-ex1.xml");
         validator.isValid();
 
         XmlReader reader = new XmlReader(validator.getWorld());
