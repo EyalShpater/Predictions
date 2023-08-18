@@ -5,7 +5,7 @@ import action.expression.api.Expression;
 import action.expression.impl.ExpressionFactory;
 
 public class LowerThan extends SingleCondition{
-    public LowerThan(Context context, String expression1, String expression2) {
+    public LowerThan(String expression1, String expression2) {
         super(expression1, expression2);
     }
 

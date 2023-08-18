@@ -5,22 +5,21 @@ import action.api.Action;
 import action.api.ActionType;
 import action.context.api.Context;
 import action.impl.condition.Condition;
+import action.impl.condition.impl.multiple.MultipleCondition;
 import definition.entity.api.EntityDefinition;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class ConditionImpl extends AbstractAction implements Condition{
-    private final Condition condition1;
-    private final Condition condition2;
+public class ConditionImpl extends AbstractAction implements Condition {
+    private final MultipleCondition condition;
     private final String logical;
     List<Action> than;
     List<Action> notTrue;
 
-    public ConditionImpl(Condition condition1, Condition condition2, String logical, EntityDefinition entity) {
+    public ConditionImpl(MultipleCondition condition, String logical, EntityDefinition entity) {
         super(entity, ActionType.CONDITION);
-        this.condition1 = condition1;
-        this.condition2 = condition2;
+        this.condition = condition;
         this.logical = logical;
         this.than = new ArrayList<>();
         this.notTrue = new ArrayList<>();
@@ -63,7 +62,6 @@ public class ConditionImpl extends AbstractAction implements Condition{
     public String getOperationSign() {
         return null;
     }
-
 
 
 }

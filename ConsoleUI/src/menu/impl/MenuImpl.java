@@ -192,17 +192,26 @@ public class MenuImpl implements Menu {
     }
 
     private PropertyDefinitionDTO initEnvironmentVariableDTOFromUserInput(PropertyDefinitionDTO variableDTO) {
-        String input;
         Object value;
         boolean isValid = false;
 
         while (!isValid) {
             System.out.println("Please enter a value");
-            input = scanner.nextLine();
 
             switch (variableDTO.getType()) {
                 case "Integer Number":
-                   // todo: complete!
+                    value = variableDTO.getFrom() == null ?
+                            typeScanner.getIntFromUser() :
+                            typeScanner.getIntFromUserInRange(variableDTO.getFrom().intValue(), variableDTO.getTo().intValue());
+                    break;
+                case "Decimal":
+                    value = variableDTO.getFrom() == null ?
+                            typeScanner.getDoubleFromUser() :
+                            typeScanner.getDoubleFromUserInRange(variableDTO.getFrom(), , variableDTO.getTo());
+                    break;
+                case "Boolean":
+
+
 
             }
         }
