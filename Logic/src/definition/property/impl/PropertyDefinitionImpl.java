@@ -37,9 +37,9 @@ public class PropertyDefinitionImpl implements PropertyDefinition {
 
     public PropertyDefinitionImpl(String name, PropertyType type, boolean isValueInitializeRandomly, Object value) {
         this(name, type, isValueInitializeRandomly);
-        if (value == null) {
-            throw new IllegalArgumentException("Value can not be null!");
-        }
+//        if (value == null) {
+//            throw new IllegalArgumentException("Value can not be null!");
+//        }
 
         this.defaultValue = value;
     }

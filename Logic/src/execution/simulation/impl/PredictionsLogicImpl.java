@@ -6,6 +6,8 @@ import action.impl.KillAction;
 import action.impl.SetAction;
 import definition.entity.api.EntityDefinition;
 import definition.entity.impl.EntityDefinitionImpl;
+import definition.environment.api.EnvironmentVariableManager;
+import definition.environment.impl.EnvironmentVariableManagerImpl;
 import definition.property.api.PropertyDefinition;
 import definition.property.api.PropertyType;
 import definition.property.api.Range;
@@ -126,5 +128,7 @@ public class PredictionsLogicImpl implements PredictionsLogic {
         world.addRule(rule1);
         world.addRule(rule2);
         world.setTermination(new TerminationImpl(3, 3));
+        world.addEnvironmentVariable(new PropertyDefinitionImpl("tax-amount", PropertyType.INT, true, new Range(10, 100)));
+        world.addEnvironmentVariable(new PropertyDefinitionImpl("eyal", PropertyType.BOOLEAN, true));
     }
 }

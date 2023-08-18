@@ -75,4 +75,12 @@ public class TypesScanner {
         return choice;
     }
 
+    public boolean getBooleanFromUser() {
+        System.out.println("Please choose: ");
+        System.out.println("1. True");
+        System.out.println("2. False");
+
+        return getIntFromUserInRange(1, 2) == 1;
+    }
+
 }

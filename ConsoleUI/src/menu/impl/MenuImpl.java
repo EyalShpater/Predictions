@@ -28,8 +28,8 @@ public class MenuImpl implements Menu {
     public void show() {
         int choice = 0;
 
-        //loadFileFromUser();
-        engine.hardCodeWorldInit();
+        loadFileFromUser();
+        //engine.hardCodeWorldInit();
         while (choice != EXIT) {
             printer.displayMenu();
             choice = typeScanner.getIntFromUserInRange(1, MenuOptions.values().length);
@@ -163,28 +163,19 @@ public class MenuImpl implements Menu {
                 .getName();
     }
 
-    //todo: separate it to sub functions.
     private List<PropertyDefinitionDTO> getEnvironmentVariablesFromUser() {
         List<PropertyDefinitionDTO> environmentVariables = engine.getEnvironmentVariablesToSet();
         int choice = -1;
 
-        if (environmentVariables != null) {
-            printer.printTitle("Set Environment Variables", '~', '-');
-            printer.printPropertyDefinitionDTOList(
-                    environmentVariables
-                            .stream()
-                            .map(variable -> (PropertyDefinitionDTO) variable)
-                            .collect(Collectors.toList())
-            );
-            System.out.println(System.lineSeparator());
-            System.out.println("Please enter the number of variable you want to set");
-            choice = typeScanner.getIntFromUserInRange(1, environmentVariables.size());
+        printer.printTitle("Set Environment Variables", '~', '-');
+        while (choice != 0) {
+            System.out.println("Please enter the number of variable you want to set, or 0 to finish the setup");
+            printer.showEnvironmentVariablesChooseMenu(environmentVariables);
+            choice = typeScanner.getIntFromUserInRange(0, environmentVariables.size());
 
-            while (choice != 0) {
-                PropertyDefinitionDTO toUpdate = (PropertyDefinitionDTO) environmentVariables.get(choice - 1);
+            if (choice != 0) {
+                PropertyDefinitionDTO toUpdate = environmentVariables.get(choice - 1);
                 environmentVariables.set(choice - 1, initEnvironmentVariableDTOFromUserInput(toUpdate));
-                System.out.println("Please enter the number of variable you want to set");
-                choice = typeScanner.getIntFromUserInRange(1, environmentVariables.size());
             }
         }
 
@@ -193,30 +184,34 @@ public class MenuImpl implements Menu {
 
     private PropertyDefinitionDTO initEnvironmentVariableDTOFromUserInput(PropertyDefinitionDTO variableDTO) {
         Object value;
-        boolean isValid = false;
 
-        while (!isValid) {
-            System.out.println("Please enter a value");
-
-            switch (variableDTO.getType()) {
-                case "Integer Number":
-                    value = variableDTO.getFrom() == null ?
-                            typeScanner.getIntFromUser() :
-                            typeScanner.getIntFromUserInRange(variableDTO.getFrom().intValue(), variableDTO.getTo().intValue());
-                    break;
-                case "Decimal":
-                    value = variableDTO.getFrom() == null ?
-                            typeScanner.getDoubleFromUser() :
-                            typeScanner.getDoubleFromUserInRange(variableDTO.getFrom(), , variableDTO.getTo());
-                    break;
-                case "Boolean":
-
-
-
-            }
+        System.out.println("Please enter a value");
+        switch (variableDTO.getType()) {
+            case "INT":
+                value = variableDTO.getFrom() == null ?
+                        typeScanner.getIntFromUser() :
+                        typeScanner.getIntFromUserInRange(variableDTO.getFrom().intValue(), variableDTO.getTo().intValue());
+                break;
+            case "DOUBLE":
+                value = variableDTO.getFrom() == null ?
+                        typeScanner.getDoubleFromUser() :
+                        typeScanner.getDoubleFromUserInRange(variableDTO.getFrom(), variableDTO.getTo());
+                break;
+            case "BOOLEAN":
+                value = typeScanner.getBooleanFromUser();
+                break;
+            default:
+                value = scanner.nextLine();
         }
 
-        return null;
+        return new PropertyDefinitionDTO(
+                variableDTO.getName(),
+                variableDTO.getType(),
+                variableDTO.getFrom(),
+                variableDTO.getTo(),
+                false,
+                value
+        );
     }
 
     private void askUserIfHeWantToUpdateTheVariable(String name) {

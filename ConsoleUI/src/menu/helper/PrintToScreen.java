@@ -9,6 +9,7 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 public class PrintToScreen {
@@ -178,4 +179,13 @@ public class PrintToScreen {
             System.out.println(entry.getKey() + " appeared " + entry.getValue() + " times");
         }
     }
+
+    public void showEnvironmentVariablesChooseMenu(List<PropertyDefinitionDTO> environmentVariables) {
+        if (environmentVariables != null) {
+            printPropertyDefinitionDTOList(environmentVariables);
+            System.out.print(System.lineSeparator());
+            System.out.println("Please enter the number of variable you want to set, or 0 to finish the setup");
+        }
+    }
+
 }

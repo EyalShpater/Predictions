@@ -12,6 +12,7 @@ public class TerminationReader {
     public void read (PRDWorld prdWorld , World world){
         List<Object> terminationList = prdWorld.getPRDTermination().getPRDByTicksOrPRDBySecond();
         int len = terminationList.size();
+    //todo      
         if (len == 1){
             if ( terminationList.get(0) instanceof PRDByTicks ){
                 PRDByTicks byTicks = ( PRDByTicks ) terminationList.get(0);
