@@ -21,7 +21,7 @@ public class TerminationReader {
                 PRDBySecond bySecond = ( PRDBySecond ) terminationList.get(0);
                 world.setTermination(new TerminationImpl(-1 , bySecond.getCount()));
             }
-        }else if( len ==2 ){
+        }else if( len == 2 ){
             PRDByTicks byTicks = ( PRDByTicks ) terminationList.get(0);
             PRDBySecond bySecond = ( PRDBySecond ) terminationList.get(1);
             world.setTermination(new TerminationImpl(byTicks.getCount() , bySecond.getCount()));

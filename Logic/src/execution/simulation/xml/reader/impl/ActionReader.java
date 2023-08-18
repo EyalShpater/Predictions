@@ -2,9 +2,17 @@ package execution.simulation.xml.reader.impl;
 
 import action.api.Action;
 import action.impl.*;
+import action.impl.condition.Condition;
+import action.impl.condition.impl.ConditionImpl;
+import action.impl.condition.impl.multiple.And;
+import action.impl.condition.impl.multiple.MultipleCondition;
+import action.impl.condition.impl.multiple.Or;
+import action.impl.condition.impl.single.*;
 import definition.entity.api.EntityDefinition;
 import resources.generated.PRDAction;
 import resources.generated.PRDCondition;
+
+import java.util.List;
 
 public class ActionReader {
 
@@ -53,9 +61,86 @@ public class ActionReader {
        * */
         PRDCondition condition = prdAction.getPRDCondition();
         if ( condition.getSingularity().equals("single") ){
+            return readPRDActionConditionSingleTypeAction(condition ,entityOfAction);
 
+        } else if (condition.getSingularity().equals("multiple")) {
+            return readPRDActionConditionMultipleTypeAction(condition ,entityOfAction);
         }
         return null;
+    }
+
+
+    private Action readPRDActionConditionMultipleTypeAction(PRDCondition condition, EntityDefinition entityOfAction){
+        MultipleCondition multipleCondition = null;
+        if (condition.getLogical().equals("or")){
+            multipleCondition = new Or();
+            addSmallerConditionToMultipleConditions(condition ,multipleCondition,entityOfAction);
+        } else if (condition.getLogical().equals("and")) {
+            multipleCondition = new And();
+            addSmallerConditionToMultipleConditions(condition , multipleCondition,entityOfAction);
+        }
+        return new ConditionImpl(multipleCondition , condition.getLogical(), entityOfAction);
+    }
+
+
+    private void addSmallerConditionToMultipleConditions(PRDCondition condition , MultipleCondition multipleCondition , EntityDefinition entityOfAction){
+        List<PRDCondition> conditionList = condition.getPRDCondition();
+        for ( PRDCondition smallerCondition : conditionList){
+            multipleCondition.addCondition(createMultipleCondition(smallerCondition ,entityOfAction ));
+        }
+    }
+
+    private Condition createMultipleCondition(PRDCondition condition , EntityDefinition entityOfAction){
+        if (condition.getSingularity().equals("single")){
+            return  createSingleCondition(condition);
+        }else{
+            MultipleCondition multipleCondition = null;
+            if(condition.getLogical().equals("or")){
+                 multipleCondition = new Or();
+            }else if (condition.getLogical().equals("and")) {
+                multipleCondition = new And();
+            }
+            List<PRDCondition> conditionList = condition.getPRDCondition();
+            for ( PRDCondition smallerCondition : conditionList ){
+                multipleCondition.addCondition(createMultipleCondition(smallerCondition , entityOfAction));
+            }
+            return multipleCondition;
+        }
+    }
+
+    private SingleCondition createSingleCondition(PRDCondition condition){
+        if ( condition.getOperator().equals("bt") ){
+            return new BiggerThan(condition.getProperty() , condition.getValue());
+        }else if ( condition.getOperator().equals("=") ){
+            return new Equal(condition.getProperty() , condition.getValue());
+        } else if ( condition.getOperator().equals("lt") ) {
+            return new LowerThan(condition.getProperty() , condition.getValue());
+        } else if (condition.getOperator().equals("!=")) {
+            return new NotEqual(condition.getProperty() , condition.getValue());
+        }
+        return null;
+    }
+
+
+
+    private Action readPRDActionConditionSingleTypeAction(PRDCondition condition, EntityDefinition entityOfAction){
+        Action action = null;
+        if ( condition.getOperator().equals("bt") ){
+            action = createActionFromSingleTypeAction( new BiggerThan(condition.getProperty() , condition.getValue()), entityOfAction , "bt" );
+        }else if ( condition.getOperator().equals("=") ){
+            action = createActionFromSingleTypeAction( new Equal(condition.getProperty() , condition.getValue()), entityOfAction , "=" );
+        } else if ( condition.getOperator().equals("lt") ) {
+            action = createActionFromSingleTypeAction( new LowerThan(condition.getProperty() , condition.getValue()), entityOfAction , "lt" );
+        } else if (condition.getOperator().equals("!=")) {
+            action = createActionFromSingleTypeAction( new NotEqual(condition.getProperty() , condition.getValue()), entityOfAction , "!=" );
+        }
+        return action;
+    }
+
+    private Action createActionFromSingleTypeAction(SingleCondition singleCondition, EntityDefinition entityOfAction , String logical){
+        MultipleCondition multipleRepresentingASingle = new And();
+        multipleRepresentingASingle.addCondition(singleCondition);
+        return new ConditionImpl(multipleRepresentingASingle , logical , entityOfAction);
     }
 
     private Action readPRDActionCalculationTypeAction(PRDAction prdAction, EntityDefinition entityOfAction) {
