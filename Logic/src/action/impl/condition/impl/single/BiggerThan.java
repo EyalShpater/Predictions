@@ -5,7 +5,7 @@ import action.expression.api.Expression;
 import action.expression.impl.ExpressionFactory;
 
 public class BiggerThan extends SingleCondition{
-    public BiggerThan(Context context, String expression1, String expression2) {
+    public BiggerThan( String expression1, String expression2) {
         super(expression1, expression2);
     }
 

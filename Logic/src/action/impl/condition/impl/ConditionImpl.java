@@ -52,16 +52,12 @@ public class ConditionImpl extends AbstractAction implements Condition {
 
     @Override
     public boolean evaluate(Context context) {
-      /*if ( logical.equals("And")){
-
-      }*/
-        return true;
+        return condition.evaluate(context);
     }
 
     @Override
     public String getOperationSign() {
         return null;
     }
-
 
 }

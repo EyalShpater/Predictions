@@ -6,9 +6,6 @@ import action.impl.condition.Condition;
 import java.util.List;
 
 public class Or extends MultipleCondition{
-    public Or(Condition condition1, Condition condition2) {
-        super(condition1, condition2);
-    }
 
     @Override
     public String getOperationSign() {
