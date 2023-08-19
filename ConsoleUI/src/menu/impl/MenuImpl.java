@@ -104,6 +104,7 @@ public class MenuImpl implements Menu {
 
         runDetails = engine.runNewSimulation(updatedEnvironmentVariables);
         printer.printRunDetailsDTO(runDetails);
+        System.out.println();
     }
 
     private void showPreviousSimulation() {
@@ -112,12 +113,16 @@ public class MenuImpl implements Menu {
         if (allSimulations != null && !allSimulations.isEmpty()) {
             int simulationIndex, viewOption;
 
-            printer.printTitle("Get Previous Simulations Data", '~', '-');
-            System.out.println("Please choose a simulation");
+            printer.printTitle("Get Previous Simulations Data", '~', '-', 0);
+            System.out.println();
+
             printer.showAllSimulationsDTO(allSimulations);
+            System.out.println("Please choose a simulation");
             simulationIndex = typeScanner.getIntFromUserInRange(1, allSimulations.size()) - 1;
+
             printer.printSimulationDetailViewOptions();
             viewOption = typeScanner.getIntFromUserInRange(1, 2);
+
             showPreviousSimulationDetails(allSimulations.get(simulationIndex).getSerialNumber(), viewOption);
         } else {
             System.out.println("No simulations to view");
@@ -150,20 +155,22 @@ public class MenuImpl implements Menu {
     }
 
     private String getEntityNameFromUser() {
-        int entityIndex, count = 1;
+        int entityIndex = 1, count = 1;
         List<String> entitiesNames = engine
                         .getLoadedSimulationDetails()
                         .getEntities()
                         .stream().map(EntityDefinitionDTO::getName)
                         .collect(Collectors.toList());
+        if (entitiesNames.size() != 1) {
+            for (String name : entitiesNames) {
+                System.out.println(count + ". " + name);
+                count++;
+            }
 
-        for (String name : entitiesNames) {
-            System.out.println(count + ". " + name);
-            count++;
+
+            System.out.println("Please choose an entity:");
+            entityIndex = typeScanner.getIntFromUserInRange(1, entitiesNames.size());
         }
-
-        System.out.println("Please choose an entity:");
-        entityIndex = typeScanner.getIntFromUserInRange(1, entitiesNames.size());
 
         return engine
                 .getLoadedSimulationDetails()
@@ -177,7 +184,7 @@ public class MenuImpl implements Menu {
         int propertyIndex;
 
         properties = engine.getEntityPropertiesByEntityName(entityName);
-        printer.printPropertyDefinitionDTOList(properties);
+        printer.printPropertyDefinitionDTOList(properties, 0);
         System.out.println("Please choose property");
         propertyIndex = typeScanner.getIntFromUserInRange(1, properties.size()) - 1;
 
@@ -191,9 +198,13 @@ public class MenuImpl implements Menu {
         List<PropertyDefinitionDTO> environmentVariables = engine.getEnvironmentVariablesToSet();
         int choice = -1;
 
-        printer.printTitle("Set Environment Variables", '~', '-');
+        printer.printTitle("Set Environment Variables", '~', '-', 0);
+        System.out.println();
+
         while (choice != 0) {
             System.out.println("Please enter the number of variable you want to set, or 0 to finish the setup");
+            System.out.println();
+
             printer.showEnvironmentVariablesChooseMenu(environmentVariables);
             choice = typeScanner.getIntFromUserInRange(0, environmentVariables.size());
 
