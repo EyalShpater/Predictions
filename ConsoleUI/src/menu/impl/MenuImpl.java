@@ -88,7 +88,7 @@ public class MenuImpl implements Menu {
     private void loadFileFromUser() {
         String filePath;
 
-        filePath = scanner.nextLine();
+        filePath = scanner.nextLine().trim();
         engine.loadXML(filePath);
     }
 
