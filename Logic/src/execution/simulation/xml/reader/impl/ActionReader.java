@@ -45,27 +45,6 @@ public class ActionReader {
     }
 
     private Action readPRDActionConditionTypeAction(PRDAction prdAction, EntityDefinition entityOfAction ,  World world) {
-       /*
-       * <PRD-action type="condition" entity="ent-1">
-                    <PRD-condition singularity="multiple" logical="or">
-                        <PRD-condition singularity="single" entity="ent-1" property="p1" operator="bt" value="4"/>
-                        <PRD-condition singularity="single" entity="ent-1" property="p2" operator="lt" value="3"/>
-                        <PRD-condition singularity="multiple" logical="and">
-                            <PRD-condition singularity="single" entity="ent-1" property="p4" operator="!="
-                                           value="nothing"/>
-                            <PRD-condition singularity="single" entity="ent-1" property="p3" operator="="
-                                           value="environment(e2)"/>
-                        </PRD-condition>
-                    </PRD-condition>
-                    <PRD-then>
-                        <PRD-action type="increase" entity="ent-1" property="p1" by="3"/>
-                        <PRD-action type="set" entity="ent-1" property="p1" value="random(3)"/>
-                    </PRD-then>
-                    <PRD-else>
-                        <PRD-action type="kill" entity="ent-1"/>
-                    </PRD-else>
-                </PRD-action>
-       * */
         PRDCondition condition = prdAction.getPRDCondition();
         if ( condition.getSingularity().equals("single") ){
             return readPRDActionConditionSingleTypeAction(world , prdAction ,entityOfAction);

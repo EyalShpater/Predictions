@@ -23,11 +23,7 @@ public class TerminationImpl implements Termination {
     @Override
     public boolean isTerminate(int currentTick, long startTimeInMillis) {
         long secondsSinceStart = TimeUnit.MILLISECONDS.toSeconds(System.currentTimeMillis() - startTimeInMillis);
-        if (ticksToTerminate == Integer.MAX_VALUE){
-            return secondsSinceStart >= secondsToTerminate;
-        } else if (secondsToTerminate == Long.MAX_VALUE) {
-            return currentTick >= ticksToTerminate;
-        }
+
         return currentTick >= ticksToTerminate || secondsSinceStart >= secondsToTerminate;
     }
 
