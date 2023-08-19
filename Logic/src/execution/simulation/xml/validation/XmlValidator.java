@@ -170,32 +170,45 @@ public class XmlValidator {
     }
 
     private void checkIfActionIsOfTypeConditionAndSendToCheckEntityExistence(List<PRDEntity>entityList , PRDAction action){
-        if(action.getType().equals("condition")){
-            checkIfEntityNameExistInEntityList( entityList , action );
-            checkIfEntityNameExistInConditionAction( entityList ,  action );
-            checkIfEntityNameExistForThenAction( entityList , action );
-            checkIfEntityNameExistForElseAction( entityList , action );
+        try{
+            if(action.getType().equals("condition")){
+                checkIfEntityNameExistInEntityList( entityList , action );
+                checkIfEntityNameExistInConditionAction( entityList ,  action );
+                checkIfEntityNameExistForThenAction( entityList , action );
+                checkIfEntityNameExistForElseAction( entityList , action );
 
-        }else{
-            checkIfEntityNameExistInEntityList( entityList , action );
+            }else{
+                checkIfEntityNameExistInEntityList( entityList , action );
+            }
+        }catch (IllegalArgumentException e){
+            throw new IllegalArgumentException(" action of type: "+action.getType() + e.getMessage());
         }
     }
 
     private void checkIfEntityNameExistForThenAction(List<PRDEntity>entityList , PRDAction action){
-        PRDThen thenBlock = action.getPRDThen();
-        List<PRDAction> actionListForThenBlock = thenBlock.getPRDAction();
-        for (PRDAction singleAction :actionListForThenBlock ){
-            checkIfActionIsOfTypeConditionAndSendToCheckEntityExistence( entityList ,singleAction );
+        try{
+            PRDThen thenBlock = action.getPRDThen();
+            List<PRDAction> actionListForThenBlock = thenBlock.getPRDAction();
+            for (PRDAction singleAction :actionListForThenBlock ){
+                checkIfActionIsOfTypeConditionAndSendToCheckEntityExistence( entityList ,singleAction );
+            }
+        }catch (IllegalArgumentException e){
+            throw new IllegalArgumentException(" then block"+ e.getMessage());
         }
+
     }
 
     private void checkIfEntityNameExistForElseAction(List<PRDEntity>entityList , PRDAction action){
-        PRDElse elseBlock = action.getPRDElse();
-        if ( elseBlock != null ){
-            List<PRDAction> actionListForElseBlock = elseBlock.getPRDAction();
-            for (PRDAction singleAction :actionListForElseBlock ){
-                checkIfActionIsOfTypeConditionAndSendToCheckEntityExistence( entityList ,singleAction );
+        try {
+            PRDElse elseBlock = action.getPRDElse();
+            if ( elseBlock != null ) {
+                List<PRDAction> actionListForElseBlock = elseBlock.getPRDAction();
+                for (PRDAction singleAction : actionListForElseBlock) {
+                    checkIfActionIsOfTypeConditionAndSendToCheckEntityExistence(entityList, singleAction);
+                }
             }
+        }catch (IllegalArgumentException e){
+            throw new IllegalArgumentException(" else block"+ e.getMessage());
         }
     }
 
@@ -203,11 +216,16 @@ public class XmlValidator {
 
     private void checkIfEntityNameExistInConditionAction(List<PRDEntity>entityList , PRDAction action ){
         PRDCondition condition = action.getPRDCondition();
-        if (condition.getSingularity().equals("single")){
-            checkIfSimpleConditionEntityNameExist( entityList , action ,condition );
-        } else if (condition.getSingularity().equals("multiple")) {
-            checkIfEntityNameExistForMultipleTypeAction(entityList , action , action.getPRDCondition());
+        try{
+            if (condition.getSingularity().equals("single")){
+                checkIfSimpleConditionEntityNameExist( entityList , action ,condition );
+            } else if (condition.getSingularity().equals("multiple")) {
+                checkIfEntityNameExistForMultipleTypeAction(entityList , action , action.getPRDCondition());
+            }
+        }catch (IllegalArgumentException e){
+            throw new IllegalArgumentException(" "+condition.getSingularity() + e.getMessage());
         }
+
     }
     private void checkIfEntityNameExistForMultipleTypeAction(List<PRDEntity>entityList , PRDAction action , PRDCondition condition ){
 
@@ -230,7 +248,8 @@ public class XmlValidator {
             }
         }
         if(!isEntityNameInActionExistInEntityList){
-            throw new IllegalArgumentException(" the entity name "+ condition.getEntity() +" does not appear in the system ");
+            throw new IllegalArgumentException(" single condition with property: " +condition.getProperty() + " and value: " + condition.getValue()+
+                    " the entity name "+ condition.getEntity() +" does not appear in the system ");
         }
     }
 
@@ -272,45 +291,64 @@ public class XmlValidator {
     }
 
     private void checkIfActionIsOfTypeConditionAndSendToCheckPropertyExistence( List<PRDEntity> entityList , PRDAction action ){
-        if(action.getType().equals("condition")){
-            checkIfPropertyInActionExistForEntityCondition( entityList ,  action );
-            checkIfPropertyInActionExistForThenAction( entityList ,  action );
-            checkIfPropertyInActionExistForElseAction( entityList ,  action );
-        }else{
-            checkIfPropertyInActionExistForEntityNonCondition( entityList , action );
+        try{
+            if(action.getType().equals("condition")){
+                checkIfPropertyInActionExistForEntityCondition( entityList ,  action );
+                checkIfPropertyInActionExistForThenAction( entityList ,  action );
+                checkIfPropertyInActionExistForElseAction( entityList ,  action );
+            }else{
+                checkIfPropertyInActionExistForEntityNonCondition( entityList , action );
+            }
+        }catch (IllegalArgumentException e){
+            throw new IllegalArgumentException(" action of type: "+action.getType() + e.getMessage());
         }
+
     }
 
 
 
     private void checkIfPropertyInActionExistForThenAction(List<PRDEntity> entityList, PRDAction action) {
-        PRDThen thenBlock = action.getPRDThen();
-        List<PRDAction> actionListForThenBlock = thenBlock.getPRDAction();
-        for (PRDAction singleAction :actionListForThenBlock ){
-            checkIfActionIsOfTypeConditionAndSendToCheckPropertyExistence( entityList ,singleAction );
+        try{
+            PRDThen thenBlock = action.getPRDThen();
+            List<PRDAction> actionListForThenBlock = thenBlock.getPRDAction();
+            for (PRDAction singleAction :actionListForThenBlock ){
+                checkIfActionIsOfTypeConditionAndSendToCheckPropertyExistence( entityList ,singleAction );
+            }
+        }catch (IllegalArgumentException e ){
+            throw new IllegalArgumentException(" then block"+ e.getMessage());
         }
     }
 
     private void checkIfPropertyInActionExistForElseAction(List<PRDEntity> entityList, PRDAction action) {
-        PRDElse elseBlock = action.getPRDElse();
-        if ( elseBlock != null ){
-            List<PRDAction> actionListForElseBlock = elseBlock.getPRDAction();
-            for (PRDAction singleAction :actionListForElseBlock ){
-                checkIfActionIsOfTypeConditionAndSendToCheckPropertyExistence( entityList ,singleAction );
+        try{
+            PRDElse elseBlock = action.getPRDElse();
+            if ( elseBlock != null ){
+                List<PRDAction> actionListForElseBlock = elseBlock.getPRDAction();
+                for (PRDAction singleAction :actionListForElseBlock ){
+                    checkIfActionIsOfTypeConditionAndSendToCheckPropertyExistence( entityList ,singleAction );
+                }
             }
+        }catch (IllegalArgumentException e ){
+            throw new IllegalArgumentException(" else block"+ e.getMessage());
         }
+
     }
 
     private void checkIfPropertyInActionExistForEntityCondition(List<PRDEntity> entityList, PRDAction action) {
         PRDCondition condition = action.getPRDCondition();
-        if (condition.getSingularity().equals("single")){
-            checkIfSimpleConditionPropertyNameExistInEntityPropertyList(entityList , condition);
-        } else if (condition.getSingularity().equals("multiple")) {
-            checkIfMultipleConditionPropertyNameExistInEntityPropertyList(entityList , condition);
+        try{
+            if (condition.getSingularity().equals("single")){
+                checkIfSimpleConditionPropertyNameExistInEntityPropertyList(entityList , condition);
+            } else if (condition.getSingularity().equals("multiple")) {
+                checkIfMultipleConditionPropertyNameExistInEntityPropertyList(entityList , condition);
+            }
+        }catch (IllegalArgumentException e){
+            throw new IllegalArgumentException(" "+condition.getSingularity() + e.getMessage());
         }
     }
 
     private void checkIfMultipleConditionPropertyNameExistInEntityPropertyList(List<PRDEntity> entityList, PRDCondition condition) {
+
         if(condition.getSingularity().equals("single")){
             checkIfSimpleConditionPropertyNameExistInEntityPropertyList( entityList ,condition );
         }
@@ -323,10 +361,15 @@ public class XmlValidator {
     }
 
     private void checkIfSimpleConditionPropertyNameExistInEntityPropertyList(List<PRDEntity> entityList, PRDCondition condition) {
-        PRDEntity entity = findEntityFromActionInEntityList( entityList , condition.getEntity() );
-        if ( entity != null ){
-            findPropertyFromActionInPropertyListOfEntityNonCalcVersion( entity , condition.getProperty());
+        try{
+            PRDEntity entity = findEntityFromActionInEntityList( entityList , condition.getEntity() );
+            if ( entity != null ){
+                findPropertyFromActionInPropertyListOfEntityNonCalcVersion( entity , condition.getProperty());
+            }
+        }catch (IllegalArgumentException e ){
+            throw new IllegalArgumentException(" in single condition with entity name: " +condition.getEntity()+ " and value: " + condition.getValue() + e.getMessage());
         }
+
     }
 
     private void checkIfPropertyInActionExistForEntityNonCondition(List<PRDEntity> entityList , PRDAction action){
@@ -415,9 +458,19 @@ public class XmlValidator {
     private void checkIfArgsInActionAreNumericConditionVersion(List<PRDEnvProperty> envPropertiesList, PRDAction action, List<PRDEntity> entityList) {
         PRDThen thenBlock = action.getPRDThen();
         PRDElse elseBloc = action.getPRDElse();
-        iterateActionListOfThenAndElseBlocksToFindIfAllArgsNumeric(envPropertiesList , thenBlock.getPRDAction() , entityList);
+        try {
+            iterateActionListOfThenAndElseBlocksToFindIfAllArgsNumeric(envPropertiesList , thenBlock.getPRDAction() , entityList);
+        }
+        catch (IllegalArgumentException e){
+            throw new IllegalArgumentException(" then block"+ e.getMessage() );
+        }
         if ( elseBloc != null ){
-            iterateActionListOfThenAndElseBlocksToFindIfAllArgsNumeric(envPropertiesList , elseBloc.getPRDAction() , entityList);
+            try {
+                iterateActionListOfThenAndElseBlocksToFindIfAllArgsNumeric(envPropertiesList , elseBloc.getPRDAction() , entityList);
+            }
+            catch (IllegalArgumentException e){
+                throw new IllegalArgumentException(" else block"+ e.getMessage() );
+            }
         }
     }
 
@@ -434,6 +487,8 @@ public class XmlValidator {
             checkIfArgsInActionAreNumericCalculationStructure( envPropertiesList , action , entityList  );
         }
     }
+
+
 
     private void checkIfArgsInActionAreNumericCalculationStructure(List<PRDEnvProperty> envPropertiesList, PRDAction action , List<PRDEntity> entityList) {
         PRDMultiply multiply = action.getPRDMultiply();

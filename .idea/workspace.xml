@@ -4,11 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="27d35137-667f-4e37-a519-ab836acc0a06" name="Changes" comment="&#10;fixed termination with infinity">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_8_11_2023_11_42_AM__Changes_.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_8_11_2023_12_27_PM__Changes_.xml" beforeDir="false" />
+    <list default="true" id="27d35137-667f-4e37-a519-ab836acc0a06" name="Changes" comment="Simulation working">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/action/impl/condition/impl/ConditionImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/action/impl/condition/impl/ConditionImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/execution/simulation/xml/validation/XmlValidator.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/execution/simulation/xml/validation/XmlValidator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/execution/simulation/xml/validation/xmlMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/execution/simulation/xml/validation/xmlMain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/resources/master-ex1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/resources/master-ex1.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -92,7 +92,7 @@
       <recent name="$PROJECT_DIR$/logic" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Main.Main">
+  <component name="RunManager" selected="Application.xmlMain">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="testmain.Main" />
       <module name="ConsoleUI" />
@@ -147,8 +147,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Main.Main" />
         <item itemvalue="Application.xmlMain" />
+        <item itemvalue="Application.Main.Main" />
         <item itemvalue="Application.Main" />
         <item itemvalue="Application.Program" />
       </list>
@@ -195,15 +195,7 @@
       <workItem from="1692027270981" duration="1391000" />
       <workItem from="1692256597011" duration="37171000" />
       <workItem from="1692337503978" duration="27713000" />
-      <workItem from="1692426099560" duration="3893000" />
-    </task>
-    <task id="LOCAL‎-00024" summary="expression implementation">
-      <option name="closed" value="true" />
-      <created>1691576510484</created>
-      <option name="number" value="00024" />
-      <option name="presentableId" value="LOCAL‎-00024" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1691576510484</updated>
+      <workItem from="1692426099560" duration="12046000" />
     </task>
     <task id="LOCAL‎-00025" summary="environment">
       <option name="closed" value="true" />
@@ -570,7 +562,14 @@
       <option name="project" value="LOCAL" />
       <updated>1692426207860</updated>
     </task>
-    <option name="localTasksCounter" value="73" />
+    <task id="LOCAL-00073" summary="Simulation working">
+      <created>1692431437999</created>
+      <option name="number" value="00073" />
+      <option name="presentableId" value="LOCAL-00073" />
+      <option name="project" value="LOCAL" />
+      <updated>1692431437999</updated>
+    </task>
+    <option name="localTasksCounter" value="74" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -589,7 +588,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="created a factory for HelperFunctions from here on need to ask eyal" />
     <MESSAGE value="the helper function is working the implementation is wrong , need to change first thing in the morning" />
     <MESSAGE value="changed the context and expression to contain the expression and the string value of it , added getters and setters for it to work , dogma: &#10;- expression = &quot;environment(e1)&quot;&#10;- expressionStringValue = e1" />
     <MESSAGE value="SimulationImpl structure" />
@@ -614,7 +612,8 @@
     <MESSAGE value="read everything to world except rule" />
     <MESSAGE value="fixed then and else &#10;fixed termination with infinity" />
     <MESSAGE value="&#10;fixed termination with infinity" />
-    <option name="LAST_COMMIT_MESSAGE" value="&#10;fixed termination with infinity" />
+    <MESSAGE value="Simulation working" />
+    <option name="LAST_COMMIT_MESSAGE" value="Simulation working" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -623,10 +622,23 @@
           <properties class="java.lang.IllegalArgumentException" package="java.lang" />
           <option name="timeStamp" value="8" />
         </breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/Logic/src/execution/simulation/xml/validation/xmlMain.java</url>
-          <line>13</line>
-          <option name="timeStamp" value="57" />
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/Logic/src/execution/simulation/xml/validation/XmlValidator.java</url>
+          <line>420</line>
+          <properties class="execution.simulation.xml.validation.XmlValidator" method="checkNumericCalculationActionToIncludeNumericArgs">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="71" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/Logic/src/execution/simulation/xml/validation/XmlValidator.java</url>
+          <line>447</line>
+          <properties class="execution.simulation.xml.validation.XmlValidator" method="checkIfActionIsOfTypeConditionAndSendToCheckIfActionToIncludeNumericArgs">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="73" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
