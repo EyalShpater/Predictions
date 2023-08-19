@@ -44,9 +44,9 @@ public class ConditionImpl extends AbstractAction implements Condition {
     @Override
     public void invoke(Context context) {
         if (evaluate(context)) {
-            than.forEach(action -> invoke(context));
+            than.forEach(action -> action.invoke(context));
         } else if (notTrue != null){
-            notTrue.forEach(action -> invoke(context));
+            notTrue.forEach(action -> action.invoke(context));
         }
     }
 

@@ -48,7 +48,6 @@ public class PredictionsLogicImpl implements PredictionsLogic {
          //TODO: NEED TO CATCH EXCEPTION SOMEWHERE
         XmlReader reader = new XmlReader(validator.getWorld());
         reader.readXml(world);
-        //TODO: read data from file and put it in world.
         return true;
     }
 

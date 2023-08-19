@@ -7,22 +7,6 @@ public class HelperFunctionFactory {
     private final static String IGNORE_SIGNS = "\\(";
     private final static int MINIMUM_NUM_OF_ELEMENTS_IN_FUNCTION_DECLARATION = 2;
 
-//    public HelperFunctionValueGenerator convert(Context context) {
-//        //TODO: First thing in the morning to change the setExpression
-//        String theStringValue = context.getExpression().getExpressionString();
-//        if (theStringValue.startsWith("environment")) {
-//            String extractedValue = theStringValue.substring(12, theStringValue.length() - 1);
-//            context.setExpressionStringValue(extractedValue);
-//            return new Environment(HelperFunctionType.ENVIRONMENT);
-//        } else if (theStringValue.startsWith("random")) {
-//            String extractedValue = theStringValue.substring(7, theStringValue.length() - 1);
-//            context.setExpressionStringValue(extractedValue);
-//            return new Random(HelperFunctionType.RANDOM);
-//        } else {
-//            throw new IllegalArgumentException("Unsported function");
-//        }
-//    }
-
     public HelperFunction convert(Context context, String expression) {
         String[] parts = expression.split(IGNORE_SIGNS);
 
