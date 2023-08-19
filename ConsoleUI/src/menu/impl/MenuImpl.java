@@ -70,14 +70,16 @@ public class MenuImpl implements Menu {
 
         printer.printLoadFileMenu();
         while (!isLegalPath) {
-            filePath = scanner.nextLine();
-            isLegalPath = engine.loadXML(filePath);
-            //TODO: need to catch exceprion here
-            if (!isLegalPath) {
-                System.out.println("Cannot create a simulation using this file path.");
-                System.out.println("Please try again.");
+            try {
+                filePath = scanner.nextLine();
+                engine.loadXML(filePath);
+                isLegalPath = true;
+            } catch (Exception e) {
+                System.out.println(e.getMessage());
             }
         }
+
+        System.out.println("File loaded successfully!");
     }
 
     private void showSimulationDetails() {

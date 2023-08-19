@@ -37,18 +37,14 @@ public class PredictionsLogicImpl implements PredictionsLogic {
         this.allSimulations = new SimulationManager();
     }
 
-    // TODO: impl
     @Override
-    public boolean loadXML(String path) {
-        boolean isXmlValid = true;
-
+    public void loadXML(String path) {
         world = new WorldImpl();
+
         XmlValidator validator = new XmlValidator(path);
         validator.isValid();
-         //TODO: NEED TO CATCH EXCEPTION SOMEWHERE
         XmlReader reader = new XmlReader(validator.getWorld());
         reader.readXml(world);
-        return true;
     }
 
     @Override

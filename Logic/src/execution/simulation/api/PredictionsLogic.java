@@ -8,7 +8,7 @@ import impl.WorldDTO;
 import java.util.*;
 
 public interface PredictionsLogic {
-    boolean loadXML(String path);
+    void loadXML(String path);
 
     List<PropertyDefinitionDTO> getEnvironmentVariablesToSet();
 
