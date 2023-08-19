@@ -7,9 +7,10 @@ import definition.property.api.PropertyType;
 import definition.property.api.Range;
 import impl.PropertyDefinitionDTO;
 
+import java.io.Serializable;
 import java.util.stream.Collectors;
 
-public class PropertyDefinitionImpl implements PropertyDefinition {
+public class PropertyDefinitionImpl implements PropertyDefinition , Serializable {
     private String name;
     private final PropertyType type;
     private Range range = null;

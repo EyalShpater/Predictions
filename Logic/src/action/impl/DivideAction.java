@@ -10,7 +10,9 @@ import definition.property.api.Range;
 import instance.entity.api.EntityInstance;
 import instance.property.api.PropertyInstance;
 
-public class DivideAction extends AbstractAction {
+import java.io.Serializable;
+
+public class DivideAction extends AbstractAction implements Serializable {
     private final String propertyName;
     private final String Expression1;
     private final String Expression2;

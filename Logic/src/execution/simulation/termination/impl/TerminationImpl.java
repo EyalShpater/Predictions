@@ -5,10 +5,11 @@ import execution.simulation.termination.api.TerminateCondition;
 import execution.simulation.termination.api.Termination;
 import impl.TerminationDTO;
 
+import java.io.Serializable;
 import java.util.*;
 import java.util.concurrent.TimeUnit;
 
-public class TerminationImpl implements Termination {
+public class TerminationImpl implements Termination , Serializable {
     private final int ticksToTerminate;
     private final int secondsToTerminate;
     private boolean isTerminateByTicks = false;

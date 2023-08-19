@@ -3,7 +3,9 @@ package action.helper.function.impl;
 import action.context.api.Context;
 import action.helper.function.api.HelperFunction;
 
-public class HelperFunctionFactory {
+import java.io.Serializable;
+
+public class HelperFunctionFactory implements Serializable {
     private final static String IGNORE_SIGNS = "\\(";
     private final static int MINIMUM_NUM_OF_ELEMENTS_IN_FUNCTION_DECLARATION = 2;
 

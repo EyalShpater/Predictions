@@ -8,10 +8,11 @@ import definition.property.impl.PropertyDefinitionImpl;
 import impl.EntityDefinitionDTO;
 import impl.PropertyDefinitionDTO;
 
+import java.io.Serializable;
 import java.util.*;
 import java.util.stream.Collectors;
 
-public class EntityDefinitionImpl implements EntityDefinition {
+public class EntityDefinitionImpl implements EntityDefinition , Serializable {
     private String name;
     private int population;
     private List<PropertyDefinition> properties = new ArrayList<>();

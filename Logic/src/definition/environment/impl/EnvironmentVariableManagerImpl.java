@@ -9,9 +9,10 @@ import instance.enviornment.api.ActiveEnvironment;
 import instance.enviornment.impl.ActiveEnvironmentImpl;
 import instance.property.impl.PropertyInstanceImpl;
 
+import java.io.Serializable;
 import java.util.*;
 
-public class EnvironmentVariableManagerImpl implements EnvironmentVariableManager {
+public class EnvironmentVariableManagerImpl implements EnvironmentVariableManager , Serializable {
     private Map<String, PropertyDefinition> propNameToPropDefinition = new HashMap<>();
 
     @Override

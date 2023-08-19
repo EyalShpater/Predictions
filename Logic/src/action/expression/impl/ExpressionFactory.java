@@ -6,7 +6,9 @@ import action.expression.api.ExpressionTypeConverter;
 import action.context.api.Context;
 import instance.entity.api.EntityInstance;
 
-public class ExpressionFactory implements Expression {
+import java.io.Serializable;
+
+public class ExpressionFactory implements Expression , Serializable {
     private String expression;
     private EntityInstance entityInstance;
 

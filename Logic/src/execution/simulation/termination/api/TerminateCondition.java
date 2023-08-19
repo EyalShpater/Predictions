@@ -1,6 +1,8 @@
 package execution.simulation.termination.api;
 
-public enum TerminateCondition {
+import java.io.Serializable;
+
+public enum TerminateCondition implements Serializable {
     BY_TICKS,
     BY_SECONDS
 }

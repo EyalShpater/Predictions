@@ -8,9 +8,10 @@ import execution.simulation.xml.reader.impl.XmlReader;
 import execution.simulation.xml.validation.XmlValidator;
 import impl.*;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class PredictionsLogicImpl implements PredictionsLogic {
+public class PredictionsLogicImpl implements PredictionsLogic , Serializable {
     private SimulationManager allSimulations;
     private World world;
 

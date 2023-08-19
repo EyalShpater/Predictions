@@ -5,6 +5,7 @@ import execution.simulation.termination.api.TerminateCondition;
 import execution.simulation.termination.impl.TerminationImpl;
 import resources.generated.*;
 
+import java.io.Serializable;
 import java.util.List;
 
 public class TerminationReader  {

@@ -11,10 +11,11 @@ import impl.SimulationDTO;
 import impl.SimulationDataDTO;
 import impl.SimulationRunDetailsDTO;
 
+import java.io.Serializable;
 import java.util.*;
 import java.util.stream.Collectors;
 
-public class SimulationManager {
+public class SimulationManager implements Serializable {
     private int serialNumber;
     private Map<Integer, Simulation> simulations;
 

@@ -10,12 +10,13 @@ import rule.api.Rule;
 import rule.impl.ActivationImpl;
 import rule.impl.RuleImpl;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-public class RuleReader {
+public class RuleReader  {
 
     public void read (PRDWorld prdWorld , World world){
         List<PRDRule> prdRuleList = prdWorld.getPRDRules().getPRDRule();

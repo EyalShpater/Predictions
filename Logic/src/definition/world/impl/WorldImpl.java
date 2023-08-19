@@ -17,13 +17,14 @@ import instance.enviornment.api.ActiveEnvironment;
 import rule.api.Rule;
 import rule.impl.RuleImpl;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-public class WorldImpl implements World {
+public class WorldImpl implements World  , Serializable {
     private Map<String, EntityDefinition> entitiesDefinition;
     private List<Rule> rules;
     private EnvironmentVariableManager environmentVariables;

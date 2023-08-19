@@ -7,6 +7,11 @@ import menu.api.Menu;
 import menu.api.MenuOptions;
 import menu.helper.PrintToScreen;
 import menu.helper.TypesScanner;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
+import java.io.FileInputStream;
+import java.io.ObjectInputStream;
 
 import java.util.*;
 import java.util.stream.Collectors;
@@ -21,6 +26,8 @@ public class MenuImpl implements Menu {
     private static final int NO = 2;
     private static final int AMOUNT_VIEW = 1;
     public static final int HISTOGRAM_VIEW = 2;
+    public static final int XML = 1;
+    public static final int FILE = 2;
 
     private PredictionsLogic engine = new PredictionsLogicImpl();
 
@@ -28,7 +35,7 @@ public class MenuImpl implements Menu {
     public void show() {
         int choice = 0;
 
-        initSimulationByXML();
+        initSimulationByFileOrXML();
         while (choice != EXIT) {
             printer.displayMenu();
             choice = typeScanner.getIntFromUserInRange(1, MenuOptions.values().length);
@@ -58,6 +65,8 @@ public class MenuImpl implements Menu {
         }
     }
 
+
+
     private void initSimulationByXML() {
         boolean isValid = false;
 
@@ -72,6 +81,34 @@ public class MenuImpl implements Menu {
                 System.out.println(e.getMessage());
                 System.out.print(System.lineSeparator());
             }
+        }
+    }
+    private void initSimulationByFileOrXML() {
+        int choice = -1;
+        System.out.println("Do you want to load from file or from xml ?");
+        System.out.println(XML + ". Xml");
+        System.out.println(FILE + ". File");
+        choice = typeScanner.getIntFromUserInRange(1, 2);
+        switch (choice){
+            case XML:
+                initSimulationByXML();
+                break;
+            case FILE:
+                initSimulationByFile();
+                break;
+        }
+
+    }
+
+    private void initSimulationByFile(){
+        PredictionsLogicImpl deserializedLogic = null;
+        try (FileInputStream fileInputStream = new FileInputStream("predictions.dat");
+             ObjectInputStream objectInputStream = new ObjectInputStream(fileInputStream)) {
+
+            deserializedLogic = (PredictionsLogicImpl) objectInputStream.readObject();
+            System.out.println("Object has been deserialized.");
+        } catch (IOException | ClassNotFoundException e) {
+            e.printStackTrace();
         }
     }
 
@@ -260,5 +297,33 @@ public class MenuImpl implements Menu {
         System.out.println("Do you want to update " + name + "'s value?");
         System.out.println(YES + ". Yes");
         System.out.println(NO + ". No");
+    }
+
+    private void exitOrSaveToFile() {
+        int choice = -1;
+        System.out.println("Do you want to save current state?");
+        System.out.println(YES + ". Yes");
+        System.out.println(NO + ". No");
+        choice = typeScanner.getIntFromUserInRange(1, 2);
+        switch (choice){
+            case YES:
+                saveSimulationStateToFile();
+                break;
+            case NO:
+                break;
+        }
+
+    }
+
+    private void saveSimulationStateToFile() {
+        try (FileOutputStream fileOutputStream = new FileOutputStream("predictions.dat");
+             ObjectOutputStream objectOutputStream = new ObjectOutputStream(fileOutputStream)) {
+
+            objectOutputStream.writeObject(engine);
+            System.out.println("Object has been serialized and saved to predictions.dat.");
+            objectOutputStream.flush();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

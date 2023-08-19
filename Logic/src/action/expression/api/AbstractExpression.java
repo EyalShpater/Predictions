@@ -2,7 +2,9 @@ package action.expression.api;
 
 import instance.entity.api.EntityInstance;
 
-public abstract class AbstractExpression implements Expression {
+import java.io.Serializable;
+
+public abstract class AbstractExpression implements Expression , Serializable {
     protected String expression;
     protected EntityInstance entityInstance;
 

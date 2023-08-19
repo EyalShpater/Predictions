@@ -5,7 +5,9 @@ import action.expression.api.ExpressionTypeConverter;
 import action.helper.function.api.HelperFunctionType;
 import instance.entity.api.EntityInstance;
 
-public class ExpressionTypeConverterImpl implements ExpressionTypeConverter {
+import java.io.Serializable;
+
+public class ExpressionTypeConverterImpl implements ExpressionTypeConverter , Serializable {
     private final char HELPER_FUNCTION_TOKEN = '(';
     private final int NOT_FOUND = -1;
 

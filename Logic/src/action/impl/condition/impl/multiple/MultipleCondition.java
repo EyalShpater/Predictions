@@ -3,10 +3,11 @@ package action.impl.condition.impl.multiple;
 import action.context.api.Context;
 import action.impl.condition.Condition;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public abstract class MultipleCondition implements Condition{
+public abstract class MultipleCondition implements Condition , Serializable {
 
     protected List<Condition> conditions;
 

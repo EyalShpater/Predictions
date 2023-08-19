@@ -10,8 +10,10 @@ import instance.entity.api.EntityInstance;
 import instance.property.api.PropertyInstance;
 import definition.property.api.Range;
 
+import java.io.Serializable;
 
-public class SetAction extends AbstractAction {
+
+public class SetAction extends AbstractAction implements Serializable {
 
     private final String propertyName;
     private final String newProp; //Expression instead of String?

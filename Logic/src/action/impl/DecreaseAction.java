@@ -10,7 +10,9 @@ import definition.property.api.Range;
 import instance.entity.api.EntityInstance;
 import instance.property.api.PropertyInstance;
 
-public class DecreaseAction extends AbstractAction {
+import java.io.Serializable;
+
+public class DecreaseAction extends AbstractAction implements Serializable {
     private final String propertyName;
     private final String byExpression; //Expression instead of String?
 

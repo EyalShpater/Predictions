@@ -5,7 +5,9 @@ import action.helper.function.api.HelperFunction;
 import action.context.api.Context;
 import instance.property.api.PropertyInstance;
 
-public class Environment implements HelperFunction {
+import java.io.Serializable;
+
+public class Environment implements HelperFunction , Serializable {
     String propertyName;
     Context context;
 

@@ -3,9 +3,10 @@ package action.impl.condition.impl.multiple;
 import action.context.api.Context;
 import action.impl.condition.Condition;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class Or extends MultipleCondition{
+public class Or extends MultipleCondition implements Serializable {
 
     @Override
     public String getOperationSign() {

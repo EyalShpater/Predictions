@@ -6,9 +6,10 @@ import instance.property.api.PropertyInstance;
 import definition.property.api.Range;
 import instance.property.value.generator.RandomValueGenerator;
 
+import java.io.Serializable;
 import java.util.Random;
 
-public class PropertyInstanceImpl implements PropertyInstance {
+public class PropertyInstanceImpl implements PropertyInstance , Serializable {
     private PropertyDefinition propertyDefinition;
     private Object value;
 

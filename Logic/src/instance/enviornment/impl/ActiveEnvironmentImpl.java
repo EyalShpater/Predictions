@@ -3,10 +3,11 @@ package instance.enviornment.impl;
 import instance.enviornment.api.ActiveEnvironment;
 import instance.property.api.PropertyInstance;
 
+import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
 
-public class ActiveEnvironmentImpl implements ActiveEnvironment {
+public class ActiveEnvironmentImpl implements ActiveEnvironment , Serializable {
     Map<String, PropertyInstance> propNameToPropInstance = new HashMap<>();
 
     @Override

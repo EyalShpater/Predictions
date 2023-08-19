@@ -4,7 +4,9 @@ import action.context.api.Context;
 import action.expression.api.Expression;
 import action.expression.impl.ExpressionFactory;
 
-public class LowerThan extends SingleCondition{
+import java.io.Serializable;
+
+public class LowerThan extends SingleCondition implements Serializable {
     public LowerThan(String expression1, String expression2) {
         super(expression1, expression2);
     }

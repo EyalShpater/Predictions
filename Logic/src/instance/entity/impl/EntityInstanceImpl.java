@@ -6,9 +6,10 @@ import instance.property.api.PropertyInstance;
 import instance.property.impl.PropertyInstanceImpl;
 import instance.entity.api.EntityInstance;
 
+import java.io.Serializable;
 import java.util.*;
 
-public class EntityInstanceImpl implements EntityInstance {
+public class EntityInstanceImpl implements EntityInstance  , Serializable {
     private final int id;
     private final String name;
     private Map<String, PropertyInstance> propNameToPropInstance;

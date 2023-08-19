@@ -1,6 +1,8 @@
 package definition.property.api;
 
-public enum PropertyType {
+import java.io.Serializable;
+
+public enum PropertyType implements Serializable {
     INT("Integer Number"),
     DOUBLE("Real Number"),
     BOOLEAN("Boolean"),

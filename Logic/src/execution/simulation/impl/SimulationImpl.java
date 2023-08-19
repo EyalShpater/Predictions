@@ -15,9 +15,10 @@ import instance.entity.manager.impl.EntityInstanceManagerImpl;
 import instance.enviornment.api.ActiveEnvironment;
 import rule.api.Rule;
 
+import java.io.Serializable;
 import java.util.Random;
 
-public class SimulationImpl implements Simulation {
+public class SimulationImpl implements Simulation , Serializable {
     private final int serialNumber;
     private final Random random;
 

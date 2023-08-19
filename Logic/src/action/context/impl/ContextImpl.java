@@ -7,7 +7,9 @@ import instance.entity.manager.api.EntityInstanceManager;
 import instance.enviornment.api.ActiveEnvironment;
 import instance.property.api.PropertyInstance;
 
-public class ContextImpl implements Context {
+import java.io.Serializable;
+
+public class ContextImpl implements Context , Serializable {
     private EntityInstance entityInstance;
     private EntityInstanceManager entityInstanceManager;
     private ActiveEnvironment activeEnvironment;

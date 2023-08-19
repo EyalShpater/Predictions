@@ -4,7 +4,7 @@ import definition.entity.api.EntityDefinition;
 
 import action.context.api.Context;
 
-public interface Action {
+public interface Action  {
     EntityDefinition applyOn();
 
     ActionType getType();

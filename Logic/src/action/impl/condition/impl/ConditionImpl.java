@@ -8,10 +8,11 @@ import action.impl.condition.Condition;
 import action.impl.condition.impl.multiple.MultipleCondition;
 import definition.entity.api.EntityDefinition;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ConditionImpl extends AbstractAction implements Condition {
+public class ConditionImpl extends AbstractAction implements Condition , Serializable {
     private final MultipleCondition condition;
     private final String logical;
     List<Action> than;

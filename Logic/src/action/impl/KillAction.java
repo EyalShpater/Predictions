@@ -5,7 +5,9 @@ import action.api.ActionType;
 import action.context.api.Context;
 import definition.entity.api.EntityDefinition;
 
-public class KillAction extends AbstractAction {
+import java.io.Serializable;
+
+public class KillAction extends AbstractAction implements Serializable {
     public KillAction(EntityDefinition entity ) {
         super(entity, ActionType.KILL);
     }

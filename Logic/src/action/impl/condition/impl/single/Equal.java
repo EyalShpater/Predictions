@@ -4,7 +4,9 @@ import action.context.api.Context;
 import action.expression.api.Expression;
 import action.expression.impl.ExpressionFactory;
 
-public class Equal extends SingleCondition{
+import java.io.Serializable;
+
+public class Equal extends SingleCondition implements Serializable {
     public Equal(String expression1, String expression2) {
         super(expression1, expression2);
     }

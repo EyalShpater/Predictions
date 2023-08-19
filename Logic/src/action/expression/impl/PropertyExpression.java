@@ -4,8 +4,10 @@ import action.expression.api.AbstractExpression;
 import action.context.api.Context;
 import instance.entity.api.EntityInstance;
 
+import java.io.Serializable;
 
-public class PropertyExpression extends AbstractExpression {
+
+public class PropertyExpression extends AbstractExpression implements  Serializable {
     public PropertyExpression(String byExpression, EntityInstance entityInstance) {
         super(byExpression, entityInstance);
     }
