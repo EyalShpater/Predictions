@@ -28,7 +28,8 @@ public class MenuImpl implements Menu {
     public void show() {
         int choice = 0;
 
-        loadFileFromUser();
+        loadXml();
+
         //engine.hardCodeWorldInit();
         while (choice != EXIT) {
             printer.displayMenu();
@@ -36,7 +37,7 @@ public class MenuImpl implements Menu {
 
             switch (MenuOptions.fromInt(choice)) {
                 case LOAD_FILE:
-                    loadFileFromUser();
+                    loadXml();
                     break;
                 case SHOW_SIMULATION_DETAILS:
                     showSimulationDetails();
@@ -51,6 +52,15 @@ public class MenuImpl implements Menu {
                     // save to file (bonus)
                     break;
             }
+        }
+    }
+
+    private void loadXml(){
+        try{
+            loadFileFromUser();
+        }catch (IllegalArgumentException e){
+            System.out.println(e.getMessage());
+            show();
         }
     }
 
