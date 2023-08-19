@@ -50,6 +50,7 @@ public class WorldImpl implements World {
         if (values != null) {
             values.forEach(variableDefinitions::addEnvironmentVariableDTO);
             this.environmentVariables = variableDefinitions;
+            createActiveEnvironment();
         }
     }
 

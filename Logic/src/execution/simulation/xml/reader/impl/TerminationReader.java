@@ -7,9 +7,7 @@ import resources.generated.*;
 
 import java.util.List;
 
-public class TerminationReader {
-
-
+public class TerminationReader  {
     public void read (PRDWorld prdWorld , World world){
         List<Object> terminationList = prdWorld.getPRDTermination().getPRDByTicksOrPRDBySecond();
         int len = terminationList.size();

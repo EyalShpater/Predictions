@@ -33,22 +33,27 @@ public class MenuImpl implements Menu {
             printer.displayMenu();
             choice = typeScanner.getIntFromUserInRange(1, MenuOptions.values().length);
 
-            switch (MenuOptions.fromInt(choice)) {
-                case LOAD_FILE:
-                    loadXml();
-                    break;
-                case SHOW_SIMULATION_DETAILS:
-                    showSimulationDetails();
-                    break;
-                case RUN_SIMULATION:
-                    runSimulation();
-                    break;
-                case SHOW_PREVIOUS_SIMULATIONS:
-                    showPreviousSimulation();
-                    break;
-                case EXIT:
-                    // save to file (bonus)
-                    break;
+            try {
+                switch (MenuOptions.fromInt(choice)) {
+                    case LOAD_FILE:
+                        loadXml();
+                        break;
+                    case SHOW_SIMULATION_DETAILS:
+                        showSimulationDetails();
+                        break;
+                    case RUN_SIMULATION:
+                        runSimulation();
+                        break;
+                    case SHOW_PREVIOUS_SIMULATIONS:
+                        showPreviousSimulation();
+                        break;
+                    case EXIT:
+                        exitOrSaveToFile();
+                        break;
+                }
+            } catch (Exception e) {
+                System.out.println("Error!");
+                System.out.println(e.getMessage());
             }
         }
     }
@@ -73,7 +78,6 @@ public class MenuImpl implements Menu {
     private void loadXml(){
         try{
             printer.printLoadFileMenu();
-
             loadFileFromUser();
 
             System.out.println("File loaded successfully!");
@@ -102,6 +106,7 @@ public class MenuImpl implements Menu {
         List<PropertyDefinitionDTO> updatedEnvironmentVariables = getEnvironmentVariablesFromUser();
         SimulationRunDetailsDTO runDetails;
 
+        printer.viewEnvironmentVariablesValues(updatedEnvironmentVariables);
         runDetails = engine.runNewSimulation(updatedEnvironmentVariables);
         printer.printRunDetailsDTO(runDetails);
         System.out.println();
@@ -147,49 +152,51 @@ public class MenuImpl implements Menu {
         SimulationDataDTO data;
         String chosenEntityName, chosenPropertyName;
 
-        chosenEntityName = getEntityNameFromUser();
-        chosenPropertyName = getPropertyNameByUser(chosenEntityName);
+        chosenEntityName = getEntityNameFromUser(serialNumber);
+        chosenPropertyName = getPropertyNameByUser(serialNumber, chosenEntityName);
         data = engine.getSimulationData(serialNumber, chosenEntityName, chosenPropertyName);
 
         return data;
     }
 
-    private String getEntityNameFromUser() {
+    private String getEntityNameFromUser(int serialNumber) {
         int entityIndex = 1, count = 1;
         List<String> entitiesNames = engine
-                        .getLoadedSimulationDetails()
-                        .getEntities()
-                        .stream().map(EntityDefinitionDTO::getName)
-                        .collect(Collectors.toList());
+                .getSimulationDTOBySerialNumber(serialNumber)
+                .getWorld()
+                .getEntities()
+                .stream().map(EntityDefinitionDTO::getName)
+                .collect(Collectors.toList());
+
         if (entitiesNames.size() != 1) {
             for (String name : entitiesNames) {
                 System.out.println(count + ". " + name);
                 count++;
             }
 
-
             System.out.println("Please choose an entity:");
             entityIndex = typeScanner.getIntFromUserInRange(1, entitiesNames.size());
         }
 
         return engine
-                .getLoadedSimulationDetails()
+                .getSimulationDTOBySerialNumber(serialNumber)
+                .getWorld()
                 .getEntities()
                 .get(entityIndex - 1)
                 .getName();
     }
 
-    private String getPropertyNameByUser(String entityName) {
+    private String getPropertyNameByUser(int serialNumber, String entityName) {
         List<PropertyDefinitionDTO> properties;
         int propertyIndex;
 
-        properties = engine.getEntityPropertiesByEntityName(entityName);
-        printer.printPropertyDefinitionDTOList(properties, 0);
+        properties = engine.getEntityPropertiesByEntityName(serialNumber, entityName);
+        printer.printPropertyDefinitionDTOList(properties, 0, false);
         System.out.println("Please choose property");
         propertyIndex = typeScanner.getIntFromUserInRange(1, properties.size()) - 1;
 
         return engine
-                .getEntityPropertiesByEntityName(entityName)
+                .getEntityPropertiesByEntityName(serialNumber, entityName)
                 .get(propertyIndex)
                 .getName();
     }

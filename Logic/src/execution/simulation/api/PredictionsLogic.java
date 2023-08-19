@@ -9,6 +9,8 @@ public interface PredictionsLogic {
 
     List<PropertyDefinitionDTO> getEnvironmentVariablesToSet();
 
+    List<PropertyDefinitionDTO> setEnvironmentVariables(List<PropertyDefinitionDTO> variables);
+
     WorldDTO getLoadedSimulationDetails();
 
     SimulationRunDetailsDTO runNewSimulation(List<PropertyDefinitionDTO> environmentVariables);
@@ -19,5 +21,5 @@ public interface PredictionsLogic {
 
     SimulationDTO getSimulationDTOBySerialNumber(int serialNumber);
 
-    List<PropertyDefinitionDTO> getEntityPropertiesByEntityName(String name);
+    List<PropertyDefinitionDTO> getEntityPropertiesByEntityName(int serialNumber, String name);
 }

@@ -107,6 +107,11 @@ public class SimulationImpl implements Simulation {
     }
 
     @Override
+    public World getWorld() {
+        return world;
+    }
+
+    @Override
     public SimulationDTO convertToDTO() {
         return new SimulationDTO(startTime, serialNumber, world.convertToDTO());
     }

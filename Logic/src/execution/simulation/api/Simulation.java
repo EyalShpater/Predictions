@@ -1,6 +1,7 @@
 package execution.simulation.api;
 
 import api.DTOConvertible;
+import definition.world.api.World;
 import execution.simulation.data.api.SimulationData;
 import execution.simulation.termination.api.TerminateCondition;
 import impl.SimulationDTO;
@@ -11,4 +12,5 @@ public interface Simulation extends DTOConvertible<SimulationDTO> {
     long getRunStartTime();
     TerminateCondition run();
     SimulationDataDTO getResultAsDTO(String entityName, String propertyName);
+    World getWorld();
 }

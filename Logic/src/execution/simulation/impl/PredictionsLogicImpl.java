@@ -36,8 +36,15 @@ public class PredictionsLogicImpl implements PredictionsLogic {
     }
 
     @Override
+    public List<PropertyDefinitionDTO> setEnvironmentVariables(List<PropertyDefinitionDTO> variables) {
+        world.setEnvironmentVariablesValues(variables);
+        world.createActiveEnvironment();
+        return world.getEnvironmentVariablesDTO();
+    }
+
+    @Override
     public WorldDTO getLoadedSimulationDetails() {
-        return (WorldDTO) world.convertToDTO();
+        return world.convertToDTO();
     }
 
     @Override
@@ -65,8 +72,11 @@ public class PredictionsLogicImpl implements PredictionsLogic {
     }
 
     @Override
-    public List<PropertyDefinitionDTO> getEntityPropertiesByEntityName(String name) {
-        return world.getEntityByName(name)
+    public List<PropertyDefinitionDTO> getEntityPropertiesByEntityName(int serialNumber, String name) {
+        return allSimulations
+                .getSimulationBySerialNumber(serialNumber)
+                .getWorld()
+                .getEntityByName(name)
                 .convertToDTO()
                 .getProperties();
     }

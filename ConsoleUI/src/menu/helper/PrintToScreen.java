@@ -63,7 +63,7 @@ public class PrintToScreen {
         System.out.println(MenuOptions.EXIT.getValue() + ". Exit program");
     }
 
-    public void printPropertyDefinitionDTOList(List<PropertyDefinitionDTO> properties, int indentation) {
+    public void printPropertyDefinitionDTOList(List<PropertyDefinitionDTO> properties, int indentation, boolean isEnvironmentVariable) {
         for (int i = 1; i <= properties.size(); i++) {
             printLine(indentation, ' ');
             System.out.print(i + ". ");
@@ -71,13 +71,14 @@ public class PrintToScreen {
                     Integer
                             .valueOf(i)
                             .toString()
-                            .length() + indentation + 2
+                            .length() + indentation + 2,
+                    isEnvironmentVariable
             );
             System.out.print(System.lineSeparator());
         }
     }
 
-    public void printPropertyDefinitionDTO(PropertyDefinitionDTO dto, int indentation) {
+    public void printPropertyDefinitionDTO(PropertyDefinitionDTO dto, int indentation, boolean isEnvironmentVariable) {
         System.out.println("Variable name: " + dto.getName());
 
         printLine(indentation, ' ');
@@ -85,12 +86,30 @@ public class PrintToScreen {
 
         if (dto.getFrom() != null) {
             printLine(indentation, ' ');
-            System.out.println("Minimum value: " + dto.getFrom());
+            System.out.println("Minimum value: " +
+                    (dto.getType().equals("INT") ?
+                    String.valueOf(dto.getFrom().intValue()) :
+                    dto.getFrom())
+            );
         }
 
         if (dto.getTo() != null) {
             printLine(indentation, ' ');
-            System.out.println("Maximum value: " + dto.getTo());
+            System.out.println("Maximum value: " +
+                    (dto.getType().equals("INT") ?
+                            String.valueOf(dto.getTo().intValue()) :
+                            dto.getTo())
+            );
+
+            if (!isEnvironmentVariable) {
+                printLine(indentation, ' ');
+                System.out.println(
+                        (!dto.isRandom()) ?
+                        "Not Randomly initialized" :
+                        "Randomly initialized"
+                );
+            }
+
         }
     }
 
@@ -111,7 +130,7 @@ public class PrintToScreen {
 
         printLine(indentation, ' ');
         System.out.println("Properties:");
-        printPropertyDefinitionDTOList(entity.getProperties(), indentation + "properties:".length());
+        printPropertyDefinitionDTOList(entity.getProperties(), indentation + "properties:".length(), false);
     }
 
     private void printRuleDTOList(List<RuleDTO> rules, int indentation) {
@@ -255,7 +274,7 @@ public class PrintToScreen {
 
     public void showEnvironmentVariablesChooseMenu(List<PropertyDefinitionDTO> environmentVariables) {
         if (environmentVariables != null) {
-            printPropertyDefinitionDTOList(environmentVariables, 0);
+            printPropertyDefinitionDTOList(environmentVariables, 0, true);
             System.out.print(System.lineSeparator());
             System.out.println("Please enter the number of variable you want to set, or 0 to finish the setup");
         }
@@ -267,5 +286,16 @@ public class PrintToScreen {
                 String.format("Simulation #%d ended due to tick condition", runDetails.getSerialNumber());
 
         System.out.println(terminationMessage);
+    }
+
+    public void viewEnvironmentVariablesValues(List<PropertyDefinitionDTO> variables) {
+        int count = 1;
+
+        printTitle("Environment Variables", '~', ' ', NO_INDENTATION);
+        for (PropertyDefinitionDTO dto : variables) {
+            System.out.println(count + ". " + dto.getName());
+            printLine(Integer.valueOf(count).toString().length() + 2, ' ');
+            System.out.println("Value: " + dto.getDefaultValue());
+        }
     }
 }
