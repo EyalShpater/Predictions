@@ -1,31 +1,12 @@
 package execution.simulation.impl;
 
-import action.impl.DecreaseAction;
-import action.impl.IncreaseAction;
-import action.impl.KillAction;
-import action.impl.SetAction;
-import definition.entity.api.EntityDefinition;
-import definition.entity.impl.EntityDefinitionImpl;
-import definition.environment.api.EnvironmentVariableManager;
-import definition.environment.impl.EnvironmentVariableManagerImpl;
-import definition.property.api.PropertyDefinition;
-import definition.property.api.PropertyType;
-import definition.property.api.Range;
-import definition.property.impl.PropertyDefinitionImpl;
 import execution.simulation.api.PredictionsLogic;
 import execution.simulation.manager.SimulationManager;
 import definition.world.api.World;
 import definition.world.impl.WorldImpl;
-import execution.simulation.termination.impl.TerminationImpl;
 import execution.simulation.xml.reader.impl.XmlReader;
 import execution.simulation.xml.validation.XmlValidator;
-import impl.PropertyDefinitionDTO;
-import impl.SimulationDTO;
-import impl.SimulationDataDTO;
-import impl.WorldDTO;
-import rule.api.Rule;
-import rule.impl.ActivationImpl;
-import rule.impl.RuleImpl;
+import impl.*;
 
 import java.util.List;
 
@@ -39,12 +20,14 @@ public class PredictionsLogicImpl implements PredictionsLogic {
 
     @Override
     public void loadXML(String path) {
-        world = new WorldImpl();
-
+        World newWorld = new WorldImpl();
         XmlValidator validator = new XmlValidator(path);
+        XmlReader reader;
+
         validator.isValid();
-        XmlReader reader = new XmlReader(validator.getWorld());
-        reader.readXml(world);
+        reader = new XmlReader(validator.getWorld());
+        reader.readXml(newWorld);
+        world = newWorld;
     }
 
     @Override
@@ -58,8 +41,8 @@ public class PredictionsLogicImpl implements PredictionsLogic {
     }
 
     @Override
-    public void runNewSimulation(List<PropertyDefinitionDTO> environmentVariables) {
-        allSimulations.runNewSimulation(world, environmentVariables);
+    public SimulationRunDetailsDTO runNewSimulation(List<PropertyDefinitionDTO> environmentVariables) {
+        return allSimulations.runNewSimulation(world, environmentVariables);
     }
 
     @Override
@@ -86,44 +69,5 @@ public class PredictionsLogicImpl implements PredictionsLogic {
         return world.getEntityByName(name)
                 .convertToDTO()
                 .getProperties();
-    }
-
-    //TODO: DELETE! ONLY FOR DEBUGGING.
-    @Override
-    public void hardCodeWorldInit() {
-        world = new WorldImpl();
-
-        PropertyDefinition agePropertyDefinition = new PropertyDefinitionImpl("age", PropertyType.INT, true, new Range(15, 90));
-        PropertyDefinition smokingInDayPropertyDefinition = new PropertyDefinitionImpl("smokingInDay", PropertyType.DOUBLE, false,7.5);
-        PropertyDefinition cancerPrecentage = new PropertyDefinitionImpl("cancerPrecentage", PropertyType.DOUBLE, true, new Range(0, 100));
-        PropertyDefinition cancerAdvanement = new PropertyDefinitionImpl("cancerAdvancement", PropertyType.DOUBLE, true, new Range(0, 150));
-        PropertyDefinition isCancerPositive = new PropertyDefinitionImpl("cancerPositive", PropertyType.BOOLEAN,false,false);
-        PropertyDefinition CancerSerialString = new PropertyDefinitionImpl("CancerSerialString", PropertyType.STRING,true);
-
-
-        EntityDefinition smokerEntityDefinition = new EntityDefinitionImpl("smoker", 100000);
-        smokerEntityDefinition.addProperty(agePropertyDefinition);
-        smokerEntityDefinition.addProperty(smokingInDayPropertyDefinition);
-        smokerEntityDefinition.addProperty(cancerPrecentage);
-        smokerEntityDefinition.addProperty(cancerAdvanement);
-        smokerEntityDefinition.addProperty(isCancerPositive);
-        smokerEntityDefinition.addProperty(CancerSerialString);
-
-        world.addEntity(smokerEntityDefinition);
-
-        Rule rule1 = new RuleImpl("First_User_Rule", new ActivationImpl(0.86), "smoker");
-        rule1.addAction(new IncreaseAction(smokerEntityDefinition, "age", "random(10)"));
-        rule1.addAction(new IncreaseAction(smokerEntityDefinition, "smokingInDay", "3.5"));
-        rule1.addAction(new SetAction(smokerEntityDefinition, "cancerPositive", "true"));
-        rule1.addAction(new DecreaseAction(smokerEntityDefinition, "cancerPrecentage", "random(15)"));
-
-        Rule rule2 = new RuleImpl("Eyal_Rule", new ActivationImpl(0.20), "smoker");
-        rule2.addAction(new KillAction(smokerEntityDefinition));
-
-        world.addRule(rule1);
-        world.addRule(rule2);
-        world.setTermination(new TerminationImpl(3, 3));
-        world.addEnvironmentVariable(new PropertyDefinitionImpl("tax-amount", PropertyType.INT, true, new Range(10, 100)));
-        world.addEnvironmentVariable(new PropertyDefinitionImpl("eyal", PropertyType.BOOLEAN, true));
     }
 }

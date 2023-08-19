@@ -1,9 +1,6 @@
 package execution.simulation.api;
 
-import impl.PropertyDefinitionDTO;
-import impl.SimulationDTO;
-import impl.SimulationDataDTO;
-import impl.WorldDTO;
+import impl.*;
 
 import java.util.*;
 
@@ -14,7 +11,7 @@ public interface PredictionsLogic {
 
     WorldDTO getLoadedSimulationDetails();
 
-    void runNewSimulation(List<PropertyDefinitionDTO> environmentVariables);
+    SimulationRunDetailsDTO runNewSimulation(List<PropertyDefinitionDTO> environmentVariables);
 
     List<SimulationDTO> getPreviousSimulationsAsDTO();
 
@@ -23,7 +20,4 @@ public interface PredictionsLogic {
     SimulationDTO getSimulationDTOBySerialNumber(int serialNumber);
 
     List<PropertyDefinitionDTO> getEntityPropertiesByEntityName(String name);
-
-    //TODO: DELETE! ONLY FOR DEBUGGING.
-    void hardCodeWorldInit();
 }

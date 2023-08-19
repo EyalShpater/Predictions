@@ -28,9 +28,7 @@ public class MenuImpl implements Menu {
     public void show() {
         int choice = 0;
 
-        loadXml();
-
-        //engine.hardCodeWorldInit();
+        initSimulationByXML();
         while (choice != EXIT) {
             printer.displayMenu();
             choice = typeScanner.getIntFromUserInRange(1, MenuOptions.values().length);
@@ -55,31 +53,43 @@ public class MenuImpl implements Menu {
         }
     }
 
+    private void initSimulationByXML() {
+        boolean isValid = false;
+
+        System.out.println("Please provide the full file path to start the simulation");
+        while (!isValid) {
+            try {
+                loadFileFromUser();
+                System.out.println("File loaded successfully!");
+                System.out.print(System.lineSeparator());
+                isValid = true;
+            } catch (Exception e) {
+                System.out.println(e.getMessage());
+                System.out.print(System.lineSeparator());
+            }
+        }
+    }
+
     private void loadXml(){
         try{
+            printer.printLoadFileMenu();
+
             loadFileFromUser();
-        }catch (IllegalArgumentException e){
+
+            System.out.println("File loaded successfully!");
+            System.out.print(System.lineSeparator());
+        } catch (IllegalArgumentException e) {
             System.out.println(e.getMessage());
-            show();
+            System.out.println("File did not load.");
+            System.out.print(System.lineSeparator());
         }
     }
 
     private void loadFileFromUser() {
         String filePath;
-        boolean isLegalPath = false;
 
-        printer.printLoadFileMenu();
-        while (!isLegalPath) {
-            try {
-                filePath = scanner.nextLine();
-                engine.loadXML(filePath);
-                isLegalPath = true;
-            } catch (Exception e) {
-                System.out.println(e.getMessage());
-            }
-        }
-
-        System.out.println("File loaded successfully!");
+        filePath = scanner.nextLine();
+        engine.loadXML(filePath);
     }
 
     private void showSimulationDetails() {
@@ -90,8 +100,10 @@ public class MenuImpl implements Menu {
 
     private void runSimulation() {
         List<PropertyDefinitionDTO> updatedEnvironmentVariables = getEnvironmentVariablesFromUser();
+        SimulationRunDetailsDTO runDetails;
 
-        engine.runNewSimulation(updatedEnvironmentVariables);
+        runDetails = engine.runNewSimulation(updatedEnvironmentVariables);
+        printer.printRunDetailsDTO(runDetails);
     }
 
     private void showPreviousSimulation() {

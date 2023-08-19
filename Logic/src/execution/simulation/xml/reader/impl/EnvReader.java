@@ -6,7 +6,6 @@ import definition.property.api.Range;
 import definition.property.impl.PropertyDefinitionImpl;
 import definition.world.api.World;
 import resources.generated.PRDEnvProperty;
-import resources.generated.PRDProperty;
 import resources.generated.PRDRange;
 import resources.generated.PRDWorld;
 
@@ -20,11 +19,11 @@ public class EnvReader {
     }
 
     private void readDataFromPRDEnvPropertyToEnvVarManager(PRDEnvProperty prdEnvVar, World world) {
-        PropertyDefinition newEnvVar = createPropertyDefinitionfromPRDEnvProperty( prdEnvVar );
+        PropertyDefinition newEnvVar = createPropertyDefinitionFromPRDEnvProperty( prdEnvVar );
         world.addEnvironmentVariable( newEnvVar );
     }
 
-    private PropertyDefinition createPropertyDefinitionfromPRDEnvProperty(PRDEnvProperty prdEnvVar) {
+    private PropertyDefinition createPropertyDefinitionFromPRDEnvProperty(PRDEnvProperty prdEnvVar) {
         Range range = checkRangeExist(prdEnvVar.getPRDRange());
         PropertyDefinition newEnvVar = null;
         if ( range == null ){
@@ -46,14 +45,15 @@ public class EnvReader {
     }
 
     private PropertyType createPropertyType(String type) {
-        if ( type.equals("decimal") ) {
-            return PropertyType.INT;
-        } else if (type.equals("float")) {
-            return PropertyType.DOUBLE;
-        }else if (type.equals("boolean")) {
-            return PropertyType.BOOLEAN;
-        }else {
-            return PropertyType.STRING;
+        switch (type) {
+            case "decimal":
+                return PropertyType.INT;
+            case "float":
+                return PropertyType.DOUBLE;
+            case "boolean":
+                return PropertyType.BOOLEAN;
+            default:
+                return PropertyType.STRING;
         }
     }
 

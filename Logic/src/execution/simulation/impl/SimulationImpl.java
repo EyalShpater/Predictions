@@ -6,6 +6,7 @@ import execution.simulation.api.Simulation;
 import definition.world.api.World;
 import execution.simulation.data.api.SimulationData;
 import execution.simulation.data.impl.SimulationDataImpl;
+import execution.simulation.termination.api.TerminateCondition;
 import impl.SimulationDTO;
 import impl.SimulationDataDTO;
 import instance.entity.api.EntityInstance;
@@ -42,19 +43,22 @@ public class SimulationImpl implements Simulation {
     }
 
     @Override
-    public void run() {
+    public TerminateCondition run() {
         int tick = 1;
+        TerminateCondition reasonToStop;
 
         startTime = System.currentTimeMillis();
         initEntities();
         initEnvironmentVariables();
 
-        while (world.isActive(tick, startTime)) {
+        while ((reasonToStop = world.isActive(tick, startTime)) == null) {
             executeRules(tick);
             tick++;
         }
 
         data = new SimulationDataImpl(serialNumber, startTime, world.getEntities(), entities);
+
+        return reasonToStop;
     }
 
     @Override

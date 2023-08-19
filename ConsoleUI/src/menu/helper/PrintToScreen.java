@@ -29,22 +29,24 @@ public class PrintToScreen {
     }
 
     public void printLoadFileMenu() {
-        printTitle("Welcome to our prediction program", '*', '=');
+        printTitle("Load New Simulation File", ' ', '=');
+        System.out.print(System.lineSeparator());
         System.out.println("Please enter XML simulation file path:");
     }
 
-    public void printTitle(String title, char upperChar, char underLineChar) {
+    public void printTitle(String title, char lineChar, char borderLineChar) {
         final int NUM_OF_STARS = 10;
 
-        printCharNumOfTimes(upperChar, NUM_OF_STARS);
+        printLine(NUM_OF_STARS * 2 + 2 + title.length(), borderLineChar);
+        printCharNumOfTimes(lineChar, NUM_OF_STARS);
         System.out.printf(" %s ", title);
-        printCharNumOfTimes(upperChar, NUM_OF_STARS);
+        printCharNumOfTimes(lineChar, NUM_OF_STARS);
         System.out.print(System.lineSeparator());
-        printLine(NUM_OF_STARS * 2 + 2 + title.length(), underLineChar);
+        printLine(NUM_OF_STARS * 2 + 2 + title.length(), borderLineChar);
     }
 
     public void displayMenu() {
-        printTitle("Menu", '*', '=');
+        printTitle("Menu", ' ', '=');
         System.out.println("Please choose one of the following options");
         System.out.println(MenuOptions.LOAD_FILE.getValue() + ". Load file");
         System.out.println(MenuOptions.SHOW_SIMULATION_DETAILS.getValue() + ". Present simulation details");
@@ -74,7 +76,7 @@ public class PrintToScreen {
 
     public void printEntityDefinitionDTOList(List<EntityDefinitionDTO> entities) {
         for (int i = 1; i <= entities.size(); i++) {
-            System.out.print(i + ". ");
+            printTitle("Entity #" + i, '-', ' ');
             printEntityDefinitionDTO(entities.get(i - 1));
             System.out.print(System.lineSeparator());
         }
@@ -103,18 +105,23 @@ public class PrintToScreen {
     }
 
     private void printTerminationDTO(TerminationDTO termination) {
-        System.out.println(termination.getSecondsToTerminate() + " seconds to terminate");
-        System.out.println(termination.getTicksToTerminate() + " ticks to terminate");
+        if (termination.isTerminateBySeconds()) {
+            System.out.println(termination.getSecondsToTerminate() + " seconds to terminate");
+        }
+
+        if (termination.isTerminateByTicks()) {
+            System.out.println(termination.getTicksToTerminate() + " ticks to terminate");
+        }
     }
 
     public void printWorldDTO(WorldDTO world) {
-        printTitle("Entities:", '#', '~');
+        printTitle("Entities", '~', ' ');
         printEntityDefinitionDTOList(world.getEntities());
-        System.out.println(System.lineSeparator());
-        printTitle("Rules:", '#', '~');
+
+        printTitle("Rules", '~', ' ');
         printRuleDTOList(world.getRules());
-        System.out.println(System.lineSeparator());
-        printTitle("Termination", '#', '~');
+
+        printTitle("Termination", '~', ' ');
         printTerminationDTO(world.getTermination());
     }
 
@@ -188,4 +195,11 @@ public class PrintToScreen {
         }
     }
 
+    public void printRunDetailsDTO(SimulationRunDetailsDTO runDetails) {
+        String terminationMessage = runDetails.isTerminateBySeconds() ?
+                String.format("Simulation #%d ended due to seconds condition",  runDetails.getSerialNumber()) :
+                String.format("Simulation #%d ended due to tick condition", runDetails.getSerialNumber());
+
+        System.out.println(terminationMessage);
+    }
 }

@@ -7,6 +7,7 @@ import definition.entity.impl.EntityDefinitionImpl;
 import definition.environment.api.EnvironmentVariableManager;
 import definition.environment.impl.EnvironmentVariableManagerImpl;
 import definition.property.api.PropertyDefinition;
+import execution.simulation.termination.api.TerminateCondition;
 import execution.simulation.termination.api.Termination;
 import definition.world.api.World;
 import execution.simulation.termination.impl.TerminationImpl;
@@ -77,8 +78,8 @@ public class WorldImpl implements World {
     }
 
     @Override
-    public boolean isActive(int currentTick, long startTime) {
-        return !terminate.isTerminate(currentTick, startTime);
+    public TerminateCondition isActive(int currentTick, long startTime) {
+        return terminate.isTerminate(currentTick, startTime);
     }
 
     @Override
