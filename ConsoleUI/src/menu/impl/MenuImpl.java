@@ -306,18 +306,14 @@ public class MenuImpl implements Menu {
         );
     }
 
-    private void askUserIfHeWantToUpdateTheVariable(String name) {
-        System.out.println("Do you want to update " + name + "'s value?");
-        System.out.println(YES + ". Yes");
-        System.out.println(NO + ". No");
-    }
-
     private void exitOrSaveToFile() {
-        int choice = -1;
+        int choice;
+
         System.out.println("Do you want to save current state?");
         System.out.println(YES + ". Yes");
         System.out.println(NO + ". No");
         choice = typeScanner.getIntFromUserInRange(1, 2);
+
         switch (choice){
             case YES:
                 saveSimulationStateToFile();
