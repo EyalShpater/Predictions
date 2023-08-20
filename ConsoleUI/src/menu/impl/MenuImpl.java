@@ -9,6 +9,7 @@ import menu.helper.PrintToScreen;
 import menu.helper.TypesScanner;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.FileNotFoundException;
 import java.io.ObjectOutputStream;
 import java.io.FileInputStream;
 import java.io.ObjectInputStream;
@@ -68,8 +69,22 @@ public class MenuImpl implements Menu {
             }
         }
     }
+    private void initSimulationByFileOrXML() {
+        int choice = -1;
+        System.out.println("Would you like to load the previous state of the simulation or provide an XML path for a new simulation?");
+        System.out.println(XML + ". Load new Xml");
+        System.out.println(FILE + ". Load previous state");
+        choice = typeScanner.getIntFromUserInRange(1, 2);
+        switch (choice){
+            case XML:
+                initSimulationByXML();
+                break;
+            case FILE:
+                initSimulationByFile();
+                break;
+        }
 
-
+    }
 
     private void initSimulationByXML() {
         boolean isValid = false;
@@ -87,31 +102,18 @@ public class MenuImpl implements Menu {
             }
         }
     }
-    private void initSimulationByFileOrXML() {
-        int choice = -1;
-        System.out.println("Do you want to load from file or from xml ?");
-        System.out.println(XML + ". Xml");
-        System.out.println(FILE + ". File");
-        choice = typeScanner.getIntFromUserInRange(1, 2);
-        switch (choice){
-            case XML:
-                initSimulationByXML();
-                break;
-            case FILE:
-                initSimulationByFile();
-                break;
-        }
-
-    }
 
     private void initSimulationByFile(){
-        PredictionsLogicImpl deserializedLogic = null;
         try (FileInputStream fileInputStream = new FileInputStream("predictions.dat");
              ObjectInputStream objectInputStream = new ObjectInputStream(fileInputStream)) {
 
-            deserializedLogic = (PredictionsLogicImpl) objectInputStream.readObject();
-            System.out.println("Object has been deserialized.");
-        } catch (IOException | ClassNotFoundException e) {
+            engine = (PredictionsLogicImpl) objectInputStream.readObject();
+            System.out.println("File has been deserialized.");
+        }catch (FileNotFoundException e) {
+            System.out.println("The predictions.dat file is empty or does not exist.");
+            System.out.println("Please load an XML file instead.");
+            initSimulationByXML();
+        }catch (IOException | ClassNotFoundException e) {
             e.printStackTrace();
         }
     }
@@ -151,7 +153,7 @@ public class MenuImpl implements Menu {
         updatedEnvironmentVariables = engine.setEnvironmentVariables(updatedEnvironmentVariables);
 
         printer.viewEnvironmentVariablesValues(updatedEnvironmentVariables);
-        runDetails = engine.runNewSimulation(updatedEnvironmentVariables);
+         runDetails = engine.runNewSimulation(updatedEnvironmentVariables);
         printer.printRunDetailsDTO(runDetails);
         System.out.println();
     }
