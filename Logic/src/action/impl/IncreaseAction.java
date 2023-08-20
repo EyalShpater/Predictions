@@ -78,29 +78,5 @@ public class IncreaseAction extends AbstractAction implements Serializable {
             propertyToUpdate.setValue(result);
         }
     }
-    /*
-    OLD VERSION
-    private void checkRangeAndUpdateValue(PropertyInstance propertyToUpdate , Number result , boolean isResultInteger){
-        Range range = propertyToUpdate.getPropertyDefinition().getRange();
-        if(range != null){
-            double min = range.getMin();
-            double max = range.getMax();
-
-            if (isResultInteger){
-                Integer IntegerResult = (Integer) result;
-                if(IntegerResult>min && IntegerResult<max){
-                    propertyToUpdate.setValue(result);
-                }
-            }else{
-                Double DoubleResult = (Double) result;
-                if(DoubleResult>min && DoubleResult<max){
-                    propertyToUpdate.setValue(result);
-                }
-            }
-        }else{
-            propertyToUpdate.setValue(result);
-        }
-
-    }*/
 }
 

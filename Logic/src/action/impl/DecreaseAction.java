@@ -60,13 +60,6 @@ public class DecreaseAction extends AbstractAction implements Serializable {
         }else{
             throw new IllegalArgumentException("Increase can get only numeric values.");
         }
-        /*if(decreaseBy instanceof Integer){
-            Double result = propertyValue - (Integer)decreaseBy;
-            checkRangeAndUpdateValue(propertyToUpdate , result , false);
-        } else if (decreaseBy instanceof Double) {
-            Double result = propertyValue - (Double)decreaseBy;
-            checkRangeAndUpdateValue(propertyToUpdate , result , false);
-        }*/
     }
     private void checkRangeAndUpdateNumericValue(PropertyInstance propertyToUpdate, Number result){
         Range range = propertyToUpdate.getPropertyDefinition().getRange();

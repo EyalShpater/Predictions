@@ -41,7 +41,7 @@ public class MultiplyAction extends AbstractAction implements Serializable {
                 multiplyDouble(propertyToUpdate, firstExpressionValue ,secoundExpressionValue);
             }
         } else {
-            throw new IllegalArgumentException("Increase action only available  on numeric type!");
+            throw new IllegalArgumentException("Increase action only available on numeric type!");
         }
 
     }
