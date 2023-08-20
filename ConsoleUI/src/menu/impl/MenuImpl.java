@@ -335,8 +335,8 @@ public class MenuImpl implements Menu {
             objectOutputStream.writeObject(engine);
             System.out.println("Object has been serialized and saved to predictions.dat.");
             objectOutputStream.flush();
-        } catch (IOException e) {
-            e.printStackTrace();
+        } catch (Exception ignore) {
+            System.out.println("An error occurred while attempting to save the data");
         }
     }
 }
