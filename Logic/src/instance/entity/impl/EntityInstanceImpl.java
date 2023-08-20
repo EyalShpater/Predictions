@@ -15,8 +15,6 @@ public class EntityInstanceImpl implements EntityInstance  , Serializable {
     private Map<String, PropertyInstance> propNameToPropInstance;
     private boolean isAlive = true;
 
-    private String firstName;//NOTE: For debugging
-
     public EntityInstanceImpl(EntityDefinition entity, int id) {
         name = entity.getName();
         propNameToPropInstance = createPropertyInstancesFromDefinition(entity);
@@ -49,14 +47,6 @@ public class EntityInstanceImpl implements EntityInstance  , Serializable {
     @Override
     public String getName() {
         return name;
-    }
-
-    public void setEntityFirstName(String name) {
-        this.firstName = name;
-    }
-
-    public String getEntityFirstName() {
-        return firstName;
     }
 
     @Override

@@ -75,6 +75,7 @@ public class MenuImpl implements Menu {
         System.out.println(XML + ". Load new Xml");
         System.out.println(FILE + ". Load previous state");
         choice = typeScanner.getIntFromUserInRange(1, 2);
+
         switch (choice){
             case XML:
                 initSimulationByXML();
@@ -109,12 +110,15 @@ public class MenuImpl implements Menu {
 
             engine = (PredictionsLogicImpl) objectInputStream.readObject();
             System.out.println("File has been deserialized.");
-        }catch (FileNotFoundException e) {
+        } catch (FileNotFoundException e) {
             System.out.println("The predictions.dat file is empty or does not exist.");
             System.out.println("Please load an XML file instead.");
             initSimulationByXML();
-        }catch (IOException | ClassNotFoundException e) {
-            e.printStackTrace();
+        } catch (Exception e) {
+            System.out.println("An unspecified error has occurred during data retrieval.");
+            System.out.println("Please load an XML file instead.");
+
+            initSimulationByXML();
         }
     }
 

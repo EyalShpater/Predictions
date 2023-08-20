@@ -1,6 +1,5 @@
 package definition.environment.impl;
 
-import api.DTO;
 import definition.environment.api.EnvironmentVariableManager;
 import definition.property.api.PropertyDefinition;
 import definition.property.impl.PropertyDefinitionImpl;

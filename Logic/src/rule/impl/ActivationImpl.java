@@ -23,7 +23,6 @@ public class ActivationImpl implements Activation , Serializable {
         this(DEFAULT_NUM_OF_TICKS, probabilityToActivate);
     }
 
-    // TODO: input check
     public ActivationImpl(int numOfTicksToActivate, double probabilityToActivate) {
         setNumOfTicksToActivate(numOfTicksToActivate);
         setProbabilityToActivate(probabilityToActivate);

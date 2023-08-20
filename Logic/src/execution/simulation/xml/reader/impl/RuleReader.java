@@ -54,8 +54,7 @@ public class RuleReader  {
 
         prdActionList.forEach(prdAction -> relevantEntitySet.add(prdAction.getEntity()));
 
-        List<String> relevantEntityList = new ArrayList<>(relevantEntitySet);
-        return relevantEntityList;
+        return new ArrayList<>(relevantEntitySet);
     }
 
 

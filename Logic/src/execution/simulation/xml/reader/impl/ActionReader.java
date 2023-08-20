@@ -26,20 +26,27 @@ public class ActionReader {
     private Action readAction(PRDAction prdAction , EntityDefinition entityOfAction , World world){
 
         Action action = null;
-        if ( prdAction.getType().equals("increase") ){
-            action = readPRDActionIncreaseTypeAction( prdAction , entityOfAction );
-        } else if ( prdAction.getType().equals("decrease") ) {
-            action = readPRDActionDecreaseTypeAction( prdAction , entityOfAction );
-        } else if ( prdAction.getType().equals("kill") ) {
-            action = readPRDActionKillTypeAction( prdAction , entityOfAction );
-        }else if ( prdAction.getType().equals("set") ) {
-            action = readPRDActionSetTypeAction( prdAction , entityOfAction );
-        }else if ( prdAction.getType().equals("calculation") ) {
-            action = readPRDActionCalculationTypeAction( prdAction , entityOfAction );
-        }else if ( prdAction.getType().equals("condition") ) {
-            action = readPRDActionConditionTypeAction( prdAction , entityOfAction , world );
-        }else {
-            throw new IllegalArgumentException("Type of action is not valid");
+        switch (prdAction.getType()) {
+            case "increase":
+                action = readPRDActionIncreaseTypeAction(prdAction, entityOfAction);
+                break;
+            case "decrease":
+                action = readPRDActionDecreaseTypeAction(prdAction, entityOfAction);
+                break;
+            case "kill":
+                action = readPRDActionKillTypeAction(prdAction, entityOfAction);
+                break;
+            case "set":
+                action = readPRDActionSetTypeAction(prdAction, entityOfAction);
+                break;
+            case "calculation":
+                action = readPRDActionCalculationTypeAction(prdAction, entityOfAction);
+                break;
+            case "condition":
+                action = readPRDActionConditionTypeAction(prdAction, entityOfAction, world);
+                break;
+            default:
+                throw new IllegalArgumentException("Type of action is not valid");
         }
         return action;
     }
@@ -109,14 +116,15 @@ public class ActionReader {
     }
 
     private SingleCondition createSingleCondition(PRDCondition condition){
-        if ( condition.getOperator().equals("bt") ){
-            return new BiggerThan(condition.getProperty() , condition.getValue());
-        }else if ( condition.getOperator().equals("=") ){
-            return new Equal(condition.getProperty() , condition.getValue());
-        } else if ( condition.getOperator().equals("lt") ) {
-            return new LowerThan(condition.getProperty() , condition.getValue());
-        } else if (condition.getOperator().equals("!=")) {
-            return new NotEqual(condition.getProperty() , condition.getValue());
+        switch (condition.getOperator()) {
+            case "bt":
+                return new BiggerThan(condition.getProperty(), condition.getValue());
+            case "=":
+                return new Equal(condition.getProperty(), condition.getValue());
+            case "lt":
+                return new LowerThan(condition.getProperty(), condition.getValue());
+            case "!=":
+                return new NotEqual(condition.getProperty(), condition.getValue());
         }
         return null;
     }
@@ -126,14 +134,19 @@ public class ActionReader {
     private Action readPRDActionConditionSingleTypeAction(World world , PRDAction prdAction, EntityDefinition entityOfAction){
         PRDCondition condition = prdAction.getPRDCondition();
         Action action = null;
-        if ( condition.getOperator().equals("bt") ){
-            action = createActionFromSingleTypeAction(world , prdAction, new BiggerThan(condition.getProperty() , condition.getValue()), entityOfAction , "bt" );
-        }else if ( condition.getOperator().equals("=") ){
-            action = createActionFromSingleTypeAction(world , prdAction, new Equal(condition.getProperty() , condition.getValue()), entityOfAction , "=" );
-        } else if ( condition.getOperator().equals("lt") ) {
-            action = createActionFromSingleTypeAction(world , prdAction, new LowerThan(condition.getProperty() , condition.getValue()), entityOfAction , "lt" );
-        } else if (condition.getOperator().equals("!=")) {
-            action = createActionFromSingleTypeAction(world , prdAction, new NotEqual(condition.getProperty() , condition.getValue()), entityOfAction , "!=" );
+        switch (condition.getOperator()) {
+            case "bt":
+                action = createActionFromSingleTypeAction(world, prdAction, new BiggerThan(condition.getProperty(), condition.getValue()), entityOfAction, "bt");
+                break;
+            case "=":
+                action = createActionFromSingleTypeAction(world, prdAction, new Equal(condition.getProperty(), condition.getValue()), entityOfAction, "=");
+                break;
+            case "lt":
+                action = createActionFromSingleTypeAction(world, prdAction, new LowerThan(condition.getProperty(), condition.getValue()), entityOfAction, "lt");
+                break;
+            case "!=":
+                action = createActionFromSingleTypeAction(world, prdAction, new NotEqual(condition.getProperty(), condition.getValue()), entityOfAction, "!=");
+                break;
         }
         return action;
     }

@@ -14,7 +14,7 @@ import java.io.Serializable;
 
 public class IncreaseAction extends AbstractAction implements Serializable {
     private final String propertyName;
-    private final String byExpression; //Expression instead of String?
+    private final String byExpression;
 
     public IncreaseAction(EntityDefinition entity, String propertyName, String byExpression) {
         super(entity, ActionType.INCREASE);

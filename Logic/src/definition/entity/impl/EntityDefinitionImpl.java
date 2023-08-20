@@ -88,7 +88,7 @@ public class EntityDefinitionImpl implements EntityDefinition , Serializable {
                 name,
                 population,
                 properties.stream()
-                        .map(propertyDefinition -> (PropertyDefinitionDTO) propertyDefinition.convertToDTO())
+                        .map(DTOConvertible::convertToDTO)
                         .collect(Collectors.toList())
         );
     }

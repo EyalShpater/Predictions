@@ -58,19 +58,6 @@ public class MultiplyAction extends AbstractAction implements Serializable {
 
     private void multiplyDouble(PropertyInstance propertyToUpdate, Object firstExpressionValue , Object secondExpressionValue){
 
-        /*Double result = 0.0;
-        if (!areExpressionsNumeric(firstExpressionValue,secoundExpressionValue)){
-            throw new IllegalArgumentException("value of expression must be numeric");
-        }
-        if (areBothIntegers(firstExpressionValue,secoundExpressionValue)){
-            result = (double)((Integer) firstExpressionValue * (Integer) secoundExpressionValue);
-        } else if (areBothDoubles(firstExpressionValue,secoundExpressionValue)) {
-            result = (Double) firstExpressionValue * (Double) secoundExpressionValue;
-        } else if (firstDoubleSecondInteger(firstExpressionValue , secoundExpressionValue)) {
-            result = (Double) firstExpressionValue * (Integer) secoundExpressionValue;
-        } else if (firstIntegerSecondDouble(firstExpressionValue , secoundExpressionValue)) {
-            result = (Integer) firstExpressionValue * (Double) secoundExpressionValue;
-        }*/
         if (!areExpressionsNumeric(firstExpressionValue,secondExpressionValue)){
             throw new IllegalArgumentException("value of expression must be numeric");
         }

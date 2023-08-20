@@ -4,28 +4,29 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="27d35137-667f-4e37-a519-ab836acc0a06" name="Changes" comment="close to finish">
+    <list default="true" id="27d35137-667f-4e37-a519-ab836acc0a06" name="Changes" comment="finish until next bug would be detected">
+      <changelist_data name="Eyal Shpater" email="" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ConsoleUI/src/menu/helper/PrintToScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/ConsoleUI/src/menu/helper/PrintToScreen.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ConsoleUI/src/menu/helper/TypesScanner.java" beforeDir="false" afterPath="$PROJECT_DIR$/ConsoleUI/src/menu/helper/TypesScanner.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ConsoleUI/src/menu/impl/MenuImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/ConsoleUI/src/menu/impl/MenuImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/action/impl/DecreaseAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/action/impl/DecreaseAction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/action/impl/DivideAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/action/impl/DivideAction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/action/impl/IncreaseAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/action/impl/IncreaseAction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/action/impl/MultiplyAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/action/impl/MultiplyAction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/action/impl/SetAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/action/impl/SetAction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/definition/entity/impl/EntityDefinitionImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/definition/entity/impl/EntityDefinitionImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/definition/environment/impl/EnvironmentVariableManagerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/definition/environment/impl/EnvironmentVariableManagerImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Logic/src/definition/property/api/PropertyDefinition.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/definition/property/api/PropertyDefinition.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/definition/property/impl/PropertyDefinitionImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/definition/property/impl/PropertyDefinitionImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/definition/world/api/World.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/definition/world/api/World.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/definition/world/impl/WorldImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/definition/world/impl/WorldImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/execution/simulation/api/PredictionsLogic.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/execution/simulation/api/PredictionsLogic.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/execution/simulation/api/Simulation.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/execution/simulation/api/Simulation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/execution/simulation/impl/PredictionsLogicImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/execution/simulation/impl/PredictionsLogicImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/execution/simulation/impl/SimulationImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/execution/simulation/impl/SimulationImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/execution/simulation/manager/SimulationManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/execution/simulation/manager/SimulationManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/instance/enviornment/api/ActiveEnvironment.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/instance/enviornment/api/ActiveEnvironment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/instance/enviornment/impl/ActiveEnvironmentImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/instance/enviornment/impl/ActiveEnvironmentImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/instance/property/api/PropertyInstance.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/instance/property/api/PropertyInstance.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/instance/property/impl/PropertyInstanceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/instance/property/impl/PropertyInstanceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/predictions.dat" beforeDir="false" afterPath="$PROJECT_DIR$/predictions.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/execution/simulation/xml/reader/impl/ActionReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/execution/simulation/xml/reader/impl/ActionReader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/execution/simulation/xml/reader/impl/RuleReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/execution/simulation/xml/reader/impl/RuleReader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/instance/entity/api/EntityInstance.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/instance/entity/api/EntityInstance.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/instance/entity/impl/EntityInstanceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/instance/entity/impl/EntityInstanceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/rule/impl/ActivationImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/rule/impl/ActivationImpl.java" afterDir="false" />
     </list>
-    <list id="9eb12e0a-64d7-4be1-90c5-9941354570ea" name="Changes by ASUS" comment="close to the end">
-      <change beforePath="$PROJECT_DIR$/ConsoleUI/src/menu/impl/MenuImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/ConsoleUI/src/menu/impl/MenuImpl.java" afterDir="false" />
+    <list id="9eb12e0a-64d7-4be1-90c5-9941354570ea" name="Changes by ASUS" comment="finish">
+      <change beforePath="$PROJECT_DIR$/Logic/src/action/expression/api/Expression.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/action/expression/api/Expression.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/action/impl/DecreaseAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/action/impl/DecreaseAction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/action/impl/IncreaseAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/action/impl/IncreaseAction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/action/impl/MultiplyAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/action/impl/MultiplyAction.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,6 +48,11 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="PREVIOUS_COMMIT_AUTHORS">
+      <list>
+        <option value="Eyal Shpater" />
+      </list>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="RESET_MODE" value="HARD" />
   </component>
@@ -64,18 +70,22 @@
     </option>
   </component>
   <component name="LineStatusTrackerManager">
-    <file path="$PROJECT_DIR$/ConsoleUI/src/menu/impl/MenuImpl.java">
+    <file path="$PROJECT_DIR$/Logic/src/action/impl/IncreaseAction.java">
       <ranges>
-        <range start1="11" end1="11" start2="11" end2="12" changelist="9eb12e0a-64d7-4be1-90c5-9941354570ea" />
-        <range start1="62" end1="63" start2="63" end2="68" changelist="27d35137-667f-4e37-a519-ab836acc0a06" />
-        <range start1="66" end1="66" start2="71" end2="85" changelist="9eb12e0a-64d7-4be1-90c5-9941354570ea" />
-        <range start1="67" end1="68" start2="86" end2="87" changelist="9eb12e0a-64d7-4be1-90c5-9941354570ea" />
-        <range start1="85" end1="101" start2="104" end2="104" changelist="9eb12e0a-64d7-4be1-90c5-9941354570ea" />
-        <range start1="103" end1="104" start2="106" end2="106" changelist="9eb12e0a-64d7-4be1-90c5-9941354570ea" />
-        <range start1="107" end1="110" start2="109" end2="116" changelist="9eb12e0a-64d7-4be1-90c5-9941354570ea" />
-        <range start1="142" end1="143" start2="148" end2="149" changelist="27d35137-667f-4e37-a519-ab836acc0a06" />
-        <range start1="145" end1="145" start2="151" end2="154" changelist="27d35137-667f-4e37-a519-ab836acc0a06" />
-        <range start1="146" end1="147" start2="155" end2="156" changelist="9eb12e0a-64d7-4be1-90c5-9941354570ea" />
+        <range start1="16" end1="17" start2="16" end2="17" changelist="27d35137-667f-4e37-a519-ab836acc0a06" />
+        <range start1="80" end1="104" start2="80" end2="80" changelist="9eb12e0a-64d7-4be1-90c5-9941354570ea" />
+      </ranges>
+    </file>
+    <file path="$PROJECT_DIR$/Logic/src/action/impl/DecreaseAction.java">
+      <ranges>
+        <range start1="16" end1="17" start2="16" end2="17" changelist="27d35137-667f-4e37-a519-ab836acc0a06" />
+        <range start1="62" end1="69" start2="62" end2="62" changelist="9eb12e0a-64d7-4be1-90c5-9941354570ea" />
+      </ranges>
+    </file>
+    <file path="$PROJECT_DIR$/Logic/src/action/impl/MultiplyAction.java">
+      <ranges>
+        <range start1="43" end1="44" start2="43" end2="44" changelist="9eb12e0a-64d7-4be1-90c5-9941354570ea" />
+        <range start1="60" end1="73" start2="60" end2="60" changelist="27d35137-667f-4e37-a519-ab836acc0a06" />
       </ranges>
     </file>
   </component>
@@ -227,22 +237,6 @@
       <workItem from="1692027270981" duration="1391000" />
       <workItem from="1692256597011" duration="37171000" />
       <workItem from="1692337503978" duration="27713000" />
-    </task>
-    <task id="LOCAL‎-00032" summary="added access modifies">
-      <option name="closed" value="true" />
-      <created>1691670232681</created>
-      <option name="number" value="00032" />
-      <option name="presentableId" value="LOCAL‎-00032" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1691670232681</updated>
-    </task>
-    <task id="LOCAL‎-00033" summary="added DTO Dummy object, so we could act like we develop one to see what we need to develop">
-      <option name="closed" value="true" />
-      <created>1691677690580</created>
-      <option name="number" value="00033" />
-      <option name="presentableId" value="LOCAL‎-00033" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1691677690580</updated>
     </task>
     <task id="LOCAL-00034" summary="Fixed the EntityInstance problem">
       <created>1691746931845</created>
@@ -603,7 +597,23 @@
       <option name="project" value="LOCAL‎" />
       <updated>1692484996744</updated>
     </task>
-    <option name="localTasksCounter" value="81" />
+    <task id="LOCAL‎-00081" summary="finish until next bug would be detected">
+      <option name="closed" value="true" />
+      <created>1692491416175</created>
+      <option name="number" value="00081" />
+      <option name="presentableId" value="LOCAL‎-00081" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1692491416175</updated>
+    </task>
+    <task id="LOCAL‎-00082" summary="finish">
+      <option name="closed" value="true" />
+      <created>1692491428916</created>
+      <option name="number" value="00082" />
+      <option name="presentableId" value="LOCAL‎-00082" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1692491428916</updated>
+    </task>
+    <option name="localTasksCounter" value="83" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -622,8 +632,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="changed modules names, update Increase,Decrease." />
-    <MESSAGE value="Action and helper are working!" />
     <MESSAGE value="fixed IncreaseAction DecreaseAction to work on my main , problem was trying to cast Integer to Double" />
     <MESSAGE value="ConsoleUI menu implement - not full implementation." />
     <MESSAGE value="Divide added" />
@@ -647,7 +655,10 @@
     <MESSAGE value="file path readable using trim" />
     <MESSAGE value="close to finish" />
     <MESSAGE value="close to the end" />
-    <option name="LAST_COMMIT_MESSAGE" value="close to the end" />
+    <MESSAGE value="finish until next bug would be detected" />
+    <MESSAGE value="finish" />
+    <option name="LAST_COMMIT_MESSAGE" value="finish" />
+    <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
