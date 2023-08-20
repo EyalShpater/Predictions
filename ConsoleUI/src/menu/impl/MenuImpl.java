@@ -60,7 +60,11 @@ public class MenuImpl implements Menu {
                 }
             } catch (Exception e) {
                 System.out.println("Error!");
-                System.out.println(e.getMessage());
+                if (e.getMessage() != null) {
+                    System.out.println(e.getMessage());
+                } else {
+                    System.out.println("General Error Occurred;");
+                }
             }
         }
     }
@@ -140,8 +144,11 @@ public class MenuImpl implements Menu {
     }
 
     private void runSimulation() {
-        List<PropertyDefinitionDTO> updatedEnvironmentVariables = getEnvironmentVariablesFromUser();
+        List<PropertyDefinitionDTO> updatedEnvironmentVariables;
         SimulationRunDetailsDTO runDetails;
+
+        updatedEnvironmentVariables = getEnvironmentVariablesFromUser();
+        updatedEnvironmentVariables = engine.setEnvironmentVariables(updatedEnvironmentVariables);
 
         printer.viewEnvironmentVariablesValues(updatedEnvironmentVariables);
         runDetails = engine.runNewSimulation(updatedEnvironmentVariables);

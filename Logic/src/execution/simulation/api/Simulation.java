@@ -6,10 +6,12 @@ import execution.simulation.data.api.SimulationData;
 import execution.simulation.termination.api.TerminateCondition;
 import impl.SimulationDTO;
 import impl.SimulationDataDTO;
+import instance.enviornment.api.ActiveEnvironment;
 
 public interface Simulation extends DTOConvertible<SimulationDTO> {
     int getSerialNumber();
     long getRunStartTime();
+    ActiveEnvironment setEnvironmentVariables();
     TerminateCondition run();
     SimulationDataDTO getResultAsDTO(String entityName, String propertyName);
     World getWorld();

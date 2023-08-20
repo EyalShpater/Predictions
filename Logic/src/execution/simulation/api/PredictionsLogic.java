@@ -1,6 +1,8 @@
 package execution.simulation.api;
 
+import definition.property.api.PropertyDefinition;
 import impl.*;
+import instance.property.api.PropertyInstance;
 
 import java.util.*;
 

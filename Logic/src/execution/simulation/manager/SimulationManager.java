@@ -10,6 +10,7 @@ import impl.PropertyDefinitionDTO;
 import impl.SimulationDTO;
 import impl.SimulationDataDTO;
 import impl.SimulationRunDetailsDTO;
+import instance.property.api.PropertyInstance;
 
 import java.io.Serializable;
 import java.util.*;

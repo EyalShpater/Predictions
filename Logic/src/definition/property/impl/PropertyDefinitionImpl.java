@@ -38,9 +38,6 @@ public class PropertyDefinitionImpl implements PropertyDefinition , Serializable
 
     public PropertyDefinitionImpl(String name, PropertyType type, boolean isValueInitializeRandomly, Object value) {
         this(name, type, isValueInitializeRandomly);
-//        if (value == null) {
-//            throw new IllegalArgumentException("Value can not be null!");
-//        }
 
         this.defaultValue = value;
     }
@@ -121,6 +118,11 @@ public class PropertyDefinitionImpl implements PropertyDefinition , Serializable
     @Override
     public boolean isNumeric() {
         return isDouble() || isInteger();
+    }
+
+    @Override
+    public void setRandom(boolean isRandom) {
+        this.isValueInitializeRandomly = isRandom;
     }
 
     @Override

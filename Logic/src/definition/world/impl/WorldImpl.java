@@ -18,10 +18,7 @@ import rule.api.Rule;
 import rule.impl.RuleImpl;
 
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class WorldImpl implements World  , Serializable {
@@ -51,7 +48,6 @@ public class WorldImpl implements World  , Serializable {
         if (values != null) {
             values.forEach(variableDefinitions::addEnvironmentVariableDTO);
             this.environmentVariables = variableDefinitions;
-            createActiveEnvironment();
         }
     }
 
@@ -147,5 +143,10 @@ public class WorldImpl implements World  , Serializable {
     @Override
     public EntityDefinition getEntityByName(String name) {
         return entitiesDefinition.get(name);
+    }
+
+    @Override
+    public Collection<PropertyDefinition> getEnvironmentVariables() {
+        return environmentVariables.getEnvironmentVariables();
     }
 }

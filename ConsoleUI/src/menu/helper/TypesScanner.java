@@ -47,7 +47,7 @@ public class TypesScanner {
 
         do {
             try {
-                userDoubleInput = scanner.nextInt();
+                userDoubleInput = scanner.nextDouble();
                 scanner.nextLine();
                 validInput = true;
             } catch (InputMismatchException exception) {
@@ -82,5 +82,4 @@ public class TypesScanner {
 
         return getIntFromUserInRange(1, 2) == 1;
     }
-
 }

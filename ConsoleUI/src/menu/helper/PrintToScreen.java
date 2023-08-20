@@ -2,6 +2,7 @@ package menu.helper;
 
 import execution.simulation.api.PredictionsLogic;
 import impl.*;
+import instance.property.api.PropertyInstance;
 import menu.api.MenuOptions;
 
 import java.text.SimpleDateFormat;
@@ -292,6 +293,8 @@ public class PrintToScreen {
         int count = 1;
 
         printTitle("Environment Variables", '~', ' ', NO_INDENTATION);
+        System.out.println();
+
         for (PropertyDefinitionDTO dto : variables) {
             System.out.println(count + ". " + dto.getName());
             printLine(Integer.valueOf(count).toString().length() + 2, ' ');

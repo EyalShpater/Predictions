@@ -7,6 +7,7 @@ import definition.world.impl.WorldImpl;
 import execution.simulation.xml.reader.impl.XmlReader;
 import execution.simulation.xml.validation.XmlValidator;
 import impl.*;
+import instance.enviornment.api.ActiveEnvironment;
 
 import java.io.Serializable;
 import java.util.List;
@@ -24,7 +25,6 @@ public class PredictionsLogicImpl implements PredictionsLogic , Serializable {
         World newWorld = new WorldImpl();
         XmlValidator validator = new XmlValidator(path);
         XmlReader reader;
-
         validator.isValid();
         reader = new XmlReader(validator.getWorld());
         reader.readXml(newWorld);
@@ -38,9 +38,12 @@ public class PredictionsLogicImpl implements PredictionsLogic , Serializable {
 
     @Override
     public List<PropertyDefinitionDTO> setEnvironmentVariables(List<PropertyDefinitionDTO> variables) {
+        ActiveEnvironment environmentInstances;
+
         world.setEnvironmentVariablesValues(variables);
-        world.createActiveEnvironment();
-        return world.getEnvironmentVariablesDTO();
+        environmentInstances = world.createActiveEnvironment();
+
+        return environmentInstances.convertToDTO();
     }
 
     @Override

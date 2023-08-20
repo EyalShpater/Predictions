@@ -4,74 +4,28 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="27d35137-667f-4e37-a519-ab836acc0a06" name="Changes" comment="file path readable using trim">
-      <change afterPath="$PROJECT_DIR$/predictions.dat" afterDir="false" />
+    <list default="true" id="27d35137-667f-4e37-a519-ab836acc0a06" name="Changes" comment="close to finish">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ConsoleUI/src/menu/helper/PrintToScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/ConsoleUI/src/menu/helper/PrintToScreen.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConsoleUI/src/menu/helper/TypesScanner.java" beforeDir="false" afterPath="$PROJECT_DIR$/ConsoleUI/src/menu/helper/TypesScanner.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ConsoleUI/src/menu/impl/MenuImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/ConsoleUI/src/menu/impl/MenuImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/definition/property/api/PropertyDefinition.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/definition/property/api/PropertyDefinition.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/definition/property/impl/PropertyDefinitionImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/definition/property/impl/PropertyDefinitionImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/definition/world/api/World.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/definition/world/api/World.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Logic/src/definition/world/impl/WorldImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/definition/world/impl/WorldImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Logic/src/execution/simulation/api/PredictionsLogic.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/execution/simulation/api/PredictionsLogic.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Logic/src/execution/simulation/api/Simulation.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/execution/simulation/api/Simulation.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Logic/src/execution/simulation/impl/PredictionsLogicImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/execution/simulation/impl/PredictionsLogicImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Logic/src/execution/simulation/impl/SimulationImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/execution/simulation/impl/SimulationImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/execution/simulation/xml/reader/impl/TerminationReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/execution/simulation/xml/reader/impl/TerminationReader.java" afterDir="false" />
-    </list>
-    <list id="9eb12e0a-64d7-4be1-90c5-9941354570ea" name="Changes by ASUS" comment="ConditionImpl">
-      <change beforePath="$PROJECT_DIR$/ConsoleUI/src/menu/impl/MenuImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/ConsoleUI/src/menu/impl/MenuImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/action/api/AbstractAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/action/api/AbstractAction.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/action/api/Action.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/action/api/Action.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/action/api/ActionType.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/action/api/ActionType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/action/context/impl/ContextImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/action/context/impl/ContextImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/action/expression/api/AbstractExpression.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/action/expression/api/AbstractExpression.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/action/expression/impl/ExpressionFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/action/expression/impl/ExpressionFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/action/expression/impl/ExpressionTypeConverterImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/action/expression/impl/ExpressionTypeConverterImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/action/expression/impl/FunctionExpression.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/action/expression/impl/FunctionExpression.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/action/expression/impl/PropertyExpression.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/action/expression/impl/PropertyExpression.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/action/expression/impl/ValueExpression.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/action/expression/impl/ValueExpression.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/action/helper/function/api/HelperFunctionType.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/action/helper/function/api/HelperFunctionType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/action/helper/function/impl/Environment.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/action/helper/function/impl/Environment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/action/helper/function/impl/HelperFunctionFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/action/helper/function/impl/HelperFunctionFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/action/helper/function/impl/RandomHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/action/helper/function/impl/RandomHelper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/action/impl/DecreaseAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/action/impl/DecreaseAction.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/action/impl/DivideAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/action/impl/DivideAction.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/action/impl/IncreaseAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/action/impl/IncreaseAction.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/action/impl/KillAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/action/impl/KillAction.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/action/impl/MultiplyAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/action/impl/MultiplyAction.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/action/impl/SetAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/action/impl/SetAction.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/action/impl/condition/impl/ConditionImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/action/impl/condition/impl/ConditionImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/action/impl/condition/impl/multiple/And.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/action/impl/condition/impl/multiple/And.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/action/impl/condition/impl/multiple/MultipleCondition.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/action/impl/condition/impl/multiple/MultipleCondition.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/action/impl/condition/impl/multiple/Or.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/action/impl/condition/impl/multiple/Or.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/action/impl/condition/impl/single/BiggerThan.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/action/impl/condition/impl/single/BiggerThan.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/action/impl/condition/impl/single/Equal.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/action/impl/condition/impl/single/Equal.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/action/impl/condition/impl/single/LowerThan.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/action/impl/condition/impl/single/LowerThan.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/action/impl/condition/impl/single/NotEqual.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/action/impl/condition/impl/single/NotEqual.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/action/impl/condition/impl/single/SingleCondition.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/action/impl/condition/impl/single/SingleCondition.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/definition/entity/impl/EntityDefinitionImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/definition/entity/impl/EntityDefinitionImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/definition/environment/impl/EnvironmentVariableManagerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/definition/environment/impl/EnvironmentVariableManagerImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/definition/property/api/PropertyType.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/definition/property/api/PropertyType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/definition/property/api/Range.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/definition/property/api/Range.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/definition/property/impl/PropertyDefinitionImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/definition/property/impl/PropertyDefinitionImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/definition/world/impl/WorldImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/definition/world/impl/WorldImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/execution/simulation/data/impl/SimulationDataImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/execution/simulation/data/impl/SimulationDataImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/execution/simulation/impl/PredictionsLogicImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/execution/simulation/impl/PredictionsLogicImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/execution/simulation/impl/SimulationImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/execution/simulation/impl/SimulationImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Logic/src/execution/simulation/manager/SimulationManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/execution/simulation/manager/SimulationManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/execution/simulation/termination/api/TerminateCondition.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/execution/simulation/termination/api/TerminateCondition.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/execution/simulation/termination/impl/TerminationImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/execution/simulation/termination/impl/TerminationImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/execution/simulation/xml/reader/impl/RuleReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/execution/simulation/xml/reader/impl/RuleReader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/execution/simulation/xml/reader/impl/TerminationReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/execution/simulation/xml/reader/impl/TerminationReader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/execution/simulation/xml/reader/impl/XmlReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/execution/simulation/xml/reader/impl/XmlReader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/execution/simulation/xml/validation/XmlValidator.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/execution/simulation/xml/validation/XmlValidator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/execution/simulation/xml/validation/xmlMain.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/instance/entity/impl/EntityInstanceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/instance/entity/impl/EntityInstanceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/instance/entity/manager/impl/EntityInstanceManagerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/instance/entity/manager/impl/EntityInstanceManagerImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/instance/enviornment/api/ActiveEnvironment.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/instance/enviornment/api/ActiveEnvironment.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Logic/src/instance/enviornment/impl/ActiveEnvironmentImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/instance/enviornment/impl/ActiveEnvironmentImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/instance/property/api/PropertyInstance.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/instance/property/api/PropertyInstance.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Logic/src/instance/property/impl/PropertyInstanceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/instance/property/impl/PropertyInstanceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/instance/property/value/generator/RandomValueGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/instance/property/value/generator/RandomValueGenerator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/resources/ex1-cigarets.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/resources/ex1-cigarets.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/rule/impl/ActivationImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/rule/impl/ActivationImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/rule/impl/RuleImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/rule/impl/RuleImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/predictions.dat" beforeDir="false" afterPath="$PROJECT_DIR$/predictions.dat" afterDir="false" />
+    </list>
+    <list id="9eb12e0a-64d7-4be1-90c5-9941354570ea" name="Changes by ASUS" comment="close to the end">
+      <change beforePath="$PROJECT_DIR$/ConsoleUI/src/menu/impl/MenuImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/ConsoleUI/src/menu/impl/MenuImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -110,54 +64,18 @@
     </option>
   </component>
   <component name="LineStatusTrackerManager">
-    <file path="$PROJECT_DIR$/Logic/src/definition/world/impl/WorldImpl.java">
-      <ranges>
-        <range start1="19" end1="19" start2="19" end2="20" changelist="9eb12e0a-64d7-4be1-90c5-9941354570ea" />
-        <range start1="25" end1="26" start2="26" end2="27" changelist="9eb12e0a-64d7-4be1-90c5-9941354570ea" />
-        <range start1="52" end1="52" start2="53" end2="54" changelist="27d35137-667f-4e37-a519-ab836acc0a06" />
-      </ranges>
-    </file>
-    <file path="$PROJECT_DIR$/Logic/src/execution/simulation/impl/SimulationImpl.java">
-      <ranges>
-        <range start1="17" end1="17" start2="17" end2="18" changelist="9eb12e0a-64d7-4be1-90c5-9941354570ea" />
-        <range start1="19" end1="20" start2="20" end2="21" changelist="9eb12e0a-64d7-4be1-90c5-9941354570ea" />
-        <range start1="109" end1="109" start2="110" end2="115" changelist="27d35137-667f-4e37-a519-ab836acc0a06" />
-      </ranges>
-    </file>
-    <file path="$PROJECT_DIR$/Logic/src/execution/simulation/xml/reader/impl/TerminationReader.java">
-      <ranges>
-        <range start1="7" end1="7" start2="7" end2="8" changelist="9eb12e0a-64d7-4be1-90c5-9941354570ea" />
-        <range start1="9" end1="12" start2="10" end2="11" changelist="27d35137-667f-4e37-a519-ab836acc0a06" />
-      </ranges>
-    </file>
     <file path="$PROJECT_DIR$/ConsoleUI/src/menu/impl/MenuImpl.java">
       <ranges>
-        <range start1="9" end1="9" start2="9" end2="14" changelist="9eb12e0a-64d7-4be1-90c5-9941354570ea" />
-        <range start1="23" end1="23" start2="28" end2="30" changelist="9eb12e0a-64d7-4be1-90c5-9941354570ea" />
-        <range start1="30" end1="31" start2="37" end2="38" changelist="9eb12e0a-64d7-4be1-90c5-9941354570ea" />
-        <range start1="35" end1="51" start2="42" end2="63" changelist="27d35137-667f-4e37-a519-ab836acc0a06" />
-        <range start1="54" end1="54" start2="66" end2="68" changelist="9eb12e0a-64d7-4be1-90c5-9941354570ea" />
-        <range start1="71" end1="71" start2="85" end2="113" changelist="9eb12e0a-64d7-4be1-90c5-9941354570ea" />
-        <range start1="75" end1="76" start2="117" end2="117" changelist="27d35137-667f-4e37-a519-ab836acc0a06" />
-        <range start1="104" end1="104" start2="145" end2="146" changelist="27d35137-667f-4e37-a519-ab836acc0a06" />
-        <range start1="149" end1="151" start2="191" end2="193" changelist="27d35137-667f-4e37-a519-ab836acc0a06" />
-        <range start1="156" end1="157" start2="198" end2="199" changelist="27d35137-667f-4e37-a519-ab836acc0a06" />
-        <range start1="159" end1="163" start2="201" end2="207" changelist="27d35137-667f-4e37-a519-ab836acc0a06" />
-        <range start1="168" end1="169" start2="212" end2="212" changelist="27d35137-667f-4e37-a519-ab836acc0a06" />
-        <range start1="175" end1="176" start2="218" end2="220" changelist="27d35137-667f-4e37-a519-ab836acc0a06" />
-        <range start1="181" end1="182" start2="225" end2="226" changelist="27d35137-667f-4e37-a519-ab836acc0a06" />
-        <range start1="185" end1="187" start2="229" end2="231" changelist="27d35137-667f-4e37-a519-ab836acc0a06" />
-        <range start1="191" end1="192" start2="235" end2="236" changelist="27d35137-667f-4e37-a519-ab836acc0a06" />
-        <range start1="256" end1="256" start2="300" end2="328" changelist="9eb12e0a-64d7-4be1-90c5-9941354570ea" />
-      </ranges>
-    </file>
-    <file path="$PROJECT_DIR$/Logic/src/execution/simulation/impl/PredictionsLogicImpl.java">
-      <ranges>
-        <range start1="10" end1="10" start2="10" end2="11" changelist="9eb12e0a-64d7-4be1-90c5-9941354570ea" />
-        <range start1="12" end1="13" start2="13" end2="14" changelist="9eb12e0a-64d7-4be1-90c5-9941354570ea" />
-        <range start1="38" end1="38" start2="39" end2="46" changelist="27d35137-667f-4e37-a519-ab836acc0a06" />
-        <range start1="39" end1="40" start2="47" end2="48" changelist="27d35137-667f-4e37-a519-ab836acc0a06" />
-        <range start1="67" end1="69" start2="75" end2="80" changelist="27d35137-667f-4e37-a519-ab836acc0a06" />
+        <range start1="11" end1="11" start2="11" end2="12" changelist="9eb12e0a-64d7-4be1-90c5-9941354570ea" />
+        <range start1="62" end1="63" start2="63" end2="68" changelist="27d35137-667f-4e37-a519-ab836acc0a06" />
+        <range start1="66" end1="66" start2="71" end2="85" changelist="9eb12e0a-64d7-4be1-90c5-9941354570ea" />
+        <range start1="67" end1="68" start2="86" end2="87" changelist="9eb12e0a-64d7-4be1-90c5-9941354570ea" />
+        <range start1="85" end1="101" start2="104" end2="104" changelist="9eb12e0a-64d7-4be1-90c5-9941354570ea" />
+        <range start1="103" end1="104" start2="106" end2="106" changelist="9eb12e0a-64d7-4be1-90c5-9941354570ea" />
+        <range start1="107" end1="110" start2="109" end2="116" changelist="9eb12e0a-64d7-4be1-90c5-9941354570ea" />
+        <range start1="142" end1="143" start2="148" end2="149" changelist="27d35137-667f-4e37-a519-ab836acc0a06" />
+        <range start1="145" end1="145" start2="151" end2="154" changelist="27d35137-667f-4e37-a519-ab836acc0a06" />
+        <range start1="146" end1="147" start2="155" end2="156" changelist="9eb12e0a-64d7-4be1-90c5-9941354570ea" />
       </ranges>
     </file>
   </component>
@@ -309,22 +227,6 @@
       <workItem from="1692027270981" duration="1391000" />
       <workItem from="1692256597011" duration="37171000" />
       <workItem from="1692337503978" duration="27713000" />
-    </task>
-    <task id="LOCAL‎-00030" summary="added simulation manager class">
-      <option name="closed" value="true" />
-      <created>1691665845263</created>
-      <option name="number" value="00030" />
-      <option name="presentableId" value="LOCAL‎-00030" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1691665845263</updated>
-    </task>
-    <task id="LOCAL‎-00031" summary="added simulation manager class">
-      <option name="closed" value="true" />
-      <created>1691665898554</created>
-      <option name="number" value="00031" />
-      <option name="presentableId" value="LOCAL‎-00031" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1691665898554</updated>
     </task>
     <task id="LOCAL‎-00032" summary="added access modifies">
       <option name="closed" value="true" />
@@ -685,7 +587,23 @@
       <option name="project" value="LOCAL‎" />
       <updated>1692475838832</updated>
     </task>
-    <option name="localTasksCounter" value="79" />
+    <task id="LOCAL‎-00079" summary="close to finish">
+      <option name="closed" value="true" />
+      <created>1692484977384</created>
+      <option name="number" value="00079" />
+      <option name="presentableId" value="LOCAL‎-00079" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1692484977384</updated>
+    </task>
+    <task id="LOCAL‎-00080" summary="close to the end">
+      <option name="closed" value="true" />
+      <created>1692484996744</created>
+      <option name="number" value="00080" />
+      <option name="presentableId" value="LOCAL‎-00080" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1692484996744</updated>
+    </task>
+    <option name="localTasksCounter" value="81" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -704,8 +622,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="SimulationImpl structure" />
-    <MESSAGE value="better" />
     <MESSAGE value="changed modules names, update Increase,Decrease." />
     <MESSAGE value="Action and helper are working!" />
     <MESSAGE value="fixed IncreaseAction DecreaseAction to work on my main , problem was trying to cast Integer to Double" />
@@ -729,7 +645,9 @@
     <MESSAGE value="exception catch while loading file" />
     <MESSAGE value="nice print to screen" />
     <MESSAGE value="file path readable using trim" />
-    <option name="LAST_COMMIT_MESSAGE" value="file path readable using trim" />
+    <MESSAGE value="close to finish" />
+    <MESSAGE value="close to the end" />
+    <option name="LAST_COMMIT_MESSAGE" value="close to the end" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -738,6 +656,11 @@
           <properties class="java.lang.IllegalArgumentException" package="java.lang" />
           <option name="timeStamp" value="8" />
         </breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/ConsoleUI/src/menu/impl/MenuImpl.java</url>
+          <line>52</line>
+          <option name="timeStamp" value="79" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
     <pin-to-top-manager>
@@ -750,6 +673,7 @@
         <PinnedItemInfo parentTag="resources.generated.PRDAction" memberName="entity" />
         <PinnedItemInfo parentTag="definition.entity.impl.EntityDefinitionImpl" memberName="name" />
         <PinnedItemInfo parentTag="definition.world.impl.WorldImpl" memberName="terminate" />
+        <PinnedItemInfo parentTag="execution.simulation.impl.SimulationImpl" memberName="environmentVariables" />
       </pinned-members>
     </pin-to-top-manager>
   </component>

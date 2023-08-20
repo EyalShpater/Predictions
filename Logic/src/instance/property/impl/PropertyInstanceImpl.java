@@ -1,15 +1,13 @@
 package instance.property.impl;
 
 import definition.property.api.PropertyDefinition;
-import definition.property.impl.PropertyDefinitionImpl;
+import impl.PropertyDefinitionDTO;
 import instance.property.api.PropertyInstance;
-import definition.property.api.Range;
 import instance.property.value.generator.RandomValueGenerator;
 
 import java.io.Serializable;
-import java.util.Random;
 
-public class PropertyInstanceImpl implements PropertyInstance , Serializable {
+public class PropertyInstanceImpl implements PropertyInstance, Serializable {
     private PropertyDefinition propertyDefinition;
     private Object value;
 
@@ -41,5 +39,20 @@ public class PropertyInstanceImpl implements PropertyInstance , Serializable {
     @Override
     public void setValue(Object val) {
         this.value = val;
+    }
+
+    @Override
+    public PropertyDefinitionDTO convertToDTO() {
+        return new PropertyDefinitionDTO(
+                propertyDefinition.getName(),
+                propertyDefinition.getType().name(),
+                propertyDefinition.getRange() != null ?
+                        propertyDefinition.getRange().getMin() :
+                        null,
+                propertyDefinition.getRange() != null ?
+                        propertyDefinition.getRange().getMax() :
+                        null,
+                false,
+                value);
     }
 }

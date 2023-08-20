@@ -58,6 +58,7 @@ public class SimulationImpl implements Simulation , Serializable {
         }
 
         data = new SimulationDataImpl(serialNumber, startTime, world.getEntities(), entities);
+        resetEnvironmentVariables();
 
         return reasonToStop;
     }
@@ -65,6 +66,13 @@ public class SimulationImpl implements Simulation , Serializable {
     @Override
     public long getRunStartTime() {
         return startTime;
+    }
+
+    @Override
+    public ActiveEnvironment setEnvironmentVariables() {
+        this.environmentVariables = world.createActiveEnvironment();
+
+        return this.environmentVariables;
     }
 
     @Override
@@ -93,6 +101,11 @@ public class SimulationImpl implements Simulation , Serializable {
 
     private void initEnvironmentVariables() {
         this.environmentVariables = world.createActiveEnvironment();
+    }
+
+    private void resetEnvironmentVariables() {
+        world.getEnvironmentVariables()
+                .forEach(propertyDefinition -> propertyDefinition.setRandom(true));
     }
 
     private void executeRules(int tick) {

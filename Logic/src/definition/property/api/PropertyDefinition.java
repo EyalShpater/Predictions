@@ -19,4 +19,6 @@ public interface PropertyDefinition extends DTOConvertible<PropertyDefinitionDTO
     boolean isBoolean();
 
     boolean isNumeric();
+
+    void setRandom(boolean isRandom);
 }

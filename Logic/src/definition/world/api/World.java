@@ -13,6 +13,7 @@ import impl.WorldDTO;
 import instance.enviornment.api.ActiveEnvironment;
 import rule.api.Rule;
 
+import java.util.Collection;
 import java.util.List;
 
 public interface World extends DTOConvertible<WorldDTO> {
@@ -27,4 +28,5 @@ public interface World extends DTOConvertible<WorldDTO> {
     void setTermination(Termination terminate);
     void addEnvironmentVariable(PropertyDefinition newVariable);
     EntityDefinition getEntityByName(String name);
+    Collection<PropertyDefinition> getEnvironmentVariables();
 }
