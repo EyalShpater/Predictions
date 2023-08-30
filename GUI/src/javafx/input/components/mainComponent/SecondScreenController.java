@@ -150,7 +150,7 @@ public class SecondScreenController {
     private void createTile(String entityName, int population) {
         try {
             FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(getClass().getResource("/gui/details/components/singleEntity/single-entity.fxml"));
+            loader.setLocation(getClass().getResource("/javafx/input/components/singleEntity/single-entity.fxml"));
             Node singleEntityTile = loader.load();
 
             SingleEntityController singleEntityController = loader.getController();
