@@ -16,7 +16,7 @@
     </PRD-evironment>
     <PRD-entities>
         <PRD-entity name="Smoker">
-            <PRD-population>100</PRD-population>
+            <PRD-population>10</PRD-population>
             <PRD-properties>
                 <PRD-property type="decimal">
                     <PRD-name>lung-cancer-progress</PRD-name>

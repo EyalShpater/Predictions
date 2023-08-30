@@ -1,7 +1,0 @@
-
-1)ask aviad about calculation and multiply divide
-  new MultiplyAction(smokerEntityDefinition,"cancerAdvancement" ,"environment(tax-amount)" , "random(2)")
-2)if 5.5*2 = 11.0 can i assign it to integet prorerty value ?
-
-3) Can the environment vars can be set by the user each every time?
-The user need to say if hew wants to update the variable for each variable.

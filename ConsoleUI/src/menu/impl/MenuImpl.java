@@ -8,7 +8,6 @@ import menu.api.MenuOptions;
 import menu.helper.PrintToScreen;
 import menu.helper.TypesScanner;
 import java.io.FileOutputStream;
-import java.io.IOException;
 import java.io.FileNotFoundException;
 import java.io.ObjectOutputStream;
 import java.io.FileInputStream;
@@ -157,7 +156,7 @@ public class MenuImpl implements Menu {
         updatedEnvironmentVariables = engine.setEnvironmentVariables(updatedEnvironmentVariables);
 
         printer.viewEnvironmentVariablesValues(updatedEnvironmentVariables);
-         runDetails = engine.runNewSimulation(updatedEnvironmentVariables);
+        runDetails = engine.runNewSimulation(updatedEnvironmentVariables);
         printer.printRunDetailsDTO(runDetails);
         System.out.println();
     }
