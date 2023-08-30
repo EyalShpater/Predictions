@@ -11,39 +11,22 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="27d35137-667f-4e37-a519-ab836acc0a06" name="Changes" comment="version 1:1.">
-      <change afterPath="$PROJECT_DIR$/.idea/artifacts/consoleUI.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/artifacts/dto.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/artifacts/logic.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/controlsfx_8_40_14.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ConsoleUI/META-INF/MANIFEST.MF" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GUI/GUI.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GUI/src/javafx/details/components/Components.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GUI/src/javafx/details/components/ComponentsController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GUI/src/javafx/details/components/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GUI/src/javafx/details/details/Details.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GUI/src/javafx/details/details/DetailsController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GUI/src/javafx/details/details/TestMain.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GUI/src/javafx/details/entities/Entities.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GUI/src/javafx/details/entities/EntitiesController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GUI/src/javafx/details/entities/TestMain.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GUI/src/javafx/details/resources/employee.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GUI/src/javafx/details/resources/environment variables.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GUI/src/javafx/details/resources/rules.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GUI/src/javafx/details/resources/termination.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GUI/src/javafx/details/resources/world-wide-web.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GUI/src/javafx/details/rules/Rules.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GUI/src/javafx/details/rules/RulesController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GUI/src/javafx/details/rules/TestMain.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_8_15_2023_1_26_PM_[Changes]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_8_15_2023_1_26_PM__Changes_.xml" beforeDir="false" />
+    <list default="true" id="27d35137-667f-4e37-a519-ab836acc0a06" name="Changes" comment="with shavit's GUI">
+      <change afterPath="$PROJECT_DIR$/GUI/src/javafx/input/components/SecondScreenMain.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GUI/src/javafx/input/components/mainComponent/SecondScreenController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GUI/src/javafx/input/components/mainComponent/UIAdapter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GUI/src/javafx/input/components/mainComponent/aviad.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GUI/src/javafx/input/components/mainComponent/aviad2.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GUI/src/javafx/input/components/mainComponent/second-screen.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GUI/src/javafx/input/components/mainComponent/styles.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GUI/src/javafx/input/components/singleEntity/BasicEntityData.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GUI/src/javafx/input/components/singleEntity/EntityData.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GUI/src/javafx/input/components/singleEntity/SingleEntityController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GUI/src/javafx/input/components/singleEntity/single-entity.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GUI/src/javafx/input/components/singleEntity/singleEntity.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GUI/src/javafx/input/logic/SecondScreenLogic.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GUI/src/javafx/input/logic/tasks/entity/CollectEntityPopulationTask.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ConsoleUI/src/menu/impl/MenuImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/ConsoleUI/src/menu/impl/MenuImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/resources/ex1-cigarets.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/resources/ex1-cigarets.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/resources/ex1-error-2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/resources/ex1-error-2.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/resources/master-ex1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/resources/master-ex1.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/questions" beforeDir="false" />
     </list>
     <list id="9eb12e0a-64d7-4be1-90c5-9941354570ea" name="Changes by ASUS" comment="version 1.0" />
     <option name="SHOW_DIALOG" value="false" />
@@ -70,6 +53,11 @@
       <list>
         <option value="Eyal Shpater" />
       </list>
+    </option>
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="main" />
+      </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="RESET_MODE" value="HARD" />
@@ -101,32 +89,32 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;dart.analysis.tool.window.visible&quot;: &quot;false&quot;,
-    &quot;extract.method.default.visibility&quot;: &quot;private&quot;,
-    &quot;full.screen.before.presentation.mode&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;1.8&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/ASUS/IdeaProjects/Predictions&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;inlay.hints&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "dart.analysis.tool.window.visible": "false",
+    "extract.method.default.visibility": "private",
+    "full.screen.before.presentation.mode": "false",
+    "git-widget-placeholder": "GUI",
+    "jdk.selected.JAVA_MODULE": "1.8",
+    "last_opened_file_path": "C:/Users/ASUS/IdeaProjects/Predictions",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Libraries",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "inlay.hints",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/JavaFX/src/javafx/details/impl" />
@@ -140,13 +128,13 @@
       <recent name="javafx.details.details" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.javafx.details.details.TestMain">
-    <configuration name="TestMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="javafx.details.entities.TestMain" />
+  <component name="RunManager" selected="Application.SecondScreenMain">
+    <configuration name="SecondScreenMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="javafx.input.components.SecondScreenMain" />
       <module name="GUI" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="javafx.details.entities.*" />
+          <option name="PATTERN" value="javafx.input.components.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -154,12 +142,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="javafx.Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="javafx.Main" />
+    <configuration name="TestMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="javafx.details.entities.TestMain" />
       <module name="GUI" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="javafx.*" />
+          <option name="PATTERN" value="javafx.details.entities.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -208,11 +196,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.SecondScreenMain" />
         <item itemvalue="Application.javafx.details.details.TestMain" />
         <item itemvalue="Application.javafx.details.rules.TestMain" />
         <item itemvalue="Application.javafx.details.components.Main" />
         <item itemvalue="Application.TestMain" />
-        <item itemvalue="Application.javafx.Main" />
       </list>
     </recent_temporary>
   </component>
@@ -277,6 +265,7 @@
       <workItem from="1693322020069" duration="9242000" />
       <workItem from="1693385372478" duration="154000" />
       <workItem from="1693393358711" duration="1386000" />
+      <workItem from="1693395480521" duration="1416000" />
     </task>
     <task id="LOCAL-00034" summary="Fixed the EntityInstance problem">
       <created>1691746931845</created>
@@ -361,14 +350,6 @@
       <option name="presentableId" value="LOCAL-00049" />
       <option name="project" value="LOCAL" />
       <updated>1692003349312</updated>
-    </task>
-    <task id="LOCAL‎-00050" summary="ConsoleUI menu implement - not full implementation.">
-      <option name="closed" value="true" />
-      <created>1692017668201</created>
-      <option name="number" value="00050" />
-      <option name="presentableId" value="LOCAL‎-00050" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1692017668203</updated>
     </task>
     <task id="LOCAL‎-00051" summary="Changes by ASUS">
       <option name="closed" value="true" />
@@ -653,7 +634,15 @@
       <option name="project" value="LOCAL‎" />
       <updated>1692493670062</updated>
     </task>
-    <option name="localTasksCounter" value="87" />
+    <task id="LOCAL‎-00087" summary="init GUI branch">
+      <option name="closed" value="true" />
+      <created>1693395569172</created>
+      <option name="number" value="00087" />
+      <option name="presentableId" value="LOCAL‎-00087" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1693395569173</updated>
+    </task>
+    <option name="localTasksCounter" value="88" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -672,8 +661,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="added xml logic" />
-    <MESSAGE value="latest" />
     <MESSAGE value="simulation run complete" />
     <MESSAGE value="WorldDTO complete" />
     <MESSAGE value="method 2 is some what completed" />
@@ -697,7 +684,9 @@
     <MESSAGE value="version 1:0." />
     <MESSAGE value="version 1.0" />
     <MESSAGE value="version 1:1." />
-    <option name="LAST_COMMIT_MESSAGE" value="version 1:1." />
+    <MESSAGE value="init GUI branch" />
+    <MESSAGE value="with shavit's GUI" />
+    <option name="LAST_COMMIT_MESSAGE" value="with shavit's GUI" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
