@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.control.TreeView?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
+
+<TitledPane fx:id="titledPane" contentDisplay="CENTER" text="title" xmlns="http://javafx.com/javafx/8.0.171"
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafx.tab.details.entities.EntitiesController">
+    <content>
+        <StackPane prefHeight="300.0" prefWidth="420.0">
+            <children>
+                <GridPane>
+                    <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints vgrow="NEVER"/>
+                        <RowConstraints vgrow="NEVER"/>
+                        <RowConstraints vgrow="SOMETIMES"/>
+                        <RowConstraints vgrow="NEVER"/>
+                    </rowConstraints>
+                    <children>
+                        <ScrollPane fitToHeight="true" fitToWidth="true" GridPane.columnSpan="2" GridPane.hgrow="ALWAYS"
+                                    GridPane.rowIndex="1" GridPane.rowSpan="2" GridPane.vgrow="ALWAYS">
+                            <content>
+                                <TreeView fx:id="propertiesTreeView" editable="true" minHeight="100.0" minWidth="100.0"
+                                          onContextMenuRequested="#propertiesOnContextRequested" prefHeight="200.0"
+                                          prefWidth="200.0"/>
+                            </content>
+                        </ScrollPane>
+                        <HBox alignment="BOTTOM_LEFT" GridPane.hgrow="NEVER" GridPane.rowIndex="3"
+                              GridPane.vgrow="NEVER">
+                            <children>
+                                <Label text="Population: "/>
+                                <Label fx:id="populationNumberLabel" alignment="CENTER_RIGHT" contentDisplay="TOP"/>
+                            </children>
+                            <padding>
+                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+                            </padding>
+                        </HBox>
+                        <HBox alignment="CENTER" GridPane.columnSpan="2" GridPane.hgrow="NEVER" GridPane.vgrow="NEVER">
+                            <children>
+                                <Label fx:id="nameLabel" contentDisplay="CENTER" text="name"/>
+                            </children>
+                            <GridPane.margin>
+                                <Insets bottom="10.0" top="10.0"/>
+                            </GridPane.margin>
+                        </HBox>
+                    </children>
+                </GridPane>
+            </children>
+        </StackPane>
+    </content>
+</TitledPane>
