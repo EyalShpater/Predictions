@@ -9,7 +9,8 @@
 
 <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
       prefHeight="114.0" prefWidth="544.0" spacing="10.0" xmlns="http://javafx.com/javafx/20.0.1"
-      xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafx.input.components.singleEnvVar.SingleEnvVarController">
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="javafx.tab.input.components.singleEnvVar.SingleEnvVarController">
    <children>
       <Label fx:id="envVarNameLabel" alignment="CENTER" contentDisplay="CENTER" prefHeight="48.0" prefWidth="294.0"/>
       <TextField fx:id="envVarValueTextField" maxWidth="-Infinity" onAction="#setValueAction" prefHeight="25.0"

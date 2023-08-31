@@ -2,7 +2,7 @@ package javafx.tab.input.components.mainComponent;
 
 import impl.EntityDefinitionDTO;
 import impl.PropertyDefinitionDTO;
-import javafx.input.components.singleEnvVar.SingleEnvVarController;
+import javafx.tab.input.components.singleEnvVar.SingleEnvVarController;
 import javafx.tab.input.components.singleEntity.SingleEntityController;
 import javafx.tab.input.logic.SecondScreenLogic;
 import javafx.beans.property.SimpleBooleanProperty;
@@ -14,7 +14,6 @@ import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.FlowPane;
-import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
@@ -25,9 +24,7 @@ import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
@@ -215,7 +212,7 @@ public class SecondScreenController {
     private void createEnvVarTile(String envVarName) {
         try {
             FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(getClass().getResource("/javafx/input/components/singleEnvVar/single-env-var.fxml"));
+            loader.setLocation(getClass().getResource("/javafx/tab/input/components/singleEnvVar/single-env-var.fxml"));
             Node singleEnvVarTile = loader.load();
 
             SingleEnvVarController singleEnvVarController = loader.getController();

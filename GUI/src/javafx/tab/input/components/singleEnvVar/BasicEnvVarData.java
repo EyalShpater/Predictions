@@ -1,4 +1,4 @@
-package javafx.input.components.singleEnvVar;
+package javafx.tab.input.components.singleEnvVar;
 
 import javafx.beans.property.SimpleStringProperty;
 
