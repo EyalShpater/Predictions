@@ -12,21 +12,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="27d35137-667f-4e37-a519-ab836acc0a06" name="Changes" comment="with shavit's GUI">
-      <change afterPath="$PROJECT_DIR$/GUI/src/javafx/input/components/SecondScreenMain.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GUI/src/javafx/input/components/mainComponent/SecondScreenController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GUI/src/javafx/input/components/mainComponent/UIAdapter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GUI/src/javafx/input/components/mainComponent/aviad.mp3" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GUI/src/javafx/input/components/mainComponent/aviad2.mp3" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GUI/src/javafx/input/components/mainComponent/second-screen.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GUI/src/javafx/input/components/mainComponent/styles.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GUI/src/javafx/input/components/singleEntity/BasicEntityData.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GUI/src/javafx/input/components/singleEntity/EntityData.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GUI/src/javafx/input/components/singleEntity/SingleEntityController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GUI/src/javafx/input/components/singleEntity/single-entity.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GUI/src/javafx/input/components/singleEntity/singleEntity.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GUI/src/javafx/input/logic/SecondScreenLogic.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GUI/src/javafx/input/logic/tasks/entity/CollectEntityPopulationTask.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GUI/src/javafx/input/components/singleEnvVar/BasicEnvVarData.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GUI/src/javafx/input/components/singleEnvVar/SingleEnvVarController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GUI/src/javafx/input/components/singleEnvVar/single-env-var.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GUI/src/javafx/input/components/singleEnvVar/singleEntity.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI/src/javafx/input/components/mainComponent/SecondScreenController.java" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/src/javafx/input/components/mainComponent/SecondScreenController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI/src/javafx/input/components/mainComponent/second-screen.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/src/javafx/input/components/mainComponent/second-screen.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI/src/javafx/input/logic/SecondScreenLogic.java" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/src/javafx/input/logic/SecondScreenLogic.java" afterDir="false" />
     </list>
     <list id="9eb12e0a-64d7-4be1-90c5-9941354570ea" name="Changes by ASUS" comment="version 1.0" />
     <option name="SHOW_DIALOG" value="false" />
@@ -44,6 +37,7 @@
       <list>
         <option value="Interface" />
         <option value="Enum" />
+        <option value="JavaFXApplication" />
         <option value="Class" />
       </list>
     </option>
@@ -102,7 +96,7 @@
     "full.screen.before.presentation.mode": "false",
     "git-widget-placeholder": "GUI",
     "jdk.selected.JAVA_MODULE": "1.8",
-    "last_opened_file_path": "C:/Users/ASUS/IdeaProjects/Predictions",
+    "last_opened_file_path": "C:/Users/ASUS/IdeaProjects/PredictionsGuiVersion/GUI/src/javafx/input/components/singleEnvVar",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -116,6 +110,9 @@
   }
 }]]></component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\ASUS\IdeaProjects\PredictionsGuiVersion\GUI\src\javafx\input\components\singleEnvVar" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/JavaFX/src/javafx/details/impl" />
       <recent name="$PROJECT_DIR$/JavaFX/src/javafx/details/resources" />
@@ -266,6 +263,7 @@
       <workItem from="1693385372478" duration="154000" />
       <workItem from="1693393358711" duration="1386000" />
       <workItem from="1693395480521" duration="1416000" />
+      <workItem from="1693461936482" duration="14820000" />
     </task>
     <task id="LOCAL-00034" summary="Fixed the EntityInstance problem">
       <created>1691746931845</created>
@@ -653,7 +651,19 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="origin/GUI" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>
@@ -696,6 +706,11 @@
           <properties class="java.lang.IllegalArgumentException" package="java.lang" />
           <option name="timeStamp" value="8" />
         </breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/GUI/src/javafx/input/components/mainComponent/SecondScreenController.java</url>
+          <line>156</line>
+          <option name="timeStamp" value="17" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
     <pin-to-top-manager>

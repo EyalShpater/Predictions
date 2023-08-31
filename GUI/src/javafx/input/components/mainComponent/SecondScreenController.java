@@ -1,7 +1,9 @@
 package javafx.input.components.mainComponent;
 
-import execution.simulation.api.PredictionsLogic;
+import impl.EntityDefinitionDTO;
+import impl.PropertyDefinitionDTO;
 import javafx.input.components.singleEntity.SingleEntityController;
+import javafx.input.components.singleEnvVar.SingleEnvVarController;
 import javafx.input.logic.SecondScreenLogic;
 import javafx.beans.property.SimpleBooleanProperty;
 import javafx.beans.property.SimpleStringProperty;
@@ -12,6 +14,7 @@ import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.FlowPane;
+import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
@@ -21,11 +24,14 @@ import javafx.stage.Stage;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.scene.media.MediaPlayer.Status;
-import javafx.util.Duration;
 
 public class SecondScreenController {
     @FXML
@@ -46,18 +52,21 @@ public class SecondScreenController {
     @FXML
     private FlowPane entitiesFlowPane;
 
+    @FXML
+    private FlowPane envVarsFlowPane;
+
 
     private SimpleStringProperty selectedFileProperty;
     private SimpleBooleanProperty isFileSelected;
     private SecondScreenLogic logic;
     private Stage primaryStage;
-    /*Media media;
-    MediaPlayer mediaPlayer ;*/
+    List<SingleEnvVarController> envVarControllerList;
 
 
     public SecondScreenController() {
         selectedFileProperty = new SimpleStringProperty();
         isFileSelected = new SimpleBooleanProperty(false);
+        envVarControllerList = new ArrayList<>();
 
     }
 
@@ -69,14 +78,39 @@ public class SecondScreenController {
 
     @FXML
     void openFileButtonActionListener(ActionEvent event) {
-        openFileAction();
-        showEntities();
+        cleanOldResults();
+        try {
+            openFileAction();
+            showEntities();
+            showEnvVariables();
+        } catch (IllegalArgumentException e) {
+            selectedFileName.setTextFill(Color.RED);
+            selectedFileName.setFont(Font.font("System", FontWeight.BOLD, 14));
+            selectedFileProperty.set("File did not load. " + e.getMessage());
+            isFileSelected.set(false);
+        }
+
+
+    }
+
+    private void showEnvVariables() {
+        List<PropertyDefinitionDTO> environmentVariables = logic.getEnvironmentVariablesToSet();
+        environmentVariables.forEach(
+                envVar -> {
+                    createEnvVarTile(envVar.getName());
+                }
+        );
+
 
     }
 
     private void showEntities() {
-        UIAdapter uiAdapter = createUIAdapter();
-        logic.collectEntitiesData(uiAdapter);
+        /*UIAdapter uiAdapter = createUIAdapter();
+        logic.collectEntitiesData(uiAdapter);*/
+        List<EntityDefinitionDTO> entitiyList = logic.getEntityList();
+        entitiyList.forEach(entity -> {
+            createTile(entity.getName(), entity.getPopulation());
+        });
     }
 
     void openFileAction() {
@@ -89,17 +123,9 @@ public class SecondScreenController {
         }
 
         String absolutePath = selectedFile.getAbsolutePath();
-        try {
-            logic.loadXML(absolutePath);
-            //TODO: implement a UI adapter
-            xmlGUISuccessActions(absolutePath);
-            isFileSelected.set(true);
-        } catch (IllegalArgumentException e) {
-            selectedFileName.setTextFill(Color.RED);
-            selectedFileName.setFont(Font.font("System", FontWeight.BOLD, 14));
-            selectedFileProperty.set("File did not load. " + e.getMessage());
-            isFileSelected.set(false);
-        }
+        logic.loadXML(absolutePath);
+        xmlGUISuccessActions(absolutePath);
+        isFileSelected.set(true);
     }
 
     private void xmlGUISuccessActions(String absolutePath) {
@@ -120,6 +146,29 @@ public class SecondScreenController {
 
     @FXML
     void startButtonActionListener(ActionEvent event) {
+        playAudio();
+        setEnvVariables();
+
+    }
+
+    private void setEnvVariables() {
+
+        final int[] index = {1};
+        List<PropertyDefinitionDTO> environmentVariables = logic.getEnvironmentVariablesToSet();
+        List<PropertyDefinitionDTO> newEnvironmentVariables = new ArrayList<>();
+        environmentVariables.forEach(
+                envVar -> {
+                    SingleEnvVarController controller = envVarControllerList.get(index[0]);
+                    if (!controller.getEnvValue().equals("")) {
+                        newEnvironmentVariables.add(new PropertyDefinitionDTO(envVar.getName(), envVar.getType(), envVar.getFrom(), envVar.getTo(), false, controller.getEnvValue()));
+                    }
+                    index[0]++;
+                }
+        );
+        //runDetails = engine.runNewSimulation(updatedEnvironmentVariables);
+    }
+
+    public void playAudio() {
         URL audioFileUrl = getClass().getResource("aviad2.mp3");
         if (audioFileUrl != null) {
             String audioFilePath = audioFileUrl.toString();
@@ -129,8 +178,6 @@ public class SecondScreenController {
                 mediaPlayer.play();
             }
         }
-
-
     }
 
     public void setPrimaryStage(Stage primaryStage) {
@@ -162,4 +209,116 @@ public class SecondScreenController {
             e.printStackTrace();
         }
     }
+
+    private void createEnvVarTile(String envVarName) {
+        try {
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(getClass().getResource("/javafx/input/components/singleEnvVar/single-env-var.fxml"));
+            Node singleEnvVarTile = loader.load();
+
+            SingleEnvVarController singleEnvVarController = loader.getController();
+            singleEnvVarController.setEnvVarName(envVarName);
+
+            envVarsFlowPane.getChildren().add(singleEnvVarTile);
+            envVarControllerList.add(singleEnvVarController);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void cleanOldResults() {
+        entitiesFlowPane.getChildren().clear();
+        envVarsFlowPane.getChildren().clear();
+    }
+    /*
+
+    private List<PropertyDefinitionDTO> getEnvironmentVariablesFromUser() {
+        List<PropertyDefinitionDTO> environmentVariables = engine.getEnvironmentVariablesToSet();
+        int choice = -1;
+
+        printer.printTitle("Set Environment Variables", '~', '-', 0);
+        System.out.println();
+
+        while (choice != 0) {
+            System.out.println("Please enter the number of variable you want to set, or 0 to finish the setup");
+            System.out.println();
+
+            printer.showEnvironmentVariablesChooseMenu(environmentVariables);
+            choice = typeScanner.getIntFromUserInRange(0, environmentVariables.size());
+
+            if (choice != 0) {
+                PropertyDefinitionDTO toUpdate = environmentVariables.get(choice - 1);
+                environmentVariables.set(choice - 1, initEnvironmentVariableDTOFromUserInput(toUpdate));
+            }
+        }
+
+        return environmentVariables;
+    }
+
+
+    @Override
+    public List<PropertyDefinitionDTO> getEnvironmentVariablesToSet() {
+        return world.getEnvironmentVariablesDTO();
+    }
+
+    public void showEnvironmentVariablesChooseMenu(List<PropertyDefinitionDTO> environmentVariables) {
+        if (environmentVariables != null) {
+            printPropertyDefinitionDTOList(environmentVariables, 0, true);
+            System.out.print(System.lineSeparator());
+            System.out.println("Please enter the number of variable you want to set, or 0 to finish the setup");
+        }
+    }
+
+
+    public void printPropertyDefinitionDTOList(List<PropertyDefinitionDTO> properties, int indentation, boolean isEnvironmentVariable) {
+        for (int i = 1; i <= properties.size(); i++) {
+            printLine(indentation, ' ');
+            System.out.print(i + ". ");
+            printPropertyDefinitionDTO(properties.get(i - 1),
+                    Integer
+                            .valueOf(i)
+                            .toString()
+                            .length() + indentation + 2,
+                    isEnvironmentVariable
+            );
+            System.out.print(System.lineSeparator());
+        }
+    }
+
+
+
+    private PropertyDefinitionDTO initEnvironmentVariableDTOFromUserInput(PropertyDefinitionDTO variableDTO) {
+        Object value;
+
+        System.out.println("Please enter a value");
+        switch (variableDTO.getType()) {
+            case "INT":
+                value = variableDTO.getFrom() == null ?
+                        typeScanner.getIntFromUser() :
+                        typeScanner.getIntFromUserInRange(variableDTO.getFrom().intValue(), variableDTO.getTo().intValue());
+                break;
+            case "DOUBLE":
+                value = variableDTO.getFrom() == null ?
+                        typeScanner.getDoubleFromUser() :
+                        typeScanner.getDoubleFromUserInRange(variableDTO.getFrom(), variableDTO.getTo());
+                break;
+            case "BOOLEAN":
+                value = typeScanner.getBooleanFromUser();
+                break;
+            default:
+                value = scanner.nextLine();
+        }
+
+        return new PropertyDefinitionDTO(
+                variableDTO.getName(),
+                variableDTO.getType(),
+                variableDTO.getFrom(),
+                variableDTO.getTo(),
+                false,
+                value
+        );
+    }
+     */
 }
+
+

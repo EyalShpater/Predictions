@@ -95,6 +95,12 @@
                                           vgap="5.0"/>
                             </content>
                         </ScrollPane>
+                        <ScrollPane hbarPolicy="NEVER" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1">
+                            <content>
+                                <FlowPane fx:id="envVarsFlowPane" hgap="5.0" prefHeight="313.0" prefWidth="507.0"
+                                          vgap="5.0"/>
+                            </content>
+                        </ScrollPane>
                     </children>
                 </GridPane>
                 <Separator prefHeight="10.0" prefWidth="830.0">

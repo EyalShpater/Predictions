@@ -1,11 +1,16 @@
 package javafx.input.logic;
 
+import impl.EntityDefinitionDTO;
+import impl.PropertyDefinitionDTO;
+import impl.WorldDTO;
 import javafx.input.logic.tasks.entity.CollectEntityPopulationTask;
 import javafx.input.components.mainComponent.UIAdapter;
 import execution.simulation.api.PredictionsLogic;
 import execution.simulation.impl.PredictionsLogicImpl;
 import javafx.input.components.mainComponent.SecondScreenController;
 import javafx.concurrent.Task;
+
+import java.util.List;
 
 public class SecondScreenLogic {
     private SecondScreenController secController;
@@ -24,6 +29,17 @@ public class SecondScreenLogic {
 
     public void loadXML(String absolutePath) {
         engine.loadXML(absolutePath);
+    }
+
+    public List<EntityDefinitionDTO> getEntityList() {
+        WorldDTO loadedSimulationDetails = engine.getLoadedSimulationDetails();
+        List<EntityDefinitionDTO> entitiesList = loadedSimulationDetails.getEntities();
+        return entitiesList;
+    }
+
+
+    public List<PropertyDefinitionDTO> getEnvironmentVariablesToSet() {
+        return engine.getEnvironmentVariablesToSet();
     }
 }
 
