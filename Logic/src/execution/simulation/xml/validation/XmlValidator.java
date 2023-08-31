@@ -21,7 +21,7 @@ public class XmlValidator {
         this.path = path;
     }
 
-    public void isValid() throws IllegalArgumentException{
+    public void isValid() throws IllegalArgumentException, JAXBException {
         // 1) check xml exist and type of xml
         checkIfPathExist();
         checkIfXmlType();
@@ -65,21 +65,15 @@ public class XmlValidator {
         }
     }
 
-    private PRDWorld loadXmlToWorld(){
-        try
-        {
-            File file = new File(this.path);
-            JAXBContext jaxbContent = JAXBContext.newInstance(PRDWorld.class);
+    private PRDWorld loadXmlToWorld() throws JAXBException {
 
-            Unmarshaller jaxbUnmarshaller = jaxbContent.createUnmarshaller();
-            PRDWorld world  = (PRDWorld) jaxbUnmarshaller.unmarshal(file);
+        File file = new File(this.path);
+        JAXBContext jaxbContent = JAXBContext.newInstance(PRDWorld.class);
 
-            return world;
+        Unmarshaller jaxbUnmarshaller = jaxbContent.createUnmarshaller();
+        PRDWorld world = (PRDWorld) jaxbUnmarshaller.unmarshal(file);
 
-        }catch (JAXBException e){
-            e.printStackTrace();
-        }
-        return null;
+        return world;
     }
 
 

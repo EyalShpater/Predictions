@@ -1,10 +1,10 @@
-package javafx.input.components.mainComponent;
+package javafx.tab.input.components.mainComponent;
 
 import impl.EntityDefinitionDTO;
 import impl.PropertyDefinitionDTO;
-import javafx.input.components.singleEntity.SingleEntityController;
 import javafx.input.components.singleEnvVar.SingleEnvVarController;
-import javafx.input.logic.SecondScreenLogic;
+import javafx.tab.input.components.singleEntity.SingleEntityController;
+import javafx.tab.input.logic.SecondScreenLogic;
 import javafx.beans.property.SimpleBooleanProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.event.ActionEvent;
@@ -32,6 +32,8 @@ import java.util.Map;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.scene.media.MediaPlayer.Status;
+
+import javax.xml.bind.JAXBException;
 
 public class SecondScreenController {
     @FXML
@@ -83,7 +85,7 @@ public class SecondScreenController {
             openFileAction();
             showEntities();
             showEnvVariables();
-        } catch (IllegalArgumentException e) {
+        } catch (Exception e) {
             selectedFileName.setTextFill(Color.RED);
             selectedFileName.setFont(Font.font("System", FontWeight.BOLD, 14));
             selectedFileProperty.set("File did not load. " + e.getMessage());
@@ -113,7 +115,7 @@ public class SecondScreenController {
         });
     }
 
-    void openFileAction() {
+    void openFileAction() throws JAXBException {
         FileChooser fileChooser = new FileChooser();
         fileChooser.setTitle("Select xml file");
         fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("xml files", "*.xml"));

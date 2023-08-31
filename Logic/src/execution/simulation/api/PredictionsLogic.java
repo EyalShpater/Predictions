@@ -4,10 +4,11 @@ import definition.property.api.PropertyDefinition;
 import impl.*;
 import instance.property.api.PropertyInstance;
 
+import javax.xml.bind.JAXBException;
 import java.util.*;
 
 public interface PredictionsLogic {
-    void loadXML(String path);
+    void loadXML(String path) throws JAXBException;
 
     List<PropertyDefinitionDTO> getEnvironmentVariablesToSet();
 

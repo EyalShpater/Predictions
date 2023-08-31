@@ -1,16 +1,18 @@
-package javafx.input.logic;
+package javafx.tab.input.logic;
 
 import impl.EntityDefinitionDTO;
 import impl.PropertyDefinitionDTO;
 import impl.WorldDTO;
-import javafx.input.logic.tasks.entity.CollectEntityPopulationTask;
-import javafx.input.components.mainComponent.UIAdapter;
+import javafx.tab.input.logic.tasks.entity.CollectEntityPopulationTask;
+import javafx.tab.input.components.mainComponent.UIAdapter;
 import execution.simulation.api.PredictionsLogic;
 import execution.simulation.impl.PredictionsLogicImpl;
-import javafx.input.components.mainComponent.SecondScreenController;
+import javafx.tab.input.components.mainComponent.SecondScreenController;
 import javafx.concurrent.Task;
 
 import java.util.List;
+
+import javax.xml.bind.JAXBException;
 
 public class SecondScreenLogic {
     private SecondScreenController secController;
@@ -27,7 +29,7 @@ public class SecondScreenLogic {
         new Thread(currentRunningTask).start();
     }
 
-    public void loadXML(String absolutePath) {
+    public void loadXML(String absolutePath) throws JAXBException {
         engine.loadXML(absolutePath);
     }
 

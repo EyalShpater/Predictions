@@ -9,6 +9,7 @@ import execution.simulation.xml.validation.XmlValidator;
 import impl.*;
 import instance.enviornment.api.ActiveEnvironment;
 
+import javax.xml.bind.JAXBException;
 import java.io.Serializable;
 import java.util.List;
 
@@ -21,7 +22,7 @@ public class PredictionsLogicImpl implements PredictionsLogic , Serializable {
     }
 
     @Override
-    public void loadXML(String path) {
+    public void loadXML(String path) throws JAXBException {
         World newWorld = new WorldImpl();
         XmlValidator validator = new XmlValidator(path);
         XmlReader reader;
