@@ -1,4 +1,4 @@
-package javafx.details.rules;
+package javafx.tab.details.rules;
 
 import com.sun.javafx.binding.StringFormatter;
 import javafx.fxml.FXML;

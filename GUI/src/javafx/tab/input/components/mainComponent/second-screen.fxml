@@ -17,7 +17,7 @@
 <BorderPane maxHeight="500.0" maxWidth="0.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0"
             prefWidth="830.0" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/20.0.1"
             xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="javafx.input.components.mainComponent.SecondScreenController">
+            fx:controller="javafx.tab.input.components.mainComponent.SecondScreenController">
     <top>
         <Label styleClass="header-label" text="Predictions" BorderPane.alignment="CENTER">
             <font>

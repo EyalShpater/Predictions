@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.StackPane?>
 
 <TitledPane fx:id="titledPane" contentDisplay="CENTER" text="title" xmlns="http://javafx.com/javafx/8.0.171"
-            xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafx.details.entities.EntitiesController">
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafx.tab.details.entities.EntitiesController">
     <content>
         <StackPane prefHeight="300.0" prefWidth="420.0">
             <children>

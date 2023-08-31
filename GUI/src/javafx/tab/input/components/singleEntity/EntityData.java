@@ -1,4 +1,4 @@
-package javafx.input.components.singleEntity;
+package javafx.tab.input.components.singleEntity;
 
 public interface EntityData {
     String getEntity();

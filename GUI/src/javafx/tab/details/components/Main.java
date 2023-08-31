@@ -1,4 +1,4 @@
-package javafx.details.components;
+package javafx.tab.details.components;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;

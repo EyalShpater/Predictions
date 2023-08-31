@@ -1,9 +1,9 @@
-package javafx.input.components;
+package javafx.tab.input.components;
 
-import javafx.input.components.mainComponent.SecondScreenController;
+import javafx.tab.input.components.mainComponent.SecondScreenController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
-import javafx.input.logic.SecondScreenLogic;
+import javafx.tab.input.logic.SecondScreenLogic;
 import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;

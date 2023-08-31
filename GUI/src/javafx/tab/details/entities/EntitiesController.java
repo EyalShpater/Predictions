@@ -1,4 +1,4 @@
-package javafx.details.entities;
+package javafx.tab.details.entities;
 
 import java.net.URL;
 import java.util.ResourceBundle;

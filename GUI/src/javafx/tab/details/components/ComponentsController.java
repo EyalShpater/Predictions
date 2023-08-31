@@ -1,9 +1,9 @@
-package javafx.details.components;
+package javafx.tab.details.components;
 
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import javafx.details.details.DetailsController;
+import javafx.tab.details.details.DetailsController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;

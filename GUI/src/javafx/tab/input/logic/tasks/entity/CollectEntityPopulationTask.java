@@ -1,9 +1,9 @@
-package javafx.input.logic.tasks.entity;
+package javafx.tab.input.logic.tasks.entity;
 
 import execution.simulation.api.PredictionsLogic;
-import javafx.input.components.mainComponent.UIAdapter;
-import javafx.input.components.singleEntity.BasicEntityData;
-import javafx.input.components.singleEntity.EntityData;
+import javafx.tab.input.components.mainComponent.UIAdapter;
+import javafx.tab.input.components.singleEntity.BasicEntityData;
+import javafx.tab.input.components.singleEntity.EntityData;
 import impl.EntityDefinitionDTO;
 import impl.WorldDTO;
 import javafx.concurrent.Task;

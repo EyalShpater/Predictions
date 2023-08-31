@@ -1,4 +1,4 @@
-package javafx.details.rules;
+package javafx.tab.details.details;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -9,9 +9,9 @@ import javafx.stage.Stage;
 public class TestMain extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
-        primaryStage.setTitle("Predictions");
+        primaryStage.setTitle("Details");
 
-        Parent load = FXMLLoader.load(getClass().getResource("Rules.fxml"));
+        Parent load = FXMLLoader.load(getClass().getResource("Details.fxml"));
         Scene scene = new Scene(load, 600, 400);
         primaryStage.setScene(scene);
         primaryStage.show();

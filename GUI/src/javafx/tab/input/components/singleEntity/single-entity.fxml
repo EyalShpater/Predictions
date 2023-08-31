@@ -6,7 +6,7 @@
 <VBox alignment="CENTER" maxHeight="123.0" maxWidth="154.0" minHeight="88.0" minWidth="154.0" prefHeight="120.0"
       prefWidth="154.0" styleClass="round-layout" stylesheets="@singleEntity.css"
       xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1"
-      fx:controller="javafx.input.components.singleEntity.SingleEntityController">
+      fx:controller="javafx.tab.input.components.singleEntity.SingleEntityController">
     <children>
         <Label fx:id="entityNameLabel" alignment="CENTER" contentDisplay="CENTER" maxHeight="45.0"
                maxWidth="1.7976931348623157E308" minHeight="45.0" prefHeight="45.0" prefWidth="145.0"/>

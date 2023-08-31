@@ -1,8 +1,8 @@
-package javafx.input.components.mainComponent;
+package javafx.tab.input.components.mainComponent;
 
 
 import javafx.application.Platform;
-import javafx.input.components.singleEntity.EntityData;
+import javafx.tab.input.components.singleEntity.EntityData;
 
 import java.util.function.Consumer;
 

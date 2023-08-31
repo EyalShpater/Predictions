@@ -1,6 +1,5 @@
-package javafx.input.components.singleEntity;
+package javafx.tab.input.components.singleEntity;
 
-import javafx.input.components.singleEntity.BasicEntityData;
 import javafx.beans.binding.Bindings;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;

@@ -1,10 +1,6 @@
-package javafx.details.details;
+package javafx.tab.details.details;
 
-import java.net.URL;
-import java.util.ResourceBundle;
-
-import javafx.details.components.ComponentsController;
-import javafx.embed.swing.JFXPanel;
+import javafx.tab.details.components.ComponentsController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
