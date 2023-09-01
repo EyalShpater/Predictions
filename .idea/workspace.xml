@@ -11,13 +11,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="27d35137-667f-4e37-a519-ab836acc0a06" name="Changes" comment="details window POC">
+    <list default="true" id="27d35137-667f-4e37-a519-ab836acc0a06" name="Changes" comment="general component in Details Tab is bind to the engine">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/src/javafx/mainscene/main/PredictionsMainAppController.java" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/src/javafx/mainscene/main/PredictionsMainAppController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/src/javafx/mainscene/main/TestMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/src/javafx/mainscene/main/TestMain.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GUI/src/javafx/tab/details/details/DetailsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/src/javafx/tab/details/details/DetailsController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/src/javafx/tab/details/general/General.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/src/javafx/tab/details/general/General.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/src/javafx/tab/details/general/GeneralController.java" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/src/javafx/tab/details/general/GeneralController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI/src/javafx/tab/details/environment/variables/EnvironmentVariables.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/src/javafx/tab/details/environment/variables/EnvironmentVariables.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI/src/javafx/tab/details/environment/variables/EnvironmentVariablesController.java" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/src/javafx/tab/details/environment/variables/EnvironmentVariablesController.java" afterDir="false" />
     </list>
     <list id="9eb12e0a-64d7-4be1-90c5-9941354570ea" name="Changes by ASUS" comment="version 1.0" />
     <option name="SHOW_DIALOG" value="false" />
@@ -349,14 +347,6 @@
       <option name="project" value="LOCAL" />
       <updated>1692003349312</updated>
     </task>
-    <task id="LOCAL‎-00052" summary="Divide added">
-      <option name="closed" value="true" />
-      <created>1692022417983</created>
-      <option name="number" value="00052" />
-      <option name="presentableId" value="LOCAL‎-00052" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1692022417983</updated>
-    </task>
     <task id="LOCAL-00053" summary="added xml logic">
       <created>1692124813678</created>
       <option name="number" value="00053" />
@@ -640,7 +630,15 @@
       <option name="project" value="LOCAL‎" />
       <updated>1693594479635</updated>
     </task>
-    <option name="localTasksCounter" value="89" />
+    <task id="LOCAL‎-00089" summary="general component in Details Tab is bind to the engine">
+      <option name="closed" value="true" />
+      <created>1693599892456</created>
+      <option name="number" value="00089" />
+      <option name="presentableId" value="LOCAL‎-00089" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1693599892456</updated>
+    </task>
+    <option name="localTasksCounter" value="90" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -671,7 +669,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="WorldDTO complete" />
     <MESSAGE value="method 2 is some what completed" />
     <MESSAGE value="XML checks" />
     <MESSAGE value="refactor the DTOConvertible interface." />
@@ -696,7 +693,8 @@
     <MESSAGE value="init GUI branch" />
     <MESSAGE value="with shavit's GUI" />
     <MESSAGE value="details window POC" />
-    <option name="LAST_COMMIT_MESSAGE" value="details window POC" />
+    <MESSAGE value="general component in Details Tab is bind to the engine" />
+    <option name="LAST_COMMIT_MESSAGE" value="general component in Details Tab is bind to the engine" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
@@ -710,11 +708,6 @@
           <url>file://$PROJECT_DIR$/GUI/src/javafx/input/components/mainComponent/SecondScreenController.java</url>
           <line>156</line>
           <option name="timeStamp" value="17" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/GUI/src/javafx/tab/details/details/DetailsController.java</url>
-          <line>113</line>
-          <option name="timeStamp" value="24" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

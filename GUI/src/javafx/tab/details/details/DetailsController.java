@@ -15,8 +15,10 @@ import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TitledPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.StackPane;
+import javafx.tab.details.environment.variables.EnvironmentVariablesController;
 import javafx.tab.details.general.GeneralController;
 
+import java.io.IOException;
 import java.net.URL;
 
 public class DetailsController {
@@ -61,24 +63,27 @@ public class DetailsController {
     }
 
     public void environmentVarOnAction(ActionEvent event) {
-        try {
-            StackPane var1 = FXMLLoader.load(getClass().getResource("/javafx/tab/details/environment/variables/EnvironmentVariables.fxml"));
-            StackPane var2 = FXMLLoader.load(getClass().getResource("/javafx/tab/details/environment/variables/EnvironmentVariables.fxml"));
-            StackPane var3 = FXMLLoader.load(getClass().getResource("/javafx/tab/details/environment/variables/EnvironmentVariables.fxml"));
+        FlowPane fp = new FlowPane();
+        fp.setHgap(5);
+        fp.setVgap(5);
 
-            FlowPane fp = new FlowPane();
-            fp.getChildren().addAll(var1, var2, var3);
-            fp.setHgap(5);
-            fp.setVgap(5);
+        engine.getEnvironmentVariablesToSet().forEach(env -> {
+            try {
+                URL resource = getClass().getResource("/javafx/tab/details/environment/variables/EnvironmentVariables.fxml");
+                FXMLLoader loader = new FXMLLoader();
+                loader.setLocation(resource);
+                StackPane stackPane = loader.load();
+                EnvironmentVariablesController envVarController = loader.getController();
 
-            ScrollPane sp = new ScrollPane(fp);
-            sp.setFitToWidth(true);
+                envVarController.setDataFromDTO(env);
+                fp.getChildren().add(stackPane);
+            } catch (IOException ignored) {
+            }
+        });
 
-            sceneSwitcher.getChildren().clear();
-            sceneSwitcher.getChildren().add(sp);
-        } catch (Exception e) {
-            System.out.println("fail");
-        }
+        ScrollPane sp = new ScrollPane(fp);
+        sp.setFitToWidth(true);
+        setScene(sp);
     }
 
     public void rulesOnAction(ActionEvent event) {
