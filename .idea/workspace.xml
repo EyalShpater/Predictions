@@ -11,11 +11,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="27d35137-667f-4e37-a519-ab836acc0a06" name="Changes" comment="general component in Details Tab is bind to the engine">
+    <list default="true" id="27d35137-667f-4e37-a519-ab836acc0a06" name="Changes" comment="Environment Variables in Details Tab is bind to the engine">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI/src/javafx/mainscene/main/PredictionsMainAppController.java" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/src/javafx/mainscene/main/PredictionsMainAppController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GUI/src/javafx/tab/details/details/DetailsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/src/javafx/tab/details/details/DetailsController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI/src/javafx/tab/details/entities/Entities.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/src/javafx/tab/details/entities/Entities.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI/src/javafx/tab/details/entities/EntitiesController.java" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/src/javafx/tab/details/entities/EntitiesController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GUI/src/javafx/tab/details/environment/variables/EnvironmentVariables.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/src/javafx/tab/details/environment/variables/EnvironmentVariables.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/src/javafx/tab/details/environment/variables/EnvironmentVariablesController.java" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/src/javafx/tab/details/environment/variables/EnvironmentVariablesController.java" afterDir="false" />
     </list>
     <list id="9eb12e0a-64d7-4be1-90c5-9941354570ea" name="Changes by ASUS" comment="version 1.0" />
     <option name="SHOW_DIALOG" value="false" />
@@ -375,14 +377,6 @@
       <option name="project" value="LOCAL" />
       <updated>1692168153217</updated>
     </task>
-    <task id="LOCAL‎-00057" summary="simulation run complete">
-      <option name="closed" value="true" />
-      <created>1692182404915</created>
-      <option name="number" value="00057" />
-      <option name="presentableId" value="LOCAL‎-00057" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1692182404916</updated>
-    </task>
     <task id="LOCAL‎-00058" summary="Changes by ASUS">
       <option name="closed" value="true" />
       <created>1692182416768</created>
@@ -638,7 +632,15 @@
       <option name="project" value="LOCAL‎" />
       <updated>1693599892456</updated>
     </task>
-    <option name="localTasksCounter" value="90" />
+    <task id="LOCAL‎-00090" summary="Environment Variables in Details Tab is bind to the engine">
+      <option name="closed" value="true" />
+      <created>1693602003014</created>
+      <option name="number" value="00090" />
+      <option name="presentableId" value="LOCAL‎-00090" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1693602003014</updated>
+    </task>
+    <option name="localTasksCounter" value="91" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -669,7 +671,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="method 2 is some what completed" />
     <MESSAGE value="XML checks" />
     <MESSAGE value="refactor the DTOConvertible interface." />
     <MESSAGE value="dto almost complete" />
@@ -694,7 +695,8 @@
     <MESSAGE value="with shavit's GUI" />
     <MESSAGE value="details window POC" />
     <MESSAGE value="general component in Details Tab is bind to the engine" />
-    <option name="LAST_COMMIT_MESSAGE" value="general component in Details Tab is bind to the engine" />
+    <MESSAGE value="Environment Variables in Details Tab is bind to the engine" />
+    <option name="LAST_COMMIT_MESSAGE" value="Environment Variables in Details Tab is bind to the engine" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">

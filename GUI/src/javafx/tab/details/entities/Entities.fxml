@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.StackPane?>
 
-<TitledPane fx:id="titledPane" contentDisplay="CENTER" text="title" xmlns="http://javafx.com/javafx/8.0.171"
+<TitledPane fx:id="mainScreen" contentDisplay="CENTER" text="title" xmlns="http://javafx.com/javafx/8.0.171"
             xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafx.tab.details.entities.EntitiesController">
     <content>
         <StackPane prefHeight="300.0" prefWidth="420.0">
@@ -24,19 +24,19 @@
                     <rowConstraints>
                         <RowConstraints vgrow="NEVER"/>
                         <RowConstraints vgrow="NEVER"/>
+                        <RowConstraints vgrow="NEVER"/>
                         <RowConstraints vgrow="SOMETIMES"/>
                         <RowConstraints vgrow="NEVER"/>
                     </rowConstraints>
                     <children>
                         <ScrollPane fitToHeight="true" fitToWidth="true" GridPane.columnSpan="2" GridPane.hgrow="ALWAYS"
-                                    GridPane.rowIndex="1" GridPane.rowSpan="2" GridPane.vgrow="ALWAYS">
+                                    GridPane.rowIndex="2" GridPane.rowSpan="2" GridPane.vgrow="ALWAYS">
                             <content>
                                 <TreeView fx:id="propertiesTreeView" editable="true" minHeight="100.0" minWidth="100.0"
-                                          onContextMenuRequested="#propertiesOnContextRequested" prefHeight="200.0"
-                                          prefWidth="200.0"/>
+                                          prefHeight="200.0" prefWidth="200.0"/>
                             </content>
                         </ScrollPane>
-                        <HBox alignment="BOTTOM_LEFT" GridPane.hgrow="NEVER" GridPane.rowIndex="3"
+                        <HBox alignment="BOTTOM_LEFT" GridPane.hgrow="NEVER" GridPane.rowIndex="4"
                               GridPane.vgrow="NEVER">
                             <children>
                                 <Label text="Population: "/>
@@ -53,6 +53,14 @@
                             <GridPane.margin>
                                 <Insets bottom="10.0" top="10.0"/>
                             </GridPane.margin>
+                        </HBox>
+                        <HBox GridPane.rowIndex="1">
+                            <children>
+                                <Label text="Properties"/>
+                            </children>
+                            <padding>
+                                <Insets bottom="10.0"/>
+                            </padding>
                         </HBox>
                     </children>
                 </GridPane>

@@ -1,6 +1,8 @@
 package javafx.tab.details.details;
 
 import execution.simulation.api.PredictionsLogic;
+import impl.EntityDefinitionDTO;
+import impl.PropertyDefinitionDTO;
 import javafx.geometry.Insets;
 import javafx.scene.Node;
 import javafx.scene.Parent;
@@ -15,6 +17,7 @@ import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TitledPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.StackPane;
+import javafx.tab.details.entities.EntitiesController;
 import javafx.tab.details.environment.variables.EnvironmentVariablesController;
 import javafx.tab.details.general.GeneralController;
 
@@ -42,18 +45,12 @@ public class DetailsController {
 
     public void entitiesOnAction(ActionEvent event) {
         try {
-            TitledPane tile1 = FXMLLoader.load(getClass().getResource("../entities/Entities.fxml"));
-            TitledPane tile2 = FXMLLoader.load(getClass().getResource("../entities/Entities.fxml"));
-            TitledPane tile3 = FXMLLoader.load(getClass().getResource("../entities/Entities.fxml"));
-            TitledPane tile4 = FXMLLoader.load(getClass().getResource("../entities/Entities.fxml"));
-            TitledPane tile5 = FXMLLoader.load(getClass().getResource("../entities/Entities.fxml"));
+            Accordion newScene = new Accordion();
 
-            tile2.setText("Ent-2");
-            tile3.setText("Ent-3");
-            tile4.setText("Ent-4");
-            tile5.setText("Ent-5");
-
-            Accordion newScene = new Accordion(tile1, tile2, tile3, tile4, tile5);
+            engine
+                    .getLoadedSimulationDetails()
+                    .getEntities()
+                    .forEach(entity -> setNewEntity(entity, newScene));
 
             sceneSwitcher.getChildren().clear();
             sceneSwitcher.getChildren().add(newScene);
@@ -67,19 +64,8 @@ public class DetailsController {
         fp.setHgap(5);
         fp.setVgap(5);
 
-        engine.getEnvironmentVariablesToSet().forEach(env -> {
-            try {
-                URL resource = getClass().getResource("/javafx/tab/details/environment/variables/EnvironmentVariables.fxml");
-                FXMLLoader loader = new FXMLLoader();
-                loader.setLocation(resource);
-                StackPane stackPane = loader.load();
-                EnvironmentVariablesController envVarController = loader.getController();
-
-                envVarController.setDataFromDTO(env);
-                fp.getChildren().add(stackPane);
-            } catch (IOException ignored) {
-            }
-        });
+        engine.getEnvironmentVariablesToSet()
+                .forEach(env -> setNewEnvironmentVariableTile(env, fp));
 
         ScrollPane sp = new ScrollPane(fp);
         sp.setFitToWidth(true);
@@ -132,5 +118,33 @@ public class DetailsController {
     private void setScene(Node newScene) {
         sceneSwitcher.getChildren().clear();
         sceneSwitcher.getChildren().add(newScene);
+    }
+
+    private void setNewEntity(EntityDefinitionDTO entity, Accordion accordion) {
+        try {
+            URL resource = getClass().getResource("/javafx/tab/details/entities/Entities.fxml");
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(resource);
+            TitledPane titledPane = loader.load();
+            EntitiesController entitiesController = loader.getController();
+
+            entitiesController.setDataFromDTO(entity);
+            accordion.getPanes().add(titledPane);
+        } catch (IOException ignored) {
+        }
+    }
+
+    private void setNewEnvironmentVariableTile(PropertyDefinitionDTO env, FlowPane flowPane) {
+        try {
+            URL resource = getClass().getResource("/javafx/tab/details/environment/variables/EnvironmentVariables.fxml");
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(resource);
+            StackPane stackPane = loader.load();
+            EnvironmentVariablesController envVarController = loader.getController();
+
+            envVarController.setDataFromDTO(env);
+            flowPane.getChildren().add(stackPane);
+        } catch (IOException ignored) {
+        }
     }
 }

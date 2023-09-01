@@ -2,6 +2,8 @@ package javafx.mainscene.main;
 
 import execution.simulation.api.PredictionsLogic;
 import execution.simulation.impl.PredictionsLogicImpl;
+import javafx.beans.property.BooleanProperty;
+import javafx.beans.property.SimpleBooleanProperty;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.mainscene.header.HeaderController;
@@ -23,14 +25,17 @@ public class PredictionsMainAppController {
     @FXML
     private HeaderController headerComponentController;
 
-    private PredictionsLogic engine = new PredictionsLogicImpl();
     private DetailsController detailsTabController;
+
+    private PredictionsLogic engine = new PredictionsLogicImpl();
 
     @FXML
     private void initialize() throws IOException {
         headerComponentController.setEngine(engine);
 
         setDetailsTab();
+        setNewExecutionTab();
+        setResultsTab();
     }
 
     private void setDetailsTab() {
@@ -45,9 +50,23 @@ public class PredictionsMainAppController {
 
             detailsTabController = loader.getController();
             detailsTabController.setEngine(engine);
-            tabPane.getTabs().addAll(details);
+            tabPane.getTabs().add(details);
         } catch (Exception ignored) {
 
         }
+    }
+
+    private void setNewExecutionTab() {
+        Tab newExecution = new Tab("New Execution");
+
+
+        tabPane.getTabs().add(newExecution);
+    }
+
+    private void setResultsTab() {
+        Tab results = new Tab("Results");
+
+
+        tabPane.getTabs().add(results);
     }
 }
