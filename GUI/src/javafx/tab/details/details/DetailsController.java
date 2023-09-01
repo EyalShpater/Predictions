@@ -63,6 +63,7 @@ public class DetailsController {
         FlowPane fp = new FlowPane();
         fp.setHgap(5);
         fp.setVgap(5);
+        fp.setPadding(new Insets(5));
 
         engine.getEnvironmentVariablesToSet()
                 .forEach(env -> setNewEnvironmentVariableTile(env, fp));
