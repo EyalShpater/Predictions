@@ -13,7 +13,6 @@
   <component name="ChangeListManager">
     <list default="true" id="27d35137-667f-4e37-a519-ab836acc0a06" name="Changes" comment="Entities in Details Tab is bind to the engine">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/src/javafx/tab/details/environment/variables/EnvironmentVariables.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/src/javafx/tab/details/environment/variables/EnvironmentVariables.fxml" afterDir="false" />
     </list>
     <list id="9eb12e0a-64d7-4be1-90c5-9941354570ea" name="Changes by ASUS" comment="version 1.0" />
     <option name="SHOW_DIALOG" value="false" />
@@ -189,9 +188,9 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.TestMain" />
+        <item itemvalue="Application.javafx.tab.input.components.SecondScreenMain" />
         <item itemvalue="Application.javafx.tab.details.details.TestMain" />
         <item itemvalue="Application.javafx.tab.details.environment.variables.TestMain" />
-        <item itemvalue="Application.javafx.tab.input.components.SecondScreenMain" />
         <item itemvalue="Application.Main" />
       </list>
     </recent_temporary>
@@ -260,6 +259,7 @@
       <workItem from="1693395480521" duration="1416000" />
       <workItem from="1693461936482" duration="14820000" />
       <workItem from="1693561653847" duration="8515000" />
+      <workItem from="1693610882907" duration="67000" />
     </task>
     <task id="LOCAL-00034" summary="Fixed the EntityInstance problem">
       <created>1691746931845</created>
@@ -372,14 +372,6 @@
       <option name="presentableId" value="LOCAL-00056" />
       <option name="project" value="LOCAL" />
       <updated>1692168153217</updated>
-    </task>
-    <task id="LOCAL‎-00060" summary="XML checks">
-      <option name="closed" value="true" />
-      <created>1692188176721</created>
-      <option name="number" value="00060" />
-      <option name="presentableId" value="LOCAL‎-00060" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1692188176721</updated>
     </task>
     <task id="LOCAL‎-00061" summary="method 2 is some what completed">
       <option name="closed" value="true" />
@@ -636,7 +628,15 @@
       <option name="project" value="LOCAL‎" />
       <updated>1693609527502</updated>
     </task>
-    <option name="localTasksCounter" value="93" />
+    <task id="LOCAL‎-00093" summary="Entities in Details Tab is bind to the engine">
+      <option name="closed" value="true" />
+      <created>1693610477112</created>
+      <option name="number" value="00093" />
+      <option name="presentableId" value="LOCAL‎-00093" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1693610477112</updated>
+    </task>
+    <option name="localTasksCounter" value="94" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

@@ -54,8 +54,7 @@ public class DetailsController {
 
             sceneSwitcher.getChildren().clear();
             sceneSwitcher.getChildren().add(newScene);
-        } catch (Exception e) {
-            System.out.println("fail");
+        } catch (Exception ignored) {
         }
     }
 
