@@ -7,7 +7,7 @@
 
 <ScrollPane fitToHeight="true" fitToWidth="true" minHeight="100.0" minWidth="100.0"
             xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="javafx.mainscene.body.PredictionsMainAppController">
+            fx:controller="javafx.mainscene.main.PredictionsMainAppController">
     <content>
         <BorderPane>
             <center>

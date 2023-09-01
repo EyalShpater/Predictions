@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TreeView?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.shape.Rectangle?>
+
+
+<StackPane focusTraversable="true" maxHeight="200.0" maxWidth="200.0" minHeight="100.0" minWidth="100.0"
+           prefHeight="200.0" prefWidth="200.0" xmlns="http://javafx.com/javafx/8.0.171"
+           xmlns:fx="http://javafx.com/fxml/1"
+           fx:controller="javafx.tab.details.environment.variables.EnvironmentVariablesController">
+    <children>
+        <Pane prefHeight="200.0" prefWidth="200.0">
+            <children>
+                <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="200.0" stroke="BLACK"
+                           strokeType="INSIDE" width="200.0"/>
+            </children>
+        </Pane>
+        <GridPane>
+            <columnConstraints>
+                <ColumnConstraints hgrow="NEVER" minWidth="10.0" prefWidth="10.0"/>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                <ColumnConstraints hgrow="NEVER" minWidth="10.0" prefWidth="10.0"/>
+            </columnConstraints>
+            <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="10.0" vgrow="NEVER"/>
+                <RowConstraints vgrow="NEVER"/>
+                <RowConstraints vgrow="NEVER"/>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                <RowConstraints minHeight="10.0" prefHeight="10.0" vgrow="NEVER"/>
+            </rowConstraints>
+            <children>
+                <HBox alignment="TOP_CENTER" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="1">
+                    <children>
+                        <Label fx:id="nameLabel" alignment="TOP_CENTER" contentDisplay="TOP" text="Entity Name"/>
+                    </children>
+                </HBox>
+                <HBox GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="2">
+                    <children>
+                        <Label text="Properties">
+                            <padding>
+                                <Insets bottom="10.0" top="20.0"/>
+                            </padding>
+                        </Label>
+                    </children>
+                </HBox>
+                <TreeView fx:id="propertiesTreeView" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1"
+                          GridPane.columnSpan="2" GridPane.rowIndex="3"/>
+            </children>
+        </GridPane>
+    </children>
+</StackPane>

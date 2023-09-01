@@ -1,4 +1,4 @@
-package javafx.mainscene.body;
+package javafx.mainscene.main;
 
 import execution.simulation.api.PredictionsLogic;
 import execution.simulation.impl.PredictionsLogicImpl;

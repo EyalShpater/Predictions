@@ -1,4 +1,4 @@
-package javafx.mainscene.body;
+package javafx.mainscene.main;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;

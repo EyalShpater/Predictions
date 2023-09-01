@@ -46,23 +46,13 @@
                         </ImageView>
                     </graphic>
                 </Button>
-                <Button fx:id="gridButton" alignment="TOP_LEFT" graphicTextGap="10.0" maxHeight="1.7976931348623157E308"
-                        maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#gridOnAction" text="Grid">
-                    <graphic>
-                        <ImageView fitHeight="24.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
-                            <image>
-                                <Image url="@../resources/world-wide-web.png"/>
-                            </image>
-                        </ImageView>
-                    </graphic>
-                </Button>
-                <Button fx:id="terminationButton" alignment="TOP_LEFT" graphicTextGap="10.0"
+                <Button fx:id="generalButton" alignment="TOP_LEFT" graphicTextGap="10.0"
                         maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false"
-                        onAction="#terminationOnAction" text="Termination">
+                        onAction="#generalOnAction" text="General">
                     <graphic>
                         <ImageView fitHeight="24.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
                             <image>
-                                <Image url="@../resources/termination.png"/>
+                                <Image url="@../resources/general.png"/>
                             </image>
                         </ImageView>
                     </graphic>

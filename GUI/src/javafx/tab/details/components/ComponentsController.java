@@ -27,10 +27,8 @@ public class ComponentsController {
     private Button rulesButton;
 
     @FXML
-    private Button gridButton;
+    private Button generalButton;
 
-    @FXML
-    private Button terminationButton;
 
     public void setMainController(DetailsController mainController) {
         this.mainController = mainController;
@@ -47,8 +45,8 @@ public class ComponentsController {
     }
 
     @FXML
-    private void gridOnAction(ActionEvent event) {
-        mainController.gridOnAction(event);
+    private void generalOnAction(ActionEvent event) {
+        mainController.generalOnAction(event);
     }
 
     @FXML
@@ -56,18 +54,12 @@ public class ComponentsController {
         mainController.rulesOnAction(event);
     }
 
-    @FXML
-    private void terminationOnAction(ActionEvent event) {
-        mainController.terminationOnAction(event);
-    }
 
     @FXML
     private void initialize() {
         assert entitiesButton != null : "fx:id=\"entitiesButton\" was not injected: check your FXML file 'Components.fxml'.";
         assert environmentVariablesButton != null : "fx:id=\"environmentVariablesButton\" was not injected: check your FXML file 'Components.fxml'.";
         assert rulesButton != null : "fx:id=\"rulesButton\" was not injected: check your FXML file 'Components.fxml'.";
-        assert gridButton != null : "fx:id=\"gridButton\" was not injected: check your FXML file 'Components.fxml'.";
-        assert terminationButton != null : "fx:id=\"terminationButton\" was not injected: check your FXML file 'Components.fxml'.";
-
+        assert generalButton != null : "fx:id=\"gridButton\" was not injected: check your FXML file 'Components.fxml'.";
     }
 }

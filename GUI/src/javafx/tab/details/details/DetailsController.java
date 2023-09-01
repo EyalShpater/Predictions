@@ -1,5 +1,7 @@
 package javafx.tab.details.details;
 
+import javafx.geometry.Insets;
+import javafx.scene.layout.FlowPane;
 import javafx.tab.details.components.ComponentsController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -12,17 +14,16 @@ import javafx.scene.layout.StackPane;
 
 public class DetailsController {
 
+
     @FXML
     private BorderPane borderPane;
-
     @FXML
     private StackPane sceneSwitcher;
-
     @FXML
     private ScrollPane buttonsComponent;
-
     @FXML
     private ComponentsController buttonsComponentController;
+
 
     @FXML
     void initialize() {
@@ -30,8 +31,6 @@ public class DetailsController {
     }
 
     public void entitiesOnAction(ActionEvent event) {
-
-
         try {
             TitledPane tile1 = FXMLLoader.load(getClass().getResource("../entities/Entities.fxml"));
             TitledPane tile2 = FXMLLoader.load(getClass().getResource("../entities/Entities.fxml"));
@@ -54,11 +53,36 @@ public class DetailsController {
     }
 
     public void environmentVarOnAction(ActionEvent event) {
-        System.out.println("environment");
+        try {
+            StackPane var1 = FXMLLoader.load(getClass().getResource("/javafx/tab/details/environment/variables/EnvironmentVariables.fxml"));
+            StackPane var2 = FXMLLoader.load(getClass().getResource("/javafx/tab/details/environment/variables/EnvironmentVariables.fxml"));
+            StackPane var3 = FXMLLoader.load(getClass().getResource("/javafx/tab/details/environment/variables/EnvironmentVariables.fxml"));
+
+            FlowPane fp = new FlowPane();
+            fp.getChildren().addAll(var1, var2, var3);
+            fp.setHgap(5);
+            fp.setVgap(5);
+
+            ScrollPane sp = new ScrollPane(fp);
+            sp.setFitToWidth(true);
+
+            sceneSwitcher.getChildren().clear();
+            sceneSwitcher.getChildren().add(sp);
+        } catch (Exception e) {
+            System.out.println("fail");
+        }
     }
 
-    public void gridOnAction(ActionEvent event) {
+    public void generalOnAction(ActionEvent event) {
+        try {
+            StackPane sp = FXMLLoader.load(getClass().getResource("/javafx/tab/details/general/General.fxml"));
+            ScrollPane s = new ScrollPane(sp);
+            sceneSwitcher.getChildren().clear();
+            sceneSwitcher.getChildren().add(s);
 
+        } catch (Exception e) {
+            System.out.println("failed");
+        }
     }
 
     public void rulesOnAction(ActionEvent event) {
@@ -83,7 +107,4 @@ public class DetailsController {
         }
     }
 
-    public void terminationOnAction(ActionEvent event) {
-
-    }
 }
