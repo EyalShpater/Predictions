@@ -7,6 +7,8 @@ import menu.api.Menu;
 import menu.api.MenuOptions;
 import menu.helper.PrintToScreen;
 import menu.helper.TypesScanner;
+
+import javax.xml.bind.JAXBException;
 import java.io.FileOutputStream;
 import java.io.FileNotFoundException;
 import java.io.ObjectOutputStream;
@@ -139,7 +141,11 @@ public class MenuImpl implements Menu {
         String filePath;
 
         filePath = scanner.nextLine().trim();
-        engine.loadXML(filePath);
+        try {
+            engine.loadXML(filePath);
+        } catch (JAXBException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     private void showSimulationDetails() {

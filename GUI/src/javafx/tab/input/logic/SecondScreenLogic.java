@@ -2,6 +2,7 @@ package javafx.tab.input.logic;
 
 import impl.EntityDefinitionDTO;
 import impl.PropertyDefinitionDTO;
+import impl.SimulationRunDetailsDTO;
 import impl.WorldDTO;
 import javafx.tab.input.logic.tasks.entity.CollectEntityPopulationTask;
 import javafx.tab.input.components.mainComponent.UIAdapter;
@@ -10,9 +11,8 @@ import execution.simulation.impl.PredictionsLogicImpl;
 import javafx.tab.input.components.mainComponent.SecondScreenController;
 import javafx.concurrent.Task;
 
-import java.util.List;
-
 import javax.xml.bind.JAXBException;
+import java.util.List;
 
 public class SecondScreenLogic {
     private SecondScreenController secController;
@@ -29,8 +29,12 @@ public class SecondScreenLogic {
         new Thread(currentRunningTask).start();
     }
 
-    public void loadXML(String absolutePath) throws JAXBException {
-        engine.loadXML(absolutePath);
+    public void loadXML(String absolutePath) {
+        try {
+            engine.loadXML(absolutePath);
+        } catch (JAXBException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     public List<EntityDefinitionDTO> getEntityList() {
@@ -42,6 +46,10 @@ public class SecondScreenLogic {
 
     public List<PropertyDefinitionDTO> getEnvironmentVariablesToSet() {
         return engine.getEnvironmentVariablesToSet();
+    }
+
+    public SimulationRunDetailsDTO runNewSimulation(List<PropertyDefinitionDTO> updatedEnvironmentVariables) {
+        return engine.runNewSimulation(updatedEnvironmentVariables);
     }
 }
 

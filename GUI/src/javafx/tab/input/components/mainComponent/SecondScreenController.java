@@ -2,8 +2,9 @@ package javafx.tab.input.components.mainComponent;
 
 import impl.EntityDefinitionDTO;
 import impl.PropertyDefinitionDTO;
-import javafx.tab.input.components.singleEnvVar.SingleEnvVarController;
+import impl.SimulationRunDetailsDTO;
 import javafx.tab.input.components.singleEntity.SingleEntityController;
+import javafx.tab.input.components.singleEnvVar.SingleEnvVarController;
 import javafx.tab.input.logic.SecondScreenLogic;
 import javafx.beans.property.SimpleBooleanProperty;
 import javafx.beans.property.SimpleStringProperty;
@@ -29,8 +30,7 @@ import java.util.List;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.scene.media.MediaPlayer.Status;
-
-import javax.xml.bind.JAXBException;
+import menu.helper.PrintToScreen;
 
 public class SecondScreenController {
     @FXML
@@ -60,6 +60,7 @@ public class SecondScreenController {
     private SecondScreenLogic logic;
     private Stage primaryStage;
     List<SingleEnvVarController> envVarControllerList;
+    private static final String NO_VALUE_WAS_GIVEN = "";
 
 
     public SecondScreenController() {
@@ -82,7 +83,7 @@ public class SecondScreenController {
             openFileAction();
             showEntities();
             showEnvVariables();
-        } catch (Exception e) {
+        } catch (IllegalArgumentException e) {
             selectedFileName.setTextFill(Color.RED);
             selectedFileName.setFont(Font.font("System", FontWeight.BOLD, 14));
             selectedFileProperty.set("File did not load. " + e.getMessage());
@@ -99,8 +100,6 @@ public class SecondScreenController {
                     createEnvVarTile(envVar.getName());
                 }
         );
-
-
     }
 
     private void showEntities() {
@@ -112,7 +111,7 @@ public class SecondScreenController {
         });
     }
 
-    void openFileAction() throws JAXBException {
+    void openFileAction() {
         FileChooser fileChooser = new FileChooser();
         fileChooser.setTitle("Select xml file");
         fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("xml files", "*.xml"));
@@ -146,26 +145,70 @@ public class SecondScreenController {
     @FXML
     void startButtonActionListener(ActionEvent event) {
         playAudio();
-        setEnvVariables();
+        runSimulation();
 
     }
 
-    private void setEnvVariables() {
+    private void runSimulation() {
+        List<PropertyDefinitionDTO> updatedEnvironmentVariables;
+        SimulationRunDetailsDTO runDetails;
+        PrintToScreen printer = new PrintToScreen();
+        updatedEnvironmentVariables = setEnvVariablesFromTextFields();
+        runDetails = logic.runNewSimulation(updatedEnvironmentVariables);
+        /*printer.printRunDetailsDTO(runDetails);
+        System.out.println();*/
+    }
 
-        final int[] index = {1};
+    private List<PropertyDefinitionDTO> setEnvVariablesFromTextFields() {
+
+        final int[] index = {0};
         List<PropertyDefinitionDTO> environmentVariables = logic.getEnvironmentVariablesToSet();
-        List<PropertyDefinitionDTO> newEnvironmentVariables = new ArrayList<>();
         environmentVariables.forEach(
                 envVar -> {
                     SingleEnvVarController controller = envVarControllerList.get(index[0]);
-                    if (!controller.getEnvValue().equals("")) {
-                        newEnvironmentVariables.add(new PropertyDefinitionDTO(envVar.getName(), envVar.getType(), envVar.getFrom(), envVar.getTo(), false, controller.getEnvValue()));
+                    if (!controller.getEnvValue().equals(NO_VALUE_WAS_GIVEN)) {
+                        PropertyDefinitionDTO envVarToUpdate = environmentVariables.get(index[0]);
+                        environmentVariables.set(index[0], initEnvironmentVariableDTOFromTextField(envVarToUpdate, controller.getEnvValue()));
                     }
                     index[0]++;
                 }
         );
-        //runDetails = engine.runNewSimulation(updatedEnvironmentVariables);
+        return environmentVariables;
     }
+
+    private PropertyDefinitionDTO initEnvironmentVariableDTOFromTextField(PropertyDefinitionDTO envVarToUpdate, String envValue) {
+        Object value = null;
+
+        switch (envVarToUpdate.getType()) {
+            case "INT":
+                try {
+                    value = Integer.parseInt(envValue);
+                } catch (NumberFormatException e) {
+                }
+                break;
+            case "DOUBLE":
+                try {
+                    value = Double.parseDouble(envValue);
+                } catch (NumberFormatException e) {
+                }
+                break;
+            case "BOOLEAN":
+                value = Boolean.parseBoolean(envValue);
+                break;
+            default:
+                value = envValue;
+        }
+
+        return new PropertyDefinitionDTO(
+                envVarToUpdate.getName(),
+                envVarToUpdate.getType(),
+                envVarToUpdate.getFrom(),
+                envVarToUpdate.getTo(),
+                false,
+                value
+        );
+    }
+
 
     public void playAudio() {
         URL audioFileUrl = getClass().getResource("aviad2.mp3");
@@ -247,7 +290,7 @@ public class SecondScreenController {
 
             if (choice != 0) {
                 PropertyDefinitionDTO toUpdate = environmentVariables.get(choice - 1);
-                environmentVariables.set(choice - 1, initEnvironmentVariableDTOFromUserInput(toUpdate));
+                environmentVariables.set(choice - 1, initEnvironmentVariableDTOFromTextField(toUpdate));
             }
         }
 
@@ -286,7 +329,7 @@ public class SecondScreenController {
 
 
 
-    private PropertyDefinitionDTO initEnvironmentVariableDTOFromUserInput(PropertyDefinitionDTO variableDTO) {
+    private PropertyDefinitionDTO initEnvironmentVariableDTOFromTextField(PropertyDefinitionDTO variableDTO) {
         Object value;
 
         System.out.println("Please enter a value");
