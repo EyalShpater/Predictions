@@ -1,6 +1,10 @@
 package javafx.tab.details.details;
 
+import execution.simulation.api.PredictionsLogic;
 import javafx.geometry.Insets;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.control.Control;
 import javafx.scene.layout.FlowPane;
 import javafx.tab.details.components.ComponentsController;
 import javafx.event.ActionEvent;
@@ -11,6 +15,9 @@ import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TitledPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.StackPane;
+import javafx.tab.details.general.GeneralController;
+
+import java.net.URL;
 
 public class DetailsController {
 
@@ -24,6 +31,7 @@ public class DetailsController {
     @FXML
     private ComponentsController buttonsComponentController;
 
+    private PredictionsLogic engine;
 
     @FXML
     void initialize() {
@@ -73,18 +81,6 @@ public class DetailsController {
         }
     }
 
-    public void generalOnAction(ActionEvent event) {
-        try {
-            StackPane sp = FXMLLoader.load(getClass().getResource("/javafx/tab/details/general/General.fxml"));
-            ScrollPane s = new ScrollPane(sp);
-            sceneSwitcher.getChildren().clear();
-            sceneSwitcher.getChildren().add(s);
-
-        } catch (Exception e) {
-            System.out.println("failed");
-        }
-    }
-
     public void rulesOnAction(ActionEvent event) {
         try {
             TitledPane tile1 = FXMLLoader.load(getClass().getResource("../rules/Rules.fxml"));
@@ -107,4 +103,29 @@ public class DetailsController {
         }
     }
 
+    public void generalOnAction(ActionEvent event) {
+        try {
+            URL resource = getClass().getResource("/javafx/tab/details/general/General.fxml");
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(resource);
+            StackPane general = loader.load();
+            GeneralController generalController = loader.getController();
+
+            generalController.setEngine(engine);
+            generalController.setPropertiesFromEngine();
+            setScene(general);
+
+        } catch (Exception ignored) {
+        }
+
+    }
+
+    public void setEngine(PredictionsLogic engine) {
+        this.engine = engine;
+    }
+
+    private void setScene(Node newScene) {
+        sceneSwitcher.getChildren().clear();
+        sceneSwitcher.getChildren().add(newScene);
+    }
 }

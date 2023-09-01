@@ -9,7 +9,6 @@ public class EnvironmentVariablesController {
 
     @FXML
     private Label nameLabel;
-
     @FXML
     private TreeView<String> propertiesTreeView;
 

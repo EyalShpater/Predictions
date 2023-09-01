@@ -9,8 +9,10 @@ import javafx.scene.Parent;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
 import javafx.scene.layout.GridPane;
+import javafx.tab.details.details.DetailsController;
 
 import java.io.IOException;
+import java.net.URL;
 
 public class PredictionsMainAppController {
 
@@ -22,17 +24,30 @@ public class PredictionsMainAppController {
     private HeaderController headerComponentController;
 
     private PredictionsLogic engine = new PredictionsLogicImpl();
+    private DetailsController detailsTabController;
 
     @FXML
     private void initialize() throws IOException {
-        Tab details = new Tab("Details");
-        Tab details1 = new Tab("Details2");
-
         headerComponentController.setEngine(engine);
-        Parent load = FXMLLoader.load(getClass().getResource("/javafx/tab/details/details/Details.fxml"));
-        details.setContent(load);
-        load = FXMLLoader.load(getClass().getResource("/javafx/tab/details/details/Details.fxml"));
-        details1.setContent(load);
-        tabPane.getTabs().addAll(details, details1);
+
+        setDetailsTab();
+    }
+
+    private void setDetailsTab() {
+        try {
+            Tab details = new Tab("Details");
+
+            URL resource = getClass().getResource("/javafx/tab/details/details/Details.fxml");
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(resource);
+            Parent detailsContent = loader.load();
+            details.setContent(detailsContent);
+
+            detailsTabController = loader.getController();
+            detailsTabController.setEngine(engine);
+            tabPane.getTabs().addAll(details);
+        } catch (Exception ignored) {
+
+        }
     }
 }
