@@ -1,13 +1,13 @@
-package javafx.tab.input.components.singleEnvVar;
+package javafx.tab.newExecution.environmentVariable;
 
 import javafx.beans.property.SimpleStringProperty;
 
-public class BasicEnvVarData {
+public class BasicEnvironmentVariableData {
 
     protected SimpleStringProperty envVarName;
     protected SimpleStringProperty envValue;
 
-    public BasicEnvVarData(String envVarName, String envVarValue) {
+    public BasicEnvironmentVariableData(String envVarName, String envVarValue) {
         this.envVarName = new SimpleStringProperty(envVarName);
         this.envValue = new SimpleStringProperty(envVarValue);
     }

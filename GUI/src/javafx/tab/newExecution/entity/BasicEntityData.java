@@ -1,4 +1,4 @@
-package javafx.tab.input.components.singleEntity;
+package javafx.tab.newExecution.entity;
 
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;

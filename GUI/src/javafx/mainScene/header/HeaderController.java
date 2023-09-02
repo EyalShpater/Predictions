@@ -1,4 +1,4 @@
-package javafx.mainscene.header;
+package javafx.mainScene.header;
 
 import execution.simulation.api.PredictionsLogic;
 import javafx.beans.property.SimpleBooleanProperty;

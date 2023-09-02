@@ -1,10 +1,10 @@
-package javafx.tab.input.components.singleEntity;
+package javafx.tab.newExecution.entity;
 
 import javafx.beans.binding.Bindings;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 
-public class SingleEntityController extends BasicEntityData {
+public class EntityController extends BasicEntityData {
 
     @FXML
     private Label entityNameLabel;
@@ -12,7 +12,7 @@ public class SingleEntityController extends BasicEntityData {
     private Label entityPopulationLabel;
 
 
-    public SingleEntityController() {
+    public EntityController() {
         super("", -1);
     }
 

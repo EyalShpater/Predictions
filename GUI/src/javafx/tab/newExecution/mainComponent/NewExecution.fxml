@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane maxHeight="5000.0" maxWidth="5000.0" minHeight="100.0" minWidth="100.0" prefHeight="350.0" prefWidth="600.0"
+            stylesheets="@styles.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="javafx.tab.newExecution.mainComponent.NewExecutionController">
+    <center>
+        <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+            <children>
+                <GridPane hgap="5.0" prefHeight="357.0" prefWidth="600.0">
+                    <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="410.0" minWidth="10.0" prefWidth="315.0"/>
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="566.0" minWidth="10.0" prefWidth="510.0"/>
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                    </rowConstraints>
+                    <children>
+                        <ScrollPane hbarPolicy="NEVER" prefHeight="315.0" prefWidth="0.0">
+                            <content>
+                                <FlowPane fx:id="entitiesFlowPane" hgap="5.0" prefHeight="294.0" prefWidth="198.0"
+                                          vgap="5.0"/>
+                            </content>
+                        </ScrollPane>
+                        <ScrollPane hbarPolicy="NEVER" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1">
+                            <content>
+                                <FlowPane fx:id="envVarsFlowPane" hgap="5.0" prefHeight="294.0" prefWidth="394.0"
+                                          vgap="5.0"/>
+                            </content>
+                        </ScrollPane>
+                    </children>
+                </GridPane>
+                <GridPane hgap="5.0" prefHeight="99.0" prefWidth="600.0" vgap="5.0">
+                    <columnConstraints>
+                        <ColumnConstraints hgrow="NEVER" maxWidth="10.0" minWidth="10.0" prefWidth="10.0"/>
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="185.0" minWidth="10.0" prefWidth="86.0"/>
+                        <ColumnConstraints hgrow="ALWAYS" maxWidth="950.0" minWidth="10.0" prefWidth="601.0"/>
+                        <ColumnConstraints halignment="RIGHT" hgrow="NEVER" maxWidth="319.0" minWidth="-Infinity"
+                                           prefWidth="83.0"/>
+                        <ColumnConstraints halignment="RIGHT" hgrow="NEVER" maxWidth="10.0" minWidth="10.0"
+                                           prefWidth="10.0"/>
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                    </rowConstraints>
+                    <children>
+                        <Button fx:id="clearButton" maxHeight="30.0" maxWidth="85.0" minHeight="30.0" minWidth="85.0"
+                                mnemonicParsing="false" onAction="#clearButtonActionListener" prefHeight="30.0"
+                                prefWidth="80.0" text="Clear" GridPane.columnIndex="1"/>
+                        <Button fx:id="startButton" maxHeight="30.0" maxWidth="85.0" minHeight="30.0" minWidth="85.0"
+                                mnemonicParsing="false" onAction="#startButtonActionListener" prefHeight="30.0"
+                                prefWidth="80.0" text="Start" GridPane.columnIndex="3"/>
+                    </children>
+                    <VBox.margin>
+                        <Insets/>
+                    </VBox.margin>
+                </GridPane>
+            </children>
+        </VBox>
+    </center>
+</BorderPane>

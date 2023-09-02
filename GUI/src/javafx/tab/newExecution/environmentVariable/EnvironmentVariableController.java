@@ -1,4 +1,4 @@
-package javafx.tab.input.components.singleEnvVar;
+package javafx.tab.newExecution.environmentVariable;
 
 import javafx.beans.binding.Bindings;
 import javafx.event.ActionEvent;
@@ -6,7 +6,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 
-public class SingleEnvVarController extends BasicEnvVarData {
+public class EnvironmentVariableController extends BasicEnvironmentVariableData {
 
     @FXML
     private Label envVarNameLabel;
@@ -14,10 +14,9 @@ public class SingleEnvVarController extends BasicEnvVarData {
     @FXML
     private TextField envVarValueTextField;
 
-    public SingleEnvVarController() {
+    public EnvironmentVariableController() {
         super("", "");
     }
-
 
     @FXML
     private void initialize() {

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox alignment="CENTER" maxHeight="180.0" maxWidth="260.0" minHeight="63.0" minWidth="154.0" prefHeight="66.0"
+      prefWidth="250.0" styleClass="round-layout" stylesheets="@Entity.css" xmlns="http://javafx.com/javafx/20.0.1"
+      xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafx.tab.newExecution.entity.EntityController">
+    <children>
+        <Label fx:id="entityNameLabel" alignment="CENTER" contentDisplay="CENTER" maxHeight="50.0"
+               maxWidth="1.7976931348623157E308" minHeight="36.0" prefHeight="50.0" prefWidth="165.0"/>
+        <Label fx:id="entityPopulationLabel" alignment="CENTER" contentDisplay="CENTER"
+               maxWidth="1.7976931348623157E308" prefHeight="38.0" prefWidth="235.0"/>
+    </children>
+</VBox>

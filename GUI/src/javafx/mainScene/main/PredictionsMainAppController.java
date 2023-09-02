@@ -1,12 +1,10 @@
-package javafx.mainscene.main;
+package javafx.mainScene.main;
 
 import execution.simulation.api.PredictionsLogic;
 import execution.simulation.impl.PredictionsLogicImpl;
-import javafx.beans.property.BooleanProperty;
-import javafx.beans.property.SimpleBooleanProperty;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.mainscene.header.HeaderController;
+import javafx.mainScene.header.HeaderController;
 import javafx.scene.Parent;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
