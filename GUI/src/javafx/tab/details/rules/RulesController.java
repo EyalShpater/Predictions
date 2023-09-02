@@ -29,32 +29,20 @@ public class RulesController {
 
     @FXML
     private void initialize() {
-        titledPane.setText("Rule 1");
-        nameLabel.setText("Rule 1");
-        numOfTicksLabel.setText("10");
-        probabilityLabel.setText("0.35");
+        mainScreen.textProperty().bind(ruleName);
+        nameLabel.textProperty().bind(ruleName);
+        numOfTicksLabel.textProperty().bind(numOfTicks.asString());
+        probabilityLabel.textProperty().bind(probability.asString());
 
-        TreeItem<String> root = new TreeItem<>("Actions");
-        TreeItem<String> increase = new TreeItem<>("Increase");
-        TreeItem<String> decrease = new TreeItem<>("Decrease");
-
-        TreeItem<String> condition = new TreeItem<>("Condition");
-
-        TreeItem<String> then = new TreeItem<>("Then");
-        TreeItem<String> thenInc = new TreeItem<>("Increase");
-        TreeItem<String> thenMulty = new TreeItem<>("Multiple");
-
-        TreeItem<String> elseCond = new TreeItem<>("Else");
-        TreeItem<String> kill = new TreeItem<>("Kill");
-
-        then.getChildren().addAll(thenInc, thenMulty);
-        elseCond.getChildren().addAll(kill);
-        condition.getChildren().addAll(then, elseCond);
-
-        root.getChildren().addAll(increase, decrease, condition);
-
-        actionsTreeView.setRoot(root);
+        actionsTreeView.setRoot(new TreeItem<>("Actions"));
         actionsTreeView.setShowRoot(false);
+    }
+
+    public void setDataFromDTO(RuleDTO rule) {
+        ruleName.set(rule.getName());
+        numOfTicks.set(rule.getTicks());
+        probability.set(rule.getProbability());
+        rule.getActionsDTO().forEach(this::addActionToTreeView);
     }
 
     private void addActionToTreeView(ActionDTO action) {
