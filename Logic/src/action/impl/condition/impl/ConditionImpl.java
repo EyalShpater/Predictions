@@ -6,14 +6,17 @@ import action.api.ActionType;
 import action.context.api.Context;
 import action.impl.condition.Condition;
 import action.impl.condition.impl.multiple.MultipleCondition;
+import action.impl.condition.impl.single.SingleCondition;
 import definition.entity.api.EntityDefinition;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
 
 public class ConditionImpl extends AbstractAction implements Condition , Serializable {
-    private final MultipleCondition condition;
+    private final MultipleCondition condition; // todo: think to change it to Condition instead of MultipleCondition
     private final String logical;
     List<Action> than;
     List<Action> notTrue;
@@ -61,4 +64,17 @@ public class ConditionImpl extends AbstractAction implements Condition , Seriali
         return null;
     }
 
+    @Override
+    public Map<String, String> getArguments() {
+        Map<String, String> attributes = new LinkedHashMap<>();
+        Condition singleCondition = condition.isSingleCondition();
+
+        if (singleCondition != null) {
+            attributes = singleCondition.getArguments();
+        } else {
+            attributes = condition.getArguments();
+        }
+
+        return attributes;
+    }
 }

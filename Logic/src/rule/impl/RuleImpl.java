@@ -2,7 +2,6 @@ package rule.impl;
 
 import action.api.Action;
 import action.context.api.Context;
-import api.DTO;
 import impl.RuleDTO;
 import rule.api.Activation;
 import rule.api.Rule;
@@ -35,7 +34,7 @@ public class RuleImpl implements Rule , Serializable {
     public RuleImpl(RuleDTO dto) {
         this(dto.getName(),
                 new ActivationImpl(dto.getTicks(), dto.getProbability()),
-                dto.getActionsNames().toArray(new String[0]));
+                dto.getActionsDTO().toArray(new String[0]));
     }
 
     @Override
@@ -71,7 +70,7 @@ public class RuleImpl implements Rule , Serializable {
                 activation.getNumOfTicksToActivate(),
                 activation.getProbabilityToActivate(),
                 actions.stream()
-                        .map(Action::getName)
+                        .map(Action::convertToDTO)
                         .collect(Collectors.toList())
         );
     }

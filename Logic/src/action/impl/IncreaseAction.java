@@ -11,6 +11,8 @@ import instance.entity.api.EntityInstance;
 import instance.property.api.PropertyInstance;
 
 import java.io.Serializable;
+import java.util.LinkedHashMap;
+import java.util.Map;
 
 public class IncreaseAction extends AbstractAction implements Serializable {
     private final String propertyName;
@@ -77,6 +79,16 @@ public class IncreaseAction extends AbstractAction implements Serializable {
         } else {
             propertyToUpdate.setValue(result);
         }
+    }
+
+    @Override
+    public Map<String, String> getArguments() {
+        Map<String, String> arguments = new LinkedHashMap<>();
+
+        arguments.put("property", propertyName);
+        arguments.put("by", byExpression);
+
+        return arguments;
     }
 }
 

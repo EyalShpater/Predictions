@@ -4,8 +4,10 @@ import action.context.api.Context;
 import action.impl.condition.Condition;
 
 import java.io.Serializable;
+import java.util.LinkedHashMap;
+import java.util.Map;
 
-public abstract class SingleCondition implements Condition  , Serializable {
+public abstract class SingleCondition implements Condition, Serializable {
     protected String expression1;
     protected String expression2;
 
@@ -20,4 +22,15 @@ public abstract class SingleCondition implements Condition  , Serializable {
     }
 
     abstract protected boolean evaluate(String expression1, String expression2, Context context);
+
+    @Override
+    public Map<String, String> getArguments() {
+        Map<String, String> arguments = new LinkedHashMap<>();
+
+        arguments.put("property", expression1);
+        arguments.put("operator", getOperationSign());
+        arguments.put("value", expression2);
+
+        return arguments;
+    }
 }

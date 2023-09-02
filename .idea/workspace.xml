@@ -12,9 +12,31 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="27d35137-667f-4e37-a519-ab836acc0a06" name="Changes" comment="Entities in Details Tab is bind to the engine">
+      <change afterPath="$PROJECT_DIR$/DTO/src/impl/ActionDTO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConsoleUI/src/menu/helper/PrintToScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/ConsoleUI/src/menu/helper/PrintToScreen.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DTO/src/impl/RuleDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/DTO/src/impl/RuleDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI/src/javafx/tab/details/details/DetailsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/src/javafx/tab/details/details/DetailsController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI/src/javafx/tab/details/entities/EntitiesController.java" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/src/javafx/tab/details/entities/EntitiesController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI/src/javafx/tab/details/rules/Rules.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/src/javafx/tab/details/rules/Rules.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI/src/javafx/tab/details/rules/RulesController.java" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/src/javafx/tab/details/rules/RulesController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/action/api/AbstractAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/action/api/AbstractAction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/action/api/Action.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/action/api/Action.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/action/impl/DecreaseAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/action/impl/DecreaseAction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/action/impl/DivideAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/action/impl/DivideAction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/action/impl/IncreaseAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/action/impl/IncreaseAction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/action/impl/KillAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/action/impl/KillAction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/action/impl/MultiplyAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/action/impl/MultiplyAction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/action/impl/SetAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/action/impl/SetAction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/action/impl/condition/Condition.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/action/impl/condition/Condition.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/action/impl/condition/impl/ConditionImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/action/impl/condition/impl/ConditionImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/action/impl/condition/impl/multiple/MultipleCondition.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/action/impl/condition/impl/multiple/MultipleCondition.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/action/impl/condition/impl/single/SingleCondition.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/action/impl/condition/impl/single/SingleCondition.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/rule/impl/RuleImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/rule/impl/RuleImpl.java" afterDir="false" />
     </list>
-    <list id="9eb12e0a-64d7-4be1-90c5-9941354570ea" name="Changes by ASUS" comment="version 1.0" />
+    <list id="9eb12e0a-64d7-4be1-90c5-9941354570ea" name="Changes by ASUS" comment="version 1.0">
+      <change beforePath="$PROJECT_DIR$/GUI/src/javafx/tab/details/rules/RulesController.java" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/src/javafx/tab/details/rules/RulesController.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -61,6 +83,21 @@
         <option name="url" value="https://github.com/shpater1234/Predictions.git" />
       </UrlAndAccount>
     </option>
+  </component>
+  <component name="LineStatusTrackerManager">
+    <file path="$PROJECT_DIR$/GUI/src/javafx/tab/details/rules/RulesController.java">
+      <ranges>
+        <range start1="2" end1="3" start2="2" end2="5" changelist="27d35137-667f-4e37-a519-ab836acc0a06" />
+        <range start1="5" end1="8" start2="7" end2="10" changelist="27d35137-667f-4e37-a519-ab836acc0a06" />
+        <range start1="11" end1="16" start2="13" end2="18" changelist="27d35137-667f-4e37-a519-ab836acc0a06" />
+        <range start1="17" end1="19" start2="19" end2="22" changelist="27d35137-667f-4e37-a519-ab836acc0a06" />
+        <range start1="20" end1="25" start2="23" end2="23" changelist="27d35137-667f-4e37-a519-ab836acc0a06" />
+        <range start1="28" end1="45" start2="26" end2="30" changelist="9eb12e0a-64d7-4be1-90c5-9941354570ea" />
+        <range start1="46" end1="53" start2="31" end2="32" changelist="9eb12e0a-64d7-4be1-90c5-9941354570ea" />
+        <range start1="54" end1="54" start2="33" end2="40" changelist="9eb12e0a-64d7-4be1-90c5-9941354570ea" />
+        <range start1="55" end1="55" start2="41" end2="58" changelist="27d35137-667f-4e37-a519-ab836acc0a06" />
+      </ranges>
+    </file>
   </component>
   <component name="ProblemsViewState">
     <option name="selectedTabId" value="CurrentFile" />
@@ -260,6 +297,8 @@
       <workItem from="1693461936482" duration="14820000" />
       <workItem from="1693561653847" duration="8515000" />
       <workItem from="1693610882907" duration="67000" />
+      <workItem from="1693611603575" duration="283000" />
+      <workItem from="1693640598304" duration="15633000" />
     </task>
     <task id="LOCAL-00034" summary="Fixed the EntityInstance problem">
       <created>1691746931845</created>
@@ -372,14 +411,6 @@
       <option name="presentableId" value="LOCAL-00056" />
       <option name="project" value="LOCAL" />
       <updated>1692168153217</updated>
-    </task>
-    <task id="LOCAL‎-00061" summary="method 2 is some what completed">
-      <option name="closed" value="true" />
-      <created>1692220462056</created>
-      <option name="number" value="00061" />
-      <option name="presentableId" value="LOCAL‎-00061" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1692220462056</updated>
     </task>
     <task id="LOCAL‎-00062" summary="XML checks">
       <option name="closed" value="true" />
@@ -636,7 +667,15 @@
       <option name="project" value="LOCAL‎" />
       <updated>1693610477112</updated>
     </task>
-    <option name="localTasksCounter" value="94" />
+    <task id="LOCAL‎-00094" summary="Entities in Details Tab is bind to the engine">
+      <option name="closed" value="true" />
+      <created>1693611875149</created>
+      <option name="number" value="00094" />
+      <option name="presentableId" value="LOCAL‎-00094" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1693611875150</updated>
+    </task>
+    <option name="localTasksCounter" value="95" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

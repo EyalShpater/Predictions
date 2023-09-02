@@ -1,8 +1,10 @@
 package javafx.tab.details.details;
 
 import execution.simulation.api.PredictionsLogic;
+import impl.ActionDTO;
 import impl.EntityDefinitionDTO;
 import impl.PropertyDefinitionDTO;
+import impl.RuleDTO;
 import javafx.geometry.Insets;
 import javafx.scene.Node;
 import javafx.scene.Parent;
@@ -20,6 +22,7 @@ import javafx.scene.layout.StackPane;
 import javafx.tab.details.entities.EntitiesController;
 import javafx.tab.details.environment.variables.EnvironmentVariablesController;
 import javafx.tab.details.general.GeneralController;
+import javafx.tab.details.rules.RulesController;
 
 import java.io.IOException;
 import java.net.URL;
@@ -74,18 +77,12 @@ public class DetailsController {
 
     public void rulesOnAction(ActionEvent event) {
         try {
-            TitledPane tile1 = FXMLLoader.load(getClass().getResource("../rules/Rules.fxml"));
-            TitledPane tile2 = FXMLLoader.load(getClass().getResource("../rules/Rules.fxml"));
-            TitledPane tile3 = FXMLLoader.load(getClass().getResource("../rules/Rules.fxml"));
-            TitledPane tile4 = FXMLLoader.load(getClass().getResource("../rules/Rules.fxml"));
-            TitledPane tile5 = FXMLLoader.load(getClass().getResource("../rules/Rules.fxml"));
+            Accordion newScene = new Accordion();
 
-            tile2.setText("Rule-2");
-            tile3.setText("Rule-3");
-            tile4.setText("Rule-4");
-            tile5.setText("Rule-5");
-
-            Accordion newScene = new Accordion(tile1, tile2, tile3, tile4, tile5);
+            engine
+                    .getLoadedSimulationDetails()
+                    .getRules()
+                    .forEach(rule -> setNewRule(rule, newScene));
 
             sceneSwitcher.getChildren().clear();
             sceneSwitcher.getChildren().add(newScene);
@@ -146,5 +143,21 @@ public class DetailsController {
             flowPane.getChildren().add(stackPane);
         } catch (IOException ignored) {
         }
+    }
+
+    private void setNewRule(RuleDTO rule, Accordion accordion) {
+        try {
+            URL resource = getClass().getResource("/javafx/tab/details/rules/Rules.fxml");
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(resource);
+            TitledPane rulePane = loader.load();
+            RulesController rulesController = loader.getController();
+
+            rulesController.setDataFromDTO(rule);
+            accordion.getPanes().add(rulePane);
+        } catch (IOException ignored) {
+
+        }
+
     }
 }

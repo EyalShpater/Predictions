@@ -11,34 +11,36 @@ import instance.entity.api.EntityInstance;
 import instance.property.api.PropertyInstance;
 
 import java.io.Serializable;
+import java.util.LinkedHashMap;
+import java.util.Map;
 
 public class MultiplyAction extends AbstractAction implements Serializable {
 
     private final String propertyName;
-    private final String Expression1;
-    private final String Expression2;
+    private final String arg1;
+    private final String arg2;
 
-    public MultiplyAction(EntityDefinition entity, String propertyName, String expression1, String expression2) {
+    public MultiplyAction(EntityDefinition entity, String propertyName, String arg1, String arg2) {
         super(entity, ActionType.CALCULATION);
         this.propertyName = propertyName;
-        this.Expression1 = expression1;
-        this.Expression2 = expression2;
+        this.arg1 = arg1;
+        this.arg2 = arg2;
     }
 
     @Override
     public void invoke(Context context) {
         EntityInstance invokeOn = context.getEntityInstance();
         PropertyInstance propertyToUpdate = invokeOn.getPropertyByName(propertyName);
-        Expression firstExpression = new ExpressionFactory(this.Expression1, invokeOn);
+        Expression firstExpression = new ExpressionFactory(this.arg1, invokeOn);
         Object firstExpressionValue = firstExpression.getValue(context);
-        Expression secoundExpression = new ExpressionFactory(this.Expression2, invokeOn);
-        Object secoundExpressionValue = secoundExpression.getValue(context);
+        Expression secoundExpression = new ExpressionFactory(this.arg2, invokeOn);
+        Object secondExpressionValue = secoundExpression.getValue(context);
 
         if (propertyToUpdate.getPropertyDefinition().isNumeric()) {
             if (propertyToUpdate.getPropertyDefinition().isInteger()) {
-                multiplyInteger(propertyToUpdate, firstExpressionValue ,secoundExpressionValue );
+                multiplyInteger(propertyToUpdate, firstExpressionValue, secondExpressionValue);
             } else {
-                multiplyDouble(propertyToUpdate, firstExpressionValue ,secoundExpressionValue);
+                multiplyDouble(propertyToUpdate, firstExpressionValue, secondExpressionValue);
             }
         } else {
             throw new IllegalArgumentException("Increase action only available on numeric type!");
@@ -94,4 +96,13 @@ public class MultiplyAction extends AbstractAction implements Serializable {
         }
     }
 
+    @Override
+    public Map<String, String> getArguments() {
+        Map<String, String> arguments = new LinkedHashMap<>();
+
+        arguments.put("arg1", arg1);
+        arguments.put("arg2", arg2);
+
+        return arguments;
+    }
 }

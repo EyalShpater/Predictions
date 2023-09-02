@@ -11,23 +11,25 @@ import instance.property.api.PropertyInstance;
 import definition.property.api.Range;
 
 import java.io.Serializable;
+import java.util.LinkedHashMap;
+import java.util.Map;
 
 
 public class SetAction extends AbstractAction implements Serializable {
 
     private final String propertyName;
-    private final String newProp;
+    private final String newValue;
 
-    public SetAction(EntityDefinition entity, String propertyName, String newProperty) {
+    public SetAction(EntityDefinition entity, String propertyName, String newValue) {
         super(entity, ActionType.SET);
         this.propertyName = propertyName;
-        this.newProp = newProperty;
+        this.newValue = newValue;
     }
     @Override
     public void invoke(Context context) {
         EntityInstance invokeOn = context.getEntityInstance();
         PropertyInstance propertyToUpdate = invokeOn.getPropertyByName(propertyName);
-        Expression expression = new ExpressionFactory(newProp, invokeOn);
+        Expression expression = new ExpressionFactory(newValue, invokeOn);
         Object newValue = expression.getValue(context);
         if (propertyToUpdate.getPropertyDefinition().isNumeric()){
             if (propertyToUpdate.getPropertyDefinition().isInteger()) {
@@ -85,6 +87,16 @@ public class SetAction extends AbstractAction implements Serializable {
         else {
             throw new IllegalArgumentException("New value must be String for String property");
         }
+    }
+
+    @Override
+    public Map<String, String> getArguments() {
+        Map<String, String> arguments = new LinkedHashMap<>();
+
+        arguments.put("property", propertyName);
+        arguments.put("value", newValue);
+
+        return arguments;
     }
 }
 

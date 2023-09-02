@@ -11,6 +11,9 @@ import instance.entity.api.EntityInstance;
 import instance.property.api.PropertyInstance;
 
 import java.io.Serializable;
+import java.util.HashMap;
+import java.util.LinkedHashMap;
+import java.util.Map;
 
 public class DecreaseAction extends AbstractAction implements Serializable {
     private final String propertyName;
@@ -47,21 +50,22 @@ public class DecreaseAction extends AbstractAction implements Serializable {
         Integer propertyValue = (Integer) propertyToUpdate.getValue();
         Integer result = propertyValue - (Integer) decreaseBy;
 
-        checkRangeAndUpdateNumericValue(propertyToUpdate , result);
+        checkRangeAndUpdateNumericValue(propertyToUpdate, result);
 
     }
 
     private void decreaseDouble(PropertyInstance propertyToUpdate, Object decreaseBy) {
         Double propertyValue = (Double) propertyToUpdate.getValue();
-        if (decreaseBy instanceof Number){
-            double res  = ((Number)decreaseBy).doubleValue();
+        if (decreaseBy instanceof Number) {
+            double res = ((Number) decreaseBy).doubleValue();
             Double result = propertyValue - res;
-            checkRangeAndUpdateNumericValue(propertyToUpdate , result );
-        }else{
+            checkRangeAndUpdateNumericValue(propertyToUpdate, result);
+        } else {
             throw new IllegalArgumentException("Increase can get only numeric values.");
         }
     }
-    private void checkRangeAndUpdateNumericValue(PropertyInstance propertyToUpdate, Number result){
+
+    private void checkRangeAndUpdateNumericValue(PropertyInstance propertyToUpdate, Number result) {
         Range range = propertyToUpdate.getPropertyDefinition().getRange();
 
         if (range != null) {
@@ -76,5 +80,15 @@ public class DecreaseAction extends AbstractAction implements Serializable {
         } else {
             propertyToUpdate.setValue(result);
         }
+    }
+
+    @Override
+    public Map<String, String> getArguments() {
+        Map<String, String> arguments = new LinkedHashMap<>();
+
+        arguments.put("property", propertyName);
+        arguments.put("by", byExpression);
+
+        return arguments;
     }
 }

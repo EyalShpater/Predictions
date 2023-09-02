@@ -6,6 +6,7 @@ import action.context.api.Context;
 import definition.entity.api.EntityDefinition;
 
 import java.io.Serializable;
+import java.util.Map;
 
 public class KillAction extends AbstractAction implements Serializable {
     public KillAction(EntityDefinition entity ) {
@@ -15,5 +16,11 @@ public class KillAction extends AbstractAction implements Serializable {
     @Override
     public void invoke(Context context) {
         context.removeEntity(context.getEntityInstance());
+    }
+
+    //todo: what to do with that
+    @Override
+    public Map<String, String> getArguments() {
+        return null;
     }
 }

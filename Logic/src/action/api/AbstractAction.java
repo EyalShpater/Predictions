@@ -2,6 +2,7 @@ package action.api;
 
 import definition.entity.api.EntityDefinition;
 
+import impl.ActionDTO;
 import instance.entity.api.EntityInstance;
 import java.io.Serializable;
 
@@ -27,5 +28,15 @@ public abstract class AbstractAction implements Action , Serializable {
     @Override
     public String getName() {
         return type.name();
+    }
+
+    @Override
+    public ActionDTO convertToDTO() {
+        return new ActionDTO(
+                type.name(),
+                entity.convertToDTO(),
+                null, // todo: should add secondary entity to the class
+                getArguments()
+        );
     }
 }

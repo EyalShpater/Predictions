@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.StackPane?>
 
-<TitledPane fx:id="titledPane" minHeight="100.0" minWidth="100.0" prefHeight="400.0" prefWidth="420.0"
+<TitledPane fx:id="mainScreen" minHeight="100.0" minWidth="100.0" prefHeight="400.0" prefWidth="420.0"
             xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1"
             fx:controller="javafx.tab.details.rules.RulesController">
     <content>

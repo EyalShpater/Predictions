@@ -1,28 +1,31 @@
 package javafx.tab.details.rules;
 
-import com.sun.javafx.binding.StringFormatter;
+import impl.ActionDTO;
+import impl.RuleDTO;
+import javafx.beans.property.*;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
-import javafx.scene.layout.Background;
-import javafx.scene.layout.BackgroundFill;
-import javafx.scene.paint.Color;
+
+import java.util.Map;
+import java.util.function.BiConsumer;
 
 public class RulesController {
 
     @FXML
-    private TitledPane titledPane;
-
+    private TitledPane mainScreen;
     @FXML
     private Label nameLabel;
-
     @FXML
     private Label numOfTicksLabel;
-
     @FXML
     private Label probabilityLabel;
-
     @FXML
     private TreeView<String> actionsTreeView;
+
+    private StringProperty ruleName = new SimpleStringProperty();
+    private IntegerProperty numOfTicks = new SimpleIntegerProperty();
+    private DoubleProperty probability = new SimpleDoubleProperty();
+
 
     @FXML
     private void initialize() {
@@ -52,5 +55,22 @@ public class RulesController {
 
         actionsTreeView.setRoot(root);
         actionsTreeView.setShowRoot(false);
+    }
+
+    private void addActionToTreeView(ActionDTO action) {
+        TreeItem<String> typeRoot = new TreeItem<>(action.getType().toLowerCase());
+
+        typeRoot.getChildren().add(new TreeItem<>("Main Entity: " + action.getMainEntity().getName()));
+        if (action.getSecondaryEntity() != null) {
+            typeRoot.getChildren().add(new TreeItem<>("Secondary Entity: " + action.getSecondaryEntity().getName()));
+        }
+
+        TreeItem<String> arguments = new TreeItem<>("Arguments");
+        action.getArguments().forEach((key, value) -> {
+            arguments.getChildren().add(new TreeItem<>(key + ": " + value));
+        });
+        typeRoot.getChildren().add(arguments);
+
+        actionsTreeView.getRoot().getChildren().add(typeRoot);
     }
 }

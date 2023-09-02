@@ -49,22 +49,20 @@ public class EntitiesController {
     private void addPropertyToTreeView(PropertyDefinitionDTO property) {
         TreeItem<String> nameRoot = new TreeItem<>(property.getName());
 
-        TreeItem<String> type = new TreeItem<>("Type: " + property.getType().toLowerCase());
-        nameRoot.getChildren().add(type);
+        nameRoot.getChildren().add(new TreeItem<>("Type: " + property.getType().toLowerCase()));
 
         if (property.getFrom() != null && property.getTo() != null) {
-            TreeItem<String> minValue = new TreeItem<>("Minimum Value: " + property.getFrom());
-            TreeItem<String> maxValue = new TreeItem<>("Maximum Value: " + property.getTo());
-
-            nameRoot.getChildren().addAll(minValue, maxValue);
+            nameRoot.getChildren().addAll(
+                    new TreeItem<>("Minimum Value: " + property.getFrom()),
+                    new TreeItem<>("Maximum Value: " + property.getTo())
+            );
         }
 
-        TreeItem<String> isRandom = new TreeItem<>(
+        nameRoot.getChildren().add(new TreeItem<>(
                 property.isRandom() ?
                         "The value is set randomly." :
-                        "The value does not initialize randomly.");
-
-        nameRoot.getChildren().add(isRandom);
+                        "The value does not initialize randomly.")
+        );
 
         propertiesTreeView.getRoot().getChildren().add(nameRoot);
     }

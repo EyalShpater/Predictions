@@ -1,10 +1,14 @@
 package action.api;
 
+import api.DTOConvertible;
 import definition.entity.api.EntityDefinition;
 
 import action.context.api.Context;
+import impl.ActionDTO;
 
-public interface Action  {
+import java.util.Map;
+
+public interface Action extends DTOConvertible<ActionDTO> {
     EntityDefinition applyOn();
 
     ActionType getType();
@@ -13,4 +17,5 @@ public interface Action  {
 
     void invoke(Context context);
 
+    Map<String, String> getArguments();
 }
