@@ -14,6 +14,9 @@ import javafx.tab.details.details.DetailsController;
 import java.io.IOException;
 import java.net.URL;
 
+import javafx.tab.newExecution.mainComponent.NewExecutionController;
+
+
 public class PredictionsMainAppController {
 
     @FXML
@@ -26,6 +29,9 @@ public class PredictionsMainAppController {
     private DetailsController detailsTabController;
 
     private PredictionsLogic engine = new PredictionsLogicImpl();
+
+    private NewExecutionController secScreeenContller;
+
 
     @FXML
     private void initialize() throws IOException {
@@ -55,10 +61,23 @@ public class PredictionsMainAppController {
     }
 
     private void setNewExecutionTab() {
-        Tab newExecution = new Tab("New Execution");
+        try {
+            Tab newExecution = new Tab("New Execution");
+            URL resource = getClass().getResource("/javafx/tab/newExecution/mainComponent/NewExecution.fxml");
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(resource);
+            Parent newExecutionContent = loader.load();
+            newExecution.setContent(newExecutionContent);
 
+            secScreeenContller = loader.getController();
+            secScreeenContller.setEngine(engine);
+            secScreeenContller.setFileSelection(headerComponentController.getIsFileSelectedProperty());
 
-        tabPane.getTabs().add(newExecution);
+            tabPane.getTabs().add(newExecution);
+        } catch (Exception ignored) {
+
+        }
+
     }
 
     private void setResultsTab() {

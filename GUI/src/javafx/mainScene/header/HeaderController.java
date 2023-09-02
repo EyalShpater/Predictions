@@ -70,6 +70,10 @@ public class HeaderController {
 
     }
 
+    public SimpleBooleanProperty getIsFileSelectedProperty() {
+        return isFileSelected;
+    }
+
     public void setEngine(PredictionsLogic engine) {
         this.engine = engine;
     }
