@@ -41,7 +41,7 @@
             <children>
                 <Button fx:id="loadFileButton" minWidth="100.0" mnemonicParsing="false"
                         onAction="#loadFileButtonOnAction" text="Load File "/>
-                <TextField fx:id="selectedFileName" minWidth="300.0" HBox.hgrow="SOMETIMES"/>
+                <TextField fx:id="selectedFilePath" minWidth="300.0" HBox.hgrow="SOMETIMES"/>
                 <Button fx:id="simulationsQueueButton" contentDisplay="RIGHT" minWidth="100.0" mnemonicParsing="false"
                         onAction="#simulationsQueueButtonOnAction" text="Queue Management"/>
             </children>

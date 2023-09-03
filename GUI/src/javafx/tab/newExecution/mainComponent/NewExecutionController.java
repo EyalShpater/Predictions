@@ -281,6 +281,12 @@ public class NewExecutionController {
     public void setMainAppController(PredictionsMainAppController mainAppController) {
         this.mainAppController = mainAppController;
     }
+
+    public void onNewFileLoaded() {
+        cleanOldResults();
+        showEnvVariables();
+        showEntities();
+    }
 }
 
 

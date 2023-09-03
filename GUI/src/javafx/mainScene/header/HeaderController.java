@@ -5,6 +5,7 @@ import javafx.beans.property.SimpleBooleanProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.mainScene.main.PredictionsMainAppController;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
@@ -19,42 +20,56 @@ public class HeaderController {
     private Button loadFileButton;
 
     @FXML
-    private TextField selectedFileName;
+    private TextField selectedFilePath;
 
     @FXML
     private Button simulationsQueueButton;
 
     private PredictionsLogic engine;
     private Stage primaryStage;
-    private SimpleStringProperty selectedFileProperty;
+    private PredictionsMainAppController mainAppController;
+    private SimpleStringProperty filePath;
     private SimpleBooleanProperty isFileSelected;
 
     public HeaderController() {
-        selectedFileProperty = new SimpleStringProperty();
+        filePath = new SimpleStringProperty();
         isFileSelected = new SimpleBooleanProperty(false);
     }
 
     @FXML
     private void initialize() {
-        selectedFileName.textProperty().bind(selectedFileProperty);
+        selectedFilePath.textProperty().bind(filePath);
     }
 
     @FXML
     void loadFileButtonOnAction(ActionEvent event) {
+        File selectedFile = getFileUsingFileChooserDialog();
+        String previousFilePath = filePath.get();
+
+        if (selectedFile != null) {
+            String absolutePath = selectedFile.getAbsolutePath();
+            loadFileToEngine(absolutePath);
+
+            if (!previousFilePath.equals(filePath.get())) {
+                mainAppController.onNewFileLoaded();
+            }
+        }
+    }
+
+    private File getFileUsingFileChooserDialog() {
         FileChooser fileChooser = new FileChooser();
 
         fileChooser.setTitle("Select xml file");
         fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("xml files", "*.xml"));
-        File selectedFile = fileChooser.showOpenDialog(primaryStage);
-        if (selectedFile == null) {
-            return;
-        }
 
-        String absolutePath = selectedFile.getAbsolutePath();
+        return fileChooser.showOpenDialog(primaryStage);
+    }
+
+    private void loadFileToEngine(String absolutePath) {
         try {
             engine.loadXML(absolutePath);
             //TODO: implement a UI adapter
-            selectedFileProperty.set(absolutePath);
+            filePath.set(absolutePath);
             isFileSelected.set(true);
         } catch (Exception e) {
             showErrorPopUp(e.getMessage() == null ?
@@ -80,6 +95,10 @@ public class HeaderController {
 
     public void setPrimaryStage(Stage primaryStage) {
         this.primaryStage = primaryStage;
+    }
+
+    public void setMainAppController(PredictionsMainAppController mainAppController) {
+        this.mainAppController = mainAppController;
     }
 
     private void showErrorPopUp(String message) {

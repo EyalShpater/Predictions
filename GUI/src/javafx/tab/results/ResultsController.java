@@ -3,8 +3,6 @@ package javafx.tab.results;
 import execution.simulation.api.PredictionsLogic;
 import impl.SimulationDTO;
 import impl.SimulationDataDTO;
-import impl.SimulationRunDetailsDTO;
-import javafx.beans.binding.Bindings;
 import javafx.beans.property.*;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -138,5 +136,12 @@ public class ResultsController {
         dataList.sort(Comparator.comparing(entry -> entry.getKey().hashCode()));
 
         return dataList;
+    }
+
+    public void onNewFileLoaded() {
+        histogramBarChart.getData().clear();
+        simulationChoiceBox.getItems().clear();
+        propertyChoiceBox.getItems().clear();
+        isFirstStart = true;
     }
 }

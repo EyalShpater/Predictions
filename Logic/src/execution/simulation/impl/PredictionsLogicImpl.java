@@ -30,6 +30,7 @@ public class PredictionsLogicImpl implements PredictionsLogic , Serializable {
         reader = new XmlReader(validator.getWorld());
         reader.readXml(newWorld);
         world = newWorld;
+        allSimulations.clearAllSimulations();
     }
 
     @Override

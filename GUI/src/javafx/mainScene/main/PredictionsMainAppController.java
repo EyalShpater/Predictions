@@ -36,6 +36,7 @@ public class PredictionsMainAppController {
     @FXML
     private void initialize() throws IOException {
         headerComponentController.setEngine(engine);
+        headerComponentController.setMainAppController(this);
 
         setDetailsTab();
         setNewExecutionTab();
@@ -101,5 +102,10 @@ public class PredictionsMainAppController {
 
     public void onStartButtonClick() {
         resultsTabController.onStartButtonClicked();
+    }
+
+    public void onNewFileLoaded() {
+        newExecutionTabContller.onNewFileLoaded();
+        resultsTabController.onNewFileLoaded();
     }
 }

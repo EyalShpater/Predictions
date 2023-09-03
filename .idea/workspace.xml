@@ -11,11 +11,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="27d35137-667f-4e37-a519-ab836acc0a06" name="Changes" comment="added results tab">
+    <list default="true" id="27d35137-667f-4e37-a519-ab836acc0a06" name="Changes" comment="the values in the barChart are now sorted">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DTO/src/impl/SimulationDataDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/DTO/src/impl/SimulationDataDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/src/javafx/tab/results/Results.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/src/javafx/tab/results/Results.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI/src/javafx/mainScene/header/Header.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/src/javafx/mainScene/header/Header.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI/src/javafx/mainScene/header/HeaderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/src/javafx/mainScene/header/HeaderController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI/src/javafx/mainScene/main/PredictionsMainAppController.java" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/src/javafx/mainScene/main/PredictionsMainAppController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI/src/javafx/tab/newExecution/mainComponent/NewExecutionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/src/javafx/tab/newExecution/mainComponent/NewExecutionController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GUI/src/javafx/tab/results/ResultsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/src/javafx/tab/results/ResultsController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/execution/simulation/impl/PredictionsLogicImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/execution/simulation/impl/PredictionsLogicImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -381,14 +384,6 @@
       <option name="project" value="LOCAL" />
       <updated>1692168153217</updated>
     </task>
-    <task id="LOCAL‎-00067" summary="xml validator">
-      <option name="closed" value="true" />
-      <created>1692271728261</created>
-      <option name="number" value="00067" />
-      <option name="presentableId" value="LOCAL‎-00067" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1692271728261</updated>
-    </task>
     <task id="LOCAL‎-00068" summary="more implementations">
       <option name="closed" value="true" />
       <created>1692279162096</created>
@@ -644,7 +639,15 @@
       <option name="project" value="LOCAL‎" />
       <updated>1693733588447</updated>
     </task>
-    <option name="localTasksCounter" value="100" />
+    <task id="LOCAL‎-00100" summary="the values in the barChart are now sorted">
+      <option name="closed" value="true" />
+      <created>1693738781468</created>
+      <option name="number" value="00100" />
+      <option name="presentableId" value="LOCAL‎-00100" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1693738781468</updated>
+    </task>
+    <option name="localTasksCounter" value="101" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -675,7 +678,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="pretty good" />
     <MESSAGE value="read everything to world except rule" />
     <MESSAGE value="condition problem fixed" />
     <MESSAGE value="ConditionImpl" />
@@ -700,7 +702,8 @@
     <MESSAGE value="refactor" />
     <MESSAGE value="shvit's changes" />
     <MESSAGE value="added results tab" />
-    <option name="LAST_COMMIT_MESSAGE" value="added results tab" />
+    <MESSAGE value="the values in the barChart are now sorted" />
+    <option name="LAST_COMMIT_MESSAGE" value="the values in the barChart are now sorted" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">

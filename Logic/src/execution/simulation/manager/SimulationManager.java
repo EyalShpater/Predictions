@@ -63,4 +63,8 @@ public class SimulationManager implements Serializable {
                 serialNumber
         );
     }
+
+    public void clearAllSimulations() {
+        simulations.clear();
+    }
 }
