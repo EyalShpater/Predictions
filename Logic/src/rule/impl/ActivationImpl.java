@@ -2,7 +2,9 @@ package rule.impl;
 
 import rule.api.Activation;
 
-public class ActivationImpl implements Activation {
+import java.io.Serializable;
+
+public class ActivationImpl implements Activation , Serializable {
     private static final int DEFAULT_NUM_OF_TICKS = 1;
     private static final double DEFAULT_PROBABILITY = 1;
 
@@ -21,7 +23,6 @@ public class ActivationImpl implements Activation {
         this(DEFAULT_NUM_OF_TICKS, probabilityToActivate);
     }
 
-    // TODO: input check
     public ActivationImpl(int numOfTicksToActivate, double probabilityToActivate) {
         setNumOfTicksToActivate(numOfTicksToActivate);
         setProbabilityToActivate(probabilityToActivate);

@@ -1,4 +1,4 @@
-package Main;
+package main;
 
 import menu.api.Menu;
 import menu.impl.MenuImpl;

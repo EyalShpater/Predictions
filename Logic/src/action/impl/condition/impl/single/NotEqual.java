@@ -4,8 +4,10 @@ import action.context.api.Context;
 import action.expression.api.Expression;
 import action.expression.impl.ExpressionFactory;
 
-public class NotEqual extends SingleCondition{
-    public NotEqual(Context context, String expression1, String expression2) {
+import java.io.Serializable;
+
+public class NotEqual extends SingleCondition implements Serializable {
+    public NotEqual(String expression1, String expression2) {
         super(expression1, expression2);
     }
 

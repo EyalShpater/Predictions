@@ -6,12 +6,13 @@ import instance.entity.api.EntityInstance;
 import instance.entity.manager.api.EntityInstanceManager;
 import instance.property.api.PropertyInstance;
 
+import java.io.Serializable;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-public class SimulationDataImpl implements SimulationData {
+public class SimulationDataImpl implements SimulationData , Serializable {
 
     int id;
     long startTime;

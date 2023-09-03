@@ -5,10 +5,11 @@ import instance.entity.api.EntityInstance;
 import instance.entity.impl.EntityInstanceImpl;
 import instance.entity.manager.api.EntityInstanceManager;
 
+import java.io.Serializable;
 import java.util.*;
 import java.util.stream.Collectors;
 
-public class EntityInstanceManagerImpl implements EntityInstanceManager {
+public class EntityInstanceManagerImpl implements EntityInstanceManager , Serializable {
     private int id;
     private Map<Integer, EntityInstance> instances;
 

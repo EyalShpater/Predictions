@@ -6,7 +6,9 @@ import action.helper.function.impl.HelperFunctionFactory;
 import action.context.api.Context;
 import instance.entity.api.EntityInstance;
 
-public class FunctionExpression extends AbstractExpression {
+import java.io.Serializable;
+
+public class FunctionExpression extends AbstractExpression implements  Serializable {
 
     public FunctionExpression(String expression, EntityInstance entityInstance) {
         super(expression, entityInstance);

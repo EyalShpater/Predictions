@@ -10,9 +10,11 @@ import definition.property.api.Range;
 import instance.entity.api.EntityInstance;
 import instance.property.api.PropertyInstance;
 
-public class DecreaseAction extends AbstractAction {
+import java.io.Serializable;
+
+public class DecreaseAction extends AbstractAction implements Serializable {
     private final String propertyName;
-    private final String byExpression; //Expression instead of String?
+    private final String byExpression;
 
     public DecreaseAction(EntityDefinition entity, String propertyName, String byExpression) {
         super(entity, ActionType.DECREASE);
@@ -58,13 +60,6 @@ public class DecreaseAction extends AbstractAction {
         }else{
             throw new IllegalArgumentException("Increase can get only numeric values.");
         }
-        /*if(decreaseBy instanceof Integer){
-            Double result = propertyValue - (Integer)decreaseBy;
-            checkRangeAndUpdateValue(propertyToUpdate , result , false);
-        } else if (decreaseBy instanceof Double) {
-            Double result = propertyValue - (Double)decreaseBy;
-            checkRangeAndUpdateValue(propertyToUpdate , result , false);
-        }*/
     }
     private void checkRangeAndUpdateNumericValue(PropertyInstance propertyToUpdate, Number result){
         Range range = propertyToUpdate.getPropertyDefinition().getRange();

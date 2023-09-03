@@ -4,9 +4,10 @@ import definition.property.api.PropertyDefinition;
 import definition.property.api.PropertyType;
 import definition.property.api.Range;
 
+import java.io.Serializable;
 import java.util.Random;
 
-public class RandomValueGenerator {
+public class RandomValueGenerator implements Serializable {
     private final static String VALID_RANDOM_CHARS = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789().-_,?! ";
     private final static int MIN_STRING_LENGTH = 1;
     private final static int MAX_STRING_LENGTH = 50;

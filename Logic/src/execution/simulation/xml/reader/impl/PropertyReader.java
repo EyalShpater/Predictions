@@ -31,9 +31,24 @@ public class PropertyReader {
             return new PropertyDefinitionImpl( prdProperty.getPRDName() , type , isRandomInitialize , range ) ;
         }
         else{
-            Object value = prdProperty.getPRDValue().getInit();
-            return new PropertyDefinitionImpl( prdProperty.getPRDName() , type , range  , isRandomInitialize , value ) ;
+            String value = prdProperty.getPRDValue().getInit();
+
+            return new PropertyDefinitionImpl( prdProperty.getPRDName() , type , range  , isRandomInitialize , convertValue(value, type) ) ;
         }
+    }
+
+    private Object convertValue(String value, PropertyType type) {
+        switch (type.name()) {
+            case "INT":
+                return Integer.valueOf(value);
+            case "DOUBLE":
+                return Double.valueOf(value);
+            case "BOOLEAN":
+                return Boolean.valueOf(value);
+            default:
+                return value;
+        }
+
     }
 
     private PropertyDefinition createPropertyWithOutRange(PRDProperty prdProperty) {

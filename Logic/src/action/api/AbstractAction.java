@@ -3,8 +3,9 @@ package action.api;
 import definition.entity.api.EntityDefinition;
 
 import instance.entity.api.EntityInstance;
+import java.io.Serializable;
 
-public abstract class AbstractAction implements Action {
+public abstract class AbstractAction implements Action , Serializable {
     private final EntityDefinition entity;
     private final ActionType type;
 

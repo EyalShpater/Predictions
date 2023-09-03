@@ -3,7 +3,9 @@ package action.impl.condition.impl.single;
 import action.context.api.Context;
 import action.impl.condition.Condition;
 
-public abstract class SingleCondition implements Condition {
+import java.io.Serializable;
+
+public abstract class SingleCondition implements Condition  , Serializable {
     protected String expression1;
     protected String expression2;
 

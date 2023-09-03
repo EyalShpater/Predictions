@@ -10,41 +10,17 @@ import definition.property.api.Range;
 import instance.entity.api.EntityInstance;
 import instance.property.api.PropertyInstance;
 
-public class IncreaseAction extends AbstractAction {
+import java.io.Serializable;
+
+public class IncreaseAction extends AbstractAction implements Serializable {
     private final String propertyName;
-    private final String byExpression; //Expression instead of String?
+    private final String byExpression;
 
     public IncreaseAction(EntityDefinition entity, String propertyName, String byExpression) {
         super(entity, ActionType.INCREASE);
         this.propertyName = propertyName;
         this.byExpression = byExpression;
     }
-/*
-    @Override
-    public void invoke(Context context) {
-        //entity.getPropertyByName().
-        EntityInstance invokeOnMe = context.getPrimaryEntityInstance();
-        PropertyInstance theProperty = invokeOnMe.getPropertyByName(propertyName);
-        if (!checkIfThePropertyIsNumeric(theProperty.getPropertyDefinition())) {
-            throw new IllegalArgumentException("value must be of numeric type ");
-        }
-
-        //create a new expression factory to generate the expression we need
-        Expression theExpression = new ExpressionFactory(byExpression, invokeOnMe);
-
-        //TODO: Ask eyal about get method (theExpression.getValue()) getting a HelperFunctionContext variable
-        //TODO: because we need to iterate the environment variables in the EnvironmentHelperFunction
-        //TODO: the risk is that it gets a lot of data that it does not need , but i do not see another way to solve it
-        //TODO: because even if i want to give it the activeEnvironment i cant , there is no get method on context
-        //generate the updated value from the expression
-        context.setExpression(theExpression);  // why do we need to change the context?
-        NewNumericValueGenerator valueGeneratorForTheProperty = new NewIncreaseNumericValueGeneratorImpl();
-        Object newValue = valueGeneratorForTheProperty.calcUpdatedValue(theExpression.getValue(context), theProperty.getValue());
-
-        //set the property for the entity
-        invokeOnMe.getPropertyByName(propertyName).updateValue(newValue);
-    }
-    */
 
     @Override
     public void invoke(Context context) {
@@ -84,15 +60,6 @@ public class IncreaseAction extends AbstractAction {
         }else {
             throw new IllegalArgumentException("Increase can get only numeric values.");
         }
-
-        /*if(increaseBy instanceof Integer){
-            Double result = propertyValue + (Integer)increaseBy;
-
-        } else if (increaseBy instanceof Double) {
-            Double result = propertyValue + (Double)increaseBy;
-            checkRangeAndUpdateValue(propertyToUpdate , result , false);
-        }*/
-
     }
 
     private void checkRangeAndUpdateNumericValue(PropertyInstance propertyToUpdate, Number result){
@@ -111,29 +78,5 @@ public class IncreaseAction extends AbstractAction {
             propertyToUpdate.setValue(result);
         }
     }
-    /*
-    OLD VERSION
-    private void checkRangeAndUpdateValue(PropertyInstance propertyToUpdate , Number result , boolean isResultInteger){
-        Range range = propertyToUpdate.getPropertyDefinition().getRange();
-        if(range != null){
-            double min = range.getMin();
-            double max = range.getMax();
-
-            if (isResultInteger){
-                Integer IntegerResult = (Integer) result;
-                if(IntegerResult>min && IntegerResult<max){
-                    propertyToUpdate.setValue(result);
-                }
-            }else{
-                Double DoubleResult = (Double) result;
-                if(DoubleResult>min && DoubleResult<max){
-                    propertyToUpdate.setValue(result);
-                }
-            }
-        }else{
-            propertyToUpdate.setValue(result);
-        }
-
-    }*/
 }
 

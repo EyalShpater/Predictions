@@ -7,11 +7,12 @@ import impl.RuleDTO;
 import rule.api.Activation;
 import rule.api.Rule;
 
+import java.io.Serializable;
 import java.util.*;
 import java.util.stream.Collectors;
 
 
-public class RuleImpl implements Rule {
+public class RuleImpl implements Rule , Serializable {
     private final String name;
     private SortedSet<String> relevantEntities;
     private List<Action> actions;

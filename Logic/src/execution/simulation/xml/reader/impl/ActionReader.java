@@ -2,60 +2,200 @@ package execution.simulation.xml.reader.impl;
 
 import action.api.Action;
 import action.impl.*;
+import action.impl.condition.Condition;
+import action.impl.condition.impl.ConditionImpl;
+import action.impl.condition.impl.multiple.And;
+import action.impl.condition.impl.multiple.MultipleCondition;
+import action.impl.condition.impl.multiple.Or;
+import action.impl.condition.impl.single.*;
 import definition.entity.api.EntityDefinition;
+import definition.world.api.World;
 import resources.generated.PRDAction;
 import resources.generated.PRDCondition;
+import resources.generated.PRDElse;
+import resources.generated.PRDThen;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class ActionReader {
 
-    public Action read(PRDAction prdAction ,EntityDefinition entityOfAction){
+    public Action read(PRDAction prdAction ,EntityDefinition entityOfAction , World world){
+        return readAction( prdAction ,entityOfAction, world);
+    }
+    private Action readAction(PRDAction prdAction , EntityDefinition entityOfAction , World world){
 
         Action action = null;
-        if ( prdAction.getType().equals("increase") ){
-            action = readPRDActionIncreaseTypeAction( prdAction , entityOfAction );
-        } else if ( prdAction.getType().equals("decrease") ) {
-            action = readPRDActionDecreaseTypeAction( prdAction , entityOfAction );
-        } else if ( prdAction.getType().equals("kill") ) {
-            action = readPRDActionKillTypeAction( prdAction , entityOfAction );
-        }else if ( prdAction.getType().equals("set") ) {
-            action = readPRDActionSetTypeAction( prdAction , entityOfAction );
-        }else if ( prdAction.getType().equals("calculation") ) {
-            action = readPRDActionCalculationTypeAction( prdAction , entityOfAction );
-        }else if ( prdAction.getType().equals("condition") ) {
-            action = readPRDActionConditionTypeAction( prdAction , entityOfAction );
-        }else {
-            throw new IllegalArgumentException("Type of action is not valid");
+        switch (prdAction.getType()) {
+            case "increase":
+                action = readPRDActionIncreaseTypeAction(prdAction, entityOfAction);
+                break;
+            case "decrease":
+                action = readPRDActionDecreaseTypeAction(prdAction, entityOfAction);
+                break;
+            case "kill":
+                action = readPRDActionKillTypeAction(prdAction, entityOfAction);
+                break;
+            case "set":
+                action = readPRDActionSetTypeAction(prdAction, entityOfAction);
+                break;
+            case "calculation":
+                action = readPRDActionCalculationTypeAction(prdAction, entityOfAction);
+                break;
+            case "condition":
+                action = readPRDActionConditionTypeAction(prdAction, entityOfAction, world);
+                break;
+            default:
+                throw new IllegalArgumentException("Type of action is not valid");
         }
         return action;
     }
 
-    private Action readPRDActionConditionTypeAction(PRDAction prdAction, EntityDefinition entityOfAction) {
-       /*
-       * <PRD-action type="condition" entity="ent-1">
-                    <PRD-condition singularity="multiple" logical="or">
-                        <PRD-condition singularity="single" entity="ent-1" property="p1" operator="bt" value="4"/>
-                        <PRD-condition singularity="single" entity="ent-1" property="p2" operator="lt" value="3"/>
-                        <PRD-condition singularity="multiple" logical="and">
-                            <PRD-condition singularity="single" entity="ent-1" property="p4" operator="!="
-                                           value="nothing"/>
-                            <PRD-condition singularity="single" entity="ent-1" property="p3" operator="="
-                                           value="environment(e2)"/>
-                        </PRD-condition>
-                    </PRD-condition>
-                    <PRD-then>
-                        <PRD-action type="increase" entity="ent-1" property="p1" by="3"/>
-                        <PRD-action type="set" entity="ent-1" property="p1" value="random(3)"/>
-                    </PRD-then>
-                    <PRD-else>
-                        <PRD-action type="kill" entity="ent-1"/>
-                    </PRD-else>
-                </PRD-action>
-       * */
+    private Action readPRDActionConditionTypeAction(PRDAction prdAction, EntityDefinition entityOfAction ,  World world) {
         PRDCondition condition = prdAction.getPRDCondition();
         if ( condition.getSingularity().equals("single") ){
-
+            return readPRDActionConditionSingleTypeAction(world , prdAction ,entityOfAction);
+        } else if (condition.getSingularity().equals("multiple")) {
+            return readPRDActionConditionMultipleTypeAction(world , prdAction ,entityOfAction);
         }
         return null;
+    }
+
+
+    private Action readPRDActionConditionMultipleTypeAction(World world ,PRDAction prdAction, EntityDefinition entityOfAction){
+        PRDCondition condition = prdAction.getPRDCondition();
+        MultipleCondition multipleCondition = null;
+        if (condition.getLogical().equals("or")){
+            multipleCondition = new Or();
+            addSmallerConditionToMultipleConditions(condition ,multipleCondition,entityOfAction);
+        } else if (condition.getLogical().equals("and")) {
+            multipleCondition = new And();
+            addSmallerConditionToMultipleConditions(condition , multipleCondition,entityOfAction);
+        }
+
+        PRDThen thenBlock = prdAction.getPRDThen();
+        PRDElse elseBloc = prdAction.getPRDElse();
+
+        List<Action> thenList = getThenListFromPRDThen(world ,thenBlock ,entityOfAction);
+        List<Action> elseList = getElseListFromPRDElse(world ,elseBloc ,entityOfAction);
+        ConditionImpl newActionCondition = new ConditionImpl(multipleCondition , condition.getLogical() , entityOfAction);
+
+        if (thenList != null ){
+            newActionCondition.addThanList(thenList);
+        }
+        if (elseList != null){
+            newActionCondition.addNotTrueList(elseList);
+        }
+        return newActionCondition;
+    }
+
+
+    private void addSmallerConditionToMultipleConditions(PRDCondition condition , MultipleCondition multipleCondition , EntityDefinition entityOfAction){
+        List<PRDCondition> conditionList = condition.getPRDCondition();
+        for ( PRDCondition smallerCondition : conditionList){
+            multipleCondition.addCondition(createMultipleCondition(smallerCondition ,entityOfAction ));
+        }
+    }
+
+    private Condition createMultipleCondition(PRDCondition condition , EntityDefinition entityOfAction){
+        if (condition.getSingularity().equals("single")){
+            return createSingleCondition(condition);
+        }else{
+            MultipleCondition multipleCondition = null;
+            if(condition.getLogical().equals("or")){
+                 multipleCondition = new Or();
+            }else if (condition.getLogical().equals("and")) {
+                multipleCondition = new And();
+            }
+            List<PRDCondition> conditionList = condition.getPRDCondition();
+            for ( PRDCondition smallerCondition : conditionList ){
+                multipleCondition.addCondition(createMultipleCondition(smallerCondition , entityOfAction));
+            }
+            return multipleCondition;
+        }
+    }
+
+    private SingleCondition createSingleCondition(PRDCondition condition){
+        switch (condition.getOperator()) {
+            case "bt":
+                return new BiggerThan(condition.getProperty(), condition.getValue());
+            case "=":
+                return new Equal(condition.getProperty(), condition.getValue());
+            case "lt":
+                return new LowerThan(condition.getProperty(), condition.getValue());
+            case "!=":
+                return new NotEqual(condition.getProperty(), condition.getValue());
+        }
+        return null;
+    }
+
+
+
+    private Action readPRDActionConditionSingleTypeAction(World world , PRDAction prdAction, EntityDefinition entityOfAction){
+        PRDCondition condition = prdAction.getPRDCondition();
+        Action action = null;
+        switch (condition.getOperator()) {
+            case "bt":
+                action = createActionFromSingleTypeAction(world, prdAction, new BiggerThan(condition.getProperty(), condition.getValue()), entityOfAction, "bt");
+                break;
+            case "=":
+                action = createActionFromSingleTypeAction(world, prdAction, new Equal(condition.getProperty(), condition.getValue()), entityOfAction, "=");
+                break;
+            case "lt":
+                action = createActionFromSingleTypeAction(world, prdAction, new LowerThan(condition.getProperty(), condition.getValue()), entityOfAction, "lt");
+                break;
+            case "!=":
+                action = createActionFromSingleTypeAction(world, prdAction, new NotEqual(condition.getProperty(), condition.getValue()), entityOfAction, "!=");
+                break;
+        }
+        return action;
+    }
+
+    private Action createActionFromSingleTypeAction(World world ,PRDAction prdAction , SingleCondition singleCondition, EntityDefinition entityOfAction , String logical){
+        PRDCondition condition = prdAction.getPRDCondition();
+
+        PRDThen thenBlock = prdAction.getPRDThen();
+        PRDElse elseBloc = prdAction.getPRDElse();
+
+        List<Action> thenList = getThenListFromPRDThen(world ,thenBlock ,entityOfAction);
+        List<Action> elseList = getElseListFromPRDElse(world ,elseBloc ,entityOfAction);
+
+        MultipleCondition multipleRepresentingASingle = new And();
+        multipleRepresentingASingle.addCondition(singleCondition);
+
+        ConditionImpl newActionCondition = new ConditionImpl(multipleRepresentingASingle , logical , entityOfAction);
+
+        if (thenList != null ){
+            newActionCondition.addThanList(thenList);
+        }
+        if (elseList != null){
+            newActionCondition.addNotTrueList(elseList);
+        }
+        return newActionCondition;
+    }
+
+    private List<Action> getElseListFromPRDElse(World world , PRDElse elseBloc , EntityDefinition entityOfAction) {
+        List<Action> elseList = null;
+        if (elseBloc != null ) {
+            elseList = new ArrayList<>();
+            List<PRDAction> prdActionList = elseBloc.getPRDAction();
+            for (PRDAction action: prdActionList) {
+                elseList.add(readAction(action , world.getEntityByName(action.getEntity()),world ));
+            }
+        }
+        return elseList;
+    }
+
+    private List<Action> getThenListFromPRDThen(World world ,PRDThen thenBlock , EntityDefinition entityOfAction ) {
+        List<Action> thenList = null;
+        if (thenBlock != null ) {
+            thenList = new ArrayList<>();
+            List<PRDAction> prdActionList = thenBlock.getPRDAction();
+            for (PRDAction action: prdActionList) {
+                    thenList.add(readAction(action , world.getEntityByName(action.getEntity()),world ));
+            }
+        }
+        return thenList;
     }
 
     private Action readPRDActionCalculationTypeAction(PRDAction prdAction, EntityDefinition entityOfAction) {

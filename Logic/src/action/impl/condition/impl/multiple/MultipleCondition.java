@@ -3,20 +3,30 @@ package action.impl.condition.impl.multiple;
 import action.context.api.Context;
 import action.impl.condition.Condition;
 
-public abstract class MultipleCondition implements Condition{
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
-    private final Condition condition1;
-    private final Condition condition2;
+public abstract class MultipleCondition implements Condition , Serializable {
 
-    public MultipleCondition(Condition condition1, Condition condition2) {
-        this.condition1 = condition1;
-        this.condition2 = condition2;
+    protected List<Condition> conditions;
+
+    public MultipleCondition() {
+        conditions = new ArrayList<>();
     }
 
     @Override
     public boolean evaluate(Context context) {
-        return evaluate(condition1, condition2, context);
+        return evaluate(conditions, context);
     }
 
-    abstract protected boolean evaluate (Condition condition1, Condition condition2, Context context);
+    public void addCondition(Condition condition) {
+        if (condition == null) {
+            throw new NullPointerException();
+        }
+
+        conditions.add(condition);
+    }
+
+    abstract protected boolean evaluate(List<Condition> conditions, Context context);
 }

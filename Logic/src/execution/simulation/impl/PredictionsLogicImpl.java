@@ -1,33 +1,18 @@
 package execution.simulation.impl;
 
-import action.impl.DecreaseAction;
-import action.impl.IncreaseAction;
-import action.impl.KillAction;
-import action.impl.SetAction;
-import definition.entity.api.EntityDefinition;
-import definition.entity.impl.EntityDefinitionImpl;
-import definition.property.api.PropertyDefinition;
-import definition.property.api.PropertyType;
-import definition.property.api.Range;
-import definition.property.impl.PropertyDefinitionImpl;
 import execution.simulation.api.PredictionsLogic;
 import execution.simulation.manager.SimulationManager;
 import definition.world.api.World;
 import definition.world.impl.WorldImpl;
-import execution.simulation.termination.impl.TerminationImpl;
 import execution.simulation.xml.reader.impl.XmlReader;
 import execution.simulation.xml.validation.XmlValidator;
-import impl.PropertyDefinitionDTO;
-import impl.SimulationDTO;
-import impl.SimulationDataDTO;
-import impl.WorldDTO;
-import rule.api.Rule;
-import rule.impl.ActivationImpl;
-import rule.impl.RuleImpl;
+import impl.*;
+import instance.enviornment.api.ActiveEnvironment;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class PredictionsLogicImpl implements PredictionsLogic {
+public class PredictionsLogicImpl implements PredictionsLogic , Serializable {
     private SimulationManager allSimulations;
     private World world;
 
@@ -35,19 +20,15 @@ public class PredictionsLogicImpl implements PredictionsLogic {
         this.allSimulations = new SimulationManager();
     }
 
-    // TODO: impl
     @Override
-    public boolean loadXML(String path) {
-        boolean isXmlValid = true;
-
-        world = new WorldImpl();
+    public void loadXML(String path) {
+        World newWorld = new WorldImpl();
         XmlValidator validator = new XmlValidator(path);
+        XmlReader reader;
         validator.isValid();
-         //TODO: NEED TO CATCH EXCEPTION SOMEWHERE
-        XmlReader reader = new XmlReader(validator.getWorld());
-        reader.readXml(world);
-        //TODO: read data from file and put it in world.
-        return true;
+        reader = new XmlReader(validator.getWorld());
+        reader.readXml(newWorld);
+        world = newWorld;
     }
 
     @Override
@@ -56,13 +37,23 @@ public class PredictionsLogicImpl implements PredictionsLogic {
     }
 
     @Override
-    public WorldDTO getLoadedSimulationDetails() {
-        return (WorldDTO) world.convertToDTO();
+    public List<PropertyDefinitionDTO> setEnvironmentVariables(List<PropertyDefinitionDTO> variables) {
+        ActiveEnvironment environmentInstances;
+
+        world.setEnvironmentVariablesValues(variables);
+        environmentInstances = world.createActiveEnvironment();
+
+        return environmentInstances.convertToDTO();
     }
 
     @Override
-    public void runNewSimulation(List<PropertyDefinitionDTO> environmentVariables) {
-        allSimulations.runNewSimulation(world, environmentVariables);
+    public WorldDTO getLoadedSimulationDetails() {
+        return world.convertToDTO();
+    }
+
+    @Override
+    public SimulationRunDetailsDTO runNewSimulation(List<PropertyDefinitionDTO> environmentVariables) {
+        return allSimulations.runNewSimulation(world, environmentVariables);
     }
 
     @Override
@@ -85,46 +76,12 @@ public class PredictionsLogicImpl implements PredictionsLogic {
     }
 
     @Override
-    public List<PropertyDefinitionDTO> getEntityPropertiesByEntityName(String name) {
-        return world.getEntityByName(name)
+    public List<PropertyDefinitionDTO> getEntityPropertiesByEntityName(int serialNumber, String name) {
+        return allSimulations
+                .getSimulationBySerialNumber(serialNumber)
+                .getWorld()
+                .getEntityByName(name)
                 .convertToDTO()
                 .getProperties();
-    }
-
-    //TODO: DELETE! ONLY FOR DEBUGGING.
-    @Override
-    public void hardCodeWorldInit() {
-        world = new WorldImpl();
-
-        PropertyDefinition agePropertyDefinition = new PropertyDefinitionImpl("age", PropertyType.INT, true, new Range(15, 90));
-        PropertyDefinition smokingInDayPropertyDefinition = new PropertyDefinitionImpl("smokingInDay", PropertyType.DOUBLE, false,7.5);
-        PropertyDefinition cancerPrecentage = new PropertyDefinitionImpl("cancerPrecentage", PropertyType.DOUBLE, true, new Range(0, 100));
-        PropertyDefinition cancerAdvanement = new PropertyDefinitionImpl("cancerAdvancement", PropertyType.DOUBLE, true, new Range(0, 150));
-        PropertyDefinition isCancerPositive = new PropertyDefinitionImpl("cancerPositive", PropertyType.BOOLEAN,false,false);
-        PropertyDefinition CancerSerialString = new PropertyDefinitionImpl("CancerSerialString", PropertyType.STRING,true);
-
-
-        EntityDefinition smokerEntityDefinition = new EntityDefinitionImpl("smoker", 100000);
-        smokerEntityDefinition.addProperty(agePropertyDefinition);
-        smokerEntityDefinition.addProperty(smokingInDayPropertyDefinition);
-        smokerEntityDefinition.addProperty(cancerPrecentage);
-        smokerEntityDefinition.addProperty(cancerAdvanement);
-        smokerEntityDefinition.addProperty(isCancerPositive);
-        smokerEntityDefinition.addProperty(CancerSerialString);
-
-        world.addEntity(smokerEntityDefinition);
-
-        Rule rule1 = new RuleImpl("First_User_Rule", new ActivationImpl(0.86), "smoker");
-        rule1.addAction(new IncreaseAction(smokerEntityDefinition, "age", "random(10)"));
-        rule1.addAction(new IncreaseAction(smokerEntityDefinition, "smokingInDay", "3.5"));
-        rule1.addAction(new SetAction(smokerEntityDefinition, "cancerPositive", "true"));
-        rule1.addAction(new DecreaseAction(smokerEntityDefinition, "cancerPrecentage", "random(15)"));
-
-        Rule rule2 = new RuleImpl("Eyal_Rule", new ActivationImpl(0.20), "smoker");
-        rule2.addAction(new KillAction(smokerEntityDefinition));
-
-        world.addRule(rule1);
-        world.addRule(rule2);
-        world.setTermination(new TerminationImpl(3, 3));
     }
 }

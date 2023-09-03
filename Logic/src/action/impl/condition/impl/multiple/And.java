@@ -3,20 +3,24 @@ package action.impl.condition.impl.multiple;
 import action.context.api.Context;
 import action.impl.condition.Condition;
 
-public class And extends MultipleCondition{
+import java.io.Serializable;
+import java.util.List;
 
-    public And(Condition condition1, Condition condition2) {
-        super(condition1, condition2);
-    }
-
+public class And extends MultipleCondition implements Serializable {
     @Override
     public String getOperationSign() {
         return "and";
     }
 
     @Override
-    protected boolean evaluate(Condition condition1, Condition condition2, Context context) {
-        return condition1.evaluate(context) && condition2.evaluate(context);
+    protected boolean evaluate(List<Condition> conditions, Context context) {
+        boolean result = true;
+
+        for (Condition condition : conditions) {
+            result = result && condition.evaluate(context);
+        }
+
+        return result;
     }
 }
 

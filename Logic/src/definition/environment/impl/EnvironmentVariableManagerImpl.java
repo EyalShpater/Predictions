@@ -1,6 +1,5 @@
 package definition.environment.impl;
 
-import api.DTO;
 import definition.environment.api.EnvironmentVariableManager;
 import definition.property.api.PropertyDefinition;
 import definition.property.impl.PropertyDefinitionImpl;
@@ -9,9 +8,10 @@ import instance.enviornment.api.ActiveEnvironment;
 import instance.enviornment.impl.ActiveEnvironmentImpl;
 import instance.property.impl.PropertyInstanceImpl;
 
+import java.io.Serializable;
 import java.util.*;
 
-public class EnvironmentVariableManagerImpl implements EnvironmentVariableManager {
+public class EnvironmentVariableManagerImpl implements EnvironmentVariableManager , Serializable {
     private Map<String, PropertyDefinition> propNameToPropDefinition = new HashMap<>();
 
     @Override

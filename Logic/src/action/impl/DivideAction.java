@@ -10,7 +10,9 @@ import definition.property.api.Range;
 import instance.entity.api.EntityInstance;
 import instance.property.api.PropertyInstance;
 
-public class DivideAction extends AbstractAction {
+import java.io.Serializable;
+
+public class DivideAction extends AbstractAction implements Serializable {
     private final String propertyName;
     private final String Expression1;
     private final String Expression2;
@@ -62,23 +64,6 @@ public class DivideAction extends AbstractAction {
 
     private void divideDouble(PropertyInstance propertyToUpdate, Object firstExpressionValue , Object secondExpressionValue){
 
-        /*Double result = 0.0;
-        if (!areExpressionsNumeric(firstExpressionValue,secondExpressionValue)){
-            throw new IllegalArgumentException("value of expression must be numeric");
-        }
-        if (secondExpressionValue.equals(0)) {
-            throw new IllegalArgumentException("Cannot divide by 0");
-        }
-        if (areBothIntegers(firstExpressionValue,secondExpressionValue)){
-            result = ((Integer)firstExpressionValue).doubleValue()/((Integer)secondExpressionValue).doubleValue();
-        } else if (areBothDoubles(firstExpressionValue,secondExpressionValue)) {
-            result = (Double) firstExpressionValue / (Double) secondExpressionValue;
-        } else if (firstDoubleSecondInteger(firstExpressionValue , secondExpressionValue)) {
-            result = (Double) firstExpressionValue / (Integer) secondExpressionValue;
-        } else if (firstIntegerSecondDouble(firstExpressionValue , secondExpressionValue)) {
-            result = (Integer) firstExpressionValue / (Double) secondExpressionValue;
-        }
-        checkRangeAndUpdateValue(propertyToUpdate , result , false);*/
         if (!areExpressionsNumeric(firstExpressionValue,secondExpressionValue)){
             throw new IllegalArgumentException("value of expression must be numeric");
         }

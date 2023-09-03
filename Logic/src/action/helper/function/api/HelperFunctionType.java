@@ -1,5 +1,7 @@
 package action.helper.function.api;
 
-public enum HelperFunctionType {
+import java.io.Serializable;
+
+public enum HelperFunctionType implements  Serializable {
     ENVIRONMENT, RANDOM
 }

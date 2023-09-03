@@ -7,6 +7,7 @@ import definition.entity.impl.EntityDefinitionImpl;
 import definition.environment.api.EnvironmentVariableManager;
 import definition.environment.impl.EnvironmentVariableManagerImpl;
 import definition.property.api.PropertyDefinition;
+import execution.simulation.termination.api.TerminateCondition;
 import execution.simulation.termination.api.Termination;
 import definition.world.api.World;
 import execution.simulation.termination.impl.TerminationImpl;
@@ -16,13 +17,11 @@ import instance.enviornment.api.ActiveEnvironment;
 import rule.api.Rule;
 import rule.impl.RuleImpl;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.io.Serializable;
+import java.util.*;
 import java.util.stream.Collectors;
 
-public class WorldImpl implements World {
+public class WorldImpl implements World  , Serializable {
     private Map<String, EntityDefinition> entitiesDefinition;
     private List<Rule> rules;
     private EnvironmentVariableManager environmentVariables;
@@ -77,8 +76,8 @@ public class WorldImpl implements World {
     }
 
     @Override
-    public boolean isActive(int currentTick, long startTime) {
-        return !terminate.isTerminate(currentTick, startTime);
+    public TerminateCondition isActive(int currentTick, long startTime) {
+        return terminate.isTerminate(currentTick, startTime);
     }
 
     @Override
@@ -144,5 +143,10 @@ public class WorldImpl implements World {
     @Override
     public EntityDefinition getEntityByName(String name) {
         return entitiesDefinition.get(name);
+    }
+
+    @Override
+    public Collection<PropertyDefinition> getEnvironmentVariables() {
+        return environmentVariables.getEnvironmentVariables();
     }
 }

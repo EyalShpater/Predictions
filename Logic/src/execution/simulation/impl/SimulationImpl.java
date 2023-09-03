@@ -6,6 +6,7 @@ import execution.simulation.api.Simulation;
 import definition.world.api.World;
 import execution.simulation.data.api.SimulationData;
 import execution.simulation.data.impl.SimulationDataImpl;
+import execution.simulation.termination.api.TerminateCondition;
 import impl.SimulationDTO;
 import impl.SimulationDataDTO;
 import instance.entity.api.EntityInstance;
@@ -14,9 +15,10 @@ import instance.entity.manager.impl.EntityInstanceManagerImpl;
 import instance.enviornment.api.ActiveEnvironment;
 import rule.api.Rule;
 
+import java.io.Serializable;
 import java.util.Random;
 
-public class SimulationImpl implements Simulation {
+public class SimulationImpl implements Simulation , Serializable {
     private final int serialNumber;
     private final Random random;
 
@@ -42,24 +44,35 @@ public class SimulationImpl implements Simulation {
     }
 
     @Override
-    public void run() {
+    public TerminateCondition run() {
         int tick = 1;
+        TerminateCondition reasonToStop;
 
         startTime = System.currentTimeMillis();
         initEntities();
         initEnvironmentVariables();
 
-        while (world.isActive(tick, startTime)) {
+        while ((reasonToStop = world.isActive(tick, startTime)) == null) {
             executeRules(tick);
             tick++;
         }
 
         data = new SimulationDataImpl(serialNumber, startTime, world.getEntities(), entities);
+        resetEnvironmentVariables();
+
+        return reasonToStop;
     }
 
     @Override
     public long getRunStartTime() {
         return startTime;
+    }
+
+    @Override
+    public ActiveEnvironment setEnvironmentVariables() {
+        this.environmentVariables = world.createActiveEnvironment();
+
+        return this.environmentVariables;
     }
 
     @Override
@@ -90,6 +103,11 @@ public class SimulationImpl implements Simulation {
         this.environmentVariables = world.createActiveEnvironment();
     }
 
+    private void resetEnvironmentVariables() {
+        world.getEnvironmentVariables()
+                .forEach(propertyDefinition -> propertyDefinition.setRandom(true));
+    }
+
     private void executeRules(int tick) {
         for (EntityInstance entity : entities.getInstances()) {
             for (Rule rule : world.getRules()) {
@@ -100,6 +118,11 @@ public class SimulationImpl implements Simulation {
                 }
             }
         }
+    }
+
+    @Override
+    public World getWorld() {
+        return world;
     }
 
     @Override

@@ -1,6 +1,8 @@
 package definition.property.api;
 
-public class Range {
+import java.io.Serializable;
+
+public class Range implements Serializable {
     double min;
     double max;
 

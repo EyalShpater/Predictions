@@ -3,9 +3,10 @@ package action.helper.function.impl;
 import action.context.api.Context;
 import action.helper.function.api.HelperFunction;
 
+import java.io.Serializable;
 import java.util.Random;
 
-public class RandomHelper implements HelperFunction {
+public class RandomHelper implements HelperFunction , Serializable {
     String bound;
     Context context;
 

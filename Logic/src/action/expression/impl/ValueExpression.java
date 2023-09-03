@@ -4,8 +4,10 @@ import action.expression.api.AbstractExpression;
 import action.context.api.Context;
 import instance.entity.api.EntityInstance;
 
+import java.io.Serializable;
 
-public class ValueExpression extends AbstractExpression {
+
+public class ValueExpression extends AbstractExpression implements  Serializable {
     public ValueExpression(String byExpression, EntityInstance entityInstance) {
         super(byExpression, entityInstance);
     }

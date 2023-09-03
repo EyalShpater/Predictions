@@ -6,15 +6,14 @@ import instance.property.api.PropertyInstance;
 import instance.property.impl.PropertyInstanceImpl;
 import instance.entity.api.EntityInstance;
 
+import java.io.Serializable;
 import java.util.*;
 
-public class EntityInstanceImpl implements EntityInstance {
+public class EntityInstanceImpl implements EntityInstance  , Serializable {
     private final int id;
     private final String name;
     private Map<String, PropertyInstance> propNameToPropInstance;
     private boolean isAlive = true;
-
-    private String firstName;//NOTE: For debugging
 
     public EntityInstanceImpl(EntityDefinition entity, int id) {
         name = entity.getName();
@@ -48,14 +47,6 @@ public class EntityInstanceImpl implements EntityInstance {
     @Override
     public String getName() {
         return name;
-    }
-
-    public void setEntityFirstName(String name) {
-        this.firstName = name;
-    }
-
-    public String getEntityFirstName() {
-        return firstName;
     }
 
     @Override

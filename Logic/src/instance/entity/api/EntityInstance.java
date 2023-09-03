@@ -7,11 +7,7 @@ public interface EntityInstance {
 
     PropertyInstance getPropertyByName(String name);
 
-    void setEntityFirstName(String name);
-
     String getName();
-
-    String getEntityFirstName();
 
     boolean isAlive();
 
