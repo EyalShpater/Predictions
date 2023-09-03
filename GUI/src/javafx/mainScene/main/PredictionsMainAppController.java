@@ -71,7 +71,7 @@ public class PredictionsMainAppController {
 
             secScreeenContller = loader.getController();
             secScreeenContller.setEngine(engine);
-            secScreeenContller.setFileSelection(headerComponentController.getIsFileSelectedProperty());
+            secScreeenContller.setIsFileSelectedProperty(headerComponentController.getIsFileSelectedProperty());
 
             tabPane.getTabs().add(newExecution);
         } catch (Exception ignored) {
