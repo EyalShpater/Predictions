@@ -16,8 +16,7 @@ import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.RadioButton;
 import javafx.tab.results.helper.Category;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 public class ResultsController {
     @FXML
@@ -43,53 +42,51 @@ public class ResultsController {
     private PredictionsLogic engine;
     private StringProperty propertyToView = new SimpleStringProperty();
     private StringProperty entityToView = new SimpleStringProperty();
+    private boolean isFirstStart = true;
+
+    public void setEngine(PredictionsLogic engine) {
+        this.engine = engine;
+    }
+
+    public void onStartButtonClicked() {
+        setSimulationChoiceBox();
+    }
 
     @FXML
-    void initialize() {
+    private void initialize() {
         selectedSimulation.bind(simulationChoiceBox.valueProperty());
         propertyToView.bind(propertyChoiceBox.valueProperty());
-//
-//        simulationChoiceBox.getItems().add("Eyal");
-//        simulationChoiceBox.getItems().add("Shpater");
-//
+
         simulationChoiceBox.setOnAction(this::onSelectSimulation);
         propertyChoiceBox.setOnAction(this::onSelectProperty);
         showByAmountRadioButton.setOnAction(this::onToggleRadioButton);
+    }
 
-//        XYChart.Series series1 = new XYChart.Series<>();
-//        series1.setName("Food");
-//
-//        series1.getData().add(new XYChart.Data("Hamburger", 2000));
-//        series1.getData().add(new XYChart.Data("Pizza", 2300));
-//        series1.getData().add(new XYChart.Data("Mushed Potato", 1000));
-//
-//        XYChart.Series series2 = new XYChart.Series<>();
-//        series2.setName("Drinks");
-//
-//        series2.getData().add(new XYChart.Data("Hamburger", 300));
-//        series2.getData().add(new XYChart.Data("Kola", 190));
-//        series2.getData().add(new XYChart.Data("FuzeTea", 500));
-//
-//        histogramBarChart.getData().addAll(series1, series2);
+    private void onSelectSimulation(ActionEvent event) {
+        if (isFirstStart) {
+            setPropertyChoiceBox();
+            isFirstStart = false;
+        } else {
+            onSelectProperty(event);
+        }
+    }
+
+    private void onToggleRadioButton(ActionEvent event) {
+        if (showByAmountRadioButton.isSelected()) {
+            System.out.println("true");
+        } else {
+            System.out.println("false");
+        }
     }
 
     private void onSelectProperty(ActionEvent event) {
-        SimulationDataDTO data = engine.getSimulationData(simulationChoiceBox.getValue().getId(), entityToView.get(), propertyToView.get());
+        SimulationDataDTO data = engine.getSimulationData(
+                simulationChoiceBox.getValue().getId(),
+                entityToView.get(),
+                propertyToView.get()
+        );
 
-        histogramBarChart.getData().clear();
-
-        XYChart.Series series1 = new XYChart.Series<>();
-        series1.setName(propertyToView.get());
-
-        Map<Object, Integer> valueCountMap = new HashMap<>();
-
-        for (Object obj : data.getPropertyOfEntitySortedByValues()) {
-            valueCountMap.put(obj, valueCountMap.getOrDefault(obj, 0) + 1);
-        }
-
-        valueCountMap.forEach((key, value) -> series1.getData().add(new XYChart.Data(key.toString(), value)));
-
-        histogramBarChart.getData().add(series1);
+        setChart(data);
     }
 
     private void setSimulationChoiceBox() {
@@ -116,23 +113,30 @@ public class ResultsController {
         entityToView.set(simulation.getWorld().getEntities().get(0).getName());
     }
 
-    private void onSelectSimulation(ActionEvent event) {
-        setPropertyChoiceBox();
+    private void setChart(SimulationDataDTO data) {
+        XYChart.Series series = new XYChart.Series<>();
+        List<Map.Entry<Object, Integer>> values;
+
+        histogramBarChart.getData().clear();
+
+        series.setName(propertyToView.get());
+        values = createSortedValuesToAmountMap(data.getPropertyOfEntitySortedByValues());
+
+        values.forEach(entry -> series.getData().add(new XYChart.Data(entry.getKey().toString(), entry.getValue())));
+        histogramBarChart.getData().add(series);
     }
 
-    private void onToggleRadioButton(ActionEvent event) {
-        if (showByAmountRadioButton.isSelected()) {
-            System.out.println("true");
-        } else {
-            System.out.println("false");
+    private List<Map.Entry<Object, Integer>> createSortedValuesToAmountMap(List<Object> values) {
+        Map<Object, Integer> valueCountMap = new HashMap<>();
+        List<Map.Entry<Object, Integer>> dataList;
+
+        for (Object obj : values) {
+            valueCountMap.put(obj, valueCountMap.getOrDefault(obj, 0) + 1);
         }
-    }
 
-    public void setEngine(PredictionsLogic engine) {
-        this.engine = engine;
-    }
+        dataList = new ArrayList<>(valueCountMap.entrySet());
+        dataList.sort(Comparator.comparing(entry -> entry.getKey().hashCode()));
 
-    public void onStartButtonClicked() {
-        setSimulationChoiceBox();
+        return dataList;
     }
 }

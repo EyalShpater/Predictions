@@ -2,6 +2,7 @@ package impl;
 
 import api.DTO;
 
+import java.util.Collection;
 import java.util.List;
 
 public class SimulationDataDTO implements DTO {
