@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+
+<StackPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0"
+           xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1"
+           fx:controller="javafx.tab.results.ResultsController">
+    <children>
+        <SplitPane dividerPositions="0.3076923076923077">
+            <items>
+                <HBox prefHeight="100.0" prefWidth="200.0">
+                    <children>
+                        <ChoiceBox fx:id="simulationChoiceBox" prefWidth="150.0"/>
+                    </children>
+                </HBox>
+                <StackPane prefHeight="150.0" prefWidth="200.0">
+                    <children>
+                        <SplitPane dividerPositions="0.5" orientation="VERTICAL" prefHeight="200.0" prefWidth="160.0">
+                            <items>
+                                <StackPane prefHeight="150.0" prefWidth="200.0">
+                                    <children>
+                                        <HBox alignment="TOP_CENTER" prefHeight="100.0" prefWidth="200.0"
+                                              spacing="30.0">
+                                            <children>
+                                                <ChoiceBox fx:id="propertyChoiceBox" prefWidth="150.0"/>
+                                                <RadioButton fx:id="showByAmountRadioButton" mnemonicParsing="false"
+                                                             text="Show by amount"/>
+                                            </children>
+                                        </HBox>
+                                    </children>
+                                </StackPane>
+                                <StackPane prefHeight="150.0" prefWidth="200.0">
+                                    <children>
+                                        <HBox>
+                                            <children>
+                                                <BarChart fx:id="histogramBarChart">
+                                                    <xAxis>
+                                                        <CategoryAxis fx:id="categoryAxis" side="BOTTOM"/>
+                                                    </xAxis>
+                                                    <yAxis>
+                                                        <NumberAxis fx:id="NumberAxis" side="LEFT"/>
+                                                    </yAxis>
+                                                </BarChart>
+                                            </children>
+                                        </HBox>
+                                    </children>
+                                </StackPane>
+                            </items>
+                        </SplitPane>
+                    </children>
+                </StackPane>
+            </items>
+        </SplitPane>
+    </children>
+</StackPane>

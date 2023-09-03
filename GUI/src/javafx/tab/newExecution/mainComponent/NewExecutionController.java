@@ -5,6 +5,7 @@ import impl.EntityDefinitionDTO;
 import impl.PropertyDefinitionDTO;
 import impl.SimulationRunDetailsDTO;
 import impl.WorldDTO;
+import javafx.mainScene.main.PredictionsMainAppController;
 import javafx.tab.newExecution.entity.EntityController;
 import javafx.tab.newExecution.environmentVariable.BasicEnvironmentVariableData;
 import javafx.tab.newExecution.environmentVariable.BooleanEnvironmentVariableController;
@@ -52,6 +53,7 @@ public class NewExecutionController {
     List<BasicEnvironmentVariableData> envVarControllerList;
 
     private PredictionsLogic engine;
+    private PredictionsMainAppController mainAppController;
 
 
     public NewExecutionController() {
@@ -115,6 +117,7 @@ public class NewExecutionController {
         playAudio();
         runSimulation();
 
+        mainAppController.onStartButtonClick();
     }
 
     private void runSimulation() {
@@ -273,6 +276,10 @@ public class NewExecutionController {
     private void cleanOldResults() {
         entitiesFlowPane.getChildren().clear();
         envVarsFlowPane.getChildren().clear();
+    }
+
+    public void setMainAppController(PredictionsMainAppController mainAppController) {
+        this.mainAppController = mainAppController;
     }
 }
 

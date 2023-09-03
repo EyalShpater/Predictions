@@ -15,6 +15,7 @@ import java.io.IOException;
 import java.net.URL;
 
 import javafx.tab.newExecution.mainComponent.NewExecutionController;
+import javafx.tab.results.ResultsController;
 
 
 public class PredictionsMainAppController {
@@ -27,11 +28,10 @@ public class PredictionsMainAppController {
     private HeaderController headerComponentController;
 
     private DetailsController detailsTabController;
+    private NewExecutionController newExecutionTabContller;
+    private ResultsController resultsTabController;
 
     private PredictionsLogic engine = new PredictionsLogicImpl();
-
-    private NewExecutionController secScreeenContller;
-
 
     @FXML
     private void initialize() throws IOException {
@@ -69,21 +69,37 @@ public class PredictionsMainAppController {
             Parent newExecutionContent = loader.load();
             newExecution.setContent(newExecutionContent);
 
-            secScreeenContller = loader.getController();
-            secScreeenContller.setEngine(engine);
-            secScreeenContller.setIsFileSelectedProperty(headerComponentController.getIsFileSelectedProperty());
+            newExecutionTabContller = loader.getController();
+            newExecutionTabContller.setEngine(engine);
+            newExecutionTabContller.setMainAppController(this);
+            newExecutionTabContller.setIsFileSelectedProperty(headerComponentController.getIsFileSelectedProperty());
 
             tabPane.getTabs().add(newExecution);
         } catch (Exception ignored) {
 
         }
-
     }
 
     private void setResultsTab() {
-        Tab results = new Tab("Results");
+        try {
+            Tab results = new Tab("Results");
 
+            URL resource = getClass().getResource("/javafx/tab/results/Results.fxml");
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(resource);
+            Parent resultsContent = loader.load();
+            results.setContent(resultsContent);
 
-        tabPane.getTabs().add(results);
+            resultsTabController = loader.getController();
+            resultsTabController.setEngine(engine);
+
+            tabPane.getTabs().add(results);
+        } catch (IOException ignored) {
+
+        }
+    }
+
+    public void onStartButtonClick() {
+        resultsTabController.onStartButtonClicked();
     }
 }

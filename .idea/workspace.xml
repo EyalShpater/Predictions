@@ -11,10 +11,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="27d35137-667f-4e37-a519-ab836acc0a06" name="Changes" comment="env var almost finished.">
+    <list default="true" id="27d35137-667f-4e37-a519-ab836acc0a06" name="Changes" comment="refactor">
+      <change afterPath="$PROJECT_DIR$/GUI/src/javafx/tab/results/Results.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GUI/src/javafx/tab/results/ResultsController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GUI/src/javafx/tab/results/TestMain.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GUI/src/javafx/tab/results/helper/Category.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI/src/javafx/mainScene/main/PredictionsMainAppController.java" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/src/javafx/mainScene/main/PredictionsMainAppController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI/src/javafx/tab/newExecution/mainComponent/NewExecutionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/src/javafx/tab/newExecution/mainComponent/NewExecutionController.java" afterDir="false" />
     </list>
-    <list id="9eb12e0a-64d7-4be1-90c5-9941354570ea" name="Changes by ASUS" comment="Changes by ASUS" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -36,19 +41,6 @@
     </option>
   </component>
   <component name="Git.Settings">
-    <favorite-branches>
-      <branch-storage>
-        <map>
-          <entry type="LOCAL">
-            <value>
-              <list>
-                <branch-info repo="$PROJECT_DIR$" source="GUI" />
-              </list>
-            </value>
-          </entry>
-        </map>
-      </branch-storage>
-    </favorite-branches>
     <option name="PREVIOUS_COMMIT_AUTHORS">
       <list>
         <option value="Eyal Shpater" />
@@ -75,6 +67,9 @@
       </UrlAndAccount>
     </option>
   </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="jar:///Library/Java/JavaVirtualMachines/jdk-1.8.jdk/Contents/Home/javafx-src.zip!/javafx/fxml/FXMLLoader.java" root0="SKIP_INSPECTION" />
+  </component>
   <component name="ProblemsViewState">
     <option name="selectedTabId" value="CurrentFile" />
   </component>
@@ -89,37 +84,35 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "dart.analysis.tool.window.visible": "false",
-    "extract.method.default.visibility": "private",
-    "full.screen.before.presentation.mode": "false",
-    "git-widget-placeholder": "GUI",
-    "jdk.selected.JAVA_MODULE": "1.8",
-    "last_opened_file_path": "C:/Users/ASUS/IdeaProjects/Predictions/GUI/src/javafx/tab/newExecution/entity1",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Libraries",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "advanced.settings",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
+    &quot;dart.analysis.tool.window.visible&quot;: &quot;false&quot;,
+    &quot;extract.method.default.visibility&quot;: &quot;private&quot;,
+    &quot;full.screen.before.presentation.mode&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;GUI&quot;,
+    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;1.8&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/ASUS/IdeaProjects/08. Java FX&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;advanced.settings&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\ASUS\IdeaProjects\Predictions\GUI\src\javafx\tab\newExecution\entity1" />
-      <recent name="C:\Users\ASUS\IdeaProjects\Predictions\GUI\src\javafx\tab\newExecution\mainComponent1" />
-      <recent name="C:\Users\ASUS\IdeaProjects\Predictions\GUI\src\javafx\tab\newExecution\environmentVariable1" />
       <recent name="C:\Users\ASUS\IdeaProjects\PredictionsGuiVersion\GUI\src\javafx\input\components\singleEnvVar" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
@@ -130,25 +123,13 @@
       <recent name="$PROJECT_DIR$/logic" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="javafx.tab.results" />
       <recent name="javafx.tab.details.environment.variables" />
       <recent name="javafx.details.rules" />
       <recent name="javafx.details.details" />
     </key>
   </component>
   <component name="RunManager" selected="Application.TestMain">
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="main.Main" />
-      <module name="ConsoleUI" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="main.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="SecondScreenMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="javafx.tab.input.components.SecondScreenMain" />
       <module name="GUI" />
@@ -201,12 +182,25 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="javafx.tab.results.TestMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="javafx.tab.results.TestMain" />
+      <module name="GUI" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="javafx.tab.results.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Application.TestMain" />
+        <item itemvalue="Application.javafx.tab.results.TestMain" />
         <item itemvalue="Application.javafx.tab.details.details.TestMain" />
         <item itemvalue="Application.javafx.tab.details.environment.variables.TestMain" />
-        <item itemvalue="Application.Main" />
       </list>
     </recent_temporary>
   </component>
@@ -276,7 +270,14 @@
       <workItem from="1693561653847" duration="8515000" />
       <workItem from="1693610882907" duration="67000" />
       <workItem from="1693611603575" duration="283000" />
-      <workItem from="1693640598304" duration="19649000" />
+      <workItem from="1693640598304" duration="35386000" />
+    </task>
+    <task id="LOCAL-00034" summary="Fixed the EntityInstance problem">
+      <created>1691746931845</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1691746931845</updated>
     </task>
     <task id="LOCAL-00035" summary="added deacreaseAction based on IncreaseAction logic&#10;added an abstract class for calcs">
       <created>1691824938625</created>
@@ -382,22 +383,6 @@
       <option name="presentableId" value="LOCAL-00056" />
       <option name="project" value="LOCAL" />
       <updated>1692168153217</updated>
-    </task>
-    <task id="LOCAL‎-00064" summary="refactor the DTOConvertible interface.">
-      <option name="closed" value="true" />
-      <created>1692221336123</created>
-      <option name="number" value="00064" />
-      <option name="presentableId" value="LOCAL‎-00064" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1692221336123</updated>
-    </task>
-    <task id="LOCAL‎-00065" summary="xml validator">
-      <option name="closed" value="true" />
-      <created>1692257155485</created>
-      <option name="number" value="00065" />
-      <option name="presentableId" value="LOCAL‎-00065" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1692257155486</updated>
     </task>
     <task id="LOCAL‎-00066" summary="dto almost complete">
       <option name="closed" value="true" />
@@ -646,35 +631,29 @@
       <option name="project" value="LOCAL‎" />
       <updated>1693658036531</updated>
     </task>
-    <task id="LOCAL-00097" summary="env var almost finished.">
-      <created>1693730127414</created>
+    <task id="LOCAL‎-00097" summary="refactor">
+      <option name="closed" value="true" />
+      <created>1693665202947</created>
       <option name="number" value="00097" />
-      <option name="presentableId" value="LOCAL-00097" />
-      <option name="project" value="LOCAL" />
-      <updated>1693730127414</updated>
+      <option name="presentableId" value="LOCAL‎-00097" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1693665202947</updated>
     </task>
-    <option name="localTasksCounter" value="98" />
+    <task id="LOCAL‎-00098" summary="shvit's changes">
+      <option name="closed" value="true" />
+      <created>1693665239202</created>
+      <option name="number" value="00098" />
+      <option name="presentableId" value="LOCAL‎-00098" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1693665239202</updated>
+    </task>
+    <option name="localTasksCounter" value="99" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
-    <option name="RECENT_FILTERS">
-      <map>
-        <entry key="Branch">
-          <value>
-            <list>
-              <RecentGroup>
-                <option name="FILTER_VALUES">
-                  <option value="origin/GUI" />
-                </option>
-              </RecentGroup>
-            </list>
-          </value>
-        </entry>
-      </map>
-    </option>
     <option name="TAB_STATES">
       <map>
         <entry key="MAIN">
@@ -685,7 +664,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="origin/GUI" />
+                        <option value="origin/main" />
                       </list>
                     </value>
                   </entry>
@@ -699,7 +678,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="xml validator" />
     <MESSAGE value="more implementations" />
     <MESSAGE value="pretty good" />
     <MESSAGE value="read everything to world except rule" />
@@ -723,8 +701,9 @@
     <MESSAGE value="Entities in Details Tab is bind to the engine" />
     <MESSAGE value="Rules in Details Tab is bind to the engine.&#10;Added RuleDTO class" />
     <MESSAGE value="Changes by ASUS" />
-    <MESSAGE value="env var almost finished." />
-    <option name="LAST_COMMIT_MESSAGE" value="env var almost finished." />
+    <MESSAGE value="refactor" />
+    <MESSAGE value="shvit's changes" />
+    <option name="LAST_COMMIT_MESSAGE" value="shvit's changes" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
