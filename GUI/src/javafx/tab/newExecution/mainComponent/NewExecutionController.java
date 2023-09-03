@@ -6,7 +6,10 @@ import impl.PropertyDefinitionDTO;
 import impl.SimulationRunDetailsDTO;
 import impl.WorldDTO;
 import javafx.tab.newExecution.entity.EntityController;
-import javafx.tab.newExecution.environmentVariable.EnvironmentVariableController;
+import javafx.tab.newExecution.environmentVariable.BasicEnvironmentVariableData;
+import javafx.tab.newExecution.environmentVariable.BooleanEnvironmentVariableController;
+import javafx.tab.newExecution.environmentVariable.NumericEnvironmentVariableController;
+import javafx.tab.newExecution.environmentVariable.StringEnvironmentVariableController;
 import javafx.beans.property.SimpleBooleanProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.event.ActionEvent;
@@ -46,15 +49,13 @@ public class NewExecutionController {
 
     private SimpleStringProperty selectedFileProperty;
     private Stage primaryStage;
-    List<EnvironmentVariableController> envVarControllerList;
-    private static final String NO_VALUE_WAS_GIVEN = "";
+    List<BasicEnvironmentVariableData> envVarControllerList;
 
     private PredictionsLogic engine;
 
 
     public NewExecutionController() {
         selectedFileProperty = new SimpleStringProperty();
-        //isFileSelected = new SimpleBooleanProperty(false);
         envVarControllerList = new ArrayList<>();
     }
 
@@ -70,7 +71,7 @@ public class NewExecutionController {
         this.engine = engine;
     }
 
-    public void setFileSelection(SimpleBooleanProperty fileSelection) {
+    public void setIsFileSelectedProperty(SimpleBooleanProperty fileSelection) {
         startButton.disableProperty().bind(fileSelection.not());
         createFileSelectionListener(fileSelection);
     }
@@ -86,19 +87,11 @@ public class NewExecutionController {
     }
 
     private void showEnvVariables() {
-        //List<PropertyDefinitionDTO> environmentVariables = logic.getEnvironmentVariablesToSet();
         List<PropertyDefinitionDTO> environmentVariables = engine.getEnvironmentVariablesToSet();
-        environmentVariables.forEach(
-                envVar -> {
-                    createEnvVarTile(envVar.getName());
-                }
-        );
+        environmentVariables.forEach(this::createEnvVarTile);
     }
 
     private void showEntities() {
-        /*UIAdapter uiAdapter = createUIAdapter();
-        logic.collectEntitiesData(uiAdapter);*/
-//      List<EntityDefinitionDTO> entitiyList = logic.getEntityList();
         WorldDTO loadedSimulationDetails = engine.getLoadedSimulationDetails();
         List<EntityDefinitionDTO> entitiesList = loadedSimulationDetails.getEntities();
         entitiesList.forEach(entity -> {
@@ -130,19 +123,17 @@ public class NewExecutionController {
         PrintToScreen printer = new PrintToScreen();
         updatedEnvironmentVariables = setEnvVariablesFromTextFields();
         runDetails = engine.runNewSimulation(updatedEnvironmentVariables);
-        /*runDetails = logic.runNewSimulation(updatedEnvironmentVariables);
         printer.printRunDetailsDTO(runDetails);
-        System.out.println();*/
+        System.out.println();
     }
 
     private List<PropertyDefinitionDTO> setEnvVariablesFromTextFields() {
-
         final int[] index = {0};
         List<PropertyDefinitionDTO> environmentVariables = engine.getEnvironmentVariablesToSet();
         environmentVariables.forEach(
                 envVar -> {
-                    EnvironmentVariableController controller = envVarControllerList.get(index[0]);
-                    if (!controller.getEnvValue().equals(NO_VALUE_WAS_GIVEN)) {
+                    BasicEnvironmentVariableData controller = envVarControllerList.get(index[0]);
+                    if (!controller.getInitRandom()) {
                         PropertyDefinitionDTO envVarToUpdate = environmentVariables.get(index[0]);
                         environmentVariables.set(index[0], initEnvironmentVariableDTOFromTextField(envVarToUpdate, controller.getEnvValue()));
                     }
@@ -214,14 +205,63 @@ public class NewExecutionController {
         }
     }
 
-    private void createEnvVarTile(String envVarName) {
+    private void createEnvVarTile(PropertyDefinitionDTO envVar) {
+        switch (envVar.getType()) {
+            case "INT":
+            case "DOUBLE":
+                createEnvVarNumericTile(envVar);
+                break;
+            case "BOOLEAN":
+                createEnvVarBooleanTile(envVar);
+                break;
+            default:
+                createEnvVarStringTile(envVar);
+                break;
+        }
+    }
+
+    private void createEnvVarBooleanTile(PropertyDefinitionDTO envVar) {
         try {
             FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(getClass().getResource("/javafx/tab/newExecution/environmentVariable/EnvironmentVariable.fxml"));
+            loader.setLocation(getClass().getResource("/javafx/tab/newExecution/environmentVariable/EnvironmentVariableBooleanTile.fxml"));
             Node singleEnvVarTile = loader.load();
 
-            EnvironmentVariableController environmentVariableController = loader.getController();
-            environmentVariableController.setEnvVarName(envVarName);
+            BooleanEnvironmentVariableController environmentVariableController = loader.getController();
+            environmentVariableController.setEnvVarName(envVar.getName());
+
+            envVarsFlowPane.getChildren().add(singleEnvVarTile);
+            envVarControllerList.add(environmentVariableController);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void createEnvVarNumericTile(PropertyDefinitionDTO envVar) {
+        try {
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(getClass().getResource("/javafx/tab/newExecution/environmentVariable/EnvironmentVariableNumericTile.fxml"));
+            Node singleEnvVarTile = loader.load();
+
+            NumericEnvironmentVariableController environmentVariableController = loader.getController();
+            environmentVariableController.setEnvVarName(envVar.getName());
+
+            environmentVariableController.setEnvVarValueSpinnerValueFactory(envVar);
+
+            envVarsFlowPane.getChildren().add(singleEnvVarTile);
+            envVarControllerList.add(environmentVariableController);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void createEnvVarStringTile(PropertyDefinitionDTO envVar) {
+        try {
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(getClass().getResource("/javafx/tab/newExecution/environmentVariable/EnvironmentVariableStringTile.fxml"));
+            Node singleEnvVarTile = loader.load();
+
+            StringEnvironmentVariableController environmentVariableController = loader.getController();
+            environmentVariableController.setEnvVarName(envVar.getName());
 
             envVarsFlowPane.getChildren().add(singleEnvVarTile);
             envVarControllerList.add(environmentVariableController);

@@ -7,6 +7,9 @@ public class BasicEnvironmentVariableData {
     protected SimpleStringProperty envVarName;
     protected SimpleStringProperty envValue;
 
+    protected Boolean isInitRandom = true;
+
+
     public BasicEnvironmentVariableData(String envVarName, String envVarValue) {
         this.envVarName = new SimpleStringProperty(envVarName);
         this.envValue = new SimpleStringProperty(envVarValue);
@@ -26,6 +29,10 @@ public class BasicEnvironmentVariableData {
 
     public void setEnvValue(String envValue) {
         this.envValue.set(envValue);
+    }
+
+    public Boolean getInitRandom() {
+        return isInitRandom;
     }
 }
 

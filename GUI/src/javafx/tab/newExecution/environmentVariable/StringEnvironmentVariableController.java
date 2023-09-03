@@ -6,7 +6,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 
-public class EnvironmentVariableController extends BasicEnvironmentVariableData {
+public class StringEnvironmentVariableController extends BasicEnvironmentVariableData {
 
     @FXML
     private Label envVarNameLabel;
@@ -14,7 +14,7 @@ public class EnvironmentVariableController extends BasicEnvironmentVariableData 
     @FXML
     private TextField envVarValueTextField;
 
-    public EnvironmentVariableController() {
+    public StringEnvironmentVariableController() {
         super("", "");
     }
 
@@ -27,6 +27,7 @@ public class EnvironmentVariableController extends BasicEnvironmentVariableData 
     @FXML
     void setValueAction(ActionEvent event) {
         setEnvValue(envVarValueTextField.getText());
+        isInitRandom = false;
     }
 
 }
