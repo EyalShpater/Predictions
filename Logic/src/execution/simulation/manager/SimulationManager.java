@@ -13,7 +13,9 @@ import impl.SimulationRunDetailsDTO;
 import instance.property.api.PropertyInstance;
 
 import java.io.Serializable;
+import java.text.SimpleDateFormat;
 import java.util.*;
+import java.util.concurrent.TimeUnit;
 import java.util.stream.Collectors;
 
 public class SimulationManager implements Serializable {
@@ -25,19 +27,25 @@ public class SimulationManager implements Serializable {
         simulations = new HashMap<>();
     }
 
+    //todo: ask Aviad about the synchronize
     public SimulationRunDetailsDTO runNewSimulation(World world, List<PropertyDefinitionDTO> environmentVariables) {
         Simulation simulation;
         TerminateCondition stopReason;
         SimulationRunDetailsDTO dto;
 
-        updateEnvironmentVariablesFromDTO(world, environmentVariables);
-        simulation = new SimulationImpl(world, serialNumber);
-        stopReason = simulation.run();
-        simulations.put(serialNumber, simulation);
-        dto = createRunDetailDTO(stopReason, serialNumber);
-        serialNumber++;
+        synchronized (this) {
+            updateEnvironmentVariablesFromDTO(world, environmentVariables);
+            simulation = new SimulationImpl(world, serialNumber);
+            serialNumber++;
+        }
 
-        return dto;
+        stopReason = simulation.run();
+
+        synchronized (this) {
+            simulations.put(simulation.getSerialNumber(), simulation);
+            dto = createRunDetailDTO(stopReason, simulation.getSerialNumber());
+            return dto;
+        }
     }
 
     public List<SimulationDTO> getAllSimulationsDTO() {

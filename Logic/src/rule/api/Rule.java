@@ -5,7 +5,6 @@ import action.context.api.Context;
 import api.DTOConvertible;
 import impl.RuleDTO;
 
-
 public interface Rule extends DTOConvertible<RuleDTO> {
     String getName();
 

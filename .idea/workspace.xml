@@ -11,15 +11,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="27d35137-667f-4e37-a519-ab836acc0a06" name="Changes" comment="When you load a new simulation, any data from previous simulations gets wiped.">
+    <list default="true" id="27d35137-667f-4e37-a519-ab836acc0a06" name="Changes" comment="naming convention">
+      <change afterPath="$PROJECT_DIR$/GUI/src/task/RunSimulationTask.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/src/javafx/tab/results/Results.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/src/javafx/tab/results/Results.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/src/javafx/tab/results/ResultsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/src/javafx/tab/results/ResultsController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/action/impl/condition/impl/ConditionImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/action/impl/condition/impl/ConditionImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI/src/javafx/tab/newExecution/mainComponent/NewExecutionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/src/javafx/tab/newExecution/mainComponent/NewExecutionController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/definition/world/impl/WorldImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/definition/world/impl/WorldImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/execution/simulation/manager/SimulationManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/execution/simulation/manager/SimulationManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/rule/api/Rule.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/rule/api/Rule.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/rule/impl/RuleImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/rule/impl/RuleImpl.java" afterDir="false" />
     </list>
-    <list id="a69e245d-9dfc-4565-80f5-79930900c2b3" name="Changes by ASUS" comment="">
-      <change beforePath="$PROJECT_DIR$/GUI/src/javafx/tab/newExecution/environmentVariable/NumericEnvironmentVariableController.java" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/src/javafx/tab/newExecution/environmentVariable/NumericEnvironmentVariableController.java" afterDir="false" />
-    </list>
+    <list id="a69e245d-9dfc-4565-80f5-79930900c2b3" name="Changes by ASUS" comment="Changes by ASUS" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -390,28 +391,12 @@
       <option name="project" value="LOCAL" />
       <updated>1692168153217</updated>
     </task>
-    <task id="LOCAL‎-00069" summary="pretty good">
-      <option name="closed" value="true" />
-      <created>1692300131304</created>
-      <option name="number" value="00069" />
-      <option name="presentableId" value="LOCAL‎-00069" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1692300131304</updated>
-    </task>
     <task id="LOCAL-00070" summary="read everything to world except rule">
       <created>1692356632414</created>
       <option name="number" value="00070" />
       <option name="presentableId" value="LOCAL-00070" />
       <option name="project" value="LOCAL" />
       <updated>1692356632414</updated>
-    </task>
-    <task id="LOCAL‎-00071" summary="condition problem fixed">
-      <option name="closed" value="true" />
-      <created>1692378671103</created>
-      <option name="number" value="00071" />
-      <option name="presentableId" value="LOCAL‎-00071" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1692378671104</updated>
     </task>
     <task id="LOCAL‎-00072" summary="Changes by ASUS">
       <option name="closed" value="true" />
@@ -653,7 +638,23 @@
       <option name="project" value="LOCAL‎" />
       <updated>1693784572586</updated>
     </task>
-    <option name="localTasksCounter" value="102" />
+    <task id="LOCAL‎-00102" summary="Changes by ASUS">
+      <option name="closed" value="true" />
+      <created>1693828070121</created>
+      <option name="number" value="00102" />
+      <option name="presentableId" value="LOCAL‎-00102" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1693828070121</updated>
+    </task>
+    <task id="LOCAL‎-00103" summary="naming convention">
+      <option name="closed" value="true" />
+      <created>1693828102880</created>
+      <option name="number" value="00103" />
+      <option name="presentableId" value="LOCAL‎-00103" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1693828102881</updated>
+    </task>
+    <option name="localTasksCounter" value="104" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -684,8 +685,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="condition problem fixed" />
-    <MESSAGE value="ConditionImpl" />
     <MESSAGE value="exception catch while loading file" />
     <MESSAGE value="nice print to screen" />
     <MESSAGE value="file path readable using trim" />
@@ -703,13 +702,15 @@
     <MESSAGE value="Environment Variables in Details Tab is bind to the engine" />
     <MESSAGE value="Entities in Details Tab is bind to the engine" />
     <MESSAGE value="Rules in Details Tab is bind to the engine.&#10;Added RuleDTO class" />
-    <MESSAGE value="Changes by ASUS" />
     <MESSAGE value="refactor" />
     <MESSAGE value="shvit's changes" />
     <MESSAGE value="added results tab" />
     <MESSAGE value="the values in the barChart are now sorted" />
     <MESSAGE value="When you load a new simulation, any data from previous simulations gets wiped." />
-    <option name="LAST_COMMIT_MESSAGE" value="When you load a new simulation, any data from previous simulations gets wiped." />
+    <MESSAGE value="random check in new execution tab" />
+    <MESSAGE value="Changes by ASUS" />
+    <MESSAGE value="naming convention" />
+    <option name="LAST_COMMIT_MESSAGE" value="naming convention" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
@@ -726,7 +727,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/GUI/src/javafx/tab/newExecution/mainComponent/NewExecutionController.java</url>
-          <line>140</line>
+          <line>141</line>
           <option name="timeStamp" value="43" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">

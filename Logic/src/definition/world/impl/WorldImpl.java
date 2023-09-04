@@ -26,6 +26,7 @@ public class WorldImpl implements World  , Serializable {
     private List<Rule> rules;
     private EnvironmentVariableManager environmentVariables;
     private Termination terminate;
+    //todo: add private int threadPoolSize;
 
     public WorldImpl() {
         entitiesDefinition = new HashMap<>();

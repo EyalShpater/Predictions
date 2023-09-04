@@ -30,6 +30,7 @@ import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.scene.media.MediaPlayer.Status;
 import menu.helper.PrintToScreen;
+import task.RunSimulationTask;
 
 public class NewExecutionController {
     @FXML
@@ -119,7 +120,7 @@ public class NewExecutionController {
 
     @FXML
     void startButtonActionListener(ActionEvent event) {
-        playAudio();
+        //playAudio();
         runSimulation();
 
         mainAppController.onStartButtonClick();
@@ -128,11 +129,11 @@ public class NewExecutionController {
     private void runSimulation() {
         List<PropertyDefinitionDTO> updatedEnvironmentVariables;
         SimulationRunDetailsDTO runDetails;
-        PrintToScreen printer = new PrintToScreen();
+
         updatedEnvironmentVariables = setEnvVariablesFromTextFields();
-        runDetails = engine.runNewSimulation(updatedEnvironmentVariables);
-        printer.printRunDetailsDTO(runDetails);
-        System.out.println();
+        // runDetails = engine.runNewSimulation(updatedEnvironmentVariables);
+
+        new Thread(new RunSimulationTask(engine, updatedEnvironmentVariables)).start();
     }
 
     private List<PropertyDefinitionDTO> setEnvVariablesFromTextFields() {
