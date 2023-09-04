@@ -32,13 +32,14 @@ public class HeaderController {
     private SimpleBooleanProperty isFileSelected;
 
     public HeaderController() {
-        filePath = new SimpleStringProperty();
+        filePath = new SimpleStringProperty("load file here...");
         isFileSelected = new SimpleBooleanProperty(false);
     }
 
     @FXML
     private void initialize() {
         selectedFilePath.textProperty().bind(filePath);
+        selectedFilePath.disableProperty().bind(isFileSelected.not());
     }
 
     @FXML

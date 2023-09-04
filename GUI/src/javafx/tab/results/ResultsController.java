@@ -77,7 +77,7 @@ public class ResultsController {
         }
     }
 
-    private void onSelectProperty(ActionEvent event) {
+    private void onSelectProperty(ActionEvent event) { //todo: fix exception here
         SimulationDataDTO data = engine.getSimulationData(
                 simulationChoiceBox.getValue().getId(),
                 entityToView.get(),
