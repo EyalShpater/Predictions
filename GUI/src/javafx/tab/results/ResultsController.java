@@ -33,7 +33,7 @@ public class ResultsController {
     private CategoryAxis categoryAxis;
 
     @FXML
-    private NumberAxis NumberAxis;
+    private NumberAxis numberAxis;
 
     private ObjectProperty<Category> selectedSimulation = new SimpleObjectProperty<>();
     private BooleanProperty isViewingByAmount = new SimpleBooleanProperty();

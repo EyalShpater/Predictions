@@ -6,7 +6,6 @@ import action.api.ActionType;
 import action.context.api.Context;
 import action.impl.condition.Condition;
 import action.impl.condition.impl.multiple.MultipleCondition;
-import action.impl.condition.impl.single.SingleCondition;
 import definition.entity.api.EntityDefinition;
 
 import java.io.Serializable;
@@ -18,14 +17,14 @@ import java.util.Map;
 public class ConditionImpl extends AbstractAction implements Condition , Serializable {
     private final MultipleCondition condition; // todo: think to change it to Condition instead of MultipleCondition
     private final String logical;
-    List<Action> than;
+    List<Action> then;
     List<Action> notTrue;
 
     public ConditionImpl(MultipleCondition condition, String logical, EntityDefinition entity) {
         super(entity, ActionType.CONDITION);
         this.condition = condition;
         this.logical = logical;
-        this.than = new ArrayList<>();
+        this.then = new ArrayList<>();
         this.notTrue = new ArrayList<>();
     }
 
@@ -34,7 +33,7 @@ public class ConditionImpl extends AbstractAction implements Condition , Seriali
             throw new IllegalArgumentException();
         }
 
-        this.than = thanList;
+        this.then = thanList;
     }
 
     public void addNotTrueList(List<Action> newNotTrueList) {
@@ -48,7 +47,7 @@ public class ConditionImpl extends AbstractAction implements Condition , Seriali
     @Override
     public void invoke(Context context) {
         if (evaluate(context)) {
-            than.forEach(action -> action.invoke(context));
+            then.forEach(action -> action.invoke(context));
         } else if (notTrue != null){
             notTrue.forEach(action -> action.invoke(context));
         }
