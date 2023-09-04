@@ -25,6 +25,7 @@ public class NumericEnvironmentVariableController extends BasicEnvironmentVariab
         envVarNameLabel.textProperty().bind(Bindings.concat("<", envVarName, ">"));
         envVarValueSpinner.getEditor().textProperty().bindBidirectional(envValue);
         envVarValueSpinner.disableProperty().bind(randomCheckBox.selectedProperty());
+        randomCheckBox.setSelected(true);
     }
 
 
