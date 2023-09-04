@@ -11,16 +11,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="27d35137-667f-4e37-a519-ab836acc0a06" name="Changes" comment="naming convention">
-      <change afterPath="$PROJECT_DIR$/GUI/src/task/RunSimulationTask.java" afterDir="false" />
+    <list default="true" id="27d35137-667f-4e37-a519-ab836acc0a06" name="Changes" comment="runSimulation method thread safety">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/src/javafx/tab/newExecution/mainComponent/NewExecutionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/src/javafx/tab/newExecution/mainComponent/NewExecutionController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/definition/world/impl/WorldImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/definition/world/impl/WorldImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/execution/simulation/manager/SimulationManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/execution/simulation/manager/SimulationManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/rule/api/Rule.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/rule/api/Rule.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/rule/impl/RuleImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/rule/impl/RuleImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI/src/javafx/tab/results/Results.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/src/javafx/tab/results/Results.fxml" afterDir="false" />
     </list>
-    <list id="a69e245d-9dfc-4565-80f5-79930900c2b3" name="Changes by ASUS" comment="Changes by ASUS" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -100,6 +94,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
+    "codeWithMe.voiceChat.enabledByDefault": "false",
     "dart.analysis.tool.window.visible": "false",
     "extract.method.default.visibility": "private",
     "full.screen.before.presentation.mode": "false",
@@ -398,14 +393,6 @@
       <option name="project" value="LOCAL" />
       <updated>1692356632414</updated>
     </task>
-    <task id="LOCAL‎-00072" summary="Changes by ASUS">
-      <option name="closed" value="true" />
-      <created>1692378697222</created>
-      <option name="number" value="00072" />
-      <option name="presentableId" value="LOCAL‎-00072" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1692378697222</updated>
-    </task>
     <task id="LOCAL‎-00073" summary="ConditionImpl">
       <option name="closed" value="true" />
       <created>1692382302111</created>
@@ -654,7 +641,15 @@
       <option name="project" value="LOCAL‎" />
       <updated>1693828102881</updated>
     </task>
-    <option name="localTasksCounter" value="104" />
+    <task id="LOCAL‎-00104" summary="runSimulation method thread safety">
+      <option name="closed" value="true" />
+      <created>1693835747382</created>
+      <option name="number" value="00104" />
+      <option name="presentableId" value="LOCAL‎-00104" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1693835747383</updated>
+    </task>
+    <option name="localTasksCounter" value="105" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -685,7 +680,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="exception catch while loading file" />
     <MESSAGE value="nice print to screen" />
     <MESSAGE value="file path readable using trim" />
     <MESSAGE value="close to finish" />
@@ -710,7 +704,8 @@
     <MESSAGE value="random check in new execution tab" />
     <MESSAGE value="Changes by ASUS" />
     <MESSAGE value="naming convention" />
-    <option name="LAST_COMMIT_MESSAGE" value="naming convention" />
+    <MESSAGE value="runSimulation method thread safety" />
+    <option name="LAST_COMMIT_MESSAGE" value="runSimulation method thread safety" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
@@ -725,11 +720,6 @@
           <line>156</line>
           <option name="timeStamp" value="17" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/GUI/src/javafx/tab/newExecution/mainComponent/NewExecutionController.java</url>
-          <line>141</line>
-          <option name="timeStamp" value="43" />
-        </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/GUI/src/javafx/tab/newExecution/environmentVariable/StringEnvironmentVariableController.java</url>
           <line>60</line>
@@ -738,6 +728,15 @@
             <option name="WATCH_EXIT" value="false" />
           </properties>
           <option name="timeStamp" value="51" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/GUI/src/javafx/tab/results/ResultsController.java</url>
+          <line>48</line>
+          <properties class="javafx.tab.results.ResultsController" method="onStartButtonClicked">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="52" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
