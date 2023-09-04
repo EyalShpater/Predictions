@@ -73,7 +73,7 @@ public class PredictionsMainAppController {
             newExecutionTabContller = loader.getController();
             newExecutionTabContller.setEngine(engine);
             newExecutionTabContller.setMainAppController(this);
-            newExecutionTabContller.setIsFileSelectedProperty(headerComponentController.getIsFileSelectedProperty());
+            //newExecutionTabContller.setIsFileSelectedProperty(headerComponentController.getIsFileSelectedProperty());
 
             tabPane.getTabs().add(newExecution);
         } catch (Exception ignored) {

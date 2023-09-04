@@ -2,10 +2,9 @@ package javafx.tab.newExecution.environmentVariable;
 
 import impl.PropertyDefinitionDTO;
 import javafx.beans.binding.Bindings;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Label;
-import javafx.scene.control.Spinner;
-import javafx.scene.control.SpinnerValueFactory;
+import javafx.scene.control.*;
 import javafx.scene.input.KeyCode;
 
 
@@ -17,11 +16,25 @@ public class NumericEnvironmentVariableController extends BasicEnvironmentVariab
     @FXML
     private Spinner<Double> envVarValueSpinner;
 
+    @FXML
+    private CheckBox randomCheckBox;
+
 
     @FXML
     private void initialize() {
         envVarNameLabel.textProperty().bind(Bindings.concat("<", envVarName, ">"));
         envVarValueSpinner.getEditor().textProperty().bindBidirectional(envValue);
+        envVarValueSpinner.disableProperty().bind(randomCheckBox.selectedProperty());
+    }
+
+
+    @FXML
+    void randomAction(ActionEvent event) {
+        if (randomCheckBox.isSelected()) {
+            isInitRandom = true;
+        } else {
+            isInitRandom = false;
+        }
     }
 
 
@@ -31,8 +44,10 @@ public class NumericEnvironmentVariableController extends BasicEnvironmentVariab
 
 
     public void setEnvVarValueSpinnerValueFactory(PropertyDefinitionDTO envVar) {
-        envVar.getType();
-        SpinnerValueFactory.DoubleSpinnerValueFactory valueFactory = new SpinnerValueFactory.DoubleSpinnerValueFactory(envVar.getFrom(), envVar.getTo());
+        isInitRandom = false;
+        setEnvValue(envVar.getFrom().toString());
+
+        SpinnerValueFactory.DoubleSpinnerValueFactory valueFactory = new SpinnerValueFactory.DoubleSpinnerValueFactory(envVar.getFrom(), envVar.getTo(), envVar.getFrom());
         envVarValueSpinner.setValueFactory(valueFactory);
         setValueOfEnvVarByEnterPressListenerCall(valueFactory);
         setValueOfEnvVarByReleaseListenerCall(valueFactory);

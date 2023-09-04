@@ -3,6 +3,7 @@ package javafx.tab.newExecution.environmentVariable;
 import javafx.beans.binding.Bindings;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 
@@ -14,6 +15,9 @@ public class StringEnvironmentVariableController extends BasicEnvironmentVariabl
     @FXML
     private TextField envVarValueTextField;
 
+    @FXML
+    private CheckBox randomCheckBox;
+
     public StringEnvironmentVariableController() {
         super("", "");
     }
@@ -22,12 +26,51 @@ public class StringEnvironmentVariableController extends BasicEnvironmentVariabl
     private void initialize() {
         envVarNameLabel.textProperty().bind(Bindings.concat("<", envVarName, ">"));
         envVarValueTextField.textProperty().bindBidirectional(envValue);
+        envVarValueTextField.disableProperty().bind(randomCheckBox.selectedProperty());
+        randomCheckBox.setSelected(true);
+        randomUnCheckedListenerSet();
+        textFieldFocusLostListener();
+    }
+
+    private void textFieldFocusLostListener() {
+        envVarValueTextField.focusedProperty().addListener((observable, oldValue, newValue) -> {
+            if (!newValue) {
+                validateTextField();
+            }
+        });
+    }
+
+    private void randomUnCheckedListenerSet() {
+        randomCheckBox.selectedProperty().addListener((observable, oldValue, newValue) -> {
+            if (!newValue) {
+                validateTextField();
+            }
+        });
+    }
+
+    @FXML
+    void randomAction(ActionEvent event) {
+        if (randomCheckBox.isSelected()) {
+            isInitRandom = true;
+        } else {
+            isInitRandom = false;
+            validateTextField();
+        }
     }
 
     @FXML
     void setValueAction(ActionEvent event) {
         setEnvValue(envVarValueTextField.getText());
         isInitRandom = false;
+    }
+
+    private void validateTextField() {
+        if (!randomCheckBox.isSelected() && envVarValueTextField.getText().isEmpty()) {
+            isInitRandom = true;
+        } else if (!randomCheckBox.isSelected() && !envVarValueTextField.getText().isEmpty()) {
+            isInitRandom = false;
+            setEnvValue(envVarValueTextField.getText());
+        }
     }
 
 }

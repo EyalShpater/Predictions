@@ -73,7 +73,7 @@ public class NewExecutionController {
         this.engine = engine;
     }
 
-    public void setIsFileSelectedProperty(SimpleBooleanProperty fileSelection) {
+    /*public void setIsFileSelectedProperty(SimpleBooleanProperty fileSelection) {
         startButton.disableProperty().bind(fileSelection.not());
         createFileSelectionListener(fileSelection);
     }
@@ -86,6 +86,11 @@ public class NewExecutionController {
                 showEnvVariables();
             }
         });
+    }*/
+    public void onNewFileLoaded() {
+        cleanOldResults();
+        showEnvVariables();
+        showEntities();
     }
 
     private void showEnvVariables() {
@@ -282,11 +287,6 @@ public class NewExecutionController {
         this.mainAppController = mainAppController;
     }
 
-    public void onNewFileLoaded() {
-        cleanOldResults();
-        showEnvVariables();
-        showEntities();
-    }
 }
 
 

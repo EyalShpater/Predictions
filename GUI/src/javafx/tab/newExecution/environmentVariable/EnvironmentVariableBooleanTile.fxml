@@ -4,6 +4,7 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
@@ -15,10 +16,15 @@
         <Label fx:id="envVarNameLabel" alignment="CENTER" contentDisplay="CENTER" prefHeight="60.0" prefWidth="294.0"/>
         <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="10.0">
             <children>
-                <RadioButton fx:id="trueRadioButton" contentDisplay="CENTER" mnemonicParsing="false"
-                             onAction="#setValueTrueAction" text="true"/>
-                <RadioButton fx:id="falseRadioButton" mnemonicParsing="false" onAction="#setValueFalseAction"
-                             text="false"/>
+                <RadioButton fx:id="trueRadioButton" contentDisplay="CENTER" mnemonicParsing="false" text="true">
+                    <toggleGroup>
+                        <ToggleGroup fx:id="radioButtonGroup"/>
+                    </toggleGroup>
+                </RadioButton>
+                <RadioButton fx:id="falseRadioButton" mnemonicParsing="false" text="false"
+                             toggleGroup="$radioButtonGroup"/>
+                <RadioButton fx:id="randomRadioButton" mnemonicParsing="false" text="random"
+                             toggleGroup="$radioButtonGroup"/>
             </children>
         </HBox>
     </children>
