@@ -9,8 +9,12 @@ import java.io.Serializable;
 import java.util.Map;
 
 public class KillAction extends AbstractAction implements Serializable {
-    public KillAction(EntityDefinition entity ) {
+    public KillAction(EntityDefinition entity) {
         super(entity, ActionType.KILL);
+    }
+
+    public KillAction(EntityDefinition mainEntity, EntityDefinition secondaryEntity, int populationCount) {
+        super(mainEntity, secondaryEntity, populationCount, ActionType.KILL);
     }
 
     @Override

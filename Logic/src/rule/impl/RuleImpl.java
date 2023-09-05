@@ -50,10 +50,40 @@ public class RuleImpl implements Rule , Serializable {
     @Override
     public void invoke(Context context) {
         if (relevantEntities.contains(context.getEntityInstance().getName()) && context.getEntityInstance().isAlive()) {
-            actions.forEach(action -> action.invoke(context));
+            actions.forEach(action -> {
+                //3)TODO: Check if the action has a secondary entity
+                //3)TODO: if it does place relevant secondary entities in a list
+                action.invoke(context);
+            });
         }
     }
 
+    /*<PRD-rule name="r2">
+            <PRD-actions>
+                <PRD-action type="condition" entity="ent-1">
+                    <PRD-secondary-entity entity="ent-2">
+                        <PRD-selection count="4">
+                            <PRD-condition singularity="single" entity="ent-2" property="p1" operator="bt" value="4"/>
+                        </PRD-selection>
+                    </PRD-secondary-entity>
+                    <PRD-condition singularity="multiple" logical="or">
+                        <PRD-condition singularity="single" entity="ent-1" property="ticks(ent-1.p1)" operator="bt" value="4"/>
+                        <PRD-condition singularity="single" entity="ent-2" property="p2" operator="lt" value="3"/>
+                        <PRD-condition singularity="multiple" logical="and">
+                            <PRD-condition singularity="single" entity="ent-1" property="p4" operator="!=" value="nothing"/>
+                            <PRD-condition singularity="single" entity="ent-1" property="p3" operator="=" value="environment(e2)"/>
+                        </PRD-condition>
+                    </PRD-condition>
+                    <PRD-then>
+                        <PRD-action type="increase" entity="ent-1" property="p1" by="3"/>
+                        <PRD-action type="set" entity="ent-1" property="p1" value="random(3)"/>
+                    </PRD-then>
+                    <PRD-else>
+                        <PRD-action type="kill" entity="ent-1"/>
+                    </PRD-else>
+                </PRD-action>
+            </PRD-actions>
+        </PRD-rule>*/
     @Override
     public void addAction(Action action) {
         if (action == null) {

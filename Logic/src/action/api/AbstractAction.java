@@ -6,18 +6,36 @@ import impl.ActionDTO;
 import instance.entity.api.EntityInstance;
 import java.io.Serializable;
 
-public abstract class AbstractAction implements Action , Serializable {
-    private final EntityDefinition entity;
+public abstract class AbstractAction implements Action, Serializable {
+    private final EntityDefinition mainEntity;
+
+    private EntityDefinition secondEntity = null;
+
+    private int secondEntityPopulationCount = 0;
+
     private final ActionType type;
 
-    public AbstractAction(EntityDefinition entity, ActionType type) {
-        this.entity = entity;
+    public AbstractAction(EntityDefinition mainEntity, ActionType type) {
+        this.mainEntity = mainEntity;
+        this.secondEntity = secondEntity;
+        this.type = type;
+    }
+
+    public AbstractAction(EntityDefinition mainEntity, EntityDefinition secondEntity, int populationCount, ActionType type) {
+        this.mainEntity = mainEntity;
+        this.secondEntity = secondEntity;
+        this.secondEntityPopulationCount = populationCount;
         this.type = type;
     }
 
     @Override
     public EntityDefinition applyOn() {
-        return entity;
+        return mainEntity;
+    }
+
+    @Override
+    public EntityDefinition secondaryEntityForAction() {
+        return secondEntity;
     }
 
     @Override
@@ -34,7 +52,7 @@ public abstract class AbstractAction implements Action , Serializable {
     public ActionDTO convertToDTO() {
         return new ActionDTO(
                 type.name(),
-                entity.convertToDTO(),
+                mainEntity.convertToDTO(),
                 null, // todo: should add secondary entity to the class
                 getArguments()
         );

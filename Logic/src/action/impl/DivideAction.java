@@ -26,6 +26,13 @@ public class DivideAction extends AbstractAction implements Serializable {
         this.arg2 = arg2;
     }
 
+    public DivideAction(EntityDefinition mainEntity, EntityDefinition secondaryEntity, int populationCount, String propertyName, String arg1, String arg2) {
+        super(mainEntity, secondaryEntity, populationCount, ActionType.CALCULATION);
+        this.propertyName = propertyName;
+        this.arg1 = arg1;
+        this.arg2 = arg2;
+    }
+
     @Override
     public void invoke(Context context) {
         EntityInstance invokeOn = context.getEntityInstance();

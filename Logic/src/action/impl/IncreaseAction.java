@@ -24,6 +24,12 @@ public class IncreaseAction extends AbstractAction implements Serializable {
         this.byExpression = byExpression;
     }
 
+    public IncreaseAction(EntityDefinition mainEntity, EntityDefinition secondaryEntity, int populationCount, String propertyName, String byExpression) {
+        super(mainEntity, secondaryEntity, populationCount, ActionType.INCREASE);
+        this.propertyName = propertyName;
+        this.byExpression = byExpression;
+    }
+
     @Override
     public void invoke(Context context) {
         EntityInstance invokeOn = context.getEntityInstance();

@@ -19,8 +19,15 @@ public class DecreaseAction extends AbstractAction implements Serializable {
     private final String propertyName;
     private final String byExpression;
 
+
     public DecreaseAction(EntityDefinition entity, String propertyName, String byExpression) {
         super(entity, ActionType.DECREASE);
+        this.propertyName = propertyName;
+        this.byExpression = byExpression;
+    }
+
+    public DecreaseAction(EntityDefinition mainEntity, EntityDefinition secondaryEntity, int populationCount, String propertyName, String byExpression) {
+        super(mainEntity, secondaryEntity, populationCount, ActionType.DECREASE);
         this.propertyName = propertyName;
         this.byExpression = byExpression;
     }

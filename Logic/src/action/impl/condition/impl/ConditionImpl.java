@@ -14,7 +14,7 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
-public class ConditionImpl extends AbstractAction implements Condition , Serializable {
+public class ConditionImpl extends AbstractAction implements Condition, Serializable {
     private final MultipleCondition condition; // todo: think to change it to Condition instead of MultipleCondition
     private final String logical;
     List<Action> then;
@@ -22,6 +22,14 @@ public class ConditionImpl extends AbstractAction implements Condition , Seriali
 
     public ConditionImpl(MultipleCondition condition, String logical, EntityDefinition entity) {
         super(entity, ActionType.CONDITION);
+        this.condition = condition;
+        this.logical = logical;
+        this.then = new ArrayList<>();
+        this.notTrue = new ArrayList<>();
+    }
+
+    public ConditionImpl(MultipleCondition condition, String logical, EntityDefinition mainEntity, EntityDefinition secondaryEntity, int populationCount) {
+        super(mainEntity, secondaryEntity, populationCount, ActionType.CONDITION);
         this.condition = condition;
         this.logical = logical;
         this.then = new ArrayList<>();

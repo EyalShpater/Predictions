@@ -11,6 +11,8 @@ import java.util.Map;
 public interface Action extends DTOConvertible<ActionDTO> {
     EntityDefinition applyOn();
 
+    EntityDefinition secondaryEntityForAction();
+
     ActionType getType();
 
     String getName();

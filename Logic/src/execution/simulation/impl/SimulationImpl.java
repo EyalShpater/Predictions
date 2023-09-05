@@ -53,6 +53,7 @@ public class SimulationImpl implements Simulation , Serializable {
         initEnvironmentVariables();
 
         while ((reasonToStop = world.isActive(tick, startTime)) == null) {
+            //1) TODO: Move entities in the grid
             executeRules(tick);
             tick++;
         }
@@ -108,7 +109,9 @@ public class SimulationImpl implements Simulation , Serializable {
                 .forEach(propertyDefinition -> propertyDefinition.setRandom(true));
     }
 
+    //TODO: change this simulation loop
     private void executeRules(int tick) {
+        //2)TODO: Execute rules
         for (EntityInstance entity : entities.getInstances()) {
             for (Rule rule : world.getRules()) {
                 double probability = random.nextDouble();
