@@ -6,6 +6,7 @@ import instance.property.api.PropertyInstance;
 import instance.property.impl.PropertyInstanceImpl;
 import instance.entity.api.EntityInstance;
 
+import java.awt.*;
 import java.io.Serializable;
 import java.util.*;
 
@@ -14,6 +15,7 @@ public class EntityInstanceImpl implements EntityInstance  , Serializable {
     private final String name;
     private Map<String, PropertyInstance> propNameToPropInstance;
     private boolean isAlive = true;
+    private Point locationInSpace;
 
     public EntityInstanceImpl(EntityDefinition entity, int id) {
         name = entity.getName();
@@ -57,5 +59,10 @@ public class EntityInstanceImpl implements EntityInstance  , Serializable {
     @Override
     public void kill(){
         this.isAlive = false;
+    }
+
+    @Override
+    public Point getLocationInSpace() {
+        return locationInSpace;
     }
 }
