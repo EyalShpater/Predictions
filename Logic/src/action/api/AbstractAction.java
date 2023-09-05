@@ -17,7 +17,6 @@ public abstract class AbstractAction implements Action, Serializable {
 
     public AbstractAction(EntityDefinition mainEntity, ActionType type) {
         this.mainEntity = mainEntity;
-        this.secondEntity = secondEntity;
         this.type = type;
     }
 
