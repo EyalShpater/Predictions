@@ -13,4 +13,8 @@ public interface EntityInstance {
 
     Point getLocationInSpace();
 
+    void setLocationInSpace(int x, int y);
+
+    void setLocationInSpace(Point newLocation);
+
 }

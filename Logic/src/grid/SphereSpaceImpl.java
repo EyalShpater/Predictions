@@ -1,16 +1,13 @@
 package grid;
 
-import definition.entity.impl.EntityDefinitionImpl;
 import grid.api.SphereSpace;
 import instance.entity.api.EntityInstance;
-import instance.entity.impl.EntityInstanceImpl;
 
 import java.awt.*;
-import java.util.ArrayList;
-import java.util.Collections;
+import java.util.*;
 import java.util.List;
 import java.util.function.Function;
-import java.util.function.Supplier;
+import java.util.stream.Collectors;
 
 public class SphereSpaceImpl implements SphereSpace {
     private static final int MOVE_UP = 1;
@@ -21,14 +18,16 @@ public class SphereSpaceImpl implements SphereSpace {
     private static final int ARRAY_FIRST_INDEX = 0;
     private static final int NUM_OF_MOVES = 4;
 
-    EntityInstance[][] grid;
     int rows;
     int cols;
+    EntityInstance[][] grid;
+    Set<Point> emptyCells;
 
     public SphereSpaceImpl(int rows, int cols) {
         this.rows = rows;
         this.cols = cols;
         grid = new EntityInstance[rows][cols];
+        emptyCells = createNewEmptyCellsTreeSet();
     }
 
     @Override
@@ -46,22 +45,31 @@ public class SphereSpaceImpl implements SphereSpace {
 
     @Override
     public boolean setRandomLocation(EntityInstance entity) {
-        return false;
+        Point newLocation = getRandomEmptyCell();
+        boolean isThereFreeCell = newLocation != null;
+
+        if (isThereFreeCell) {
+            emptyCells.remove(newLocation);
+            entity.setLocationInSpace(newLocation);
+            grid[newLocation.y][newLocation.x] = entity;
+        }
+
+        return isThereFreeCell;
     }
 
-    public boolean moveUp(EntityInstance entity) {
+    private boolean moveUp(EntityInstance entity) {
         return move(entity, NO_MOVE, MOVE_UP);
     }
 
-    public boolean moveDown(EntityInstance entity) {
+    private boolean moveDown(EntityInstance entity) {
         return move(entity, NO_MOVE, MOVE_DOWN);
     }
 
-    public boolean moveLeft(EntityInstance entity) {
+    private boolean moveLeft(EntityInstance entity) {
         return move(entity, MOVE_LEFT, NO_MOVE);
     }
 
-    public boolean moveRight(EntityInstance entity) {
+    private boolean moveRight(EntityInstance entity) {
         return move(entity, MOVE_RIGHT, NO_MOVE);
     }
 
@@ -69,14 +77,21 @@ public class SphereSpaceImpl implements SphereSpace {
         Point position = entity.getLocationInSpace();
         int newXPosition = (position.x + dx + cols) % cols;
         int newYPosition = (position.y + dy + rows) % rows;
+        boolean isSucceed = false;
 
         if (grid[newYPosition][newXPosition] == null) {
             grid[position.y][position.x] = null;
             grid[newYPosition][newXPosition] = entity;
-            return true;
+
+            entity.setLocationInSpace(newXPosition, newYPosition);
+
+            emptyCells.remove(new Point(position.x, position.y));
+            emptyCells.add(new Point(newXPosition, newYPosition));
+
+            isSucceed = true;
         }
 
-        return false;
+        return isSucceed;
     }
 
     private List<Function<EntityInstance, Boolean>> createMoveList() {
@@ -100,5 +115,46 @@ public class SphereSpaceImpl implements SphereSpace {
         Collections.shuffle(numbers);
 
         return numbers;
+    }
+
+    private TreeSet<Point> createNewEmptyCellsTreeSet() {
+        TreeSet<Point> emptyCells = new TreeSet<>(createPointComparator());
+
+        for (int i = ARRAY_FIRST_INDEX; i < rows; i++) {
+            for (int j = ARRAY_FIRST_INDEX; j < cols; j++) {
+                emptyCells.add(new Point(i, j));
+            }
+        }
+
+        return emptyCells;
+    }
+
+    private Comparator<Point> createPointComparator() {
+        return new Comparator<Point>() {
+            @Override
+            public int compare(Point p1, Point p2) {
+                int difference = Integer.compare(p1.x, p2.x);
+
+                if (difference == 0) {
+                    difference = Integer.compare(p1.y, p2.y);
+                }
+
+                return difference;
+            }
+        };
+    }
+
+    private Point getRandomEmptyCell() {
+        Point randomCell = null;
+        boolean isThereFreeCell = !emptyCells.isEmpty();
+
+        if (isThereFreeCell) {
+            List<Point> freeLocations = new ArrayList<>(emptyCells);
+
+            Collections.shuffle(freeLocations);
+            randomCell = freeLocations.get(ARRAY_FIRST_INDEX);
+        }
+
+        return randomCell;
     }
 }

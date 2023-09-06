@@ -15,7 +15,7 @@ public class EntityInstanceImpl implements EntityInstance  , Serializable {
     private final String name;
     private Map<String, PropertyInstance> propNameToPropInstance;
     private boolean isAlive = true;
-    private Point locationInSpace;
+    private Point locationInSpace = new Point(); // todo: add it to be initialize
 
     public EntityInstanceImpl(EntityDefinition entity, int id) {
         name = entity.getName();
@@ -64,5 +64,16 @@ public class EntityInstanceImpl implements EntityInstance  , Serializable {
     @Override
     public Point getLocationInSpace() {
         return locationInSpace;
+    }
+
+    @Override
+    public void setLocationInSpace(int x, int y) {
+        locationInSpace.x = x;
+        locationInSpace.y = y;
+    }
+
+    @Override
+    public void setLocationInSpace(Point newLocation) {
+        this.locationInSpace = newLocation;
     }
 }
