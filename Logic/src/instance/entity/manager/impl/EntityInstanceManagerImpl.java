@@ -55,4 +55,9 @@ public class EntityInstanceManagerImpl implements EntityInstanceManager , Serial
 
         instanceToKill.kill();
     }
+
+    @Override
+    public void moveAllEntitiesInSpace(SphereSpace space) {
+        instances.values().forEach(space::makeRandomMove);
+    }
 }

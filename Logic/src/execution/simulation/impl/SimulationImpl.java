@@ -56,7 +56,7 @@ public class SimulationImpl implements Simulation , Serializable {
         initEnvironmentVariables();
 
         while ((reasonToStop = world.isActive(tick, startTime)) == null) {
-            //1) TODO: Move entities in the grid
+            entities.moveAllEntitiesInSpace(space);
             executeRules(tick);
             tick++;
         }
@@ -135,4 +135,5 @@ public class SimulationImpl implements Simulation , Serializable {
     public SimulationDTO convertToDTO() {
         return new SimulationDTO(startTime, serialNumber, world.convertToDTO());
     }
+
 }

@@ -13,4 +13,6 @@ public interface EntityInstanceManager {
     void killEntity(int idToKill);
 
     List<EntityInstance> getInstances();
+
+    void moveAllEntitiesInSpace(SphereSpace space);
 }

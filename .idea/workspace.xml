@@ -11,18 +11,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="27d35137-667f-4e37-a519-ab836acc0a06" name="Changes" comment="secondary instances support">
+    <list default="true" id="27d35137-667f-4e37-a519-ab836acc0a06" name="Changes" comment="entity location set via the simulation run">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/definition/world/api/World.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/definition/world/api/World.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/definition/world/impl/WorldImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/definition/world/impl/WorldImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/execution/simulation/impl/SimulationImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/execution/simulation/impl/SimulationImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/grid/SphereSpaceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/grid/SphereSpaceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/grid/TestMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/grid/TestMain.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/grid/api/SphereSpace.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/grid/api/SphereSpace.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/instance/entity/api/EntityInstance.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/instance/entity/api/EntityInstance.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/instance/entity/impl/EntityInstanceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/instance/entity/impl/EntityInstanceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/instance/entity/manager/api/EntityInstanceManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/instance/entity/manager/api/EntityInstanceManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/instance/entity/manager/impl/EntityInstanceManagerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/instance/entity/manager/impl/EntityInstanceManagerImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -392,14 +382,6 @@
       <option name="project" value="LOCAL" />
       <updated>1692356632414</updated>
     </task>
-    <task id="LOCAL‎-00072" summary="Changes by ASUS">
-      <option name="closed" value="true" />
-      <created>1692378697222</created>
-      <option name="number" value="00072" />
-      <option name="presentableId" value="LOCAL‎-00072" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1692378697222</updated>
-    </task>
     <task id="LOCAL‎-00073" summary="ConditionImpl">
       <option name="closed" value="true" />
       <created>1692382302111</created>
@@ -655,7 +637,15 @@
       <option name="project" value="LOCAL‎" />
       <updated>1694094519861</updated>
     </task>
-    <option name="localTasksCounter" value="105" />
+    <task id="LOCAL‎-00105" summary="entity location set via the simulation run">
+      <option name="closed" value="true" />
+      <created>1694107103203</created>
+      <option name="number" value="00105" />
+      <option name="presentableId" value="LOCAL‎-00105" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1694107103203</updated>
+    </task>
+    <option name="localTasksCounter" value="106" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -686,7 +676,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="nice print to screen" />
     <MESSAGE value="file path readable using trim" />
     <MESSAGE value="close to finish" />
     <MESSAGE value="close to the end" />
@@ -711,7 +700,8 @@
     <MESSAGE value="added a few changes to context to meet SecondEntity expectations" />
     <MESSAGE value="secondary instances support" />
     <MESSAGE value="secondery instances support" />
-    <option name="LAST_COMMIT_MESSAGE" value="secondery instances support" />
+    <MESSAGE value="entity location set via the simulation run" />
+    <option name="LAST_COMMIT_MESSAGE" value="entity location set via the simulation run" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
