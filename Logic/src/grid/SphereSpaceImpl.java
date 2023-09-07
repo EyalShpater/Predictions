@@ -1,13 +1,12 @@
 package grid;
 
+import grid.api.Location;
 import grid.api.SphereSpace;
 import instance.entity.api.EntityInstance;
 
-import java.awt.*;
 import java.util.*;
 import java.util.List;
 import java.util.function.Function;
-import java.util.stream.Collectors;
 
 public class SphereSpaceImpl implements SphereSpace {
     private static final int MOVE_UP = 1;
@@ -21,7 +20,7 @@ public class SphereSpaceImpl implements SphereSpace {
     int rows;
     int cols;
     EntityInstance[][] grid;
-    Set<Point> emptyCells;
+    Set<Location> emptyCells;
 
     public SphereSpaceImpl(int rows, int cols) {
         this.rows = rows;
@@ -33,11 +32,11 @@ public class SphereSpaceImpl implements SphereSpace {
     @Override
     public boolean makeRandomMove(EntityInstance entity) {
         List<Function<EntityInstance, Boolean>> moveMaker = createMoveList();
-        List<Integer> indexes = createRandomListOfNumbers(ARRAY_FIRST_INDEX, NUM_OF_MOVES - 1);
         boolean isSucceedToMove = false;
 
+        Collections.shuffle(moveMaker);
         for (int i = ARRAY_FIRST_INDEX; i < NUM_OF_MOVES && !isSucceedToMove; i++) {
-            isSucceedToMove = moveMaker.get(indexes.get(i)).apply(entity);
+            isSucceedToMove = moveMaker.get(i).apply(entity);
         }
 
         return isSucceedToMove;
@@ -45,13 +44,14 @@ public class SphereSpaceImpl implements SphereSpace {
 
     @Override
     public boolean setRandomLocation(EntityInstance entity) {
-        Point newLocation = getRandomEmptyCell();
+        Location oldLocation;
+        Location newLocation = getRandomEmptyCell();
         boolean isThereFreeCell = newLocation != null;
 
         if (isThereFreeCell) {
-            emptyCells.remove(newLocation);
+            oldLocation = entity.getLocationInSpace();
+            updateGridLocation(oldLocation, newLocation);
             entity.setLocationInSpace(newLocation);
-            grid[newLocation.y][newLocation.x] = entity;
         }
 
         return isThereFreeCell;
@@ -74,24 +74,31 @@ public class SphereSpaceImpl implements SphereSpace {
     }
 
     private boolean move(EntityInstance entity, int dx, int dy) {
-        Point position = entity.getLocationInSpace();
-        int newXPosition = (position.x + dx + cols) % cols;
-        int newYPosition = (position.y + dy + rows) % rows;
+        Location oldLocation = entity.getLocationInSpace();
+        int newXPosition = (oldLocation.getX() + dx + cols) % cols;
+        int newYPosition = (oldLocation.getY() + dy + rows) % rows;
+        Location newLocation = new Location(newXPosition, newYPosition);
         boolean isSucceed = false;
 
         if (grid[newYPosition][newXPosition] == null) {
-            grid[position.y][position.x] = null;
-            grid[newYPosition][newXPosition] = entity;
-
-            entity.setLocationInSpace(newXPosition, newYPosition);
-
-            emptyCells.remove(new Point(position.x, position.y));
-            emptyCells.add(new Point(newXPosition, newYPosition));
-
+            updateGridLocation(oldLocation, newLocation);
+            entity.setLocationInSpace(newLocation);
             isSucceed = true;
         }
 
         return isSucceed;
+    }
+
+    private TreeSet<Location> createNewEmptyCellsTreeSet() {
+        TreeSet<Location> emptyCells = new TreeSet<>();
+
+        for (int i = ARRAY_FIRST_INDEX; i < rows; i++) {
+            for (int j = ARRAY_FIRST_INDEX; j < cols; j++) {
+                emptyCells.add(new Location(i, j));
+            }
+        }
+
+        return emptyCells;
     }
 
     private List<Function<EntityInstance, Boolean>> createMoveList() {
@@ -105,56 +112,26 @@ public class SphereSpaceImpl implements SphereSpace {
         return moveMaker;
     }
 
-    private List<Integer> createRandomListOfNumbers(int from, int to) {
-        List<Integer> numbers = new ArrayList<>();
-
-        for (int i = from; i <= to; i++) {
-            numbers.add(i);
-        }
-
-        Collections.shuffle(numbers);
-
-        return numbers;
-    }
-
-    private TreeSet<Point> createNewEmptyCellsTreeSet() {
-        TreeSet<Point> emptyCells = new TreeSet<>(createPointComparator());
-
-        for (int i = ARRAY_FIRST_INDEX; i < rows; i++) {
-            for (int j = ARRAY_FIRST_INDEX; j < cols; j++) {
-                emptyCells.add(new Point(i, j));
-            }
-        }
-
-        return emptyCells;
-    }
-
-    private Comparator<Point> createPointComparator() {
-        return new Comparator<Point>() {
-            @Override
-            public int compare(Point p1, Point p2) {
-                int difference = Integer.compare(p1.x, p2.x);
-
-                if (difference == 0) {
-                    difference = Integer.compare(p1.y, p2.y);
-                }
-
-                return difference;
-            }
-        };
-    }
-
-    private Point getRandomEmptyCell() {
-        Point randomCell = null;
+    private Location getRandomEmptyCell() {
         boolean isThereFreeCell = !emptyCells.isEmpty();
+        Location randomCell = null;
 
         if (isThereFreeCell) {
-            List<Point> freeLocations = new ArrayList<>(emptyCells);
+            int randomIndex;
+            Random random = new Random();
+            List<Location> freeLocations = new ArrayList<>(emptyCells);
 
-            Collections.shuffle(freeLocations);
-            randomCell = freeLocations.get(ARRAY_FIRST_INDEX);
+            randomIndex = random.nextInt(freeLocations.size());
+            randomCell = freeLocations.get(randomIndex);
         }
 
         return randomCell;
+    }
+
+    void updateGridLocation(Location oldLocation, Location newLocation) {
+        grid[newLocation.getY()][newLocation.getX()] = grid[oldLocation.getY()][oldLocation.getX()];
+        grid[oldLocation.getY()][oldLocation.getX()] = null;
+        emptyCells.remove(newLocation);
+        emptyCells.add(oldLocation);
     }
 }

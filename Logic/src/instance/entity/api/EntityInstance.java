@@ -1,5 +1,6 @@
 package instance.entity.api;
 
+import grid.api.Location;
 import instance.property.api.PropertyInstance;
 
 import java.awt.*;
@@ -11,10 +12,10 @@ public interface EntityInstance {
     boolean isAlive();
     void kill();
 
-    Point getLocationInSpace();
+    Location getLocationInSpace();
 
     void setLocationInSpace(int x, int y);
 
-    void setLocationInSpace(Point newLocation);
+    void setLocationInSpace(Location newLocation);
 
 }
