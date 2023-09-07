@@ -30,7 +30,7 @@ public abstract class AbstractAction implements Action, Serializable {
         this.type = type;
     }
 
-    @Override
+   /* @Override
     public EntityDefinition applyOn() {
         return primaryEntity;
     }*/
@@ -54,6 +54,7 @@ public abstract class AbstractAction implements Action, Serializable {
                 getArguments()
         );
     }
+/*
 
     @Override
     public EntityDefinition getSecondaryEntityInstanceForAction() {
@@ -69,6 +70,7 @@ public abstract class AbstractAction implements Action, Serializable {
     public Boolean isSecondaryEntityExist() {
         return secondaryEntity != null;
     }
+*/
 
     @Override
     public List<EntityInstance> getSecondEntityFilteredList(Context context) {
@@ -109,4 +111,19 @@ public abstract class AbstractAction implements Action, Serializable {
                 .limit(count)
                 .collect(Collectors.toList());
     }
+
+    @Override
+    public void invoke(Context context) {
+        if (context.getEntityInstance().getName().equals(primaryEntity.getName())) {
+            setEntitiesInstances(context);
+            applyAction(context);
+        }
+    }
+
+    private void setEntitiesInstances(Context context) {
+        primaryEntityInstance = context.getEntityInstance();
+        //secondaryEntitiesInstances = context.get...
+    }
+
+    protected abstract void applyAction(Context context);
 }

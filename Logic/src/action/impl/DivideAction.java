@@ -35,7 +35,7 @@ public class DivideAction extends AbstractAction implements Serializable {
     }
 
     @Override
-    public void invoke(Context context) {
+    public void applyAction(Context context) {
         EntityInstance invokeOn = context.getEntityInstance();
         PropertyInstance propertyToUpdate = invokeOn.getPropertyByName(propertyName);
         Expression firstExpression = new ExpressionFactory(this.arg1, invokeOn);

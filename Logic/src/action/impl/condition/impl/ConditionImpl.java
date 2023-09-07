@@ -54,7 +54,8 @@ public class ConditionImpl extends AbstractAction implements Condition, Serializ
     }
 
     @Override
-    public void invoke(Context context) {
+    public void applyAction(Context context) {
+        //forEach secondary
         if (evaluate(context)) {
             then.forEach(action -> action.invoke(context));
         } else if (notTrue != null){
@@ -86,3 +87,25 @@ public class ConditionImpl extends AbstractAction implements Condition, Serializ
         return attributes;
     }
 }
+/*<PRD-action type="condition" entity="ent-1">
+					<PRD-secondary-entity entity="ent-2">
+						<PRD-selection count="4">
+							<PRD-condition singularity="single" entity="ent-2" property="p1" operator="bt" value="4"/>
+						</PRD-selection>
+					</PRD-secondary-entity>
+					<PRD-condition singularity="multiple" logical="or">
+						<PRD-condition singularity="single" entity="ent-1" property="ticks(ent-1.p1)" operator="bt" value="4"/>
+						<PRD-condition singularity="single" entity="ent-2" property="p2" operator="lt" value="3"/>
+						<PRD-condition singularity="multiple" logical="and">
+							<PRD-condition singularity="single" entity="ent-1" property="p4" operator="!=" value="nothing"/>
+							<PRD-condition singularity="single" entity="ent-1" property="p3" operator="=" value="environment(e2)"/>
+						</PRD-condition>
+					</PRD-condition>
+					<PRD-then>
+						<PRD-action type="increase" entity="ent-1" property="p1" by="3"/>
+						<PRD-action type="set" entity="ent-1" property="p1" value="random(3)"/>
+					</PRD-then>
+					<PRD-else>
+						<PRD-action type="kill" entity="ent-1"/>
+					</PRD-else>
+				</PRD-action>*/

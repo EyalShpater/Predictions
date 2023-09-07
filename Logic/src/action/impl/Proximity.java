@@ -15,7 +15,7 @@ public class Proximity extends AbstractAction {
     }
 
     @Override
-    public void invoke(Context context) {
+    public void applyAction(Context context) {
 
     }
 

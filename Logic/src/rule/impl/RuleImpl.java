@@ -12,8 +12,6 @@ import java.util.stream.Collectors;
 
 public class RuleImpl implements Rule , Serializable {
     private final String name;
-    private SortedSet<String> relevantEntities; //todo: split to mainEntity and secondaryEntity (may be null)
-    private SortedSet<String> relevantSecondaryEntities;
     private List<Action> actions;
     private Activation activation;
 

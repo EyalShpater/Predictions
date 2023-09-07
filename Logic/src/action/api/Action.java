@@ -12,7 +12,7 @@ import java.util.List;
 import java.util.Map;
 
 public interface Action extends DTOConvertible<ActionDTO> {
-    EntityDefinition applyOn();
+    //EntityDefinition applyOn();
 
     //EntityDefinition getSecondaryEntityInstanceForAction();
 
@@ -26,7 +26,7 @@ public interface Action extends DTOConvertible<ActionDTO> {
 
     //SecondaryEntity getSecondaryEntityForAction();
 
-    Boolean isSecondaryEntityExist();
+    //Boolean isSecondaryEntityExist();
 
     List<EntityInstance> getSecondEntityFilteredList(Context context);
 }

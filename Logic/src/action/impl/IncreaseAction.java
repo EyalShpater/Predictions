@@ -32,7 +32,7 @@ public class IncreaseAction extends AbstractAction implements Serializable {
     }
 
     @Override
-    public void invoke(Context context) {
+    public void applyAction(Context context) {
         EntityInstance invokeOn = context.getEntityInstance();
         PropertyInstance propertyToUpdate = invokeOn.getPropertyByName(propertyName);
         Expression expression = new ExpressionFactory(byExpression, invokeOn);
