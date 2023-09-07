@@ -3,25 +3,26 @@ package instance.entity.impl;
 import definition.entity.api.EntityDefinition;
 import definition.property.api.PropertyDefinition;
 import grid.api.Location;
+import grid.api.SphereSpace;
 import instance.property.api.PropertyInstance;
 import instance.property.impl.PropertyInstanceImpl;
 import instance.entity.api.EntityInstance;
 
-import java.awt.*;
 import java.io.Serializable;
 import java.util.*;
 
-public class EntityInstanceImpl implements EntityInstance  , Serializable {
+public class EntityInstanceImpl implements EntityInstance, Serializable {
     private final int id;
     private final String name;
     private Map<String, PropertyInstance> propNameToPropInstance;
-    private boolean isAlive = true;
-    private Location locationInSpace = new Location(); // todo: add it to be initialize
+    private boolean isAlive;
+    private Location locationInSpace;
 
     public EntityInstanceImpl(EntityDefinition entity, int id) {
         name = entity.getName();
         propNameToPropInstance = createPropertyInstancesFromDefinition(entity);
         this.id = id;
+        isAlive = true;
     }
 
     private Map<String, PropertyInstance> createPropertyInstancesFromDefinition(EntityDefinition entity) {
@@ -68,13 +69,8 @@ public class EntityInstanceImpl implements EntityInstance  , Serializable {
     }
 
     @Override
-    public void setLocationInSpace(int x, int y) {
-        locationInSpace.setX(x);
-        locationInSpace.setY(y);
-    }
-
-    @Override
     public void setLocationInSpace(Location newLocation) {
         this.locationInSpace = newLocation;
     }
+
 }

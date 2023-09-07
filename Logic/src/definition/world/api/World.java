@@ -7,6 +7,7 @@ import definition.entity.api.EntityDefinition;
 import definition.property.api.PropertyDefinition;
 import execution.simulation.termination.api.TerminateCondition;
 import execution.simulation.termination.api.Termination;
+import grid.api.SphereSpace;
 import impl.PropertyDefinitionDTO;
 import impl.TerminationDTO;
 import impl.WorldDTO;
@@ -23,10 +24,14 @@ public interface World extends DTOConvertible<WorldDTO> {
     List<EntityDefinition> getEntities();
     TerminateCondition isActive(int currentTick, long startTime);
     List<Rule> getRules();
+
+    SphereSpace getSphereSpace();
     void addRule(Rule newRule);
     void addEntity(EntityDefinition newEntity);
     void setTermination(Termination terminate);
     void addEnvironmentVariable(PropertyDefinition newVariable);
+
+    void setSphereSpaceSize(int rows, int cols);
     EntityDefinition getEntityByName(String name);
     Collection<PropertyDefinition> getEnvironmentVariables();
 }

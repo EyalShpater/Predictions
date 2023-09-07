@@ -11,6 +11,8 @@ import execution.simulation.termination.api.TerminateCondition;
 import execution.simulation.termination.api.Termination;
 import definition.world.api.World;
 import execution.simulation.termination.impl.TerminationImpl;
+import grid.SphereSpaceImpl;
+import grid.api.SphereSpace;
 import impl.PropertyDefinitionDTO;
 import impl.WorldDTO;
 import instance.enviornment.api.ActiveEnvironment;
@@ -26,12 +28,16 @@ public class WorldImpl implements World  , Serializable {
     private List<Rule> rules;
     private EnvironmentVariableManager environmentVariables;
     private Termination terminate;
+    private SphereSpace space;
     //todo: add private int threadPoolSize;
 
     public WorldImpl() {
         entitiesDefinition = new HashMap<>();
         rules = new ArrayList<>();
         environmentVariables = new EnvironmentVariableManagerImpl();
+
+        //todo: only until ex2 xml importer will be implement.
+        space = new SphereSpaceImpl(100, 100);
     }
 
     @Override
@@ -76,6 +82,11 @@ public class WorldImpl implements World  , Serializable {
     @Override
     public List<Rule> getRules() {
         return rules;
+    }
+
+    @Override
+    public SphereSpace getSphereSpace() {
+        return space;
     }
 
     @Override
@@ -131,6 +142,11 @@ public class WorldImpl implements World  , Serializable {
         }
 
         environmentVariables.addEnvironmentVariable(newVariable);
+    }
+
+    @Override
+    public void setSphereSpaceSize(int rows, int cols) {
+        space = new SphereSpaceImpl(rows, cols);
     }
 
     @Override

@@ -45,18 +45,15 @@ public class SphereSpaceImpl implements SphereSpace {
     }
 
     @Override
-    public boolean setRandomLocation(EntityInstance entity) {
-        Location oldLocation;
+    public Location placeEntityRandomlyInWorld(EntityInstance entity) {
         Location newLocation = getRandomEmptyCell();
-        boolean isThereFreeCell = newLocation != null;
 
-        if (isThereFreeCell) {
-            oldLocation = entity.getLocationInSpace();
-            updateGridLocation(oldLocation, newLocation);
-            entity.setLocationInSpace(newLocation);
+        if (newLocation != null) {
+            grid[newLocation.getY()][newLocation.getX()] = entity;
+            emptyCells.remove(newLocation);
         }
 
-        return isThereFreeCell;
+        return newLocation;
     }
 
     private boolean moveUp(EntityInstance entity) {
@@ -142,8 +139,8 @@ public class SphereSpaceImpl implements SphereSpace {
         EntityInstance e2 = new EntityInstanceImpl(new EntityDefinitionImpl("e2", 100), 1);
         SphereSpaceImpl space = new SphereSpaceImpl(2, 2);
 
-        space.setRandomLocation(e1);
-        space.setRandomLocation(e2);
+//        space.setNewRandomLocation(e1);
+//        space.setNewRandomLocation(e2);
 
         space.moveRight(e1);
         space.moveRight(e1);

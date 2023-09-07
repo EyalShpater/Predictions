@@ -7,6 +7,7 @@ import definition.world.api.World;
 import execution.simulation.data.api.SimulationData;
 import execution.simulation.data.impl.SimulationDataImpl;
 import execution.simulation.termination.api.TerminateCondition;
+import grid.api.SphereSpace;
 import impl.SimulationDTO;
 import impl.SimulationDataDTO;
 import instance.entity.api.EntityInstance;
@@ -26,6 +27,7 @@ public class SimulationImpl implements Simulation , Serializable {
     private EntityInstanceManager entities;
     private ActiveEnvironment environmentVariables;
     private SimulationData data;
+    private SphereSpace space;
     private long startTime;
 
     public SimulationImpl(World world, int serialNumber) {
@@ -36,6 +38,7 @@ public class SimulationImpl implements Simulation , Serializable {
         this.environmentVariables = null;
         this.data = null;
         this.startTime = 0;
+        this.space = world.getSphereSpace();
     }
 
     @Override
@@ -93,7 +96,7 @@ public class SimulationImpl implements Simulation , Serializable {
 
         for (EntityDefinition entityDefinition : world.getEntities()) {
             for (int i = 1; i <= entityDefinition.getPopulation(); i++) {
-                instances.create(entityDefinition);
+                instances.create(entityDefinition, space);
             }
         }
 

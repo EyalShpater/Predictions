@@ -13,9 +13,5 @@ public interface EntityInstance {
     void kill();
 
     Location getLocationInSpace();
-
-    void setLocationInSpace(int x, int y);
-
     void setLocationInSpace(Location newLocation);
-
 }

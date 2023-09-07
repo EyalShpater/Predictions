@@ -1,6 +1,8 @@
 package instance.entity.manager.impl;
 
 import definition.entity.api.EntityDefinition;
+import grid.api.Location;
+import grid.api.SphereSpace;
 import instance.entity.api.EntityInstance;
 import instance.entity.impl.EntityInstanceImpl;
 import instance.entity.manager.api.EntityInstanceManager;
@@ -19,8 +21,22 @@ public class EntityInstanceManagerImpl implements EntityInstanceManager , Serial
     }
 
     @Override
-    public void create(EntityDefinition entityDefinition) {
-        instances.put(id, new EntityInstanceImpl(entityDefinition, id));
+    public void create(EntityDefinition entityDefinition, SphereSpace space) {
+        EntityInstance newInstance = new EntityInstanceImpl(entityDefinition, id);
+        Location placeInSpace = space.placeEntityRandomlyInWorld(newInstance);
+
+        if (placeInSpace == null) {
+            throw new NullPointerException(
+                    "There is no place to add "
+                            + newInstance.getName()
+                            + " id #"
+                            + newInstance.getId()
+                            + " to the sphere space."
+            );
+        }
+
+        newInstance.setLocationInSpace(placeInSpace);
+        instances.put(id, newInstance);
         id++;
     }
 
