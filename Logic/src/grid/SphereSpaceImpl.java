@@ -1,8 +1,10 @@
 package grid;
 
+import definition.entity.impl.EntityDefinitionImpl;
 import grid.api.Location;
 import grid.api.SphereSpace;
 import instance.entity.api.EntityInstance;
+import instance.entity.impl.EntityInstanceImpl;
 
 import java.util.*;
 import java.util.List;
@@ -133,5 +135,23 @@ public class SphereSpaceImpl implements SphereSpace {
         grid[oldLocation.getY()][oldLocation.getX()] = null;
         emptyCells.remove(newLocation);
         emptyCells.add(oldLocation);
+    }
+
+    public static void main(String[] args) {
+        EntityInstance e1 = new EntityInstanceImpl(new EntityDefinitionImpl("e1", 100), 1);
+        EntityInstance e2 = new EntityInstanceImpl(new EntityDefinitionImpl("e2", 100), 1);
+        SphereSpaceImpl space = new SphereSpaceImpl(2, 2);
+
+        space.setRandomLocation(e1);
+        space.setRandomLocation(e2);
+
+        space.moveRight(e1);
+        space.moveRight(e1);
+        space.moveUp(e1);
+        space.moveUp(e1);
+        space.moveDown(e1);
+        space.moveDown(e1);
+        space.moveLeft(e1);
+        space.moveLeft(e1);
     }
 }
