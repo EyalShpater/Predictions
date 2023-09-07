@@ -11,19 +11,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="27d35137-667f-4e37-a519-ab836acc0a06" name="Changes" comment="When you load a new simulation, any data from previous simulations gets wiped.">
-      <change afterPath="$PROJECT_DIR$/Logic/src/action/second/entity/SecondEntity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Logic/src/action/second/entity/impl/SecondEntityImpl.java" afterDir="false" />
+    <list default="true" id="27d35137-667f-4e37-a519-ab836acc0a06" name="Changes" comment="added a few changes to context to meet SecondEntity expectations">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Logic/src/action/api/AbstractAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/action/api/AbstractAction.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Logic/src/action/api/Action.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/action/api/Action.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/action/impl/DecreaseAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/action/impl/DecreaseAction.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/action/impl/DivideAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/action/impl/DivideAction.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/action/impl/IncreaseAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/action/impl/IncreaseAction.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/action/impl/KillAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/action/impl/KillAction.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/action/impl/MultiplyAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/action/impl/MultiplyAction.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/action/impl/SetAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/action/impl/SetAction.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/action/impl/condition/impl/ConditionImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/action/impl/condition/impl/ConditionImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/action/second/entity/SecondEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/action/second/entity/SecondEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/action/second/entity/impl/SecondEntityImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/action/second/entity/impl/SecondEntityImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Logic/src/rule/impl/RuleImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/rule/impl/RuleImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -135,13 +128,13 @@
       <recent name="javafx.details.details" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.TestMain">
-    <configuration name="SecondScreenMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="javafx.tab.input.components.SecondScreenMain" />
+  <component name="RunManager" selected="Application.Main">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="javafx.mainScene.main.Main" />
       <module name="GUI" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="javafx.tab.newExecution.components.*" />
+          <option name="PATTERN" value="javafx.mainScene.main.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -203,6 +196,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Main" />
         <item itemvalue="Application.TestMain" />
         <item itemvalue="Application.javafx.tab.results.TestMain" />
         <item itemvalue="Application.javafx.tab.details.details.TestMain" />
@@ -277,13 +271,6 @@
       <workItem from="1693610882907" duration="67000" />
       <workItem from="1693611603575" duration="283000" />
       <workItem from="1693640598304" duration="35386000" />
-    </task>
-    <task id="LOCAL-00034" summary="Fixed the EntityInstance problem">
-      <created>1691746931845</created>
-      <option name="number" value="00034" />
-      <option name="presentableId" value="LOCAL-00034" />
-      <option name="project" value="LOCAL" />
-      <updated>1691746931845</updated>
     </task>
     <task id="LOCAL-00035" summary="added deacreaseAction based on IncreaseAction logic&#10;added an abstract class for calcs">
       <created>1691824938625</created>
@@ -653,7 +640,14 @@
       <option name="project" value="LOCAL‎" />
       <updated>1693784572586</updated>
     </task>
-    <option name="localTasksCounter" value="102" />
+    <task id="LOCAL-00102" summary="added a few changes to context to meet SecondEntity expectations">
+      <created>1694069647024</created>
+      <option name="number" value="00102" />
+      <option name="presentableId" value="LOCAL-00102" />
+      <option name="project" value="LOCAL" />
+      <updated>1694069647024</updated>
+    </task>
+    <option name="localTasksCounter" value="103" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -684,7 +678,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="condition problem fixed" />
     <MESSAGE value="ConditionImpl" />
     <MESSAGE value="exception catch while loading file" />
     <MESSAGE value="nice print to screen" />
@@ -709,7 +702,8 @@
     <MESSAGE value="added results tab" />
     <MESSAGE value="the values in the barChart are now sorted" />
     <MESSAGE value="When you load a new simulation, any data from previous simulations gets wiped." />
-    <option name="LAST_COMMIT_MESSAGE" value="When you load a new simulation, any data from previous simulations gets wiped." />
+    <MESSAGE value="added a few changes to context to meet SecondEntity expectations" />
+    <option name="LAST_COMMIT_MESSAGE" value="added a few changes to context to meet SecondEntity expectations" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">

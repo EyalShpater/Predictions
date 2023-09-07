@@ -10,4 +10,6 @@ public interface SecondEntity {
     String getInstancesCount();
 
     Boolean evaluateCondition(Context context);
+
+    boolean isConditionExist();
 }

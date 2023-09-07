@@ -26,4 +26,9 @@ public class SecondEntityImpl implements SecondEntity {
     public Boolean evaluateCondition(Context context) {
         return condition.evaluate(context);
     }
+
+    @Override
+    public boolean isConditionExist() {
+        return condition != null;
+    }
 }

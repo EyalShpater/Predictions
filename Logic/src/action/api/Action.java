@@ -6,7 +6,9 @@ import definition.entity.api.EntityDefinition;
 
 import action.context.api.Context;
 import impl.ActionDTO;
+import instance.entity.api.EntityInstance;
 
+import java.util.List;
 import java.util.Map;
 
 public interface Action extends DTOConvertible<ActionDTO> {
@@ -23,4 +25,8 @@ public interface Action extends DTOConvertible<ActionDTO> {
     Map<String, String> getArguments();
 
     SecondEntity getSecondaryEntityForAction();
+
+    Boolean isSecondaryEntityExist();
+
+    List<EntityInstance> getSecondEntityFilteredList(Context context);
 }

@@ -60,10 +60,11 @@ public class RuleImpl implements Rule , Serializable {
             actions.forEach(action -> {
                 //3)TODO: Check if the action has a secondary entity
                 //3)TODO: if it does place relevant secondary entities in a list
-                if (action.getSecondaryEntityForAction() == null) {
+                if (!action.isSecondaryEntityExist()) {
                     action.invoke(context);
                 } else {
-                    List<EntityInstance> filteredSecondaryEntities = new ArrayList<>();
+                    List<EntityInstance> filteredSecondaryEntities = action.getSecondEntityFilteredList(context);
+                    /*List<EntityInstance> filteredSecondaryEntities = new ArrayList<>();
 
                     SecondEntity secondEntity = action.getSecondaryEntityForAction();
                     String secondEntityName = secondEntity.getSecondEntity().getName();
@@ -71,15 +72,16 @@ public class RuleImpl implements Rule , Serializable {
 
                     List<EntityInstance> allSecondaryEntities = context.getInstancesWithName(secondEntityName);
 
-                    if (secondEntityCount.equals("ALL"))
+                    if (secondEntityCount.equals("ALL")){
 
-                        allSecondaryEntities.forEach(entityInstance -> {
-                            Context secondEntityContext = context.duplicateContextWithEntityInstance(entityInstance);
-                            if (secondEntity.evaluateCondition(secondEntityContext)) {
-                                filteredSecondaryEntities.add(entityInstance);
-                            }
-                        });
-                    //EntityInstance secondEntity = action.getSecondaryEntityForAction().getSecondEntity();
+                    }
+                    allSecondaryEntities.forEach(entityInstance -> {
+                        Context secondEntityContext = context.duplicateContextWithEntityInstance(entityInstance);
+                        if (secondEntity.evaluateCondition(secondEntityContext)) {
+                            filteredSecondaryEntities.add(entityInstance);
+                        }
+                    });
+                    EntityInstance secondEntity = action.getSecondaryEntityForAction().getSecondEntity();*/
                 }
             });
         }
