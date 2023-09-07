@@ -34,14 +34,6 @@ public class WorldImpl implements World  , Serializable {
         environmentVariables = new EnvironmentVariableManagerImpl();
     }
 
-    public WorldImpl(WorldDTO dto) {
-        this();
-
-        dto.getEntities().forEach(entity -> addEntity(new EntityDefinitionImpl(entity)));
-        dto.getRules().forEach(rule -> addRule(new RuleImpl(rule)));
-        this.terminate = new TerminationImpl(dto.getTermination());
-    }
-
     @Override
     public void setEnvironmentVariablesValues(List<PropertyDefinitionDTO> values) {
         EnvironmentVariableManager variableDefinitions = new EnvironmentVariableManagerImpl();

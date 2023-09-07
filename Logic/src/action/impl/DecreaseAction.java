@@ -4,7 +4,7 @@ import action.api.AbstractAction;
 import action.api.ActionType;
 import action.expression.api.Expression;
 import action.expression.impl.ExpressionFactory;
-import action.second.entity.SecondEntity;
+import action.second.entity.SecondaryEntity;
 import definition.entity.api.EntityDefinition;
 import action.context.api.Context;
 import definition.property.api.Range;
@@ -12,7 +12,6 @@ import instance.entity.api.EntityInstance;
 import instance.property.api.PropertyInstance;
 
 import java.io.Serializable;
-import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
@@ -27,14 +26,14 @@ public class DecreaseAction extends AbstractAction implements Serializable {
         this.byExpression = byExpression;
     }
 
-    public DecreaseAction(EntityDefinition mainEntity, SecondEntity secondaryEntity, String propertyName, String byExpression) {
+    public DecreaseAction(EntityDefinition mainEntity, SecondaryEntity secondaryEntity, String propertyName, String byExpression) {
         super(mainEntity, secondaryEntity, ActionType.DECREASE);
         this.propertyName = propertyName;
         this.byExpression = byExpression;
     }
 
     @Override
-    public void invoke(Context context) {
+    public void applyAction(Context context) {
         EntityInstance invokeOn = context.getEntityInstance();
         PropertyInstance propertyToUpdate = invokeOn.getPropertyByName(propertyName);
         Expression expression = new ExpressionFactory(byExpression, invokeOn);

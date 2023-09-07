@@ -5,7 +5,7 @@ import action.api.ActionType;
 import action.context.api.Context;
 import action.expression.api.Expression;
 import action.expression.impl.ExpressionFactory;
-import action.second.entity.SecondEntity;
+import action.second.entity.SecondaryEntity;
 import definition.entity.api.EntityDefinition;
 import definition.property.api.Range;
 import instance.entity.api.EntityInstance;
@@ -27,7 +27,7 @@ public class DivideAction extends AbstractAction implements Serializable {
         this.arg2 = arg2;
     }
 
-    public DivideAction(EntityDefinition mainEntity, SecondEntity secondaryEntity, String propertyName, String arg1, String arg2) {
+    public DivideAction(EntityDefinition mainEntity, SecondaryEntity secondaryEntity, String propertyName, String arg1, String arg2) {
         super(mainEntity, secondaryEntity, ActionType.CALCULATION);
         this.propertyName = propertyName;
         this.arg1 = arg1;

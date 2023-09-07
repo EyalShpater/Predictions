@@ -5,7 +5,7 @@ import action.api.ActionType;
 import action.context.api.Context;
 import action.expression.api.Expression;
 import action.expression.impl.ExpressionFactory;
-import action.second.entity.SecondEntity;
+import action.second.entity.SecondaryEntity;
 import definition.entity.api.EntityDefinition;
 import definition.property.api.Range;
 import instance.entity.api.EntityInstance;
@@ -28,7 +28,7 @@ public class MultiplyAction extends AbstractAction implements Serializable {
         this.arg2 = arg2;
     }
 
-    public MultiplyAction(EntityDefinition mainEntity, SecondEntity secondaryEntity, String propertyName, String arg1, String arg2) {
+    public MultiplyAction(EntityDefinition mainEntity, SecondaryEntity secondaryEntity, String propertyName, String arg1, String arg2) {
         super(mainEntity, secondaryEntity, ActionType.CALCULATION);
         this.propertyName = propertyName;
         this.arg1 = arg1;
@@ -36,7 +36,7 @@ public class MultiplyAction extends AbstractAction implements Serializable {
     }
 
     @Override
-    public void invoke(Context context) {
+    public void applyAction(Context context) {
         EntityInstance invokeOn = context.getEntityInstance();
         PropertyInstance propertyToUpdate = invokeOn.getPropertyByName(propertyName);
         Expression firstExpression = new ExpressionFactory(this.arg1, invokeOn);

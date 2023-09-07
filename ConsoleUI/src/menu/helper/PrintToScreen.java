@@ -157,7 +157,7 @@ public class PrintToScreen {
         IntStream.range(0, rule.getActionsDTO().size())
                 .forEach(i -> {
                     printLine(indentation * 2, ' ');
-                    System.out.println((i + 1) + ". " + rule.getActionsDTO().get(i));
+                    System.out.println((i + 1) + ". " + rule.getActionsDTO().get(i).getType());
                     System.out.println();
                 });
     }

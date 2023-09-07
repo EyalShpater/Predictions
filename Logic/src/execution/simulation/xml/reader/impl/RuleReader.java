@@ -26,7 +26,7 @@ public class RuleReader  {
     private void readDataFromPRDRuleToRule(PRDRule prdRule, World world) {
         List<String> relevantEntitiesForRule = createRelevantEntityList(prdRule.getPRDActions().getPRDAction());
         Activation activation = createActivation(prdRule.getPRDActivation());
-        Rule newRule = new RuleImpl(prdRule.getName(), activation, relevantEntitiesForRule.toArray(new String[0]));
+        Rule newRule = new RuleImpl(prdRule.getName(), activation);
         List<PRDAction> prdActionsList = prdRule.getPRDActions().getPRDAction();
         for( PRDAction prdAction : prdActionsList ){
             ActionReader actionReader = new ActionReader();

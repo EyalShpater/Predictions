@@ -2,10 +2,10 @@ package action.second.entity.impl;
 
 import action.context.api.Context;
 import action.impl.condition.Condition;
-import action.second.entity.SecondEntity;
+import action.second.entity.SecondaryEntity;
 import definition.entity.api.EntityDefinition;
 
-public class SecondEntityImpl implements SecondEntity {
+public class SecondaryEntityImpl implements SecondaryEntity {
     EntityDefinition secondEntity;
 
     Condition condition;

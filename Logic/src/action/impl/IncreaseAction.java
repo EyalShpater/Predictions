@@ -2,7 +2,7 @@ package action.impl;
 
 import action.api.AbstractAction;
 import action.api.ActionType;
-import action.second.entity.SecondEntity;
+import action.second.entity.SecondaryEntity;
 import definition.entity.api.EntityDefinition;
 import action.expression.api.Expression;
 import action.expression.impl.ExpressionFactory;
@@ -25,7 +25,7 @@ public class IncreaseAction extends AbstractAction implements Serializable {
         this.byExpression = byExpression;
     }
 
-    public IncreaseAction(EntityDefinition mainEntity, SecondEntity secondaryEntity, String propertyName, String byExpression) {
+    public IncreaseAction(EntityDefinition mainEntity, SecondaryEntity secondaryEntity, String propertyName, String byExpression) {
         super(mainEntity, secondaryEntity, ActionType.INCREASE);
         this.propertyName = propertyName;
         this.byExpression = byExpression;

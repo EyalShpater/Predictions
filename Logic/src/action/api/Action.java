@@ -1,6 +1,6 @@
 package action.api;
 
-import action.second.entity.SecondEntity;
+import action.second.entity.SecondaryEntity;
 import api.DTOConvertible;
 import definition.entity.api.EntityDefinition;
 
@@ -14,7 +14,7 @@ import java.util.Map;
 public interface Action extends DTOConvertible<ActionDTO> {
     EntityDefinition applyOn();
 
-    EntityDefinition secondaryEntityForAction();
+    //EntityDefinition getSecondaryEntityInstanceForAction();
 
     ActionType getType();
 
@@ -24,7 +24,7 @@ public interface Action extends DTOConvertible<ActionDTO> {
 
     Map<String, String> getArguments();
 
-    SecondEntity getSecondaryEntityForAction();
+    //SecondaryEntity getSecondaryEntityForAction();
 
     Boolean isSecondaryEntityExist();
 

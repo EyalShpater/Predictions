@@ -1,7 +1,7 @@
 package action.api;
 
 import action.context.api.Context;
-import action.second.entity.SecondEntity;
+import action.second.entity.SecondaryEntity;
 import definition.entity.api.EntityDefinition;
 
 import impl.ActionDTO;
@@ -14,27 +14,26 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public abstract class AbstractAction implements Action, Serializable {
-    private final EntityDefinition mainEntity;
-
-    private SecondEntity secondEntity;
-
+    private final EntityDefinition primaryEntity;
+    private final SecondaryEntity secondaryEntity;
     private final ActionType type;
+    private EntityInstance primaryEntityInstance;
+    private List<EntityInstance> secondaryEntitiesInstances;
 
-    public AbstractAction(EntityDefinition mainEntity, ActionType type) {
-        this.mainEntity = mainEntity;
-        this.type = type;
+    public AbstractAction(EntityDefinition primaryEntity, ActionType type) {
+        this(primaryEntity, null, type);
     }
 
-    public AbstractAction(EntityDefinition mainEntity, SecondEntity secondEntity, ActionType type) {
-        this.mainEntity = mainEntity;
-        this.secondEntity = secondEntity;
+    public AbstractAction(EntityDefinition primaryEntity, SecondaryEntity secondaryEntity, ActionType type) {
+        this.primaryEntity = primaryEntity;
+        this.secondaryEntity = secondaryEntity;
         this.type = type;
     }
 
     @Override
     public EntityDefinition applyOn() {
-        return mainEntity;
-    }
+        return primaryEntity;
+    }*/
 
     @Override
     public ActionType getType() {
@@ -50,32 +49,32 @@ public abstract class AbstractAction implements Action, Serializable {
     public ActionDTO convertToDTO() {
         return new ActionDTO(
                 type.name(),
-                mainEntity.convertToDTO(),
-                null, // todo: should add secondary entity to the class
+                primaryEntity.convertToDTO(),
+                null,
                 getArguments()
         );
     }
 
     @Override
-    public EntityDefinition secondaryEntityForAction() {
-        return secondEntity.getSecondEntity();
+    public EntityDefinition getSecondaryEntityInstanceForAction() {
+        return secondaryEntity.getSecondEntity();
     }
 
     @Override
-    public SecondEntity getSecondaryEntityForAction() {
-        return secondEntity;
+    public SecondaryEntity getSecondaryEntityForAction() {
+        return secondaryEntity;
     }
 
     @Override
     public Boolean isSecondaryEntityExist() {
-        return secondEntity != null;
+        return secondaryEntity != null;
     }
 
     @Override
     public List<EntityInstance> getSecondEntityFilteredList(Context context) {
 
-        String secondEntityName = secondEntity.getSecondEntity().getName();
-        String secondEntityCount = secondEntity.getInstancesCount();
+        String secondEntityName = secondaryEntity.getSecondEntity().getName();
+        String secondEntityCount = secondaryEntity.getInstancesCount();
 
         List<EntityInstance> filteredSecondaryEntities = context.getInstancesWithName(secondEntityName);
 
@@ -89,9 +88,9 @@ public abstract class AbstractAction implements Action, Serializable {
     private List<EntityInstance> getSecondEntityFilteredListByContAndCondition(List<EntityInstance> filteredSecondaryEntities, Context context, int count) {
 
         List<EntityInstance> newFilteredSecondaryEntities;
-        if (secondEntity.isConditionExist()) {
+        if (secondaryEntity.isConditionExist()) {
             newFilteredSecondaryEntities = filteredSecondaryEntities.stream()
-                    .filter(entityInstance -> secondEntity.evaluateCondition(context.duplicateContextWithEntityInstance(entityInstance)))
+                    .filter(entityInstance -> secondaryEntity.evaluateCondition(context.duplicateContextWithEntityInstance(entityInstance)))
                     .limit(count)
                     .collect(Collectors.toList());
 
@@ -106,6 +105,7 @@ public abstract class AbstractAction implements Action, Serializable {
         Collections.shuffle(randomList);
 
         return randomList.stream()
+                .filter(EntityInstance::isAlive)
                 .limit(count)
                 .collect(Collectors.toList());
     }
