@@ -1,5 +1,6 @@
 package action.api;
 
+import action.second.entity.SecondEntity;
 import api.DTOConvertible;
 import definition.entity.api.EntityDefinition;
 
@@ -20,4 +21,6 @@ public interface Action extends DTOConvertible<ActionDTO> {
     void invoke(Context context);
 
     Map<String, String> getArguments();
+
+    SecondEntity getSecondaryEntityForAction();
 }

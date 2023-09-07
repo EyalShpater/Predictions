@@ -1,5 +1,6 @@
 package action.api;
 
+import action.second.entity.SecondEntity;
 import definition.entity.api.EntityDefinition;
 
 import impl.ActionDTO;
@@ -9,9 +10,7 @@ import java.io.Serializable;
 public abstract class AbstractAction implements Action, Serializable {
     private final EntityDefinition mainEntity;
 
-    private EntityDefinition secondEntity = null;
-
-    private int secondEntityPopulationCount = 0;
+    private SecondEntity secondEntity;
 
     private final ActionType type;
 
@@ -20,21 +19,15 @@ public abstract class AbstractAction implements Action, Serializable {
         this.type = type;
     }
 
-    public AbstractAction(EntityDefinition mainEntity, EntityDefinition secondEntity, int populationCount, ActionType type) {
+    public AbstractAction(EntityDefinition mainEntity, SecondEntity secondEntity, ActionType type) {
         this.mainEntity = mainEntity;
         this.secondEntity = secondEntity;
-        this.secondEntityPopulationCount = populationCount;
         this.type = type;
     }
 
     @Override
     public EntityDefinition applyOn() {
         return mainEntity;
-    }
-
-    @Override
-    public EntityDefinition secondaryEntityForAction() {
-        return secondEntity;
     }
 
     @Override
@@ -55,5 +48,15 @@ public abstract class AbstractAction implements Action, Serializable {
                 null, // todo: should add secondary entity to the class
                 getArguments()
         );
+    }
+
+    @Override
+    public EntityDefinition secondaryEntityForAction() {
+        return secondEntity.getSecondEntity();
+    }
+
+    @Override
+    public SecondEntity getSecondaryEntityForAction() {
+        return secondEntity;
     }
 }

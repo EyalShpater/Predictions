@@ -5,6 +5,7 @@ import action.api.ActionType;
 import action.context.api.Context;
 import action.expression.api.Expression;
 import action.expression.impl.ExpressionFactory;
+import action.second.entity.SecondEntity;
 import definition.entity.api.EntityDefinition;
 import instance.entity.api.EntityInstance;
 import instance.property.api.PropertyInstance;
@@ -26,8 +27,8 @@ public class SetAction extends AbstractAction implements Serializable {
         this.newValue = newValue;
     }
 
-    public SetAction(EntityDefinition mainEntity, EntityDefinition secondaryEntity, int populationCount, String propertyName, String newValue) {
-        super(mainEntity, secondaryEntity, populationCount, ActionType.SET);
+    public SetAction(EntityDefinition mainEntity, SecondEntity secondaryEntity, String propertyName, String newValue) {
+        super(mainEntity, secondaryEntity, ActionType.SET);
         this.propertyName = propertyName;
         this.newValue = newValue;
     }

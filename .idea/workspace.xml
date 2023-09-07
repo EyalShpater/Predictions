@@ -11,11 +11,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="27d35137-667f-4e37-a519-ab836acc0a06" name="Changes" comment="implemented setRandomLocation in SphereSpaceImpl">
-      <change afterPath="$PROJECT_DIR$/Logic/src/grid/api/Location.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/grid/SphereSpaceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/grid/SphereSpaceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/instance/entity/api/EntityInstance.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/instance/entity/api/EntityInstance.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/instance/entity/impl/EntityInstanceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/instance/entity/impl/EntityInstanceImpl.java" afterDir="false" />
+    <list default="true" id="27d35137-667f-4e37-a519-ab836acc0a06" name="Changes" comment="When you load a new simulation, any data from previous simulations gets wiped.">
+      <change afterPath="$PROJECT_DIR$/Logic/src/action/second/entity/SecondEntity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Logic/src/action/second/entity/impl/SecondEntityImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/action/api/AbstractAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/action/api/AbstractAction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/action/api/Action.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/action/api/Action.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/action/impl/DecreaseAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/action/impl/DecreaseAction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/action/impl/DivideAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/action/impl/DivideAction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/action/impl/IncreaseAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/action/impl/IncreaseAction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/action/impl/KillAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/action/impl/KillAction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/action/impl/MultiplyAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/action/impl/MultiplyAction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/action/impl/SetAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/action/impl/SetAction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/action/impl/condition/impl/ConditionImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/action/impl/condition/impl/ConditionImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/rule/impl/RuleImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/rule/impl/RuleImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,9 +39,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Interface" />
         <option value="Enum" />
         <option value="JavaFXApplication" />
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -45,7 +54,7 @@
     </option>
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="main" />
+        <entry key="$PROJECT_DIR$" value="GUI" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -81,33 +90,33 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
-    &quot;dart.analysis.tool.window.visible&quot;: &quot;false&quot;,
-    &quot;extract.method.default.visibility&quot;: &quot;private&quot;,
-    &quot;full.screen.before.presentation.mode&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;GUI&quot;,
-    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;1.8&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/ASUS/IdeaProjects/08. Java FX&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;advanced.settings&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "codeWithMe.voiceChat.enabledByDefault": "false",
+    "dart.analysis.tool.window.visible": "false",
+    "extract.method.default.visibility": "private",
+    "full.screen.before.presentation.mode": "false",
+    "git-widget-placeholder": "GUI",
+    "jdk.selected.JAVA_MODULE": "1.8",
+    "last_opened_file_path": "C:/Users/ASUS/IdeaProjects/08. Java FX",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Libraries",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "Shelf.Project.Settings",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\ASUS\IdeaProjects\PredictionsGuiVersion\GUI\src\javafx\input\components\singleEnvVar" />
@@ -127,19 +136,6 @@
     </key>
   </component>
   <component name="RunManager" selected="Application.TestMain">
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="javafx.mainScene.main.Main" />
-      <module name="GUI" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="javafx.mainScene.main.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="SecondScreenMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="javafx.tab.input.components.SecondScreenMain" />
       <module name="GUI" />
@@ -154,11 +150,11 @@
       </method>
     </configuration>
     <configuration name="TestMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="grid.TestMain" />
-      <module name="Logic" />
+      <option name="MAIN_CLASS_NAME" value="javafx.mainScene.main.TestMain" />
+      <module name="GUI" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="grid.*" />
+          <option name="PATTERN" value="javafx.mainScene.main.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -207,7 +203,6 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.TestMain" />
         <item itemvalue="Application.TestMain" />
         <item itemvalue="Application.javafx.tab.results.TestMain" />
         <item itemvalue="Application.javafx.tab.details.details.TestMain" />
@@ -395,12 +390,28 @@
       <option name="project" value="LOCAL" />
       <updated>1692168153217</updated>
     </task>
+    <task id="LOCAL‎-00069" summary="pretty good">
+      <option name="closed" value="true" />
+      <created>1692300131304</created>
+      <option name="number" value="00069" />
+      <option name="presentableId" value="LOCAL‎-00069" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1692300131304</updated>
+    </task>
     <task id="LOCAL-00070" summary="read everything to world except rule">
       <created>1692356632414</created>
       <option name="number" value="00070" />
       <option name="presentableId" value="LOCAL-00070" />
       <option name="project" value="LOCAL" />
       <updated>1692356632414</updated>
+    </task>
+    <task id="LOCAL‎-00071" summary="condition problem fixed">
+      <option name="closed" value="true" />
+      <created>1692378671103</created>
+      <option name="number" value="00071" />
+      <option name="presentableId" value="LOCAL‎-00071" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1692378671104</updated>
     </task>
     <task id="LOCAL‎-00072" summary="Changes by ASUS">
       <option name="closed" value="true" />
@@ -642,23 +653,7 @@
       <option name="project" value="LOCAL‎" />
       <updated>1693784572586</updated>
     </task>
-    <task id="LOCAL‎-00102" summary="move functions in grid, and added EntityInstance position property">
-      <option name="closed" value="true" />
-      <created>1693936516075</created>
-      <option name="number" value="00102" />
-      <option name="presentableId" value="LOCAL‎-00102" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1693936516075</updated>
-    </task>
-    <task id="LOCAL‎-00103" summary="implemented setRandomLocation in SphereSpaceImpl">
-      <option name="closed" value="true" />
-      <created>1693997768724</created>
-      <option name="number" value="00103" />
-      <option name="presentableId" value="LOCAL‎-00103" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1693997768724</updated>
-    </task>
-    <option name="localTasksCounter" value="104" />
+    <option name="localTasksCounter" value="102" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -689,6 +684,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="condition problem fixed" />
+    <MESSAGE value="ConditionImpl" />
     <MESSAGE value="exception catch while loading file" />
     <MESSAGE value="nice print to screen" />
     <MESSAGE value="file path readable using trim" />
@@ -712,9 +709,7 @@
     <MESSAGE value="added results tab" />
     <MESSAGE value="the values in the barChart are now sorted" />
     <MESSAGE value="When you load a new simulation, any data from previous simulations gets wiped." />
-    <MESSAGE value="move functions in grid, and added EntityInstance position property" />
-    <MESSAGE value="implemented setRandomLocation in SphereSpaceImpl" />
-    <option name="LAST_COMMIT_MESSAGE" value="implemented setRandomLocation in SphereSpaceImpl" />
+    <option name="LAST_COMMIT_MESSAGE" value="When you load a new simulation, any data from previous simulations gets wiped." />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">

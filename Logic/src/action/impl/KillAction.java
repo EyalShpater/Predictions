@@ -3,6 +3,7 @@ package action.impl;
 import action.api.AbstractAction;
 import action.api.ActionType;
 import action.context.api.Context;
+import action.second.entity.SecondEntity;
 import definition.entity.api.EntityDefinition;
 
 import java.io.Serializable;
@@ -13,8 +14,8 @@ public class KillAction extends AbstractAction implements Serializable {
         super(entity, ActionType.KILL);
     }
 
-    public KillAction(EntityDefinition mainEntity, EntityDefinition secondaryEntity, int populationCount) {
-        super(mainEntity, secondaryEntity, populationCount, ActionType.KILL);
+    public KillAction(EntityDefinition mainEntity, SecondEntity secondaryEntity, int populationCount) {
+        super(mainEntity, secondaryEntity, ActionType.KILL);
     }
 
     @Override

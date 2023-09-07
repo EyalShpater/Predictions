@@ -2,7 +2,9 @@ package rule.impl;
 
 import action.api.Action;
 import action.context.api.Context;
+import action.second.entity.SecondEntity;
 import impl.RuleDTO;
+import instance.entity.api.EntityInstance;
 import rule.api.Activation;
 import rule.api.Rule;
 
@@ -14,21 +16,26 @@ import java.util.stream.Collectors;
 public class RuleImpl implements Rule , Serializable {
     private final String name;
     private SortedSet<String> relevantEntities; //todo: split to mainEntity and secondaryEntity (may be null)
+    private SortedSet<String> relevantSecondaryEntities;
     private List<Action> actions;
     private Activation activation;
 
-    
+
     public RuleImpl(String name, Activation activation, String... relevantEntity) {
         this.name = name;
         this.actions = new ArrayList<>();
         this.activation = activation;
         initRelevantEntities(Arrays.asList(relevantEntity));
+        relevantSecondaryEntities = null;
     }
-    public RuleImpl(String name, Activation activation, List<String> relevantEntity ) {
+
+    //TODO: use this ctor for secondary entities
+    public RuleImpl(String name, Activation activation, List<String> relevantEntity, List<String> relevantSecondaryEntity) {
         this.name = name;
         this.actions = new ArrayList<>();
         this.activation = activation;
         initRelevantEntities(relevantEntity);
+        initRelevantSecondaryEntities(relevantSecondaryEntity);
     }
 
     public RuleImpl(RuleDTO dto) {
@@ -53,7 +60,27 @@ public class RuleImpl implements Rule , Serializable {
             actions.forEach(action -> {
                 //3)TODO: Check if the action has a secondary entity
                 //3)TODO: if it does place relevant secondary entities in a list
-                action.invoke(context);
+                if (action.getSecondaryEntityForAction() == null) {
+                    action.invoke(context);
+                } else {
+                    List<EntityInstance> filteredSecondaryEntities = new ArrayList<>();
+
+                    SecondEntity secondEntity = action.getSecondaryEntityForAction();
+                    String secondEntityName = secondEntity.getSecondEntity().getName();
+                    String secondEntityCount = secondEntity.getInstancesCount();
+
+                    List<EntityInstance> allSecondaryEntities = context.getInstancesWithName(secondEntityName);
+
+                    if (secondEntityCount.equals("ALL"))
+
+                        allSecondaryEntities.forEach(entityInstance -> {
+                            Context secondEntityContext = context.duplicateContextWithEntityInstance(entityInstance);
+                            if (secondEntity.evaluateCondition(secondEntityContext)) {
+                                filteredSecondaryEntities.add(entityInstance);
+                            }
+                        });
+                    //EntityInstance secondEntity = action.getSecondaryEntityForAction().getSecondEntity();
+                }
             });
         }
     }
@@ -135,5 +162,10 @@ public class RuleImpl implements Rule , Serializable {
     private void initRelevantEntities(List<String> names) {
         relevantEntities = new TreeSet<>();
         relevantEntities.addAll(names);
+    }
+
+    private void initRelevantSecondaryEntities(List<String> names) {
+        relevantSecondaryEntities = new TreeSet<>();
+        relevantSecondaryEntities.addAll(names);
     }
 }

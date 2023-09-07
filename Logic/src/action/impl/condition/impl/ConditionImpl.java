@@ -6,6 +6,7 @@ import action.api.ActionType;
 import action.context.api.Context;
 import action.impl.condition.Condition;
 import action.impl.condition.impl.multiple.MultipleCondition;
+import action.second.entity.SecondEntity;
 import definition.entity.api.EntityDefinition;
 
 import java.io.Serializable;
@@ -28,8 +29,8 @@ public class ConditionImpl extends AbstractAction implements Condition, Serializ
         this.notTrue = new ArrayList<>();
     }
 
-    public ConditionImpl(MultipleCondition condition, String logical, EntityDefinition mainEntity, EntityDefinition secondaryEntity, int populationCount) {
-        super(mainEntity, secondaryEntity, populationCount, ActionType.CONDITION);
+    public ConditionImpl(MultipleCondition condition, String logical, EntityDefinition mainEntity, SecondEntity secondaryEntity) {
+        super(mainEntity, secondaryEntity, ActionType.CONDITION);
         this.condition = condition;
         this.logical = logical;
         this.then = new ArrayList<>();
