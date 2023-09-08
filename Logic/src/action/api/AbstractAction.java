@@ -83,9 +83,15 @@ public abstract class AbstractAction implements Action, Serializable {
     }
 
     private void setEntitiesInstances(Context context) {
-        primaryEntityInstance = context.getEntityInstance();
-        secondaryEntitiesInstances = context.getSecondEntityFilteredList(secondaryEntity);
+        if (isSecondaryEntityExist()) {
+            primaryEntityInstance = context.getEntityInstance();
+            secondaryEntitiesInstances = context.getSecondEntityFilteredList(secondaryEntity);
+        }
     }
 
     protected abstract void applyAction(Context context);
+
+    protected Boolean isSecondaryEntityExist() {
+        return secondaryEntity != null;
+    }
 }

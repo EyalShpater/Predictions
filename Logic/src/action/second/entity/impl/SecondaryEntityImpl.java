@@ -4,6 +4,7 @@ import action.context.api.Context;
 import action.impl.condition.Condition;
 import action.second.entity.SecondaryEntity;
 import definition.entity.api.EntityDefinition;
+import instance.entity.api.EntityInstance;
 
 public class SecondaryEntityImpl implements SecondaryEntity {
     EntityDefinition secondEntity;
@@ -23,8 +24,8 @@ public class SecondaryEntityImpl implements SecondaryEntity {
     }
 
     @Override
-    public Boolean evaluateCondition(Context context) {
-        return condition.evaluate(context, instance);
+    public Boolean evaluateCondition(Context context, EntityInstance secondaryEntity) {
+        return condition.evaluate(context, secondaryEntity);
     }
 
     @Override

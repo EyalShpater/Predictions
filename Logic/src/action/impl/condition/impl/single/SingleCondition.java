@@ -26,16 +26,22 @@ public abstract class SingleCondition implements Condition, Serializable {
 
     @Override
     public boolean evaluate(Context context, EntityInstance secondEntityInstance) {
+        if (contextConditionEntity != null) {
+            return evaluateSingleConditionWithContextEntity(context, secondEntityInstance);
+        } else {
+            return evaluate(expression1, expression2, context);
+        }
+    }
+
+    private boolean evaluateSingleConditionWithContextEntity(Context context, EntityInstance secondEntityInstance) {
         String primaryEntityName = context.getEntityInstance().getName();
         String contextConditionEntityName = contextConditionEntity.getName();
 
         if (primaryEntityName.equals(contextConditionEntityName)) {
             return evaluate(expression1, expression2, context);
-
         } else {
             return evaluate(expression1, expression2, context.duplicateContextWithEntityInstance(secondEntityInstance));
         }
-
     }
 
     abstract protected boolean evaluate(String expression1, String expression2, Context context);

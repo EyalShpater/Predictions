@@ -11,18 +11,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="27d35137-667f-4e37-a519-ab836acc0a06" name="Changes" comment="added a few changes to context to meet SecondEntity expectations">
+    <list default="true" id="27d35137-667f-4e37-a519-ab836acc0a06" name="Changes" comment="changed evaluate to get the EntityInstance of secondaryEntity in each iteration in order to creare the proper context , also added functions to context to get the filtered SecondaryEntity list">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Logic/src/action/api/AbstractAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/action/api/AbstractAction.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/action/api/Action.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/action/api/Action.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/action/context/api/Context.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/action/context/api/Context.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Logic/src/action/context/impl/ContextImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/action/context/impl/ContextImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/action/impl/condition/Condition.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/action/impl/condition/Condition.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Logic/src/action/impl/condition/impl/ConditionImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/action/impl/condition/impl/ConditionImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/action/impl/condition/impl/multiple/And.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/action/impl/condition/impl/multiple/And.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/action/impl/condition/impl/multiple/MultipleCondition.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/action/impl/condition/impl/multiple/MultipleCondition.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/action/impl/condition/impl/multiple/Or.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/action/impl/condition/impl/multiple/Or.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Logic/src/action/impl/condition/impl/single/SingleCondition.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/action/impl/condition/impl/single/SingleCondition.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/action/second/entity/SecondaryEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/action/second/entity/SecondaryEntity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Logic/src/action/second/entity/impl/SecondaryEntityImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/action/second/entity/impl/SecondaryEntityImpl.java" afterDir="false" />
     </list>
     <list id="2652661e-ea84-47b9-b217-8fc39a5a7c8a" name="Changes by ASUS" comment="" />
@@ -280,14 +275,7 @@
       <workItem from="1693610882907" duration="67000" />
       <workItem from="1693611603575" duration="283000" />
       <workItem from="1693640598304" duration="35386000" />
-      <workItem from="1694153897973" duration="8664000" />
-    </task>
-    <task id="LOCAL-00035" summary="added deacreaseAction based on IncreaseAction logic&#10;added an abstract class for calcs">
-      <created>1691824938625</created>
-      <option name="number" value="00035" />
-      <option name="presentableId" value="LOCAL-00035" />
-      <option name="project" value="LOCAL" />
-      <updated>1691824938625</updated>
+      <workItem from="1694153897973" duration="11773000" />
     </task>
     <task id="LOCAL-00036" summary="added deacreaseAction based on IncreaseAction logic&#10;added an abstract class for calcs">
       <created>1691825085908</created>
@@ -657,7 +645,14 @@
       <option name="project" value="LOCAL" />
       <updated>1694069647024</updated>
     </task>
-    <option name="localTasksCounter" value="103" />
+    <task id="LOCAL-00103" summary="changed evaluate to get the EntityInstance of secondaryEntity in each iteration in order to creare the proper context , also added functions to context to get the filtered SecondaryEntity list">
+      <created>1694175010163</created>
+      <option name="number" value="00103" />
+      <option name="presentableId" value="LOCAL-00103" />
+      <option name="project" value="LOCAL" />
+      <updated>1694175010164</updated>
+    </task>
+    <option name="localTasksCounter" value="104" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -688,7 +683,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="ConditionImpl" />
     <MESSAGE value="exception catch while loading file" />
     <MESSAGE value="nice print to screen" />
     <MESSAGE value="file path readable using trim" />
@@ -713,7 +707,8 @@
     <MESSAGE value="the values in the barChart are now sorted" />
     <MESSAGE value="When you load a new simulation, any data from previous simulations gets wiped." />
     <MESSAGE value="added a few changes to context to meet SecondEntity expectations" />
-    <option name="LAST_COMMIT_MESSAGE" value="added a few changes to context to meet SecondEntity expectations" />
+    <MESSAGE value="changed evaluate to get the EntityInstance of secondaryEntity in each iteration in order to creare the proper context , also added functions to context to get the filtered SecondaryEntity list" />
+    <option name="LAST_COMMIT_MESSAGE" value="changed evaluate to get the EntityInstance of secondaryEntity in each iteration in order to creare the proper context , also added functions to context to get the filtered SecondaryEntity list" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
@@ -734,9 +729,9 @@
           <option name="timeStamp" value="43" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/ConsoleUI/src/menu/impl/MenuImpl.java</url>
-          <line>45</line>
-          <option name="timeStamp" value="80" />
+          <url>file://$PROJECT_DIR$/Logic/src/action/impl/condition/impl/ConditionImpl.java</url>
+          <line>67</line>
+          <option name="timeStamp" value="83" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/GUI/src/javafx/tab/newExecution/environmentVariable/StringEnvironmentVariableController.java</url>
@@ -746,6 +741,15 @@
             <option name="WATCH_EXIT" value="false" />
           </properties>
           <option name="timeStamp" value="51" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/Logic/src/action/api/AbstractAction.java</url>
+          <line>77</line>
+          <properties class="action.api.AbstractAction" method="invoke">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="82" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
