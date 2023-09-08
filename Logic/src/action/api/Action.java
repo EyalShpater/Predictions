@@ -28,5 +28,4 @@ public interface Action extends DTOConvertible<ActionDTO> {
 
     //Boolean isSecondaryEntityExist();
 
-    List<EntityInstance> getSecondEntityFilteredList(Context context);
 }

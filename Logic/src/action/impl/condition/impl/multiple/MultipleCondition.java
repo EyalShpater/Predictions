@@ -2,7 +2,7 @@ package action.impl.condition.impl.multiple;
 
 import action.context.api.Context;
 import action.impl.condition.Condition;
-import action.impl.condition.impl.single.SingleCondition;
+import instance.entity.api.EntityInstance;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -19,8 +19,8 @@ public abstract class MultipleCondition implements Condition , Serializable {
     }
 
     @Override
-    public boolean evaluate(Context context) {
-        return evaluate(conditions, context);
+    public boolean evaluate(Context context, EntityInstance secondEntityInstance) {
+        return evaluate(conditions, context, secondEntityInstance);
     }
 
     public void addCondition(Condition condition) {
@@ -41,7 +41,7 @@ public abstract class MultipleCondition implements Condition , Serializable {
         return arguments;
     }
 
-    abstract protected boolean evaluate(List<Condition> conditions, Context context);
+    abstract protected boolean evaluate(List<Condition> conditions, Context context, EntityInstance secondEntityInstance);
 
     public Condition isSingleCondition() {
         return conditions.size() <= 1 ?

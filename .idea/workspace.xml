@@ -11,9 +11,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="27d35137-667f-4e37-a519-ab836acc0a06" name="Changes" comment="entity location set via the simulation run">
+    <list default="true" id="27d35137-667f-4e37-a519-ab836acc0a06" name="Changes" comment="added a few changes to context to meet SecondEntity expectations">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/action/api/AbstractAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/action/api/AbstractAction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/action/api/Action.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/action/api/Action.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/action/context/api/Context.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/action/context/api/Context.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/action/context/impl/ContextImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/action/context/impl/ContextImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/action/impl/condition/Condition.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/action/impl/condition/Condition.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/action/impl/condition/impl/ConditionImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/action/impl/condition/impl/ConditionImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/action/impl/condition/impl/multiple/And.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/action/impl/condition/impl/multiple/And.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/action/impl/condition/impl/multiple/MultipleCondition.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/action/impl/condition/impl/multiple/MultipleCondition.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/action/impl/condition/impl/multiple/Or.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/action/impl/condition/impl/multiple/Or.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/action/impl/condition/impl/single/SingleCondition.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/action/impl/condition/impl/single/SingleCondition.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/action/second/entity/impl/SecondaryEntityImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/action/second/entity/impl/SecondaryEntityImpl.java" afterDir="false" />
     </list>
+    <list id="2652661e-ea84-47b9-b217-8fc39a5a7c8a" name="Changes by ASUS" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -78,33 +90,32 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "codeWithMe.voiceChat.enabledByDefault": "false",
-    "dart.analysis.tool.window.visible": "false",
-    "extract.method.default.visibility": "private",
-    "full.screen.before.presentation.mode": "false",
-    "git-widget-placeholder": "GUI",
-    "jdk.selected.JAVA_MODULE": "1.8",
-    "last_opened_file_path": "C:/Users/ASUS/IdeaProjects/08. Java FX",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Libraries",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "project.propVCSSupport.CommitDialog",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;dart.analysis.tool.window.visible&quot;: &quot;false&quot;,
+    &quot;extract.method.default.visibility&quot;: &quot;private&quot;,
+    &quot;full.screen.before.presentation.mode&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;GUI&quot;,
+    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;1.8&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/ASUS/IdeaProjects/08. Java FX&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;project.propVCSSupport.CommitDialog&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\ASUS\IdeaProjects\PredictionsGuiVersion\GUI\src\javafx\input\components\singleEnvVar" />
@@ -150,12 +161,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="grid.TestMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="grid.TestMain" />
-      <module name="Logic" />
+    <configuration name="javafx.tab.details.details.TestMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="javafx.tab.details.details.TestMain" />
+      <module name="GUI" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="grid.*" />
+          <option name="PATTERN" value="javafx.tab.details.details.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -192,10 +203,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.main.Main" />
-        <item itemvalue="Application.grid.TestMain" />
         <item itemvalue="Application.Main" />
         <item itemvalue="Application.TestMain" />
         <item itemvalue="Application.javafx.tab.results.TestMain" />
+        <item itemvalue="Application.javafx.tab.details.details.TestMain" />
       </list>
     </recent_temporary>
   </component>
@@ -269,6 +280,7 @@
       <workItem from="1693610882907" duration="67000" />
       <workItem from="1693611603575" duration="283000" />
       <workItem from="1693640598304" duration="35386000" />
+      <workItem from="1694153897973" duration="8664000" />
     </task>
     <task id="LOCAL-00035" summary="added deacreaseAction based on IncreaseAction logic&#10;added an abstract class for calcs">
       <created>1691824938625</created>
@@ -375,12 +387,36 @@
       <option name="project" value="LOCAL" />
       <updated>1692168153217</updated>
     </task>
+    <task id="LOCAL‎-00069" summary="pretty good">
+      <option name="closed" value="true" />
+      <created>1692300131304</created>
+      <option name="number" value="00069" />
+      <option name="presentableId" value="LOCAL‎-00069" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1692300131304</updated>
+    </task>
     <task id="LOCAL-00070" summary="read everything to world except rule">
       <created>1692356632414</created>
       <option name="number" value="00070" />
       <option name="presentableId" value="LOCAL-00070" />
       <option name="project" value="LOCAL" />
       <updated>1692356632414</updated>
+    </task>
+    <task id="LOCAL‎-00071" summary="condition problem fixed">
+      <option name="closed" value="true" />
+      <created>1692378671103</created>
+      <option name="number" value="00071" />
+      <option name="presentableId" value="LOCAL‎-00071" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1692378671104</updated>
+    </task>
+    <task id="LOCAL‎-00072" summary="Changes by ASUS">
+      <option name="closed" value="true" />
+      <created>1692378697222</created>
+      <option name="number" value="00072" />
+      <option name="presentableId" value="LOCAL‎-00072" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1692378697222</updated>
     </task>
     <task id="LOCAL‎-00073" summary="ConditionImpl">
       <option name="closed" value="true" />
@@ -621,31 +657,7 @@
       <option name="project" value="LOCAL" />
       <updated>1694069647024</updated>
     </task>
-    <task id="LOCAL‎-00103" summary="secondary instances support">
-      <option name="closed" value="true" />
-      <created>1694094503301</created>
-      <option name="number" value="00103" />
-      <option name="presentableId" value="LOCAL‎-00103" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1694094503301</updated>
-    </task>
-    <task id="LOCAL‎-00104" summary="secondery instances support">
-      <option name="closed" value="true" />
-      <created>1694094519861</created>
-      <option name="number" value="00104" />
-      <option name="presentableId" value="LOCAL‎-00104" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1694094519861</updated>
-    </task>
-    <task id="LOCAL‎-00105" summary="entity location set via the simulation run">
-      <option name="closed" value="true" />
-      <created>1694107103203</created>
-      <option name="number" value="00105" />
-      <option name="presentableId" value="LOCAL‎-00105" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1694107103203</updated>
-    </task>
-    <option name="localTasksCounter" value="106" />
+    <option name="localTasksCounter" value="103" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -676,6 +688,9 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="ConditionImpl" />
+    <MESSAGE value="exception catch while loading file" />
+    <MESSAGE value="nice print to screen" />
     <MESSAGE value="file path readable using trim" />
     <MESSAGE value="close to finish" />
     <MESSAGE value="close to the end" />
@@ -698,10 +713,7 @@
     <MESSAGE value="the values in the barChart are now sorted" />
     <MESSAGE value="When you load a new simulation, any data from previous simulations gets wiped." />
     <MESSAGE value="added a few changes to context to meet SecondEntity expectations" />
-    <MESSAGE value="secondary instances support" />
-    <MESSAGE value="secondery instances support" />
-    <MESSAGE value="entity location set via the simulation run" />
-    <option name="LAST_COMMIT_MESSAGE" value="entity location set via the simulation run" />
+    <option name="LAST_COMMIT_MESSAGE" value="added a few changes to context to meet SecondEntity expectations" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
@@ -744,7 +756,6 @@
         <PinnedItemInfo parentTag="definition.entity.impl.EntityDefinitionImpl" memberName="population" />
         <PinnedItemInfo parentTag="java.lang.Integer" memberName="value" />
         <PinnedItemInfo parentTag="rule.impl.RuleImpl" memberName="activation" />
-        <PinnedItemInfo parentTag="grid.SphereSpaceImpl" memberName="emptyCells" />
         <PinnedItemInfo parentTag="resources.generated.PRDRules" memberName="prdRule" />
         <PinnedItemInfo parentTag="resources.generated.PRDAction" memberName="entity" />
         <PinnedItemInfo parentTag="definition.entity.impl.EntityDefinitionImpl" memberName="name" />

@@ -1,6 +1,7 @@
 package action.context.api;
 
 import action.expression.api.Expression;
+import action.second.entity.SecondaryEntity;
 import instance.entity.api.EntityInstance;
 import instance.property.api.PropertyInstance;
 
@@ -13,7 +14,9 @@ public interface Context {
 
     void removeEntity(EntityInstance entityInstance);
 
-    List<EntityInstance> getInstancesWithName(String secondEntityName);
-
     Context duplicateContextWithEntityInstance(EntityInstance newEntityInstance);
+
+    List<EntityInstance> getSecondEntityFilteredList(SecondaryEntity secondaryEntity);
+
+
 }

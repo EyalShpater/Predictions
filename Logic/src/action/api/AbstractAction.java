@@ -18,7 +18,7 @@ public abstract class AbstractAction implements Action, Serializable {
     private final SecondaryEntity secondaryEntity;
     private final ActionType type;
     private EntityInstance primaryEntityInstance;
-    private List<EntityInstance> secondaryEntitiesInstances;
+    protected List<EntityInstance> secondaryEntitiesInstances;
 
     public AbstractAction(EntityDefinition primaryEntity, ActionType type) {
         this(primaryEntity, null, type);
@@ -72,45 +72,7 @@ public abstract class AbstractAction implements Action, Serializable {
     }
 */
 
-    @Override
-    public List<EntityInstance> getSecondEntityFilteredList(Context context) {
 
-        String secondEntityName = secondaryEntity.getSecondEntity().getName();
-        String secondEntityCount = secondaryEntity.getInstancesCount();
-
-        List<EntityInstance> filteredSecondaryEntities = context.getInstancesWithName(secondEntityName);
-
-        if (!secondEntityCount.equals("ALL")) {
-            int count = Integer.parseInt(secondEntityCount);
-            filteredSecondaryEntities = getSecondEntityFilteredListByContAndCondition(filteredSecondaryEntities, context, count);
-        }
-        return filteredSecondaryEntities;
-    }
-
-    private List<EntityInstance> getSecondEntityFilteredListByContAndCondition(List<EntityInstance> filteredSecondaryEntities, Context context, int count) {
-
-        List<EntityInstance> newFilteredSecondaryEntities;
-        if (secondaryEntity.isConditionExist()) {
-            newFilteredSecondaryEntities = filteredSecondaryEntities.stream()
-                    .filter(entityInstance -> secondaryEntity.evaluateCondition(context.duplicateContextWithEntityInstance(entityInstance)))
-                    .limit(count)
-                    .collect(Collectors.toList());
-
-        } else {
-            newFilteredSecondaryEntities = getRandomElementsWithRepetition(filteredSecondaryEntities, count);
-        }
-        return newFilteredSecondaryEntities;
-    }
-
-    private List<EntityInstance> getRandomElementsWithRepetition(List<EntityInstance> filteredSecondaryEntities, int count) {
-        List<EntityInstance> randomList = new ArrayList<>(filteredSecondaryEntities);
-        Collections.shuffle(randomList);
-
-        return randomList.stream()
-                .filter(EntityInstance::isAlive)
-                .limit(count)
-                .collect(Collectors.toList());
-    }
 
     @Override
     public void invoke(Context context) {
@@ -122,7 +84,7 @@ public abstract class AbstractAction implements Action, Serializable {
 
     private void setEntitiesInstances(Context context) {
         primaryEntityInstance = context.getEntityInstance();
-        //secondaryEntitiesInstances = context.get...
+        secondaryEntitiesInstances = context.getSecondEntityFilteredList(secondaryEntity);
     }
 
     protected abstract void applyAction(Context context);

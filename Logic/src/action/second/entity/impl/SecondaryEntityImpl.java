@@ -24,7 +24,7 @@ public class SecondaryEntityImpl implements SecondaryEntity {
 
     @Override
     public Boolean evaluateCondition(Context context) {
-        return condition.evaluate(context);
+        return condition.evaluate(context, instance);
     }
 
     @Override
