@@ -10,8 +10,13 @@ import impl.ActionDTO;
 import java.util.Map;
 
 public class Proximity extends AbstractAction {
-    public Proximity(EntityDefinition mainEntity) {
-        super(mainEntity, ActionType.PROXIMITY);
+    EntityDefinition targetEntity;
+    String circleDepth;
+
+    public Proximity(EntityDefinition sourceEntity, EntityDefinition targetEntity, String of) {
+        super(sourceEntity, ActionType.PROXIMITY);
+        this.targetEntity = targetEntity;
+        this.circleDepth = of;
     }
 
     @Override
