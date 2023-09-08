@@ -59,30 +59,27 @@ public class ConditionImpl extends AbstractAction implements Condition, Serializ
         if (isSecondaryEntityExist()) {
             evaluateConditionSecondaryEntityVersion(context);
         } else {
-            evaluateConditionPrimaryEntityVersion(context);
+            evaluateAcordingToEntityInstance(context, context.getEntityInstance());
         }
 
     }
 
-    private void evaluateConditionPrimaryEntityVersion(Context context) {
-        if (evaluate(context, context.getEntityInstance())) {
-            then.forEach(action -> action.invoke(context));
-        } else if (notTrue != null) {
-            notTrue.forEach(action -> action.invoke(context));
-        }
-    }
 
     private void evaluateConditionSecondaryEntityVersion(Context context) {
         if (!secondaryEntitiesInstances.isEmpty()) {
             for (EntityInstance secondEntityInstance : secondaryEntitiesInstances) {
-                if (evaluate(context, secondEntityInstance)) {
-                    then.forEach(action -> action.invoke(context));
-                } else if (notTrue != null) {
-                    notTrue.forEach(action -> action.invoke(context));
-                }
+                evaluateAcordingToEntityInstance(context, secondEntityInstance);
             }
         }
 
+    }
+
+    private void evaluateAcordingToEntityInstance(Context context, EntityInstance entityInstance) {
+        if (evaluate(context, entityInstance)) {
+            then.forEach(action -> action.invoke(context));
+        } else if (notTrue != null) {
+            notTrue.forEach(action -> action.invoke(context));
+        }
     }
 
     @Override

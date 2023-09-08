@@ -16,7 +16,7 @@
     </PRD-evironment>
     <PRD-entities>
         <PRD-entity name="Smoker">
-            <PRD-population>10</PRD-population>
+            <PRD-population>1000</PRD-population>
             <PRD-properties>
                 <PRD-property type="decimal">
                     <PRD-name>lung-cancer-progress</PRD-name>
@@ -80,9 +80,10 @@
                 </PRD-action>
             </PRD-actions>
         </PRD-rule>
+
     </PRD-rules>
     <PRD-termination>
-        <PRD-by-ticks count="200"/>
+        <PRD-by-ticks count="250"/>
         <PRD-by-second count="10"/>
     </PRD-termination>
 </PRD-world>
