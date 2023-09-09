@@ -1,9 +1,7 @@
 package execution.simulation.xml.reader.impl;
 
 import definition.world.api.World;
-import resources.generated.PRDWorld;
-
-import java.io.Serializable;
+import resources.xml.ex1.generated.PRDWorld;
 
 public class XmlReader  {
     private PRDWorld prdWorld;

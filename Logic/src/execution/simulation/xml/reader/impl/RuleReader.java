@@ -1,16 +1,15 @@
 package execution.simulation.xml.reader.impl;
 
 import definition.world.api.World;
-import resources.generated.PRDAction;
-import resources.generated.PRDActivation;
-import resources.generated.PRDRule;
-import resources.generated.PRDWorld;
+import resources.xml.ex1.generated.PRDAction;
+import resources.xml.ex1.generated.PRDActivation;
+import resources.xml.ex1.generated.PRDRule;
+import resources.xml.ex1.generated.PRDWorld;
 import rule.api.Activation;
 import rule.api.Rule;
 import rule.impl.ActivationImpl;
 import rule.impl.RuleImpl;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;

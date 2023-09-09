@@ -5,9 +5,9 @@ import definition.property.api.PropertyType;
 import definition.property.api.Range;
 import definition.property.impl.PropertyDefinitionImpl;
 import definition.world.api.World;
-import resources.generated.PRDEnvProperty;
-import resources.generated.PRDRange;
-import resources.generated.PRDWorld;
+import resources.xml.ex1.generated.PRDEnvProperty;
+import resources.xml.ex1.generated.PRDRange;
+import resources.xml.ex1.generated.PRDWorld;
 
 import java.util.List;
 

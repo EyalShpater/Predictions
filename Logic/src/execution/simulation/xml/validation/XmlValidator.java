@@ -1,12 +1,10 @@
 package execution.simulation.xml.validation;
-
-import resources.generated.*;
+import resources.xml.ex1.generated.*;
 
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Unmarshaller;
 import java.io.File;
-import java.io.Serializable;
 import java.nio.file.*;
 import java.util.List;
 

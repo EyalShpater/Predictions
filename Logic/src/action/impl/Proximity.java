@@ -13,10 +13,10 @@ public class Proximity extends AbstractAction {
     EntityDefinition targetEntity;
     double circleDepth;
 
-    public Proximity(EntityDefinition sourceEntity, EntityDefinition targetEntity, String of) {
+    public Proximity(EntityDefinition sourceEntity, EntityDefinition targetEntity, String ofExpression) {
         super(sourceEntity, ActionType.PROXIMITY);
         this.targetEntity = targetEntity;
-        this.circleDepth = Double.parseDouble(of);
+        //this.circleDepth = Double.parseDouble(of);
     }
 
     @Override

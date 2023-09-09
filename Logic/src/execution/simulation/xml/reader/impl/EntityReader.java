@@ -2,15 +2,10 @@ package execution.simulation.xml.reader.impl;
 
 import definition.entity.api.EntityDefinition;
 import definition.entity.impl.EntityDefinitionImpl;
-import definition.property.api.PropertyDefinition;
-import definition.property.api.PropertyType;
-import definition.property.api.Range;
-import definition.property.impl.PropertyDefinitionImpl;
 import definition.world.api.World;
-import resources.generated.PRDEntity;
-import resources.generated.PRDProperty;
-import resources.generated.PRDRange;
-import resources.generated.PRDWorld;
+import resources.xml.ex1.generated.PRDEntity;
+import resources.xml.ex1.generated.PRDProperty;
+import resources.xml.ex1.generated.PRDWorld;
 
 import java.util.List;
 

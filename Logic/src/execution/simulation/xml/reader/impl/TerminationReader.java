@@ -3,9 +3,10 @@ package execution.simulation.xml.reader.impl;
 import definition.world.api.World;
 import execution.simulation.termination.api.TerminateCondition;
 import execution.simulation.termination.impl.TerminationImpl;
-import resources.generated.*;
+import resources.xml.ex1.generated.PRDBySecond;
+import resources.xml.ex1.generated.PRDByTicks;
+import resources.xml.ex1.generated.PRDWorld;
 
-import java.io.Serializable;
 import java.util.List;
 
 public class TerminationReader  {
