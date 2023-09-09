@@ -6,7 +6,7 @@
 //
 
 
-package generated;
+package resources.xml.ex2.generated;
 
 import java.util.ArrayList;
 import java.util.List;

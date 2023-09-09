@@ -1,16 +1,18 @@
 package execution.simulation.xml.reader.impl;
 
 import definition.world.api.World;
-import resources.xml.ex1.generated.PRDWorld;
+import resources.xml.ex2.generated.PRDWorld;
+//import resources.xml.ex1.generated.PRDWorld;
 
-public class XmlReader  {
+public class XmlReader {
     private PRDWorld prdWorld;
 
     public XmlReader(PRDWorld world) {
         this.prdWorld = world;
     }
 
-    public void readXml(World world){
+
+    public void readXml(World world) {
 
         //Object that reads into env vars
         EnvReader envReader = new EnvReader();

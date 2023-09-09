@@ -1,10 +1,11 @@
 package execution.simulation.xml.reader.impl;
 
 import definition.world.api.World;
-import resources.xml.ex1.generated.PRDAction;
-import resources.xml.ex1.generated.PRDActivation;
-import resources.xml.ex1.generated.PRDRule;
-import resources.xml.ex1.generated.PRDWorld;
+import resources.xml.ex2.generated.PRDAction;
+import resources.xml.ex2.generated.PRDActivation;
+import resources.xml.ex2.generated.PRDRule;
+import resources.xml.ex2.generated.PRDWorld;
+
 import rule.api.Activation;
 import rule.api.Rule;
 import rule.impl.ActivationImpl;
@@ -15,11 +16,16 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-public class RuleReader  {
+/*import resources.xml.ex1.generated.PRDAction;
+import resources.xml.ex1.generated.PRDActivation;
+import resources.xml.ex1.generated.PRDRule;
+import resources.xml.ex1.generated.PRDWorld;*/
 
-    public void read (PRDWorld prdWorld , World world){
+public class RuleReader {
+
+    public void read(PRDWorld prdWorld, World world) {
         List<PRDRule> prdRuleList = prdWorld.getPRDRules().getPRDRule();
-        prdRuleList.forEach(prdRule -> readDataFromPRDRuleToRule(prdRule , world));
+        prdRuleList.forEach(prdRule -> readDataFromPRDRuleToRule(prdRule, world));
     }
 
     private void readDataFromPRDRuleToRule(PRDRule prdRule, World world) {

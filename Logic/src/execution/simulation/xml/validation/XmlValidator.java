@@ -1,5 +1,7 @@
 package execution.simulation.xml.validation;
-import resources.xml.ex1.generated.*;
+
+import definition.world.api.World;
+import resources.xml.ex2.generated.*;
 
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
@@ -27,7 +29,7 @@ public class XmlValidator {
         world = loadXmlToWorld();
 
         // 2) check env-vars to have different names
-        checkEnvVarsNames(world.getPRDEvironment());
+        checkEnvVarsNames(world.getPRDEnvironment());
 
 
         // 3) check properties to have different names
@@ -38,12 +40,18 @@ public class XmlValidator {
 
 
         // 5) check that in action no call to a property that doesnt exist
+        // TODO: implement condition to get helper functions
         checkRulesToNotContainActionWithPropertyWithNoMatchEntity(world);
 
 
         // 6) check that in (calculation \ increase \ decrease) the args are numbers only including helper functions
         checkNumericCalculationActionToIncludeNumericArgs(world);
+
+        //7) Check grid to be in range 10 to 100
+        checkGridInRange(world);
+
     }
+
 
     public PRDWorld getWorld(){return this.world;}
 
@@ -76,15 +84,15 @@ public class XmlValidator {
 
 
     //222222222222222222222222
-    private void checkEnvVarsNames(PRDEvironment environment){
+    private void checkEnvVarsNames(PRDEnvironment environment) {
 
         List<PRDEnvProperty> EnvPropertyList = environment.getPRDEnvProperty();
         for (int i = 0; i < EnvPropertyList.size() - 1; i++) {
             for (int j = i + 1; j < EnvPropertyList.size(); j++) {
-                try{
-                    checkVarsNamesToBeDifferent( EnvPropertyList.get(i).getPRDName() , EnvPropertyList.get(j).getPRDName() );
-                }catch (IllegalArgumentException e){
-                    throw new IllegalArgumentException("The environment variable: "+e.getMessage());
+                try {
+                    checkVarsNamesToBeDifferent(EnvPropertyList.get(i).getPRDName(), EnvPropertyList.get(j).getPRDName());
+                } catch (IllegalArgumentException e) {
+                    throw new IllegalArgumentException("The environment variable: " + e.getMessage());
                 }
             }
             try{
@@ -413,7 +421,7 @@ public class XmlValidator {
     //6666666666666666666
     private void checkNumericCalculationActionToIncludeNumericArgs(PRDWorld world) {
 
-        PRDEvironment env = world.getPRDEvironment();
+        PRDEnvironment env = world.getPRDEnvironment();
         List<PRDEnvProperty> envPropertiesList = env.getPRDEnvProperty();
         List<PRDRule> ruleList = world.getPRDRules().getPRDRule();
         List<PRDEntity> entityList = world.getPRDEntities().getPRDEntity();
@@ -589,14 +597,26 @@ public class XmlValidator {
                 .findAny()
                 .orElse(null);
 
-        if ( theProperty == null ){
+        if (theProperty == null) {
             throw new IllegalArgumentException(" the environment variable name you provided: "
-                    + functionArgument+ " for environment helper function does not exist");
+                    + functionArgument + " for environment helper function does not exist");
         }
 
-        if (!(theProperty.getType().equals("decimal")||theProperty.getType().equals("float"))){
+        if (!(theProperty.getType().equals("decimal") || theProperty.getType().equals("float"))) {
             throw new IllegalArgumentException(" the environment variable name you provided: "
-                    + functionArgument+ " for environment helper function is not of numeric type");
+                    + functionArgument + " for environment helper function is not of numeric type");
+        }
+    }
+
+    //777777777777777777777
+    private void checkGridInRange(PRDWorld world) {
+        PRDWorld.PRDGrid grid = world.getPRDGrid();
+
+        int rows = grid.getRows();
+        int cols = grid.getColumns();
+
+        if (rows > 100 || rows < 10 || cols > 100 || cols < 10) {
+            throw new IllegalArgumentException(" Grid parameters must be between 10 to 100");
         }
     }
 }
