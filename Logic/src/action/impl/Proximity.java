@@ -11,12 +11,12 @@ import java.util.Map;
 
 public class Proximity extends AbstractAction {
     EntityDefinition targetEntity;
-    String circleDepth;
+    double circleDepth;
 
     public Proximity(EntityDefinition sourceEntity, EntityDefinition targetEntity, String of) {
         super(sourceEntity, ActionType.PROXIMITY);
         this.targetEntity = targetEntity;
-        this.circleDepth = of;
+        this.circleDepth = Double.parseDouble(of);
     }
 
     @Override
