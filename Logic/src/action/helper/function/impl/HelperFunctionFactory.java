@@ -20,9 +20,42 @@ public class HelperFunctionFactory implements Serializable {
         String variable = parts[1].substring(0, parts[1].length() - 1);
 
         switch (functionName) {
-            case "environment": return new Environment(variable, context);
-            case "random": return new RandomHelper(variable, context);
-            default: throw new IllegalArgumentException("Function not found");
+            case "environment":
+                return new Environment(variable, context);
+            case "random":
+                return new RandomHelper(variable, context);
+            case "ticks":
+                return tokenizeTicksExpression(variable, context);
+            case "evaluate":
+                return tokenizeEvaluateExpression(variable, context);
+            case "percent":
+                return tokenizePercentExpression(variable, context);
+            default:
+                throw new IllegalArgumentException("Function not found");
         }
+    }
+
+    private HelperFunction tokenizePercentExpression(String variable, Context context) {
+        // TODO: implement
+        return null;
+    }
+
+    private HelperFunction tokenizeEvaluateExpression(String variable, Context context) {
+        String[] tokens = variable.split("\\.");
+
+        String entityName = tokens[0];
+        String propertyName = tokens[1];
+
+        return new Evaluate(entityName, propertyName, context);
+    }
+
+    private HelperFunction tokenizeTicksExpression(String variable, Context context) {
+
+        String[] tokens = variable.split("\\.");
+
+        String entityName = tokens[0];
+        String propertyName = tokens[1];
+
+        return new Ticks(entityName, propertyName, context);
     }
 }

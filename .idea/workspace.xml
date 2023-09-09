@@ -11,10 +11,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="27d35137-667f-4e37-a519-ab836acc0a06" name="Changes" comment="updated Proximity">
-      <change afterPath="$PROJECT_DIR$/Logic/src/action/api/ReplaceMode.java" afterDir="false" />
+    <list default="true" id="27d35137-667f-4e37-a519-ab836acc0a06" name="Changes" comment="changed replace and proximity">
+      <change afterPath="$PROJECT_DIR$/Logic/src/action/helper/function/impl/Evaluate.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Logic/src/action/helper/function/impl/Percent.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Logic/src/action/helper/function/impl/Ticks.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/action/impl/Replace.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/action/impl/Replace.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/action/helper/function/api/HelperFunctionType.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/action/helper/function/api/HelperFunctionType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/action/helper/function/impl/HelperFunctionFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/action/helper/function/impl/HelperFunctionFactory.java" afterDir="false" />
     </list>
     <list id="2652661e-ea84-47b9-b217-8fc39a5a7c8a" name="Changes by ASUS" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -32,8 +35,8 @@
       <list>
         <option value="JavaFXApplication" />
         <option value="Interface" />
-        <option value="Class" />
         <option value="Enum" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -272,14 +275,7 @@
       <workItem from="1693611603575" duration="283000" />
       <workItem from="1693640598304" duration="35386000" />
       <workItem from="1694153897973" duration="17306000" />
-      <workItem from="1694254442123" duration="1342000" />
-    </task>
-    <task id="LOCAL-00039" summary="created a factory for HelperFunctions from here on need to ask eyal">
-      <created>1691848032025</created>
-      <option name="number" value="00039" />
-      <option name="presentableId" value="LOCAL-00039" />
-      <option name="project" value="LOCAL" />
-      <updated>1691848032025</updated>
+      <workItem from="1694254442123" duration="6424000" />
     </task>
     <task id="LOCAL-00040" summary="created a factory for HelperFunctions from here on need to ask eyal">
       <created>1691848060542</created>
@@ -649,7 +645,14 @@
       <option name="project" value="LOCAL" />
       <updated>1694185501507</updated>
     </task>
-    <option name="localTasksCounter" value="107" />
+    <task id="LOCAL-00107" summary="changed replace and proximity">
+      <created>1694256576571</created>
+      <option name="number" value="00107" />
+      <option name="presentableId" value="LOCAL-00107" />
+      <option name="project" value="LOCAL" />
+      <updated>1694256576571</updated>
+    </task>
+    <option name="localTasksCounter" value="108" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -680,7 +683,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="close to finish" />
     <MESSAGE value="close to the end" />
     <MESSAGE value="finish until next bug would be detected" />
     <MESSAGE value="finish" />
@@ -705,7 +707,8 @@
     <MESSAGE value="now working&#10;changed evaluate to get the EntityInstance of secondaryEntity in each iteration in order to creare the proper context , also added functions to context to get the filtered SecondaryEntity list" />
     <MESSAGE value="ADDED REPLACE" />
     <MESSAGE value="updated Proximity" />
-    <option name="LAST_COMMIT_MESSAGE" value="updated Proximity" />
+    <MESSAGE value="changed replace and proximity" />
+    <option name="LAST_COMMIT_MESSAGE" value="changed replace and proximity" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
