@@ -155,9 +155,7 @@ public class XmlValidator {
             }catch (IllegalArgumentException e){
                 throw new IllegalArgumentException("In rule: " +rule.getName() + e.getMessage());
             }
-
         }
-
     }
 
     private void areAllActionsInsideRulesValid(List<PRDEntity>entityList , PRDRule rule) {
@@ -172,28 +170,69 @@ public class XmlValidator {
 
     private void checkIfActionIsOfTypeConditionAndSendToCheckEntityExistence(List<PRDEntity>entityList , PRDAction action){
         try{
-            if(action.getType().equals("condition")){
-                checkIfEntityNameExistInEntityList( entityList , action );
-                checkIfEntityNameExistInConditionAction( entityList ,  action );
-                checkIfEntityNameExistForThenAction( entityList , action );
-                checkIfEntityNameExistForElseAction( entityList , action );
+            if (action.getType().equals("condition")) {
+                checkIfEntityNameExistInEntityList(entityList, action);
+                checkIfSecondaryEntityNameExistInEntityList(entityList, action);
+                checkIfEntityNameExistInConditionAction(entityList, action);
+                checkIfEntityNameExistForThenAction(entityList, action);
+                checkIfEntityNameExistForElseAction(entityList, action);
 
-            }else{
-                checkIfEntityNameExistInEntityList( entityList , action );
+            } else if (action.getType().equals("replace")) {
+                checkIfEntityNamesExistForReplaceAction(entityList, action);
+            } else if (action.getType().equals("proximity")) {
+                checkIfEntityNamesExistForProximityAction(entityList, action);
+            } else {
+                checkIfEntityNameExistInEntityList(entityList, action);
             }
-        }catch (IllegalArgumentException e){
-            throw new IllegalArgumentException(" action of type: "+action.getType() + e.getMessage());
+        } catch (IllegalArgumentException e) {
+            throw new IllegalArgumentException(" action of type: " + action.getType() + e.getMessage());
         }
     }
 
-    private void checkIfEntityNameExistForThenAction(List<PRDEntity>entityList , PRDAction action){
-        try{
+
+    private void checkIfEntityNamesExistForReplaceAction(List<PRDEntity> entityList, PRDAction action) {
+        String killEntity = action.getKill();
+        String createEntity = action.getCreate();
+
+        iterateEntityListForProximityAndReplace(entityList, killEntity);
+        iterateEntityListForProximityAndReplace(entityList, createEntity);
+    }
+
+    private void checkIfEntityNamesExistForProximityAction(List<PRDEntity> entityList, PRDAction action) {
+        String sourceEntity = action.getPRDBetween().getSourceEntity();
+        String targetEntity = action.getPRDBetween().getTargetEntity();
+
+        iterateEntityListForProximityAndReplace(entityList, sourceEntity);
+        iterateEntityListForProximityAndReplace(entityList, targetEntity);
+
+        List<PRDAction> actionList = action.getPRDActions().getPRDAction();
+        for (PRDAction singleAction : actionList) {
+            checkIfActionIsOfTypeConditionAndSendToCheckEntityExistence(entityList, singleAction);
+        }
+    }
+
+    private void iterateEntityListForProximityAndReplace(List<PRDEntity> entityList, String entityName) {
+        boolean isEntityNameInActionExistInEntityList = false;
+        for (PRDEntity entity : entityList) {
+            if (entity.getName().equals(entityName)) {
+                isEntityNameInActionExistInEntityList = true;
+            }
+        }
+        if (!isEntityNameInActionExistInEntityList) {
+            throw new IllegalArgumentException(" the entity name :" + entityName
+                    + " does not appear in the system ");
+        }
+    }
+
+
+    private void checkIfEntityNameExistForThenAction(List<PRDEntity> entityList, PRDAction action) {
+        try {
             PRDThen thenBlock = action.getPRDThen();
             List<PRDAction> actionListForThenBlock = thenBlock.getPRDAction();
-            for (PRDAction singleAction :actionListForThenBlock ){
-                checkIfActionIsOfTypeConditionAndSendToCheckEntityExistence( entityList ,singleAction );
+            for (PRDAction singleAction : actionListForThenBlock) {
+                checkIfActionIsOfTypeConditionAndSendToCheckEntityExistence(entityList, singleAction);
             }
-        }catch (IllegalArgumentException e){
+        } catch (IllegalArgumentException e) {
             throw new IllegalArgumentException(" then block"+ e.getMessage());
         }
 
@@ -218,25 +257,37 @@ public class XmlValidator {
     private void checkIfEntityNameExistInConditionAction(List<PRDEntity>entityList , PRDAction action ){
         PRDCondition condition = action.getPRDCondition();
         try{
-            if (condition.getSingularity().equals("single")){
-                checkIfSimpleConditionEntityNameExist( entityList , action ,condition );
+            if (condition.getSingularity().equals("single")) {
+                checkIfSimpleConditionEntityNameExist(entityList, action, condition);
             } else if (condition.getSingularity().equals("multiple")) {
-                checkIfEntityNameExistForMultipleTypeAction(entityList , action , action.getPRDCondition());
+                checkIfEntityNameExistForMultipleTypeAction(entityList, action, action.getPRDCondition());
             }
-        }catch (IllegalArgumentException e){
-            throw new IllegalArgumentException(" "+condition.getSingularity() + e.getMessage());
+        } catch (IllegalArgumentException e) {
+            throw new IllegalArgumentException(" " + condition.getSingularity() + e.getMessage());
         }
 
     }
-    private void checkIfEntityNameExistForMultipleTypeAction(List<PRDEntity>entityList , PRDAction action , PRDCondition condition ){
 
-        if(condition.getSingularity().equals("single")){
-            checkIfSimpleConditionEntityNameExist( entityList , action ,condition );
+    private void checkIfSecondaryEntityNameExistInEntityList(List<PRDEntity> entityList, PRDAction action) {
+        PRDAction.PRDSecondaryEntity prdSecondaryEntity = action.getPRDSecondaryEntity();
+        String secondaryEntityName = prdSecondaryEntity.getEntity();
+
+        iterateEntityListForProximityAndReplace(entityList, secondaryEntityName);
+
+        PRDAction.PRDSecondaryEntity.PRDSelection selection = prdSecondaryEntity.getPRDSelection();
+        if (selection.getPRDCondition() != null) {
+            checkIfEntityNameExistForMultipleTypeAction(entityList, action, selection.getPRDCondition());
         }
-        else{
+    }
+
+    private void checkIfEntityNameExistForMultipleTypeAction(List<PRDEntity> entityList, PRDAction action, PRDCondition condition) {
+
+        if (condition.getSingularity().equals("single")) {
+            checkIfSimpleConditionEntityNameExist(entityList, action, condition);
+        } else {
             List<PRDCondition> conditionList = condition.getPRDCondition();
-            for (PRDCondition smallerCondition : conditionList ){
-                checkIfEntityNameExistForMultipleTypeAction(entityList , action , smallerCondition );
+            for (PRDCondition smallerCondition : conditionList) {
+                checkIfEntityNameExistForMultipleTypeAction(entityList, action, smallerCondition);
             }
         }
     }

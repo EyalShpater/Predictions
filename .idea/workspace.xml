@@ -11,39 +11,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="27d35137-667f-4e37-a519-ab836acc0a06" name="Changes" comment="added files xml for ex2">
+    <list default="true" id="27d35137-667f-4e37-a519-ab836acc0a06" name="Changes" comment="fixed the xml part to fit the new generated files including the imports">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/execution/simulation/xml/reader/impl/ActionReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/execution/simulation/xml/reader/impl/ActionReader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/execution/simulation/xml/reader/impl/EntityReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/execution/simulation/xml/reader/impl/EntityReader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/execution/simulation/xml/reader/impl/EnvReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/execution/simulation/xml/reader/impl/EnvReader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/execution/simulation/xml/reader/impl/PropertyReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/execution/simulation/xml/reader/impl/PropertyReader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/execution/simulation/xml/reader/impl/RuleReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/execution/simulation/xml/reader/impl/RuleReader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/execution/simulation/xml/reader/impl/TerminationReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/execution/simulation/xml/reader/impl/TerminationReader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/execution/simulation/xml/reader/impl/XmlReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/execution/simulation/xml/reader/impl/XmlReader.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Logic/src/execution/simulation/xml/validation/XmlValidator.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/execution/simulation/xml/validation/XmlValidator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/resources/xml/ex2/generated/ObjectFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/resources/xml/ex2/generated/ObjectFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/resources/xml/ex2/generated/PRDAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/resources/xml/ex2/generated/PRDAction.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/resources/xml/ex2/generated/PRDActions.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/resources/xml/ex2/generated/PRDActions.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/resources/xml/ex2/generated/PRDActivation.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/resources/xml/ex2/generated/PRDActivation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/resources/xml/ex2/generated/PRDBySecond.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/resources/xml/ex2/generated/PRDBySecond.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/resources/xml/ex2/generated/PRDByTicks.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/resources/xml/ex2/generated/PRDByTicks.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/resources/xml/ex2/generated/PRDCondition.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/resources/xml/ex2/generated/PRDCondition.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/resources/xml/ex2/generated/PRDDivide.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/resources/xml/ex2/generated/PRDDivide.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/resources/xml/ex2/generated/PRDElse.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/resources/xml/ex2/generated/PRDElse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/resources/xml/ex2/generated/PRDEntities.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/resources/xml/ex2/generated/PRDEntities.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/resources/xml/ex2/generated/PRDEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/resources/xml/ex2/generated/PRDEntity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/resources/xml/ex2/generated/PRDEnvProperty.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/resources/xml/ex2/generated/PRDEnvProperty.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/resources/xml/ex2/generated/PRDEnvironment.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/resources/xml/ex2/generated/PRDEnvironment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/resources/xml/ex2/generated/PRDMultiply.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/resources/xml/ex2/generated/PRDMultiply.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/resources/xml/ex2/generated/PRDProperties.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/resources/xml/ex2/generated/PRDProperties.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/resources/xml/ex2/generated/PRDProperty.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/resources/xml/ex2/generated/PRDProperty.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/resources/xml/ex2/generated/PRDRange.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/resources/xml/ex2/generated/PRDRange.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/resources/xml/ex2/generated/PRDRule.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/resources/xml/ex2/generated/PRDRule.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/resources/xml/ex2/generated/PRDRules.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/resources/xml/ex2/generated/PRDRules.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/resources/xml/ex2/generated/PRDTermination.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/resources/xml/ex2/generated/PRDTermination.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/resources/xml/ex2/generated/PRDThen.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/resources/xml/ex2/generated/PRDThen.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/resources/xml/ex2/generated/PRDValue.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/resources/xml/ex2/generated/PRDValue.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/resources/xml/ex2/generated/PRDWorld.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/resources/xml/ex2/generated/PRDWorld.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/resources/xml/ex2/master-ex2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/resources/xml/ex2/master-ex2.xml" afterDir="false" />
     </list>
     <list id="2652661e-ea84-47b9-b217-8fc39a5a7c8a" name="Changes by ASUS" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -110,32 +81,32 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;dart.analysis.tool.window.visible&quot;: &quot;false&quot;,
-    &quot;extract.method.default.visibility&quot;: &quot;private&quot;,
-    &quot;full.screen.before.presentation.mode&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;GUI&quot;,
-    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;1.8&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/ASUS/IdeaProjects/08. Java FX&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;project.propVCSSupport.CommitDialog&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "dart.analysis.tool.window.visible": "false",
+    "extract.method.default.visibility": "private",
+    "full.screen.before.presentation.mode": "false",
+    "git-widget-placeholder": "GUI",
+    "jdk.selected.JAVA_MODULE": "1.8",
+    "last_opened_file_path": "C:/Users/ASUS/IdeaProjects/08. Java FX",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Libraries",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "reference.settingsdialog.project.grazie",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\ASUS\IdeaProjects\PredictionsGuiVersion\GUI\src\javafx\input\components\singleEnvVar" />
@@ -154,7 +125,7 @@
       <recent name="javafx.details.details" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Main">
+  <component name="RunManager" selected="Application.main.Main">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="javafx.mainScene.main.Main" />
       <module name="GUI" />
@@ -222,8 +193,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Main" />
         <item itemvalue="Application.main.Main" />
+        <item itemvalue="Application.Main" />
         <item itemvalue="Application.TestMain" />
         <item itemvalue="Application.javafx.tab.results.TestMain" />
         <item itemvalue="Application.javafx.tab.details.details.TestMain" />
@@ -301,14 +272,8 @@
       <workItem from="1693611603575" duration="283000" />
       <workItem from="1693640598304" duration="35386000" />
       <workItem from="1694153897973" duration="17306000" />
-      <workItem from="1694254442123" duration="15813000" />
-    </task>
-    <task id="LOCAL-00042" summary="the helper function is working the implementation is wrong , need to change first thing in the morning">
-      <created>1691871335464</created>
-      <option name="number" value="00042" />
-      <option name="presentableId" value="LOCAL-00042" />
-      <option name="project" value="LOCAL" />
-      <updated>1691871335464</updated>
+      <workItem from="1694254442123" duration="16346000" />
+      <workItem from="1694315233531" duration="7033000" />
     </task>
     <task id="LOCAL-00043" summary="changed the context and expression to contain the expression and the string value of it , added getters and setters for it to work , dogma: &#10;- expression = &quot;environment(e1)&quot;&#10;- expressionStringValue = e1">
       <created>1691905496932</created>
@@ -678,7 +643,14 @@
       <option name="project" value="LOCAL" />
       <updated>1694273557303</updated>
     </task>
-    <option name="localTasksCounter" value="110" />
+    <task id="LOCAL-00110" summary="fixed the xml part to fit the new generated files including the imports">
+      <created>1694285490963</created>
+      <option name="number" value="00110" />
+      <option name="presentableId" value="LOCAL-00110" />
+      <option name="project" value="LOCAL" />
+      <updated>1694285490963</updated>
+    </task>
+    <option name="localTasksCounter" value="111" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -709,7 +681,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="finish" />
     <MESSAGE value="version 1:0." />
     <MESSAGE value="version 1.0" />
     <MESSAGE value="version 1:1." />
@@ -734,7 +705,8 @@
     <MESSAGE value="changed replace and proximity" />
     <MESSAGE value="added helper functions" />
     <MESSAGE value="added files xml for ex2" />
-    <option name="LAST_COMMIT_MESSAGE" value="added files xml for ex2" />
+    <MESSAGE value="fixed the xml part to fit the new generated files including the imports" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed the xml part to fit the new generated files including the imports" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
@@ -753,6 +725,11 @@
           <url>file://$PROJECT_DIR$/GUI/src/javafx/tab/newExecution/mainComponent/NewExecutionController.java</url>
           <line>140</line>
           <option name="timeStamp" value="43" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/Logic/src/execution/simulation/xml/validation/XmlValidator.java</url>
+          <line>172</line>
+          <option name="timeStamp" value="54" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/GUI/src/javafx/tab/newExecution/environmentVariable/StringEnvironmentVariableController.java</url>
