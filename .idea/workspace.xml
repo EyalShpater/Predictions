@@ -11,10 +11,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="27d35137-667f-4e37-a519-ab836acc0a06" name="Changes" comment="finished name validation">
+    <list default="true" id="27d35137-667f-4e37-a519-ab836acc0a06" name="Changes" comment="almost finished xml validation only condition property validation left">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Logic/src/execution/simulation/xml/validation/XmlValidator.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/execution/simulation/xml/validation/XmlValidator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/resources/xml/ex2/master-ex2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/resources/xml/ex2/master-ex2.xml" afterDir="false" />
     </list>
     <list id="2652661e-ea84-47b9-b217-8fc39a5a7c8a" name="Changes by ASUS" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -274,14 +273,7 @@
       <workItem from="1694153897973" duration="17306000" />
       <workItem from="1694254442123" duration="16346000" />
       <workItem from="1694315233531" duration="13724000" />
-      <workItem from="1694330441189" duration="25701000" />
-    </task>
-    <task id="LOCAL-00048" summary="Action and helper are working!">
-      <created>1692000107329</created>
-      <option name="number" value="00048" />
-      <option name="presentableId" value="LOCAL-00048" />
-      <option name="project" value="LOCAL" />
-      <updated>1692000107329</updated>
+      <workItem from="1694330441189" duration="28054000" />
     </task>
     <task id="LOCAL-00049" summary="fixed IncreaseAction DecreaseAction to work on my main , problem was trying to cast Integer to Double">
       <created>1692003349312</created>
@@ -651,7 +643,14 @@
       <option name="project" value="LOCAL" />
       <updated>1694324118530</updated>
     </task>
-    <option name="localTasksCounter" value="112" />
+    <task id="LOCAL-00112" summary="almost finished xml validation only condition property validation left">
+      <created>1694363895763</created>
+      <option name="number" value="00112" />
+      <option name="presentableId" value="LOCAL-00112" />
+      <option name="project" value="LOCAL" />
+      <updated>1694363895763</updated>
+    </task>
+    <option name="localTasksCounter" value="113" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -682,7 +681,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="version 1.0" />
     <MESSAGE value="version 1:1." />
     <MESSAGE value="init GUI branch" />
     <MESSAGE value="with shavit's GUI" />
@@ -707,7 +705,8 @@
     <MESSAGE value="added files xml for ex2" />
     <MESSAGE value="fixed the xml part to fit the new generated files including the imports" />
     <MESSAGE value="finished name validation" />
-    <option name="LAST_COMMIT_MESSAGE" value="finished name validation" />
+    <MESSAGE value="almost finished xml validation only condition property validation left" />
+    <option name="LAST_COMMIT_MESSAGE" value="almost finished xml validation only condition property validation left" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
@@ -729,8 +728,18 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/Logic/src/execution/simulation/xml/validation/XmlValidator.java</url>
-          <line>702</line>
+          <line>700</line>
           <option name="timeStamp" value="83" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/Logic/src/execution/simulation/xml/validation/XmlValidator.java</url>
+          <line>179</line>
+          <option name="timeStamp" value="84" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/Logic/src/execution/simulation/xml/validation/XmlValidator.java</url>
+          <line>324</line>
+          <option name="timeStamp" value="85" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/GUI/src/javafx/tab/newExecution/environmentVariable/StringEnvironmentVariableController.java</url>

@@ -47,7 +47,7 @@ public class XmlValidator {
 
         // 5) check that in action no call to a property that doesnt exist
         // TODO: implement condition to get helper functions
-        //checkRulesToNotContainActionWithPropertyWithNoMatchEntity(world);
+        checkRulesToNotContainActionWithPropertyWithNoMatchEntity(world);
 
 
         // 6) check that in (calculation \ increase \ decrease) the args are numbers only including helper functions
@@ -177,6 +177,7 @@ public class XmlValidator {
     private void checkIfActionIsOfTypeConditionAndSendToCheckEntityExistence(List<PRDEntity>entityList , PRDAction action){
         try{
             if (action.getType().equals("condition")) {
+                //fix for single multiple in ex2-error-1
                 checkIfEntityNameExistInEntityList(entityList, action);
                 checkIfSecondaryEntityNameExistInEntityList(entityList, action);
                 checkIfEntityNameExistInConditionAction(entityList, action);
