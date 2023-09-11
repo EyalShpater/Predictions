@@ -55,7 +55,7 @@ public class ConditionImpl extends AbstractAction implements Condition, Serializ
     }
 
     @Override
-    public void applyAction(Context context) {
+    public void apply(Context context) {
         if (isSecondaryEntityExist()) {
             evaluateConditionSecondaryEntityVersion(context);
         } else {

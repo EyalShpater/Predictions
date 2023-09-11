@@ -8,10 +8,7 @@ import impl.ActionDTO;
 import instance.entity.api.EntityInstance;
 
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
-import java.util.stream.Collectors;
 
 public abstract class AbstractAction implements Action, Serializable {
     private final EntityDefinition primaryEntity;
@@ -78,7 +75,7 @@ public abstract class AbstractAction implements Action, Serializable {
     public void invoke(Context context) {
         if (context.getEntityInstance().getName().equals(primaryEntity.getName())) {
             setEntitiesInstances(context);
-            applyAction(context);
+            apply(context);
         }
     }
 
@@ -89,7 +86,7 @@ public abstract class AbstractAction implements Action, Serializable {
         }
     }
 
-    protected abstract void applyAction(Context context);
+    protected abstract void apply(Context context);
 
     protected Boolean isSecondaryEntityExist() {
         return secondaryEntity != null;

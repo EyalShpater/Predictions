@@ -34,7 +34,7 @@ public class SetAction extends AbstractAction implements Serializable {
     }
 
     @Override
-    public void applyAction(Context context) {
+    public void apply(Context context) {
         EntityInstance invokeOn = context.getEntityInstance();
         PropertyInstance propertyToUpdate = invokeOn.getPropertyByName(propertyName);
         Expression expression = new ExpressionFactory(newValue, invokeOn);
