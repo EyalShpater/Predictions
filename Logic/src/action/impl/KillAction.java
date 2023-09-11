@@ -28,4 +28,9 @@ public class KillAction extends AbstractAction implements Serializable {
     public Map<String, String> getArguments() {
         return null;
     }
+
+    @Override
+    public Map<String, String> getAdditionalInformation() {
+        return null;
+    }
 }

@@ -11,10 +11,6 @@ public class ActionDTO implements DTO {
     private final Map<String, String> arguments;
     private final Map<String, String> additionalInformation;
 
-    public ActionDTO(String type, EntityDefinitionDTO mainEntity, EntityDefinitionDTO secondaryEntity, Map<String, String> arguments) {
-        this(type, mainEntity, secondaryEntity, arguments, null);
-    }
-
     public ActionDTO(String type, EntityDefinitionDTO mainEntity, EntityDefinitionDTO secondaryEntity, Map<String, String> arguments, Map<String, String> additionalInformation) {
         this.type = type;
         this.mainEntity = mainEntity;

@@ -56,6 +56,15 @@ public class Proximity extends AbstractAction {
         return arguments;
     }
 
+    @Override
+    public Map<String, String> getAdditionalInformation() {
+        Map<String, String> info = new LinkedHashMap<>();
+
+        info.put("num of actions", String.valueOf(actions.size()));
+
+        return info;
+    }
+
     public void addAction(Action newAction) {
         if (newAction == null) {
             throw new NullPointerException("Action can not be null!");

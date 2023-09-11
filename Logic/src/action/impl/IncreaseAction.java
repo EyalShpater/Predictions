@@ -97,5 +97,10 @@ public class IncreaseAction extends AbstractAction implements Serializable {
 
         return arguments;
     }
+
+    @Override
+    public Map<String, String> getAdditionalInformation() {
+        return null;
+    }
 }
 

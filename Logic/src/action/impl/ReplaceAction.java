@@ -33,4 +33,9 @@ public class ReplaceAction extends AbstractAction {
     public Map<String, String> getArguments() {
         return null;
     }
+
+    @Override
+    public Map<String, String> getAdditionalInformation() {
+        return null;
+    }
 }

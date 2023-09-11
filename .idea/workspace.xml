@@ -11,12 +11,23 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="27d35137-667f-4e37-a519-ab836acc0a06" name="Changes" comment="details screen bug fix: now you can view secondary entity, and instead of &quot;calculation&quot; rule you can see the concrete action (multiple\divide)">
+    <list default="true" id="27d35137-667f-4e37-a519-ab836acc0a06" name="Changes" comment="added a feature to add additional info in ActionDTO">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DTO/src/impl/ActionDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/DTO/src/impl/ActionDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/action/api/ActionType.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/action/api/ActionType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI/src/javafx/tab/details/rules/RulesController.java" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/src/javafx/tab/details/rules/RulesController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/action/api/AbstractAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/action/api/AbstractAction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/action/api/Action.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/action/api/Action.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/action/impl/DecreaseAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/action/impl/DecreaseAction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/action/impl/DivideAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/action/impl/DivideAction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/action/impl/IncreaseAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/action/impl/IncreaseAction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/action/impl/KillAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/action/impl/KillAction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/action/impl/MultiplyAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/action/impl/MultiplyAction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/action/impl/Proximity.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/action/impl/Proximity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/action/impl/ReplaceAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/action/impl/ReplaceAction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/action/impl/SetAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/action/impl/SetAction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/action/impl/condition/Condition.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/action/impl/condition/Condition.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Logic/src/action/impl/condition/impl/ConditionImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/action/impl/condition/impl/ConditionImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Logic/src/action/impl/condition/impl/multiple/MultipleCondition.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/action/impl/condition/impl/multiple/MultipleCondition.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/action/impl/condition/impl/single/SingleCondition.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/action/impl/condition/impl/single/SingleCondition.java" afterDir="false" />
     </list>
     <list id="2652661e-ea84-47b9-b217-8fc39a5a7c8a" name="Changes by ASUS" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -321,14 +332,6 @@
       <option name="presentableId" value="LOCAL-00070" />
       <option name="project" value="LOCAL" />
       <updated>1692356632414</updated>
-    </task>
-    <task id="LOCAL‎-00077" summary="nice print to screen">
-      <option name="closed" value="true" />
-      <created>1692475730108</created>
-      <option name="number" value="00077" />
-      <option name="presentableId" value="LOCAL‎-00077" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1692475730108</updated>
     </task>
     <task id="LOCAL‎-00078" summary="file path readable using trim">
       <option name="closed" value="true" />
@@ -662,7 +665,15 @@
       <option name="project" value="LOCAL‎" />
       <updated>1694463674122</updated>
     </task>
-    <option name="localTasksCounter" value="121" />
+    <task id="LOCAL‎-00121" summary="added a feature to add additional info in ActionDTO">
+      <option name="closed" value="true" />
+      <created>1694464362219</created>
+      <option name="number" value="00121" />
+      <option name="presentableId" value="LOCAL‎-00121" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1694464362219</updated>
+    </task>
+    <option name="localTasksCounter" value="122" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -693,7 +704,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="general component in Details Tab is bind to the engine" />
     <MESSAGE value="Environment Variables in Details Tab is bind to the engine" />
     <MESSAGE value="Entities in Details Tab is bind to the engine" />
     <MESSAGE value="Rules in Details Tab is bind to the engine.&#10;Added RuleDTO class" />
@@ -718,7 +728,8 @@
     <MESSAGE value="added termination conditions" />
     <MESSAGE value="implemented Proximity" />
     <MESSAGE value="details screen bug fix: now you can view secondary entity, and instead of &quot;calculation&quot; rule you can see the concrete action (multiple\divide)" />
-    <option name="LAST_COMMIT_MESSAGE" value="details screen bug fix: now you can view secondary entity, and instead of &quot;calculation&quot; rule you can see the concrete action (multiple\divide)" />
+    <MESSAGE value="added a feature to add additional info in ActionDTO" />
+    <option name="LAST_COMMIT_MESSAGE" value="added a feature to add additional info in ActionDTO" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
@@ -737,11 +748,6 @@
           <url>file://$PROJECT_DIR$/GUI/src/javafx/tab/newExecution/mainComponent/NewExecutionController.java</url>
           <line>140</line>
           <option name="timeStamp" value="43" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/GUI/src/javafx/tab/details/details/DetailsController.java</url>
-          <line>79</line>
-          <option name="timeStamp" value="111" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/GUI/src/javafx/tab/newExecution/environmentVariable/StringEnvironmentVariableController.java</url>

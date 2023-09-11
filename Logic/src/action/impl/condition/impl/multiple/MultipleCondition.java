@@ -10,7 +10,7 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
-public abstract class MultipleCondition implements Condition , Serializable {
+public abstract class MultipleCondition implements Condition, Serializable {
 
     protected List<Condition> conditions;
 
@@ -35,9 +35,17 @@ public abstract class MultipleCondition implements Condition , Serializable {
         Map<String, String> arguments = new LinkedHashMap<>();
 
         arguments.put("logical", getOperationSign());
-        arguments.put("num of nested conditions", String.valueOf(conditions.size()));
 
         return arguments;
+    }
+
+    @Override
+    public Map<String, String> getAdditionalInformation() {
+        Map<String, String> info = new LinkedHashMap<>();
+
+        info.put("num of nested conditions", String.valueOf(conditions.size()));
+
+        return info;
     }
 
     abstract protected boolean evaluate(List<Condition> conditions, Context context, EntityInstance secondEntityInstance);

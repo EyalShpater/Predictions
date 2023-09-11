@@ -12,5 +12,7 @@ public interface Condition {
 
     Map<String, String> getArguments();
 
+    Map<String, String> getAdditionalInformation();
+
     boolean isSingleCondition();
 }

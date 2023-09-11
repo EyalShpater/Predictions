@@ -93,14 +93,23 @@ public class ConditionImpl extends AbstractAction implements Condition, Serializ
 
     @Override
     public Map<String, String> getArguments() {
-        Map<String, String> attributes = condition.getArguments();
+        return condition.getArguments();
+    }
 
-        attributes.put("num of actions in then", String.valueOf(then.size()));
-        if (!notTrue.isEmpty()) {
-            attributes.put("num of conditions in else", String.valueOf(notTrue.size()));
+    @Override
+    public Map<String, String> getAdditionalInformation() {
+        Map<String, String> info = new LinkedHashMap<>();
+
+        if (condition.getAdditionalInformation() != null) {
+            info.putAll(condition.getAdditionalInformation());
         }
 
-        return attributes;
+        info.put("num of actions in then", String.valueOf(then.size()));
+        if (!notTrue.isEmpty()) {
+            info.put("num of conditions in else", String.valueOf(notTrue.size()));
+        }
+
+        return info;
     }
 
 

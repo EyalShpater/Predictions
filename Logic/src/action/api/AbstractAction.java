@@ -53,28 +53,10 @@ public abstract class AbstractAction implements Action, Serializable {
                 type.name(),
                 primaryEntity.convertToDTO(),
                 secondaryDTO,
-                getArguments()
+                getArguments(),
+                getAdditionalInformation()
         );
     }
-/*
-
-    @Override
-    public EntityDefinition getSecondaryEntityInstanceForAction() {
-        return secondaryEntity.getSecondEntity();
-    }
-
-    @Override
-    public SecondaryEntity getSecondaryEntityForAction() {
-        return secondaryEntity;
-    }
-
-    @Override
-    public Boolean isSecondaryEntityExist() {
-        return secondaryEntity != null;
-    }
-*/
-
-
 
     @Override
     public void invoke(Context context) {

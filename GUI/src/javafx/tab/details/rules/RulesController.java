@@ -53,6 +53,14 @@ public class RulesController {
             typeRoot.getChildren().add(new TreeItem<>("Secondary Entity: " + action.getSecondaryEntity().getName()));
         }
 
+        if (action.getAdditionalInformation() != null) {
+            action.getAdditionalInformation()
+                    .forEach((key, value) -> typeRoot
+                            .getChildren()
+                            .add(new TreeItem<>(new String(key + ": " + value)))
+                    );
+        }
+
         TreeItem<String> arguments = new TreeItem<>("Arguments");
         action.getArguments().forEach((key, value) -> {
             arguments.getChildren().add(new TreeItem<>(key + ": " + value));
