@@ -42,9 +42,7 @@ public abstract class MultipleCondition implements Condition , Serializable {
 
     abstract protected boolean evaluate(List<Condition> conditions, Context context, EntityInstance secondEntityInstance);
 
-    public Condition isSingleCondition() {
-        return conditions.size() <= 1 ?
-                conditions.get(0) :
-                null;
+    public boolean isSingleCondition() {
+        return false;
     }
 }

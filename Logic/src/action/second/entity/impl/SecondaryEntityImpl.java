@@ -7,22 +7,19 @@ import definition.entity.api.EntityDefinition;
 import instance.entity.api.EntityInstance;
 
 public class SecondaryEntityImpl implements SecondaryEntity {
-
-    EntityDefinition secondEntity;
-
+    EntityDefinition secondaryEntity;
     Condition condition;
-
     String count;
 
-    public SecondaryEntityImpl(EntityDefinition secondEntity, Condition condition, String count) {
-        this.secondEntity = secondEntity;
+    public SecondaryEntityImpl(EntityDefinition secondaryEntity, Condition condition, String count) {
+        this.secondaryEntity = secondaryEntity;
         this.condition = condition;
         this.count = count;
     }
 
     @Override
-    public EntityDefinition getSecondEntity() {
-        return secondEntity;
+    public EntityDefinition getSecondaryEntity() {
+        return secondaryEntity;
     }
 
     @Override

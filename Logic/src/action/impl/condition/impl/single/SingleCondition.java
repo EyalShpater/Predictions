@@ -56,4 +56,9 @@ public abstract class SingleCondition implements Condition, Serializable {
 
         return arguments;
     }
+
+    @Override
+    public boolean isSingleCondition() {
+        return true;
+    }
 }

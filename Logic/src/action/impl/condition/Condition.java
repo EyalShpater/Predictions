@@ -11,4 +11,6 @@ public interface Condition {
     String getOperationSign();
 
     Map<String, String> getArguments();
+
+    boolean isSingleCondition();
 }

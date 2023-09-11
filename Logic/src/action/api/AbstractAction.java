@@ -5,6 +5,7 @@ import action.second.entity.SecondaryEntity;
 import definition.entity.api.EntityDefinition;
 
 import impl.ActionDTO;
+import impl.EntityDefinitionDTO;
 import instance.entity.api.EntityInstance;
 
 import java.io.Serializable;
@@ -44,10 +45,14 @@ public abstract class AbstractAction implements Action, Serializable {
 
     @Override
     public ActionDTO convertToDTO() {
+        EntityDefinitionDTO secondaryDTO = secondaryEntity != null ?
+                secondaryEntity.getSecondaryEntity().convertToDTO() :
+                null;
+
         return new ActionDTO(
                 type.name(),
                 primaryEntity.convertToDTO(),
-                null,
+                secondaryDTO,
                 getArguments()
         );
     }

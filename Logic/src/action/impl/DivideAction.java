@@ -21,14 +21,14 @@ public class DivideAction extends AbstractAction implements Serializable {
     private final String arg2;
 
     public DivideAction(EntityDefinition entity, String propertyName, String arg1, String arg2) {
-        super(entity, ActionType.CALCULATION);
+        super(entity, ActionType.DIVIDE);
         this.propertyName = propertyName;
         this.arg1 = arg1;
         this.arg2 = arg2;
     }
 
     public DivideAction(EntityDefinition mainEntity, SecondaryEntity secondaryEntity, String propertyName, String arg1, String arg2) {
-        super(mainEntity, secondaryEntity, ActionType.CALCULATION);
+        super(mainEntity, secondaryEntity, ActionType.DIVIDE);
         this.propertyName = propertyName;
         this.arg1 = arg1;
         this.arg2 = arg2;

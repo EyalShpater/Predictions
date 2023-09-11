@@ -193,13 +193,13 @@ public class ActionReader {
         List<Action> thenList = getThenListFromPRDThen(world, thenBlock, entityOfAction);
         List<Action> elseList = getElseListFromPRDElse(world, elseBloc, entityOfAction);
 
-        MultipleCondition multipleRepresentingASingle = new And();
-        multipleRepresentingASingle.addCondition(singleCondition);
+//        MultipleCondition multipleRepresentingASingle = new And();
+//        multipleRepresentingASingle.addCondition(singleCondition);
 
         if (isSecondaryEntityExist(prdAction)) {
-            newActionCondition = new ConditionImpl(multipleRepresentingASingle, logical, entityOfAction, secondaryEntityReader(prdAction));
+            newActionCondition = new ConditionImpl(singleCondition, logical, entityOfAction, secondaryEntityReader(prdAction));
         } else {
-            newActionCondition = new ConditionImpl(multipleRepresentingASingle, logical, entityOfAction);
+            newActionCondition = new ConditionImpl(singleCondition, logical, entityOfAction);
         }
 
         if (thenList != null) {
@@ -347,10 +347,10 @@ public class ActionReader {
     private Condition createConditionFromSingle(PRDCondition condition, SingleCondition singleCondition, EntityDefinition entityOfAction, String logical) {
         ConditionImpl newActionCondition;
 
-        MultipleCondition multipleRepresentingASingle = new And();
-        multipleRepresentingASingle.addCondition(singleCondition);
+//        MultipleCondition multipleRepresentingASingle = new And();
+//        multipleRepresentingASingle.addCondition(singleCondition);
 
-        newActionCondition = new ConditionImpl(multipleRepresentingASingle, logical, entityOfAction);
+        newActionCondition = new ConditionImpl(singleCondition, logical, entityOfAction);
 
         return newActionCondition;
     }
