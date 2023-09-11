@@ -162,8 +162,9 @@ public class MenuImpl implements Menu {
         updatedEnvironmentVariables = engine.setEnvironmentVariables(updatedEnvironmentVariables);
 
         printer.viewEnvironmentVariablesValues(updatedEnvironmentVariables);
-        runDetails = engine.runNewSimulation(updatedEnvironmentVariables);
-        printer.printRunDetailsDTO(runDetails);
+        /*runDetails = */
+        engine.runNewSimulation(updatedEnvironmentVariables);
+        //printer.printRunDetailsDTO(runDetails);
         System.out.println();
     }
 

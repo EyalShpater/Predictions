@@ -167,6 +167,8 @@ public class SphereSpaceImpl implements SphereSpace {
         emptyCells.add(oldLocation);
     }
 
+
+    //todo: delete
     public static void main(String[] args) {
         EntityInstance e1 = new EntityInstanceImpl(new EntityDefinitionImpl("e1", 100), 1);
         EntityInstance e2 = new EntityInstanceImpl(new EntityDefinitionImpl("e2", 100), 1);

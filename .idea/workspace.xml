@@ -11,10 +11,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="27d35137-667f-4e37-a519-ab836acc0a06" name="Changes" comment="added thread pool and parallel simulation run">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="27d35137-667f-4e37-a519-ab836acc0a06" name="Changes" comment="implemented grid neighbour function">
+      <change beforePath="$PROJECT_DIR$/ConsoleUI/src/menu/impl/MenuImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/ConsoleUI/src/menu/impl/MenuImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Logic/src/grid/SphereSpaceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/grid/SphereSpaceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/grid/api/SphereSpace.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/grid/api/SphereSpace.java" afterDir="false" />
     </list>
     <list id="2652661e-ea84-47b9-b217-8fc39a5a7c8a" name="Changes by ASUS" comment="">
       <change beforePath="$PROJECT_DIR$/Logic/src/action/second/entity/impl/SecondaryEntityImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/action/second/entity/impl/SecondaryEntityImpl.java" afterDir="false" />
@@ -134,7 +133,7 @@
       <recent name="javafx.details.details" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.SphereSpaceImpl">
+  <component name="RunManager" selected="Application.main.Main">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="javafx.mainScene.main.Main" />
       <module name="GUI" />
@@ -202,9 +201,9 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.main.Main" />
         <item itemvalue="Application.SphereSpaceImpl" />
         <item itemvalue="Application.execution.simulation.impl.TestMain" />
-        <item itemvalue="Application.main.Main" />
         <item itemvalue="Application.Main" />
         <item itemvalue="Application.TestMain" />
       </list>
@@ -345,14 +344,6 @@
       <option name="presentableId" value="LOCAL-00070" />
       <option name="project" value="LOCAL" />
       <updated>1692356632414</updated>
-    </task>
-    <task id="LOCAL‎-00071" summary="condition problem fixed">
-      <option name="closed" value="true" />
-      <created>1692378671103</created>
-      <option name="number" value="00071" />
-      <option name="presentableId" value="LOCAL‎-00071" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1692378671104</updated>
     </task>
     <task id="LOCAL‎-00072" summary="Changes by ASUS">
       <option name="closed" value="true" />
@@ -658,7 +649,15 @@
       <option name="project" value="LOCAL‎" />
       <updated>1694419803925</updated>
     </task>
-    <option name="localTasksCounter" value="111" />
+    <task id="LOCAL‎-00111" summary="implemented grid neighbour function">
+      <option name="closed" value="true" />
+      <created>1694434939380</created>
+      <option name="number" value="00111" />
+      <option name="presentableId" value="LOCAL‎-00111" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1694434939380</updated>
+    </task>
+    <option name="localTasksCounter" value="112" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -689,7 +688,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="version 1:0." />
     <MESSAGE value="version 1.0" />
     <MESSAGE value="version 1:1." />
     <MESSAGE value="init GUI branch" />
@@ -714,7 +712,8 @@
     <MESSAGE value="added helper functions" />
     <MESSAGE value="added files xml for ex2" />
     <MESSAGE value="added thread pool and parallel simulation run" />
-    <option name="LAST_COMMIT_MESSAGE" value="added thread pool and parallel simulation run" />
+    <MESSAGE value="implemented grid neighbour function" />
+    <option name="LAST_COMMIT_MESSAGE" value="implemented grid neighbour function" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
@@ -737,11 +736,6 @@
           <url>file://$PROJECT_DIR$/GUI/src/javafx/tab/newExecution/mainComponent/NewExecutionController.java</url>
           <line>140</line>
           <option name="timeStamp" value="43" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/ConsoleUI/src/main/Main.java</url>
-          <line>9</line>
-          <option name="timeStamp" value="54" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/GUI/src/javafx/tab/newExecution/environmentVariable/StringEnvironmentVariableController.java</url>
