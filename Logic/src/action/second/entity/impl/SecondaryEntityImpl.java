@@ -13,6 +13,12 @@ public class SecondaryEntityImpl implements SecondaryEntity {
 
     String count;
 
+    public SecondaryEntityImpl(EntityDefinition secondEntity, Condition condition, String count) {
+        this.secondEntity = secondEntity;
+        this.condition = condition;
+        this.count = count;
+    }
+
     @Override
     public EntityDefinition getSecondEntity() {
         return secondEntity;

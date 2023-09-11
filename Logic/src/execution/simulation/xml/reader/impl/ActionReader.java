@@ -8,6 +8,8 @@ import action.impl.condition.impl.multiple.And;
 import action.impl.condition.impl.multiple.MultipleCondition;
 import action.impl.condition.impl.multiple.Or;
 import action.impl.condition.impl.single.*;
+import action.second.entity.SecondaryEntity;
+import action.second.entity.impl.SecondaryEntityImpl;
 import definition.entity.api.EntityDefinition;
 import definition.world.api.World;
 import resources.xml.ex2.generated.PRDAction;
@@ -21,10 +23,14 @@ import java.util.List;
 
 public class ActionReader {
 
-    public Action read(PRDAction prdAction ,EntityDefinition entityOfAction , World world){
-        return readAction( prdAction ,entityOfAction, world);
+    World world;
+
+    public Action read(PRDAction prdAction, EntityDefinition entityOfAction, World world) {
+        this.world = world;
+        return readAction(prdAction, entityOfAction);
     }
-    private Action readAction(PRDAction prdAction , EntityDefinition entityOfAction , World world){
+
+    private Action readAction(PRDAction prdAction, EntityDefinition entityOfAction) {
 
         Action action = null;
         switch (prdAction.getType()) {
@@ -45,6 +51,12 @@ public class ActionReader {
                 break;
             case "condition":
                 action = readPRDActionConditionTypeAction(prdAction, entityOfAction, world);
+                break;
+            case "proximity":
+
+                break;
+            case "replace":
+                action = readPRDActionReplaceTypeAction(prdAction, world);
                 break;
             default:
                 throw new IllegalArgumentException("Type of action is not valid");
@@ -216,10 +228,42 @@ public class ActionReader {
     }
 
     private Action readPRDActionDecreaseTypeAction(PRDAction prdAction, EntityDefinition entityOfAction) {
-        return new DecreaseAction(entityOfAction , prdAction.getProperty(), prdAction.getBy() );
+        return new DecreaseAction(entityOfAction, prdAction.getProperty(), prdAction.getBy());
     }
 
-    private Action readPRDActionIncreaseTypeAction(PRDAction prdAction , EntityDefinition entityOfAction) {
-        return new IncreaseAction( entityOfAction , prdAction.getProperty() , prdAction.getBy() );
+    private Action readPRDActionIncreaseTypeAction(PRDAction prdAction, EntityDefinition entityOfAction) {
+        if (isSecondaryEntityExist(prdAction)) {
+            return new IncreaseAction(entityOfAction, secondaryEntityReader(prdAction, world), prdAction.getProperty(), prdAction.getBy());
+        }
+    }
+
+    private Action readPRDActionReplaceTypeAction(PRDAction prdAction, World world) {
+        EntityDefinition entityToKill = world.getEntityByName(prdAction.getKill());
+        EntityDefinition entityToCreate = world.getEntityByName(prdAction.getCreate());
+        String mode = prdAction.getMode();
+        return new ReplaceAction(entityToKill, entityToCreate, mode);
+    }
+
+    private SecondaryEntity secondaryEntityReader(PRDAction action, World world) {
+
+        SecondaryEntity secondaryEntity = null;
+        PRDAction.PRDSecondaryEntity prdSecondaryEntity = action.getPRDSecondaryEntity();
+        if (prdSecondaryEntity != null) {
+            EntityDefinition secondaryEntityDefinition = world.getEntityByName(prdSecondaryEntity.getEntity());
+            if (isConditionExistForSecondaryEntity(prdSecondaryEntity)) {
+                secondaryEntity = new SecondaryEntityImpl(secondaryEntityDefinition, createMultipleCondition(prdSecondaryEntity.getPRDSelection().getPRDCondition(), secondaryEntityDefinition), prdSecondaryEntity.getPRDSelection().getCount());
+            } else {
+                secondaryEntity = new SecondaryEntityImpl(secondaryEntityDefinition, null, prdSecondaryEntity.getPRDSelection().getCount());
+            }
+        }
+        return secondaryEntity;
+    }
+
+    private boolean isSecondaryEntityExist(PRDAction action) {
+        return action.getPRDSecondaryEntity() != null;
+    }
+
+    private boolean isConditionExistForSecondaryEntity(PRDAction.PRDSecondaryEntity prdSecondaryEntity) {
+        return prdSecondaryEntity.getPRDSelection().getPRDCondition() != null;
     }
 }
