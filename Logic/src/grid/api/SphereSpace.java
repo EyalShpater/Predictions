@@ -11,5 +11,5 @@ public interface SphereSpace {
 
     void removeEntityFromSpace(EntityInstance entityToRemove);
 
-    List<EntityInstance> getEntitiesSurroundingWithRank(EntityInstance target, int surroundingRank);
+    List<EntityInstance> getNearbyEntities(EntityInstance target, int radius);
 }

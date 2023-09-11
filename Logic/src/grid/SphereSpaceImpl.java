@@ -9,6 +9,7 @@ import instance.entity.impl.EntityInstanceImpl;
 import java.util.*;
 import java.util.List;
 import java.util.function.Function;
+import java.util.stream.Collectors;
 
 public class SphereSpaceImpl implements SphereSpace {
     private static final int MOVE_UP = 1;
@@ -18,6 +19,7 @@ public class SphereSpaceImpl implements SphereSpace {
     private static final int NO_MOVE = 0;
     private static final int ARRAY_FIRST_INDEX = 0;
     private static final int NUM_OF_MOVES = 4;
+    private static final int MIN_INNER_CIRCLE_SIZE = 3;
 
     int rows;
     int cols;
@@ -67,8 +69,24 @@ public class SphereSpaceImpl implements SphereSpace {
     }
 
     @Override
-    public List<EntityInstance> getEntitiesSurroundingWithRank(EntityInstance target, int surroundingRank) {
-        return null;
+    public List<EntityInstance> getNearbyEntities(EntityInstance target, int radius) {
+        Location targetLocation = target.getLocationInSpace();
+        Map<Integer, EntityInstance> neighbours = new HashMap<>();
+
+        int leftColIndex = (targetLocation.getX() - radius + (this.cols * radius)) % this.cols;
+        int rightColIndex = (targetLocation.getX() + radius) % this.cols;
+        int upperRowIndex = (targetLocation.getY() - radius + (this.rows * radius)) % this.rows;
+        int lowerRowIndex = (targetLocation.getY() + radius) % this.rows;
+
+        for (int i = upperRowIndex; i != (lowerRowIndex + 1) % this.rows; i = (i + 1) % this.rows) {
+            for (int j = leftColIndex; j != (rightColIndex + 1) % this.cols; j = (j + 1) % this.rows) {
+                if (grid[i][j] != null) {
+                    neighbours.put(grid[i][j].getId(), grid[i][j]);
+                }
+            }
+        }
+
+        return new ArrayList<>(neighbours.values());
     }
 
     private boolean moveUp(EntityInstance entity) {
@@ -126,7 +144,6 @@ public class SphereSpaceImpl implements SphereSpace {
         return moveMaker;
     }
 
-
     private Location getRandomEmptyCell() {
         boolean isThereFreeCell = !emptyCells.isEmpty();
         Location randomCell = null;
@@ -143,7 +160,7 @@ public class SphereSpaceImpl implements SphereSpace {
         return randomCell;
     }
 
-    void updateGridLocation(Location oldLocation, Location newLocation) {
+    private void updateGridLocation(Location oldLocation, Location newLocation) {
         grid[newLocation.getY()][newLocation.getX()] = grid[oldLocation.getY()][oldLocation.getX()];
         grid[oldLocation.getY()][oldLocation.getX()] = null;
         emptyCells.remove(newLocation);
@@ -153,18 +170,21 @@ public class SphereSpaceImpl implements SphereSpace {
     public static void main(String[] args) {
         EntityInstance e1 = new EntityInstanceImpl(new EntityDefinitionImpl("e1", 100), 1);
         EntityInstance e2 = new EntityInstanceImpl(new EntityDefinitionImpl("e2", 100), 1);
-        SphereSpaceImpl space = new SphereSpaceImpl(2, 2);
+        SphereSpaceImpl space = new SphereSpaceImpl(10, 10);
+
+        e1.setLocationInSpace(new Location(5, 4));
+        space.getNearbyEntities(e1, 1);
 
 //        space.setNewRandomLocation(e1);
 //        space.setNewRandomLocation(e2);
 
-        space.moveRight(e1);
-        space.moveRight(e1);
-        space.moveUp(e1);
-        space.moveUp(e1);
-        space.moveDown(e1);
-        space.moveDown(e1);
-        space.moveLeft(e1);
-        space.moveLeft(e1);
+//        space.moveRight(e1);
+//        space.moveRight(e1);
+//        space.moveUp(e1);
+//        space.moveUp(e1);
+//        space.moveDown(e1);
+//        space.moveDown(e1);
+//        space.moveLeft(e1);
+//        space.moveLeft(e1);
     }
 }

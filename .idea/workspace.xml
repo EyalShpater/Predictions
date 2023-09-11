@@ -11,18 +11,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="27d35137-667f-4e37-a519-ab836acc0a06" name="Changes" comment="added files xml for ex2">
-      <change afterPath="$PROJECT_DIR$/Logic/src/execution/simulation/impl/TestMain.java" afterDir="false" />
+    <list default="true" id="27d35137-667f-4e37-a519-ab836acc0a06" name="Changes" comment="added thread pool and parallel simulation run">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/src/task/RunSimulationTask.java" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/src/task/RunSimulationTask.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/action/impl/Proximity.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/action/impl/Proximity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/definition/world/api/World.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/definition/world/api/World.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/definition/world/impl/WorldImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/definition/world/impl/WorldImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/execution/simulation/api/PredictionsLogic.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/execution/simulation/api/PredictionsLogic.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/execution/simulation/api/Simulation.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/execution/simulation/api/Simulation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/execution/simulation/impl/PredictionsLogicImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/execution/simulation/impl/PredictionsLogicImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/execution/simulation/impl/SimulationImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/execution/simulation/impl/SimulationImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/execution/simulation/manager/SimulationManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/execution/simulation/manager/SimulationManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Logic/src/grid/SphereSpaceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/grid/SphereSpaceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Logic/src/grid/api/SphereSpace.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/grid/api/SphereSpace.java" afterDir="false" />
     </list>
@@ -144,13 +134,26 @@
       <recent name="javafx.details.details" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.execution.simulation.impl.TestMain">
+  <component name="RunManager" selected="Application.SphereSpaceImpl">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="javafx.mainScene.main.Main" />
       <module name="GUI" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="javafx.mainScene.main.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SphereSpaceImpl" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="grid.SphereSpaceImpl" />
+      <module name="Logic" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="grid.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -184,19 +187,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="javafx.tab.results.TestMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="javafx.tab.results.TestMain" />
-      <module name="GUI" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="javafx.tab.results.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="main.Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="main.Main" />
       <module name="ConsoleUI" />
@@ -212,11 +202,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.SphereSpaceImpl" />
         <item itemvalue="Application.execution.simulation.impl.TestMain" />
         <item itemvalue="Application.main.Main" />
         <item itemvalue="Application.Main" />
         <item itemvalue="Application.TestMain" />
-        <item itemvalue="Application.javafx.tab.results.TestMain" />
       </list>
     </recent_temporary>
   </component>
@@ -348,14 +338,6 @@
       <option name="presentableId" value="LOCAL-00056" />
       <option name="project" value="LOCAL" />
       <updated>1692168153217</updated>
-    </task>
-    <task id="LOCAL‎-00069" summary="pretty good">
-      <option name="closed" value="true" />
-      <created>1692300131304</created>
-      <option name="number" value="00069" />
-      <option name="presentableId" value="LOCAL‎-00069" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1692300131304</updated>
     </task>
     <task id="LOCAL-00070" summary="read everything to world except rule">
       <created>1692356632414</created>
@@ -668,7 +650,15 @@
       <option name="project" value="LOCAL" />
       <updated>1694273557303</updated>
     </task>
-    <option name="localTasksCounter" value="110" />
+    <task id="LOCAL‎-00110" summary="added thread pool and parallel simulation run">
+      <option name="closed" value="true" />
+      <created>1694419803924</created>
+      <option name="number" value="00110" />
+      <option name="presentableId" value="LOCAL‎-00110" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1694419803925</updated>
+    </task>
+    <option name="localTasksCounter" value="111" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -699,7 +689,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="finish" />
     <MESSAGE value="version 1:0." />
     <MESSAGE value="version 1.0" />
     <MESSAGE value="version 1:1." />
@@ -724,7 +713,8 @@
     <MESSAGE value="changed replace and proximity" />
     <MESSAGE value="added helper functions" />
     <MESSAGE value="added files xml for ex2" />
-    <option name="LAST_COMMIT_MESSAGE" value="added files xml for ex2" />
+    <MESSAGE value="added thread pool and parallel simulation run" />
+    <option name="LAST_COMMIT_MESSAGE" value="added thread pool and parallel simulation run" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
