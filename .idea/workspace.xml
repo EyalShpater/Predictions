@@ -11,14 +11,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="27d35137-667f-4e37-a519-ab836acc0a06" name="Changes" comment="added termination conditions">
+    <list default="true" id="27d35137-667f-4e37-a519-ab836acc0a06" name="Changes" comment="finished xml validation">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/action/api/AbstractAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/action/api/AbstractAction.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/action/context/impl/ContextImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/action/context/impl/ContextImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/action/impl/Proximity.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/action/impl/Proximity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/instance/entity/api/EntityInstance.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/instance/entity/api/EntityInstance.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/instance/entity/impl/EntityInstanceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/instance/entity/impl/EntityInstanceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/instance/entity/manager/impl/EntityInstanceManagerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/instance/entity/manager/impl/EntityInstanceManagerImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/execution/simulation/xml/reader/impl/ActionReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/execution/simulation/xml/reader/impl/ActionReader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/execution/simulation/xml/reader/impl/PropertyReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/execution/simulation/xml/reader/impl/PropertyReader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/execution/simulation/xml/reader/impl/TerminationReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/execution/simulation/xml/reader/impl/TerminationReader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/execution/simulation/xml/reader/impl/XmlReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/execution/simulation/xml/reader/impl/XmlReader.java" afterDir="false" />
     </list>
     <list id="2652661e-ea84-47b9-b217-8fc39a5a7c8a" name="Changes by ASUS" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -85,33 +83,32 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "codeWithMe.voiceChat.enabledByDefault": "false",
-    "dart.analysis.tool.window.visible": "false",
-    "extract.method.default.visibility": "private",
-    "full.screen.before.presentation.mode": "false",
-    "git-widget-placeholder": "GUI",
-    "jdk.selected.JAVA_MODULE": "1.8",
-    "last_opened_file_path": "C:/Users/ASUS/IdeaProjects/08. Java FX",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Libraries",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "reference.settingsdialog.project.grazie",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;dart.analysis.tool.window.visible&quot;: &quot;false&quot;,
+    &quot;extract.method.default.visibility&quot;: &quot;private&quot;,
+    &quot;full.screen.before.presentation.mode&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;GUI&quot;,
+    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;1.8&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/ASUS/IdeaProjects/08. Java FX&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settingsdialog.project.grazie&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\ASUS\IdeaProjects\PredictionsGuiVersion\GUI\src\javafx\input\components\singleEnvVar" />
@@ -280,14 +277,7 @@
       <workItem from="1694254442123" duration="16346000" />
       <workItem from="1694315233531" duration="13724000" />
       <workItem from="1694330441189" duration="28414000" />
-      <workItem from="1694408417392" duration="10450000" />
-    </task>
-    <task id="LOCAL-00053" summary="added xml logic">
-      <created>1692124813678</created>
-      <option name="number" value="00053" />
-      <option name="presentableId" value="LOCAL-00053" />
-      <option name="project" value="LOCAL" />
-      <updated>1692124813678</updated>
+      <workItem from="1694408417392" duration="16625000" />
     </task>
     <task id="LOCAL-00054" summary="latest">
       <created>1692127005802</created>
@@ -310,12 +300,36 @@
       <option name="project" value="LOCAL" />
       <updated>1692168153217</updated>
     </task>
+    <task id="LOCAL‎-00069" summary="pretty good">
+      <option name="closed" value="true" />
+      <created>1692300131304</created>
+      <option name="number" value="00069" />
+      <option name="presentableId" value="LOCAL‎-00069" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1692300131304</updated>
+    </task>
     <task id="LOCAL-00070" summary="read everything to world except rule">
       <created>1692356632414</created>
       <option name="number" value="00070" />
       <option name="presentableId" value="LOCAL-00070" />
       <option name="project" value="LOCAL" />
       <updated>1692356632414</updated>
+    </task>
+    <task id="LOCAL‎-00071" summary="condition problem fixed">
+      <option name="closed" value="true" />
+      <created>1692378671103</created>
+      <option name="number" value="00071" />
+      <option name="presentableId" value="LOCAL‎-00071" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1692378671104</updated>
+    </task>
+    <task id="LOCAL‎-00072" summary="Changes by ASUS">
+      <option name="closed" value="true" />
+      <created>1692378697222</created>
+      <option name="number" value="00072" />
+      <option name="presentableId" value="LOCAL‎-00072" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1692378697222</updated>
     </task>
     <task id="LOCAL‎-00073" summary="ConditionImpl">
       <option name="closed" value="true" />
@@ -633,31 +647,14 @@
       <option name="project" value="LOCAL" />
       <updated>1694365533331</updated>
     </task>
-    <task id="LOCAL‎-00114" summary="implemented grid neighbour function">
-      <option name="closed" value="true" />
-      <created>1694435079543</created>
+    <task id="LOCAL-00114" summary="finished xml validation">
+      <created>1694423501464</created>
       <option name="number" value="00114" />
-      <option name="presentableId" value="LOCAL‎-00114" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1694435079544</updated>
+      <option name="presentableId" value="LOCAL-00114" />
+      <option name="project" value="LOCAL" />
+      <updated>1694423501464</updated>
     </task>
-    <task id="LOCAL‎-00115" summary="added termination conditions">
-      <option name="closed" value="true" />
-      <created>1694436073542</created>
-      <option name="number" value="00115" />
-      <option name="presentableId" value="LOCAL‎-00115" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1694436073542</updated>
-    </task>
-    <task id="LOCAL‎-00116" summary="added termination conditions">
-      <option name="closed" value="true" />
-      <created>1694436338647</created>
-      <option name="number" value="00116" />
-      <option name="presentableId" value="LOCAL‎-00116" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1694436338647</updated>
-    </task>
-    <option name="localTasksCounter" value="117" />
+    <option name="localTasksCounter" value="115" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -688,6 +685,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="init GUI branch" />
     <MESSAGE value="with shavit's GUI" />
     <MESSAGE value="details window POC" />
     <MESSAGE value="general component in Details Tab is bind to the engine" />
@@ -711,9 +709,8 @@
     <MESSAGE value="fixed the xml part to fit the new generated files including the imports" />
     <MESSAGE value="finished name validation" />
     <MESSAGE value="almost finished xml validation only condition property validation left" />
-    <MESSAGE value="implemented grid neighbour function" />
-    <MESSAGE value="added termination conditions" />
-    <option name="LAST_COMMIT_MESSAGE" value="added termination conditions" />
+    <MESSAGE value="finished xml validation" />
+    <option name="LAST_COMMIT_MESSAGE" value="finished xml validation" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
@@ -734,14 +731,12 @@
           <option name="timeStamp" value="43" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/Logic/src/execution/simulation/xml/validation/XmlValidator.java</url>
-          <line>49</line>
-          <option name="timeStamp" value="105" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/Logic/src/execution/simulation/xml/validation/XmlValidator.java</url>
-          <line>345</line>
-          <option name="timeStamp" value="106" />
+          <url>file://$PROJECT_DIR$/Logic/src/execution/simulation/xml/reader/impl/RuleReader.java</url>
+          <line>27</line>
+          <properties>
+            <option name="lambda-ordinal" value="0" />
+          </properties>
+          <option name="timeStamp" value="121" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/GUI/src/javafx/tab/newExecution/environmentVariable/StringEnvironmentVariableController.java</url>
@@ -758,10 +753,10 @@
       <pinned-members>
         <PinnedItemInfo parentTag="resources.generated.PRDAction" memberName="prdDivide" />
         <PinnedItemInfo parentTag="execution.simulation.impl.SimulationImpl" memberName="entities" />
+        <PinnedItemInfo parentTag="rule.impl.RuleImpl" memberName="name" />
         <PinnedItemInfo parentTag="definition.entity.impl.EntityDefinitionImpl" memberName="population" />
         <PinnedItemInfo parentTag="java.lang.Integer" memberName="value" />
         <PinnedItemInfo parentTag="rule.impl.RuleImpl" memberName="activation" />
-        <PinnedItemInfo parentTag="grid.SphereSpaceImpl" memberName="emptyCells" />
         <PinnedItemInfo parentTag="resources.generated.PRDRules" memberName="prdRule" />
         <PinnedItemInfo parentTag="resources.generated.PRDAction" memberName="entity" />
         <PinnedItemInfo parentTag="definition.entity.impl.EntityDefinitionImpl" memberName="name" />

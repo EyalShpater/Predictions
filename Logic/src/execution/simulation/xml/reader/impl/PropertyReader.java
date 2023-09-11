@@ -35,7 +35,6 @@ public class PropertyReader {
         }
         else{
             String value = prdProperty.getPRDValue().getInit();
-
             return new PropertyDefinitionImpl( prdProperty.getPRDName() , type , range  , isRandomInitialize , convertValue(value, type) ) ;
         }
     }
@@ -51,7 +50,6 @@ public class PropertyReader {
             default:
                 return value;
         }
-
     }
 
     private PropertyDefinition createPropertyWithOutRange(PRDProperty prdProperty) {

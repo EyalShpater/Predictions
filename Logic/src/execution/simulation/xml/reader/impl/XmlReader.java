@@ -20,18 +20,20 @@ public class XmlReader {
 
         //Object that read into entity
         EntityReader entityReader = new EntityReader();
-        entityReader.read( this.prdWorld , world );
+        entityReader.read(this.prdWorld, world);
 
         //Object that read into rule
         RuleReader ruleReader = new RuleReader();
-        ruleReader.read(this.prdWorld , world);
+        ruleReader.read(this.prdWorld, world);
 
         //Object that reads into termination
         TerminationReader terminationReader = new TerminationReader();
-        terminationReader.read( this.prdWorld , world );
+        terminationReader.read(this.prdWorld, world);
 
-
-
+        // set thread pool size
+        world.setThreadPoolSize(this.prdWorld.getPRDThreadCount());
+        world.setGridCols(prdWorld.getPRDGrid().getColumns());
+        world.setGridRows(prdWorld.getPRDGrid().getRows());
     }
 
 }

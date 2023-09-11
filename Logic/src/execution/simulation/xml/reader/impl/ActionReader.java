@@ -53,7 +53,7 @@ public class ActionReader {
                 action = readPRDActionConditionTypeAction(prdAction, entityOfAction);
                 break;
             case "proximity":
-
+                action = readPRDActionProximityTypeAction(prdAction, entityOfAction);
                 break;
             case "replace":
                 action = readPRDActionReplaceTypeAction(prdAction);
@@ -62,6 +62,19 @@ public class ActionReader {
                 throw new IllegalArgumentException("Type of action is not valid");
         }
         return action;
+    }
+
+    private Action readPRDActionProximityTypeAction(PRDAction prdAction, EntityDefinition entityOfAction) {
+
+        EntityDefinition sourceEntity = world.getEntityByName(prdAction.getPRDBetween().getSourceEntity());
+        EntityDefinition targetEntity = world.getEntityByName(prdAction.getPRDBetween().getTargetEntity());
+
+        Proximity proximity = new Proximity(sourceEntity, targetEntity, prdAction.getPRDEnvDepth().getOf());
+        List<PRDAction> actionList = prdAction.getPRDActions().getPRDAction();
+
+        actionList.forEach(action -> proximity.addAction(readAction(action, world.getEntityByName(action.getEntity()))));
+
+        return proximity;
     }
 
     private Action readPRDActionConditionTypeAction(PRDAction prdAction, EntityDefinition entityOfAction) {
