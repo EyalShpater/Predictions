@@ -25,13 +25,21 @@ public interface World extends DTOConvertible<WorldDTO> {
     TerminateCondition isActive(int currentTick, long startTime);
     List<Rule> getRules();
 
-    SphereSpace getSphereSpace();
+    int getThreadPoolSize();
+
+    int getGridRows();
+
+    int getGridCols();
+
+    void setThreadPoolSize(int size);
     void addRule(Rule newRule);
     void addEntity(EntityDefinition newEntity);
     void setTermination(Termination terminate);
     void addEnvironmentVariable(PropertyDefinition newVariable);
 
-    void setSphereSpaceSize(int rows, int cols);
+    void setGridRows(int rows);
+
+    void setGridCols(int cols);
     EntityDefinition getEntityByName(String name);
     Collection<PropertyDefinition> getEnvironmentVariables();
 }

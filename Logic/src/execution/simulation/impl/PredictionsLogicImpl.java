@@ -1,13 +1,25 @@
 package execution.simulation.impl;
 
+import action.impl.IncreaseAction;
+import action.impl.MultiplyAction;
+import definition.entity.api.EntityDefinition;
+import definition.entity.impl.EntityDefinitionImpl;
+import definition.property.api.PropertyType;
+import definition.property.impl.PropertyDefinitionImpl;
 import execution.simulation.api.PredictionsLogic;
 import execution.simulation.manager.SimulationManager;
 import definition.world.api.World;
 import definition.world.impl.WorldImpl;
+import execution.simulation.termination.api.TerminateCondition;
+import execution.simulation.termination.impl.TerminationImpl;
 import execution.simulation.xml.reader.impl.XmlReader;
 import execution.simulation.xml.validation.XmlValidator;
 import impl.*;
+import instance.entity.api.EntityInstance;
 import instance.enviornment.api.ActiveEnvironment;
+import rule.api.Rule;
+import rule.impl.ActivationImpl;
+import rule.impl.RuleImpl;
 
 import javax.xml.bind.JAXBException;
 import java.io.Serializable;
@@ -17,20 +29,18 @@ public class PredictionsLogicImpl implements PredictionsLogic , Serializable {
     private SimulationManager allSimulations;
     private World world;
 
-    public PredictionsLogicImpl() {
-        this.allSimulations = new SimulationManager();
-    }
-
     @Override
     public void loadXML(String path) throws JAXBException {
         World newWorld = new WorldImpl();
         XmlValidator validator = new XmlValidator(path);
         XmlReader reader;
+
         validator.isValid();
         reader = new XmlReader(validator.getWorld());
         reader.readXml(newWorld);
+
         world = newWorld;
-        allSimulations.clearAllSimulations();
+        allSimulations = new SimulationManager(world);
     }
 
     @Override
@@ -54,8 +64,9 @@ public class PredictionsLogicImpl implements PredictionsLogic , Serializable {
     }
 
     @Override
-    public SimulationRunDetailsDTO runNewSimulation(List<PropertyDefinitionDTO> environmentVariables) {
-        return allSimulations.runNewSimulation(world, environmentVariables);
+    public void runNewSimulation(List<PropertyDefinitionDTO> environmentVariables) {
+        /* return */
+        allSimulations.runNewSimulation(world, environmentVariables);
     }
 
     @Override
@@ -85,5 +96,34 @@ public class PredictionsLogicImpl implements PredictionsLogic , Serializable {
                 .getEntityByName(name)
                 .convertToDTO()
                 .getProperties();
+    }
+
+    //Todo: only for debug! need to be delete!
+    @Override
+    public void initSampleInformation() {
+        EntityDefinition en1 = new EntityDefinitionImpl("ent-1", 100);
+        en1.addProperty(new PropertyDefinitionImpl("p1", PropertyType.INT, true));
+        en1.addProperty(new PropertyDefinitionImpl("p2", PropertyType.STRING, true));
+        EntityDefinition en2 = new EntityDefinitionImpl("ent-2", 300);
+        en2.addProperty(new PropertyDefinitionImpl("sugar", PropertyType.BOOLEAN, false));
+        en2.addProperty(new PropertyDefinitionImpl("salt", PropertyType.STRING, true));
+
+        world = new WorldImpl();
+        world.addEntity(en1);
+        world.addEntity(en2);
+
+        Rule r1 = new RuleImpl("rule-1", new ActivationImpl(0.3));
+        r1.addAction(new IncreaseAction(en1, "p1", "3"));
+        r1.addAction(new MultiplyAction(en1, "p1", "3", "p1"));
+        world.addRule(r1);
+
+        world.addEnvironmentVariable(new PropertyDefinitionImpl("env-1", PropertyType.STRING, true));
+
+        world.setTermination(new TerminationImpl(5, TerminateCondition.BY_SECONDS));
+        world.setGridCols(100);
+        world.setGridRows(100);
+        world.setThreadPoolSize(5);
+
+        allSimulations = new SimulationManager(world);
     }
 }

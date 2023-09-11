@@ -24,20 +24,23 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 public class WorldImpl implements World  , Serializable {
+    private static final int MIN_ROWS_SIZE = 10;
+    private static final int MIN_COLS_SIZE = 10;
+    private static final int MAX_ROWS_SIZE = 100;
+    private static final int MAX_COLS_SIZE = 100;
+
     private Map<String, EntityDefinition> entitiesDefinition;
     private List<Rule> rules;
     private EnvironmentVariableManager environmentVariables;
     private Termination terminate;
-    private SphereSpace space;
-    //todo: add private int threadPoolSize;
+    private int gridRows;
+    private int gridCols;
+    private int threadPoolSize;
 
     public WorldImpl() {
         entitiesDefinition = new HashMap<>();
         rules = new ArrayList<>();
         environmentVariables = new EnvironmentVariableManagerImpl();
-
-        //todo: only until ex2 xml importer will be implement.
-        space = new SphereSpaceImpl(100, 100);
     }
 
     @Override
@@ -82,11 +85,6 @@ public class WorldImpl implements World  , Serializable {
     @Override
     public List<Rule> getRules() {
         return rules;
-    }
-
-    @Override
-    public SphereSpace getSphereSpace() {
-        return space;
     }
 
     @Override
@@ -145,11 +143,6 @@ public class WorldImpl implements World  , Serializable {
     }
 
     @Override
-    public void setSphereSpaceSize(int rows, int cols) {
-        space = new SphereSpaceImpl(rows, cols);
-    }
-
-    @Override
     public EntityDefinition getEntityByName(String name) {
         return entitiesDefinition.get(name);
     }
@@ -157,5 +150,43 @@ public class WorldImpl implements World  , Serializable {
     @Override
     public Collection<PropertyDefinition> getEnvironmentVariables() {
         return environmentVariables.getEnvironmentVariables();
+    }
+
+    @Override
+    public int getThreadPoolSize() {
+        return threadPoolSize;
+    }
+
+    @Override
+    public void setThreadPoolSize(int size) {
+        threadPoolSize = size;
+    }
+
+    @Override
+    public int getGridRows() {
+        return gridRows;
+    }
+
+    @Override
+    public int getGridCols() {
+        return gridCols;
+    }
+
+    @Override
+    public void setGridRows(int rows) {
+        if (rows < MIN_ROWS_SIZE || rows > MAX_ROWS_SIZE) {
+            throw new IllegalArgumentException("Rows size must be between " + MIN_ROWS_SIZE + " to " + MAX_ROWS_SIZE);
+        }
+
+        gridRows = rows;
+    }
+
+    @Override
+    public void setGridCols(int cols) {
+        if (cols < MIN_COLS_SIZE || cols > MAX_COLS_SIZE) {
+            throw new IllegalArgumentException("Columns size must be between " + MIN_COLS_SIZE + " to " + MAX_COLS_SIZE);
+        }
+
+        gridCols = cols;
     }
 }

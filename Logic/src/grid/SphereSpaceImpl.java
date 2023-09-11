@@ -56,6 +56,21 @@ public class SphereSpaceImpl implements SphereSpace {
         return newLocation;
     }
 
+    @Override
+    public void removeEntityFromSpace(EntityInstance entityToRemove) {
+        Location locationToUpdate = entityToRemove.getLocationInSpace();
+
+        entityToRemove.setLocationInSpace(null);
+
+        grid[locationToUpdate.getY()][locationToUpdate.getX()] = null;
+        emptyCells.add(locationToUpdate);
+    }
+
+    @Override
+    public List<EntityInstance> getEntitiesSurroundingWithRank(EntityInstance target, int surroundingRank) {
+        return null;
+    }
+
     private boolean moveUp(EntityInstance entity) {
         return move(entity, NO_MOVE, MOVE_UP);
     }
@@ -110,6 +125,7 @@ public class SphereSpaceImpl implements SphereSpace {
 
         return moveMaker;
     }
+
 
     private Location getRandomEmptyCell() {
         boolean isThereFreeCell = !emptyCells.isEmpty();

@@ -12,7 +12,10 @@ public interface Simulation extends DTOConvertible<SimulationDTO> {
     int getSerialNumber();
     long getRunStartTime();
     ActiveEnvironment setEnvironmentVariables();
-    TerminateCondition run();
+
+    void run();
+
+    TerminateCondition getEndReason();
     SimulationDataDTO getResultAsDTO(String entityName, String propertyName);
     World getWorld();
 }
