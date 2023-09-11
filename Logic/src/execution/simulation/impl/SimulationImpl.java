@@ -106,13 +106,12 @@ public class SimulationImpl implements Simulation , Serializable {
                 );
     }
 
+    //todo: the loop needs to be inside the manager.
     private void initEntities() {
         EntityInstanceManager instances = new EntityInstanceManagerImpl();
 
         for (EntityDefinition entityDefinition : world.getEntities()) {
-            for (int i = 1; i <= entityDefinition.getPopulation(); i++) {
-                instances.create(entityDefinition, space);
-            }
+            instances.createInstancesFromDefinition(entityDefinition, space);
         }
 
         entities = instances;

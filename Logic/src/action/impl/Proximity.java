@@ -32,7 +32,7 @@ public class Proximity extends AbstractAction {
     }
 
     @Override
-    public void applyAction(Context context) {
+    public void apply(Context context) {
         String targetEntityName = targetEntity.getName();
         int radius = evaluateExpressionAsInteger(context);
 

@@ -20,24 +20,26 @@ public class EntityInstanceManagerImpl implements EntityInstanceManager , Serial
     }
 
     @Override
-    public void create(EntityDefinition entityDefinition, SphereSpace space) {
-        EntityInstance newInstance = new EntityInstanceImpl(entityDefinition, id);
-        Location placeInSpace = space.placeEntityRandomlyInWorld(newInstance);
+    public void createInstancesFromDefinition(EntityDefinition entityDefinition, SphereSpace space) {
+        for (int i = 1; i <= entityDefinition.getPopulation(); i++) {
+            EntityInstance newInstance = new EntityInstanceImpl(entityDefinition, id);
+            Location placeInSpace = space.placeEntityRandomlyInWorld(newInstance);
 
-        if (placeInSpace == null) {
-            throw new NullPointerException(
-                    "There is no place to add "
-                            + newInstance.getName()
-                            + " id #"
-                            + newInstance.getId()
-                            + " to the sphere space."
-            );
+            if (placeInSpace == null) {
+                throw new NullPointerException(
+                        "There is no place to add "
+                                + newInstance.getName()
+                                + " id #"
+                                + newInstance.getId()
+                                + " to the sphere space."
+                );
+            }
+
+            newInstance.setLocationInSpace(placeInSpace);
+            newInstance.setSpace(space);
+            instances.put(id, newInstance);
+            id++;
         }
-
-        newInstance.setLocationInSpace(placeInSpace);
-        newInstance.setSpace(space);
-        instances.put(id, newInstance);
-        id++;
     }
 
     @Override

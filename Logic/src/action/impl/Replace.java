@@ -22,7 +22,7 @@ public class Replace extends AbstractAction {
     }
 
     @Override
-    protected void applyAction(Context context) {
+    protected void apply(Context context) {
 
     }
 

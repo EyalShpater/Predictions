@@ -19,7 +19,7 @@ public class KillAction extends AbstractAction implements Serializable {
     }
 
     @Override
-    public void applyAction(Context context) {
+    public void apply(Context context) {
         context.removeEntity(context.getEntityInstance());
     }
 
