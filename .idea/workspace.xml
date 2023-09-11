@@ -11,27 +11,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="27d35137-667f-4e37-a519-ab836acc0a06" name="Changes" comment="implemented Proximity">
+    <list default="true" id="27d35137-667f-4e37-a519-ab836acc0a06" name="Changes" comment="details screen bug fix: now you can view secondary entity, and instead of &quot;calculation&quot; rule you can see the concrete action (multiple\divide)">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/action/api/AbstractAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/action/api/AbstractAction.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/action/api/ActionType.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/action/api/ActionType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/action/context/impl/ContextImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/action/context/impl/ContextImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/action/impl/DivideAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/action/impl/DivideAction.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/action/impl/MultiplyAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/action/impl/MultiplyAction.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/action/impl/Proximity.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/action/impl/Proximity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/action/impl/condition/Condition.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/action/impl/condition/Condition.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/action/impl/condition/impl/ConditionImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/action/impl/condition/impl/ConditionImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/action/impl/condition/impl/multiple/MultipleCondition.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/action/impl/condition/impl/multiple/MultipleCondition.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/action/impl/condition/impl/single/SingleCondition.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/action/impl/condition/impl/single/SingleCondition.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/action/second/entity/SecondaryEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/action/second/entity/SecondaryEntity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/action/second/entity/impl/SecondaryEntityImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/action/second/entity/impl/SecondaryEntityImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/definition/world/api/World.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/definition/world/api/World.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/definition/world/impl/WorldImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/definition/world/impl/WorldImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/execution/simulation/impl/SimulationImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/execution/simulation/impl/SimulationImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/execution/simulation/manager/SimulationManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/execution/simulation/manager/SimulationManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/execution/simulation/termination/api/Termination.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/execution/simulation/termination/api/Termination.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/execution/simulation/termination/impl/TerminationImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/execution/simulation/termination/impl/TerminationImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/execution/simulation/xml/reader/impl/ActionReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/execution/simulation/xml/reader/impl/ActionReader.java" afterDir="false" />
     </list>
     <list id="2652661e-ea84-47b9-b217-8fc39a5a7c8a" name="Changes by ASUS" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -128,7 +109,7 @@
     "project.structure.last.edited": "Libraries",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "reference.settingsdialog.project.grazie",
+    "settings.editor.selected.configurable": "preferences.sourceCode",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -336,14 +317,6 @@
       <option name="presentableId" value="LOCAL-00070" />
       <option name="project" value="LOCAL" />
       <updated>1692356632414</updated>
-    </task>
-    <task id="LOCAL‎-00075" summary="exception catch while loading file">
-      <option name="closed" value="true" />
-      <created>1692460251967</created>
-      <option name="number" value="00075" />
-      <option name="presentableId" value="LOCAL‎-00075" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1692460251968</updated>
     </task>
     <task id="LOCAL‎-00076" summary="exception catch while loading file">
       <option name="closed" value="true" />
@@ -677,7 +650,15 @@
       <option name="project" value="LOCAL‎" />
       <updated>1694446456372</updated>
     </task>
-    <option name="localTasksCounter" value="119" />
+    <task id="LOCAL‎-00119" summary="details screen bug fix: now you can view secondary entity, and instead of &quot;calculation&quot; rule you can see the concrete action (multiple\divide)">
+      <option name="closed" value="true" />
+      <created>1694462742787</created>
+      <option name="number" value="00119" />
+      <option name="presentableId" value="LOCAL‎-00119" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1694462742787</updated>
+    </task>
+    <option name="localTasksCounter" value="120" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -708,7 +689,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="details window POC" />
     <MESSAGE value="general component in Details Tab is bind to the engine" />
     <MESSAGE value="Environment Variables in Details Tab is bind to the engine" />
     <MESSAGE value="Entities in Details Tab is bind to the engine" />
@@ -733,7 +713,8 @@
     <MESSAGE value="implemented grid neighbour function" />
     <MESSAGE value="added termination conditions" />
     <MESSAGE value="implemented Proximity" />
-    <option name="LAST_COMMIT_MESSAGE" value="implemented Proximity" />
+    <MESSAGE value="details screen bug fix: now you can view secondary entity, and instead of &quot;calculation&quot; rule you can see the concrete action (multiple\divide)" />
+    <option name="LAST_COMMIT_MESSAGE" value="details screen bug fix: now you can view secondary entity, and instead of &quot;calculation&quot; rule you can see the concrete action (multiple\divide)" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
