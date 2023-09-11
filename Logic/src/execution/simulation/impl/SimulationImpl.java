@@ -7,6 +7,7 @@ import definition.world.api.World;
 import execution.simulation.data.api.SimulationData;
 import execution.simulation.data.impl.SimulationDataImpl;
 import execution.simulation.termination.api.TerminateCondition;
+import grid.SphereSpaceImpl;
 import grid.api.SphereSpace;
 import impl.SimulationDTO;
 import impl.SimulationDataDTO;
@@ -27,8 +28,10 @@ public class SimulationImpl implements Simulation , Serializable {
     private EntityInstanceManager entities;
     private ActiveEnvironment environmentVariables;
     private SimulationData data;
+    private TerminateCondition endReason;
     private SphereSpace space;
     private long startTime;
+    private int tick;
 
     public SimulationImpl(World world, int serialNumber) {
         this.world = world;
@@ -38,7 +41,8 @@ public class SimulationImpl implements Simulation , Serializable {
         this.environmentVariables = null;
         this.data = null;
         this.startTime = 0;
-        this.space = world.getSphereSpace();
+        this.space = new SphereSpaceImpl(world.getGridRows(), world.getGridCols());
+        this.tick = 0;
     }
 
     @Override
@@ -47,24 +51,35 @@ public class SimulationImpl implements Simulation , Serializable {
     }
 
     @Override
-    public TerminateCondition run() {
-        int tick = 1;
-        TerminateCondition reasonToStop;
-
+    public void run() {
+        System.out.println("start simulation " + serialNumber);
         startTime = System.currentTimeMillis();
+
         initEntities();
         initEnvironmentVariables();
+        tick = 1;
 
-        while ((reasonToStop = world.isActive(tick, startTime)) == null) {
+        while ((endReason = world.isActive(tick, startTime)) == null) {
             entities.moveAllEntitiesInSpace(space);
             executeRules(tick);
             tick++;
+
+            try {
+                Thread.sleep(1500);
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
         }
 
         data = new SimulationDataImpl(serialNumber, startTime, world.getEntities(), entities);
         resetEnvironmentVariables();
 
-        return reasonToStop;
+        System.out.println("end simulation " + serialNumber);
+    }
+
+    @Override
+    public TerminateCondition getEndReason() {
+        return endReason;
     }
 
     @Override

@@ -25,10 +25,11 @@ public class RunSimulationTask extends Task<Boolean> {
 
         updateProgress(0, 1);
 
-        details = engine.runNewSimulation(environmentVariables);
+        /*details =*/
+        engine.runNewSimulation(environmentVariables);
 
         updateProgress(1, 1);
-        updateMessage("Simulation ended during " + (details.isTerminateBySeconds() ? "seconds" : "ticks"));
+        //updateMessage("Simulation ended during " + (details.isTerminateBySeconds() ? "seconds" : "ticks"));
 
         return true;
     }

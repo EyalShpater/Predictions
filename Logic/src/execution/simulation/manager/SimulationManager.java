@@ -15,37 +15,38 @@ import instance.property.api.PropertyInstance;
 import java.io.Serializable;
 import java.text.SimpleDateFormat;
 import java.util.*;
-import java.util.concurrent.TimeUnit;
+import java.util.concurrent.*;
 import java.util.stream.Collectors;
 
 public class SimulationManager implements Serializable {
     private int serialNumber;
     private Map<Integer, Simulation> simulations;
+    private ExecutorService threadPoll;
+    private World world;
 
-    public SimulationManager() {
-        serialNumber = 1;
-        simulations = new HashMap<>();
+    public SimulationManager(World world) {
+        this.serialNumber = 1;
+        this.simulations = new HashMap<>();
+        this.world = world;
+        this.threadPoll = Executors.newFixedThreadPool(world.getThreadPoolSize());
     }
 
-    //todo: ask Aviad about the synchronize
-    public SimulationRunDetailsDTO runNewSimulation(World world, List<PropertyDefinitionDTO> environmentVariables) {
+    public void runNewSimulation(World world, List<PropertyDefinitionDTO> environmentVariables) {
         Simulation simulation;
         TerminateCondition stopReason;
         SimulationRunDetailsDTO dto;
 
-        synchronized (this) {
-            updateEnvironmentVariablesFromDTO(world, environmentVariables);
-            simulation = new SimulationImpl(world, serialNumber);
-            serialNumber++;
-        }
+        updateEnvironmentVariablesFromDTO(world, environmentVariables);
+        simulation = new SimulationImpl(world, serialNumber);
+        serialNumber++;
 
-        stopReason = simulation.run();
+        System.out.println("Adding simulation #" + (serialNumber - 1) + " to thread pool");
+        threadPoll.execute(simulation::run);
+        //stopReason = simulation.getEndReason();
 
-        synchronized (this) {
-            simulations.put(simulation.getSerialNumber(), simulation);
-            dto = createRunDetailDTO(stopReason, simulation.getSerialNumber());
-            return dto;
-        }
+        simulations.put(simulation.getSerialNumber(), simulation);
+//        dto = createRunDetailDTO(stopReason, simulation.getSerialNumber());
+//        return dto;
     }
 
     public List<SimulationDTO> getAllSimulationsDTO() {
