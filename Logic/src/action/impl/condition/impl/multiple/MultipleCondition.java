@@ -35,7 +35,7 @@ public abstract class MultipleCondition implements Condition , Serializable {
         Map<String, String> arguments = new LinkedHashMap<>();
 
         arguments.put("logical", getOperationSign());
-        arguments.put("num of conditions", String.valueOf(conditions.size()));
+        arguments.put("num of nested conditions", String.valueOf(conditions.size()));
 
         return arguments;
     }

@@ -13,6 +13,10 @@
   <component name="ChangeListManager">
     <list default="true" id="27d35137-667f-4e37-a519-ab836acc0a06" name="Changes" comment="details screen bug fix: now you can view secondary entity, and instead of &quot;calculation&quot; rule you can see the concrete action (multiple\divide)">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DTO/src/impl/ActionDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/DTO/src/impl/ActionDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/action/api/ActionType.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/action/api/ActionType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/action/impl/condition/impl/ConditionImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/action/impl/condition/impl/ConditionImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/action/impl/condition/impl/multiple/MultipleCondition.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/action/impl/condition/impl/multiple/MultipleCondition.java" afterDir="false" />
     </list>
     <list id="2652661e-ea84-47b9-b217-8fc39a5a7c8a" name="Changes by ASUS" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -317,14 +321,6 @@
       <option name="presentableId" value="LOCAL-00070" />
       <option name="project" value="LOCAL" />
       <updated>1692356632414</updated>
-    </task>
-    <task id="LOCAL‎-00076" summary="exception catch while loading file">
-      <option name="closed" value="true" />
-      <created>1692469939253</created>
-      <option name="number" value="00076" />
-      <option name="presentableId" value="LOCAL‎-00076" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1692469939254</updated>
     </task>
     <task id="LOCAL‎-00077" summary="nice print to screen">
       <option name="closed" value="true" />
@@ -658,7 +654,15 @@
       <option name="project" value="LOCAL‎" />
       <updated>1694462742787</updated>
     </task>
-    <option name="localTasksCounter" value="120" />
+    <task id="LOCAL‎-00120" summary="details screen bug fix: now you can view secondary entity, and instead of &quot;calculation&quot; rule you can see the concrete action (multiple\divide)">
+      <option name="closed" value="true" />
+      <created>1694463674122</created>
+      <option name="number" value="00120" />
+      <option name="presentableId" value="LOCAL‎-00120" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1694463674122</updated>
+    </task>
+    <option name="localTasksCounter" value="121" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
