@@ -79,7 +79,7 @@ public class SphereSpaceImpl implements SphereSpace {
         int lowerRowIndex = (targetLocation.getY() + radius) % this.rows;
 
         for (int i = upperRowIndex; i != (lowerRowIndex + 1) % this.rows; i = (i + 1) % this.rows) {
-            for (int j = leftColIndex; j != (rightColIndex + 1) % this.cols; j = (j + 1) % this.rows) {
+            for (int j = leftColIndex; j != (rightColIndex + 1) % this.cols; j = (j + 1) % this.cols) {
                 if (grid[i][j] != null) {
                     neighbours.put(grid[i][j].getId(), grid[i][j]);
                 }

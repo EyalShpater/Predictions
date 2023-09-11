@@ -14,6 +14,7 @@ public class TerminationImpl implements Termination , Serializable {
     private final int secondsToTerminate;
     private boolean isTerminateByTicks = false;
     private boolean isTerminateBySeconds = false;
+    private boolean isTerminateByUser = false;
 
     public TerminationImpl(int ticksToTerminate, int secondsToTerminate) {
         this.ticksToTerminate = ticksToTerminate;
@@ -31,6 +32,12 @@ public class TerminationImpl implements Termination , Serializable {
         this.secondsToTerminate = isTerminateBySeconds ?
                 terminate :
                 Integer.MAX_VALUE;
+    }
+
+    public TerminationImpl() {
+        ticksToTerminate = Integer.MAX_VALUE;
+        secondsToTerminate = Integer.MAX_VALUE;
+        isTerminateByUser = true;
     }
 
     public TerminationImpl(TerminationDTO dto) {
