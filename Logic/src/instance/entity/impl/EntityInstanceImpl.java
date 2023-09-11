@@ -16,6 +16,7 @@ public class EntityInstanceImpl implements EntityInstance, Serializable {
     private final String name;
     private Map<String, PropertyInstance> propNameToPropInstance;
     private boolean isAlive;
+    private SphereSpace space;
     private Location locationInSpace;
 
     public EntityInstanceImpl(EntityDefinition entity, int id) {
@@ -73,4 +74,22 @@ public class EntityInstanceImpl implements EntityInstance, Serializable {
         this.locationInSpace = newLocation;
     }
 
+    @Override
+    public void moveRandomly() {
+        if (space == null) {
+            throw new NullPointerException("Space must be initialize before!");
+        }
+
+        space.makeRandomMove(this);
+    }
+
+    @Override
+    public List<EntityInstance> getNearbyEntities(int radius) {
+        return space.getNearbyEntities(this, radius);
+    }
+
+    @Override
+    public void setSpace(SphereSpace space) {
+        this.space = space;
+    }
 }

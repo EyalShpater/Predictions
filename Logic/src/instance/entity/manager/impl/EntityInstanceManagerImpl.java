@@ -9,7 +9,6 @@ import instance.entity.manager.api.EntityInstanceManager;
 
 import java.io.Serializable;
 import java.util.*;
-import java.util.stream.Collectors;
 
 public class EntityInstanceManagerImpl implements EntityInstanceManager , Serializable {
     private int id;
@@ -36,6 +35,7 @@ public class EntityInstanceManagerImpl implements EntityInstanceManager , Serial
         }
 
         newInstance.setLocationInSpace(placeInSpace);
+        newInstance.setSpace(space);
         instances.put(id, newInstance);
         id++;
     }

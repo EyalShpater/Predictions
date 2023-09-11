@@ -33,17 +33,20 @@ public class Proximity extends AbstractAction {
 
     @Override
     public void applyAction(Context context) {
-        List<EntityInstance> neighbors;
-        EntityInstance applyOn = context.getEntityInstance();
-        Optional<EntityInstance> neighbour;
+        String targetEntityName = targetEntity.getName();
+        int radius = evaluateExpressionAsInteger(context);
 
-        //neighbors = applyOn.getNearbyEntities(evaluateExpressionAsInteger(context));
-        neighbour = neighbors
+        context.getEntityInstance()
+                .getNearbyEntities(radius)
                 .stream()
-                .filter(entity -> entity.getName().equals(targetEntity.getName()))
-                .findFirst();
-        //actions.forEach(action -> action.invoke(new ContextImpl()));
+                .filter(entity -> entity.getName().equals(targetEntityName))
+                .findFirst()
+                .ifPresent(matchedEntity -> actions.forEach(action -> {
+                    Context duplicatedContext = context.duplicateContextWithEntityInstance(matchedEntity);
+                    action.invoke(duplicatedContext);
+                }));
     }
+
 
     @Override
     public Map<String, String> getArguments() {
