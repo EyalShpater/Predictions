@@ -14,7 +14,7 @@ public class KillAction extends AbstractAction implements Serializable {
         super(entity, ActionType.KILL);
     }
 
-    public KillAction(EntityDefinition mainEntity, SecondaryEntity secondaryEntity, int populationCount) {
+    public KillAction(EntityDefinition mainEntity, SecondaryEntity secondaryEntity) {
         super(mainEntity, secondaryEntity, ActionType.KILL);
     }
 

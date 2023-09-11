@@ -27,7 +27,6 @@ public abstract class MultipleCondition implements Condition , Serializable {
         if (condition == null) {
             throw new NullPointerException();
         }
-
         conditions.add(condition);
     }
 

@@ -11,9 +11,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="27d35137-667f-4e37-a519-ab836acc0a06" name="Changes" comment="implemented grid neighbour function">
+    <list default="true" id="27d35137-667f-4e37-a519-ab836acc0a06" name="Changes" comment="finished xml validation">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/grid/SphereSpaceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/grid/SphereSpaceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/action/impl/KillAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/action/impl/KillAction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/action/impl/Proximity.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/action/impl/Proximity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/action/impl/condition/impl/multiple/MultipleCondition.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/action/impl/condition/impl/multiple/MultipleCondition.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/execution/simulation/xml/reader/impl/ActionReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/execution/simulation/xml/reader/impl/ActionReader.java" afterDir="false" />
     </list>
     <list id="2652661e-ea84-47b9-b217-8fc39a5a7c8a" name="Changes by ASUS" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -274,14 +277,7 @@
       <workItem from="1694254442123" duration="16346000" />
       <workItem from="1694315233531" duration="13724000" />
       <workItem from="1694330441189" duration="28414000" />
-      <workItem from="1694408417392" duration="10450000" />
-    </task>
-    <task id="LOCAL-00053" summary="added xml logic">
-      <created>1692124813678</created>
-      <option name="number" value="00053" />
-      <option name="presentableId" value="LOCAL-00053" />
-      <option name="project" value="LOCAL" />
-      <updated>1692124813678</updated>
+      <workItem from="1694408417392" duration="16625000" />
     </task>
     <task id="LOCAL-00054" summary="latest">
       <created>1692127005802</created>
@@ -303,6 +299,14 @@
       <option name="presentableId" value="LOCAL-00056" />
       <option name="project" value="LOCAL" />
       <updated>1692168153217</updated>
+    </task>
+    <task id="LOCAL‎-00069" summary="pretty good">
+      <option name="closed" value="true" />
+      <created>1692300131304</created>
+      <option name="number" value="00069" />
+      <option name="presentableId" value="LOCAL‎-00069" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1692300131304</updated>
     </task>
     <task id="LOCAL-00070" summary="read everything to world except rule">
       <created>1692356632414</created>
@@ -643,13 +647,12 @@
       <option name="project" value="LOCAL" />
       <updated>1694365533331</updated>
     </task>
-    <task id="LOCAL‎-00114" summary="implemented grid neighbour function">
-      <option name="closed" value="true" />
-      <created>1694435079543</created>
+    <task id="LOCAL-00114" summary="finished xml validation">
+      <created>1694423501464</created>
       <option name="number" value="00114" />
-      <option name="presentableId" value="LOCAL‎-00114" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1694435079544</updated>
+      <option name="presentableId" value="LOCAL-00114" />
+      <option name="project" value="LOCAL" />
+      <updated>1694423501464</updated>
     </task>
     <option name="localTasksCounter" value="115" />
     <servers />
@@ -706,8 +709,8 @@
     <MESSAGE value="fixed the xml part to fit the new generated files including the imports" />
     <MESSAGE value="finished name validation" />
     <MESSAGE value="almost finished xml validation only condition property validation left" />
-    <MESSAGE value="implemented grid neighbour function" />
-    <option name="LAST_COMMIT_MESSAGE" value="implemented grid neighbour function" />
+    <MESSAGE value="finished xml validation" />
+    <option name="LAST_COMMIT_MESSAGE" value="finished xml validation" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
@@ -727,16 +730,6 @@
           <line>140</line>
           <option name="timeStamp" value="43" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/Logic/src/execution/simulation/xml/validation/XmlValidator.java</url>
-          <line>49</line>
-          <option name="timeStamp" value="105" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/Logic/src/execution/simulation/xml/validation/XmlValidator.java</url>
-          <line>345</line>
-          <option name="timeStamp" value="106" />
-        </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/GUI/src/javafx/tab/newExecution/environmentVariable/StringEnvironmentVariableController.java</url>
           <line>60</line>
@@ -752,10 +745,10 @@
       <pinned-members>
         <PinnedItemInfo parentTag="resources.generated.PRDAction" memberName="prdDivide" />
         <PinnedItemInfo parentTag="execution.simulation.impl.SimulationImpl" memberName="entities" />
+        <PinnedItemInfo parentTag="rule.impl.RuleImpl" memberName="name" />
         <PinnedItemInfo parentTag="definition.entity.impl.EntityDefinitionImpl" memberName="population" />
         <PinnedItemInfo parentTag="java.lang.Integer" memberName="value" />
         <PinnedItemInfo parentTag="rule.impl.RuleImpl" memberName="activation" />
-        <PinnedItemInfo parentTag="grid.SphereSpaceImpl" memberName="emptyCells" />
         <PinnedItemInfo parentTag="resources.generated.PRDRules" memberName="prdRule" />
         <PinnedItemInfo parentTag="resources.generated.PRDAction" memberName="entity" />
         <PinnedItemInfo parentTag="definition.entity.impl.EntityDefinitionImpl" memberName="name" />
