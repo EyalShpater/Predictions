@@ -11,10 +11,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="27d35137-667f-4e37-a519-ab836acc0a06" name="Changes" comment="almost finished xml validation only condition property validation left">
+    <list default="true" id="27d35137-667f-4e37-a519-ab836acc0a06" name="Changes" comment="implemented grid neighbour function">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/execution/simulation/xml/validation/XmlValidator.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/execution/simulation/xml/validation/XmlValidator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/resources/xml/ex2/master-ex2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/resources/xml/ex2/master-ex2.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/grid/SphereSpaceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/grid/SphereSpaceImpl.java" afterDir="false" />
     </list>
     <list id="2652661e-ea84-47b9-b217-8fc39a5a7c8a" name="Changes by ASUS" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -304,14 +303,6 @@
       <option name="presentableId" value="LOCAL-00056" />
       <option name="project" value="LOCAL" />
       <updated>1692168153217</updated>
-    </task>
-    <task id="LOCAL‎-00069" summary="pretty good">
-      <option name="closed" value="true" />
-      <created>1692300131304</created>
-      <option name="number" value="00069" />
-      <option name="presentableId" value="LOCAL‎-00069" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1692300131304</updated>
     </task>
     <task id="LOCAL-00070" summary="read everything to world except rule">
       <created>1692356632414</created>
@@ -652,7 +643,15 @@
       <option name="project" value="LOCAL" />
       <updated>1694365533331</updated>
     </task>
-    <option name="localTasksCounter" value="114" />
+    <task id="LOCAL‎-00114" summary="implemented grid neighbour function">
+      <option name="closed" value="true" />
+      <created>1694435079543</created>
+      <option name="number" value="00114" />
+      <option name="presentableId" value="LOCAL‎-00114" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1694435079544</updated>
+    </task>
+    <option name="localTasksCounter" value="115" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -683,7 +682,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="version 1:1." />
     <MESSAGE value="init GUI branch" />
     <MESSAGE value="with shavit's GUI" />
     <MESSAGE value="details window POC" />
@@ -708,7 +706,8 @@
     <MESSAGE value="fixed the xml part to fit the new generated files including the imports" />
     <MESSAGE value="finished name validation" />
     <MESSAGE value="almost finished xml validation only condition property validation left" />
-    <option name="LAST_COMMIT_MESSAGE" value="almost finished xml validation only condition property validation left" />
+    <MESSAGE value="implemented grid neighbour function" />
+    <option name="LAST_COMMIT_MESSAGE" value="implemented grid neighbour function" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
@@ -756,6 +755,7 @@
         <PinnedItemInfo parentTag="definition.entity.impl.EntityDefinitionImpl" memberName="population" />
         <PinnedItemInfo parentTag="java.lang.Integer" memberName="value" />
         <PinnedItemInfo parentTag="rule.impl.RuleImpl" memberName="activation" />
+        <PinnedItemInfo parentTag="grid.SphereSpaceImpl" memberName="emptyCells" />
         <PinnedItemInfo parentTag="resources.generated.PRDRules" memberName="prdRule" />
         <PinnedItemInfo parentTag="resources.generated.PRDAction" memberName="entity" />
         <PinnedItemInfo parentTag="definition.entity.impl.EntityDefinitionImpl" memberName="name" />
