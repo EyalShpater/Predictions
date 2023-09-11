@@ -7,6 +7,7 @@ import definition.entity.api.EntityDefinition;
 import instance.entity.api.EntityInstance;
 
 public class SecondaryEntityImpl implements SecondaryEntity {
+
     EntityDefinition secondEntity;
 
     Condition condition;
