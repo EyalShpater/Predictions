@@ -37,22 +37,22 @@ public class DecreaseAction extends AbstractAction implements Serializable {
         EntityInstance invokeOn = context.getEntityInstance();
         PropertyInstance propertyToUpdate = invokeOn.getPropertyByName(propertyName);
         Expression expression = new ExpressionFactory(byExpression, invokeOn);
-        Object increaseBy = expression.getValue(context);
+        Object decreaseBy = expression.getValue(context);
 
         if (propertyToUpdate.getPropertyDefinition().isNumeric()) {
             if (propertyToUpdate.getPropertyDefinition().isInteger()) {
-                decreaseInteger(propertyToUpdate, increaseBy);
+                decreaseInteger(propertyToUpdate, decreaseBy);
             } else {
-                decreaseDouble(propertyToUpdate, increaseBy);
+                decreaseDouble(propertyToUpdate, decreaseBy);
             }
         } else {
-            throw new IllegalArgumentException("Increase action only available  on numeric type!");
+            throw new IllegalArgumentException("Decrease action only available  on numeric type!");
         }
     }
 
     private void decreaseInteger(PropertyInstance propertyToUpdate, Object decreaseBy) {
         if (!(decreaseBy instanceof Integer)) {
-            throw new IllegalArgumentException("Increase on integer number can get only another integer.");
+            throw new IllegalArgumentException("Decrease on integer number can get only another integer.");
         }
         Integer propertyValue = (Integer) propertyToUpdate.getValue();
         Integer result = propertyValue - (Integer) decreaseBy;
@@ -68,7 +68,7 @@ public class DecreaseAction extends AbstractAction implements Serializable {
             Double result = propertyValue - res;
             checkRangeAndUpdateNumericValue(propertyToUpdate, result);
         } else {
-            throw new IllegalArgumentException("Increase can get only numeric values.");
+            throw new IllegalArgumentException("Decrease can get only numeric values.");
         }
     }
 
