@@ -116,7 +116,9 @@ public class WorldImpl implements World  , Serializable {
                 rules.stream()
                         .map(DTOConvertible::convertToDTO)
                         .collect(Collectors.toList()),
-                terminate.convertToDTO()
+                terminate.convertToDTO(),
+                gridRows,
+                gridCols
         );
     }
 
