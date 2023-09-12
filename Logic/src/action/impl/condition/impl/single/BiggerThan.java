@@ -3,12 +3,13 @@ package action.impl.condition.impl.single;
 import action.context.api.Context;
 import action.expression.api.Expression;
 import action.expression.impl.ExpressionFactory;
+import definition.entity.api.EntityDefinition;
 
 import java.io.Serializable;
 
 public class BiggerThan extends SingleCondition implements Serializable {
-    public BiggerThan( String expression1, String expression2) {
-        super(expression1, expression2);
+    public BiggerThan(String expression1, String expression2, EntityDefinition contextConditionEntity) {
+        super(expression1, expression2, contextConditionEntity);
     }
 
     @Override

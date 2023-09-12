@@ -151,13 +151,13 @@ public class ActionReader {
     private SingleCondition createSingleCondition(PRDCondition condition){
         switch (condition.getOperator()) {
             case "bt":
-                return new BiggerThan(condition.getProperty(), condition.getValue());
+                return new BiggerThan(condition.getProperty(), condition.getValue(), world.getEntityByName(condition.getEntity()));
             case "=":
-                return new Equal(condition.getProperty(), condition.getValue());
+                return new Equal(condition.getProperty(), condition.getValue(), world.getEntityByName(condition.getEntity()));
             case "lt":
-                return new LowerThan(condition.getProperty(), condition.getValue());
+                return new LowerThan(condition.getProperty(), condition.getValue(), world.getEntityByName(condition.getEntity()));
             case "!=":
-                return new NotEqual(condition.getProperty(), condition.getValue());
+                return new NotEqual(condition.getProperty(), condition.getValue(), world.getEntityByName(condition.getEntity()));
         }
         return null;
     }
@@ -168,16 +168,16 @@ public class ActionReader {
         Action action = null;
         switch (condition.getOperator()) {
             case "bt":
-                action = createActionFromSingleTypeAction(prdAction, new BiggerThan(condition.getProperty(), condition.getValue()), entityOfAction, "bt");
+                action = createActionFromSingleTypeAction(prdAction, new BiggerThan(condition.getProperty(), condition.getValue(), world.getEntityByName(condition.getEntity())), entityOfAction, "bt");
                 break;
             case "=":
-                action = createActionFromSingleTypeAction(prdAction, new Equal(condition.getProperty(), condition.getValue()), entityOfAction, "=");
+                action = createActionFromSingleTypeAction(prdAction, new Equal(condition.getProperty(), condition.getValue(), world.getEntityByName(condition.getEntity())), entityOfAction, "=");
                 break;
             case "lt":
-                action = createActionFromSingleTypeAction(prdAction, new LowerThan(condition.getProperty(), condition.getValue()), entityOfAction, "lt");
+                action = createActionFromSingleTypeAction(prdAction, new LowerThan(condition.getProperty(), condition.getValue(), world.getEntityByName(condition.getEntity())), entityOfAction, "lt");
                 break;
             case "!=":
-                action = createActionFromSingleTypeAction(prdAction, new NotEqual(condition.getProperty(), condition.getValue()), entityOfAction, "!=");
+                action = createActionFromSingleTypeAction(prdAction, new NotEqual(condition.getProperty(), condition.getValue(), world.getEntityByName(condition.getEntity())), entityOfAction, "!=");
                 break;
         }
         return action;
@@ -329,16 +329,16 @@ public class ActionReader {
         Condition conditionForSecondEntity = null;
         switch (condition.getOperator()) {
             case "bt":
-                conditionForSecondEntity = createConditionFromSingle(condition, new BiggerThan(condition.getProperty(), condition.getValue()), entityOfAction, "bt");
+                conditionForSecondEntity = createConditionFromSingle(condition, new BiggerThan(condition.getProperty(), condition.getValue(), world.getEntityByName(condition.getEntity())), entityOfAction, "bt");
                 break;
             case "=":
-                conditionForSecondEntity = createConditionFromSingle(condition, new Equal(condition.getProperty(), condition.getValue()), entityOfAction, "=");
+                conditionForSecondEntity = createConditionFromSingle(condition, new Equal(condition.getProperty(), condition.getValue(), world.getEntityByName(condition.getEntity())), entityOfAction, "=");
                 break;
             case "lt":
-                conditionForSecondEntity = createConditionFromSingle(condition, new LowerThan(condition.getProperty(), condition.getValue()), entityOfAction, "lt");
+                conditionForSecondEntity = createConditionFromSingle(condition, new LowerThan(condition.getProperty(), condition.getValue(), world.getEntityByName(condition.getEntity())), entityOfAction, "lt");
                 break;
             case "!=":
-                conditionForSecondEntity = createConditionFromSingle(condition, new NotEqual(condition.getProperty(), condition.getValue()), entityOfAction, "!=");
+                conditionForSecondEntity = createConditionFromSingle(condition, new NotEqual(condition.getProperty(), condition.getValue(), world.getEntityByName(condition.getEntity())), entityOfAction, "!=");
                 break;
         }
         return conditionForSecondEntity;

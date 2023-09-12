@@ -3,12 +3,13 @@ package action.impl.condition.impl.single;
 import action.context.api.Context;
 import action.expression.api.Expression;
 import action.expression.impl.ExpressionFactory;
+import definition.entity.api.EntityDefinition;
 
 import java.io.Serializable;
 
 public class NotEqual extends SingleCondition implements Serializable {
-    public NotEqual(String expression1, String expression2) {
-        super(expression1, expression2);
+    public NotEqual(String expression1, String expression2, EntityDefinition contextConditionEntity) {
+        super(expression1, expression2, contextConditionEntity);
     }
 
     @Override

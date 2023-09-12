@@ -22,7 +22,7 @@ public class Evaluate implements HelperFunction {
         if (context.isEntityRelatedToAction(entityName)) {
             return context.getPropertyOfEntity(entityName, propertyName);
         } else {
-            throw new IllegalArgumentException("Somthing went wrong in evaluate function");
+            throw new IllegalArgumentException("Something went wrong in evaluate function");
         }
     }
 }
