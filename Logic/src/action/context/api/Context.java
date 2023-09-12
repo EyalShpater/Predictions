@@ -1,6 +1,5 @@
 package action.context.api;
 
-import action.expression.api.Expression;
 import action.second.entity.SecondaryEntity;
 import instance.entity.api.EntityInstance;
 import instance.property.api.PropertyInstance;
@@ -20,7 +19,7 @@ public interface Context {
 
     boolean isEntityRelatedToAction(String entityName);
 
-    Object getPropertyOfEntity(String entityName, String propertyName);
+    Object getPropertyValueOfEntity(String entityName, String propertyName);
 
     void setSecondaryEntity(EntityInstance secondaryEntityInstance);
 

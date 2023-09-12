@@ -2,8 +2,6 @@ package action.helper.function.impl;
 
 import action.context.api.Context;
 import action.helper.function.api.HelperFunction;
-import definition.entity.api.EntityDefinition;
-import instance.entity.api.EntityInstance;
 
 public class Evaluate implements HelperFunction {
 
@@ -20,9 +18,9 @@ public class Evaluate implements HelperFunction {
     @Override
     public Object getValue() {
         if (context.isEntityRelatedToAction(entityName)) {
-            return context.getPropertyOfEntity(entityName, propertyName);
+            return context.getPropertyValueOfEntity(entityName, propertyName);
         } else {
-            throw new IllegalArgumentException("Something went wrong in evaluate function");
+            throw new IllegalArgumentException("Something went wrong in evaluate function " + entityName + propertyName);
         }
     }
 }

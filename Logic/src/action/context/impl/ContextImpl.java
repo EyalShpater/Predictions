@@ -69,12 +69,12 @@ public class ContextImpl implements Context, Serializable {
     }
 
     @Override
-    public Object getPropertyOfEntity(String entityName, String propertyName) {
+    public Object getPropertyValueOfEntity(String entityName, String propertyName) {
         Object value;
         if (entityName.equals(entityInstance.getName())) {
-            value = entityInstance.getPropertyByName(propertyName);
+            value = entityInstance.getPropertyByName(propertyName).getValue();
         } else if (secondaryEntityInstance != null && entityName.equals(secondaryEntityInstance.getName())) {
-            value = secondaryEntityInstance.getPropertyByName(propertyName);
+            value = secondaryEntityInstance.getPropertyByName(propertyName).getValue();
         } else {
             throw new IllegalArgumentException("No such entity name as: " + entityName);
         }
