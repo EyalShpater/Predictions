@@ -68,8 +68,11 @@ public class ConditionImpl extends AbstractAction implements Condition, Serializ
     private void evaluateConditionSecondaryEntityVersion(Context context) {
         if (!secondaryEntitiesInstances.isEmpty()) {
             for (EntityInstance secondEntityInstance : secondaryEntitiesInstances) {
+                context.setSecondaryEntity(secondEntityInstance);
                 evaluateAcordingToEntityInstance(context, secondEntityInstance);
             }
+        } else {
+            evaluateAcordingToEntityInstance(context, context.getEntityInstance());
         }
 
     }

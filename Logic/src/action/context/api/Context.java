@@ -18,5 +18,10 @@ public interface Context {
 
     List<EntityInstance> getSecondEntityFilteredList(SecondaryEntity secondaryEntity);
 
+    boolean isEntityRelatedToAction(String entityName);
+
+    Object getPropertyOfEntity(String entityName, String propertyName);
+
+    void setSecondaryEntity(EntityInstance secondaryEntityInstance);
 
 }

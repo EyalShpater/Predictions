@@ -19,7 +19,10 @@ public class Evaluate implements HelperFunction {
 
     @Override
     public Object getValue() {
-        //TODO : think about creating a new context type of object that contains Context and secondaryEntity
-        return null;
+        if (context.isEntityRelatedToAction(entityName)) {
+            return context.getPropertyOfEntity(entityName, propertyName);
+        } else {
+            throw new IllegalArgumentException("Somthing went wrong in evaluate function");
+        }
     }
 }

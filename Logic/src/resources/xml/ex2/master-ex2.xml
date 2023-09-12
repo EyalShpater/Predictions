@@ -75,10 +75,12 @@
                 <PRD-action type="condition" entity="ent-1">
                     <PRD-secondary-entity entity="ent-2">
                         <PRD-selection count="4">
-                            <PRD-condition singularity="single" entity="ent-2" property="p1" operator="bt" value="4"/>
+                            <PRD-condition singularity="single" entity="ent-2" property="p2" operator="bt" value="4"/>
                         </PRD-selection>
                     </PRD-secondary-entity>
                     <PRD-condition singularity="multiple" logical="or">
+                        <!-- <PRD-condition singularity="single" entity="ent-1" property="evaluate(ent-2.p2)" operator="bt"
+                                        value="4"/>-->
                         <PRD-condition singularity="single" entity="ent-1" property="ticks(ent-1.p1)" operator="bt"
                                        value="4"/>
                         <PRD-condition singularity="single" entity="ent-2" property="p2" operator="lt" value="3"/>
