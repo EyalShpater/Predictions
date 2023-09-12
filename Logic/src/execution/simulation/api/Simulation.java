@@ -15,6 +15,12 @@ public interface Simulation extends DTOConvertible<SimulationDTO> {
 
     void run();
 
+    void pause();
+
+    void stop();
+
+    void resume();
+
     TerminateCondition getEndReason();
     SimulationDataDTO getResultAsDTO(String entityName, String propertyName);
     World getWorld();

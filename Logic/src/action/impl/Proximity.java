@@ -40,6 +40,7 @@ public class Proximity extends AbstractAction {
                 .findFirst()
                 .ifPresent(matchedEntity -> actions.forEach(action -> {
                     Context duplicatedContext = context.duplicateContextWithEntityInstance(matchedEntity);
+                    duplicatedContext.setSecondaryEntity((context.getEntityInstance()));
                     action.invoke(duplicatedContext);
                 }));
     }

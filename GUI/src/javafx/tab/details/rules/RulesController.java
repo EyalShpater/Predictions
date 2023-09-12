@@ -26,7 +26,6 @@ public class RulesController {
     private IntegerProperty numOfTicks = new SimpleIntegerProperty();
     private DoubleProperty probability = new SimpleDoubleProperty();
 
-
     @FXML
     private void initialize() {
         mainScreen.textProperty().bind(ruleName);

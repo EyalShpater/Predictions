@@ -1,12 +1,16 @@
 package execution.simulation.impl;
 
 import action.context.impl.ContextImpl;
+import com.sun.xml.internal.ws.api.model.wsdl.WSDLOutput;
 import definition.entity.api.EntityDefinition;
+import definition.entity.impl.EntityDefinitionImpl;
+import definition.world.impl.WorldImpl;
 import execution.simulation.api.Simulation;
 import definition.world.api.World;
 import execution.simulation.data.api.SimulationData;
 import execution.simulation.data.impl.SimulationDataImpl;
 import execution.simulation.termination.api.TerminateCondition;
+import execution.simulation.termination.impl.TerminationImpl;
 import grid.SphereSpaceImpl;
 import grid.api.SphereSpace;
 import impl.SimulationDTO;
@@ -19,6 +23,8 @@ import rule.api.Rule;
 
 import java.io.Serializable;
 import java.util.Random;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 public class SimulationImpl implements Simulation , Serializable {
     private final int serialNumber;
@@ -32,7 +38,8 @@ public class SimulationImpl implements Simulation , Serializable {
     private SphereSpace space;
     private long startTime;
     private int tick;
-    private boolean isInterrupted;
+    private boolean userRequestedStop;
+    private boolean userRequestedPause;
 
     public SimulationImpl(World world, int serialNumber) {
         this.world = world;
@@ -44,7 +51,6 @@ public class SimulationImpl implements Simulation , Serializable {
         this.startTime = 0;
         this.space = new SphereSpaceImpl(world.getGridRows(), world.getGridCols());
         this.tick = 0;
-        this.isInterrupted = false;
     }
 
     @Override
@@ -53,27 +59,32 @@ public class SimulationImpl implements Simulation , Serializable {
     }
 
     @Override
-    public void run() {
+    public synchronized void run() {
         System.out.println("start simulation " + serialNumber);
+
+        long startPauseTime;
+        long endPauseTime;
         startTime = System.currentTimeMillis();
 
         initEntities();
         initEnvironmentVariables();
         tick = 1;
 
-        while ((endReason = world.isActive(tick, startTime, isInterrupted)) == null) {
+        while ((endReason = world.isActive(tick, startTime, userRequestedStop)) == null) {
             entities.moveAllEntitiesInSpace(space);
             executeRules(tick);
             tick++;
 
-            if (Thread.currentThread().isInterrupted()) {
-                isInterrupted = true;
+            boolean print = false;
+
+            startPauseTime = endPauseTime = System.currentTimeMillis();
+            while (userRequestedPause && !userRequestedStop) {
+                endPauseTime = System.currentTimeMillis();
+                print = true;
             }
 
-            try {
-                Thread.sleep(1500);
-            } catch (InterruptedException e) {
-                throw new RuntimeException(e);
+            if (print) {
+                System.out.println("waited for " + (endPauseTime - startPauseTime) + " seconds");
             }
         }
 
@@ -156,4 +167,63 @@ public class SimulationImpl implements Simulation , Serializable {
         return new SimulationDTO(startTime, serialNumber, world.convertToDTO());
     }
 
+    @Override
+    public void pause() {
+        System.out.println("pause");
+        userRequestedPause = true;
+    }
+
+    @Override
+    public void stop() {
+        userRequestedStop = true;
+        System.out.println("stop");
+    }
+
+    @Override
+    public void resume() {
+        userRequestedPause = false;
+        System.out.println("resuming");
+    }
+
+    //todo: only for debug, need to delete!
+    public static void main(String[] args) {
+        World world = new WorldImpl();
+        ExecutorService pool = Executors.newFixedThreadPool(3);
+
+        world.setGridRows(100);
+        world.setGridCols(100);
+        world.setThreadPoolSize(3);
+        world.setTermination(new TerminationImpl());
+        world.addEntity(new EntityDefinitionImpl("ent-1", 50));
+
+        SimulationImpl simulation = new SimulationImpl(world, 1);
+
+        pool.execute(simulation::run);
+
+        try {
+            Thread.sleep(3000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+
+
+        simulation.pause();
+
+        try {
+            Thread.sleep(5000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+
+        simulation.resume();
+
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+
+        simulation.stop();
+
+    }
 }
