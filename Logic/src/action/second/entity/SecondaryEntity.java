@@ -6,7 +6,7 @@ import instance.entity.api.EntityInstance;
 
 public interface SecondaryEntity {
 
-    EntityDefinition getSecondEntity();
+    EntityDefinition getSecondaryEntity();
 
     String getInstancesCount();
 

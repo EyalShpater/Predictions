@@ -17,12 +17,12 @@ import java.util.List;
 import java.util.Map;
 
 public class ConditionImpl extends AbstractAction implements Condition, Serializable {
-    private final MultipleCondition condition; // todo: think to change it to Condition instead of MultipleCondition
+    private final Condition condition;
     List<Action> then;
     List<Action> notTrue;
     private final String logical;
 
-    public ConditionImpl(MultipleCondition condition, String logical, EntityDefinition entity) {
+    public ConditionImpl(Condition condition, String logical, EntityDefinition entity) {
         super(entity, ActionType.CONDITION);
         this.condition = condition;
         this.logical = logical;
@@ -30,7 +30,7 @@ public class ConditionImpl extends AbstractAction implements Condition, Serializ
         this.notTrue = new ArrayList<>();
     }
 
-    public ConditionImpl(MultipleCondition condition, String logical, EntityDefinition mainEntity, SecondaryEntity secondaryEntity) {
+    public ConditionImpl(Condition condition, String logical, EntityDefinition mainEntity, SecondaryEntity secondaryEntity) {
         super(mainEntity, secondaryEntity, ActionType.CONDITION);
         this.condition = condition;
         this.logical = logical;
@@ -59,25 +59,21 @@ public class ConditionImpl extends AbstractAction implements Condition, Serializ
         if (isSecondaryEntityExist()) {
             evaluateConditionSecondaryEntityVersion(context);
         } else {
-            evaluateAcordingToEntityInstance(context, context.getEntityInstance());
+            evaluateAccordingToEntityInstance(context, context.getEntityInstance());
         }
 
     }
-
 
     private void evaluateConditionSecondaryEntityVersion(Context context) {
         if (!secondaryEntitiesInstances.isEmpty()) {
             for (EntityInstance secondEntityInstance : secondaryEntitiesInstances) {
-                context.setSecondaryEntity(secondEntityInstance);
-                evaluateAcordingToEntityInstance(context, secondEntityInstance);
+                evaluateAccordingToEntityInstance(context, secondEntityInstance);
             }
-        } else {
-            evaluateAcordingToEntityInstance(context, context.getEntityInstance());
         }
 
     }
 
-    private void evaluateAcordingToEntityInstance(Context context, EntityInstance entityInstance) {
+    private void evaluateAccordingToEntityInstance(Context context, EntityInstance entityInstance) {
         if (evaluate(context, entityInstance)) {
             then.forEach(action -> action.invoke(context));
         } else if (notTrue != null) {
@@ -97,15 +93,28 @@ public class ConditionImpl extends AbstractAction implements Condition, Serializ
 
     @Override
     public Map<String, String> getArguments() {
-        Map<String, String> attributes = new LinkedHashMap<>();
-        Condition singleCondition = condition.isSingleCondition();
+        return condition.getArguments();
+    }
 
-        if (singleCondition != null) {
-            attributes = singleCondition.getArguments();
-        } else {
-            attributes = condition.getArguments();
+    @Override
+    public Map<String, String> getAdditionalInformation() {
+        Map<String, String> info = new LinkedHashMap<>();
+
+        if (condition.getAdditionalInformation() != null) {
+            info.putAll(condition.getAdditionalInformation());
         }
 
-        return attributes;
+        info.put("num of actions in then", String.valueOf(then.size()));
+        if (!notTrue.isEmpty()) {
+            info.put("num of conditions in else", String.valueOf(notTrue.size()));
+        }
+
+        return info;
+    }
+
+
+    @Override
+    public boolean isSingleCondition() {
+        return condition.isSingleCondition();
     }
 }

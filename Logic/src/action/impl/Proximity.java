@@ -11,10 +11,7 @@ import definition.entity.api.EntityDefinition;
 import impl.ActionDTO;
 import instance.entity.api.EntityInstance;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-import java.util.Optional;
+import java.util.*;
 
 public class Proximity extends AbstractAction {
     private final EntityDefinition sourceEntity;
@@ -50,7 +47,22 @@ public class Proximity extends AbstractAction {
 
     @Override
     public Map<String, String> getArguments() {
-        return null;
+        Map<String, String> arguments = new LinkedHashMap<>();
+
+        arguments.put("source-entity", sourceEntity.getName());
+        arguments.put("target-entity", targetEntity.getName());
+        arguments.put("of", ofExpression);
+
+        return arguments;
+    }
+
+    @Override
+    public Map<String, String> getAdditionalInformation() {
+        Map<String, String> info = new LinkedHashMap<>();
+
+        info.put("num of actions", String.valueOf(actions.size()));
+
+        return info;
     }
 
     public void addAction(Action newAction) {

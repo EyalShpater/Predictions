@@ -56,4 +56,14 @@ public abstract class SingleCondition implements Condition, Serializable {
 
         return arguments;
     }
+
+    @Override
+    public Map<String, String> getAdditionalInformation() {
+        return null;
+    }
+
+    @Override
+    public boolean isSingleCondition() {
+        return true;
+    }
 }

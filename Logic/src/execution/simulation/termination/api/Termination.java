@@ -4,7 +4,7 @@ import api.DTOConvertible;
 import impl.TerminationDTO;
 
 public interface Termination extends DTOConvertible<TerminationDTO> {
-    TerminateCondition isTerminate(int currentTick, long startTimeInMillis);
+    TerminateCondition isTerminate(int currentTick, long startTimeInMillis, boolean userRequestedStop);
     boolean isTerminateBySeconds();
     boolean isTerminateByTicks();
 }

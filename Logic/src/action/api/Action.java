@@ -12,10 +12,6 @@ import java.util.List;
 import java.util.Map;
 
 public interface Action extends DTOConvertible<ActionDTO> {
-    //EntityDefinition applyOn();
-
-    //EntityDefinition getSecondaryEntityInstanceForAction();
-
     ActionType getType();
 
     String getName();
@@ -24,8 +20,5 @@ public interface Action extends DTOConvertible<ActionDTO> {
 
     Map<String, String> getArguments();
 
-    //SecondaryEntity getSecondaryEntityForAction();
-
-    //Boolean isSecondaryEntityExist();
-
+    Map<String, String> getAdditionalInformation();
 }

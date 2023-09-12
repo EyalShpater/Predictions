@@ -32,6 +32,7 @@ public class SimulationImpl implements Simulation , Serializable {
     private SphereSpace space;
     private long startTime;
     private int tick;
+    private boolean isInterrupted;
 
     public SimulationImpl(World world, int serialNumber) {
         this.world = world;
@@ -43,6 +44,7 @@ public class SimulationImpl implements Simulation , Serializable {
         this.startTime = 0;
         this.space = new SphereSpaceImpl(world.getGridRows(), world.getGridCols());
         this.tick = 0;
+        this.isInterrupted = false;
     }
 
     @Override
@@ -59,10 +61,14 @@ public class SimulationImpl implements Simulation , Serializable {
         initEnvironmentVariables();
         tick = 1;
 
-        while ((endReason = world.isActive(tick, startTime)) == null) {
+        while ((endReason = world.isActive(tick, startTime, isInterrupted)) == null) {
             entities.moveAllEntitiesInSpace(space);
             executeRules(tick);
             tick++;
+
+            if (Thread.currentThread().isInterrupted()) {
+                isInterrupted = true;
+            }
 
             try {
                 Thread.sleep(1500);

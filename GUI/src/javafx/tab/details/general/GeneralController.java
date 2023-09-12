@@ -17,6 +17,8 @@ public class GeneralController {
     private Label gridColumnNumberLabel;
     @FXML
     private Label gridRowsNumberLabel;
+    @FXML
+    private Label terminateByUserLabel;
 
     private StringProperty numOfTicks = new SimpleStringProperty();
     private StringProperty numOfSeconds = new SimpleStringProperty();
@@ -31,6 +33,7 @@ public class GeneralController {
         secondsNumberLabel.textProperty().bind(numOfSeconds);
         gridColumnNumberLabel.textProperty().bind(numOfCols);
         gridRowsNumberLabel.textProperty().bind(numOfRows);
+        terminateByUserLabel.visibleProperty().bind(numOfTicks.isEmpty().and(numOfSeconds.isEmpty()));
     }
 
     public void setPropertiesFromEngine() {
@@ -59,9 +62,8 @@ public class GeneralController {
                                 .getSecondsToTerminate()) :
                         "");
 
-        //todo: when update to version 2
-        numOfCols.set("");
-        numOfRows.set("");
+        numOfCols.set(String.valueOf(engine.getLoadedSimulationDetails().getGridNumOfCols()));
+        numOfRows.set(String.valueOf(engine.getLoadedSimulationDetails().getGridNumOfRows()));
     }
 
     public void setEngine(PredictionsLogic engine) {

@@ -61,6 +61,7 @@ public class EntityInstanceImpl implements EntityInstance, Serializable {
 
     @Override
     public void kill(){
+        space.removeEntityFromSpace(this);
         this.isAlive = false;
     }
 

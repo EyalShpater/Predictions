@@ -45,7 +45,7 @@ public class ContextImpl implements Context, Serializable {
     @Override
     public List<EntityInstance> getSecondEntityFilteredList(SecondaryEntity secondaryEntity) {
 
-        String secondEntityName = secondaryEntity.getSecondEntity().getName();
+        String secondEntityName = secondaryEntity.getSecondaryEntity().getName();
         String secondEntityCount = secondaryEntity.getInstancesCount();
 
         List<EntityInstance> filteredSecondaryEntities = getInstancesWithName(secondEntityName);

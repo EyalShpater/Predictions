@@ -22,14 +22,14 @@ public class MultiplyAction extends AbstractAction implements Serializable {
     private final String arg2;
 
     public MultiplyAction(EntityDefinition entity, String propertyName, String arg1, String arg2) {
-        super(entity, ActionType.CALCULATION);
+        super(entity, ActionType.MULTIPLE);
         this.propertyName = propertyName;
         this.arg1 = arg1;
         this.arg2 = arg2;
     }
 
     public MultiplyAction(EntityDefinition mainEntity, SecondaryEntity secondaryEntity, String propertyName, String arg1, String arg2) {
-        super(mainEntity, secondaryEntity, ActionType.CALCULATION);
+        super(mainEntity, secondaryEntity, ActionType.MULTIPLE);
         this.propertyName = propertyName;
         this.arg1 = arg1;
         this.arg2 = arg2;
@@ -112,5 +112,10 @@ public class MultiplyAction extends AbstractAction implements Serializable {
         arguments.put("arg2", arg2);
 
         return arguments;
+    }
+
+    @Override
+    public Map<String, String> getAdditionalInformation() {
+        return null;
     }
 }

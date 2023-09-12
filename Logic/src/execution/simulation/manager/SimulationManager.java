@@ -47,6 +47,14 @@ public class SimulationManager implements Serializable {
         simulations.put(simulation.getSerialNumber(), simulation);
 //        dto = createRunDetailDTO(stopReason, simulation.getSerialNumber());
 //        return dto;
+
+        if (serialNumber - 1 == 3) {
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
+        }
     }
 
     public List<SimulationDTO> getAllSimulationsDTO() {
