@@ -20,10 +20,10 @@ public class KillAction extends AbstractAction implements Serializable {
 
     @Override
     public void apply(Context context) {
-        context.removeEntity(context.getEntityInstance());
+        context.getEntityInstance().kill();
+        ;
     }
 
-    //todo: what to do with that
     @Override
     public Map<String, String> getArguments() {
         return null;

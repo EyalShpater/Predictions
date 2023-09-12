@@ -45,6 +45,7 @@ public class RulesController {
         rule.getActionsDTO().forEach(this::addActionToTreeView);
     }
 
+    //todo: split to sub methods
     private void addActionToTreeView(ActionDTO action) {
         TreeItem<String> typeRoot = new TreeItem<>(action.getType().toLowerCase());
 
@@ -61,11 +62,14 @@ public class RulesController {
                     );
         }
 
-        TreeItem<String> arguments = new TreeItem<>("Arguments");
-        action.getArguments().forEach((key, value) -> {
-            arguments.getChildren().add(new TreeItem<>(key + ": " + value));
-        });
-        typeRoot.getChildren().add(arguments);
+        if (action.getArguments() != null) {
+            TreeItem<String> arguments = new TreeItem<>("Arguments");
+            action.getArguments().forEach((key, value) -> {
+                arguments.getChildren().add(new TreeItem<>(key + ": " + value));
+            });
+
+            typeRoot.getChildren().add(arguments);
+        }
 
         actionsTreeView.getRoot().getChildren().add(typeRoot);
     }
