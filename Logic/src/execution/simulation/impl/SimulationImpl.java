@@ -2,7 +2,6 @@ package execution.simulation.impl;
 
 import action.api.Action;
 import action.context.impl.ContextImpl;
-import action.second.entity.SecondaryEntity;
 import definition.entity.api.EntityDefinition;
 import definition.entity.impl.EntityDefinitionImpl;
 import definition.world.impl.WorldImpl;
@@ -20,7 +19,6 @@ import instance.entity.api.EntityInstance;
 import instance.entity.manager.api.EntityInstanceManager;
 import instance.entity.manager.impl.EntityInstanceManagerImpl;
 import instance.enviornment.api.ActiveEnvironment;
-import rule.api.Rule;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -28,6 +26,7 @@ import java.util.List;
 import java.util.Random;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.concurrent.TimeUnit;
 import java.util.stream.Collectors;
 
 public class SimulationImpl implements Simulation , Serializable {
@@ -41,7 +40,7 @@ public class SimulationImpl implements Simulation , Serializable {
     private TerminateCondition endReason;
     private SphereSpace space;
     private long startTime;
-    private long timeOfActive;
+    private long pauseDuration;
     private int tick;
     private boolean isStop;
     private boolean isPause;
@@ -54,7 +53,7 @@ public class SimulationImpl implements Simulation , Serializable {
         this.environmentVariables = null;
         this.data = null;
         this.startTime = 0;
-        this.timeOfActive = 0;
+        this.pauseDuration = 0;
         this.space = new SphereSpaceImpl(world.getGridRows(), world.getGridCols());
         this.tick = 0;
     }
@@ -66,20 +65,20 @@ public class SimulationImpl implements Simulation , Serializable {
 
     @Override
     public void run() {
-        timeOfActive = startTime = System.currentTimeMillis();
+        startTime = System.currentTimeMillis();
 
         initEntities();
         initEnvironmentVariables();
         tick = 1;
 
-        while ((endReason = world.isActive(tick, timeOfActive, isStop)) == null) {
+        while ((endReason = world.isActive(tick, startTime, pauseDuration, isStop)) == null) {
             entities.moveAllEntitiesInSpace(space);
             executeRules(tick);
             tick++;
 
             if (isPause) {
-                long pauseDuration = pauseDuringRunning();
-                timeOfActive += pauseDuration;
+                this.pauseDuration += pauseDuringRunning();
+                ;
             }
         }
 
@@ -136,6 +135,7 @@ public class SimulationImpl implements Simulation , Serializable {
     }
 
     private void executeRules(int tick) {
+        // todo: delete
 //        for (EntityInstance entity : entities.getInstances()) {
 //            for (Rule rule : world.getRules()) {
 //                double probability = random.nextDouble();
@@ -167,12 +167,14 @@ public class SimulationImpl implements Simulation , Serializable {
     @Override
     public void pause() {
         isPause = true;
+        System.out.println("pause");
     }
 
     @Override
     public void stop() {
         isStop = true;
         resume();
+        System.out.println("stop");
     }
 
     @Override
@@ -182,6 +184,7 @@ public class SimulationImpl implements Simulation , Serializable {
         synchronized (this) {
             this.notifyAll();
         }
+        System.out.println("resume");
     }
 
     private long pauseDuringRunning() {
@@ -237,5 +240,4 @@ public class SimulationImpl implements Simulation , Serializable {
                 action.invoke(new ContextImpl(entity, secondary, entities, environmentVariables))
         );
     }
-
 }
