@@ -18,6 +18,12 @@ public interface PredictionsLogic {
 
     /*SimulationRunDetailsDTO*/ void runNewSimulation(List<PropertyDefinitionDTO> environmentVariables);
 
+    void pauseSimulationBySerialNumber(int serialNumber);
+
+    void stopSimulationBySerialNumber(int serialNumber);
+
+    void resumeSimulationBySerialNumber(int serialNumber);
+
     List<SimulationDTO> getPreviousSimulationsAsDTO();
 
     SimulationDataDTO getSimulationData(int serialNumber, String entityName, String propertyName);

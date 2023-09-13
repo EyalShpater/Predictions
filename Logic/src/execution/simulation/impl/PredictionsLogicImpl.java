@@ -63,10 +63,26 @@ public class PredictionsLogicImpl implements PredictionsLogic , Serializable {
         return world.convertToDTO();
     }
 
+    //todo: check how to handle using this method as void.
     @Override
     public void runNewSimulation(List<PropertyDefinitionDTO> environmentVariables) {
         /* return */
         allSimulations.runNewSimulation(world, environmentVariables);
+    }
+
+    @Override
+    public void pauseSimulationBySerialNumber(int serialNumber) {
+        allSimulations.getSimulationBySerialNumber(serialNumber).pause();
+    }
+
+    @Override
+    public void stopSimulationBySerialNumber(int serialNumber) {
+        allSimulations.getSimulationBySerialNumber(serialNumber).stop();
+    }
+
+    @Override
+    public void resumeSimulationBySerialNumber(int serialNumber) {
+        allSimulations.getSimulationBySerialNumber(serialNumber).resume();
     }
 
     @Override
