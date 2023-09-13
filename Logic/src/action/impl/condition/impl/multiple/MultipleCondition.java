@@ -19,7 +19,7 @@ public abstract class MultipleCondition implements Condition, Serializable {
     }
 
     @Override
-    public boolean evaluate(Context context, EntityInstance secondEntityInstance) {
+    public Boolean evaluate(Context context, EntityInstance secondEntityInstance) {
         return evaluate(conditions, context, secondEntityInstance);
     }
 

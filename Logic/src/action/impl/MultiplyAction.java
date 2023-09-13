@@ -37,6 +37,15 @@ public class MultiplyAction extends AbstractAction implements Serializable {
 
     @Override
     public void apply(Context context) {
+        if (isSecondaryEntityExist()) {
+            applyMultiplyWithSecondaryEntity(context);
+        } else {
+            applyMultiplyPrimaryEntity(context);
+        }
+
+    }
+
+    private void applyMultiplyPrimaryEntity(Context context) {
         EntityInstance invokeOn = context.getEntityInstance();
         PropertyInstance propertyToUpdate = invokeOn.getPropertyByName(propertyName);
         Expression firstExpression = new ExpressionFactory(this.arg1, invokeOn);
@@ -53,16 +62,32 @@ public class MultiplyAction extends AbstractAction implements Serializable {
         } else {
             throw new IllegalArgumentException("Increase action only available on numeric type!");
         }
-
     }
 
-    private void multiplyInteger(PropertyInstance propertyToUpdate, Object firstExpressionValue , Object secondExpressionValue){
+    private void applyMultiplyWithSecondaryEntity(Context context) {
+        if (isActionWithoutSecondaryEntity()) {
+            applyMultiplyPrimaryEntity(context);
+        } else if (!secondaryEntitiesInstances.isEmpty()) {
+            for (EntityInstance secondEntityInstance : secondaryEntitiesInstances) {
+                context.setSecondaryEntity(secondEntityInstance);
+                applyMultiplyPrimaryEntity(context);
+            }
+        } else {
+            //IF ACTION IS NOT IN CONTEXT THIS WILL THROW EXCEPTION THAT WILL BE CAUGHT HERE AND WONT BE EXECUTED
+            try {
+                applyMultiplyPrimaryEntity(context);
+            } catch (IllegalArgumentException ignored) {
+            }
+        }
+    }
 
-        if (!(areBothIntegers(firstExpressionValue,secondExpressionValue ))){
+    private void multiplyInteger(PropertyInstance propertyToUpdate, Object firstExpressionValue, Object secondExpressionValue) {
+
+        if (!(areBothIntegers(firstExpressionValue, secondExpressionValue))) {
             throw new IllegalArgumentException("Multiply on integer number can get only two integers.");
         }
         Integer result = (Integer) firstExpressionValue * (Integer) secondExpressionValue;
-        checkRangeAndUpdateNumericValue(propertyToUpdate , result );
+        checkRangeAndUpdateNumericValue(propertyToUpdate, result);
     }
 
 

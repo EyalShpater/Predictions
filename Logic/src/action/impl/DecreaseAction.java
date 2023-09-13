@@ -34,6 +34,15 @@ public class DecreaseAction extends AbstractAction implements Serializable {
 
     @Override
     public void apply(Context context) {
+        if (isSecondaryEntityExist()) {
+            applyDecreaseWithSecondaryEntity(context);
+        } else {
+            applyDecreasePrimaryEntity(context);
+        }
+
+    }
+
+    private void applyDecreasePrimaryEntity(Context context) {
         EntityInstance invokeOn = context.getEntityInstance();
         PropertyInstance propertyToUpdate = invokeOn.getPropertyByName(propertyName);
         Expression expression = new ExpressionFactory(byExpression, invokeOn);
@@ -47,6 +56,23 @@ public class DecreaseAction extends AbstractAction implements Serializable {
             }
         } else {
             throw new IllegalArgumentException("Decrease action only available  on numeric type!");
+        }
+    }
+
+    private void applyDecreaseWithSecondaryEntity(Context context) {
+        if (isActionWithoutSecondaryEntity()) {
+            applyDecreasePrimaryEntity(context);
+        } else if (!secondaryEntitiesInstances.isEmpty()) {
+            for (EntityInstance secondEntityInstance : secondaryEntitiesInstances) {
+                context.setSecondaryEntity(secondEntityInstance);
+                applyDecreasePrimaryEntity(context);
+            }
+        } else {
+            //IF ACTION IS NOT IN CONTEXT THIS WILL THROW EXCEPTION THAT WILL BE CAUGHT HERE AND WONT BE EXECUTED
+            try {
+                applyDecreasePrimaryEntity(context);
+            } catch (IllegalArgumentException ignored) {
+            }
         }
     }
 

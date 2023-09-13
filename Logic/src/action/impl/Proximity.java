@@ -43,6 +43,22 @@ public class Proximity extends AbstractAction {
                     duplicatedContext.setSecondaryEntity((context.getEntityInstance()));
                     action.invoke(duplicatedContext);
                 }));
+
+        /*Optional<EntityInstance> firstMatchedEntity = context.getEntityInstance()
+                .getNearbyEntities(radius)
+                .stream()
+                .filter(entity -> entity.getName().equals(targetEntityName))
+                .findFirst();
+        firstMatchedEntity.ifPresent(matchedEntity -> actions.forEach(action -> {
+            if (action.applyOn().getName().equals(matchedEntity.getName())) {
+                Context duplicatedContext = context.duplicateContextWithEntityInstance(matchedEntity);
+                duplicatedContext.setSecondaryEntity(context.getEntityInstance());
+                action.invoke(duplicatedContext);
+            } else {
+                context.setSecondaryEntity(matchedEntity);
+                action.invoke(context);
+            }
+        }));*/
     }
 
 

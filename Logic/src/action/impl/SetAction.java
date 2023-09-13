@@ -35,6 +35,14 @@ public class SetAction extends AbstractAction implements Serializable {
 
     @Override
     public void apply(Context context) {
+        if (isSecondaryEntityExist()) {
+            applySetWithSecondaryEntity(context);
+        } else {
+            applySetPrimaryEntity(context);
+        }
+    }
+
+    private void applySetPrimaryEntity(Context context) {
         EntityInstance invokeOn = context.getEntityInstance();
         PropertyInstance propertyToUpdate = invokeOn.getPropertyByName(propertyName);
         Expression expression = new ExpressionFactory(newValue, invokeOn);
@@ -52,15 +60,39 @@ public class SetAction extends AbstractAction implements Serializable {
         }
 
     }
-    private void setInteger(PropertyInstance propertyToUpdate , Object newValue){
-        if (!(newValue instanceof Integer)){
+
+    private void applySetWithSecondaryEntity(Context context) {
+        if (secondaryEntitiesInstances != null && !secondaryEntitiesInstances.isEmpty()) {
+            for (EntityInstance secondEntityInstance : secondaryEntitiesInstances) {
+                context.setSecondaryEntity(secondEntityInstance);
+                applySetPrimaryEntity(context);
+            }
+        }
+        if (isActionWithoutSecondaryEntity()) {
+            applySetPrimaryEntity(context);
+        } else if (!secondaryEntitiesInstances.isEmpty()) {
+            for (EntityInstance secondEntityInstance : secondaryEntitiesInstances) {
+                context.setSecondaryEntity(secondEntityInstance);
+                applySetPrimaryEntity(context);
+            }
+        } else {
+            //IF ACTION IS NOT IN CONTEXT THIS WILL THROW EXCEPTION THAT WILL BE CAUGHT HERE AND WONT BE EXECUTED
+            try {
+                applySetPrimaryEntity(context);
+            } catch (IllegalArgumentException ignored) {
+            }
+        }
+    }
+
+    private void setInteger(PropertyInstance propertyToUpdate, Object newValue) {
+        if (!(newValue instanceof Integer)) {
             throw new IllegalArgumentException(" New value must be Integer for Integer property ");
         }
 
         checkRangeAndUpdateNumericValue(propertyToUpdate, (Number) newValue);
     }
 
-    private void setDouble(PropertyInstance propertyToUpdate , Object newValue) {
+    private void setDouble(PropertyInstance propertyToUpdate, Object newValue) {
 
         checkRangeAndUpdateNumericValue(propertyToUpdate, (Number) newValue);
     }

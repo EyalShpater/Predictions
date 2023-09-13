@@ -107,6 +107,9 @@ public class SphereSpaceImpl implements SphereSpace {
 
     private boolean move(EntityInstance entity, int dx, int dy) {
         Location oldLocation = entity.getLocationInSpace();
+        if (oldLocation == null) {
+            int x = 5;
+        }
         int newXPosition = (oldLocation.getX() + dx + cols) % cols;
         int newYPosition = (oldLocation.getY() + dy + rows) % rows;
         Location newLocation = new Location(newXPosition, newYPosition);

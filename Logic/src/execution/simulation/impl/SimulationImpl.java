@@ -108,7 +108,7 @@ public class SimulationImpl implements Simulation , Serializable {
                 propertyName != null ?
                         data.getPropertyOfEntityPopulationSortedByValues(entityName, propertyName) :
                         null
-                );
+        );
     }
 
     private void initEntities() {
@@ -137,7 +137,7 @@ public class SimulationImpl implements Simulation , Serializable {
             for (Rule rule : world.getRules()) {
                 double probability = random.nextDouble();
 
-                if (rule.isActive(tick, probability)) {
+                if (entity.isAlive() && rule.isActive(tick, probability)) {
                     rule.invoke(new ContextImpl(entity, entities, environmentVariables));
                 }
             }

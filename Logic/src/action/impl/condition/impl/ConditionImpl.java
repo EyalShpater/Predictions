@@ -65,12 +65,15 @@ public class ConditionImpl extends AbstractAction implements Condition, Serializ
     }
 
     private void evaluateConditionSecondaryEntityVersion(Context context) {
-        if (!secondaryEntitiesInstances.isEmpty()) {
+        if (secondaryEntitiesInstances != null && !secondaryEntitiesInstances.isEmpty()) {
             for (EntityInstance secondEntityInstance : secondaryEntitiesInstances) {
+                context.setSecondaryEntity(secondEntityInstance);
                 evaluateAccordingToEntityInstance(context, secondEntityInstance);
             }
+        } else {
+            // if a secondary entity exist for this condition and the list is empty that means we have no instance , thus we send null
+            evaluateAccordingToEntityInstance(context, null);
         }
-
     }
 
     private void evaluateAccordingToEntityInstance(Context context, EntityInstance entityInstance) {
@@ -82,7 +85,7 @@ public class ConditionImpl extends AbstractAction implements Condition, Serializ
     }
 
     @Override
-    public boolean evaluate(Context context, EntityInstance secondEntityInstance) {
+    public Boolean evaluate(Context context, EntityInstance secondEntityInstance) {
         return condition.evaluate(context, secondEntityInstance);
     }
 

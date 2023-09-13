@@ -6,7 +6,7 @@ import instance.entity.api.EntityInstance;
 import java.util.Map;
 
 public interface Condition {
-    boolean evaluate(Context context, EntityInstance secondEntityInstance);
+    Boolean evaluate(Context context, EntityInstance secondEntityInstance);
 
     String getOperationSign();
 

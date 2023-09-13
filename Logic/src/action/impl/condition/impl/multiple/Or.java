@@ -19,7 +19,10 @@ public class Or extends MultipleCondition implements Serializable {
         boolean result = false;
 
         for (Condition condition : conditions) {
-            result = result || condition.evaluate(context, secondEntityInstance);
+            Boolean evaluateResult = condition.evaluate(context, secondEntityInstance);
+            if (evaluateResult != null) {
+                result = result || condition.evaluate(context, secondEntityInstance);
+            }
         }
 
         return result;

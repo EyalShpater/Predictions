@@ -564,35 +564,40 @@ public class XmlValidator {
         }
     }
 
-    private void checkIfActionIsOfTypeConditionAndSendToCheckIfActionToIncludeNumericArgs(PRDAction action) {
+    private void checkIfActionIsOfTypeConditionAndSendToCheckIfActionToIncludeNumericArgs(PRDAction action, String... relevantEntities) {
 
         if (action.getType().equals("condition")) {
-            checkIfArgsInActionAreNumericConditionVersion(action);
+            checkIfArgsInActionAreNumericConditionVersion(action, relevantEntities);
         } else {
-            checkIfArgsInActionAreNumericNonConditionVersion(action);
+            checkIfArgsInActionAreNumericNonConditionVersion(action, relevantEntities);
         }
 
     }
 
-    private void checkIfArgsInActionAreNumericConditionVersion(PRDAction action) {
+    private void checkIfArgsInActionAreNumericConditionVersion(PRDAction action, String... relevantEntities) {
         PRDThen thenBlock = action.getPRDThen();
         PRDElse elseBloc = action.getPRDElse();
+        String[] relevant = new String[2];
+        relevant[0] = action.getEntity();
+        if (action.getPRDSecondaryEntity() != null) {
+            relevant[1] = action.getPRDSecondaryEntity().getEntity();
+        }
         try {
-            iterateActionListOfThenAndElseBlocksToFindIfAllArgsNumeric(thenBlock.getPRDAction());
+            iterateActionListOfThenAndElseBlocksToFindIfAllArgsNumeric(thenBlock.getPRDAction(), relevant);
         } catch (IllegalArgumentException e) {
             throw new IllegalArgumentException(" then block" + e.getMessage());
         }
         if (elseBloc != null) {
             try {
-                iterateActionListOfThenAndElseBlocksToFindIfAllArgsNumeric(elseBloc.getPRDAction());
+                iterateActionListOfThenAndElseBlocksToFindIfAllArgsNumeric(elseBloc.getPRDAction(), relevant);
             } catch (IllegalArgumentException e) {
                 throw new IllegalArgumentException(" else block" + e.getMessage());
             }
         }
     }
 
-    private void iterateActionListOfThenAndElseBlocksToFindIfAllArgsNumeric(List<PRDAction> actionList) {
-        actionList.forEach(action -> checkIfActionIsOfTypeConditionAndSendToCheckIfActionToIncludeNumericArgs(action));
+    private void iterateActionListOfThenAndElseBlocksToFindIfAllArgsNumeric(List<PRDAction> actionList, String... relevantEntities) {
+        actionList.forEach(action -> checkIfActionIsOfTypeConditionAndSendToCheckIfActionToIncludeNumericArgs(action, relevantEntities));
     }
 
 
