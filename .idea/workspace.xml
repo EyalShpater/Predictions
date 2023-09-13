@@ -11,11 +11,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="27d35137-667f-4e37-a519-ab836acc0a06" name="Changes" comment="updated location remove after instance is killed.">
+    <list default="true" id="27d35137-667f-4e37-a519-ab836acc0a06" name="Changes" comment="added in simulation the option to stop / pause / resume">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/src/javafx/tab/details/rules/RulesController.java" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/src/javafx/tab/details/rules/RulesController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/action/impl/Proximity.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/action/impl/Proximity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/execution/simulation/api/Simulation.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/execution/simulation/api/Simulation.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Logic/src/execution/simulation/impl/SimulationImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/execution/simulation/impl/SimulationImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -285,7 +282,7 @@
       <workItem from="1694315233531" duration="13724000" />
       <workItem from="1694330441189" duration="28414000" />
       <workItem from="1694408417392" duration="10450000" />
-      <workItem from="1694524231690" duration="10449000" />
+      <workItem from="1694524231690" duration="15371000" />
     </task>
     <task id="LOCAL-00053" summary="added xml logic">
       <created>1692124813678</created>
@@ -321,14 +318,6 @@
       <option name="presentableId" value="LOCAL-00070" />
       <option name="project" value="LOCAL" />
       <updated>1692356632414</updated>
-    </task>
-    <task id="LOCAL‎-00081" summary="finish until next bug would be detected">
-      <option name="closed" value="true" />
-      <created>1692491416175</created>
-      <option name="number" value="00081" />
-      <option name="presentableId" value="LOCAL‎-00081" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1692491416175</updated>
     </task>
     <task id="LOCAL‎-00082" summary="finish">
       <option name="closed" value="true" />
@@ -662,7 +651,15 @@
       <option name="project" value="LOCAL‎" />
       <updated>1694525479788</updated>
     </task>
-    <option name="localTasksCounter" value="125" />
+    <task id="LOCAL‎-00125" summary="added in simulation the option to stop / pause / resume">
+      <option name="closed" value="true" />
+      <created>1694549448626</created>
+      <option name="number" value="00125" />
+      <option name="presentableId" value="LOCAL‎-00125" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1694549448626</updated>
+    </task>
+    <option name="localTasksCounter" value="126" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -693,7 +690,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Changes by ASUS" />
     <MESSAGE value="refactor" />
     <MESSAGE value="shvit's changes" />
     <MESSAGE value="added results tab" />
@@ -718,7 +714,8 @@
     <MESSAGE value="Ruels tab is fixed" />
     <MESSAGE value="General screen is fully functional" />
     <MESSAGE value="updated location remove after instance is killed." />
-    <option name="LAST_COMMIT_MESSAGE" value="updated location remove after instance is killed." />
+    <MESSAGE value="added in simulation the option to stop / pause / resume" />
+    <option name="LAST_COMMIT_MESSAGE" value="added in simulation the option to stop / pause / resume" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
@@ -741,6 +738,11 @@
           <url>file://$PROJECT_DIR$/GUI/src/javafx/tab/newExecution/mainComponent/NewExecutionController.java</url>
           <line>140</line>
           <option name="timeStamp" value="43" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/Logic/src/execution/simulation/impl/SimulationImpl.java</url>
+          <line>211</line>
+          <option name="timeStamp" value="56" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/GUI/src/javafx/tab/newExecution/environmentVariable/StringEnvironmentVariableController.java</url>

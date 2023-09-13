@@ -1,7 +1,6 @@
 package execution.simulation.impl;
 
 import action.context.impl.ContextImpl;
-import com.sun.xml.internal.ws.api.model.wsdl.WSDLOutput;
 import definition.entity.api.EntityDefinition;
 import definition.entity.impl.EntityDefinitionImpl;
 import definition.world.impl.WorldImpl;
@@ -37,9 +36,10 @@ public class SimulationImpl implements Simulation , Serializable {
     private TerminateCondition endReason;
     private SphereSpace space;
     private long startTime;
+    private long timeOfActive;
     private int tick;
-    private boolean userRequestedStop;
-    private boolean userRequestedPause;
+    private boolean isStop;
+    private boolean isPause;
 
     public SimulationImpl(World world, int serialNumber) {
         this.world = world;
@@ -49,6 +49,7 @@ public class SimulationImpl implements Simulation , Serializable {
         this.environmentVariables = null;
         this.data = null;
         this.startTime = 0;
+        this.timeOfActive = 0;
         this.space = new SphereSpaceImpl(world.getGridRows(), world.getGridCols());
         this.tick = 0;
     }
@@ -59,39 +60,26 @@ public class SimulationImpl implements Simulation , Serializable {
     }
 
     @Override
-    public synchronized void run() {
-        System.out.println("start simulation " + serialNumber);
-
-        long startPauseTime;
-        long endPauseTime;
-        startTime = System.currentTimeMillis();
+    public void run() {
+        timeOfActive = startTime = System.currentTimeMillis();
 
         initEntities();
         initEnvironmentVariables();
         tick = 1;
 
-        while ((endReason = world.isActive(tick, startTime, userRequestedStop)) == null) {
+        while ((endReason = world.isActive(tick, timeOfActive, isStop)) == null) {
             entities.moveAllEntitiesInSpace(space);
             executeRules(tick);
             tick++;
 
-            boolean print = false;
-
-            startPauseTime = endPauseTime = System.currentTimeMillis();
-            while (userRequestedPause && !userRequestedStop) {
-                endPauseTime = System.currentTimeMillis();
-                print = true;
-            }
-
-            if (print) {
-                System.out.println("waited for " + (endPauseTime - startPauseTime) + " seconds");
+            if (isPause) {
+                long pauseDuration = pauseDuringRunning();
+                timeOfActive += pauseDuration;
             }
         }
 
         data = new SimulationDataImpl(serialNumber, startTime, world.getEntities(), entities);
         resetEnvironmentVariables();
-
-        System.out.println("end simulation " + serialNumber);
     }
 
     @Override
@@ -123,7 +111,6 @@ public class SimulationImpl implements Simulation , Serializable {
                 );
     }
 
-    //todo: the loop needs to be inside the manager.
     private void initEntities() {
         EntityInstanceManager instances = new EntityInstanceManagerImpl();
 
@@ -169,20 +156,42 @@ public class SimulationImpl implements Simulation , Serializable {
 
     @Override
     public void pause() {
-        System.out.println("pause");
-        userRequestedPause = true;
+        isPause = true;
     }
 
     @Override
     public void stop() {
-        userRequestedStop = true;
-        System.out.println("stop");
+        isStop = true;
+        isPause = false;
+
+        synchronized (this) {
+            this.notifyAll();
+        }
     }
 
     @Override
     public void resume() {
-        userRequestedPause = false;
-        System.out.println("resuming");
+        isPause = false;
+
+        synchronized (this) {
+            this.notifyAll();
+        }
+    }
+
+    private long pauseDuringRunning() {
+        long startTime = System.currentTimeMillis();
+
+        synchronized (this) {
+            while (isPause) {
+                try {
+                    this.wait();
+                } catch (InterruptedException e) {
+                    stop();
+                }
+            }
+        }
+
+        return System.currentTimeMillis() - startTime;
     }
 
     //todo: only for debug, need to delete!
@@ -193,15 +202,18 @@ public class SimulationImpl implements Simulation , Serializable {
         world.setGridRows(100);
         world.setGridCols(100);
         world.setThreadPoolSize(3);
-        world.setTermination(new TerminationImpl());
+        world.setTermination(new TerminationImpl(10, TerminateCondition.BY_SECONDS));
         world.addEntity(new EntityDefinitionImpl("ent-1", 50));
 
         SimulationImpl simulation = new SimulationImpl(world, 1);
 
-        pool.execute(simulation::run);
+//        pool.execute(simulation::run);
+        //new Thread(simulation::run).start();
+
+        simulation.run();
 
         try {
-            Thread.sleep(3000);
+            Thread.sleep(2000);
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
@@ -217,13 +229,12 @@ public class SimulationImpl implements Simulation , Serializable {
 
         simulation.resume();
 
-        try {
-            Thread.sleep(2000);
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        }
-
-        simulation.stop();
-
+//        try {
+//            Thread.sleep(2000);
+//        } catch (InterruptedException e) {
+//            throw new RuntimeException(e);
+//        }
+//
+//        simulation.stop();
     }
 }
