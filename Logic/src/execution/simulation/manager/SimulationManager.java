@@ -31,6 +31,7 @@ public class SimulationManager implements Serializable {
         this.threadPoll = Executors.newFixedThreadPool(world.getThreadPoolSize());
     }
 
+    // todo: handle the void situation, maybe its need to return the simulation id?
     public void runNewSimulation(World world, List<PropertyDefinitionDTO> environmentVariables) {
         Simulation simulation;
         TerminateCondition stopReason;
@@ -40,21 +41,12 @@ public class SimulationManager implements Serializable {
         simulation = new SimulationImpl(world, serialNumber);
         serialNumber++;
 
-        System.out.println("Adding simulation #" + (serialNumber - 1) + " to thread pool");
         threadPoll.execute(simulation::run);
         //stopReason = simulation.getEndReason();
 
         simulations.put(simulation.getSerialNumber(), simulation);
 //        dto = createRunDetailDTO(stopReason, simulation.getSerialNumber());
 //        return dto;
-
-        if (serialNumber - 1 == 3) {
-            try {
-                Thread.sleep(1000);
-            } catch (InterruptedException e) {
-                throw new RuntimeException(e);
-            }
-        }
     }
 
     public List<SimulationDTO> getAllSimulationsDTO() {

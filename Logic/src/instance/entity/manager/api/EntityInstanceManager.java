@@ -9,7 +9,8 @@ import java.util.List;
 public interface EntityInstanceManager {
     void createInstancesFromDefinition(EntityDefinition entityDefinition, SphereSpace space);
 
-    void killEntity(int idToKill);
+    //todo: can we delete?
+    //void killEntity(int idToKill);
 
     List<EntityInstance> getInstances();
 

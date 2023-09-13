@@ -162,11 +162,7 @@ public class SimulationImpl implements Simulation , Serializable {
     @Override
     public void stop() {
         isStop = true;
-        isPause = false;
-
-        synchronized (this) {
-            this.notifyAll();
-        }
+        resume();
     }
 
     @Override

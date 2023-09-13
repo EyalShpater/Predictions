@@ -26,7 +26,7 @@ public class EntityInstanceManagerImpl implements EntityInstanceManager , Serial
             Location placeInSpace = space.placeEntityRandomlyInWorld(newInstance);
 
             if (placeInSpace == null) {
-                throw new NullPointerException(
+                throw new IllegalArgumentException(
                         "There is no place to add "
                                 + newInstance.getName()
                                 + " id #"
@@ -47,16 +47,16 @@ public class EntityInstanceManagerImpl implements EntityInstanceManager , Serial
         return new ArrayList<EntityInstance>(instances.values());
     }
 
-    @Override
-    public void killEntity(int idToKill) {
-        EntityInstance instanceToKill = instances.get(idToKill);
-
-        if (instanceToKill == null) {
-            throw new IllegalArgumentException("ID is not valid");
-        }
-
-        instanceToKill.kill();
-    }
+//    @Override
+//    public void killEntity(int idToKill) {
+//        EntityInstance instanceToKill = instances.get(idToKill);
+//
+//        if (instanceToKill == null) {
+//            throw new IllegalArgumentException("ID is not valid");
+//        }
+//
+//        instanceToKill.kill();
+//    }
 
     @Override
     public void moveAllEntitiesInSpace(SphereSpace space) {

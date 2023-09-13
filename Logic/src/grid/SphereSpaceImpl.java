@@ -19,7 +19,6 @@ public class SphereSpaceImpl implements SphereSpace {
     private static final int NO_MOVE = 0;
     private static final int ARRAY_FIRST_INDEX = 0;
     private static final int NUM_OF_MOVES = 4;
-    private static final int MIN_INNER_CIRCLE_SIZE = 3;
 
     int rows;
     int cols;
@@ -107,18 +106,18 @@ public class SphereSpaceImpl implements SphereSpace {
 
     private boolean move(EntityInstance entity, int dx, int dy) {
         Location oldLocation = entity.getLocationInSpace();
-        if (oldLocation == null) {
-            int x = 5;
-        }
-        int newXPosition = (oldLocation.getX() + dx + cols) % cols;
-        int newYPosition = (oldLocation.getY() + dy + rows) % rows;
-        Location newLocation = new Location(newXPosition, newYPosition);
         boolean isSucceed = false;
 
-        if (grid[newYPosition][newXPosition] == null) {
-            updateGridLocation(oldLocation, newLocation);
-            entity.setLocationInSpace(newLocation);
-            isSucceed = true;
+        if (oldLocation != null) {
+            int newXPosition = (oldLocation.getX() + dx + cols) % cols;
+            int newYPosition = (oldLocation.getY() + dy + rows) % rows;
+            Location newLocation = new Location(newXPosition, newYPosition);
+
+            if (grid[newYPosition][newXPosition] == null) {
+                updateGridLocation(oldLocation, newLocation);
+                entity.setLocationInSpace(newLocation);
+                isSucceed = true;
+            }
         }
 
         return isSucceed;

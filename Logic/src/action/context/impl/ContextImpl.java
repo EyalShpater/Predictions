@@ -26,10 +26,11 @@ public class ContextImpl implements Context, Serializable {
         this.activeEnvironment = activeEnvironment;
     }
 
-    @Override
-    public void removeEntity(EntityInstance entityInstance) {
-        entityInstanceManager.killEntity(entityInstance.getId());
-    }
+    //todo: can we delete?
+//    @Override
+//    public void removeEntity(EntityInstance entityInstance) {
+//        entityInstanceManager.killEntity(entityInstance.getId());
+//    }
 
     @Override
     public EntityInstance getEntityInstance() {

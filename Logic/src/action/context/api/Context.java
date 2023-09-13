@@ -11,7 +11,8 @@ public interface Context {
 
     PropertyInstance getEnvironmentVariable(String name);
 
-    void removeEntity(EntityInstance entityInstance);
+    // TODO: can we delete?
+    //void removeEntity(EntityInstance entityInstance);
 
     Context duplicateContextWithEntityInstance(EntityInstance newEntityInstance);
 
