@@ -1,6 +1,8 @@
 package execution.simulation.impl;
 
+import action.api.Action;
 import action.context.impl.ContextImpl;
+import action.second.entity.SecondaryEntity;
 import definition.entity.api.EntityDefinition;
 import definition.entity.impl.EntityDefinitionImpl;
 import definition.world.impl.WorldImpl;
@@ -21,9 +23,12 @@ import instance.enviornment.api.ActiveEnvironment;
 import rule.api.Rule;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.stream.Collectors;
 
 public class SimulationImpl implements Simulation , Serializable {
     private final int serialNumber;
@@ -130,18 +135,23 @@ public class SimulationImpl implements Simulation , Serializable {
                 .forEach(propertyDefinition -> propertyDefinition.setRandom(true));
     }
 
-    //TODO: change this simulation loop
     private void executeRules(int tick) {
-        //2)TODO: Execute rules
-        for (EntityInstance entity : entities.getInstances()) {
-            for (Rule rule : world.getRules()) {
-                double probability = random.nextDouble();
+//        for (EntityInstance entity : entities.getInstances()) {
+//            for (Rule rule : world.getRules()) {
+//                double probability = random.nextDouble();
+//
+//                if (entity.isAlive() && rule.isActive(tick, probability)) {
+//                    rule.invoke(new ContextImpl(entity, entities, environmentVariables));
+//                }
+//            }
+//        }
 
-                if (entity.isAlive() && rule.isActive(tick, probability)) {
-                    rule.invoke(new ContextImpl(entity, entities, environmentVariables));
-                }
-            }
-        }
+        List<Action> activeActions = createActionToInvokeList(tick);
+
+        entities.getInstances().stream()
+                .filter(EntityInstance::isAlive)
+                .forEach(entity -> invokeActionsOnEntity(entity, activeActions));
+
     }
 
     @Override
@@ -189,4 +199,43 @@ public class SimulationImpl implements Simulation , Serializable {
 
         return System.currentTimeMillis() - startTime;
     }
+
+    private List<Action> createActionToInvokeList(int tick) {
+        double probability = random.nextDouble();
+
+        return world.getRules().stream()
+                .filter(rule -> rule.isActive(tick, probability))
+                .flatMap(rule -> rule.getActions().stream())
+                .collect(Collectors.toList());
+    }
+
+    // todo: implement / take from context.
+    private List<EntityInstance> createSecondaryEntitiesList() {
+        List<EntityInstance> entities = new ArrayList<>();
+
+        return entities;
+    }
+
+    private void invokeActionsOnEntity(EntityInstance entity, List<Action> activeActions) {
+        activeActions.stream()
+                .filter(action -> action
+                        .applyOn()
+                        .getName()
+                        .equals(entity.getName())
+                )
+                .forEach(action -> {
+                    if (action.isIncludesSecondaryEntity()) {
+                        processActionsWithSecondaryEntities(entity, action);
+                    } else {
+                        action.invoke(new ContextImpl(entity, entities, environmentVariables));
+                    }
+                });
+    }
+
+    private void processActionsWithSecondaryEntities(EntityInstance entity, Action action) {
+        createSecondaryEntitiesList().forEach(secondary ->
+                action.invoke(new ContextImpl(entity, secondary, entities, environmentVariables))
+        );
+    }
+
 }

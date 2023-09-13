@@ -14,14 +14,19 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class ContextImpl implements Context, Serializable {
-    private EntityInstance entityInstance;
+    private EntityInstance primaryEntityInstance;
+    private EntityInstance secondaryEntityInstance;
     private EntityInstanceManager entityInstanceManager;
     private ActiveEnvironment activeEnvironment;
-    private EntityInstance secondaryEntityInstance;
 
 
-    public ContextImpl(EntityInstance entityInstance, EntityInstanceManager entityInstanceManager, ActiveEnvironment activeEnvironment) {
-        this.entityInstance = entityInstance;
+    public ContextImpl(EntityInstance primaryEntity, EntityInstanceManager entityInstanceManager, ActiveEnvironment activeEnvironment) {
+        this(primaryEntity, null, entityInstanceManager, activeEnvironment);
+    }
+
+    public ContextImpl(EntityInstance primaryEntity, EntityInstance secondaryEntity, EntityInstanceManager entityInstanceManager, ActiveEnvironment activeEnvironment) {
+        this.primaryEntityInstance = primaryEntity;
+        this.secondaryEntityInstance = secondaryEntity;
         this.entityInstanceManager = entityInstanceManager;
         this.activeEnvironment = activeEnvironment;
     }
@@ -33,8 +38,8 @@ public class ContextImpl implements Context, Serializable {
 //    }
 
     @Override
-    public EntityInstance getEntityInstance() {
-        return entityInstance;
+    public EntityInstance getPrimaryEntityInstance() {
+        return primaryEntityInstance;
     }
 
     @Override
@@ -62,9 +67,9 @@ public class ContextImpl implements Context, Serializable {
     public boolean isEntityRelatedToAction(String entityName) {
         boolean isEntityRelatedToAction = false;
         if (secondaryEntityInstance != null) {
-            isEntityRelatedToAction = entityName.equals(entityInstance.getName()) || entityName.equals(secondaryEntityInstance.getName());
+            isEntityRelatedToAction = entityName.equals(primaryEntityInstance.getName()) || entityName.equals(secondaryEntityInstance.getName());
         } else {
-            isEntityRelatedToAction = entityName.equals(entityInstance.getName());
+            isEntityRelatedToAction = entityName.equals(primaryEntityInstance.getName());
         }
         return isEntityRelatedToAction;
     }
@@ -72,8 +77,8 @@ public class ContextImpl implements Context, Serializable {
     @Override
     public Object getPropertyValueOfEntity(String entityName, String propertyName) {
         Object value;
-        if (entityName.equals(entityInstance.getName())) {
-            value = entityInstance.getPropertyByName(propertyName).getValue();
+        if (entityName.equals(primaryEntityInstance.getName())) {
+            value = primaryEntityInstance.getPropertyByName(propertyName).getValue();
         } else if (secondaryEntityInstance != null && entityName.equals(secondaryEntityInstance.getName())) {
             value = secondaryEntityInstance.getPropertyByName(propertyName).getValue();
         } else {

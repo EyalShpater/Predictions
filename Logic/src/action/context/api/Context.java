@@ -7,7 +7,7 @@ import instance.property.api.PropertyInstance;
 import java.util.List;
 
 public interface Context {
-    EntityInstance getEntityInstance();
+    EntityInstance getPrimaryEntityInstance();
 
     PropertyInstance getEnvironmentVariable(String name);
 

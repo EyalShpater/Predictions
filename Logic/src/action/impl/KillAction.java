@@ -21,9 +21,9 @@ public class KillAction extends AbstractAction implements Serializable {
     @Override
     public void apply(Context context) {
         if (isSecondaryEntityExist()) {
-            context.getEntityInstance().kill();
+            context.getPrimaryEntityInstance().kill();
         } else {
-            context.getEntityInstance().kill();
+            context.getPrimaryEntityInstance().kill();
         }
 
     }

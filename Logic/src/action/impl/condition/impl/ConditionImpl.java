@@ -5,7 +5,6 @@ import action.api.Action;
 import action.api.ActionType;
 import action.context.api.Context;
 import action.impl.condition.Condition;
-import action.impl.condition.impl.multiple.MultipleCondition;
 import action.second.entity.SecondaryEntity;
 import definition.entity.api.EntityDefinition;
 import instance.entity.api.EntityInstance;
@@ -59,7 +58,7 @@ public class ConditionImpl extends AbstractAction implements Condition, Serializ
         if (isSecondaryEntityExist()) {
             evaluateConditionSecondaryEntityVersion(context);
         } else {
-            evaluateAccordingToEntityInstance(context, context.getEntityInstance());
+            evaluateAccordingToEntityInstance(context, context.getPrimaryEntityInstance());
         }
 
     }

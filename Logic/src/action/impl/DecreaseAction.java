@@ -43,7 +43,7 @@ public class DecreaseAction extends AbstractAction implements Serializable {
     }
 
     private void applyDecreasePrimaryEntity(Context context) {
-        EntityInstance invokeOn = context.getEntityInstance();
+        EntityInstance invokeOn = context.getPrimaryEntityInstance();
         PropertyInstance propertyToUpdate = invokeOn.getPropertyByName(propertyName);
         Expression expression = new ExpressionFactory(byExpression, invokeOn);
         Object decreaseBy = expression.getValue(context);

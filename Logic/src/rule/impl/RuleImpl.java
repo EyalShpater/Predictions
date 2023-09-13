@@ -47,6 +47,11 @@ public class RuleImpl implements Rule , Serializable {
     }
 
     @Override
+    public List<Action> getActions() {
+        return new ArrayList<>(actions);
+    }
+
+    @Override
     public RuleDTO convertToDTO() {
         return new RuleDTO(
                 name,

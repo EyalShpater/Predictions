@@ -38,7 +38,7 @@ public abstract class SingleCondition implements Condition, Serializable {
     }
 
     private Boolean evaluateSingleConditionWithContextEntity(Context context, EntityInstance secondEntityInstance) {
-        String primaryEntityName = context.getEntityInstance().getName();
+        String primaryEntityName = context.getPrimaryEntityInstance().getName();
         String contextConditionEntityName = contextConditionEntity.getName();
 
         if (primaryEntityName.equals(contextConditionEntityName)) {

@@ -44,6 +44,16 @@ public abstract class AbstractAction implements Action, Serializable {
     }
 
     @Override
+    public boolean isIncludesSecondaryEntity() {
+        return secondaryEntity != null;
+    }
+
+    @Override
+    public SecondaryEntity getSecondaryEntity() {
+        return secondaryEntity;
+    }
+
+    @Override
     public ActionDTO convertToDTO() {
         EntityDefinitionDTO secondaryDTO = secondaryEntity != null ?
                 secondaryEntity.getSecondaryEntity().convertToDTO() :
@@ -60,7 +70,7 @@ public abstract class AbstractAction implements Action, Serializable {
 
     @Override
     public void invoke(Context context) {
-        if (context.getEntityInstance().getName().equals(primaryEntity.getName())) {
+        if (context.getPrimaryEntityInstance().getName().equals(primaryEntity.getName())) {
             setEntitiesInstances(context);
             apply(context);
         }
@@ -68,7 +78,7 @@ public abstract class AbstractAction implements Action, Serializable {
 
     private void setEntitiesInstances(Context context) {
         if (isSecondaryEntityExist()) {
-            primaryEntityInstance = context.getEntityInstance();
+            primaryEntityInstance = context.getPrimaryEntityInstance();
             secondaryEntitiesInstances = context.getSecondEntityFilteredList(secondaryEntity);
         }
     }

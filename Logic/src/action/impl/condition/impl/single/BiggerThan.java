@@ -1,7 +1,6 @@
 package action.impl.condition.impl.single;
 
 import action.context.api.Context;
-import action.expression.api.Expression;
 import action.expression.impl.ExpressionFactory;
 import definition.entity.api.EntityDefinition;
 
@@ -19,8 +18,8 @@ public class BiggerThan extends SingleCondition implements Serializable {
 
     @Override
     protected boolean evaluate(String expression1, String expression2, Context context) {
-        Object value1 = new ExpressionFactory(expression1, context.getEntityInstance()).getValue(context);
-        Object value2 = new ExpressionFactory(expression2, context.getEntityInstance()).getValue(context);
+        Object value1 = new ExpressionFactory(expression1, context.getPrimaryEntityInstance()).getValue(context);
+        Object value2 = new ExpressionFactory(expression2, context.getPrimaryEntityInstance()).getValue(context);
 
         if(value1 instanceof Number && value2 instanceof Number){
             return ((Number)value1).doubleValue() > ((Number)value2).doubleValue();

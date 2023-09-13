@@ -18,8 +18,8 @@ public class Percent implements HelperFunction {
 
     @Override
     public Object getValue() {
-        Object value1 = new ExpressionFactory(expression1, context.getEntityInstance()).getValue(context);
-        Object value2 = new ExpressionFactory(expression2, context.getEntityInstance()).getValue(context);
+        Object value1 = new ExpressionFactory(expression1, context.getPrimaryEntityInstance()).getValue(context);
+        Object value2 = new ExpressionFactory(expression2, context.getPrimaryEntityInstance()).getValue(context);
 
         if (value1 instanceof Number && value2 instanceof Number) {
             double doubleValue1 = ((Number) value1).doubleValue();

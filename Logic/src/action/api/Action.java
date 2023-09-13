@@ -23,4 +23,8 @@ public interface Action extends DTOConvertible<ActionDTO> {
     Map<String, String> getAdditionalInformation();
 
     public EntityDefinition applyOn();
+
+    boolean isIncludesSecondaryEntity();
+
+    SecondaryEntity getSecondaryEntity();
 }

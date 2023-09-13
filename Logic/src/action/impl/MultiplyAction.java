@@ -46,7 +46,7 @@ public class MultiplyAction extends AbstractAction implements Serializable {
     }
 
     private void applyMultiplyPrimaryEntity(Context context) {
-        EntityInstance invokeOn = context.getEntityInstance();
+        EntityInstance invokeOn = context.getPrimaryEntityInstance();
         PropertyInstance propertyToUpdate = invokeOn.getPropertyByName(propertyName);
         Expression firstExpression = new ExpressionFactory(this.arg1, invokeOn);
         Object firstExpressionValue = firstExpression.getValue(context);

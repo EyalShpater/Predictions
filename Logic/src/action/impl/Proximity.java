@@ -4,12 +4,9 @@ import action.api.AbstractAction;
 import action.api.Action;
 import action.api.ActionType;
 import action.context.api.Context;
-import action.context.impl.ContextImpl;
 import action.expression.api.Expression;
 import action.expression.impl.ExpressionFactory;
 import definition.entity.api.EntityDefinition;
-import impl.ActionDTO;
-import instance.entity.api.EntityInstance;
 
 import java.util.*;
 
@@ -33,14 +30,14 @@ public class Proximity extends AbstractAction {
         String targetEntityName = targetEntity.getName();
         int radius = evaluateExpressionAsInteger(context);
 
-        context.getEntityInstance()
+        context.getPrimaryEntityInstance()
                 .getNearbyEntities(radius)
                 .stream()
                 .filter(entity -> entity.getName().equals(targetEntityName))
                 .findFirst()
                 .ifPresent(matchedEntity -> actions.forEach(action -> {
                     Context duplicatedContext = context.duplicateContextWithEntityInstance(matchedEntity);
-                    duplicatedContext.setSecondaryEntity((context.getEntityInstance()));
+                    duplicatedContext.setSecondaryEntity((context.getPrimaryEntityInstance()));
                     action.invoke(duplicatedContext);
                 }));
 
@@ -91,7 +88,7 @@ public class Proximity extends AbstractAction {
     }
 
     private int evaluateExpressionAsInteger(Context context) {
-        Expression expression = new ExpressionFactory(ofExpression, context.getEntityInstance());
+        Expression expression = new ExpressionFactory(ofExpression, context.getPrimaryEntityInstance());
         Object of = expression.getValue(context);
 
         if (!(of instanceof Integer)) {
