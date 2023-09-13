@@ -193,48 +193,4 @@ public class SimulationImpl implements Simulation , Serializable {
 
         return System.currentTimeMillis() - startTime;
     }
-
-    //todo: only for debug, need to delete!
-    public static void main(String[] args) {
-        World world = new WorldImpl();
-        ExecutorService pool = Executors.newFixedThreadPool(3);
-
-        world.setGridRows(100);
-        world.setGridCols(100);
-        world.setThreadPoolSize(3);
-        world.setTermination(new TerminationImpl(10, TerminateCondition.BY_SECONDS));
-        world.addEntity(new EntityDefinitionImpl("ent-1", 50));
-
-        SimulationImpl simulation = new SimulationImpl(world, 1);
-
-//        pool.execute(simulation::run);
-        //new Thread(simulation::run).start();
-
-        simulation.run();
-
-        try {
-            Thread.sleep(2000);
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        }
-
-
-        simulation.pause();
-
-        try {
-            Thread.sleep(5000);
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        }
-
-        simulation.resume();
-
-//        try {
-//            Thread.sleep(2000);
-//        } catch (InterruptedException e) {
-//            throw new RuntimeException(e);
-//        }
-//
-//        simulation.stop();
-    }
 }
