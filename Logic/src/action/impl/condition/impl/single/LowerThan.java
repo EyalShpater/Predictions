@@ -7,8 +7,8 @@ import definition.entity.api.EntityDefinition;
 import java.io.Serializable;
 
 public class LowerThan extends SingleCondition implements Serializable {
-    public LowerThan(String expression1, String expression2, EntityDefinition contextConditionEntity) {
-        super(expression1, expression2, contextConditionEntity);
+    public LowerThan(String expression1, String expression2, EntityDefinition toEvaluate) {
+        super(toEvaluate, expression1, expression2);
     }
 
     @Override

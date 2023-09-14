@@ -43,6 +43,11 @@ public class ContextImpl implements Context, Serializable {
     }
 
     @Override
+    public EntityInstance getSecondaryEntityInstance() {
+        return secondaryEntityInstance;
+    }
+
+    @Override
     public PropertyInstance getEnvironmentVariable(String name) {
         return activeEnvironment.getPropertyByName(name);
     }
@@ -117,6 +122,11 @@ public class ContextImpl implements Context, Serializable {
     @Override
     public Context duplicateContextWithEntityInstance(EntityInstance newEntityInstance) {
         return new ContextImpl(newEntityInstance, entityInstanceManager, activeEnvironment);
+    }
+
+    @Override
+    public Context duplicateAndSwapPrimaryInstanceAndSecondary() {
+        return new ContextImpl(secondaryEntityInstance, primaryEntityInstance, entityInstanceManager, activeEnvironment);
     }
 
     private List<EntityInstance> getRandomElementsWithRepetition(List<EntityInstance> filteredSecondaryEntities, int count) {

@@ -33,32 +33,6 @@ public class IncreaseAction extends AbstractAction implements Serializable {
 
     @Override
     public void apply(Context context) {
-        if (isSecondaryEntityExist()) {
-            applyIncreaseWithSecondaryEntity(context);
-        } else {
-            applyIncreasePrimaryEntity(context);
-        }
-    }
-
-    private void applyIncreaseWithSecondaryEntity(Context context) {
-        if (isActionWithoutSecondaryEntity()) {
-            applyIncreasePrimaryEntity(context);
-        } else if (!secondaryEntitiesInstances.isEmpty()) {
-            for (EntityInstance secondEntityInstance : secondaryEntitiesInstances) {
-                context.setSecondaryEntity(secondEntityInstance);
-                applyIncreasePrimaryEntity(context);
-            }
-        } else {
-            //IF ACTION IS NOT IN CONTEXT THIS WILL THROW EXCEPTION THAT WILL BE CAUGHT HERE AND WONT BE EXECUTED
-            try {
-                applyIncreasePrimaryEntity(context);
-            } catch (IllegalArgumentException ignored) {
-            }
-        }
-    }
-
-
-    private void applyIncreasePrimaryEntity(Context context) {
         EntityInstance invokeOn = context.getPrimaryEntityInstance();
         PropertyInstance propertyToUpdate = invokeOn.getPropertyByName(propertyName);
         Expression expression = new ExpressionFactory(byExpression, invokeOn);

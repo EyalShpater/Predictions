@@ -108,9 +108,9 @@ public class ActionReader {
         List<Action> elseList = getElseListFromPRDElse(world, elseBloc, entityOfAction);
 
         if (isSecondaryEntityExist(prdAction)) {
-            newActionCondition = new ConditionImpl(multipleCondition, condition.getLogical(), entityOfAction, secondaryEntityReader(prdAction));
+            newActionCondition = new ConditionImpl(multipleCondition, entityOfAction, secondaryEntityReader(prdAction));
         } else {
-            newActionCondition = new ConditionImpl(multipleCondition, condition.getLogical(), entityOfAction);
+            newActionCondition = new ConditionImpl(multipleCondition, entityOfAction);
         }
 
         if (thenList != null) {
@@ -197,7 +197,8 @@ public class ActionReader {
 //        multipleRepresentingASingle.addCondition(singleCondition);
 
         if (isSecondaryEntityExist(prdAction)) {
-            newActionCondition = new ConditionImpl(singleCondition, logical, entityOfAction, secondaryEntityReader(prdAction));
+
+            newActionCondition = new ConditionImpl(singleCondition, entityOfAction, secondaryEntityReader(prdAction));
         } else {
             newActionCondition = new ConditionImpl(singleCondition, logical, entityOfAction);
         }

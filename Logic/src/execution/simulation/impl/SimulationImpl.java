@@ -78,7 +78,6 @@ public class SimulationImpl implements Simulation , Serializable {
 
             if (isPause) {
                 this.pauseDuration += pauseDuringRunning();
-                ;
             }
         }
 
@@ -152,6 +151,15 @@ public class SimulationImpl implements Simulation , Serializable {
                 .filter(EntityInstance::isAlive)
                 .forEach(entity -> invokeActionsOnEntity(entity, activeActions));
 
+        //update
+        /*
+
+        //Replace -> context.addNewEntity(EntityInstance)...
+
+        List<EntityInstance> context.getNewEntities();
+        entities.add();
+         */
+
     }
 
     @Override
@@ -204,19 +212,10 @@ public class SimulationImpl implements Simulation , Serializable {
     }
 
     private List<Action> createActionToInvokeList(int tick) {
-        double probability = random.nextDouble();
-
         return world.getRules().stream()
-                .filter(rule -> rule.isActive(tick, probability))
+                .filter(rule -> rule.isActive(tick, random.nextDouble()))
                 .flatMap(rule -> rule.getActions().stream())
                 .collect(Collectors.toList());
-    }
-
-    // todo: implement / take from context.
-    private List<EntityInstance> createSecondaryEntitiesList() {
-        List<EntityInstance> entities = new ArrayList<>();
-
-        return entities;
     }
 
     private void invokeActionsOnEntity(EntityInstance entity, List<Action> activeActions) {
@@ -226,18 +225,6 @@ public class SimulationImpl implements Simulation , Serializable {
                         .getName()
                         .equals(entity.getName())
                 )
-                .forEach(action -> {
-                    if (action.isIncludesSecondaryEntity()) {
-                        processActionsWithSecondaryEntities(entity, action);
-                    } else {
-                        action.invoke(new ContextImpl(entity, entities, environmentVariables));
-                    }
-                });
-    }
-
-    private void processActionsWithSecondaryEntities(EntityInstance entity, Action action) {
-        createSecondaryEntitiesList().forEach(secondary ->
-                action.invoke(new ContextImpl(entity, secondary, entities, environmentVariables))
-        );
+                .forEach(action -> action.invoke(new ContextImpl(entity, entities, environmentVariables)));
     }
 }

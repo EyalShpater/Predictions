@@ -19,20 +19,17 @@ public class ConditionImpl extends AbstractAction implements Condition, Serializ
     private final Condition condition;
     List<Action> then;
     List<Action> notTrue;
-    private final String logical;
 
-    public ConditionImpl(Condition condition, String logical, EntityDefinition entity) {
+    public ConditionImpl(Condition condition, EntityDefinition entity) {
         super(entity, ActionType.CONDITION);
         this.condition = condition;
-        this.logical = logical;
         this.then = new ArrayList<>();
         this.notTrue = new ArrayList<>();
     }
 
-    public ConditionImpl(Condition condition, String logical, EntityDefinition mainEntity, SecondaryEntity secondaryEntity) {
-        super(mainEntity, secondaryEntity, ActionType.CONDITION);
+    public ConditionImpl(Condition condition, EntityDefinition primaryEntity, SecondaryEntity secondaryEntity) {
+        super(primaryEntity, secondaryEntity, ActionType.CONDITION);
         this.condition = condition;
-        this.logical = logical;
         this.then = new ArrayList<>();
         this.notTrue = new ArrayList<>();
     }
@@ -55,28 +52,7 @@ public class ConditionImpl extends AbstractAction implements Condition, Serializ
 
     @Override
     public void apply(Context context) {
-        if (isSecondaryEntityExist()) {
-            evaluateConditionSecondaryEntityVersion(context);
-        } else {
-            evaluateAccordingToEntityInstance(context, context.getPrimaryEntityInstance());
-        }
-
-    }
-
-    private void evaluateConditionSecondaryEntityVersion(Context context) {
-        if (secondaryEntitiesInstances != null && !secondaryEntitiesInstances.isEmpty()) {
-            for (EntityInstance secondEntityInstance : secondaryEntitiesInstances) {
-                context.setSecondaryEntity(secondEntityInstance);
-                evaluateAccordingToEntityInstance(context, secondEntityInstance);
-            }
-        } else {
-            // if a secondary entity exist for this condition and the list is empty that means we have no instance , thus we send null
-            evaluateAccordingToEntityInstance(context, null);
-        }
-    }
-
-    private void evaluateAccordingToEntityInstance(Context context, EntityInstance entityInstance) {
-        if (evaluate(context, entityInstance)) {
+        if (evaluate(context)) {
             then.forEach(action -> action.invoke(context));
         } else if (notTrue != null) {
             notTrue.forEach(action -> action.invoke(context));
@@ -84,13 +60,18 @@ public class ConditionImpl extends AbstractAction implements Condition, Serializ
     }
 
     @Override
-    public Boolean evaluate(Context context, EntityInstance secondEntityInstance) {
-        return condition.evaluate(context, secondEntityInstance);
+    public Boolean evaluate(Context context) {
+        return condition.evaluate(context);
+    }
+
+    @Override
+    public EntityDefinition getPrimaryEntity() {
+        return condition.getPrimaryEntity();
     }
 
     @Override
     public String getOperationSign() {
-        return null;
+        return condition.getOperationSign();
     }
 
     @Override

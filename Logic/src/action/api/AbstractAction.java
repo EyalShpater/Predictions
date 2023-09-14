@@ -15,8 +15,6 @@ public abstract class AbstractAction implements Action, Serializable {
     private final EntityDefinition primaryEntity;
     private final SecondaryEntity secondaryEntity;
     private final ActionType type;
-    private EntityInstance primaryEntityInstance;
-    protected List<EntityInstance> secondaryEntitiesInstances;
 
     public AbstractAction(EntityDefinition primaryEntity, ActionType type) {
         this(primaryEntity, null, type);
@@ -70,16 +68,24 @@ public abstract class AbstractAction implements Action, Serializable {
 
     @Override
     public void invoke(Context context) {
-        if (context.getPrimaryEntityInstance().getName().equals(primaryEntity.getName())) {
-            setEntitiesInstances(context);
-            apply(context);
-        }
-    }
+        if (isActionValid(context)) {
+            if (isSecondaryEntityExist()) {
+                List<EntityInstance> secondaryEntitiesInstances = context.getSecondEntityFilteredList(secondaryEntity);
 
-    private void setEntitiesInstances(Context context) {
-        if (isSecondaryEntityExist()) {
-            primaryEntityInstance = context.getPrimaryEntityInstance();
-            secondaryEntitiesInstances = context.getSecondEntityFilteredList(secondaryEntity);
+                if (secondaryEntitiesInstances.isEmpty()) {
+                    try {
+                        apply(context);
+                    } catch (Exception ignored) {
+                    }
+                }
+
+                for (EntityInstance secondary : secondaryEntitiesInstances) {
+                    context.setSecondaryEntity(secondary);
+                    apply(context);
+                }
+            } else {
+                apply(context);
+            }
         }
     }
 
@@ -89,7 +95,13 @@ public abstract class AbstractAction implements Action, Serializable {
         return secondaryEntity != null;
     }
 
-    protected boolean isActionWithoutSecondaryEntity() {
-        return secondaryEntitiesInstances == null;
+    private boolean isActionValid(Context context) {
+        EntityInstance primaryEntity = context.getPrimaryEntityInstance();
+
+        boolean isAlive = primaryEntity.isAlive();
+        boolean isSameEntities = primaryEntity.getName().equals(context.getPrimaryEntityInstance().getName());
+
+        return isAlive && isSameEntities;
     }
+
 }

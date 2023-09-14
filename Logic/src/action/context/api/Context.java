@@ -9,12 +9,16 @@ import java.util.List;
 public interface Context {
     EntityInstance getPrimaryEntityInstance();
 
+    EntityInstance getSecondaryEntityInstance();
+
     PropertyInstance getEnvironmentVariable(String name);
 
     // TODO: can we delete?
     //void removeEntity(EntityInstance entityInstance);
 
     Context duplicateContextWithEntityInstance(EntityInstance newEntityInstance);
+
+    Context duplicateAndSwapPrimaryInstanceAndSecondary();
 
     List<EntityInstance> getSecondEntityFilteredList(SecondaryEntity secondaryEntity);
 

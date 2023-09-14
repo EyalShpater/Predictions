@@ -93,7 +93,7 @@
                     </PRD-condition>
                     <PRD-then>
                         <PRD-action type="increase" entity="ent-1" property="p1" by="3"/>
-                        <PRD-action type="set" entity="ent-1" property="p1" value="random(3)"/>
+                        <PRD-action type="set" entity="ent-2" property="p1" value="random(3)"/>
                     </PRD-then>
                     <PRD-else>
                         <PRD-action type="kill" entity="ent-1"/>

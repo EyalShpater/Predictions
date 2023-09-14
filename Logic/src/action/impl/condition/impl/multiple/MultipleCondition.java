@@ -2,6 +2,7 @@ package action.impl.condition.impl.multiple;
 
 import action.context.api.Context;
 import action.impl.condition.Condition;
+import definition.entity.api.EntityDefinition;
 import instance.entity.api.EntityInstance;
 
 import java.io.Serializable;
@@ -19,8 +20,8 @@ public abstract class MultipleCondition implements Condition, Serializable {
     }
 
     @Override
-    public Boolean evaluate(Context context, EntityInstance secondEntityInstance) {
-        return evaluate(conditions, context, secondEntityInstance);
+    public Boolean evaluate(Context context) {
+        return evaluate(conditions, context);
     }
 
     public void addCondition(Condition condition) {
@@ -48,7 +49,31 @@ public abstract class MultipleCondition implements Condition, Serializable {
         return info;
     }
 
-    abstract protected boolean evaluate(List<Condition> conditions, Context context, EntityInstance secondEntityInstance);
+    @Override
+    public EntityDefinition getPrimaryEntity() {
+        return null;
+    }
+
+    abstract protected boolean evaluate(List<Condition> conditions, Context context);
+
+    private boolean isConditionPrimaryEntityEqualsContextSecondaryEntity(Condition condition, Context context) {
+        boolean isEqual = false;
+
+        if (condition.isSingleCondition() && context.getSecondaryEntityInstance() != null) {
+            isEqual = condition
+                    .getPrimaryEntity()
+                    .getName()
+                    .equals(context.getPrimaryEntityInstance().getName());
+        }
+
+        return isEqual;
+    }
+
+    protected Context checkAndReplaceContextByConditionPrimaryInstance(Condition condition, Context context) {
+        return isConditionPrimaryEntityEqualsContextSecondaryEntity(condition, context) ?
+                context.duplicateAndSwapPrimaryInstanceAndSecondary() :
+                context;
+    }
 
     public boolean isSingleCondition() {
         return false;

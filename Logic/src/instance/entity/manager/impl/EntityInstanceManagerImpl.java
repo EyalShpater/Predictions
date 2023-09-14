@@ -60,6 +60,10 @@ public class EntityInstanceManagerImpl implements EntityInstanceManager , Serial
 
     @Override
     public void moveAllEntitiesInSpace(SphereSpace space) {
-        instances.values().forEach(space::makeRandomMove);
+        instances
+                .values()
+                .stream()
+                .filter(EntityInstance::isAlive)
+                .forEach(space::makeRandomMove);
     }
 }

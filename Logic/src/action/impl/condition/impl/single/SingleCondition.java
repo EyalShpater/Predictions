@@ -10,46 +10,38 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 
 public abstract class SingleCondition implements Condition, Serializable {
+    protected EntityDefinition entityToEvaluate;
     protected String expression1;
     protected String expression2;
-    EntityDefinition contextConditionEntity;
 
-    public SingleCondition(String expression1, String expression2) {
+    public SingleCondition(EntityDefinition entityToEvaluate, String expression1, String expression2) {
+        this.entityToEvaluate = entityToEvaluate;
         this.expression1 = expression1;
         this.expression2 = expression2;
     }
 
-    public SingleCondition(String expression1, String expression2, EntityDefinition contextConditionEntity) {
-        this(expression1, expression2);
-        this.contextConditionEntity = contextConditionEntity;
-    }
-
     @Override
-    public Boolean evaluate(Context context, EntityInstance secondEntityInstance) {
-        if (contextConditionEntity != null) {
-            return evaluateSingleConditionWithContextEntity(context, secondEntityInstance);
-        } else {
-            return evaluate(expression1, expression2, context);
-        }
+    public Boolean evaluate(Context context) {
+        return evaluate(expression1, expression2, context);
     }
 
-    private boolean isSecondaryEntityInstanceExist(EntityInstance secondEntityInstance) {
-        return secondEntityInstance != null;
-    }
-
-    private Boolean evaluateSingleConditionWithContextEntity(Context context, EntityInstance secondEntityInstance) {
-        String primaryEntityName = context.getPrimaryEntityInstance().getName();
-        String contextConditionEntityName = contextConditionEntity.getName();
-
-        if (primaryEntityName.equals(contextConditionEntityName)) {
-            return evaluate(expression1, expression2, context);
-        } else {
-            if (isSecondaryEntityInstanceExist(secondEntityInstance)) {
-                return evaluate(expression1, expression2, context.duplicateContextWithEntityInstance(secondEntityInstance));
-            }
-        }
-        return null;
-    }
+//    private boolean isSecondaryEntityInstanceExist(EntityInstance secondEntityInstance) {
+//        return secondEntityInstance != null;
+//    }
+//
+//    private Boolean evaluateSingleConditionWithContextEntity(Context context, EntityInstance secondEntityInstance) {
+//        String primaryEntityName = context.getPrimaryEntityInstance().getName();
+//        String contextConditionEntityName = contextConditionEntity.getName();
+//
+//        if (primaryEntityName.equals(contextConditionEntityName)) {
+//            return evaluate(expression1, expression2, context);
+//        }else {
+//            if (isSecondaryEntityInstanceExist(secondEntityInstance)) {
+//                return evaluate(expression1, expression2, context.duplicateContextWithEntityInstance(secondEntityInstance));
+//            }
+//        }
+//        return null;
+//    }
 
     abstract protected boolean evaluate(String expression1, String expression2, Context context);
 
@@ -67,6 +59,11 @@ public abstract class SingleCondition implements Condition, Serializable {
     @Override
     public Map<String, String> getAdditionalInformation() {
         return null;
+    }
+
+    @Override
+    public EntityDefinition getPrimaryEntity() {
+        return entityToEvaluate;
     }
 
     @Override
