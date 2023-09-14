@@ -12,12 +12,12 @@ public class ExpressionTypeConverterImpl implements ExpressionTypeConverter , Se
     private static final int NOT_FOUND = -1;
 
     @Override
-    public AbstractExpression convert(String expression, EntityInstance primaryEntity, EntityInstance... entityInstances) {
+    public AbstractExpression convert(String expression, EntityInstance primaryEntity, EntityInstance secondaryInstances) {
         AbstractExpression expressionInstance;
         expression = expression.trim();
 
         if (isHelperFunction(expression)) {
-            expressionInstance = new FunctionExpression(expression, primaryEntity, entityInstances);
+            expressionInstance = new FunctionExpression(expression, primaryEntity, secondaryInstances);
         } else if (isProperty(expression, primaryEntity)) {
             expressionInstance = new PropertyExpression(expression, primaryEntity);
         } else {

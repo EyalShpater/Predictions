@@ -134,22 +134,13 @@ public class SimulationImpl implements Simulation , Serializable {
     }
 
     private void executeRules(int tick) {
-        // todo: delete
-//        for (EntityInstance entity : entities.getInstances()) {
-//            for (Rule rule : world.getRules()) {
-//                double probability = random.nextDouble();
-//
-//                if (entity.isAlive() && rule.isActive(tick, probability)) {
-//                    rule.invoke(new ContextImpl(entity, entities, environmentVariables));
-//                }
-//            }
-//        }
-
         List<Action> activeActions = createActionToInvokeList(tick);
 
         entities.getInstances().stream()
                 .filter(EntityInstance::isAlive)
-                .forEach(entity -> invokeActionsOnEntity(entity, activeActions));
+                .forEach(entity -> {
+                    invokeActionsOnEntity(entity, activeActions);
+                });
 
         //update
         /*
@@ -175,14 +166,12 @@ public class SimulationImpl implements Simulation , Serializable {
     @Override
     public void pause() {
         isPause = true;
-        System.out.println("pause");
     }
 
     @Override
     public void stop() {
         isStop = true;
         resume();
-        System.out.println("stop");
     }
 
     @Override
@@ -192,7 +181,6 @@ public class SimulationImpl implements Simulation , Serializable {
         synchronized (this) {
             this.notifyAll();
         }
-        System.out.println("resume");
     }
 
     private long pauseDuringRunning() {

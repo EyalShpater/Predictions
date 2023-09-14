@@ -16,13 +16,13 @@ public class FunctionExpression extends AbstractExpression implements  Serializa
         super(expression, entityInstance);
     }
 
-    public FunctionExpression(String expression, EntityInstance primaryEntity, EntityInstance... entityInstance) {
-        super(expression, primaryEntity, entityInstance);
+    public FunctionExpression(String expression, EntityInstance primaryEntity, EntityInstance secondaryInstance) {
+        super(expression, primaryEntity, secondaryInstance);
     }
 
     @Override
     public AbstractExpression convert() {
-        return new FunctionExpression(this.expression, primaryEntity, entityInstances.toArray(new EntityInstance[0]));
+        return new FunctionExpression(this.expression, primaryEntity, secondaryEntity);
     }
 
     @Override
