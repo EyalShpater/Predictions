@@ -35,7 +35,7 @@ public class IncreaseAction extends AbstractAction implements Serializable {
     public void apply(Context context) {
         EntityInstance invokeOn = context.getPrimaryEntityInstance();
         PropertyInstance propertyToUpdate = invokeOn.getPropertyByName(propertyName);
-        Expression expression = new ExpressionFactory(byExpression, invokeOn);
+        Expression expression = new ExpressionFactory(byExpression, context);
         Object increaseBy = expression.getValue(context);
 
         if (propertyToUpdate.getPropertyDefinition().isNumeric()) {

@@ -37,7 +37,7 @@ public class SetAction extends AbstractAction implements Serializable {
     public void apply(Context context) {
         EntityInstance invokeOn = context.getPrimaryEntityInstance();
         PropertyInstance propertyToUpdate = invokeOn.getPropertyByName(propertyName);
-        Expression expression = new ExpressionFactory(newValue, invokeOn);
+        Expression expression = new ExpressionFactory(newValue, context);
         Object newValue = expression.getValue(context);
         if (propertyToUpdate.getPropertyDefinition().isNumeric()) {
             if (propertyToUpdate.getPropertyDefinition().isInteger()) {

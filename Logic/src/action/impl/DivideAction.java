@@ -38,9 +38,9 @@ public class DivideAction extends AbstractAction implements Serializable {
     public void apply(Context context) {
         EntityInstance invokeOn = context.getPrimaryEntityInstance();
         PropertyInstance propertyToUpdate = invokeOn.getPropertyByName(propertyName);
-        Expression firstExpression = new ExpressionFactory(this.arg1, invokeOn);
+        Expression firstExpression = new ExpressionFactory(this.arg1, context);
         Object firstExpressionValue = firstExpression.getValue(context);
-        Expression secoundExpression = new ExpressionFactory(this.arg2, invokeOn);
+        Expression secoundExpression = new ExpressionFactory(this.arg2, context);
         Object secondExpressionValue = secoundExpression.getValue(context);
 
         if (propertyToUpdate.getPropertyDefinition().isNumeric()) {

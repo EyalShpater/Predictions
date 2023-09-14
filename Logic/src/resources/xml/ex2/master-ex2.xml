@@ -61,7 +61,7 @@
             <PRD-actions>
                 <PRD-action type="increase" entity="ent-1" property="p1" by="3"/>
 <!--                <PRD-action type="decrease" entity="ent-1" property="p2" by="environment(e3)"/>-->
-                <PRD-action type="set" entity="ent-2" property="p1" value=""/>
+                <!--<PRD-action type="set" entity="ent-2" property="p1" value="90"/>-->
                 <PRD-action type="calculation" entity="ent-1" result-prop="p1">
                     <PRD-multiply arg1="p1" arg2="environment(e1)"/>
                 </PRD-action>
@@ -69,7 +69,7 @@
                     <PRD-divide arg1="environment(e3)" arg2="3.2"/>
                 </PRD-action>
             </PRD-actions>
-            <PRD-activation ticks="1" probability="0.4"/>
+            <PRD-activation ticks="1" probability="1"/>
         </PRD-rule>
         <PRD-rule name="r2">
             <PRD-actions>

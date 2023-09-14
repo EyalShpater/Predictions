@@ -20,8 +20,6 @@ public class Evaluate implements HelperFunction {
         if (context.isEntityRelatedToAction(entityName)) {
             return context.getPropertyValueOfEntity(entityName, propertyName);
         } else {
-           /* System.out.println("secondary entity: "+ context.getSecondaryEntityInstance().getName() +
-                    "primary :"+ context.getPrimaryEntityInstance().getName());*/
             throw new IllegalArgumentException("Something went wrong in evaluate function " + entityName + " " + propertyName);
         }
     }

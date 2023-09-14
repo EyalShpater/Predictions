@@ -13,8 +13,8 @@ public class NotEqual extends SingleCondition implements Serializable {
 
     @Override
     protected boolean evaluate(String expression1, String expression2, Context context) {
-        Object value1 = new ExpressionFactory(expression1, context.getPrimaryEntityInstance()).getValue(context);
-        Object value2 = new ExpressionFactory(expression2, context.getPrimaryEntityInstance()).getValue(context);
+        Object value1 = new ExpressionFactory(expression1, context).getValue(context);
+        Object value2 = new ExpressionFactory(expression2, context).getValue(context);
 
         return !value1.equals(value2);
     }

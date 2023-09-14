@@ -75,7 +75,7 @@ public class Proximity extends AbstractAction {
     }
 
     private int evaluateExpressionAsInteger(Context context) {
-        Expression expression = new ExpressionFactory(ofExpression, context.getPrimaryEntityInstance());
+        Expression expression = new ExpressionFactory(ofExpression, context);
         Object of = expression.getValue(context);
 
         if (!(of instanceof Integer)) {
