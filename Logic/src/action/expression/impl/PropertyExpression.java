@@ -14,12 +14,12 @@ public class PropertyExpression extends AbstractExpression implements  Serializa
 
     @Override
     public AbstractExpression convert() {
-        return new PropertyExpression(this.expression, this.entityInstance);
+        return new PropertyExpression(this.expression, this.primaryEntity);
     }
 
     @Override
     public Object getValue(Context context) {
-        return entityInstance.getPropertyByName(expression).getValue();
+        return primaryEntity.getPropertyByName(expression).getValue();
     }
 
     @Override

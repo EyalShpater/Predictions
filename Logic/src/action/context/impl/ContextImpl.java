@@ -109,7 +109,7 @@ public class ContextImpl implements Context, Serializable {
         List<EntityInstance> newFilteredSecondaryEntities;
         if (secondaryEntity.isConditionExist()) {
             newFilteredSecondaryEntities = filteredSecondaryEntities.stream()
-                    .filter(entityInstance -> secondaryEntity.evaluateCondition(duplicateContextWithEntityInstance(entityInstance), entityInstance))
+                    .filter(entityInstance -> secondaryEntity.evaluateCondition(duplicateContextWithEntityInstance(entityInstance)))
                     .limit(count)
                     .collect(Collectors.toList());
 

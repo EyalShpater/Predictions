@@ -8,20 +8,20 @@ import instance.entity.api.EntityInstance;
 import java.io.Serializable;
 
 public class ExpressionTypeConverterImpl implements ExpressionTypeConverter , Serializable {
-    private final char HELPER_FUNCTION_TOKEN = '(';
-    private final int NOT_FOUND = -1;
+    private static final char HELPER_FUNCTION_TOKEN = '(';
+    private static final int NOT_FOUND = -1;
 
     @Override
-    public AbstractExpression convert(String expression, EntityInstance entityInstance) {
+    public AbstractExpression convert(String expression, EntityInstance primaryEntity, EntityInstance... entityInstances) {
         AbstractExpression expressionInstance;
         expression = expression.trim();
 
         if (isHelperFunction(expression)) {
-            expressionInstance = new FunctionExpression(expression, entityInstance);
-        } else if (isProperty(expression, entityInstance)) {
-            expressionInstance = new PropertyExpression(expression, entityInstance);
+            expressionInstance = new FunctionExpression(expression, primaryEntity, entityInstances);
+        } else if (isProperty(expression, primaryEntity)) {
+            expressionInstance = new PropertyExpression(expression, primaryEntity);
         } else {
-            expressionInstance = new ValueExpression(expression, entityInstance);
+            expressionInstance = new ValueExpression(expression, primaryEntity);
         }
 
         return expressionInstance;

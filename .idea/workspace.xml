@@ -11,13 +11,26 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="27d35137-667f-4e37-a519-ab836acc0a06" name="Changes" comment="implemented run loop as required.">
+    <list default="true" id="27d35137-667f-4e37-a519-ab836acc0a06" name="Changes" comment="improve action execution">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/definition/world/api/World.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/definition/world/api/World.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/definition/world/impl/WorldImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/definition/world/impl/WorldImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/execution/simulation/impl/SimulationImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/execution/simulation/impl/SimulationImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/execution/simulation/termination/api/Termination.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/execution/simulation/termination/api/Termination.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/execution/simulation/termination/impl/TerminationImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/execution/simulation/termination/impl/TerminationImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/action/context/impl/ContextImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/action/context/impl/ContextImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/action/expression/api/AbstractExpression.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/action/expression/api/AbstractExpression.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/action/expression/api/ExpressionTypeConverter.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/action/expression/api/ExpressionTypeConverter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/action/expression/impl/ExpressionFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/action/expression/impl/ExpressionFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/action/expression/impl/ExpressionTypeConverterImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/action/expression/impl/ExpressionTypeConverterImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/action/expression/impl/FunctionExpression.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/action/expression/impl/FunctionExpression.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/action/expression/impl/PropertyExpression.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/action/expression/impl/PropertyExpression.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/action/expression/impl/ValueExpression.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/action/expression/impl/ValueExpression.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/action/helper/function/impl/Evaluate.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/action/helper/function/impl/Evaluate.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/action/impl/Proximity.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/action/impl/Proximity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/action/impl/ReplaceAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/action/impl/ReplaceAction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/action/second/entity/SecondaryEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/action/second/entity/SecondaryEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/action/second/entity/impl/SecondaryEntityImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/action/second/entity/impl/SecondaryEntityImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/resources/xml/ex2/master-ex2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/resources/xml/ex2/master-ex2.xml" afterDir="false" />
+    </list>
+    <list id="69861a54-824d-4aaa-856c-815ff242edb4" name="Changes by ASUS" comment="">
+      <change beforePath="$PROJECT_DIR$/Logic/src/action/helper/function/impl/Percent.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/action/helper/function/impl/Percent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/resources/xml/ex2/master-ex2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/resources/xml/ex2/master-ex2.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -76,6 +89,16 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="jar:///Library/Java/JavaVirtualMachines/jdk-1.8.jdk/Contents/Home/javafx-src.zip!/javafx/fxml/FXMLLoader.java" root0="SKIP_INSPECTION" />
   </component>
+  <component name="LineStatusTrackerManager">
+    <file path="$PROJECT_DIR$/Logic/src/resources/xml/ex2/master-ex2.xml">
+      <ranges>
+        <range start1="63" end1="63" start2="63" end2="64" changelist="69861a54-824d-4aaa-856c-815ff242edb4" />
+        <range start1="83" end1="84" start2="84" end2="85" changelist="69861a54-824d-4aaa-856c-815ff242edb4" />
+        <range start1="95" end1="96" start2="96" end2="97" changelist="27d35137-667f-4e37-a519-ab836acc0a06" />
+        <range start1="111" end1="112" start2="112" end2="113" changelist="27d35137-667f-4e37-a519-ab836acc0a06" />
+      </ranges>
+    </file>
+  </component>
   <component name="ProblemsViewState">
     <option name="selectedTabId" value="CurrentFile" />
   </component>
@@ -98,7 +121,6 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
-    "codeWithMe.voiceChat.enabledByDefault": "false",
     "dart.analysis.tool.window.visible": "false",
     "extract.method.default.visibility": "private",
     "full.screen.before.presentation.mode": "false",
@@ -135,7 +157,7 @@
       <recent name="javafx.details.details" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.SimulationImpl">
+  <component name="RunManager" selected="Application.main.Main">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="javafx.mainScene.main.Main" />
       <module name="GUI" />
@@ -203,8 +225,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.SimulationImpl" />
         <item itemvalue="Application.main.Main" />
+        <item itemvalue="Application.SimulationImpl" />
         <item itemvalue="Application.Main" />
         <item itemvalue="Application.grid.TestMain" />
         <item itemvalue="Application.TestMain" />
@@ -322,30 +344,6 @@
       <option name="presentableId" value="LOCAL-00070" />
       <option name="project" value="LOCAL" />
       <updated>1692356632414</updated>
-    </task>
-    <task id="LOCAL‎-00084" summary="version 1.0">
-      <option name="closed" value="true" />
-      <created>1692492690187</created>
-      <option name="number" value="00084" />
-      <option name="presentableId" value="LOCAL‎-00084" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1692492690187</updated>
-    </task>
-    <task id="LOCAL‎-00085" summary="version 1:1.">
-      <option name="closed" value="true" />
-      <created>1692493596747</created>
-      <option name="number" value="00085" />
-      <option name="presentableId" value="LOCAL‎-00085" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1692493596747</updated>
-    </task>
-    <task id="LOCAL‎-00086" summary="version 1:1.">
-      <option name="closed" value="true" />
-      <created>1692493670062</created>
-      <option name="number" value="00086" />
-      <option name="presentableId" value="LOCAL‎-00086" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1692493670062</updated>
     </task>
     <task id="LOCAL‎-00087" summary="init GUI branch">
       <option name="closed" value="true" />
@@ -663,7 +661,31 @@
       <option name="project" value="LOCAL‎" />
       <updated>1694637270125</updated>
     </task>
-    <option name="localTasksCounter" value="128" />
+    <task id="LOCAL‎-00128" summary="pause duration calculation in run loop is more readable">
+      <option name="closed" value="true" />
+      <created>1694639736556</created>
+      <option name="number" value="00128" />
+      <option name="presentableId" value="LOCAL‎-00128" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1694639736556</updated>
+    </task>
+    <task id="LOCAL‎-00129" summary="improve action execution">
+      <option name="closed" value="true" />
+      <created>1694697940860</created>
+      <option name="number" value="00129" />
+      <option name="presentableId" value="LOCAL‎-00129" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1694697940860</updated>
+    </task>
+    <task id="LOCAL‎-00130" summary="improve action execution">
+      <option name="closed" value="true" />
+      <created>1694697955128</created>
+      <option name="number" value="00130" />
+      <option name="presentableId" value="LOCAL‎-00130" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1694697955128</updated>
+    </task>
+    <option name="localTasksCounter" value="131" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -694,8 +716,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="added results tab" />
-    <MESSAGE value="the values in the barChart are now sorted" />
     <MESSAGE value="When you load a new simulation, any data from previous simulations gets wiped." />
     <MESSAGE value="added a few changes to context to meet SecondEntity expectations" />
     <MESSAGE value="changed evaluate to get the EntityInstance of secondaryEntity in each iteration in order to creare the proper context , also added functions to context to get the filtered SecondaryEntity list" />
@@ -719,7 +739,9 @@
     <MESSAGE value="added in simulation the option to stop / pause / resume" />
     <MESSAGE value="Fix issue in SphereSpace causing an exception" />
     <MESSAGE value="implemented run loop as required." />
-    <option name="LAST_COMMIT_MESSAGE" value="implemented run loop as required." />
+    <MESSAGE value="pause duration calculation in run loop is more readable" />
+    <MESSAGE value="improve action execution" />
+    <option name="LAST_COMMIT_MESSAGE" value="improve action execution" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
@@ -728,10 +750,6 @@
         <breakpoint type="java-exception">
           <properties class="java.lang.IllegalArgumentException" package="java.lang" />
           <option name="timeStamp" value="8" />
-        </breakpoint>
-        <breakpoint enabled="true" type="java-exception">
-          <properties class="java.lang.NullPointerException" package="java.lang" />
-          <option name="timeStamp" value="53" />
         </breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/GUI/src/javafx/input/components/mainComponent/SecondScreenController.java</url>
@@ -742,6 +760,16 @@
           <url>file://$PROJECT_DIR$/GUI/src/javafx/tab/newExecution/mainComponent/NewExecutionController.java</url>
           <line>140</line>
           <option name="timeStamp" value="43" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/Logic/src/action/helper/function/impl/Evaluate.java</url>
+          <line>24</line>
+          <option name="timeStamp" value="62" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/Logic/src/action/helper/function/impl/Percent.java</url>
+          <line>21</line>
+          <option name="timeStamp" value="65" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/GUI/src/javafx/tab/newExecution/environmentVariable/StringEnvironmentVariableController.java</url>

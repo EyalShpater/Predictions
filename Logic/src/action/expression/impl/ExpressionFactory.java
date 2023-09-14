@@ -10,17 +10,19 @@ import java.io.Serializable;
 
 public class ExpressionFactory implements Expression , Serializable {
     private String expression;
-    private EntityInstance entityInstance;
+    private EntityInstance primaryInstance;
+    private EntityInstance secondaryInstance;
 
-    public ExpressionFactory(String expression, EntityInstance entityInstance) {
+    public ExpressionFactory(String expression, Context context) {
         this.expression = expression;
-        this.entityInstance = entityInstance;
+        this.primaryInstance = context.getPrimaryEntityInstance();
+        this.secondaryInstance = context.getSecondaryEntityInstance();
     }
 
     @Override
     public Object getValue(Context context) {
         ExpressionTypeConverter converter = new ExpressionTypeConverterImpl();
-        AbstractExpression expressionInstance = converter.convert(expression, entityInstance);
+        AbstractExpression expressionInstance = converter.convert(expression, primaryInstance, secondaryInstance);
 
         return expressionInstance.getValue(context);
     }

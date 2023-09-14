@@ -14,7 +14,7 @@ public class ValueExpression extends AbstractExpression implements  Serializable
 
     @Override
     public AbstractExpression convert() {
-        return new ValueExpression(this.expression, this.entityInstance);
+        return new ValueExpression(this.expression, this.primaryEntity);
     }
 
     @Override
