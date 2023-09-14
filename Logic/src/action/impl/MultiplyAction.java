@@ -37,15 +37,6 @@ public class MultiplyAction extends AbstractAction implements Serializable {
 
     @Override
     public void apply(Context context) {
-        if (isSecondaryEntityExist()) {
-            applyMultiplyWithSecondaryEntity(context);
-        } else {
-            applyMultiplyPrimaryEntity(context);
-        }
-
-    }
-
-    private void applyMultiplyPrimaryEntity(Context context) {
         EntityInstance invokeOn = context.getPrimaryEntityInstance();
         PropertyInstance propertyToUpdate = invokeOn.getPropertyByName(propertyName);
         Expression firstExpression = new ExpressionFactory(this.arg1, invokeOn);
@@ -61,23 +52,6 @@ public class MultiplyAction extends AbstractAction implements Serializable {
             }
         } else {
             throw new IllegalArgumentException("Increase action only available on numeric type!");
-        }
-    }
-
-    private void applyMultiplyWithSecondaryEntity(Context context) {
-        if (isActionWithoutSecondaryEntity()) {
-            applyMultiplyPrimaryEntity(context);
-        } else if (!secondaryEntitiesInstances.isEmpty()) {
-            for (EntityInstance secondEntityInstance : secondaryEntitiesInstances) {
-                context.setSecondaryEntity(secondEntityInstance);
-                applyMultiplyPrimaryEntity(context);
-            }
-        } else {
-            //IF ACTION IS NOT IN CONTEXT THIS WILL THROW EXCEPTION THAT WILL BE CAUGHT HERE AND WONT BE EXECUTED
-            try {
-                applyMultiplyPrimaryEntity(context);
-            } catch (IllegalArgumentException ignored) {
-            }
         }
     }
 

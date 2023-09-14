@@ -35,14 +35,6 @@ public class SetAction extends AbstractAction implements Serializable {
 
     @Override
     public void apply(Context context) {
-        if (isSecondaryEntityExist()) {
-            applySetWithSecondaryEntity(context);
-        } else {
-            applySetPrimaryEntity(context);
-        }
-    }
-
-    private void applySetPrimaryEntity(Context context) {
         EntityInstance invokeOn = context.getPrimaryEntityInstance();
         PropertyInstance propertyToUpdate = invokeOn.getPropertyByName(propertyName);
         Expression expression = new ExpressionFactory(newValue, invokeOn);
@@ -59,29 +51,6 @@ public class SetAction extends AbstractAction implements Serializable {
             setString(propertyToUpdate, newValue);
         }
 
-    }
-
-    private void applySetWithSecondaryEntity(Context context) {
-        if (secondaryEntitiesInstances != null && !secondaryEntitiesInstances.isEmpty()) {
-            for (EntityInstance secondEntityInstance : secondaryEntitiesInstances) {
-                context.setSecondaryEntity(secondEntityInstance);
-                applySetPrimaryEntity(context);
-            }
-        }
-        if (isActionWithoutSecondaryEntity()) {
-            applySetPrimaryEntity(context);
-        } else if (!secondaryEntitiesInstances.isEmpty()) {
-            for (EntityInstance secondEntityInstance : secondaryEntitiesInstances) {
-                context.setSecondaryEntity(secondEntityInstance);
-                applySetPrimaryEntity(context);
-            }
-        } else {
-            //IF ACTION IS NOT IN CONTEXT THIS WILL THROW EXCEPTION THAT WILL BE CAUGHT HERE AND WONT BE EXECUTED
-            try {
-                applySetPrimaryEntity(context);
-            } catch (IllegalArgumentException ignored) {
-            }
-        }
     }
 
     private void setInteger(PropertyInstance propertyToUpdate, Object newValue) {

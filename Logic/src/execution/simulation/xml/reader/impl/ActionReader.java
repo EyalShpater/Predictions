@@ -200,7 +200,7 @@ public class ActionReader {
 
             newActionCondition = new ConditionImpl(singleCondition, entityOfAction, secondaryEntityReader(prdAction));
         } else {
-            newActionCondition = new ConditionImpl(singleCondition, logical, entityOfAction);
+            newActionCondition = new ConditionImpl(singleCondition, entityOfAction);
         }
 
         if (thenList != null) {
@@ -351,7 +351,7 @@ public class ActionReader {
 //        MultipleCondition multipleRepresentingASingle = new And();
 //        multipleRepresentingASingle.addCondition(singleCondition);
 
-        newActionCondition = new ConditionImpl(singleCondition, logical, entityOfAction);
+        newActionCondition = new ConditionImpl(singleCondition, entityOfAction);
 
         return newActionCondition;
     }
@@ -368,7 +368,7 @@ public class ActionReader {
             addSmallerConditionToMultipleConditions(condition, multipleCondition, entityOfAction);
         }
 
-        newActionCondition = new ConditionImpl(multipleCondition, condition.getLogical(), entityOfAction);
+        newActionCondition = new ConditionImpl(multipleCondition, entityOfAction);
 
         return newActionCondition;
     }

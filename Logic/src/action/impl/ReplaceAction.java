@@ -24,9 +24,44 @@ public class ReplaceAction extends AbstractAction {
         }
     }
 
-    @Override
+    Override
     protected void apply(Context context) {
+        // Find the entity to kill
+        EntityInstance entityToKill = context.getEntityInstance();
 
+        // Set "isAlive" to false to "kill" the entity
+        entityToKill.getPropertyByName("isAlive").setValue(false);
+
+        // Create a new entity based on entityToCreate definition
+        EntityInstance newEntity = context.getEntityInstanceManager()
+                .createEntityInstance(entityToCreate);
+
+        // Determine the mode and create the entity accordingly
+        if (mode == ReplaceMode.SCRATCH) {
+            // Create the entity from scratch
+            // You may need to initialize its properties as needed
+        } else if (mode == ReplaceMode.DERIVED) {
+            // Create the entity and copy properties from the killed entity
+            for (String propertyName : entityToKill.getPropertyNames()) {
+                // Check if the property exists in entityToCreate
+                if (newEntity.getPropertyNames().contains(propertyName)) {
+                    // Copy property value from entityToKill to newEntity
+                    Object value = entityToKill.getPropertyByName(propertyName).getValue();
+                    newEntity.getPropertyByName(propertyName).setValue(value);
+                }
+            }
+        }
+
+        // Create a list to store entities to add
+        List<EntityInstance> entitiesToAdd = new ArrayList<>();
+
+        // Add the newEntity to the list of entities to add
+        entitiesToAdd.add(newEntity);
+
+        // Add any other entities you want to add to entitiesToAdd here
+
+        // Add the entities to the list of entities managed by entityInstanceManager
+        context.getEntityInstanceManager().addAllEntityInstances(entitiesToAdd);
     }
 
     @Override

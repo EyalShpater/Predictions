@@ -36,14 +36,6 @@ public class DivideAction extends AbstractAction implements Serializable {
 
     @Override
     public void apply(Context context) {
-        if (isSecondaryEntityExist()) {
-            applyDivideWithSecondaryEntity(context);
-        } else {
-            applyDividePrimaryEntity(context);
-        }
-    }
-
-    private void applyDividePrimaryEntity(Context context) {
         EntityInstance invokeOn = context.getPrimaryEntityInstance();
         PropertyInstance propertyToUpdate = invokeOn.getPropertyByName(propertyName);
         Expression firstExpression = new ExpressionFactory(this.arg1, invokeOn);
@@ -59,29 +51,6 @@ public class DivideAction extends AbstractAction implements Serializable {
             }
         } else {
             throw new IllegalArgumentException("Divide action only available  on numeric type!");
-        }
-    }
-
-    private void applyDivideWithSecondaryEntity(Context context) {
-        if (secondaryEntitiesInstances != null && !secondaryEntitiesInstances.isEmpty()) {
-            for (EntityInstance secondEntityInstance : secondaryEntitiesInstances) {
-                context.setSecondaryEntity(secondEntityInstance);
-                applyDividePrimaryEntity(context);
-            }
-        }
-        if (isActionWithoutSecondaryEntity()) {
-            applyDividePrimaryEntity(context);
-        } else if (!secondaryEntitiesInstances.isEmpty()) {
-            for (EntityInstance secondEntityInstance : secondaryEntitiesInstances) {
-                context.setSecondaryEntity(secondEntityInstance);
-                applyDividePrimaryEntity(context);
-            }
-        } else {
-            //IF ACTION IS NOT IN CONTEXT THIS WILL THROW EXCEPTION THAT WILL BE CAUGHT HERE AND WONT BE EXECUTED
-            try {
-                applyDividePrimaryEntity(context);
-            } catch (IllegalArgumentException ignored) {
-            }
         }
     }
 
