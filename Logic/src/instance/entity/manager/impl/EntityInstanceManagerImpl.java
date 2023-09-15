@@ -1,11 +1,13 @@
 package instance.entity.manager.impl;
 
 import definition.entity.api.EntityDefinition;
+import definition.property.api.PropertyDefinition;
 import grid.api.Location;
 import grid.api.SphereSpace;
 import instance.entity.api.EntityInstance;
 import instance.entity.impl.EntityInstanceImpl;
 import instance.entity.manager.api.EntityInstanceManager;
+import instance.property.impl.PropertyInstanceImpl;
 
 import java.io.Serializable;
 import java.util.*;
@@ -40,6 +42,49 @@ public class EntityInstanceManagerImpl implements EntityInstanceManager , Serial
             instances.put(id, newInstance);
             id++;
         }
+    }
+
+    @Override
+    public void createNewEntityInstanceFromScratch(EntityDefinition entityToCreate, SphereSpace space) {
+        EntityInstance newInstance = new EntityInstanceImpl(entityToCreate, id);
+        Location placeInSpace = space.placeEntityRandomlyInWorld(newInstance);
+        if (placeInSpace == null) {
+            throw new IllegalArgumentException(
+                    "There is no place to add "
+                            + newInstance.getName()
+                            + " id #"
+                            + newInstance.getId()
+                            + " to the sphere space."
+            );
+        }
+
+        newInstance.setLocationInSpace(placeInSpace);
+        newInstance.setSpace(space);
+        instances.put(id, newInstance);
+
+        id++;
+    }
+
+    @Override
+    public void createNewEntityInstanceWithSamePropertyValues(EntityInstance entityToCopy, EntityDefinition entityToCreate) {
+        EntityInstance newInstance = new EntityInstanceImpl(entityToCreate, id);
+        Location placeInSpace = entityToCopy.getLocationInSpace();
+        if (placeInSpace == null) {
+            throw new IllegalArgumentException(
+                    "There is no place to add "
+                            + newInstance.getName()
+                            + " id #"
+                            + newInstance.getId()
+                            + " to the sphere space."
+            );
+        }
+        newInstance.copyPropertiesFrom(entityToCopy);
+
+        newInstance.setLocationInSpace(placeInSpace);
+        newInstance.setSpace(entityToCopy.getSpace());
+        instances.put(id, newInstance);
+
+        id++;
     }
 
     @Override

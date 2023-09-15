@@ -15,4 +15,8 @@ public interface EntityInstanceManager {
     List<EntityInstance> getInstances();
 
     void moveAllEntitiesInSpace(SphereSpace space);
+
+    void createNewEntityInstanceFromScratch(EntityDefinition entityToCreate, SphereSpace space);
+
+    void createNewEntityInstanceWithSamePropertyValues(EntityInstance entityToCopy, EntityDefinition entityToCreate);
 }

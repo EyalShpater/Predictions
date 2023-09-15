@@ -1,7 +1,9 @@
 package action.context.impl;
 
+import action.api.ReplaceMode;
 import action.context.api.Context;
 import action.second.entity.SecondaryEntity;
+import definition.entity.api.EntityDefinition;
 import instance.entity.api.EntityInstance;
 import instance.entity.manager.api.EntityInstanceManager;
 import instance.enviornment.api.ActiveEnvironment;
@@ -95,6 +97,19 @@ public class ContextImpl implements Context, Serializable {
     @Override
     public void setSecondaryEntity(EntityInstance secondaryEntityInstance) {
         this.secondaryEntityInstance = secondaryEntityInstance;
+    }
+
+    @Override
+    public void produceAnewEntityByMode(EntityDefinition entityToCreate, ReplaceMode mode) {
+        switch (mode) {
+            case DERIVED:
+                entityInstanceManager.createNewEntityInstanceWithSamePropertyValues(this.primaryEntityInstance, entityToCreate);
+                break;
+            case SCRATCH:
+                entityInstanceManager.createNewEntityInstanceFromScratch(entityToCreate, primaryEntityInstance.getSpace());
+                break;
+        }
+        this.primaryEntityInstance.kill();
     }
 
     private List<EntityInstance> getInstancesWithName(String secondEntityName) {

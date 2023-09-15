@@ -23,7 +23,7 @@ public class EntityReader {
 
         //  TODO: Change EntityDefinition to fit no population for xml
 
-        EntityDefinition newEntity = new EntityDefinitionImpl(prdEntity.getName(), 100);
+        EntityDefinition newEntity = new EntityDefinitionImpl(prdEntity.getName(), 3);
 
         //Object that reads into Property
         List<PRDProperty> propertyListOfPRDEntity = prdEntity.getPRDProperties().getPRDProperty();

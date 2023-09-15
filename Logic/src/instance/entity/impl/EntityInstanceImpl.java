@@ -90,7 +90,32 @@ public class EntityInstanceImpl implements EntityInstance, Serializable {
     }
 
     @Override
+    public void copyPropertiesFrom(EntityInstance entityToCopy) {
+        propNameToPropInstance.forEach((propertyName, propertyInstance) -> {
+            PropertyInstance propertyInstanceToCopy = entityToCopy.getPropertyByName(propertyName);
+            if (isPropertyExist(propertyInstanceToCopy)) {
+                if (isSameType(propertyInstance, propertyInstanceToCopy)) {
+                    propertyInstance.setValue(propertyInstanceToCopy.getValue());
+                }
+            }
+        });
+    }
+
+    private boolean isPropertyExist(PropertyInstance propertyInstance) {
+        return propertyInstance != null;
+    }
+
+    private boolean isSameType(PropertyInstance propertyInstance, PropertyInstance propertyInstanceToCopy) {
+        return propertyInstance.getPropertyDefinition().getType() == propertyInstanceToCopy.getPropertyDefinition().getType();
+    }
+
+    @Override
     public void setSpace(SphereSpace space) {
         this.space = space;
+    }
+
+    @Override
+    public SphereSpace getSpace() {
+        return space;
     }
 }

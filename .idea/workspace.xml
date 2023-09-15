@@ -11,25 +11,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="27d35137-667f-4e37-a519-ab836acc0a06" name="Changes" comment="the dark before the light">
+    <list default="true" id="27d35137-667f-4e37-a519-ab836acc0a06" name="Changes" comment="implemented run loop as required.">
+      <change afterPath="$PROJECT_DIR$/Logic/src/resources/xml/ex2/tests.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/action/expression/api/AbstractExpression.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/action/expression/api/AbstractExpression.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/action/expression/api/ExpressionTypeConverter.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/action/expression/api/ExpressionTypeConverter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/action/expression/impl/ExpressionTypeConverterImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/action/expression/impl/ExpressionTypeConverterImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/action/expression/impl/FunctionExpression.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/action/expression/impl/FunctionExpression.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/execution/simulation/impl/SimulationImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/execution/simulation/impl/SimulationImpl.java" afterDir="false" />
-    </list>
-    <list id="69861a54-824d-4aaa-856c-815ff242edb4" name="Changes by ASUS" comment="the dark before the light">
-      <change beforePath="$PROJECT_DIR$/Logic/src/action/helper/function/impl/Evaluate.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/action/helper/function/impl/Evaluate.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/action/impl/DecreaseAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/action/impl/DecreaseAction.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/action/impl/DivideAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/action/impl/DivideAction.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/action/impl/IncreaseAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/action/impl/IncreaseAction.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/action/impl/MultiplyAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/action/impl/MultiplyAction.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/action/impl/Proximity.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/action/impl/Proximity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/action/impl/SetAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/action/impl/SetAction.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/action/impl/condition/impl/single/LowerThan.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/action/impl/condition/impl/single/LowerThan.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/action/impl/condition/impl/single/NotEqual.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/action/impl/condition/impl/single/NotEqual.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/resources/xml/ex2/master-ex2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/resources/xml/ex2/master-ex2.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/action/context/api/Context.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/action/context/api/Context.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/action/context/impl/ContextImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/action/context/impl/ContextImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/action/impl/ReplaceAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/action/impl/ReplaceAction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/execution/simulation/xml/reader/impl/EntityReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/execution/simulation/xml/reader/impl/EntityReader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/instance/entity/api/EntityInstance.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/instance/entity/api/EntityInstance.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/instance/entity/impl/EntityInstanceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/instance/entity/impl/EntityInstanceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/instance/entity/manager/api/EntityInstanceManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/instance/entity/manager/api/EntityInstanceManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/instance/entity/manager/impl/EntityInstanceManagerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/instance/entity/manager/impl/EntityInstanceManagerImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -110,12 +102,13 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
+    "codeWithMe.voiceChat.enabledByDefault": "false",
     "dart.analysis.tool.window.visible": "false",
     "extract.method.default.visibility": "private",
     "full.screen.before.presentation.mode": "false",
     "git-widget-placeholder": "GUI",
     "jdk.selected.JAVA_MODULE": "1.8",
-    "last_opened_file_path": "C:/Users/ASUS/IdeaProjects/08. Java FX",
+    "last_opened_file_path": "C:/Users/ASUS/IdeaProjects/PredictionsNew/Logic/src/resources/xml/ex2",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -125,11 +118,13 @@
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
     "settings.editor.selected.configurable": "inlay.hints",
+    "two.files.diff.last.used.file": "C:/Users/ASUS/IdeaProjects/PredictionsNew/Logic/src/resources/xml/ex2/master-ex2.xml",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\ASUS\IdeaProjects\PredictionsNew\Logic\src\resources\xml\ex2" />
       <recent name="C:\Users\ASUS\IdeaProjects\PredictionsGuiVersion\GUI\src\javafx\input\components\singleEnvVar" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
@@ -333,6 +328,46 @@
       <option name="presentableId" value="LOCAL-00070" />
       <option name="project" value="LOCAL" />
       <updated>1692356632414</updated>
+    </task>
+    <task id="LOCAL‎-00084" summary="version 1.0">
+      <option name="closed" value="true" />
+      <created>1692492690187</created>
+      <option name="number" value="00084" />
+      <option name="presentableId" value="LOCAL‎-00084" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1692492690187</updated>
+    </task>
+    <task id="LOCAL‎-00085" summary="version 1:1.">
+      <option name="closed" value="true" />
+      <created>1692493596747</created>
+      <option name="number" value="00085" />
+      <option name="presentableId" value="LOCAL‎-00085" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1692493596747</updated>
+    </task>
+    <task id="LOCAL‎-00086" summary="version 1:1.">
+      <option name="closed" value="true" />
+      <created>1692493670062</created>
+      <option name="number" value="00086" />
+      <option name="presentableId" value="LOCAL‎-00086" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1692493670062</updated>
+    </task>
+    <task id="LOCAL‎-00087" summary="init GUI branch">
+      <option name="closed" value="true" />
+      <created>1693395569172</created>
+      <option name="number" value="00087" />
+      <option name="presentableId" value="LOCAL‎-00087" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1693395569173</updated>
+    </task>
+    <task id="LOCAL‎-00088" summary="details window POC">
+      <option name="closed" value="true" />
+      <created>1693594479634</created>
+      <option name="number" value="00088" />
+      <option name="presentableId" value="LOCAL‎-00088" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1693594479635</updated>
     </task>
     <task id="LOCAL‎-00089" summary="general component in Details Tab is bind to the engine">
       <option name="closed" value="true" />
@@ -634,47 +669,7 @@
       <option name="project" value="LOCAL‎" />
       <updated>1694637270125</updated>
     </task>
-    <task id="LOCAL‎-00128" summary="pause duration calculation in run loop is more readable">
-      <option name="closed" value="true" />
-      <created>1694639736556</created>
-      <option name="number" value="00128" />
-      <option name="presentableId" value="LOCAL‎-00128" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1694639736556</updated>
-    </task>
-    <task id="LOCAL‎-00129" summary="improve action execution">
-      <option name="closed" value="true" />
-      <created>1694697940860</created>
-      <option name="number" value="00129" />
-      <option name="presentableId" value="LOCAL‎-00129" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1694697940860</updated>
-    </task>
-    <task id="LOCAL‎-00130" summary="improve action execution">
-      <option name="closed" value="true" />
-      <created>1694697955128</created>
-      <option name="number" value="00130" />
-      <option name="presentableId" value="LOCAL‎-00130" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1694697955128</updated>
-    </task>
-    <task id="LOCAL‎-00131" summary="the dark before the light">
-      <option name="closed" value="true" />
-      <created>1694704363020</created>
-      <option name="number" value="00131" />
-      <option name="presentableId" value="LOCAL‎-00131" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1694704363020</updated>
-    </task>
-    <task id="LOCAL‎-00132" summary="the dark before the light">
-      <option name="closed" value="true" />
-      <created>1694704370599</created>
-      <option name="number" value="00132" />
-      <option name="presentableId" value="LOCAL‎-00132" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1694704370599</updated>
-    </task>
-    <option name="localTasksCounter" value="133" />
+    <option name="localTasksCounter" value="128" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -705,6 +700,9 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="added results tab" />
+    <MESSAGE value="the values in the barChart are now sorted" />
+    <MESSAGE value="When you load a new simulation, any data from previous simulations gets wiped." />
     <MESSAGE value="added a few changes to context to meet SecondEntity expectations" />
     <MESSAGE value="changed evaluate to get the EntityInstance of secondaryEntity in each iteration in order to creare the proper context , also added functions to context to get the filtered SecondaryEntity list" />
     <MESSAGE value="now working&#10;changed evaluate to get the EntityInstance of secondaryEntity in each iteration in order to creare the proper context , also added functions to context to get the filtered SecondaryEntity list" />
@@ -727,10 +725,7 @@
     <MESSAGE value="added in simulation the option to stop / pause / resume" />
     <MESSAGE value="Fix issue in SphereSpace causing an exception" />
     <MESSAGE value="implemented run loop as required." />
-    <MESSAGE value="pause duration calculation in run loop is more readable" />
-    <MESSAGE value="improve action execution" />
-    <MESSAGE value="the dark before the light" />
-    <option name="LAST_COMMIT_MESSAGE" value="the dark before the light" />
+    <option name="LAST_COMMIT_MESSAGE" value="implemented run loop as required." />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
@@ -751,24 +746,14 @@
           <option name="timeStamp" value="43" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/Logic/src/action/helper/function/impl/Evaluate.java</url>
-          <line>24</line>
-          <option name="timeStamp" value="62" />
+          <url>file://$PROJECT_DIR$/Logic/src/action/impl/MultiplyAction.java</url>
+          <line>39</line>
+          <option name="timeStamp" value="64" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/Logic/src/action/helper/function/impl/Percent.java</url>
-          <line>21</line>
+          <url>file://$PROJECT_DIR$/Logic/src/action/impl/ReplaceAction.java</url>
+          <line>28</line>
           <option name="timeStamp" value="65" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/Logic/src/action/helper/function/impl/HelperFunctionFactory.java</url>
-          <line>87</line>
-          <option name="timeStamp" value="66" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/Logic/src/execution/simulation/impl/SimulationImpl.java</url>
-          <line>71</line>
-          <option name="timeStamp" value="67" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/GUI/src/javafx/tab/newExecution/environmentVariable/StringEnvironmentVariableController.java</url>
@@ -784,11 +769,13 @@
     <pin-to-top-manager>
       <pinned-members>
         <PinnedItemInfo parentTag="resources.generated.PRDAction" memberName="prdDivide" />
+        <PinnedItemInfo parentTag="instance.entity.impl.EntityInstanceImpl" memberName="name" />
         <PinnedItemInfo parentTag="execution.simulation.impl.SimulationImpl" memberName="entities" />
         <PinnedItemInfo parentTag="definition.entity.impl.EntityDefinitionImpl" memberName="population" />
         <PinnedItemInfo parentTag="instance.entity.manager.impl.EntityInstanceManagerImpl" memberName="instances" />
         <PinnedItemInfo parentTag="resources.generated.PRDAction" memberName="entity" />
         <PinnedItemInfo parentTag="definition.world.impl.WorldImpl" memberName="terminate" />
+        <PinnedItemInfo parentTag="instance.entity.impl.EntityInstanceImpl" memberName="propNameToPropInstance" />
         <PinnedItemInfo parentTag="java.lang.Integer" memberName="value" />
         <PinnedItemInfo parentTag="rule.impl.RuleImpl" memberName="activation" />
         <PinnedItemInfo parentTag="grid.SphereSpaceImpl" memberName="emptyCells" />

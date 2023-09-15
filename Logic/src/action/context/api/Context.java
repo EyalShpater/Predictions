@@ -1,6 +1,8 @@
 package action.context.api;
 
+import action.api.ReplaceMode;
 import action.second.entity.SecondaryEntity;
+import definition.entity.api.EntityDefinition;
 import instance.entity.api.EntityInstance;
 import instance.property.api.PropertyInstance;
 
@@ -28,4 +30,5 @@ public interface Context {
 
     void setSecondaryEntity(EntityInstance secondaryEntityInstance);
 
+    void produceAnewEntityByMode(EntityDefinition entityToCreate, ReplaceMode mode);
 }
