@@ -60,32 +60,26 @@
         <PRD-rule name="r1">
             <PRD-actions>
                 <PRD-action type="increase" entity="ent-1" property="p1" by="3"/>
-                <PRD-action type="decrease" entity="ent-2" property="p1" by="environment(e3)"/>
-                <!--<PRD-action type="set" entity="ent-2" property="p1" value="90"/>-->
+                <PRD-action type="decrease" entity="ent-1" property="p2" by="environment(e3)"/>
                 <PRD-action type="calculation" entity="ent-1" result-prop="p1">
                     <PRD-multiply arg1="p1" arg2="environment(e1)"/>
                 </PRD-action>
                 <PRD-action type="calculation" entity="ent-1" result-prop="p2">
                     <PRD-divide arg1="environment(e3)" arg2="3.2"/>
                 </PRD-action>
-                <PRD-action type="calculation" entity="ent-2" result-prop="p2">
-                    <PRD-divide arg1="environment(e1)" arg2="3.2"/>
-                </PRD-action>
             </PRD-actions>
-            <PRD-activation ticks="3" probability="0.1"/>
+            <PRD-activation ticks="1" probability="0.4"/>
         </PRD-rule>
         <PRD-rule name="r2">
             <PRD-actions>
                 <PRD-action type="condition" entity="ent-1">
                     <PRD-secondary-entity entity="ent-2">
                         <PRD-selection count="4">
-                            <PRD-condition singularity="single" entity="ent-2" property="p2" operator="bt" value="4"/>
+                            <PRD-condition singularity="single" entity="ent-2" property="p1" operator="bt" value="4"/>
                         </PRD-selection>
                     </PRD-secondary-entity>
                     <PRD-condition singularity="multiple" logical="or">
-                        <PRD-condition singularity="single" entity="ent-1" property="percent(50,10)" operator="bt"
-                                       value="4"/>
-                        <PRD-condition singularity="single" entity="ent-1" property="evaluate(ent-1.p1)" operator="bt"
+                        <PRD-condition singularity="single" entity="ent-1" property="ticks(ent-1.p1)" operator="bt"
                                        value="4"/>
                         <PRD-condition singularity="single" entity="ent-2" property="p2" operator="lt" value="3"/>
                         <PRD-condition singularity="multiple" logical="and">
@@ -112,8 +106,8 @@
                     <PRD-env-depth of="1"/>
                     <PRD-actions>
                         <PRD-action type="increase" entity="ent-1" property="p1"
-                                    by="percent(evaluate(ent-2.p1),ticks(ent-2.p3))"/>
-                        <PRD-action type="decrease" entity="ent-1" property="p2" by="evaluate(ent-1.p1)"/>
+                                    by="percent(evaluate(ent-2.p1),environment(e1))"/>
+                        <PRD-action type="decrease" entity="ent-2" property="p2" by="evaluate(ent-1.p1)"/>
                         <PRD-action type="replace" kill="ent-1" create="ent-2" mode="scratch"/>
                     </PRD-actions>
                 </PRD-action>

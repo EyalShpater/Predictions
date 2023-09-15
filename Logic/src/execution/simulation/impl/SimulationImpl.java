@@ -72,6 +72,7 @@ public class SimulationImpl implements Simulation , Serializable {
         tick = 1;
 
         while ((endReason = world.isActive(tick, startTime, pauseDuration, isStop)) == null) {
+
             entities.moveAllEntitiesInSpace(space);
             executeRules(tick);
             tick++;

@@ -73,4 +73,9 @@ public class StringEnvironmentVariableController extends BasicEnvironmentVariabl
         }
     }
 
+    public void clear() {
+        isInitRandom = true;
+        randomCheckBox.setSelected(true);
+        envVarValueTextField.clear();
+    }
 }

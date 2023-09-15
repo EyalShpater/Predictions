@@ -6,6 +6,8 @@ import impl.PropertyDefinitionDTO;
 import impl.SimulationRunDetailsDTO;
 import impl.WorldDTO;
 import javafx.mainScene.main.PredictionsMainAppController;
+import javafx.scene.control.Tab;
+import javafx.scene.control.TabPane;
 import javafx.tab.newExecution.entity.EntityController;
 import javafx.tab.newExecution.environmentVariable.BasicEnvironmentVariableData;
 import javafx.tab.newExecution.environmentVariable.BooleanEnvironmentVariableController;
@@ -53,6 +55,7 @@ public class NewExecutionController {
     private Stage primaryStage;
     List<BasicEnvironmentVariableData> envVarControllerList;
 
+    private TabPane tabPane;
     private PredictionsLogic engine;
     private PredictionsMainAppController mainAppController;
 
@@ -110,7 +113,9 @@ public class NewExecutionController {
 
     @FXML
     void clearButtonActionListener(ActionEvent event) {
-
+        for (BasicEnvironmentVariableData controller : envVarControllerList) {
+            controller.clear();
+        }
     }
 
     @FXML
@@ -123,7 +128,21 @@ public class NewExecutionController {
         //playAudio();
         runSimulation();
 
+        Tab resultsTab = findResultsTabByName("Results");
+        if (resultsTab != null) {
+            tabPane.getSelectionModel().select(resultsTab);
+        }
+
         mainAppController.onStartButtonClick();
+    }
+
+    private Tab findResultsTabByName(String tabName) {
+        for (Tab tab : tabPane.getTabs()) {
+            if (tab.getText().equals(tabName)) {
+                return tab;
+            }
+        }
+        return null;
     }
 
     private void runSimulation() {
@@ -288,6 +307,9 @@ public class NewExecutionController {
         this.mainAppController = mainAppController;
     }
 
+    public void setTabPane(TabPane tabPane) {
+        this.tabPane = tabPane;
+    }
 }
 
 

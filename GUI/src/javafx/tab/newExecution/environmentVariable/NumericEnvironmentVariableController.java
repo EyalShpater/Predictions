@@ -26,15 +26,22 @@ public class NumericEnvironmentVariableController extends BasicEnvironmentVariab
         envVarValueSpinner.getEditor().textProperty().bindBidirectional(envValue);
         envVarValueSpinner.disableProperty().bind(randomCheckBox.selectedProperty());
         randomCheckBox.setSelected(true);
+        isInitRandom = true;
     }
 
 
     @FXML
     void randomAction(ActionEvent event) {
+        /*if (randomCheckBox.isSelected()) {
+            isInitRandom = true;
+        } else {
+            isInitRandom = false;
+        }*/
         if (randomCheckBox.isSelected()) {
             isInitRandom = true;
         } else {
             isInitRandom = false;
+            setEnvValue(envVarValueSpinner.getEditor().getText()); // Update envValue to match the text field value
         }
     }
 
@@ -45,7 +52,7 @@ public class NumericEnvironmentVariableController extends BasicEnvironmentVariab
 
 
     public void setEnvVarValueSpinnerValueFactory(PropertyDefinitionDTO envVar) {
-        isInitRandom = false;
+        //isInitRandom = false;
         setEnvValue(envVar.getFrom().toString());
 
         SpinnerValueFactory.DoubleSpinnerValueFactory valueFactory = new SpinnerValueFactory.DoubleSpinnerValueFactory(envVar.getFrom(), envVar.getTo(), envVar.getFrom());
@@ -72,7 +79,6 @@ public class NumericEnvironmentVariableController extends BasicEnvironmentVariab
         });
     }
 
-    //TODO: add a int and double restrictions
     private void confirmInputCharactersListenerCall(SpinnerValueFactory.DoubleSpinnerValueFactory valueFactory) {
         envVarValueSpinner.getEditor().setOnKeyTyped(keyEvent -> {
             String input = keyEvent.getCharacter();
@@ -90,10 +96,17 @@ public class NumericEnvironmentVariableController extends BasicEnvironmentVariab
                 isInitRandom = false;
             } else {
                 envVarValueSpinner.getEditor().setText(Double.toString(valueFactory.getValue()));
+                randomCheckBox.setSelected(true);
+                isInitRandom = true;
             }
         } catch (NumberFormatException e) {
             envVarValueSpinner.getEditor().setText(Double.toString(valueFactory.getValue()));
         }
+    }
+
+    public void clear() {
+        isInitRandom = true;
+        randomCheckBox.setSelected(true);
     }
 
 }

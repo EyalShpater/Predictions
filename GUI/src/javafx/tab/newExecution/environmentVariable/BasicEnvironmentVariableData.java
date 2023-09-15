@@ -2,7 +2,7 @@ package javafx.tab.newExecution.environmentVariable;
 
 import javafx.beans.property.SimpleStringProperty;
 
-public class BasicEnvironmentVariableData {
+public abstract class BasicEnvironmentVariableData {
 
     protected SimpleStringProperty envVarName;
     protected SimpleStringProperty envValue;
@@ -34,5 +34,7 @@ public class BasicEnvironmentVariableData {
     public Boolean getInitRandom() {
         return isInitRandom;
     }
+
+    public abstract void clear();
 }
 

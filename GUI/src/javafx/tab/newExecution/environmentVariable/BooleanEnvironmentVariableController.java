@@ -56,4 +56,10 @@ public class BooleanEnvironmentVariableController extends BasicEnvironmentVariab
         super("", "");
     }
 
+    public void clear() {
+        isInitRandom = true;
+        randomRadioButton.setSelected(true);
+        trueRadioButton.setSelected(false);
+        falseRadioButton.setSelected(false);
+    }
 }
