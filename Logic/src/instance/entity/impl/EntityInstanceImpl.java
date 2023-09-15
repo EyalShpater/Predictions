@@ -1,5 +1,6 @@
 package instance.entity.impl;
 
+import action.context.api.Context;
 import definition.entity.api.EntityDefinition;
 import definition.property.api.PropertyDefinition;
 import grid.api.Location;
@@ -90,12 +91,12 @@ public class EntityInstanceImpl implements EntityInstance, Serializable {
     }
 
     @Override
-    public void copyPropertiesFrom(EntityInstance entityToCopy) {
+    public void copyPropertiesFrom(EntityInstance entityToCopy, Context context) {
         propNameToPropInstance.forEach((propertyName, propertyInstance) -> {
             PropertyInstance propertyInstanceToCopy = entityToCopy.getPropertyByName(propertyName);
             if (isPropertyExist(propertyInstanceToCopy)) {
                 if (isSameType(propertyInstance, propertyInstanceToCopy)) {
-                    propertyInstance.setValue(propertyInstanceToCopy.getValue());
+                    propertyInstance.setValue(propertyInstanceToCopy.getValue(), context);
                 }
             }
         });

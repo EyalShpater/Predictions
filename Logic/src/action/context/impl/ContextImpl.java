@@ -20,17 +20,19 @@ public class ContextImpl implements Context, Serializable {
     private EntityInstance secondaryEntityInstance;
     private EntityInstanceManager entityInstanceManager;
     private ActiveEnvironment activeEnvironment;
+    private int currentTickNumber;
 
 
-    public ContextImpl(EntityInstance primaryEntity, EntityInstanceManager entityInstanceManager, ActiveEnvironment activeEnvironment) {
-        this(primaryEntity, null, entityInstanceManager, activeEnvironment);
+    public ContextImpl(EntityInstance primaryEntity, EntityInstanceManager entityInstanceManager, ActiveEnvironment activeEnvironment, int tick) {
+        this(primaryEntity, null, entityInstanceManager, activeEnvironment, tick);
     }
 
-    public ContextImpl(EntityInstance primaryEntity, EntityInstance secondaryEntity, EntityInstanceManager entityInstanceManager, ActiveEnvironment activeEnvironment) {
+    public ContextImpl(EntityInstance primaryEntity, EntityInstance secondaryEntity, EntityInstanceManager entityInstanceManager, ActiveEnvironment activeEnvironment, int tick) {
         this.primaryEntityInstance = primaryEntity;
         this.secondaryEntityInstance = secondaryEntity;
         this.entityInstanceManager = entityInstanceManager;
         this.activeEnvironment = activeEnvironment;
+        this.currentTickNumber = tick;
     }
 
     //todo: can we delete?
@@ -42,6 +44,22 @@ public class ContextImpl implements Context, Serializable {
     @Override
     public EntityInstance getPrimaryEntityInstance() {
         return primaryEntityInstance;
+    }
+
+    @Override
+    public int getTickNumber() {
+        return currentTickNumber;
+    }
+
+    @Override
+    public int getTickThisPropertyWasntChanged(String propertyName) {
+        PropertyInstance propertyInstance = primaryEntityInstance.getPropertyByName(propertyName);
+
+        if (propertyInstance == null) {
+            throw new IllegalArgumentException("no Such property as: " + propertyName + " for " + primaryEntityInstance.getName());
+        }
+
+        return currentTickNumber - propertyInstance.getLastUpdateTick();
     }
 
     @Override
@@ -103,7 +121,7 @@ public class ContextImpl implements Context, Serializable {
     public void produceAnewEntityByMode(EntityDefinition entityToCreate, ReplaceMode mode) {
         switch (mode) {
             case DERIVED:
-                entityInstanceManager.createNewEntityInstanceWithSamePropertyValues(this.primaryEntityInstance, entityToCreate);
+                entityInstanceManager.createNewEntityInstanceWithSamePropertyValues(this.primaryEntityInstance, entityToCreate, this);
                 break;
             case SCRATCH:
                 entityInstanceManager.createNewEntityInstanceFromScratch(entityToCreate, primaryEntityInstance.getSpace());
@@ -136,12 +154,12 @@ public class ContextImpl implements Context, Serializable {
 
     @Override
     public Context duplicateContextWithEntityInstance(EntityInstance newEntityInstance) {
-        return new ContextImpl(newEntityInstance, entityInstanceManager, activeEnvironment);
+        return new ContextImpl(newEntityInstance, entityInstanceManager, activeEnvironment, currentTickNumber);
     }
 
     @Override
     public Context duplicateAndSwapPrimaryInstanceAndSecondary() {
-        return new ContextImpl(secondaryEntityInstance, primaryEntityInstance, entityInstanceManager, activeEnvironment);
+        return new ContextImpl(secondaryEntityInstance, primaryEntityInstance, entityInstanceManager, activeEnvironment, currentTickNumber);
     }
 
     private List<EntityInstance> getRandomElementsWithRepetition(List<EntityInstance> filteredSecondaryEntities, int count) {

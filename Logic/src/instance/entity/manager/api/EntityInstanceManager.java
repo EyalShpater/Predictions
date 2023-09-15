@@ -1,5 +1,6 @@
 package instance.entity.manager.api;
 
+import action.context.api.Context;
 import definition.entity.api.EntityDefinition;
 import grid.api.SphereSpace;
 import instance.entity.api.EntityInstance;
@@ -18,5 +19,5 @@ public interface EntityInstanceManager {
 
     void createNewEntityInstanceFromScratch(EntityDefinition entityToCreate, SphereSpace space);
 
-    void createNewEntityInstanceWithSamePropertyValues(EntityInstance entityToCopy, EntityDefinition entityToCreate);
+    void createNewEntityInstanceWithSamePropertyValues(EntityInstance entityToCopy, EntityDefinition entityToCreate, Context context);
 }

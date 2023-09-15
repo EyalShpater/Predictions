@@ -17,7 +17,12 @@ public class Ticks implements HelperFunction {
 
     @Override
     public Object getValue() {
-        // TODO: add ticks field to the PropertyInstance
-        return null;
+        try {
+            int tickValue = context.getTickThisPropertyWasntChanged(propertyName);
+            System.out.println("tickValue: " + tickValue);
+            return tickValue;
+        } catch (IllegalArgumentException e) {
+            throw new IllegalArgumentException("Inside tick function " + e.getMessage());
+        }
     }
 }

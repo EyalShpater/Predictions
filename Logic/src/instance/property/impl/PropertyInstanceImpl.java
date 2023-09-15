@@ -1,5 +1,6 @@
 package instance.property.impl;
 
+import action.context.api.Context;
 import definition.property.api.PropertyDefinition;
 import impl.PropertyDefinitionDTO;
 import instance.property.api.PropertyInstance;
@@ -11,6 +12,8 @@ public class PropertyInstanceImpl implements PropertyInstance, Serializable {
     private PropertyDefinition propertyDefinition;
     private Object value;
 
+    private int updateTick;
+
     public PropertyInstanceImpl(PropertyDefinition propertyDefinition) {
         if (propertyDefinition == null) {
             throw new NullPointerException("Property can not be null!");
@@ -20,6 +23,7 @@ public class PropertyInstanceImpl implements PropertyInstance, Serializable {
         this.value = propertyDefinition.isValueInitializeRandomly()
                 ? new RandomValueGenerator(propertyDefinition).generateValue()
                 : propertyDefinition.getDefaultValue();
+        this.updateTick = 0;
     }
 
     @Override
@@ -37,8 +41,14 @@ public class PropertyInstanceImpl implements PropertyInstance, Serializable {
     }
 
     @Override
-    public void setValue(Object val) {
+    public void setValue(Object val, Context context) {
         this.value = val;
+
+    }
+
+    @Override
+    public int getLastUpdateTick() {
+        return this.updateTick;
     }
 
     @Override

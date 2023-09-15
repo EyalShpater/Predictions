@@ -18,9 +18,7 @@ public class Percent implements HelperFunction {
 
     @Override
     public Object getValue() {
-        if (expression1.equals("evaluate(ent-2.p1)")) {
-            System.out.println("");
-        }
+
         Object value1 = new ExpressionFactory(expression1, context).getValue(context);
         Object value2 = new ExpressionFactory(expression2, context).getValue(context);
 
@@ -28,9 +26,13 @@ public class Percent implements HelperFunction {
             double doubleValue1 = ((Number) value1).doubleValue();
             double doubleValue2 = ((Number) value2).doubleValue();
 
-            if (doubleValue1 == 0.0) {
-                throw new IllegalArgumentException("Cannot calculate percentage when the first value is zero.");
+            if (doubleValue2 < 0) {
+                throw new IllegalArgumentException("No such thing as negative percent from a whole");
             }
+            if (doubleValue1 == 0.0) {
+                return 0.0;
+            }
+
 
             double percentage = (doubleValue1 / 100.0) * doubleValue2;
             return percentage;

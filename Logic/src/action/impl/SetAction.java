@@ -41,32 +41,32 @@ public class SetAction extends AbstractAction implements Serializable {
         Object newValue = expression.getValue(context);
         if (propertyToUpdate.getPropertyDefinition().isNumeric()) {
             if (propertyToUpdate.getPropertyDefinition().isInteger()) {
-                setInteger(propertyToUpdate, newValue);
+                setInteger(propertyToUpdate, newValue, context);
             } else {
-                setDouble(propertyToUpdate, newValue);
+                setDouble(propertyToUpdate, newValue, context);
             }
         } else if (propertyToUpdate.getPropertyDefinition().isBoolean()) {
-            setBoolean(propertyToUpdate, newValue);
+            setBoolean(propertyToUpdate, newValue, context);
         } else if (propertyToUpdate.getPropertyDefinition().isString()) {
-            setString(propertyToUpdate, newValue);
+            setString(propertyToUpdate, newValue, context);
         }
 
     }
 
-    private void setInteger(PropertyInstance propertyToUpdate, Object newValue) {
+    private void setInteger(PropertyInstance propertyToUpdate, Object newValue, Context context) {
         if (!(newValue instanceof Integer)) {
             throw new IllegalArgumentException(" New value must be Integer for Integer property ");
         }
 
-        checkRangeAndUpdateNumericValue(propertyToUpdate, (Number) newValue);
+        checkRangeAndUpdateNumericValue(propertyToUpdate, (Number) newValue, context);
     }
 
-    private void setDouble(PropertyInstance propertyToUpdate, Object newValue) {
+    private void setDouble(PropertyInstance propertyToUpdate, Object newValue, Context context) {
 
-        checkRangeAndUpdateNumericValue(propertyToUpdate, (Number) newValue);
+        checkRangeAndUpdateNumericValue(propertyToUpdate, (Number) newValue, context);
     }
 
-    private void checkRangeAndUpdateNumericValue(PropertyInstance propertyToUpdate, Number result){
+    private void checkRangeAndUpdateNumericValue(PropertyInstance propertyToUpdate, Number result, Context context) {
         Range range = propertyToUpdate.getPropertyDefinition().getRange();
 
         if (range != null) {
@@ -76,23 +76,25 @@ public class SetAction extends AbstractAction implements Serializable {
             double resultValue = result.doubleValue(); // Convert Number to double
 
             if (resultValue > min && resultValue < max) {
-                propertyToUpdate.setValue(result);
+                propertyToUpdate.setValue(result, context);
             }
         } else {
-            propertyToUpdate.setValue(result);
+            propertyToUpdate.setValue(result, context);
         }
     }
-    private void setBoolean(PropertyInstance propertyToUpdate , Object newValue) {
-        if (newValue instanceof Boolean){
-            propertyToUpdate.setValue(newValue);
-        }else {
+
+    private void setBoolean(PropertyInstance propertyToUpdate, Object newValue, Context context) {
+        if (newValue instanceof Boolean) {
+            propertyToUpdate.setValue(newValue, context);
+        } else {
             throw new IllegalArgumentException("New value must be Boolean for Boolean property");
         }
 
     }
-    private void setString(PropertyInstance propertyToUpdate , Object newValue){
+
+    private void setString(PropertyInstance propertyToUpdate, Object newValue, Context context) {
         if (newValue instanceof String)
-            propertyToUpdate.setValue(newValue);
+            propertyToUpdate.setValue(newValue, context);
         else {
             throw new IllegalArgumentException("New value must be String for String property");
         }

@@ -45,16 +45,16 @@ public class DivideAction extends AbstractAction implements Serializable {
 
         if (propertyToUpdate.getPropertyDefinition().isNumeric()) {
             if (propertyToUpdate.getPropertyDefinition().isInteger()) {
-                divideInteger(propertyToUpdate, firstExpressionValue, secondExpressionValue);
+                divideInteger(propertyToUpdate, firstExpressionValue, secondExpressionValue, context);
             } else {
-                divideDouble(propertyToUpdate, firstExpressionValue, secondExpressionValue);
+                divideDouble(propertyToUpdate, firstExpressionValue, secondExpressionValue, context);
             }
         } else {
             throw new IllegalArgumentException("Divide action only available  on numeric type!");
         }
     }
 
-    private void divideInteger(PropertyInstance propertyToUpdate, Object firstExpressionValue, Object secondExpressionValue) {
+    private void divideInteger(PropertyInstance propertyToUpdate, Object firstExpressionValue, Object secondExpressionValue, Context context) {
 
         if (!(areBothIntegers(firstExpressionValue, secondExpressionValue))) {
             throw new IllegalArgumentException("Divide on integer number can get only two integers.");
@@ -70,12 +70,12 @@ public class DivideAction extends AbstractAction implements Serializable {
         }
 
         Integer result = (Integer) firstExpressionValue / (Integer) secondExpressionValue;
-        checkRangeAndUpdateNumericValue(propertyToUpdate , result);
+        checkRangeAndUpdateNumericValue(propertyToUpdate, result, context);
     }
 
-    private void divideDouble(PropertyInstance propertyToUpdate, Object firstExpressionValue , Object secondExpressionValue){
+    private void divideDouble(PropertyInstance propertyToUpdate, Object firstExpressionValue, Object secondExpressionValue, Context context) {
 
-        if (!areExpressionsNumeric(firstExpressionValue,secondExpressionValue)){
+        if (!areExpressionsNumeric(firstExpressionValue, secondExpressionValue)) {
             throw new IllegalArgumentException("value of expression must be numeric");
         }
         if (secondExpressionValue.equals(0)) {
@@ -84,7 +84,7 @@ public class DivideAction extends AbstractAction implements Serializable {
         Double arg1 = ((Number) firstExpressionValue).doubleValue();
         Double arg2 = ((Number) secondExpressionValue).doubleValue();
         Double result = arg1 / arg2;
-        checkRangeAndUpdateNumericValue(propertyToUpdate , result);
+        checkRangeAndUpdateNumericValue(propertyToUpdate, result, context);
     }
 
 
@@ -97,7 +97,7 @@ public class DivideAction extends AbstractAction implements Serializable {
         return firstExpressionValue instanceof Integer && secondExpressionValue instanceof Integer;
     }
 
-    private void checkRangeAndUpdateNumericValue(PropertyInstance propertyToUpdate, Number result){
+    private void checkRangeAndUpdateNumericValue(PropertyInstance propertyToUpdate, Number result, Context context) {
         Range range = propertyToUpdate.getPropertyDefinition().getRange();
 
         if (range != null) {
@@ -107,10 +107,10 @@ public class DivideAction extends AbstractAction implements Serializable {
             double resultValue = result.doubleValue(); // Convert Number to double
 
             if (resultValue > min && resultValue < max) {
-                propertyToUpdate.setValue(result);
+                propertyToUpdate.setValue(result, context);
             }
         } else {
-            propertyToUpdate.setValue(result);
+            propertyToUpdate.setValue(result, context);
         }
     }
 

@@ -213,6 +213,6 @@ public class SimulationImpl implements Simulation , Serializable {
                         .getName()
                         .equals(entity.getName())
                 )
-                .forEach(action -> action.invoke(new ContextImpl(entity, entities, environmentVariables)));
+                .forEach(action -> action.invoke(new ContextImpl(entity, entities, environmentVariables, tick)));
     }
 }

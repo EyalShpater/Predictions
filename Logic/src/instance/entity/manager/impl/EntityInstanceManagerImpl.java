@@ -1,5 +1,6 @@
 package instance.entity.manager.impl;
 
+import action.context.api.Context;
 import definition.entity.api.EntityDefinition;
 import definition.property.api.PropertyDefinition;
 import grid.api.Location;
@@ -66,7 +67,7 @@ public class EntityInstanceManagerImpl implements EntityInstanceManager , Serial
     }
 
     @Override
-    public void createNewEntityInstanceWithSamePropertyValues(EntityInstance entityToCopy, EntityDefinition entityToCreate) {
+    public void createNewEntityInstanceWithSamePropertyValues(EntityInstance entityToCopy, EntityDefinition entityToCreate, Context context) {
         EntityInstance newInstance = new EntityInstanceImpl(entityToCreate, id);
         Location placeInSpace = entityToCopy.getLocationInSpace();
         if (placeInSpace == null) {
@@ -78,7 +79,7 @@ public class EntityInstanceManagerImpl implements EntityInstanceManager , Serial
                             + " to the sphere space."
             );
         }
-        newInstance.copyPropertiesFrom(entityToCopy);
+        newInstance.copyPropertiesFrom(entityToCopy, context);
 
         newInstance.setLocationInSpace(placeInSpace);
         newInstance.setSpace(entityToCopy.getSpace());

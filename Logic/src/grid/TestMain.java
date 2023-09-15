@@ -32,7 +32,7 @@ public class TestMain {
         Proximity pr = new Proximity(d1, d2, "2");
         pr.addAction(new IncreaseAction(d2, "", "3"));
 
-        pr.invoke(new ContextImpl(manager.getInstances().get(0), manager, new ActiveEnvironmentImpl()));
+        //pr.invoke(new ContextImpl(manager.getInstances().get(0), manager, new ActiveEnvironmentImpl()));
 //        space.setNewRandomLocation(e1);
 //        space.setNewRandomLocation(e2);
 //

@@ -41,51 +41,51 @@ public class DecreaseAction extends AbstractAction implements Serializable {
 
         if (propertyToUpdate.getPropertyDefinition().isNumeric()) {
             if (propertyToUpdate.getPropertyDefinition().isInteger()) {
-                decreaseInteger(propertyToUpdate, decreaseBy);
+                decreaseInteger(propertyToUpdate, decreaseBy, context);
             } else {
-                decreaseDouble(propertyToUpdate, decreaseBy);
+                decreaseDouble(propertyToUpdate, decreaseBy, context);
             }
         } else {
             throw new IllegalArgumentException("Decrease action only available  on numeric type!");
         }
     }
 
-    private void decreaseInteger(PropertyInstance propertyToUpdate, Object decreaseBy) {
+    private void decreaseInteger(PropertyInstance propertyToUpdate, Object decreaseBy, Context context) {
         if (!(decreaseBy instanceof Integer)) {
             throw new IllegalArgumentException("Decrease on integer number can get only another integer.");
         }
         Integer propertyValue = (Integer) propertyToUpdate.getValue();
         Integer result = propertyValue - (Integer) decreaseBy;
 
-        checkRangeAndUpdateNumericValue(propertyToUpdate, result);
+        checkRangeAndUpdateNumericValue(propertyToUpdate, result, context);
 
     }
 
-    private void decreaseDouble(PropertyInstance propertyToUpdate, Object decreaseBy) {
+    private void decreaseDouble(PropertyInstance propertyToUpdate, Object decreaseBy, Context context) {
         Double propertyValue = (Double) propertyToUpdate.getValue();
         if (decreaseBy instanceof Number) {
             double res = ((Number) decreaseBy).doubleValue();
             Double result = propertyValue - res;
-            checkRangeAndUpdateNumericValue(propertyToUpdate, result);
+            checkRangeAndUpdateNumericValue(propertyToUpdate, result, context);
         } else {
             throw new IllegalArgumentException("Decrease can get only numeric values.");
         }
     }
 
-    private void checkRangeAndUpdateNumericValue(PropertyInstance propertyToUpdate, Number result) {
+    private void checkRangeAndUpdateNumericValue(PropertyInstance propertyToUpdate, Number result, Context context) {
         Range range = propertyToUpdate.getPropertyDefinition().getRange();
 
         if (range != null) {
             double min = range.getMin();
             double max = range.getMax();
 
-            double resultValue = result.doubleValue(); // Convert Number to double
+            double resultValue = result.doubleValue();
 
             if (resultValue > min && resultValue < max) {
-                propertyToUpdate.setValue(result);
+                propertyToUpdate.setValue(result, context);
             }
         } else {
-            propertyToUpdate.setValue(result);
+            propertyToUpdate.setValue(result, context);
         }
     }
 

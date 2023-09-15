@@ -31,4 +31,8 @@ public interface Context {
     void setSecondaryEntity(EntityInstance secondaryEntityInstance);
 
     void produceAnewEntityByMode(EntityDefinition entityToCreate, ReplaceMode mode);
+
+    int getTickNumber();
+
+    int getTickThisPropertyWasntChanged(String propertyName);
 }

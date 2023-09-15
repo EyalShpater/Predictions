@@ -1,5 +1,6 @@
 package instance.entity.api;
 
+import action.context.api.Context;
 import grid.api.Location;
 import grid.api.SphereSpace;
 import instance.property.api.PropertyInstance;
@@ -30,5 +31,5 @@ public interface EntityInstance {
 
     List<EntityInstance> getNearbyEntities(int radius);
 
-    void copyPropertiesFrom(EntityInstance entityToCopy);
+    void copyPropertiesFrom(EntityInstance entityToCopy, Context context);
 }

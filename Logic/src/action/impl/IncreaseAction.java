@@ -40,16 +40,16 @@ public class IncreaseAction extends AbstractAction implements Serializable {
 
         if (propertyToUpdate.getPropertyDefinition().isNumeric()) {
             if (propertyToUpdate.getPropertyDefinition().isInteger()) {
-                increaseInteger(propertyToUpdate, increaseBy);
+                increaseInteger(propertyToUpdate, increaseBy, context);
             } else {
-                increaseDouble(propertyToUpdate, increaseBy);
+                increaseDouble(propertyToUpdate, increaseBy, context);
             }
         } else {
             throw new IllegalArgumentException("Increase action only available  on numeric type!");
         }
     }
 
-    private void increaseInteger(PropertyInstance propertyToUpdate, Object increaseBy) {
+    private void increaseInteger(PropertyInstance propertyToUpdate, Object increaseBy, Context context) {
         if (!(increaseBy instanceof Integer)) {
             throw new IllegalArgumentException("Increase on integer number can get only another integer.");
         }
@@ -57,11 +57,10 @@ public class IncreaseAction extends AbstractAction implements Serializable {
         Integer propertyValue = (Integer) propertyToUpdate.getValue();
         Integer result = propertyValue + (Integer) increaseBy;
 
-        checkRangeAndUpdateNumericValue(propertyToUpdate , result );
+        checkRangeAndUpdateNumericValue(propertyToUpdate, result, context);
     }
 
-    private void increaseDouble(PropertyInstance propertyToUpdate, Object increaseBy) {
-        //TODO if there is time check why it fails for Double
+    private void increaseDouble(PropertyInstance propertyToUpdate, Object increaseBy, Context context) {
         Double propertyValue;
         if (propertyToUpdate.getValue() instanceof Integer) {
             propertyValue = ((Integer) propertyToUpdate.getValue()).doubleValue();
@@ -72,13 +71,13 @@ public class IncreaseAction extends AbstractAction implements Serializable {
         if (increaseBy instanceof Number) {
             double res = ((Number) increaseBy).doubleValue();
             Double result = propertyValue + res;
-            checkRangeAndUpdateNumericValue(propertyToUpdate, result);
+            checkRangeAndUpdateNumericValue(propertyToUpdate, result, context);
         } else {
             throw new IllegalArgumentException("Increase can get only numeric values.");
         }
     }
 
-    private void checkRangeAndUpdateNumericValue(PropertyInstance propertyToUpdate, Number result){
+    private void checkRangeAndUpdateNumericValue(PropertyInstance propertyToUpdate, Number result, Context context) {
         Range range = propertyToUpdate.getPropertyDefinition().getRange();
 
         if (range != null) {
@@ -88,10 +87,10 @@ public class IncreaseAction extends AbstractAction implements Serializable {
             double resultValue = result.doubleValue(); // Convert Number to double
 
             if (resultValue > min && resultValue < max) {
-                propertyToUpdate.setValue(result);
+                propertyToUpdate.setValue(result, context);
             }
         } else {
-            propertyToUpdate.setValue(result);
+            propertyToUpdate.setValue(result, context);
         }
     }
 
