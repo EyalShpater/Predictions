@@ -6,10 +6,7 @@ import execution.simulation.api.Simulation;
 import execution.simulation.impl.SimulationImpl;
 import definition.world.api.World;
 import execution.simulation.termination.api.TerminateCondition;
-import impl.PropertyDefinitionDTO;
-import impl.SimulationDTO;
-import impl.SimulationDataDTO;
-import impl.SimulationRunDetailsDTO;
+import impl.*;
 import instance.property.api.PropertyInstance;
 
 import java.io.Serializable;
@@ -32,13 +29,12 @@ public class SimulationManager implements Serializable {
     }
 
     // todo: handle the void situation, maybe its need to return the simulation id?
-    public void runNewSimulation(World world, List<PropertyDefinitionDTO> environmentVariables) {
+    public void runNewSimulation(World world, SimulationInitDataFromUserDTO initData) {
         Simulation simulation;
         TerminateCondition stopReason;
         SimulationRunDetailsDTO dto;
 
-        updateEnvironmentVariablesFromDTO(world, environmentVariables);
-        simulation = new SimulationImpl(world, serialNumber);
+        simulation = new SimulationImpl(world, initData, serialNumber);
         serialNumber++;
 
         threadPoll.execute(simulation::run);
@@ -47,6 +43,11 @@ public class SimulationManager implements Serializable {
         simulations.put(simulation.getSerialNumber(), simulation);
 //        dto = createRunDetailDTO(stopReason, simulation.getSerialNumber());
 //        return dto;
+    }
+
+    private void resetEnvironmentVariables() {
+        world.getEnvironmentVariables()
+                .forEach(propertyDefinition -> propertyDefinition.setRandom(true));
     }
 
     public List<SimulationDTO> getAllSimulationsDTO() {

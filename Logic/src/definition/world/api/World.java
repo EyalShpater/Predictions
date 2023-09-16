@@ -16,11 +16,13 @@ import rule.api.Rule;
 
 import java.util.Collection;
 import java.util.List;
+import java.util.Map;
 
 public interface World extends DTOConvertible<WorldDTO> {
     void setEnvironmentVariablesValues(List<PropertyDefinitionDTO> values);
+
+    //    void setEntitiesPopulation(Map<String, Integer> entityNameToPopulation);
     List<PropertyDefinitionDTO> getEnvironmentVariablesDTO();
-    ActiveEnvironment createActiveEnvironment();
     List<EntityDefinition> getEntities();
 
     TerminateCondition isActive(int currentTick, long startTime, long pauseDuration, boolean userRequestedStop);

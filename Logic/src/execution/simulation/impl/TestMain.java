@@ -12,26 +12,26 @@ public class TestMain {
         PredictionsLogic engine = new PredictionsLogicImpl();
 
         engine.initSampleInformation();
-        engine.runNewSimulation(new ArrayList<PropertyDefinitionDTO>());
-        engine.runNewSimulation(new ArrayList<PropertyDefinitionDTO>());
-        engine.runNewSimulation(new ArrayList<PropertyDefinitionDTO>());
-        engine.runNewSimulation(new ArrayList<PropertyDefinitionDTO>());
-        engine.runNewSimulation(new ArrayList<PropertyDefinitionDTO>());
-        engine.runNewSimulation(new ArrayList<PropertyDefinitionDTO>());
-        engine.runNewSimulation(new ArrayList<PropertyDefinitionDTO>());
-        engine.runNewSimulation(new ArrayList<PropertyDefinitionDTO>());
-        engine.runNewSimulation(new ArrayList<PropertyDefinitionDTO>());
-        engine.runNewSimulation(new ArrayList<PropertyDefinitionDTO>());
-        engine.runNewSimulation(new ArrayList<PropertyDefinitionDTO>());
-        try {
-            Thread.sleep(1000);
-        } catch (Exception e) {
-
-        }
-        engine.runNewSimulation(new ArrayList<PropertyDefinitionDTO>());
-        engine.runNewSimulation(new ArrayList<PropertyDefinitionDTO>());
-        engine.runNewSimulation(new ArrayList<PropertyDefinitionDTO>());
-        engine.runNewSimulation(new ArrayList<PropertyDefinitionDTO>());
+//        engine.runNewSimulation(new ArrayList<PropertyDefinitionDTO>());
+//        engine.runNewSimulation(new ArrayList<PropertyDefinitionDTO>());
+//        engine.runNewSimulation(new ArrayList<PropertyDefinitionDTO>());
+//        engine.runNewSimulation(new ArrayList<PropertyDefinitionDTO>());
+//        engine.runNewSimulation(new ArrayList<PropertyDefinitionDTO>());
+//        engine.runNewSimulation(new ArrayList<PropertyDefinitionDTO>());
+//        engine.runNewSimulation(new ArrayList<PropertyDefinitionDTO>());
+//        engine.runNewSimulation(new ArrayList<PropertyDefinitionDTO>());
+//        engine.runNewSimulation(new ArrayList<PropertyDefinitionDTO>());
+//        engine.runNewSimulation(new ArrayList<PropertyDefinitionDTO>());
+//        engine.runNewSimulation(new ArrayList<PropertyDefinitionDTO>());
+//        try {
+//            Thread.sleep(1000);
+//        } catch (Exception e) {
+//
+//        }
+//        engine.runNewSimulation(new ArrayList<PropertyDefinitionDTO>());
+//        engine.runNewSimulation(new ArrayList<PropertyDefinitionDTO>());
+//        engine.runNewSimulation(new ArrayList<PropertyDefinitionDTO>());
+//        engine.runNewSimulation(new ArrayList<PropertyDefinitionDTO>());
     }
 
 }

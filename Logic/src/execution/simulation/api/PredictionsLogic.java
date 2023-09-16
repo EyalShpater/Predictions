@@ -1,8 +1,6 @@
 package execution.simulation.api;
 
-import definition.property.api.PropertyDefinition;
 import impl.*;
-import instance.property.api.PropertyInstance;
 
 import javax.xml.bind.JAXBException;
 import java.util.*;
@@ -14,9 +12,11 @@ public interface PredictionsLogic {
 
     List<PropertyDefinitionDTO> setEnvironmentVariables(List<PropertyDefinitionDTO> variables);
 
+    Map<String, Integer> getEntitiesToPopulation();
+
     WorldDTO getLoadedSimulationDetails();
 
-    /*SimulationRunDetailsDTO*/ void runNewSimulation(List<PropertyDefinitionDTO> environmentVariables);
+    /*SimulationRunDetailsDTO*/ void runNewSimulation(SimulationInitDataFromUserDTO initData);
 
     void pauseSimulationBySerialNumber(int serialNumber);
 

@@ -156,14 +156,22 @@ public class MenuImpl implements Menu {
 
     private void runSimulation() {
         List<PropertyDefinitionDTO> updatedEnvironmentVariables;
+        Map<String, Integer> entityNameToPopulation = engine.getEntitiesToPopulation();
         SimulationRunDetailsDTO runDetails;
 
         updatedEnvironmentVariables = getEnvironmentVariablesFromUser();
         updatedEnvironmentVariables = engine.setEnvironmentVariables(updatedEnvironmentVariables);
 
+        //hardcoded user init
+        entityNameToPopulation.forEach((name, population) -> {
+            Random random = new Random();
+            population = random.nextInt(200);
+            entityNameToPopulation.put(name, population);
+        });
+
         printer.viewEnvironmentVariablesValues(updatedEnvironmentVariables);
         /*runDetails = */
-        engine.runNewSimulation(updatedEnvironmentVariables);
+        engine.runNewSimulation(new SimulationInitDataFromUserDTO(updatedEnvironmentVariables, entityNameToPopulation));
         //printer.printRunDetailsDTO(runDetails);
         System.out.println();
     }

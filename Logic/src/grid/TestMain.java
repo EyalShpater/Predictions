@@ -15,8 +15,8 @@ import instance.enviornment.impl.ActiveEnvironmentImpl;
 
 public class TestMain {
     public static void main(String[] args) {
-        EntityDefinition d1 = new EntityDefinitionImpl("e1", 40);
-        EntityDefinition d2 = new EntityDefinitionImpl("e2", 40);
+        EntityDefinition d1 = new EntityDefinitionImpl("e1");
+        EntityDefinition d2 = new EntityDefinitionImpl("e2");
 
         EntityInstance e1 = new EntityInstanceImpl(d1, 1);
         EntityInstance e2 = new EntityInstanceImpl(d2, 1);
@@ -26,8 +26,8 @@ public class TestMain {
         EntityInstanceManager manager = new EntityInstanceManagerImpl();
 
 
-        manager.createInstancesFromDefinition(d1, space);
-        manager.createInstancesFromDefinition(d2, space);
+//        manager.createInstancesFromDefinition(d1, space);
+//        manager.createInstancesFromDefinition(d2, space);
 
         Proximity pr = new Proximity(d1, d2, "2");
         pr.addAction(new IncreaseAction(d2, "", "3"));

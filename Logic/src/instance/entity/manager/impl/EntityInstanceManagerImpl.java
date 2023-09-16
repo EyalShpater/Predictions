@@ -23,8 +23,8 @@ public class EntityInstanceManagerImpl implements EntityInstanceManager , Serial
     }
 
     @Override
-    public void createInstancesFromDefinition(EntityDefinition entityDefinition, SphereSpace space) {
-        for (int i = 1; i <= entityDefinition.getPopulation(); i++) {
+    public void createInstancesFromDefinition(EntityDefinition entityDefinition, int population, SphereSpace space) {
+        for (int i = 1; i <= population; i++) {
             EntityInstance newInstance = new EntityInstanceImpl(entityDefinition, id);
             Location placeInSpace = space.placeEntityRandomlyInWorld(newInstance);
 
@@ -45,6 +45,7 @@ public class EntityInstanceManagerImpl implements EntityInstanceManager , Serial
         }
     }
 
+    // todo: what is the different between this and the method above?
     @Override
     public void createNewEntityInstanceFromScratch(EntityDefinition entityToCreate, SphereSpace space) {
         EntityInstance newInstance = new EntityInstanceImpl(entityToCreate, id);
@@ -66,6 +67,7 @@ public class EntityInstanceManagerImpl implements EntityInstanceManager , Serial
         id++;
     }
 
+    // todo: maybe change the name to clone
     @Override
     public void createNewEntityInstanceWithSamePropertyValues(EntityInstance entityToCopy, EntityDefinition entityToCreate, Context context) {
         EntityInstance newInstance = new EntityInstanceImpl(entityToCreate, id);

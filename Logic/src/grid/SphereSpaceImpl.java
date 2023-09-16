@@ -172,8 +172,8 @@ public class SphereSpaceImpl implements SphereSpace {
 
     //todo: delete
     public static void main(String[] args) {
-        EntityInstance e1 = new EntityInstanceImpl(new EntityDefinitionImpl("e1", 100), 1);
-        EntityInstance e2 = new EntityInstanceImpl(new EntityDefinitionImpl("e2", 100), 1);
+        EntityInstance e1 = new EntityInstanceImpl(new EntityDefinitionImpl("e1"), 1);
+        EntityInstance e2 = new EntityInstanceImpl(new EntityDefinitionImpl("e2"), 1);
         SphereSpaceImpl space = new SphereSpaceImpl(10, 10);
 
         e1.setLocationInSpace(new Location(5, 4));

@@ -2,6 +2,7 @@ package execution.simulation.data.impl;
 
 import definition.entity.api.EntityDefinition;
 import execution.simulation.data.api.SimulationData;
+import impl.SimulationInitDataFromUserDTO;
 import instance.entity.api.EntityInstance;
 import instance.entity.manager.api.EntityInstanceManager;
 import instance.property.api.PropertyInstance;
@@ -18,6 +19,7 @@ public class SimulationDataImpl implements SimulationData , Serializable {
     long startTime;
     Map<String, EntityDefinition> entityDefinitions;
     EntityInstanceManager entityInstances;
+    SimulationInitDataFromUserDTO initData;
 
     public SimulationDataImpl(int id, long startTime, List<EntityDefinition> entityDefinitions, EntityInstanceManager entityInstances) {
         this.id = id;
@@ -44,13 +46,9 @@ public class SimulationDataImpl implements SimulationData , Serializable {
 
     @Override
     public int getStarterPopulationQuantity(String entityName) {
-        EntityDefinition entity = getEntityByName(entityName);
-
-        if (entity == null) {
-            throw new IllegalArgumentException(entityName + " does not exist!");
-        }
-
-        return entity.getPopulation();
+        return initData
+                .getEntityNameToPopulation()
+                .get(entityName);
     }
 
     @Override

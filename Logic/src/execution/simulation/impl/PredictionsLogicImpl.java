@@ -2,6 +2,7 @@ package execution.simulation.impl;
 
 import action.impl.IncreaseAction;
 import action.impl.MultiplyAction;
+import api.DTOConvertible;
 import definition.entity.api.EntityDefinition;
 import definition.entity.impl.EntityDefinitionImpl;
 import definition.property.api.PropertyType;
@@ -17,15 +18,21 @@ import execution.simulation.xml.validation.XmlValidator;
 import impl.*;
 import instance.entity.api.EntityInstance;
 import instance.enviornment.api.ActiveEnvironment;
+import instance.enviornment.impl.ActiveEnvironmentImpl;
 import rule.api.Rule;
 import rule.impl.ActivationImpl;
 import rule.impl.RuleImpl;
 
 import javax.xml.bind.JAXBException;
 import java.io.Serializable;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 public class PredictionsLogicImpl implements PredictionsLogic , Serializable {
+    private static final int DEFAULT_START_POPULATION = 0;
+
     private SimulationManager allSimulations;
     private World world;
 
@@ -50,12 +57,23 @@ public class PredictionsLogicImpl implements PredictionsLogic , Serializable {
 
     @Override
     public List<PropertyDefinitionDTO> setEnvironmentVariables(List<PropertyDefinitionDTO> variables) {
-        ActiveEnvironment environmentInstances;
+        ActiveEnvironment environmentInstances = new ActiveEnvironmentImpl(variables);
 
-        world.setEnvironmentVariablesValues(variables);
-        environmentInstances = world.createActiveEnvironment();
+        //world.setEnvironmentVariablesValues(variables);
+        //environmentInstances = world.createActiveEnvironment();
 
         return environmentInstances.convertToDTO();
+    }
+
+    @Override
+    public Map<String, Integer> getEntitiesToPopulation() {
+        Map<String, Integer> entitiesNameToPopulation = new HashMap<>();
+
+        world
+                .getEntities()
+                .forEach(entity -> entitiesNameToPopulation.put(entity.getName(), DEFAULT_START_POPULATION));
+
+        return entitiesNameToPopulation;
     }
 
     @Override
@@ -65,9 +83,9 @@ public class PredictionsLogicImpl implements PredictionsLogic , Serializable {
 
     //todo: check how to handle using this method as void.
     @Override
-    public void runNewSimulation(List<PropertyDefinitionDTO> environmentVariables) {
+    public void runNewSimulation(SimulationInitDataFromUserDTO initData) {
         /* return */
-        allSimulations.runNewSimulation(world, environmentVariables);
+        allSimulations.runNewSimulation(world, initData);
     }
 
     @Override
@@ -117,10 +135,10 @@ public class PredictionsLogicImpl implements PredictionsLogic , Serializable {
     //Todo: only for debug! need to be delete!
     @Override
     public void initSampleInformation() {
-        EntityDefinition en1 = new EntityDefinitionImpl("ent-1", 100);
+        EntityDefinition en1 = new EntityDefinitionImpl("ent-1");
         en1.addProperty(new PropertyDefinitionImpl("p1", PropertyType.INT, true));
         en1.addProperty(new PropertyDefinitionImpl("p2", PropertyType.STRING, true));
-        EntityDefinition en2 = new EntityDefinitionImpl("ent-2", 300);
+        EntityDefinition en2 = new EntityDefinitionImpl("ent-2");
         en2.addProperty(new PropertyDefinitionImpl("sugar", PropertyType.BOOLEAN, false));
         en2.addProperty(new PropertyDefinitionImpl("salt", PropertyType.STRING, true));
 

@@ -10,8 +10,8 @@ import instance.enviornment.api.ActiveEnvironment;
 
 public interface Simulation extends DTOConvertible<SimulationDTO> {
     int getSerialNumber();
+
     long getRunStartTime();
-    ActiveEnvironment setEnvironmentVariables();
 
     void run();
 
@@ -22,6 +22,8 @@ public interface Simulation extends DTOConvertible<SimulationDTO> {
     void resume();
 
     TerminateCondition getEndReason();
+
     SimulationDataDTO getResultAsDTO(String entityName, String propertyName);
+
     World getWorld();
 }
