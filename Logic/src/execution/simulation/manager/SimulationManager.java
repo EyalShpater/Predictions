@@ -66,13 +66,13 @@ public class SimulationManager implements Serializable {
         return simulations.get(serialNumber);
     }
 
-    private SimulationRunDetailsDTO createRunDetailDTO(TerminateCondition condition, int serialNumber) {
-        return new SimulationRunDetailsDTO(
-                condition.equals(TerminateCondition.BY_SECONDS),
-                condition.equals(TerminateCondition.BY_TICKS),
-                serialNumber
-        );
-    }
+//    private SimulationRunDetailsDTO createRunDetailDTO(TerminateCondition condition, int serialNumber) {
+//        return new SimulationRunDetailsDTO(
+//                condition.equals(TerminateCondition.BY_SECONDS),
+//                condition.equals(TerminateCondition.BY_TICKS),
+//                serialNumber
+//        );
+//    }
 
     public void clearAllSimulations() {
         simulations.clear();

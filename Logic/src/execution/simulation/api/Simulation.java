@@ -6,6 +6,7 @@ import execution.simulation.data.api.SimulationData;
 import execution.simulation.termination.api.TerminateCondition;
 import impl.SimulationDTO;
 import impl.SimulationDataDTO;
+import impl.SimulationRunDetailsDTO;
 import instance.enviornment.api.ActiveEnvironment;
 
 public interface Simulation extends DTOConvertible<SimulationDTO> {
@@ -24,6 +25,8 @@ public interface Simulation extends DTOConvertible<SimulationDTO> {
     TerminateCondition getEndReason();
 
     SimulationDataDTO getResultAsDTO(String entityName, String propertyName);
+
+    SimulationRunDetailsDTO createRunDetailDTO();
 
     World getWorld();
 }
