@@ -1,37 +1,33 @@
 package javafx.tab.newExecution.mainComponent;
 
 import execution.simulation.api.PredictionsLogic;
-import impl.EntityDefinitionDTO;
-import impl.PropertyDefinitionDTO;
-import impl.SimulationRunDetailsDTO;
-import impl.WorldDTO;
+import impl.*;
 import javafx.mainScene.main.PredictionsMainAppController;
-import javafx.scene.control.Tab;
-import javafx.scene.control.TabPane;
+import javafx.scene.control.*;
 import javafx.tab.newExecution.entity.EntityController;
+import javafx.tab.newExecution.entity.EntityData;
 import javafx.tab.newExecution.environmentVariable.BasicEnvironmentVariableData;
 import javafx.tab.newExecution.environmentVariable.BooleanEnvironmentVariableController;
 import javafx.tab.newExecution.environmentVariable.NumericEnvironmentVariableController;
 import javafx.tab.newExecution.environmentVariable.StringEnvironmentVariableController;
-import javafx.beans.property.SimpleBooleanProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
-import javafx.scene.control.Button;
 import javafx.scene.layout.FlowPane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.scene.media.MediaPlayer.Status;
-import menu.helper.PrintToScreen;
 import task.RunSimulationTask;
 
 public class NewExecutionController {
@@ -54,6 +50,7 @@ public class NewExecutionController {
     private SimpleStringProperty selectedFileProperty;
     private Stage primaryStage;
     List<BasicEnvironmentVariableData> envVarControllerList;
+    List<EntityData> entityList;
 
     private TabPane tabPane;
     private PredictionsLogic engine;
@@ -63,6 +60,7 @@ public class NewExecutionController {
     public NewExecutionController() {
         selectedFileProperty = new SimpleStringProperty();
         envVarControllerList = new ArrayList<>();
+        entityList = new ArrayList<>();
     }
 
     @FXML
@@ -106,7 +104,7 @@ public class NewExecutionController {
         WorldDTO loadedSimulationDetails = engine.getLoadedSimulationDetails();
         List<EntityDefinitionDTO> entitiesList = loadedSimulationDetails.getEntities();
         entitiesList.forEach(entity -> {
-            createTile(entity.getName(), entity.getPopulation());
+            createTile(entity.getName());
         });
     }
 
@@ -125,15 +123,51 @@ public class NewExecutionController {
 
     @FXML
     void startButtonActionListener(ActionEvent event) {
+        Map<String, Integer> entityNameToPopulation = setNewPopulationOfEntities();
+
+        if (isValidPopulation(entityNameToPopulation)) {
+            startSimulationAction(entityNameToPopulation);
+        } else {
+            alertAction();
+        }
+    }
+
+    private void alertAction() {
+        Alert alert = new Alert(Alert.AlertType.WARNING);
+        int totalEntities = calculateTotalEntities();
+        alert.setTitle("Invalid Population");
+        alert.setHeaderText("Invalid population values detected.");
+        alert.setContentText("Please make sure that the total population does not exceed the limit: " + totalEntities);
+
+        alert.getButtonTypes().setAll(ButtonType.OK);
+
+        alert.showAndWait();
+    }
+
+    private void startSimulationAction(Map<String, Integer> entityNameToPopulation) {
         //playAudio();
-        runSimulation();
+        runSimulation(entityNameToPopulation);
         mainAppController.onStartButtonClick();
 
         Tab resultsTab = findResultsTabByName("Results");
         if (resultsTab != null) {
             tabPane.getSelectionModel().select(resultsTab);
         }
+    }
 
+    private int calculateTotalEntities() {
+        int gridRows = engine.getLoadedSimulationDetails().getGridNumOfRows();
+        int gridCols = engine.getLoadedSimulationDetails().getGridNumOfCols();
+        int totalEntities = gridRows * gridCols;
+
+        return totalEntities;
+    }
+
+    private boolean isValidPopulation(Map<String, Integer> entityNameToPopulation) {
+        int totalEntities = calculateTotalEntities();
+        int currentTotalPopulation = entityNameToPopulation.values().stream().mapToInt(Integer::intValue).sum();
+
+        return currentTotalPopulation <= totalEntities;
     }
 
     private Tab findResultsTabByName(String tabName) {
@@ -145,14 +179,22 @@ public class NewExecutionController {
         return null;
     }
 
-    private void runSimulation() {
+    private void runSimulation(Map<String, Integer> entityNameToPopulation) {
         List<PropertyDefinitionDTO> updatedEnvironmentVariables;
-        SimulationRunDetailsDTO runDetails;
 
         updatedEnvironmentVariables = setEnvVariablesFromTextFields();
-        // runDetails = engine.runNewSimulation(updatedEnvironmentVariables);
+        SimulationInitDataFromUserDTO simulationInitDataFromUserDTO = new SimulationInitDataFromUserDTO(updatedEnvironmentVariables, entityNameToPopulation);
+
+        engine.runNewSimulation(simulationInitDataFromUserDTO);
 
         new Thread(new RunSimulationTask(engine, updatedEnvironmentVariables)).start();
+    }
+
+    private Map<String, Integer> setNewPopulationOfEntities() {
+        Map<String, Integer> newEntityNameToPopulation = new HashMap<>();
+
+        entityList.forEach(entityData -> newEntityNameToPopulation.put(entityData.getEntity(), Integer.parseInt(entityData.getPopulation())));
+        return newEntityNameToPopulation;
     }
 
     private List<PropertyDefinitionDTO> setEnvVariablesFromTextFields() {
@@ -217,15 +259,16 @@ public class NewExecutionController {
         }
     }
 
-    private void createTile(String entityName, int population) {
+    private void createTile(String entityName) {
         try {
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(getClass().getResource("/javafx/tab/newExecution/entity/EntityTile.fxml"));
             Node singleEntityTile = loader.load();
 
             EntityController entityController = loader.getController();
-            entityController.setPopulation(population);
+
             entityController.setEntity(entityName);
+            entityList.add(entityController);
 
             entitiesFlowPane.getChildren().add(singleEntityTile);
         } catch (IOException e) {

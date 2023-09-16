@@ -41,7 +41,7 @@ public class EntitiesController {
 
     public void setDataFromDTO(EntityDefinitionDTO entity) {
         name.set(entity.getName());
-        population.set(String.valueOf(entity.getPopulation()));
+        //population.set(String.valueOf(entity.getPopulation()));
 
         entity.getProperties().forEach(this::addPropertyToTreeView);
     }

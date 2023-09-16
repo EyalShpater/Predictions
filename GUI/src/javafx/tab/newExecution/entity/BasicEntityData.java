@@ -5,11 +5,11 @@ import javafx.beans.property.SimpleStringProperty;
 
 public class BasicEntityData implements EntityData {
     protected SimpleStringProperty entityName;
-    protected SimpleIntegerProperty population;
+    protected SimpleStringProperty population;
 
-    public BasicEntityData(String entityName, int population) {
+    public BasicEntityData(String entityName, String population) {
         this.entityName = new SimpleStringProperty(entityName);
-        this.population = new SimpleIntegerProperty(population);
+        this.population = new SimpleStringProperty(population);
     }
 
     @Override
@@ -23,12 +23,12 @@ public class BasicEntityData implements EntityData {
     }
 
     @Override
-    public int getPopulation() {
+    public String getPopulation() {
         return population.get();
     }
 
     @Override
-    public void setPopulation(int population) {
+    public void setPopulation(String population) {
         this.population.set(population);
     }
 }

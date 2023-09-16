@@ -5,7 +5,7 @@ public interface EntityData {
 
     void setEntity(String word);
 
-    int getPopulation();
+    String getPopulation();
 
-    void setPopulation(int count);
+    void setPopulation(String count);
 }
