@@ -132,6 +132,13 @@ public class PredictionsLogicImpl implements PredictionsLogic , Serializable {
                 .getProperties();
     }
 
+    @Override
+    public SimulationRunDetailsDTO getSimulationRunDetail(int serialNumber) {
+        return allSimulations
+                .getSimulationBySerialNumber(serialNumber)
+                .createRunDetailDTO();
+    }
+
     //Todo: only for debug! need to be delete!
     @Override
     public void initSampleInformation() {

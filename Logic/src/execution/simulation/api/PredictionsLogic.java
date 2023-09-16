@@ -33,4 +33,6 @@ public interface PredictionsLogic {
     List<PropertyDefinitionDTO> getEntityPropertiesByEntityName(int serialNumber, String name);
 
     void initSampleInformation();
+
+    SimulationRunDetailsDTO getSimulationRunDetail(int serialNumber);
 }
