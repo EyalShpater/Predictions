@@ -53,9 +53,9 @@ public class ConditionImpl extends AbstractAction implements Condition, Serializ
     @Override
     public void apply(Context context) {
         if (evaluate(context)) {
-            then.forEach(action -> /*if action primary entity is different from context primary entity switch them*/action.invoke(context));
+            then.forEach(action -> invokeAction(action, context));
         } else if (notTrue != null) {
-            notTrue.forEach(action -> action.invoke(context));
+            notTrue.forEach(action -> invokeAction(action, context));
         }
     }
 
@@ -99,5 +99,10 @@ public class ConditionImpl extends AbstractAction implements Condition, Serializ
     @Override
     public boolean isSingleCondition() {
         return condition.isSingleCondition();
+    }
+
+    private void invokeAction(Action action, Context context) {
+        context.setForAction(action);
+        action.invoke(context);
     }
 }

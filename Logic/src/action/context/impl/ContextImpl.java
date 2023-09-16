@@ -1,5 +1,6 @@
 package action.context.impl;
 
+import action.api.Action;
 import action.api.ReplaceMode;
 import action.context.api.Context;
 import action.second.entity.SecondaryEntity;
@@ -170,5 +171,37 @@ public class ContextImpl implements Context, Serializable {
                 .filter(EntityInstance::isAlive)
                 .limit(count)
                 .collect(Collectors.toList());
+    }
+
+    @Override
+    public void setForAction(Action action) {
+        setPrimaryEntityByAction(action);
+        setSecondaryEntityByAction(action);
+    }
+
+    private void setPrimaryEntityByAction(Action action) {
+        String actionPrimaryName = action.applyOn().getName();
+
+        if (!(actionPrimaryName.equals(primaryEntityInstance.getName())) && !(actionPrimaryName.equals(secondaryEntityInstance.getName()))) {
+            throw new IllegalArgumentException(
+                    "The action \""
+                            + action.getName()
+                            + "\" apply on "
+                            + action.applyOn().getName()
+                            + " and there is not a valid instance of it"
+            );
+        }
+
+        if (actionPrimaryName.equals(secondaryEntityInstance.getName())) {
+            EntityInstance temp = primaryEntityInstance;
+            primaryEntityInstance = secondaryEntityInstance;
+            secondaryEntityInstance = temp;
+        }
+    }
+
+    private void setSecondaryEntityByAction(Action action) {
+        if (action.getSecondaryEntity() != null && !(action.getSecondaryEntity().getName().equals(secondaryEntityInstance.getName()))) {
+            secondaryEntityInstance = null;
+        }
     }
 }

@@ -26,5 +26,5 @@ public interface Action extends DTOConvertible<ActionDTO> {
 
     boolean isIncludesSecondaryEntity();
 
-    SecondaryEntity getSecondaryEntity();
+    EntityDefinition getSecondaryEntity();
 }

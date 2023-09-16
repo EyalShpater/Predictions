@@ -1,5 +1,6 @@
 package action.context.api;
 
+import action.api.Action;
 import action.api.ReplaceMode;
 import action.second.entity.SecondaryEntity;
 import definition.entity.api.EntityDefinition;
@@ -35,4 +36,6 @@ public interface Context {
     int getTickNumber();
 
     int getTickThisPropertyWasntChanged(String propertyName);
+
+    void setForAction(Action action);
 }

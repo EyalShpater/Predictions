@@ -7,6 +7,7 @@ import action.context.api.Context;
 import action.expression.api.Expression;
 import action.expression.impl.ExpressionFactory;
 import definition.entity.api.EntityDefinition;
+import instance.entity.api.EntityInstance;
 
 import java.util.*;
 
@@ -36,12 +37,8 @@ public class Proximity extends AbstractAction {
                 .filter(entity -> entity.getName().equals(targetEntityName))
                 .findFirst()
                 .ifPresent(matchedEntity -> actions.forEach(action -> {
-                    context.setSecondaryEntity(matchedEntity);
-                    Context relevantContext = action.applyOn().getName().equals(matchedEntity.getName()) ?
-                            context.duplicateAndSwapPrimaryInstanceAndSecondary() :
-                            context;
-
-                    action.invoke(relevantContext);
+                    context.setForAction(action);
+                    action.invoke(context);
                 }));
     }
 

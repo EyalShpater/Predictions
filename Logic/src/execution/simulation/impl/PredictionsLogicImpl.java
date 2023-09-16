@@ -59,9 +59,6 @@ public class PredictionsLogicImpl implements PredictionsLogic , Serializable {
     public List<PropertyDefinitionDTO> setEnvironmentVariables(List<PropertyDefinitionDTO> variables) {
         ActiveEnvironment environmentInstances = new ActiveEnvironmentImpl(variables);
 
-        //world.setEnvironmentVariablesValues(variables);
-        //environmentInstances = world.createActiveEnvironment();
-
         return environmentInstances.convertToDTO();
     }
 
