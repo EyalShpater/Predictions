@@ -11,26 +11,24 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="27d35137-667f-4e37-a519-ab836acc0a06" name="Changes" comment="ticks is working">
-      <change afterPath="$PROJECT_DIR$/DTO/src/impl/SimulationInitDataFromUserDTO.java" afterDir="false" />
+    <list default="true" id="27d35137-667f-4e37-a519-ab836acc0a06" name="Changes" comment="changed the way of getting user init info to the simulation">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConsoleUI/src/menu/helper/PrintToScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/ConsoleUI/src/menu/helper/PrintToScreen.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ConsoleUI/src/menu/impl/MenuImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/ConsoleUI/src/menu/impl/MenuImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/src/task/RunSimulationTask.java" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/src/task/RunSimulationTask.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DTO/src/impl/EntityDefinitionDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/DTO/src/impl/EntityDefinitionDTO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Logic/src/definition/entity/api/EntityDefinition.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/definition/entity/api/EntityDefinition.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Logic/src/definition/entity/impl/EntityDefinitionImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/definition/entity/impl/EntityDefinitionImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/definition/environment/api/EnvironmentVariableManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/definition/environment/api/EnvironmentVariableManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/definition/environment/impl/EnvironmentVariableManagerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/definition/environment/impl/EnvironmentVariableManagerImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Logic/src/definition/world/api/World.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/definition/world/api/World.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Logic/src/definition/world/impl/WorldImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/definition/world/impl/WorldImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Logic/src/execution/simulation/api/PredictionsLogic.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/execution/simulation/api/PredictionsLogic.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/execution/simulation/api/Simulation.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/execution/simulation/api/Simulation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/execution/simulation/data/impl/SimulationDataImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/execution/simulation/data/impl/SimulationDataImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Logic/src/execution/simulation/impl/PredictionsLogicImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/execution/simulation/impl/PredictionsLogicImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Logic/src/execution/simulation/impl/SimulationImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/execution/simulation/impl/SimulationImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/execution/simulation/impl/TestMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/execution/simulation/impl/TestMain.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Logic/src/execution/simulation/manager/SimulationManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/execution/simulation/manager/SimulationManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/execution/simulation/xml/reader/impl/EntityReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/execution/simulation/xml/reader/impl/EntityReader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/grid/SphereSpaceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/grid/SphereSpaceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Logic/src/grid/TestMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/grid/TestMain.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/instance/enviornment/impl/ActiveEnvironmentImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/instance/enviornment/impl/ActiveEnvironmentImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/instance/entity/manager/api/EntityInstanceManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/instance/entity/manager/api/EntityInstanceManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/instance/entity/manager/impl/EntityInstanceManagerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/instance/entity/manager/impl/EntityInstanceManagerImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -323,14 +321,6 @@
       <option name="presentableId" value="LOCAL-00070" />
       <option name="project" value="LOCAL" />
       <updated>1692356632414</updated>
-    </task>
-    <task id="LOCAL‎-00084" summary="version 1.0">
-      <option name="closed" value="true" />
-      <created>1692492690187</created>
-      <option name="number" value="00084" />
-      <option name="presentableId" value="LOCAL‎-00084" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1692492690187</updated>
     </task>
     <task id="LOCAL‎-00085" summary="version 1:1.">
       <option name="closed" value="true" />
@@ -678,7 +668,15 @@
       <option name="project" value="LOCAL" />
       <updated>1694776291781</updated>
     </task>
-    <option name="localTasksCounter" value="130" />
+    <task id="LOCAL‎-00130" summary="changed the way of getting user init info to the simulation">
+      <option name="closed" value="true" />
+      <created>1694852323751</created>
+      <option name="number" value="00130" />
+      <option name="presentableId" value="LOCAL‎-00130" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1694852323751</updated>
+    </task>
+    <option name="localTasksCounter" value="131" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -709,7 +707,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="When you load a new simulation, any data from previous simulations gets wiped." />
     <MESSAGE value="added a few changes to context to meet SecondEntity expectations" />
     <MESSAGE value="changed evaluate to get the EntityInstance of secondaryEntity in each iteration in order to creare the proper context , also added functions to context to get the filtered SecondaryEntity list" />
     <MESSAGE value="now working&#10;changed evaluate to get the EntityInstance of secondaryEntity in each iteration in order to creare the proper context , also added functions to context to get the filtered SecondaryEntity list" />
@@ -734,7 +731,8 @@
     <MESSAGE value="implemented run loop as required." />
     <MESSAGE value="replace is working" />
     <MESSAGE value="ticks is working" />
-    <option name="LAST_COMMIT_MESSAGE" value="ticks is working" />
+    <MESSAGE value="changed the way of getting user init info to the simulation" />
+    <option name="LAST_COMMIT_MESSAGE" value="changed the way of getting user init info to the simulation" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
@@ -751,8 +749,8 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/ConsoleUI/src/menu/impl/MenuImpl.java</url>
-          <line>161</line>
-          <option name="timeStamp" value="80" />
+          <line>173</line>
+          <option name="timeStamp" value="82" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

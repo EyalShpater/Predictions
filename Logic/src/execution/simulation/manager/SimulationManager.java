@@ -34,7 +34,6 @@ public class SimulationManager implements Serializable {
         TerminateCondition stopReason;
         SimulationRunDetailsDTO dto;
 
-        //updateEnvironmentVariablesFromDTO(world, initData.getEnvironmentVariables());
         simulation = new SimulationImpl(world, initData, serialNumber);
         serialNumber++;
 

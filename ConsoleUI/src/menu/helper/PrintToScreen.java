@@ -123,9 +123,9 @@ public class PrintToScreen {
     public void printEntityDefinitionDTO(EntityDefinitionDTO entity, int indentation) {
         printLine(indentation, ' ');
         System.out.println("Name: " + entity.getName());
-
-        printLine(indentation, ' ');
-        System.out.println("Population: " + entity.getPopulation());
+//
+//        printLine(indentation, ' ');
+//        System.out.println("Population: " + entity.getPopulation());
 
         printLine(indentation, ' ');
         System.out.println("Properties:");

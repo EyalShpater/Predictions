@@ -7,10 +7,6 @@ import impl.EntityDefinitionDTO;
 public interface EntityDefinition extends DTOConvertible<EntityDefinitionDTO> {
     String getName();
 
-    int getPopulation();
-
-    void setPopulation(int population);
-
     PropertyDefinition propertyAt(int index);
 
     PropertyDefinition getPropertyByName(String name);

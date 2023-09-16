@@ -53,10 +53,10 @@ public class WorldImpl implements World  , Serializable {
         }
     }
 
-    @Override
-    public void setEntitiesPopulation(Map<String, Integer> entityNameToPopulation) {
-        entityNameToPopulation.forEach((name, population) -> entitiesDefinition.get(name).setPopulation(population));
-    }
+//    @Override
+//    public void setEntitiesPopulation(Map<String, Integer> entityNameToPopulation) {
+//        entityNameToPopulation.forEach((name, population) -> entitiesDefinition.get(name).setPopulation(population));
+//    }
 
     @Override
     public List<PropertyDefinitionDTO> getEnvironmentVariablesDTO() {
@@ -66,16 +66,6 @@ public class WorldImpl implements World  , Serializable {
                 .map(DTOConvertible::convertToDTO)
                 .collect(Collectors.toList()) :
                 null;
-    }
-
-    //todo 16/9 see if can be deleted
-    @Override
-    public ActiveEnvironment createActiveEnvironment() {
-//        if (environmentVariables != null) {
-//            return environmentVariables.createActiveEnvironment();
-//        }
-//
-        return null;
     }
 
     @Override

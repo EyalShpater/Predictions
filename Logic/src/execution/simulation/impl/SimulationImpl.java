@@ -101,13 +101,6 @@ public class SimulationImpl implements Simulation , Serializable {
     }
 
     @Override
-    public ActiveEnvironment setEnvironmentVariables() {
-        this.environmentVariables = world.createActiveEnvironment();
-
-        return this.environmentVariables;
-    }
-
-    @Override
     public SimulationDataDTO getResultAsDTO(String entityName, String propertyName) {
         return new SimulationDataDTO(
                 world.getEntities().size(),
@@ -120,10 +113,14 @@ public class SimulationImpl implements Simulation , Serializable {
     }
 
     private void initEntities() {
+        int population;
         EntityInstanceManager instances = new EntityInstanceManagerImpl();
 
         for (EntityDefinition entityDefinition : world.getEntities()) {
-            instances.createInstancesFromDefinition(entityDefinition, space);
+            population = initData
+                    .getEntityNameToPopulation()
+                    .get(entityDefinition.getName());
+            instances.createInstancesFromDefinition(entityDefinition, population, space);
         }
 
         entities = instances;

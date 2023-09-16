@@ -14,32 +14,15 @@ import java.util.stream.Collectors;
 
 public class EntityDefinitionImpl implements EntityDefinition , Serializable {
     private String name;
-    private int population;
     private List<PropertyDefinition> properties = new ArrayList<>();
 
     public EntityDefinitionImpl(String name) {
         setName(name);
-        setPopulation(0);
     }
 
     public EntityDefinitionImpl(EntityDefinitionDTO dto) {
         this(dto.getName());
         dto.getProperties().forEach(property -> addProperty(new PropertyDefinitionImpl(property)));
-    }
-
-
-    public int getPopulation() {
-        return population;
-    }
-
-
-    @Override
-    public void setPopulation(int population) {
-        if (population < 0) {
-            throw new IllegalArgumentException("Population must be a positive number.");
-        }
-
-        this.population = population;
     }
 
     @Override
@@ -87,7 +70,6 @@ public class EntityDefinitionImpl implements EntityDefinition , Serializable {
     public EntityDefinitionDTO convertToDTO() {
         return new EntityDefinitionDTO(
                 name,
-                population,
                 properties.stream()
                         .map(DTOConvertible::convertToDTO)
                         .collect(Collectors.toList())
@@ -99,7 +81,6 @@ public class EntityDefinitionImpl implements EntityDefinition , Serializable {
         StringBuilder result = new StringBuilder();
 
         result.append("Name: ").append(name).append(System.lineSeparator());
-        result.append("Population: ").append(population).append(System.lineSeparator());
         result.append("Properties:").append(System.lineSeparator());
         for (PropertyDefinition prop : properties) {
             result.append(prop).append(System.lineSeparator());

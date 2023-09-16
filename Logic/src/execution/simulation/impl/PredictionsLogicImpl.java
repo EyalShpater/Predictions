@@ -2,6 +2,7 @@ package execution.simulation.impl;
 
 import action.impl.IncreaseAction;
 import action.impl.MultiplyAction;
+import api.DTOConvertible;
 import definition.entity.api.EntityDefinition;
 import definition.entity.impl.EntityDefinitionImpl;
 import definition.property.api.PropertyType;
@@ -24,9 +25,14 @@ import rule.impl.RuleImpl;
 
 import javax.xml.bind.JAXBException;
 import java.io.Serializable;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 public class PredictionsLogicImpl implements PredictionsLogic , Serializable {
+    private static final int DEFAULT_START_POPULATION = 0;
+
     private SimulationManager allSimulations;
     private World world;
 
@@ -57,6 +63,17 @@ public class PredictionsLogicImpl implements PredictionsLogic , Serializable {
         //environmentInstances = world.createActiveEnvironment();
 
         return environmentInstances.convertToDTO();
+    }
+
+    @Override
+    public Map<String, Integer> getEntitiesToPopulation() {
+        Map<String, Integer> entitiesNameToPopulation = new HashMap<>();
+
+        world
+                .getEntities()
+                .forEach(entity -> entitiesNameToPopulation.put(entity.getName(), DEFAULT_START_POPULATION));
+
+        return entitiesNameToPopulation;
     }
 
     @Override
