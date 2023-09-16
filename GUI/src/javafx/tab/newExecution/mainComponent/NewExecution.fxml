@@ -39,7 +39,7 @@
                         </ScrollPane>
                     </children>
                 </GridPane>
-                <GridPane hgap="5.0" prefHeight="99.0" prefWidth="600.0" vgap="5.0">
+                <GridPane hgap="5.0" minHeight="50.0" prefHeight="99.0" prefWidth="600.0" vgap="5.0">
                     <columnConstraints>
                         <ColumnConstraints hgrow="NEVER" maxWidth="10.0" minWidth="10.0" prefWidth="10.0"/>
                         <ColumnConstraints hgrow="SOMETIMES" maxWidth="185.0" minWidth="10.0" prefWidth="86.0"/>

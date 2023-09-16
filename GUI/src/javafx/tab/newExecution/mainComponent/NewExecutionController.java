@@ -127,13 +127,13 @@ public class NewExecutionController {
     void startButtonActionListener(ActionEvent event) {
         //playAudio();
         runSimulation();
+        mainAppController.onStartButtonClick();
 
         Tab resultsTab = findResultsTabByName("Results");
         if (resultsTab != null) {
             tabPane.getSelectionModel().select(resultsTab);
         }
 
-        mainAppController.onStartButtonClick();
     }
 
     private Tab findResultsTabByName(String tabName) {
