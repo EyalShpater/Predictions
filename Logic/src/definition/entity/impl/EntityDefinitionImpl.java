@@ -17,14 +17,13 @@ public class EntityDefinitionImpl implements EntityDefinition , Serializable {
     private int population;
     private List<PropertyDefinition> properties = new ArrayList<>();
 
-    public EntityDefinitionImpl(String name, int population) {
+    public EntityDefinitionImpl(String name) {
         setName(name);
-        setPopulation(population);
+        setPopulation(0);
     }
 
     public EntityDefinitionImpl(EntityDefinitionDTO dto) {
-        this(dto.getName(), dto.getPopulation());
-
+        this(dto.getName());
         dto.getProperties().forEach(property -> addProperty(new PropertyDefinitionImpl(property)));
     }
 
@@ -33,8 +32,10 @@ public class EntityDefinitionImpl implements EntityDefinition , Serializable {
         return population;
     }
 
+
+    @Override
     public void setPopulation(int population) {
-        if (population <= 0) {
+        if (population < 0) {
             throw new IllegalArgumentException("Population must be a positive number.");
         }
 

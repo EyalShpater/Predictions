@@ -15,10 +15,12 @@ import grid.SphereSpaceImpl;
 import grid.api.SphereSpace;
 import impl.SimulationDTO;
 import impl.SimulationDataDTO;
+import impl.SimulationInitDataFromUserDTO;
 import instance.entity.api.EntityInstance;
 import instance.entity.manager.api.EntityInstanceManager;
 import instance.entity.manager.impl.EntityInstanceManagerImpl;
 import instance.enviornment.api.ActiveEnvironment;
+import instance.enviornment.impl.ActiveEnvironmentImpl;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -39,14 +41,17 @@ public class SimulationImpl implements Simulation , Serializable {
     private SimulationData data;
     private TerminateCondition endReason;
     private SphereSpace space;
+    private SimulationInitDataFromUserDTO initData;
+
     private long startTime;
     private long pauseDuration;
     private int tick;
     private boolean isStop;
     private boolean isPause;
 
-    public SimulationImpl(World world, int serialNumber) {
+    public SimulationImpl(World world, SimulationInitDataFromUserDTO initData, int serialNumber) {
         this.world = world;
+        this.initData = initData;
         this.serialNumber = serialNumber;
         this.random = new Random();
         this.entities = null;
@@ -72,7 +77,6 @@ public class SimulationImpl implements Simulation , Serializable {
         tick = 1;
 
         while ((endReason = world.isActive(tick, startTime, pauseDuration, isStop)) == null) {
-
             entities.moveAllEntitiesInSpace(space);
             executeRules(tick);
             tick++;
@@ -125,8 +129,8 @@ public class SimulationImpl implements Simulation , Serializable {
         entities = instances;
     }
 
-    private void initEnvironmentVariables() {
-        this.environmentVariables = world.createActiveEnvironment();
+    private synchronized void initEnvironmentVariables() {
+        environmentVariables = new ActiveEnvironmentImpl(initData.getEnvironmentVariables());
     }
 
     private void resetEnvironmentVariables() {
@@ -139,19 +143,7 @@ public class SimulationImpl implements Simulation , Serializable {
 
         entities.getInstances().stream()
                 .filter(EntityInstance::isAlive)
-                .forEach(entity -> {
-                    invokeActionsOnEntity(entity, activeActions);
-                });
-
-        //update
-        /*
-
-        //Replace -> context.addNewEntity(EntityInstance)...
-
-        List<EntityInstance> context.getNewEntities();
-        entities.add();
-         */
-
+                .forEach(entity -> invokeActionsOnEntity(entity, activeActions));
     }
 
     @Override

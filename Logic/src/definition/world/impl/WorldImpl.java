@@ -54,6 +54,11 @@ public class WorldImpl implements World  , Serializable {
     }
 
     @Override
+    public void setEntitiesPopulation(Map<String, Integer> entityNameToPopulation) {
+        entityNameToPopulation.forEach((name, population) -> entitiesDefinition.get(name).setPopulation(population));
+    }
+
+    @Override
     public List<PropertyDefinitionDTO> getEnvironmentVariablesDTO() {
         return !environmentVariables.isEmpty() ?
                 environmentVariables.getEnvironmentVariables()
@@ -63,12 +68,13 @@ public class WorldImpl implements World  , Serializable {
                 null;
     }
 
+    //todo 16/9 see if can be deleted
     @Override
     public ActiveEnvironment createActiveEnvironment() {
-        if (environmentVariables != null) {
-            return environmentVariables.createActiveEnvironment();
-        }
-
+//        if (environmentVariables != null) {
+//            return environmentVariables.createActiveEnvironment();
+//        }
+//
         return null;
     }
 

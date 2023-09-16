@@ -16,7 +16,7 @@ public interface PredictionsLogic {
 
     WorldDTO getLoadedSimulationDetails();
 
-    /*SimulationRunDetailsDTO*/ void runNewSimulation(List<PropertyDefinitionDTO> environmentVariables);
+    /*SimulationRunDetailsDTO*/ void runNewSimulation(SimulationInitDataFromUserDTO initData);
 
     void pauseSimulationBySerialNumber(int serialNumber);
 

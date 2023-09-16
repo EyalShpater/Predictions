@@ -163,7 +163,8 @@ public class MenuImpl implements Menu {
 
         printer.viewEnvironmentVariablesValues(updatedEnvironmentVariables);
         /*runDetails = */
-        engine.runNewSimulation(updatedEnvironmentVariables);
+        //todo: 16/9
+        engine.runNewSimulation(new SimulationInitDataFromUserDTO(updatedEnvironmentVariables, null));
         //printer.printRunDetailsDTO(runDetails);
         System.out.println();
     }

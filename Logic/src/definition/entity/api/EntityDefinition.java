@@ -9,6 +9,8 @@ public interface EntityDefinition extends DTOConvertible<EntityDefinitionDTO> {
 
     int getPopulation();
 
+    void setPopulation(int population);
+
     PropertyDefinition propertyAt(int index);
 
     PropertyDefinition getPropertyByName(String name);
