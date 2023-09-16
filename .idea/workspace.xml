@@ -11,14 +11,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="27d35137-667f-4e37-a519-ab836acc0a06" name="Changes" comment="you can get now a simulation run details by serial number">
+    <list default="true" id="27d35137-667f-4e37-a519-ab836acc0a06" name="Changes" comment="implemented the context swap entities by action method">
+      <change afterPath="$PROJECT_DIR$/DTO/src/impl/SimulationQueueDto.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/action/api/AbstractAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/action/api/AbstractAction.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/action/api/Action.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/action/api/Action.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/action/context/api/Context.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/action/context/api/Context.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/action/context/impl/ContextImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/action/context/impl/ContextImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/action/impl/Proximity.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/action/impl/Proximity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/execution/simulation/impl/PredictionsLogicImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/execution/simulation/impl/PredictionsLogicImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -355,7 +350,7 @@
       <workItem from="1694330441189" duration="28414000" />
       <workItem from="1694408417392" duration="10450000" />
       <workItem from="1694524231690" duration="15371000" />
-      <workItem from="1694857830392" duration="7013000" />
+      <workItem from="1694857830392" duration="7785000" />
     </task>
     <task id="LOCAL-00055" summary="latest">
       <created>1692128479513</created>
@@ -377,14 +372,6 @@
       <option name="presentableId" value="LOCAL-00070" />
       <option name="project" value="LOCAL" />
       <updated>1692356632414</updated>
-    </task>
-    <task id="LOCAL‎-00087" summary="init GUI branch">
-      <option name="closed" value="true" />
-      <created>1693395569172</created>
-      <option name="number" value="00087" />
-      <option name="presentableId" value="LOCAL‎-00087" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1693395569173</updated>
     </task>
     <task id="LOCAL‎-00088" summary="details window POC">
       <option name="closed" value="true" />
@@ -732,7 +719,15 @@
       <option name="project" value="LOCAL‎" />
       <updated>1694856539370</updated>
     </task>
-    <option name="localTasksCounter" value="133" />
+    <task id="LOCAL‎-00133" summary="implemented the context swap entities by action method">
+      <option name="closed" value="true" />
+      <created>1694886370618</created>
+      <option name="number" value="00133" />
+      <option name="presentableId" value="LOCAL‎-00133" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1694886370618</updated>
+    </task>
+    <option name="localTasksCounter" value="134" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -763,7 +758,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="now working&#10;changed evaluate to get the EntityInstance of secondaryEntity in each iteration in order to creare the proper context , also added functions to context to get the filtered SecondaryEntity list" />
     <MESSAGE value="ADDED REPLACE" />
     <MESSAGE value="updated Proximity" />
     <MESSAGE value="changed replace and proximity" />
@@ -788,7 +782,8 @@
     <MESSAGE value="changed the way of getting user init info to the simulation" />
     <MESSAGE value="population is set now by user" />
     <MESSAGE value="you can get now a simulation run details by serial number" />
-    <option name="LAST_COMMIT_MESSAGE" value="you can get now a simulation run details by serial number" />
+    <MESSAGE value="implemented the context swap entities by action method" />
+    <option name="LAST_COMMIT_MESSAGE" value="implemented the context swap entities by action method" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
