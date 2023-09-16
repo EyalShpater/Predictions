@@ -11,9 +11,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="27d35137-667f-4e37-a519-ab836acc0a06" name="Changes" comment="implemented the context swap entities by action method">
-      <change afterPath="$PROJECT_DIR$/DTO/src/impl/SimulationQueueDto.java" afterDir="false" />
+    <list default="true" id="27d35137-667f-4e37-a519-ab836acc0a06" name="Changes" comment="added SimulationQueueDto">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI/src/javafx/mainScene/main/PredictionsMainAppController.java" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/src/javafx/mainScene/main/PredictionsMainAppController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI/src/javafx/tab/details/details/DetailsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/src/javafx/tab/details/details/DetailsController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/execution/simulation/api/PredictionsLogic.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/execution/simulation/api/PredictionsLogic.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/execution/simulation/api/Simulation.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/execution/simulation/api/Simulation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/execution/simulation/impl/PredictionsLogicImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/execution/simulation/impl/PredictionsLogicImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/execution/simulation/impl/SimulationImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/execution/simulation/impl/SimulationImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/execution/simulation/manager/SimulationManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/execution/simulation/manager/SimulationManager.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -133,7 +139,7 @@
       <recent name="javafx.details.details" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.main.Main">
+  <component name="RunManager" selected="Application.Main">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="javafx.mainScene.main.Main" />
       <module name="GUI" />
@@ -266,8 +272,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.main.Main" />
         <item itemvalue="Application.Main" />
+        <item itemvalue="Application.main.Main" />
         <item itemvalue="Application.SimulationImpl" />
         <item itemvalue="Application.grid.TestMain" />
         <item itemvalue="Application.TestMain" />
@@ -350,7 +356,7 @@
       <workItem from="1694330441189" duration="28414000" />
       <workItem from="1694408417392" duration="10450000" />
       <workItem from="1694524231690" duration="15371000" />
-      <workItem from="1694857830392" duration="7785000" />
+      <workItem from="1694857830392" duration="9342000" />
     </task>
     <task id="LOCAL-00055" summary="latest">
       <created>1692128479513</created>
@@ -372,14 +378,6 @@
       <option name="presentableId" value="LOCAL-00070" />
       <option name="project" value="LOCAL" />
       <updated>1692356632414</updated>
-    </task>
-    <task id="LOCAL‎-00088" summary="details window POC">
-      <option name="closed" value="true" />
-      <created>1693594479634</created>
-      <option name="number" value="00088" />
-      <option name="presentableId" value="LOCAL‎-00088" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1693594479635</updated>
     </task>
     <task id="LOCAL‎-00089" summary="general component in Details Tab is bind to the engine">
       <option name="closed" value="true" />
@@ -727,7 +725,15 @@
       <option name="project" value="LOCAL‎" />
       <updated>1694886370618</updated>
     </task>
-    <option name="localTasksCounter" value="134" />
+    <task id="LOCAL‎-00134" summary="added SimulationQueueDto">
+      <option name="closed" value="true" />
+      <created>1694886885834</created>
+      <option name="number" value="00134" />
+      <option name="presentableId" value="LOCAL‎-00134" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1694886885834</updated>
+    </task>
+    <option name="localTasksCounter" value="135" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -758,7 +764,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="ADDED REPLACE" />
     <MESSAGE value="updated Proximity" />
     <MESSAGE value="changed replace and proximity" />
     <MESSAGE value="added helper functions" />
@@ -783,7 +788,8 @@
     <MESSAGE value="population is set now by user" />
     <MESSAGE value="you can get now a simulation run details by serial number" />
     <MESSAGE value="implemented the context swap entities by action method" />
-    <option name="LAST_COMMIT_MESSAGE" value="implemented the context swap entities by action method" />
+    <MESSAGE value="added SimulationQueueDto" />
+    <option name="LAST_COMMIT_MESSAGE" value="added SimulationQueueDto" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">

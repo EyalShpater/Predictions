@@ -1,16 +1,13 @@
 package execution.simulation.manager;
 
-import api.DTO;
 import api.DTOConvertible;
 import execution.simulation.api.Simulation;
 import execution.simulation.impl.SimulationImpl;
 import definition.world.api.World;
 import execution.simulation.termination.api.TerminateCondition;
 import impl.*;
-import instance.property.api.PropertyInstance;
 
 import java.io.Serializable;
-import java.text.SimpleDateFormat;
 import java.util.*;
 import java.util.concurrent.*;
 import java.util.stream.Collectors;
@@ -18,14 +15,14 @@ import java.util.stream.Collectors;
 public class SimulationManager implements Serializable {
     private int serialNumber;
     private Map<Integer, Simulation> simulations;
-    private ExecutorService threadPoll;
+    private ExecutorService threadPool;
     private World world;
 
     public SimulationManager(World world) {
         this.serialNumber = 1;
         this.simulations = new HashMap<>();
         this.world = world;
-        this.threadPoll = Executors.newFixedThreadPool(world.getThreadPoolSize());
+        this.threadPool = Executors.newFixedThreadPool(world.getThreadPoolSize());
     }
 
     // todo: handle the void situation, maybe its need to return the simulation id?
@@ -37,7 +34,7 @@ public class SimulationManager implements Serializable {
         simulation = new SimulationImpl(world, initData, serialNumber);
         serialNumber++;
 
-        threadPoll.execute(simulation::run);
+        threadPool.execute(simulation::run);
         //stopReason = simulation.getEndReason();
 
         simulations.put(simulation.getSerialNumber(), simulation);
@@ -64,6 +61,16 @@ public class SimulationManager implements Serializable {
 
     public Simulation getSimulationBySerialNumber(int serialNumber){
         return simulations.get(serialNumber);
+    }
+
+    public SimulationQueueDto getSimulationQueueDetails() {
+        ThreadPoolExecutor threadPoolExecutor = (ThreadPoolExecutor) threadPool;
+
+        return new SimulationQueueDto(
+                simulations.size(),
+                threadPoolExecutor.getQueue().size(),
+                threadPoolExecutor.getActiveCount()
+        );
     }
 
 //    private SimulationRunDetailsDTO createRunDetailDTO(TerminateCondition condition, int serialNumber) {

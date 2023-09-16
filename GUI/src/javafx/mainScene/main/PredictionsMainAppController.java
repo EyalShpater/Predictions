@@ -2,6 +2,8 @@ package javafx.mainScene.main;
 
 import execution.simulation.api.PredictionsLogic;
 import execution.simulation.impl.PredictionsLogicImpl;
+import javafx.beans.property.BooleanProperty;
+import javafx.beans.property.SimpleBooleanProperty;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.mainScene.header.HeaderController;
@@ -28,10 +30,11 @@ public class PredictionsMainAppController {
     private HeaderController headerComponentController;
 
     private DetailsController detailsTabController;
-    private NewExecutionController newExecutionTabContller;
+    private NewExecutionController newExecutionTabController;
     private ResultsController resultsTabController;
 
     private PredictionsLogic engine = new PredictionsLogicImpl();
+    private BooleanProperty isFileSelected = new SimpleBooleanProperty();
 
     @FXML
     private void initialize() throws IOException {
@@ -41,6 +44,9 @@ public class PredictionsMainAppController {
         setDetailsTab();
         setNewExecutionTab();
         setResultsTab();
+
+        isFileSelected.bind(headerComponentController.getIsFileSelectedProperty());
+        detailsTabController.getTabDisableProperty().bind(isFileSelected.not());
     }
 
     private void setDetailsTab() {
@@ -70,10 +76,10 @@ public class PredictionsMainAppController {
             Parent newExecutionContent = loader.load();
             newExecution.setContent(newExecutionContent);
 
-            newExecutionTabContller = loader.getController();
-            newExecutionTabContller.setEngine(engine);
-            newExecutionTabContller.setMainAppController(this);
-            newExecutionTabContller.setTabPane(tabPane);
+            newExecutionTabController = loader.getController();
+            newExecutionTabController.setEngine(engine);
+            newExecutionTabController.setMainAppController(this);
+            newExecutionTabController.setTabPane(tabPane);
             //newExecutionTabContller.setIsFileSelectedProperty(headerComponentController.getIsFileSelectedProperty());
 
             tabPane.getTabs().add(newExecution);
@@ -106,7 +112,7 @@ public class PredictionsMainAppController {
     }
 
     public void onNewFileLoaded() {
-        newExecutionTabContller.onNewFileLoaded();
+        newExecutionTabController.onNewFileLoaded();
         resultsTabController.onNewFileLoaded();
     }
 }

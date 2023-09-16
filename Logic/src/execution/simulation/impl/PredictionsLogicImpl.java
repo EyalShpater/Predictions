@@ -136,6 +136,11 @@ public class PredictionsLogicImpl implements PredictionsLogic , Serializable {
                 .createRunDetailDTO();
     }
 
+    @Override
+    public SimulationQueueDto getSimulationQueueDetails() {
+        return allSimulations.getSimulationQueueDetails();
+    }
+
     //Todo: only for debug! need to be delete!
     @Override
     public void initSampleInformation() {

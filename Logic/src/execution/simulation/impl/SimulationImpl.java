@@ -13,10 +13,7 @@ import execution.simulation.termination.api.TerminateCondition;
 import execution.simulation.termination.impl.TerminationImpl;
 import grid.SphereSpaceImpl;
 import grid.api.SphereSpace;
-import impl.SimulationDTO;
-import impl.SimulationDataDTO;
-import impl.SimulationInitDataFromUserDTO;
-import impl.SimulationRunDetailsDTO;
+import impl.*;
 import instance.entity.api.EntityInstance;
 import instance.entity.manager.api.EntityInstanceManager;
 import instance.entity.manager.impl.EntityInstanceManagerImpl;
@@ -46,7 +43,6 @@ public class SimulationImpl implements Simulation , Serializable {
 
     private long startTime;
     private long pauseDuration;
-    private long runningTime;
     private int tick;
     private boolean isStop;
     private boolean isPause;

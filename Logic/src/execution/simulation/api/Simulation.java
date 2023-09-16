@@ -6,6 +6,7 @@ import execution.simulation.data.api.SimulationData;
 import execution.simulation.termination.api.TerminateCondition;
 import impl.SimulationDTO;
 import impl.SimulationDataDTO;
+import impl.SimulationQueueDto;
 import impl.SimulationRunDetailsDTO;
 import instance.enviornment.api.ActiveEnvironment;
 

@@ -35,4 +35,6 @@ public interface PredictionsLogic {
     void initSampleInformation();
 
     SimulationRunDetailsDTO getSimulationRunDetail(int serialNumber);
+
+    SimulationQueueDto getSimulationQueueDetails();
 }

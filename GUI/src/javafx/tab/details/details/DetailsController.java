@@ -1,14 +1,12 @@
 package javafx.tab.details.details;
 
 import execution.simulation.api.PredictionsLogic;
-import impl.ActionDTO;
 import impl.EntityDefinitionDTO;
 import impl.PropertyDefinitionDTO;
 import impl.RuleDTO;
+import javafx.beans.property.BooleanProperty;
 import javafx.geometry.Insets;
 import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.control.Control;
 import javafx.scene.layout.FlowPane;
 import javafx.tab.details.components.ComponentsController;
 import javafx.event.ActionEvent;
@@ -158,6 +156,9 @@ public class DetailsController {
         } catch (IOException ignored) {
 
         }
+    }
 
+    public BooleanProperty getTabDisableProperty() {
+        return buttonsComponent.disableProperty();
     }
 }
