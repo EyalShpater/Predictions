@@ -75,10 +75,17 @@ public class SimulationImpl implements Simulation , Serializable {
             if (isPause) {
                 this.pauseDuration += pauseDuringRunning();
             }
+
+            try {
+                Thread.sleep(500);
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
         }
 
-        data = new SimulationDataImpl(serialNumber, startTime, world.getEntities(), entities);
-        resetEnvironmentVariables();
+//        data = new SimulationDataImpl(serialNumber, startTime, world.getEntities(), entities);
+//        resetEnvironmentVariables();
+        System.out.println("end of simulation #" + serialNumber);
     }
 
     @Override
@@ -105,12 +112,42 @@ public class SimulationImpl implements Simulation , Serializable {
 
     public SimulationRunDetailsDTO createRunDetailDTO() {
         return new SimulationRunDetailsDTO(
-                endReason.equals(TerminateCondition.BY_SECONDS),
-                endReason.equals(TerminateCondition.BY_TICKS),
+//                endReason.equals(TerminateCondition.BY_SECONDS),
+//                endReason.equals(TerminateCondition.BY_TICKS),
+                false,
+                false,
                 serialNumber,
                 tick,
-                System.currentTimeMillis() - startTime - pauseDuration
+                System.currentTimeMillis() - startTime - pauseDuration,
+                getStartProgress(),
+                getEndProgress()
         );
+    }
+
+    private double getEndProgress() {
+        double progress = 0;
+        TerminateCondition terminateCondition = world.getTerminationCondition();
+
+        if (!terminateCondition.equals(TerminateCondition.BY_USER)) {
+            progress = terminateCondition.equals(TerminateCondition.BY_SECONDS) ?
+                    (System.currentTimeMillis()) :
+                    world.getTermination().getTicksToTerminate();
+        }
+
+        return progress;
+    }
+
+    private double getStartProgress() {
+        double progress = 0;
+        TerminateCondition terminateCondition = world.getTerminationCondition();
+
+        if (!terminateCondition.equals(TerminateCondition.BY_USER)) {
+            progress = terminateCondition.equals(TerminateCondition.BY_SECONDS) ?
+                    (startTime + pauseDuration) :
+                    tick;
+        }
+
+        return progress;
     }
 
     @Override
@@ -176,12 +213,12 @@ public class SimulationImpl implements Simulation , Serializable {
     @Override
     public void pause() {
         isPause = true;
-        System.out.println("pause");
+        System.out.println("pause " + serialNumber);
     }
 
     @Override
     public void stop() {
-        System.out.println("stop");
+        System.out.println("stop " + serialNumber);
         isStop = true;
         resume();
     }
@@ -189,7 +226,7 @@ public class SimulationImpl implements Simulation , Serializable {
     @Override
     public void resume() {
         isPause = false;
-        System.out.println("resume");
+        System.out.println("resume " + serialNumber);
         synchronized (this) {
             this.notifyAll();
         }
@@ -219,6 +256,11 @@ public class SimulationImpl implements Simulation , Serializable {
         }
 
         return System.currentTimeMillis() - startTime;
+    }
+
+    @Override
+    public boolean isEnded() {
+        return endReason != null;
     }
 
     private List<Action> createActionToInvokeList(int tick) {

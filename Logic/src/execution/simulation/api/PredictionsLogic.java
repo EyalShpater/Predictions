@@ -28,6 +28,8 @@ public interface PredictionsLogic {
 
     boolean isStop(int serialNumber);
 
+    boolean isEnded(int serialNumber);
+
     double getProgress(int serialNumber);
 
     List<SimulationDTO> getPreviousSimulationsAsDTO();

@@ -36,12 +36,6 @@ public class ContextImpl implements Context, Serializable {
         this.currentTickNumber = tick;
     }
 
-    //todo: can we delete?
-//    @Override
-//    public void removeEntity(EntityInstance entityInstance) {
-//        entityInstanceManager.killEntity(entityInstance.getId());
-//    }
-
     @Override
     public EntityInstance getPrimaryEntityInstance() {
         return primaryEntityInstance;

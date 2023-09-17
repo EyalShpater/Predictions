@@ -115,6 +115,6 @@
         </PRD-rule>
     </PRD-rules>
     <PRD-termination>
-        <PRD-by-user/>
+        <PRD-by-second count="10"/>
     </PRD-termination>
 </PRD-world>

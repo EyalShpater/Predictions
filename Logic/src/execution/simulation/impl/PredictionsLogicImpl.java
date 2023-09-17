@@ -115,6 +115,13 @@ public class PredictionsLogicImpl implements PredictionsLogic , Serializable {
     }
 
     @Override
+    public boolean isEnded(int serialNumber) {
+        return allSimulations
+                .getSimulationBySerialNumber(serialNumber)
+                .isEnded();
+    }
+
+    @Override
     public double getProgress(int serialNumber) {
         return allSimulations.getSimulationBySerialNumber(serialNumber).getProgress();
     }
