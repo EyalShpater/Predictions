@@ -37,10 +37,10 @@ public class PredictionsMainAppController {
 
     private PredictionsLogic engine = new PredictionsLogicImpl();
     private BooleanProperty isFileSelected = new SimpleBooleanProperty();
-    private ObjectProperty<Category> selectSimulation;
+    // private ObjectProperty<Category> selectSimulation;
 
     @FXML
-    private void initialize() throws IOException {
+    private void initialize() {
         headerComponentController.setEngine(engine);
         headerComponentController.setMainAppController(this);
 
@@ -50,7 +50,6 @@ public class PredictionsMainAppController {
 
         isFileSelected.bind(headerComponentController.getIsFileSelectedProperty());
         detailsTabController.getTabDisableProperty().bind(isFileSelected.not());
-        selectSimulation.bind(resultsTabController.getSelectedSimulationProperty());
     }
 
     private void setDetailsTab() {
@@ -119,12 +118,12 @@ public class PredictionsMainAppController {
         newExecutionTabController.onNewFileLoaded();
         resultsTabController.onNewFileLoaded();
     }
-
-    public Category getSelectSimulation() {
-        return selectSimulation.get();
-    }
-
-    public ObjectProperty<Category> getSelectSimulationProperty() {
-        return selectSimulation;
-    }
+//
+//    public Category getSelectSimulation() {
+//        return selectSimulation.get();
+//    }
+//
+//    public ObjectProperty<Category> getSelectSimulationProperty() {
+//        return selectSimulation;
+//    }
 }

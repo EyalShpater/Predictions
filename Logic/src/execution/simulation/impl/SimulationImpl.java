@@ -169,10 +169,12 @@ public class SimulationImpl implements Simulation , Serializable {
     @Override
     public void pause() {
         isPause = true;
+        System.out.println("pause");
     }
 
     @Override
     public void stop() {
+        System.out.println("stop");
         isStop = true;
         resume();
     }
@@ -180,10 +182,20 @@ public class SimulationImpl implements Simulation , Serializable {
     @Override
     public void resume() {
         isPause = false;
-
+        System.out.println("resume");
         synchronized (this) {
             this.notifyAll();
         }
+    }
+
+    @Override
+    public boolean isPaused() {
+        return isPause;
+    }
+
+    @Override
+    public boolean isStop() {
+        return isStop;
     }
 
     private long pauseDuringRunning() {

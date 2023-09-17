@@ -2,23 +2,21 @@ package javafx.tab.results;
 
 import execution.simulation.api.PredictionsLogic;
 import impl.SimulationDTO;
-import impl.SimulationDataDTO;
+import javafx.beans.binding.Bindings;
 import javafx.beans.property.*;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.chart.BarChart;
-import javafx.scene.chart.CategoryAxis;
-import javafx.scene.chart.NumberAxis;
-import javafx.scene.chart.XYChart;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.control.*;
+import javafx.scene.layout.StackPane;
 import javafx.tab.results.helper.Category;
 import javafx.tab.results.progress.ProgressController;
 
-import java.util.*;
+import java.net.URL;
 
 public class ResultsController {
+
+    @FXML
+    private StackPane progress;
 
     @FXML
     private ListView<Category> simulationsListView;
@@ -51,8 +49,26 @@ public class ResultsController {
     private StringProperty entityToView = new SimpleStringProperty();
     private boolean isFirstStart = true;
 
+    @FXML
+    private void initialize() {
+        selectedSimulation.bind(simulationsListView.getSelectionModel().selectedItemProperty());
+        selectedSimulation.addListener((observable, oldValue, newValue) -> progressController.onSelectedPropertyChange(newValue));
+
+        //progressController.bindSelectedSimulationProperty();
+        //System.out.println(progressController);
+        // selectedSimulation.addListener((observable, oldValue, newValue) -> progressController.onChosenSimulationChange(newValue));
+
+        //progressController.bindSelectedSimulationProperty();
+//        propertyToView.bind(propertyChoiceBox.valueProperty());
+//
+//        simulationChoiceBox.setOnAction(this::onSelectSimulation);
+//        propertyChoiceBox.setOnAction(this::onSelectProperty);
+//        showByAmountRadioButton.setOnAction(this::onToggleRadioButton);
+    }
+
     public void setEngine(PredictionsLogic engine) {
         this.engine = engine;
+        progressController.setEngine(engine);
     }
 
     public void onStartButtonClicked(int newSimulationSerialNumber) {
@@ -61,16 +77,6 @@ public class ResultsController {
         System.out.println(progressController);
         SimulationDTO lastSimulation = engine.getSimulationDTOBySerialNumber(newSimulationSerialNumber);
         simulationsListView.getItems().add(new Category(lastSimulation.getStartDate(), lastSimulation.getSerialNumber()));
-    }
-
-    @FXML
-    private void initialize() {
-//        selectedSimulation.bind(simulationChoiceBox.valueProperty());
-//        propertyToView.bind(propertyChoiceBox.valueProperty());
-//
-//        simulationChoiceBox.setOnAction(this::onSelectSimulation);
-//        propertyChoiceBox.setOnAction(this::onSelectProperty);
-//        showByAmountRadioButton.setOnAction(this::onToggleRadioButton);
     }
 
 //    private void onSelectSimulation(ActionEvent event) {

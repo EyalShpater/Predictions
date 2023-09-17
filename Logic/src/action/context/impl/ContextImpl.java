@@ -176,7 +176,6 @@ public class ContextImpl implements Context, Serializable {
     @Override
     public void setForAction(Action action) {
         setPrimaryEntityByAction(action);
-        setSecondaryEntityByAction(action);
     }
 
     private void setPrimaryEntityByAction(Action action) {
@@ -192,16 +191,10 @@ public class ContextImpl implements Context, Serializable {
             );
         }
 
-        if (actionPrimaryName.equals(secondaryEntityInstance.getName())) {
+        if (secondaryEntityInstance != null && actionPrimaryName.equals(secondaryEntityInstance.getName())) {
             EntityInstance temp = primaryEntityInstance;
             primaryEntityInstance = secondaryEntityInstance;
             secondaryEntityInstance = temp;
-        }
-    }
-
-    private void setSecondaryEntityByAction(Action action) {
-        if (action.getSecondaryEntity() != null && !(action.getSecondaryEntity().getName().equals(secondaryEntityInstance.getName()))) {
-            secondaryEntityInstance = null;
         }
     }
 }

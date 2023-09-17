@@ -101,6 +101,20 @@ public class PredictionsLogicImpl implements PredictionsLogic , Serializable {
     }
 
     @Override
+    public boolean isPaused(int serialNumber) {
+        return allSimulations
+                .getSimulationBySerialNumber(serialNumber)
+                .isPaused();
+    }
+
+    @Override
+    public boolean isStop(int serialNumber) {
+        return allSimulations
+                .getSimulationBySerialNumber(serialNumber)
+                .isStop();
+    }
+
+    @Override
     public List<SimulationDTO> getPreviousSimulationsAsDTO() {
         return allSimulations.getAllSimulationsDTO();
     }

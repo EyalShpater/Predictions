@@ -24,6 +24,10 @@ public interface PredictionsLogic {
 
     void resumeSimulationBySerialNumber(int serialNumber);
 
+    boolean isPaused(int serialNumber);
+
+    boolean isStop(int serialNumber);
+
     List<SimulationDTO> getPreviousSimulationsAsDTO();
 
     SimulationDataDTO getSimulationData(int serialNumber, String entityName, String propertyName);

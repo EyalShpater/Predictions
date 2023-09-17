@@ -36,12 +36,14 @@ public class Proximity extends AbstractAction {
                 .stream()
                 .filter(entity -> entity.getName().equals(targetEntityName))
                 .findFirst()
-                .ifPresent(matchedEntity -> actions.forEach(action -> {
-                    context.setForAction(action);
-                    action.invoke(context);
-                }));
+                .ifPresent(matchedEntity -> {
+                    context.setSecondaryEntity(matchedEntity);
+                    actions.forEach(action -> {
+                        context.setForAction(action);
+                        action.invoke(context);
+                    });
+                });
     }
-
 
     @Override
     public Map<String, String> getArguments() {
