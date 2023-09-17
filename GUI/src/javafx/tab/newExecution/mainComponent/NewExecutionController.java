@@ -457,21 +457,6 @@ public class NewExecutionController {
             e.printStackTrace();
         }
     }
-
-    /*
-    private void showEnvVariables() {
-        List<PropertyDefinitionDTO> environmentVariables = engine.getEnvironmentVariablesToSet();
-        environmentVariables.forEach(this::createEnvVarTile);
-    }
-
-    private void showEntities() {
-        WorldDTO loadedSimulationDetails = engine.getLoadedSimulationDetails();
-        List<EntityDefinitionDTO> entitiesList = loadedSimulationDetails.getEntities();
-        entitiesList.forEach(entity -> {
-            createTile(entity.getName());
-        });
-    }
-     */
 }
 
 

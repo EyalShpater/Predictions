@@ -6,6 +6,7 @@ import javafx.beans.binding.Bindings;
 import javafx.beans.property.*;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.mainScene.main.PredictionsMainAppController;
 import javafx.scene.control.*;
 import javafx.scene.layout.StackPane;
 import javafx.tab.results.helper.Category;
@@ -45,6 +46,7 @@ public class ResultsController {
     private ObjectProperty<Category> selectedSimulation = new SimpleObjectProperty<>();
     private BooleanProperty isViewingByAmount = new SimpleBooleanProperty();
     private PredictionsLogic engine;
+    private PredictionsMainAppController predictionsMainAppController;
     private StringProperty propertyToView = new SimpleStringProperty();
     private StringProperty entityToView = new SimpleStringProperty();
     private boolean isFirstStart = true;
@@ -69,6 +71,11 @@ public class ResultsController {
     public void setEngine(PredictionsLogic engine) {
         this.engine = engine;
         progressController.setEngine(engine);
+    }
+
+    public void setPredictionsMainAppController(PredictionsMainAppController predictionsMainAppController) {
+        this.predictionsMainAppController = predictionsMainAppController;
+        progressController.setPredictionsMainAppController(predictionsMainAppController);
     }
 
     public void onStartButtonClicked(int newSimulationSerialNumber) {

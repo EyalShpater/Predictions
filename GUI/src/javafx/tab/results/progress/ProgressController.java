@@ -4,6 +4,7 @@ import execution.simulation.api.PredictionsLogic;
 import javafx.beans.property.*;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.mainScene.main.PredictionsMainAppController;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
@@ -37,6 +38,7 @@ public class ProgressController {
     private BooleanProperty isPause = new SimpleBooleanProperty();
     private BooleanProperty isStop = new SimpleBooleanProperty();
 
+    PredictionsMainAppController predictionsMainAppController;
     private PredictionsLogic engine;
     private ResultsController resultsController;
 
@@ -67,7 +69,7 @@ public class ProgressController {
     @FXML
     void pauseOnClick(ActionEvent event) {
         if (isStop.get()) {
-            //shavit code
+            predictionsMainAppController.restoreDataValuesToTiles(engine.getUserInputOfSimulationBySerialNumber(selectedSimulation.getId()));
         } else if (isPause.get()) {
             engine.resumeSimulationBySerialNumber((selectedSimulation.getId()));
         } else {
@@ -100,5 +102,9 @@ public class ProgressController {
         selectedSimulation = newValue;
         isPause.set(engine.isPaused(newValue.getId()));
         isStop.set(engine.isStop(newValue.getId()));
+    }
+
+    public void setPredictionsMainAppController(PredictionsMainAppController predictionsMainAppController) {
+        this.predictionsMainAppController = predictionsMainAppController;
     }
 }

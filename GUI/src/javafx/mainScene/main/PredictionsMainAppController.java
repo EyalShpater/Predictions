@@ -2,6 +2,7 @@ package javafx.mainScene.main;
 
 import execution.simulation.api.PredictionsLogic;
 import execution.simulation.impl.PredictionsLogicImpl;
+import impl.SimulationInitDataFromUserDTO;
 import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleBooleanProperty;
@@ -103,6 +104,7 @@ public class PredictionsMainAppController {
 
             resultsTabController = loader.getController();
             resultsTabController.setEngine(engine);
+            resultsTabController.setPredictionsMainAppController(this);
 
             tabPane.getTabs().add(results);
         } catch (IOException ignored) {
@@ -117,6 +119,10 @@ public class PredictionsMainAppController {
     public void onNewFileLoaded() {
         newExecutionTabController.onNewFileLoaded();
         resultsTabController.onNewFileLoaded();
+    }
+
+    public void restoreDataValuesToTiles(SimulationInitDataFromUserDTO userInputOfSimulationBySerialNumber) {
+        newExecutionTabController.restoreDataValuesToTiles(userInputOfSimulationBySerialNumber);
     }
 //
 //    public Category getSelectSimulation() {
