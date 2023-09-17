@@ -16,7 +16,7 @@ public interface PredictionsLogic {
 
     WorldDTO getLoadedSimulationDetails();
 
-    /*SimulationRunDetailsDTO*/ int runNewSimulation(SimulationInitDataFromUserDTO initData);
+    int runNewSimulation(SimulationInitDataFromUserDTO initData);
 
     void pauseSimulationBySerialNumber(int serialNumber);
 
@@ -27,6 +27,8 @@ public interface PredictionsLogic {
     boolean isPaused(int serialNumber);
 
     boolean isStop(int serialNumber);
+
+    double getProgress(int serialNumber);
 
     List<SimulationDTO> getPreviousSimulationsAsDTO();
 

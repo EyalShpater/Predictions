@@ -73,6 +73,11 @@ public class TerminationImpl implements Termination , Serializable {
     }
 
     @Override
+    public int getTicksToTerminate() {
+        return ticksToTerminate;
+    }
+
+    @Override
     public TerminationDTO convertToDTO() {
         return new TerminationDTO(
                 ticksToTerminate,

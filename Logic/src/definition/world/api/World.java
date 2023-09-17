@@ -40,9 +40,13 @@ public interface World extends DTOConvertible<WorldDTO> {
     void setTermination(Termination terminate);
     void addEnvironmentVariable(PropertyDefinition newVariable);
 
+    TerminateCondition getTerminationCondition();
+
     void setGridRows(int rows);
 
     void setGridCols(int cols);
     EntityDefinition getEntityByName(String name);
     Collection<PropertyDefinition> getEnvironmentVariables();
+
+    Termination getTermination();
 }

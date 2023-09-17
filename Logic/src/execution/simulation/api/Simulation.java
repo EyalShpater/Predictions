@@ -33,4 +33,6 @@ public interface Simulation extends DTOConvertible<SimulationDTO> {
     SimulationInitDataFromUserDTO getUserInputDTO();
 
     World getWorld();
+
+    double getProgress();
 }

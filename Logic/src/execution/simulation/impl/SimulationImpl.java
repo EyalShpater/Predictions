@@ -3,14 +3,11 @@ package execution.simulation.impl;
 import action.api.Action;
 import action.context.impl.ContextImpl;
 import definition.entity.api.EntityDefinition;
-import definition.entity.impl.EntityDefinitionImpl;
-import definition.world.impl.WorldImpl;
 import execution.simulation.api.Simulation;
 import definition.world.api.World;
 import execution.simulation.data.api.SimulationData;
 import execution.simulation.data.impl.SimulationDataImpl;
 import execution.simulation.termination.api.TerminateCondition;
-import execution.simulation.termination.impl.TerminationImpl;
 import grid.SphereSpaceImpl;
 import grid.api.SphereSpace;
 import impl.*;
@@ -21,12 +18,8 @@ import instance.enviornment.api.ActiveEnvironment;
 import instance.enviornment.impl.ActiveEnvironmentImpl;
 
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.util.concurrent.TimeUnit;
 import java.util.stream.Collectors;
 
 public class SimulationImpl implements Simulation , Serializable {
@@ -159,6 +152,20 @@ public class SimulationImpl implements Simulation , Serializable {
     @Override
     public World getWorld() {
         return world;
+    }
+
+    @Override
+    public double getProgress() {
+        double progress = 0;
+        TerminateCondition terminateCondition = world.getTerminationCondition();
+
+        if (!terminateCondition.equals(TerminateCondition.BY_USER)) {
+            progress = terminateCondition.equals(TerminateCondition.BY_SECONDS) ?
+                    (System.currentTimeMillis() - startTime - pauseDuration) :
+                    world.getTermination().getTicksToTerminate() - tick;
+        }
+
+        return progress;
     }
 
     @Override

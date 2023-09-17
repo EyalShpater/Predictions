@@ -53,7 +53,7 @@ public class ResultsController {
     private void initialize() {
         selectedSimulation.bind(simulationsListView.getSelectionModel().selectedItemProperty());
         selectedSimulation.addListener((observable, oldValue, newValue) -> progressController.onSelectedPropertyChange(newValue));
-
+        progress.disableProperty().bind(Bindings.isNull(selectedSimulation));
         //progressController.bindSelectedSimulationProperty();
         //System.out.println(progressController);
         // selectedSimulation.addListener((observable, oldValue, newValue) -> progressController.onChosenSimulationChange(newValue));

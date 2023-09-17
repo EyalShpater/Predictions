@@ -53,11 +53,6 @@ public class WorldImpl implements World  , Serializable {
         }
     }
 
-//    @Override
-//    public void setEntitiesPopulation(Map<String, Integer> entityNameToPopulation) {
-//        entityNameToPopulation.forEach((name, population) -> entitiesDefinition.get(name).setPopulation(population));
-//    }
-
     @Override
     public List<PropertyDefinitionDTO> getEnvironmentVariablesDTO() {
         return !environmentVariables.isEmpty() ?
@@ -141,6 +136,15 @@ public class WorldImpl implements World  , Serializable {
     }
 
     @Override
+    public TerminateCondition getTerminationCondition() {
+        return terminate.isTerminateByTicks() ?
+                TerminateCondition.BY_TICKS :
+                terminate.isTerminateBySeconds() ?
+                        TerminateCondition.BY_SECONDS :
+                        TerminateCondition.BY_USER;
+    }
+
+    @Override
     public EntityDefinition getEntityByName(String name) {
         return entitiesDefinition.get(name);
     }
@@ -148,6 +152,11 @@ public class WorldImpl implements World  , Serializable {
     @Override
     public Collection<PropertyDefinition> getEnvironmentVariables() {
         return environmentVariables.getEnvironmentVariables();
+    }
+
+    @Override
+    public Termination getTermination() {
+        return terminate;
     }
 
     @Override
