@@ -32,11 +32,6 @@ public class NumericEnvironmentVariableController extends BasicEnvironmentVariab
 
     @FXML
     void randomAction(ActionEvent event) {
-        /*if (randomCheckBox.isSelected()) {
-            isInitRandom = true;
-        } else {
-            isInitRandom = false;
-        }*/
         if (randomCheckBox.isSelected()) {
             isInitRandom = true;
         } else {
@@ -108,5 +103,15 @@ public class NumericEnvironmentVariableController extends BasicEnvironmentVariab
         isInitRandom = true;
         randomCheckBox.setSelected(true);
     }
+
+    @Override
+    public void restoreFromEnvDTO(PropertyDefinitionDTO environmentVariable) {
+        setEnvVarName(environmentVariable.getName());
+        if (!environmentVariable.isRandom()) {
+            randomCheckBox.setSelected(false);
+            setEnvValue((String) environmentVariable.getDefaultValue());
+        }
+    }
+
 
 }

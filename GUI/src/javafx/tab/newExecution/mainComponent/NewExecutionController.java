@@ -114,6 +114,9 @@ public class NewExecutionController {
         for (BasicEnvironmentVariableData controller : envVarControllerList) {
             controller.clear();
         }
+        for (EntityData entityData : entityList) {
+            entityData.clear();
+        }
     }
 
     @FXML
@@ -299,7 +302,7 @@ public class NewExecutionController {
 
             BooleanEnvironmentVariableController environmentVariableController = loader.getController();
             environmentVariableController.setEnvVarName(envVar.getName());
-
+            //environmentVariableController.
             envVarsFlowPane.getChildren().add(singleEnvVarTile);
             envVarControllerList.add(environmentVariableController);
         } catch (IOException e) {
@@ -353,6 +356,122 @@ public class NewExecutionController {
     public void setTabPane(TabPane tabPane) {
         this.tabPane = tabPane;
     }
+
+    public void restoreDataValuesToTiles(SimulationInitDataFromUserDTO userInputOfSimulationBySerialNumber) {
+
+        cleanOldResults();
+
+        restoreEntityTilesWithDataValues(userInputOfSimulationBySerialNumber.getEntityNameToPopulation());
+        restoreEnvVarsTilesWithDataValues(userInputOfSimulationBySerialNumber.getEnvironmentVariables());
+    }
+
+    private void restoreEnvVarsTilesWithDataValues(List<PropertyDefinitionDTO> environmentVariables) {
+        environmentVariables.forEach(this::restoreEnvVarTile);
+    }
+
+    private void restoreEnvVarTile(PropertyDefinitionDTO environmentVariable) {
+        switch (environmentVariable.getType()) {
+            case "INT":
+            case "DOUBLE":
+                restoreEnvVarNumericTile(environmentVariable);
+                break;
+            case "BOOLEAN":
+                restoreEnvVarBooleanTile(environmentVariable);
+                break;
+            default:
+                restoreEnvVarStringTile(environmentVariable);
+                break;
+        }
+    }
+
+    private void restoreEnvVarStringTile(PropertyDefinitionDTO environmentVariable) {
+        try {
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(getClass().getResource("/javafx/tab/newExecution/environmentVariable/EnvironmentVariableStringTile.fxml"));
+            Node singleEnvVarTile = loader.load();
+
+            StringEnvironmentVariableController environmentVariableController = loader.getController();
+            environmentVariableController.restoreFromEnvDTO(environmentVariable);
+
+            envVarsFlowPane.getChildren().add(singleEnvVarTile);
+            envVarControllerList.add(environmentVariableController);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void restoreEnvVarBooleanTile(PropertyDefinitionDTO environmentVariable) {
+        try {
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(getClass().getResource("/javafx/tab/newExecution/environmentVariable/EnvironmentVariableBooleanTile.fxml"));
+            Node singleEnvVarTile = loader.load();
+
+            BooleanEnvironmentVariableController environmentVariableController = loader.getController();
+            environmentVariableController.restoreFromEnvDTO(environmentVariable);
+
+            envVarsFlowPane.getChildren().add(singleEnvVarTile);
+            envVarControllerList.add(environmentVariableController);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void restoreEnvVarNumericTile(PropertyDefinitionDTO environmentVariable) {
+        try {
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(getClass().getResource("/javafx/tab/newExecution/environmentVariable/EnvironmentVariableNumericTile.fxml"));
+            Node singleEnvVarTile = loader.load();
+
+            NumericEnvironmentVariableController environmentVariableController = loader.getController();
+            environmentVariableController.setEnvVarName(environmentVariable.getName());
+            environmentVariableController.restoreFromEnvDTO(environmentVariable);
+
+            environmentVariableController.setEnvVarValueSpinnerValueFactory(environmentVariable);
+
+            envVarsFlowPane.getChildren().add(singleEnvVarTile);
+            envVarControllerList.add(environmentVariableController);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+
+    private void restoreEntityTilesWithDataValues(Map<String, Integer> entityNameToPopulation) {
+        entityNameToPopulation.forEach((name, population) -> restoreEntityTile(name, population));
+    }
+
+    private void restoreEntityTile(String entityName, int population) {
+        try {
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(getClass().getResource("/javafx/tab/newExecution/entity/EntityTile.fxml"));
+            Node singleEntityTile = loader.load();
+
+            EntityController entityController = loader.getController();
+
+            entityController.setEntity(entityName);
+            entityController.setPopulation(String.valueOf(population));
+            entityList.add(entityController);
+
+            entitiesFlowPane.getChildren().add(singleEntityTile);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    /*
+    private void showEnvVariables() {
+        List<PropertyDefinitionDTO> environmentVariables = engine.getEnvironmentVariablesToSet();
+        environmentVariables.forEach(this::createEnvVarTile);
+    }
+
+    private void showEntities() {
+        WorldDTO loadedSimulationDetails = engine.getLoadedSimulationDetails();
+        List<EntityDefinitionDTO> entitiesList = loadedSimulationDetails.getEntities();
+        entitiesList.forEach(entity -> {
+            createTile(entity.getName());
+        });
+    }
+     */
 }
 
 

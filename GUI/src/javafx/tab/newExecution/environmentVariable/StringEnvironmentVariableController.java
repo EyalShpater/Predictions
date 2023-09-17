@@ -1,5 +1,6 @@
 package javafx.tab.newExecution.environmentVariable;
 
+import impl.PropertyDefinitionDTO;
 import javafx.beans.binding.Bindings;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -77,5 +78,14 @@ public class StringEnvironmentVariableController extends BasicEnvironmentVariabl
         isInitRandom = true;
         randomCheckBox.setSelected(true);
         envVarValueTextField.clear();
+    }
+
+    @Override
+    public void restoreFromEnvDTO(PropertyDefinitionDTO environmentVariable) {
+        setEnvVarName(environmentVariable.getName());
+        if (!environmentVariable.isRandom()) {
+            randomCheckBox.setSelected(false);
+            setEnvValue((String) environmentVariable.getDefaultValue());
+        }
     }
 }

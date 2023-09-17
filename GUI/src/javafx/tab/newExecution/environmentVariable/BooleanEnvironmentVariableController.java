@@ -1,5 +1,6 @@
 package javafx.tab.newExecution.environmentVariable;
 
+import impl.PropertyDefinitionDTO;
 import javafx.beans.binding.Bindings;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -61,5 +62,28 @@ public class BooleanEnvironmentVariableController extends BasicEnvironmentVariab
         randomRadioButton.setSelected(true);
         trueRadioButton.setSelected(false);
         falseRadioButton.setSelected(false);
+    }
+
+    @Override
+    public void restoreFromEnvDTO(PropertyDefinitionDTO environmentVariable) {
+        setEnvVarName(environmentVariable.getName());
+        if (!environmentVariable.isRandom()) {
+            String value = (String) environmentVariable.getDefaultValue();
+            randomRadioButton.setSelected(false);
+            if (value.equals("true")) {
+                falseRadioButton.setSelected(false);
+                trueRadioButton.setSelected(true);
+            } else if (value.equals("true")) {
+                trueRadioButton.setSelected(false);
+                falseRadioButton.setSelected(true);
+            }
+            isInitRandom = false;
+            setEnvValue(value);
+        } else {
+            trueRadioButton.setSelected(false);
+            falseRadioButton.setSelected(false);
+            randomRadioButton.setSelected(true);
+            isInitRandom = true;
+        }
     }
 }

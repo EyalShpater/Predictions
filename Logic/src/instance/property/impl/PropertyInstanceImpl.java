@@ -43,7 +43,9 @@ public class PropertyInstanceImpl implements PropertyInstance, Serializable {
     @Override
     public void setValue(Object val, Context context) {
         this.value = val;
-
+        System.out.println("entity: " + context.getPrimaryEntityInstance().getName() + "prev tick: " + updateTick +
+                "updated tick: " + context.getTickNumber());
+        this.updateTick = context.getTickNumber();
     }
 
     @Override

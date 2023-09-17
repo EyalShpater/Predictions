@@ -58,6 +58,7 @@ public class ResultsController {
     public void onStartButtonClicked(int newSimulationSerialNumber) {
         //setSimulationChoiceBox();
         //example
+        System.out.println(progressController);
         SimulationDTO lastSimulation = engine.getSimulationDTOBySerialNumber(newSimulationSerialNumber);
         simulationsListView.getItems().add(new Category(lastSimulation.getStartDate(), lastSimulation.getSerialNumber()));
     }

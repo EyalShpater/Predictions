@@ -1,5 +1,6 @@
 package javafx.tab.newExecution.environmentVariable;
 
+import impl.PropertyDefinitionDTO;
 import javafx.beans.property.SimpleStringProperty;
 
 public abstract class BasicEnvironmentVariableData {
@@ -36,5 +37,7 @@ public abstract class BasicEnvironmentVariableData {
     }
 
     public abstract void clear();
+
+    public abstract void restoreFromEnvDTO(PropertyDefinitionDTO environmentVariable);
 }
 

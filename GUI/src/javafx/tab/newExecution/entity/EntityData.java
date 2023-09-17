@@ -8,4 +8,6 @@ public interface EntityData {
     String getPopulation();
 
     void setPopulation(String count);
+
+    void clear();
 }

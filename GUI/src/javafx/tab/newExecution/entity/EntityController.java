@@ -50,4 +50,8 @@ public class EntityController extends BasicEntityData {
     private boolean isNumeric(String str) {
         return str.matches("-?\\d*");
     }
+
+    public void clear() {
+        entityPopulationTextField.clear();
+    }
 }

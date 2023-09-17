@@ -3,7 +3,7 @@ package javafx.tab.newExecution.entity;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 
-public class BasicEntityData implements EntityData {
+public abstract class BasicEntityData implements EntityData {
     protected SimpleStringProperty entityName;
     protected SimpleStringProperty population;
 
@@ -31,4 +31,6 @@ public class BasicEntityData implements EntityData {
     public void setPopulation(String population) {
         this.population.set(population);
     }
+
+
 }
