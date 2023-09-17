@@ -123,4 +123,12 @@ public class ResultsController {
 //        propertyChoiceBox.getItems().clear();
 //        isFirstStart = true;
     }
+
+    public Category getSelectedSimulation() {
+        return selectedSimulation.get();
+    }
+
+    public ObjectProperty<Category> getSelectedSimulationProperty() {
+        return selectedSimulation;
+    }
 }

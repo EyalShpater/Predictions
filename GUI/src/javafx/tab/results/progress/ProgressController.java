@@ -1,9 +1,9 @@
 package javafx.tab.results.progress;
 
-import java.net.URL;
-import java.util.ResourceBundle;
-
+import execution.simulation.api.PredictionsLogic;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.mainScene.main.PredictionsMainAppController;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
@@ -31,5 +31,22 @@ public class ProgressController {
 
     @FXML
     void initialize() {
+    }
+
+    private PredictionsLogic engine;
+    private PredictionsMainAppController mainController;
+
+    @FXML
+    void pauseOnClick(ActionEvent event) {
+        //mainController.restoreTiles(engine.getSimulation)
+        //goto newExeScreen
+    }
+
+    public void setEngine(PredictionsLogic engine) {
+        this.engine = engine;
+    }
+
+    public void setMainController(PredictionsMainAppController mainController) {
+        this.mainController = mainController;
     }
 }

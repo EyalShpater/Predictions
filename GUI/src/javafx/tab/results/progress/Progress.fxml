@@ -34,7 +34,7 @@
             <children>
                 <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="5" GridPane.rowIndex="1">
                     <children>
-                        <Button fx:id="pauseButton" mnemonicParsing="false">
+                        <Button fx:id="pauseButton" mnemonicParsing="false" onAction="#pauseOnClick">
                             <graphic>
                                 <ImageView fx:id="pauseButtonIcon" fitHeight="20.0" fitWidth="20.0" pickOnBounds="true"
                                            preserveRatio="true">
