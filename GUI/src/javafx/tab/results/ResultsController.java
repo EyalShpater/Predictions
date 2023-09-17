@@ -4,6 +4,8 @@ import execution.simulation.api.PredictionsLogic;
 import impl.SimulationDTO;
 import impl.SimulationDataDTO;
 import javafx.beans.property.*;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.chart.BarChart;
@@ -11,29 +13,19 @@ import javafx.scene.chart.CategoryAxis;
 import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.XYChart;
 import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.ListView;
 import javafx.scene.control.RadioButton;
 import javafx.tab.results.helper.Category;
+import javafx.tab.results.progress.ProgressController;
 
 import java.util.*;
 
 public class ResultsController {
     @FXML
-    private ChoiceBox<Category> simulationChoiceBox;
+    private ListView<Category> simulationsListView;
 
     @FXML
-    private ChoiceBox<String> propertyChoiceBox;
-
-    @FXML
-    private RadioButton showByAmountRadioButton;
-
-    @FXML
-    private BarChart<String, Integer> histogramBarChart;
-
-    @FXML
-    private CategoryAxis categoryAxis;
-
-    @FXML
-    private NumberAxis numberAxis;
+    private ProgressController progressController;
 
     private ObjectProperty<Category> selectedSimulation = new SimpleObjectProperty<>();
     private BooleanProperty isViewingByAmount = new SimpleBooleanProperty();
@@ -47,101 +39,94 @@ public class ResultsController {
     }
 
     public void onStartButtonClicked() {
-        setSimulationChoiceBox();
+        //setSimulationChoiceBox();
     }
 
     @FXML
     private void initialize() {
-        selectedSimulation.bind(simulationChoiceBox.valueProperty());
-        propertyToView.bind(propertyChoiceBox.valueProperty());
-
-        simulationChoiceBox.setOnAction(this::onSelectSimulation);
-        propertyChoiceBox.setOnAction(this::onSelectProperty);
-        showByAmountRadioButton.setOnAction(this::onToggleRadioButton);
+//        selectedSimulation.bind(simulationChoiceBox.valueProperty());
+//        propertyToView.bind(propertyChoiceBox.valueProperty());
+//
+//        simulationChoiceBox.setOnAction(this::onSelectSimulation);
+//        propertyChoiceBox.setOnAction(this::onSelectProperty);
+//        showByAmountRadioButton.setOnAction(this::onToggleRadioButton);
     }
 
-    private void onSelectSimulation(ActionEvent event) {
-        if (isFirstStart) {
-            setPropertyChoiceBox();
-            isFirstStart = false;
-        } else {
-            onSelectProperty(event);
-        }
-    }
+//    private void onSelectSimulation(ActionEvent event) {
+//        if (isFirstStart) {
+//            setPropertyChoiceBox();
+//            isFirstStart = false;
+//        } else {
+//            onSelectProperty(event);
+//        }
+//    }
+//
 
-    private void onToggleRadioButton(ActionEvent event) {
-        if (showByAmountRadioButton.isSelected()) {
-            System.out.println("true");
-        } else {
-            System.out.println("false");
-        }
-    }
+//    private void onSelectProperty(ActionEvent event) { //todo: fix exception here
+//        SimulationDataDTO data = engine.getSimulationData(
+//                simulationChoiceBox.getValue().getId(),
+//                entityToView.get(),
+//                propertyToView.get()
+//        );
+//
+//        setChart(data);
+//    }
 
-    private void onSelectProperty(ActionEvent event) { //todo: fix exception here
-        SimulationDataDTO data = engine.getSimulationData(
-                simulationChoiceBox.getValue().getId(),
-                entityToView.get(),
-                propertyToView.get()
-        );
+//    private void setSimulationChoiceBox() {
+//        simulationChoiceBox.getItems().clear(); // todo: inefficient
+//
+//        engine.getPreviousSimulationsAsDTO()
+//                .stream()
+//                .map(simulation -> new Category(simulation.getStartDate(), simulation.getSerialNumber()))
+//                .forEach(simulationChoiceBox.getItems()::add);
+//
+//    }
 
-        setChart(data);
-    }
+//    private void setPropertyChoiceBox() {
+//        propertyChoiceBox.getItems().clear();
+//
+//        SimulationDTO simulation = engine.getSimulationDTOBySerialNumber(selectedSimulation.get().getId());
+//        simulation
+//                .getWorld()
+//                .getEntities()
+//                .get(0)
+//                .getProperties()
+//                .forEach(property -> propertyChoiceBox.getItems().add(property.getName()));
+//
+//        entityToView.set(simulation.getWorld().getEntities().get(0).getName());
+//    }
+//
+//    private void setChart(SimulationDataDTO data) {
+//        XYChart.Series series = new XYChart.Series<>();
+//        List<Map.Entry<Object, Integer>> values;
+//
+//        histogramBarChart.getData().clear();
+//
+//        series.setName(propertyToView.get());
+//        values = createSortedValuesToAmountMap(data.getPropertyOfEntitySortedByValues());
+//
+//        values.forEach(entry -> series.getData().add(new XYChart.Data(entry.getKey().toString(), entry.getValue())));
+//        histogramBarChart.getData().add(series);
+//    }
 
-    private void setSimulationChoiceBox() {
-        simulationChoiceBox.getItems().clear(); // todo: inefficient
-
-        engine.getPreviousSimulationsAsDTO()
-                .stream()
-                .map(simulation -> new Category(simulation.getStartDate(), simulation.getSerialNumber()))
-                .forEach(simulationChoiceBox.getItems()::add);
-
-    }
-
-    private void setPropertyChoiceBox() {
-        propertyChoiceBox.getItems().clear();
-
-        SimulationDTO simulation = engine.getSimulationDTOBySerialNumber(selectedSimulation.get().getId());
-        simulation
-                .getWorld()
-                .getEntities()
-                .get(0)
-                .getProperties()
-                .forEach(property -> propertyChoiceBox.getItems().add(property.getName()));
-
-        entityToView.set(simulation.getWorld().getEntities().get(0).getName());
-    }
-
-    private void setChart(SimulationDataDTO data) {
-        XYChart.Series series = new XYChart.Series<>();
-        List<Map.Entry<Object, Integer>> values;
-
-        histogramBarChart.getData().clear();
-
-        series.setName(propertyToView.get());
-        values = createSortedValuesToAmountMap(data.getPropertyOfEntitySortedByValues());
-
-        values.forEach(entry -> series.getData().add(new XYChart.Data(entry.getKey().toString(), entry.getValue())));
-        histogramBarChart.getData().add(series);
-    }
-
-    private List<Map.Entry<Object, Integer>> createSortedValuesToAmountMap(List<Object> values) {
-        Map<Object, Integer> valueCountMap = new HashMap<>();
-        List<Map.Entry<Object, Integer>> dataList;
-
-        for (Object obj : values) {
-            valueCountMap.put(obj, valueCountMap.getOrDefault(obj, 0) + 1);
-        }
-
-        dataList = new ArrayList<>(valueCountMap.entrySet());
-        dataList.sort(Comparator.comparing(entry -> entry.getKey().hashCode()));
-
-        return dataList;
-    }
-
+    //    private List<Map.Entry<Object, Integer>> createSortedValuesToAmountMap(List<Object> values) {
+//        Map<Object, Integer> valueCountMap = new HashMap<>();
+//        List<Map.Entry<Object, Integer>> dataList;
+//
+//        for (Object obj : values) {
+//            valueCountMap.put(obj, valueCountMap.getOrDefault(obj, 0) + 1);
+//        }
+//
+//        dataList = new ArrayList<>(valueCountMap.entrySet());
+//        dataList.sort(Comparator.comparing(entry -> entry.getKey().hashCode()));
+//
+//        return dataList;
+//    }
+//
     public void onNewFileLoaded() {
-        histogramBarChart.getData().clear();
-        simulationChoiceBox.getItems().clear();
-        propertyChoiceBox.getItems().clear();
-        isFirstStart = true;
+//        histogramBarChart.getData().clear();
+//        simulationChoiceBox.getItems().clear();
+//        propertyChoiceBox.getItems().clear();
+//        isFirstStart = true;
     }
 }
