@@ -26,7 +26,7 @@ public class SimulationManager implements Serializable {
     }
 
     // todo: handle the void situation, maybe its need to return the simulation id?
-    public void runNewSimulation(World world, SimulationInitDataFromUserDTO initData) {
+    public int runNewSimulation(World world, SimulationInitDataFromUserDTO initData) {
         Simulation simulation;
         TerminateCondition stopReason;
         SimulationRunDetailsDTO dto;
@@ -40,6 +40,7 @@ public class SimulationManager implements Serializable {
         simulations.put(simulation.getSerialNumber(), simulation);
 //        dto = createRunDetailDTO(stopReason, simulation.getSerialNumber());
 //        return dto;
+        return simulation.getSerialNumber();
     }
 
     private void resetEnvironmentVariables() {

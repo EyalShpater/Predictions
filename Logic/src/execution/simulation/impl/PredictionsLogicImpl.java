@@ -80,9 +80,9 @@ public class PredictionsLogicImpl implements PredictionsLogic , Serializable {
 
     //todo: check how to handle using this method as void.
     @Override
-    public void runNewSimulation(SimulationInitDataFromUserDTO initData) {
+    public int runNewSimulation(SimulationInitDataFromUserDTO initData) {
         /* return */
-        allSimulations.runNewSimulation(world, initData);
+        return allSimulations.runNewSimulation(world, initData);
     }
 
     @Override
@@ -127,6 +127,13 @@ public class PredictionsLogicImpl implements PredictionsLogic , Serializable {
                 .getEntityByName(name)
                 .convertToDTO()
                 .getProperties();
+    }
+
+    @Override
+    public SimulationInitDataFromUserDTO getUserInputOfSimulationBySerialNumber(int serialNumber) {
+        return allSimulations
+                .getSimulationBySerialNumber(serialNumber)
+                .getUserInputDTO();
     }
 
     @Override

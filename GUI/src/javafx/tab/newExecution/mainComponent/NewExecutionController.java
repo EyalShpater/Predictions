@@ -146,8 +146,10 @@ public class NewExecutionController {
 
     private void startSimulationAction(Map<String, Integer> entityNameToPopulation) {
         //playAudio();
-        runSimulation(entityNameToPopulation);
-        mainAppController.onStartButtonClick();
+        int simulationSerialNumber;
+
+        simulationSerialNumber = runSimulation(entityNameToPopulation);
+        mainAppController.onStartButtonClick(simulationSerialNumber);
 
         Tab resultsTab = findResultsTabByName("Results");
         if (resultsTab != null) {
@@ -179,7 +181,7 @@ public class NewExecutionController {
         return null;
     }
 
-    private void runSimulation(Map<String, Integer> entityNameToPopulation) {
+    private int runSimulation(Map<String, Integer> entityNameToPopulation) {
         List<PropertyDefinitionDTO> updatedEnvironmentVariables;
 
         updatedEnvironmentVariables = setEnvVariablesFromTextFields();

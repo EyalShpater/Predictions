@@ -120,6 +120,11 @@ public class SimulationImpl implements Simulation , Serializable {
         );
     }
 
+    @Override
+    public SimulationInitDataFromUserDTO getUserInputDTO() {
+        return initData;
+    }
+
     private void initEntities() {
         int population;
         EntityInstanceManager instances = new EntityInstanceManagerImpl();

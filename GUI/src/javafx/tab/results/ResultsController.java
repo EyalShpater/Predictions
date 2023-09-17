@@ -12,17 +12,34 @@ import javafx.scene.chart.BarChart;
 import javafx.scene.chart.CategoryAxis;
 import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.XYChart;
-import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.ListView;
-import javafx.scene.control.RadioButton;
+import javafx.scene.control.*;
 import javafx.tab.results.helper.Category;
 import javafx.tab.results.progress.ProgressController;
 
 import java.util.*;
 
 public class ResultsController {
+
     @FXML
     private ListView<Category> simulationsListView;
+
+    @FXML
+    private TableView<String> entitiesPopulationTableView;
+
+    @FXML
+    private TableColumn<String, String> entitiesCol;
+
+    @FXML
+    private TableColumn<String, Integer> populationCol;
+
+    @FXML
+    private ChoiceBox<String> entityChoiceBox;
+
+    @FXML
+    private ChoiceBox<String> propertyChoiceBox;
+
+    @FXML
+    private Pagination analyzePaging;
 
     @FXML
     private ProgressController progressController;
@@ -38,8 +55,11 @@ public class ResultsController {
         this.engine = engine;
     }
 
-    public void onStartButtonClicked() {
+    public void onStartButtonClicked(int newSimulationSerialNumber) {
         //setSimulationChoiceBox();
+        //example
+        SimulationDTO lastSimulation = engine.getSimulationDTOBySerialNumber(newSimulationSerialNumber);
+        simulationsListView.getItems().add(new Category(lastSimulation.getStartDate(), lastSimulation.getSerialNumber()));
     }
 
     @FXML

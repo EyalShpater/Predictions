@@ -16,7 +16,7 @@ public interface PredictionsLogic {
 
     WorldDTO getLoadedSimulationDetails();
 
-    /*SimulationRunDetailsDTO*/ void runNewSimulation(SimulationInitDataFromUserDTO initData);
+    /*SimulationRunDetailsDTO*/ int runNewSimulation(SimulationInitDataFromUserDTO initData);
 
     void pauseSimulationBySerialNumber(int serialNumber);
 
@@ -31,6 +31,8 @@ public interface PredictionsLogic {
     SimulationDTO getSimulationDTOBySerialNumber(int serialNumber);
 
     List<PropertyDefinitionDTO> getEntityPropertiesByEntityName(int serialNumber, String name);
+
+    SimulationInitDataFromUserDTO getUserInputOfSimulationBySerialNumber(int serialNumber);
 
     void initSampleInformation();
 

@@ -107,8 +107,8 @@ public class PredictionsMainAppController {
         }
     }
 
-    public void onStartButtonClick() {
-        resultsTabController.onStartButtonClicked();
+    public void onStartButtonClick(int newSimulationSerialNumber) {
+        resultsTabController.onStartButtonClicked(newSimulationSerialNumber);
     }
 
     public void onNewFileLoaded() {
