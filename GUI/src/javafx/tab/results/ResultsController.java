@@ -116,32 +116,6 @@ public class ResultsController {
 //        entityToView.set(simulation.getWorld().getEntities().get(0).getName());
 //    }
 //
-//    private void setChart(SimulationDataDTO data) {
-//        XYChart.Series series = new XYChart.Series<>();
-//        List<Map.Entry<Object, Integer>> values;
-//
-//        histogramBarChart.getData().clear();
-//
-//        series.setName(propertyToView.get());
-//        values = createSortedValuesToAmountMap(data.getPropertyOfEntitySortedByValues());
-//
-//        values.forEach(entry -> series.getData().add(new XYChart.Data(entry.getKey().toString(), entry.getValue())));
-//        histogramBarChart.getData().add(series);
-//    }
-
-    //    private List<Map.Entry<Object, Integer>> createSortedValuesToAmountMap(List<Object> values) {
-//        Map<Object, Integer> valueCountMap = new HashMap<>();
-//        List<Map.Entry<Object, Integer>> dataList;
-//
-//        for (Object obj : values) {
-//            valueCountMap.put(obj, valueCountMap.getOrDefault(obj, 0) + 1);
-//        }
-//
-//        dataList = new ArrayList<>(valueCountMap.entrySet());
-//        dataList.sort(Comparator.comparing(entry -> entry.getKey().hashCode()));
-//
-//        return dataList;
-//    }
 //
     public void onNewFileLoaded() {
 //        histogramBarChart.getData().clear();

@@ -11,20 +11,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="27d35137-667f-4e37-a519-ab836acc0a06" name="Changes" comment="start of Result tab">
+    <list default="true" id="27d35137-667f-4e37-a519-ab836acc0a06" name="Changes" comment="added components in result tab">
+      <change afterPath="$PROJECT_DIR$/GUI/src/javafx/tab/results/histogram/population/PopulationBarChart.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GUI/src/javafx/tab/results/histogram/population/PopulationBarChartController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/src/javafx/mainScene/main/PredictionsMainAppController.java" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/src/javafx/mainScene/main/PredictionsMainAppController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/src/javafx/tab/newExecution/mainComponent/NewExecutionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/src/javafx/tab/newExecution/mainComponent/NewExecutionController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/src/javafx/tab/results/Results.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/src/javafx/tab/results/Results.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GUI/src/javafx/tab/results/ResultsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/src/javafx/tab/results/ResultsController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/execution/simulation/api/PredictionsLogic.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/execution/simulation/api/PredictionsLogic.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/execution/simulation/api/Simulation.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/execution/simulation/api/Simulation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/execution/simulation/impl/PredictionsLogicImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/execution/simulation/impl/PredictionsLogicImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/execution/simulation/impl/SimulationImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/execution/simulation/impl/SimulationImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/execution/simulation/manager/SimulationManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/execution/simulation/manager/SimulationManager.java" afterDir="false" />
-    </list>
-    <list id="f49764fa-3120-4ce4-8c75-36e23a7b908b" name="Changes by ASUS" comment="">
-      <change beforePath="$PROJECT_DIR$/GUI/src/javafx/tab/newExecution/mainComponent/NewExecutionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/src/javafx/tab/newExecution/mainComponent/NewExecutionController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -83,15 +74,6 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="jar:///Library/Java/JavaVirtualMachines/jdk-1.8.jdk/Contents/Home/javafx-src.zip!/javafx/fxml/FXMLLoader.java" root0="SKIP_INSPECTION" />
   </component>
-  <component name="LineStatusTrackerManager">
-    <file path="$PROJECT_DIR$/GUI/src/javafx/tab/newExecution/mainComponent/NewExecutionController.java">
-      <ranges>
-        <range start1="148" end1="150" start2="148" end2="152" changelist="27d35137-667f-4e37-a519-ab836acc0a06" />
-        <range start1="181" end1="182" start2="183" end2="184" changelist="27d35137-667f-4e37-a519-ab836acc0a06" />
-        <range start1="187" end1="190" start2="189" end2="190" changelist="f49764fa-3120-4ce4-8c75-36e23a7b908b" />
-      </ranges>
-    </file>
-  </component>
   <component name="ProblemsViewState">
     <option name="selectedTabId" value="CurrentFile" />
   </component>
@@ -114,7 +96,6 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
-    "codeWithMe.voiceChat.enabledByDefault": "false",
     "dart.analysis.tool.window.visible": "false",
     "extract.method.default.visibility": "private",
     "full.screen.before.presentation.mode": "false",
@@ -370,7 +351,7 @@
       <workItem from="1694330441189" duration="28414000" />
       <workItem from="1694408417392" duration="10450000" />
       <workItem from="1694524231690" duration="15371000" />
-      <workItem from="1694857830392" duration="19237000" />
+      <workItem from="1694857830392" duration="20985000" />
     </task>
     <task id="LOCAL-00055" summary="latest">
       <created>1692128479513</created>
@@ -392,22 +373,6 @@
       <option name="presentableId" value="LOCAL-00070" />
       <option name="project" value="LOCAL" />
       <updated>1692356632414</updated>
-    </task>
-    <task id="LOCAL‎-00091" summary="Entities in Details Tab is bind to the engine">
-      <option name="closed" value="true" />
-      <created>1693608573844</created>
-      <option name="number" value="00091" />
-      <option name="presentableId" value="LOCAL‎-00091" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1693608573844</updated>
-    </task>
-    <task id="LOCAL‎-00092" summary="Entities in Details Tab is bind to the engine">
-      <option name="closed" value="true" />
-      <created>1693609527502</created>
-      <option name="number" value="00092" />
-      <option name="presentableId" value="LOCAL‎-00092" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1693609527502</updated>
     </task>
     <task id="LOCAL‎-00093" summary="Entities in Details Tab is bind to the engine">
       <option name="closed" value="true" />
@@ -747,7 +712,23 @@
       <option name="project" value="LOCAL‎" />
       <updated>1694939355214</updated>
     </task>
-    <option name="localTasksCounter" value="137" />
+    <task id="LOCAL‎-00137" summary="added components in result tab">
+      <option name="closed" value="true" />
+      <created>1694945522386</created>
+      <option name="number" value="00137" />
+      <option name="presentableId" value="LOCAL‎-00137" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1694945522386</updated>
+    </task>
+    <task id="LOCAL‎-00138" summary="added components in result tab">
+      <option name="closed" value="true" />
+      <created>1694945532607</created>
+      <option name="number" value="00138" />
+      <option name="presentableId" value="LOCAL‎-00138" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1694945532607</updated>
+    </task>
+    <option name="localTasksCounter" value="139" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -778,7 +759,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="added helper functions" />
     <MESSAGE value="added files xml for ex2" />
     <MESSAGE value="fixed the xml part to fit the new generated files including the imports" />
     <MESSAGE value="finished name validation" />
@@ -803,7 +783,8 @@
     <MESSAGE value="added SimulationQueueDto" />
     <MESSAGE value="made details tab disabled when no file was chosen" />
     <MESSAGE value="start of Result tab" />
-    <option name="LAST_COMMIT_MESSAGE" value="start of Result tab" />
+    <MESSAGE value="added components in result tab" />
+    <option name="LAST_COMMIT_MESSAGE" value="added components in result tab" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">

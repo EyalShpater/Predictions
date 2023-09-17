@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
+
+
+<BarChart fx:id="histogramBarChart" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1"
+          fx:controller="javafx.tab.results.histogram.population.PopulationBarChartController">
+    <xAxis>
+        <CategoryAxis side="BOTTOM"/>
+    </xAxis>
+    <yAxis>
+        <NumberAxis side="LEFT"/>
+    </yAxis>
+</BarChart>
