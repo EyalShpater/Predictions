@@ -187,9 +187,7 @@ public class NewExecutionController {
         updatedEnvironmentVariables = setEnvVariablesFromTextFields();
         SimulationInitDataFromUserDTO simulationInitDataFromUserDTO = new SimulationInitDataFromUserDTO(updatedEnvironmentVariables, entityNameToPopulation);
 
-        engine.runNewSimulation(simulationInitDataFromUserDTO);
-
-        new Thread(new RunSimulationTask(engine, updatedEnvironmentVariables)).start();
+        return engine.runNewSimulation(simulationInitDataFromUserDTO);
     }
 
     private Map<String, Integer> setNewPopulationOfEntities() {
