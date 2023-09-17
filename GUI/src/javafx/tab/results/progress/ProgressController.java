@@ -1,9 +1,7 @@
 package javafx.tab.results.progress;
 
 import execution.simulation.api.PredictionsLogic;
-import javafx.beans.binding.Bindings;
 import javafx.beans.property.*;
-import javafx.beans.value.ChangeListener;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -13,8 +11,6 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.tab.results.ResultsController;
 import javafx.tab.results.helper.Category;
-
-import java.net.URL;
 
 public class ProgressController {
 
@@ -48,13 +44,28 @@ public class ProgressController {
     void initialize() {
         isPause.set(false);
         isStop.set(false);
-        isPause.addListener((observable, oldValue, newValue) -> chanePauseButtonIcon());
+        isPause.addListener((observable, oldValue, newValue) -> changePauseButtonIcon());
+        isStop.addListener((observable, oldValue, newValue) -> toggleButtons());
+    }
+
+    private void toggleButtons() {
+        if (isStop.get()) {
+            engine.stopSimulationBySerialNumber(selectedSimulation.getId());
+            pauseButtonIcon.setImage(new Image("javafx/tab/results/resources/rerun.png"));
+            stopButton.setDisable(true);
+        } else {
+            if (isPause.get()) {
+                pauseButtonIcon.setImage(new Image("javafx/tab/results/resources/pause.png"));
+            } else {
+                pauseButtonIcon.setImage(new Image("javafx/tab/results/resources/play-button.png"));
+                stopButton.setDisable(true);
+            }
+            stopButton.setDisable(false);
+        }
     }
 
     @FXML
     void pauseOnClick(ActionEvent event) {
-        //mainController.restoreTiles(engine.getSimulation)
-        //goto newExeScreen
         if (isStop.get()) {
             //shavit code
         } else if (isPause.get()) {
@@ -68,9 +79,6 @@ public class ProgressController {
 
     @FXML
     void stopOnClick(ActionEvent event) {
-        engine.stopSimulationBySerialNumber(selectedSimulation.getId());
-        pauseButtonIcon.setImage(new Image("javafx/tab/results/resources/rerun.png"));
-        stopButton.setDisable(true);
         isStop.set(true);
     }
 
@@ -78,7 +86,7 @@ public class ProgressController {
         this.engine = engine;
     }
 
-    private void chanePauseButtonIcon() {
+    private void changePauseButtonIcon() {
         if (isStop.get()) {
             //
         } else if (isPause.get()) {
@@ -88,12 +96,9 @@ public class ProgressController {
         }
     }
 
-//    public void bindSelectedSimulationProperty(ReadOnlyObjectProperty<Category> selectedSimulation) {
-//        this.selectedSimulation.bind(selectedSimulation);
-//    }
-
     public void onSelectedPropertyChange(Category newValue) {
         selectedSimulation = newValue;
-        System.out.println("new value: " + newValue);
+        isPause.set(engine.isPaused(newValue.getId()));
+        isStop.set(engine.isStop(newValue.getId()));
     }
 }

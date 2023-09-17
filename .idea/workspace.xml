@@ -11,20 +11,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="27d35137-667f-4e37-a519-ab836acc0a06" name="Changes" comment="pause / stop / resume buttons are active">
+    <list default="true" id="27d35137-667f-4e37-a519-ab836acc0a06" name="Changes" comment="added progress information from engine">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/src/javafx/tab/results/ResultsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/src/javafx/tab/results/ResultsController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/definition/world/api/World.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/definition/world/api/World.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/definition/world/impl/WorldImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/definition/world/impl/WorldImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/execution/simulation/api/PredictionsLogic.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/execution/simulation/api/PredictionsLogic.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/execution/simulation/api/Simulation.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/execution/simulation/api/Simulation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/execution/simulation/impl/PredictionsLogicImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/execution/simulation/impl/PredictionsLogicImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/execution/simulation/impl/SimulationImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/execution/simulation/impl/SimulationImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/execution/simulation/termination/api/TerminateCondition.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/execution/simulation/termination/api/TerminateCondition.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/execution/simulation/termination/api/Termination.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/execution/simulation/termination/api/Termination.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/execution/simulation/termination/impl/TerminationImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/execution/simulation/termination/impl/TerminationImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI/src/javafx/tab/results/progress/ProgressController.java" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/src/javafx/tab/results/progress/ProgressController.java" afterDir="false" />
     </list>
-    <list id="3dc5ddfa-8435-4790-ab7e-20cbbdfea308" name="Changes by ASUS" comment="shavit changes" />
+    <list id="3dc5ddfa-8435-4790-ab7e-20cbbdfea308" name="Changes by ASUS" comment="shavit changes">
+      <change beforePath="$PROJECT_DIR$/GUI/src/javafx/mainScene/main/PredictionsMainAppController.java" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/src/javafx/mainScene/main/PredictionsMainAppController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI/src/javafx/tab/newExecution/mainComponent/NewExecutionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/src/javafx/tab/newExecution/mainComponent/NewExecutionController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI/src/javafx/tab/results/ResultsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/src/javafx/tab/results/ResultsController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI/src/javafx/tab/results/progress/ProgressController.java" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/src/javafx/tab/results/progress/ProgressController.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -81,6 +77,25 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="jar:///Library/Java/JavaVirtualMachines/jdk-1.8.jdk/Contents/Home/javafx-src.zip!/javafx/fxml/FXMLLoader.java" root0="SKIP_INSPECTION" />
+  </component>
+  <component name="LineStatusTrackerManager">
+    <file path="$PROJECT_DIR$/GUI/src/javafx/tab/results/progress/ProgressController.java">
+      <ranges>
+        <range start1="3" end1="4" start2="3" end2="3" changelist="27d35137-667f-4e37-a519-ab836acc0a06" />
+        <range start1="5" end1="6" start2="4" end2="4" changelist="27d35137-667f-4e37-a519-ab836acc0a06" />
+        <range start1="8" end1="8" start2="6" end2="7" changelist="3dc5ddfa-8435-4790-ab7e-20cbbdfea308" />
+        <range start1="15" end1="17" start2="14" end2="14" changelist="27d35137-667f-4e37-a519-ab836acc0a06" />
+        <range start1="43" end1="43" start2="40" end2="41" changelist="3dc5ddfa-8435-4790-ab7e-20cbbdfea308" />
+        <range start1="50" end1="51" start2="48" end2="66" changelist="27d35137-667f-4e37-a519-ab836acc0a06" />
+        <range start1="55" end1="57" start2="70" end2="70" changelist="27d35137-667f-4e37-a519-ab836acc0a06" />
+        <range start1="58" end1="59" start2="71" end2="74" changelist="3dc5ddfa-8435-4790-ab7e-20cbbdfea308" />
+        <range start1="70" end1="73" start2="85" end2="85" changelist="27d35137-667f-4e37-a519-ab836acc0a06" />
+        <range start1="80" end1="81" start2="92" end2="93" changelist="27d35137-667f-4e37-a519-ab836acc0a06" />
+        <range start1="89" end1="93" start2="101" end2="101" changelist="27d35137-667f-4e37-a519-ab836acc0a06" />
+        <range start1="96" end1="97" start2="104" end2="106" changelist="27d35137-667f-4e37-a519-ab836acc0a06" />
+        <range start1="98" end1="98" start2="107" end2="111" changelist="3dc5ddfa-8435-4790-ab7e-20cbbdfea308" />
+      </ranges>
+    </file>
   </component>
   <component name="ProblemsViewState">
     <option name="selectedTabId" value="CurrentFile" />
@@ -359,7 +374,7 @@
       <workItem from="1694330441189" duration="28414000" />
       <workItem from="1694408417392" duration="10450000" />
       <workItem from="1694524231690" duration="15371000" />
-      <workItem from="1694857830392" duration="37674000" />
+      <workItem from="1694857830392" duration="38836000" />
     </task>
     <task id="LOCAL-00055" summary="latest">
       <created>1692128479513</created>
@@ -381,14 +396,6 @@
       <option name="presentableId" value="LOCAL-00070" />
       <option name="project" value="LOCAL" />
       <updated>1692356632414</updated>
-    </task>
-    <task id="LOCAL‎-00097" summary="refactor">
-      <option name="closed" value="true" />
-      <created>1693665202947</created>
-      <option name="number" value="00097" />
-      <option name="presentableId" value="LOCAL‎-00097" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1693665202947</updated>
     </task>
     <task id="LOCAL‎-00098" summary="shvit's changes">
       <option name="closed" value="true" />
@@ -736,7 +743,15 @@
       <option name="project" value="LOCAL‎" />
       <updated>1694964842729</updated>
     </task>
-    <option name="localTasksCounter" value="143" />
+    <task id="LOCAL‎-00143" summary="added progress information from engine">
+      <option name="closed" value="true" />
+      <created>1694966441918</created>
+      <option name="number" value="00143" />
+      <option name="presentableId" value="LOCAL‎-00143" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1694966441918</updated>
+    </task>
+    <option name="localTasksCounter" value="144" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -767,7 +782,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="implemented grid neighbour function" />
     <MESSAGE value="added termination conditions" />
     <MESSAGE value="implemented Proximity" />
     <MESSAGE value="details screen bug fix: now you can view secondary entity, and instead of &quot;calculation&quot; rule you can see the concrete action (multiple\divide)" />
@@ -792,7 +806,8 @@
     <MESSAGE value="more changes" />
     <MESSAGE value="shavit changes" />
     <MESSAGE value="pause / stop / resume buttons are active" />
-    <option name="LAST_COMMIT_MESSAGE" value="pause / stop / resume buttons are active" />
+    <MESSAGE value="added progress information from engine" />
+    <option name="LAST_COMMIT_MESSAGE" value="added progress information from engine" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
