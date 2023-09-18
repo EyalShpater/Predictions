@@ -138,7 +138,7 @@ public class ProgressController {
 
     public void onSelectedSimulationChange(Category newValue) {
         selectedSimulation = newValue;
-        isStop.set(engine.isStop(newValue.getId()));
+        isStop.set(engine.isStop(newValue.getId()) || engine.isEnded(newValue.getId()));
         isPause.set(engine.isPaused(newValue.getId()));
 
         if (currentEntitiesAmountData != null && currentDetailsTask != null) {
@@ -147,7 +147,7 @@ public class ProgressController {
             progress.unbind();
         }
 
-        currentDetailsTask = new UpdateSimulationDetailsTask(engine, selectedSimulation.getId(), ticks::set, seconds::set);
+        currentDetailsTask = new UpdateSimulationDetailsTask(engine, selectedSimulation.getId(), ticks::set, seconds::set, isStop::set);
         progress.bind(currentDetailsTask.progressProperty());
 
         currentEntitiesAmountData = new UpdateEntitiesAmountTask(engine, selectedSimulation.getId(), entityPopulationDataTableView);

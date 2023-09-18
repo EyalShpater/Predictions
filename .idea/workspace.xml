@@ -13,14 +13,13 @@
   <component name="ChangeListManager">
     <list default="true" id="27d35137-667f-4e37-a519-ab836acc0a06" name="Changes" comment="ui reflects the engine">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/src/javafx/tab/results/Results.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/src/javafx/tab/results/Results.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/src/javafx/tab/results/ResultsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/src/javafx/tab/results/ResultsController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI/src/javafx/tab/newExecution/mainComponent/NewExecutionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/src/javafx/tab/newExecution/mainComponent/NewExecutionController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GUI/src/javafx/tab/results/progress/ProgressController.java" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/src/javafx/tab/results/progress/ProgressController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/src/task/UpdateEntitiesAmountTask.java" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/src/task/UpdateEntitiesAmountTask.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI/src/task/UpdateSimulationDetailsTask.java" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/src/task/UpdateSimulationDetailsTask.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/action/impl/Proximity.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/action/impl/Proximity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/grid/SphereSpaceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/grid/SphereSpaceImpl.java" afterDir="false" />
     </list>
-    <list id="54379ed2-acd6-4c1a-9653-030f2a1bccc0" name="Changes by ASUS" comment="ui reflects the engine">
-      <change beforePath="$PROJECT_DIR$/GUI/src/task/UpdateEntitiesAmountTask.java" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/src/task/UpdateEntitiesAmountTask.java" afterDir="false" />
-    </list>
+    <list id="54379ed2-acd6-4c1a-9653-030f2a1bccc0" name="Changes by ASUS" comment="ui reflects the engine" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -77,18 +76,6 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="jar:///Library/Java/JavaVirtualMachines/jdk-1.8.jdk/Contents/Home/javafx-src.zip!/javafx/fxml/FXMLLoader.java" root0="SKIP_INSPECTION" />
-  </component>
-  <component name="LineStatusTrackerManager">
-    <file path="$PROJECT_DIR$/GUI/src/task/UpdateEntitiesAmountTask.java">
-      <ranges>
-        <range start1="29" end1="30" start2="29" end2="30" changelist="27d35137-667f-4e37-a519-ab836acc0a06" />
-        <range start1="33" end1="34" start2="33" end2="34" changelist="27d35137-667f-4e37-a519-ab836acc0a06" />
-        <range start1="38" end1="40" start2="38" end2="40" changelist="27d35137-667f-4e37-a519-ab836acc0a06" />
-        <range start1="45" end1="46" start2="45" end2="46" changelist="27d35137-667f-4e37-a519-ab836acc0a06" />
-        <range start1="49" end1="50" start2="49" end2="52" changelist="54379ed2-acd6-4c1a-9653-030f2a1bccc0" />
-        <range start1="77" end1="81" start2="79" end2="83" changelist="27d35137-667f-4e37-a519-ab836acc0a06" />
-      </ranges>
-    </file>
   </component>
   <component name="ProblemsViewState">
     <option name="selectedTabId" value="CurrentFile" />
@@ -460,22 +447,6 @@
       <option name="project" value="LOCAL" />
       <updated>1694365533331</updated>
     </task>
-    <task id="LOCAL‎-00115" summary="added termination conditions">
-      <option name="closed" value="true" />
-      <created>1694436073542</created>
-      <option name="number" value="00115" />
-      <option name="presentableId" value="LOCAL‎-00115" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1694436073542</updated>
-    </task>
-    <task id="LOCAL‎-00116" summary="added termination conditions">
-      <option name="closed" value="true" />
-      <created>1694436338647</created>
-      <option name="number" value="00116" />
-      <option name="presentableId" value="LOCAL‎-00116" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1694436338647</updated>
-    </task>
     <task id="LOCAL‎-00117" summary="implemented Proximity">
       <option name="closed" value="true" />
       <created>1694443778111</created>
@@ -744,7 +715,23 @@
       <option name="project" value="LOCAL‎" />
       <updated>1695043065956</updated>
     </task>
-    <option name="localTasksCounter" value="151" />
+    <task id="LOCAL‎-00151" summary="ui reflects the engine">
+      <option name="closed" value="true" />
+      <created>1695050697617</created>
+      <option name="number" value="00151" />
+      <option name="presentableId" value="LOCAL‎-00151" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1695050697617</updated>
+    </task>
+    <task id="LOCAL‎-00152" summary="ui reflects the engine">
+      <option name="closed" value="true" />
+      <created>1695050702622</created>
+      <option name="number" value="00152" />
+      <option name="presentableId" value="LOCAL‎-00152" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1695050702622</updated>
+    </task>
+    <option name="localTasksCounter" value="153" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -816,9 +803,9 @@
           <option name="timeStamp" value="17" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/GUI/src/javafx/tab/newExecution/mainComponent/NewExecutionController.java</url>
-          <line>190</line>
-          <option name="timeStamp" value="36" />
+          <url>file://$PROJECT_DIR$/Logic/src/action/impl/Proximity.java</url>
+          <line>31</line>
+          <option name="timeStamp" value="38" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

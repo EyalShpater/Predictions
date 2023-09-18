@@ -187,10 +187,7 @@ public class NewExecutionController {
 
     private int runSimulation(Map<String, Integer> entityNameToPopulation) {
         List<PropertyDefinitionDTO> updatedEnvironmentVariables;
-        if (count == 4) {
-            int x = 5;
-        }
-        count++;
+
         updatedEnvironmentVariables = setEnvVariablesFromTextFields();
         SimulationInitDataFromUserDTO simulationInitDataFromUserDTO = new SimulationInitDataFromUserDTO(updatedEnvironmentVariables, entityNameToPopulation);
 

@@ -128,7 +128,7 @@ public class SphereSpaceImpl implements SphereSpace {
 
         for (int i = ARRAY_FIRST_INDEX; i < rows; i++) {
             for (int j = ARRAY_FIRST_INDEX; j < cols; j++) {
-                emptyCells.add(new Location(i, j));
+                emptyCells.add(new Location(j, i));
             }
         }
 

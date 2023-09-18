@@ -10,7 +10,7 @@ import java.util.function.Consumer;
 
 public class UpdateSimulationDetailsTask extends Task<Boolean> {
 
-    private static final int TIME_TO_SLEEP = 100;
+    private static final int TIME_TO_SLEEP = 500;
 
 
     private PredictionsLogic engine;
@@ -21,16 +21,18 @@ public class UpdateSimulationDetailsTask extends Task<Boolean> {
 
     private Consumer<Integer> setTicks;
     private Consumer<Long> setSeconds;
+    private Consumer<Boolean> atEnd;
 
     private ProgressController controller;
 
-    public UpdateSimulationDetailsTask(PredictionsLogic engine, int serialNumber, Consumer<Integer> setTicks, Consumer<Long> setSeconds) {
+    public UpdateSimulationDetailsTask(PredictionsLogic engine, int serialNumber, Consumer<Integer> setTicks, Consumer<Long> setSeconds, Consumer<Boolean> atEnd) {
         this.engine = engine;
         this.serialNumber = serialNumber;
         this.ticks = 0;
         this.seconds = 0;
         this.setTicks = setTicks;
         this.setSeconds = setSeconds;
+        this.atEnd = atEnd;
     }
 
     @Override
@@ -47,7 +49,7 @@ public class UpdateSimulationDetailsTask extends Task<Boolean> {
             Thread.sleep(TIME_TO_SLEEP);
         } while (!engine.isEnded(serialNumber));
 
-        //updateProgress(1, 1);
+        atEnd.accept(true);
 
         return true;
     }
