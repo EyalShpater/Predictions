@@ -55,7 +55,6 @@ public class ProgressController {
     private TabPane tabPane;
     private TableView<EntityPopulationData> entityPopulationDataTableView;
 
-    // private StackPane stackPaneForTableView;
 
     @FXML
     void initialize() {
@@ -135,6 +134,9 @@ public class ProgressController {
 
 
     public void onSelectedSimulationChange(Category newValue) {
+        if (newValue == null) {
+            return;
+        }
         selectedSimulation = newValue;
         isStop.set(engine.isStop(newValue.getId()) || engine.isEnded(newValue.getId()));
         isPause.set(engine.isPaused(newValue.getId()));
@@ -143,7 +145,6 @@ public class ProgressController {
             currentDetailsTask.cancel();
             currentEntitiesAmountData.cancel();
             progress.unbind();
-            //progressBar.setProgress(-1);
         }
 
         currentDetailsTask = new UpdateSimulationDetailsTask(engine, selectedSimulation.getId(), ticks::set, seconds::set, isStop::set);

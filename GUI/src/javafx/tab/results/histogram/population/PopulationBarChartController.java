@@ -12,6 +12,8 @@ public class PopulationBarChartController {
     @FXML
     private BarChart<String, Integer> histogramBarChart;
 
+    private SimulationDataDTO data;
+
     public void setChart(String propertyToView, SimulationDataDTO data) {
         XYChart.Series series = new XYChart.Series<>();
         List<Map.Entry<Object, Integer>> values;
@@ -39,4 +41,7 @@ public class PopulationBarChartController {
         return dataList;
     }
 
+    public void setData(SimulationDataDTO data) {
+        this.data = data;
+    }
 }

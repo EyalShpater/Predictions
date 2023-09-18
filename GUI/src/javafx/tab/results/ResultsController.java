@@ -2,10 +2,13 @@ package javafx.tab.results;
 
 import execution.simulation.api.PredictionsLogic;
 import impl.SimulationDTO;
+import impl.SimulationDataDTO;
+import impl.WorldDTO;
 import javafx.beans.binding.Bindings;
 import javafx.beans.property.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.mainScene.main.PredictionsMainAppController;
 import javafx.scene.control.*;
@@ -44,31 +47,33 @@ public class ResultsController {
     @FXML
     private ProgressController progressController;
 
-    private ObjectProperty<Category> selectedSimulation = new SimpleObjectProperty<>();
-    private BooleanProperty isViewingByAmount = new SimpleBooleanProperty();
+    private TabPane tabPane; //todo: why do we need it?
+
     private PredictionsLogic engine;
+
+    private ObjectProperty<Category> selectedSimulation = new SimpleObjectProperty<>();
     private PredictionsMainAppController predictionsMainAppController;
-    private StringProperty propertyToView = new SimpleStringProperty();
-    private StringProperty entityToView = new SimpleStringProperty();
-    private boolean isFirstStart = true;
-    private TabPane tabPane;
+
+    private StringProperty propertyToView;
+    private StringProperty entityToView;
 
     private ObservableList<EntityPopulationData> entityPopulationList = FXCollections.observableArrayList();
 
     @FXML
     private void initialize() {
+        propertyToView = new SimpleStringProperty();
+        entityToView = new SimpleStringProperty();
+
+        propertyToView.bind(propertyChoiceBox.valueProperty());
+        entityToView.bind(entityChoiceBox.valueProperty());
         selectedSimulation.bind(simulationsListView.getSelectionModel().selectedItemProperty());
         selectedSimulation.addListener((observable, oldValue, newValue) -> progressController.onSelectedSimulationChange(newValue));
         progress.disableProperty().bind(Bindings.isNull(selectedSimulation));
-        /*entitiesCol.setCellValueFactory(new PropertyValueFactory<>("entityName"));
-        populationCol.setCellValueFactory(new PropertyValueFactory<>("population"));
-        entitiesPopulationTableView.setItems(entityPopulationList);*/
-        //progressController.bindSelectedSimulationProperty();
-        //System.out.println(progressController);
-        // selectedSimulation.addListener((observable, oldValue, newValue) -> progressController.onChosenSimulationChange(newValue));
 
-        //progressController.bindSelectedSimulationProperty();
-//        propertyToView.bind(propertyChoiceBox.valueProperty());
+        selectedSimulation.addListener((observable, oldValue, newValue) -> onSelectedSimulationChange(newValue));
+        entityChoiceBox.setOnAction(this::onSelectedEntity);
+//        propertyChoiceBox.setOnAction(this::onSelectedProperty);
+
 //
 //        simulationChoiceBox.setOnAction(this::onSelectSimulation);
 //        propertyChoiceBox.setOnAction(this::onSelectProperty);
@@ -77,6 +82,17 @@ public class ResultsController {
 
         entitiesCol.setCellValueFactory(new PropertyValueFactory<>("entityName"));
         populationCol.setCellValueFactory(new PropertyValueFactory<>("population"));
+    }
+
+    private void onSelectedEntity(ActionEvent actionEvent) {
+        setPropertyChoiceBox();
+    }
+
+    private void onSelectedSimulationChange(Category newSimulation) {
+        if (newSimulation != null && engine.isStop(newSimulation.getId())) {
+            setEntitiesChoiceBox();
+            setPropertyChoiceBox();
+        }
     }
 
     public void setEngine(PredictionsLogic engine) {
@@ -90,14 +106,12 @@ public class ResultsController {
     }
 
     public void onStartButtonClicked(int newSimulationSerialNumber) {
-        //setSimulationChoiceBox();
-        //example
         progressController.setTableView(this.entitiesPopulationTableView);
         System.out.println(progressController);
         SimulationDTO lastSimulation = engine.getSimulationDTOBySerialNumber(newSimulationSerialNumber);
         simulationsListView.getItems().add(new Category(lastSimulation.getStartDate(), lastSimulation.getSerialNumber()));
     }
-/*
+
 //    private void onSelectSimulation(ActionEvent event) {
 //        if (isFirstStart) {
 //            setPropertyChoiceBox();
@@ -108,15 +122,15 @@ public class ResultsController {
 //    }
 //
 
-//    private void onSelectProperty(ActionEvent event) { //todo: fix exception here
-//        SimulationDataDTO data = engine.getSimulationData(
-//                simulationChoiceBox.getValue().getId(),
-//                entityToView.get(),
-//                propertyToView.get()
-//        );
-//
-//        setChart(data);
-//    }
+    private void onSelectProperty(ActionEvent event) { //todo: fix exception here
+        SimulationDataDTO data = engine.getSimulationData(
+                selectedSimulation.getValue().getId(),
+                entityToView.get(),
+                propertyToView.get()
+        );
+
+        //setChart(data);
+    }
 
 //    private void setSimulationChoiceBox() {
 //        simulationChoiceBox.getItems().clear(); // todo: inefficient
@@ -128,28 +142,39 @@ public class ResultsController {
 //
 //    }
 
-//    private void setPropertyChoiceBox() {
-//        propertyChoiceBox.getItems().clear();
-//
-//        SimulationDTO simulation = engine.getSimulationDTOBySerialNumber(selectedSimulation.get().getId());
-//        simulation
-//                .getWorld()
-//                .getEntities()
-//                .get(0)
-//                .getProperties()
-//                .forEach(property -> propertyChoiceBox.getItems().add(property.getName()));
-//
-//        entityToView.set(simulation.getWorld().getEntities().get(0).getName());
-//    }
-//
-//
- */
+    private void setPropertyChoiceBox() {
+        propertyChoiceBox.getItems().clear();
+
+        if (entityToView.isNotNull().get()) {
+            WorldDTO simulation = engine.getLoadedSimulationDetails();
+            simulation
+                    .getEntities()
+                    .stream()
+                    .filter(entity -> entity.getName().equals(entityToView.get()))
+                    .findAny()
+                    .get()
+                    .getProperties()
+                    .forEach(property -> propertyChoiceBox.getItems().add(property.getName()));
+        }
+    }
 
     public void onNewFileLoaded() {
 //        histogramBarChart.getData().clear();
 //        simulationChoiceBox.getItems().clear();
-//        propertyChoiceBox.getItems().clear();
-//        isFirstStart = true;
+        simulationsListView.getItems().clear();
+        setEntitiesChoiceBox();
+        setPropertyChoiceBox();
+
+        //propertyChoiceBox.getItems().clear();
+    }
+
+    private void setEntitiesChoiceBox() {
+        entityChoiceBox.getItems().clear();
+
+        WorldDTO simulationDTO = engine.getLoadedSimulationDetails();
+        simulationDTO
+                .getEntities()
+                .forEach(entity -> entityChoiceBox.getItems().add(entity.getName()));
     }
 
     public Category getSelectedSimulation() {

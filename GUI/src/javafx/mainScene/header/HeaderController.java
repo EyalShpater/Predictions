@@ -68,15 +68,15 @@ public class HeaderController {
 
     private void loadFileToEngine(String absolutePath) {
         try {
+            String lastFilePath = filePath.get();
+
             engine.loadXML(absolutePath);
-            //TODO: implement a UI adapter
             filePath.set(absolutePath);
             isFileSelected.set(true);
         } catch (Exception e) {
             showErrorPopUp(e.getMessage() == null ?
                     "General Error has occurred." :
                     e.getMessage());
-
             isFileSelected.set(false);
         }
     }
