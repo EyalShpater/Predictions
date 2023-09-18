@@ -47,7 +47,9 @@ public class UpdateEntitiesAmountTask extends Task<Boolean> {
             EntitiesAmountDTO entitiesAmountDTO = engine.getSimulationEntitiesAmountMap(serialNumber);
             Map<String, Integer> entityNameToAmount = entitiesAmountDTO.getEntityToPopulationMap();
 
-            Platform.runLater(() -> updateTableView(entityNameToAmount)); // Update the TableView
+            Platform.runLater(() -> {
+                updateTableView(entityNameToAmount);
+            }); // Update the TableView
 
             Thread.sleep(100);
         } while (!engine.isEnded(serialNumber));
