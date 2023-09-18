@@ -25,7 +25,7 @@ public interface World extends DTOConvertible<WorldDTO> {
     List<PropertyDefinitionDTO> getEnvironmentVariablesDTO();
     List<EntityDefinition> getEntities();
 
-    TerminateCondition isActive(int currentTick, long startTime, long pauseDuration, boolean userRequestedStop);
+    TerminateCondition isActive(int currentTick, long secondsDuration, boolean userRequestedStop);
     List<Rule> getRules();
 
     int getThreadPoolSize();

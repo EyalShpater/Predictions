@@ -7,16 +7,12 @@ import javafx.beans.property.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.mainScene.main.PredictionsMainAppController;
 import javafx.scene.control.*;
-import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.StackPane;
 import javafx.tab.results.helper.Category;
 import javafx.tab.results.progress.ProgressController;
 import task.EntityPopulationData;
-
-import java.net.URL;
 
 public class ResultsController {
 
@@ -55,7 +51,7 @@ public class ResultsController {
     @FXML
     private void initialize() {
         selectedSimulation.bind(simulationsListView.getSelectionModel().selectedItemProperty());
-        selectedSimulation.addListener((observable, oldValue, newValue) -> progressController.onSelectedPropertyChange(newValue));
+        selectedSimulation.addListener((observable, oldValue, newValue) -> progressController.onSelectedSimulationChange(newValue));
         progress.disableProperty().bind(Bindings.isNull(selectedSimulation));
         /*entitiesCol.setCellValueFactory(new PropertyValueFactory<>("entityName"));
         populationCol.setCellValueFactory(new PropertyValueFactory<>("population"));

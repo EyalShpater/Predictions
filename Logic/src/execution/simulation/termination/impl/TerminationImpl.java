@@ -45,13 +45,12 @@ public class TerminationImpl implements Termination , Serializable {
     }
 
     @Override
-    public TerminateCondition isTerminate(int currentTick, long startTimeInMillis, long pauseDurationInMillis, boolean userRequestedStop) {
-        long secondsSinceStart = TimeUnit.MILLISECONDS.toSeconds(System.currentTimeMillis() - startTimeInMillis);
+    public TerminateCondition isTerminate(int currentTick, long secondsDuration, boolean userRequestedStop) {
         TerminateCondition terminateReason;
 
         if (currentTick >= ticksToTerminate) {
             terminateReason = TerminateCondition.BY_TICKS;
-        } else if (secondsSinceStart >= secondsToTerminate + TimeUnit.MILLISECONDS.toSeconds(pauseDurationInMillis)) {
+        } else if (secondsDuration >= secondsToTerminate) {
             terminateReason = TerminateCondition.BY_SECONDS;
         } else if (userRequestedStop) {
             terminateReason = TerminateCondition.BY_USER;
@@ -75,6 +74,11 @@ public class TerminationImpl implements Termination , Serializable {
     @Override
     public int getTicksToTerminate() {
         return ticksToTerminate;
+    }
+
+    @Override
+    public int getSecondsToTerminate() {
+        return secondsToTerminate;
     }
 
     @Override

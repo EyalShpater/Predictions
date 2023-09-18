@@ -74,14 +74,6 @@ public class SimulationManager implements Serializable {
         );
     }
 
-//    private SimulationRunDetailsDTO createRunDetailDTO(TerminateCondition condition, int serialNumber) {
-//        return new SimulationRunDetailsDTO(
-//                condition.equals(TerminateCondition.BY_SECONDS),
-//                condition.equals(TerminateCondition.BY_TICKS),
-//                serialNumber
-//        );
-//    }
-
     public void clearAllSimulations() {
         simulations.clear();
     }

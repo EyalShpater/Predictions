@@ -22,6 +22,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Random;
+import java.util.concurrent.TimeUnit;
 import java.util.stream.Collectors;
 
 public class SimulationImpl implements Simulation , Serializable {
@@ -37,6 +38,7 @@ public class SimulationImpl implements Simulation , Serializable {
     private SimulationInitDataFromUserDTO initData;
 
     private long startTime;
+    private long runningTimeInSeconds;
     private long pauseDuration;
     private int tick;
     private boolean isStop;
@@ -51,6 +53,7 @@ public class SimulationImpl implements Simulation , Serializable {
         this.environmentVariables = null;
         this.data = null;
         this.startTime = 0;
+        this.runningTimeInSeconds = 0;
         this.pauseDuration = 0;
         this.space = new SphereSpaceImpl(world.getGridRows(), world.getGridCols());
         this.tick = 0;
@@ -69,13 +72,16 @@ public class SimulationImpl implements Simulation , Serializable {
         initEnvironmentVariables();
         tick = 1;
 
-        while ((endReason = world.isActive(tick, startTime, pauseDuration, isStop)) == null) {
+        while ((endReason = world.isActive(tick, runningTimeInSeconds, isStop)) == null) {
+            runningTimeInSeconds = TimeUnit.MILLISECONDS.toSeconds(System.currentTimeMillis() - startTime - pauseDuration);
+
             entities.moveAllEntitiesInSpace(space);
             executeRules(tick);
             tick++;
 
             if (isPause) {
-                this.pauseDuration += pauseDuringRunning();
+                pauseDuration += pauseDuringRunning();
+                runningTimeInSeconds = TimeUnit.MILLISECONDS.toSeconds(System.currentTimeMillis() - startTime - pauseDuration);
             }
 
             try {
@@ -84,9 +90,6 @@ public class SimulationImpl implements Simulation , Serializable {
                 throw new RuntimeException(e);
             }
         }
-
-//        data = new SimulationDataImpl(serialNumber, startTime, world.getEntities(), entities);
-//        resetEnvironmentVariables();
         System.out.println("end of simulation #" + serialNumber);
     }
 
@@ -117,6 +120,11 @@ public class SimulationImpl implements Simulation , Serializable {
         return new EntitiesAmountDTO(createEntityNameToPopulationFromEntityInstanceManager());
     }
 
+    @Override
+    public boolean isStarted() {
+        return tick >= 1;
+    }
+
     private Map<String, Integer> createEntityNameToPopulationFromEntityInstanceManager() {
         List<EntityInstance> entityInstances = entities.getInstances();
         Map<String, Integer> entityNameToPopulation = new HashMap<>();
@@ -140,7 +148,7 @@ public class SimulationImpl implements Simulation , Serializable {
                 false,
                 serialNumber,
                 tick,
-                System.currentTimeMillis() - startTime - pauseDuration,
+                runningTimeInSeconds,
                 getStartProgress(),
                 getEndProgress()
         );
@@ -152,7 +160,7 @@ public class SimulationImpl implements Simulation , Serializable {
 
         if (!terminateCondition.equals(TerminateCondition.BY_USER)) {
             progress = terminateCondition.equals(TerminateCondition.BY_SECONDS) ?
-                    (System.currentTimeMillis()) :
+                    world.getTermination().getSecondsToTerminate() :
                     world.getTermination().getTicksToTerminate();
         }
 
@@ -165,7 +173,7 @@ public class SimulationImpl implements Simulation , Serializable {
 
         if (!terminateCondition.equals(TerminateCondition.BY_USER)) {
             progress = terminateCondition.equals(TerminateCondition.BY_SECONDS) ?
-                    (startTime + pauseDuration) :
+                    runningTimeInSeconds :
                     tick;
         }
 
@@ -213,6 +221,7 @@ public class SimulationImpl implements Simulation , Serializable {
         return world;
     }
 
+    //todo: maybe delete
     @Override
     public double getProgress() {
         double progress = 0;

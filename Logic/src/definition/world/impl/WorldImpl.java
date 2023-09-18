@@ -69,8 +69,8 @@ public class WorldImpl implements World  , Serializable {
     }
 
     @Override
-    public TerminateCondition isActive(int currentTick, long startTime, long pauseDuration, boolean userRequestedStop) {
-        return terminate.isTerminate(currentTick, startTime, pauseDuration, userRequestedStop);
+    public TerminateCondition isActive(int currentTick, long secondsDuration, boolean userRequestedStop) {
+        return terminate.isTerminate(currentTick, secondsDuration, userRequestedStop);
     }
 
     @Override

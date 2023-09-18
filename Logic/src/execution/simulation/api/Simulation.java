@@ -39,4 +39,6 @@ public interface Simulation extends DTOConvertible<SimulationDTO> {
     double getProgress();
 
     EntitiesAmountDTO createEntitiesAmountDTO();
+
+    boolean isStarted();
 }

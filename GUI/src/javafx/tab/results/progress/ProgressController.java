@@ -3,7 +3,6 @@ package javafx.tab.results.progress;
 import execution.simulation.api.PredictionsLogic;
 import javafx.beans.binding.Bindings;
 import javafx.beans.property.*;
-import javafx.concurrent.Task;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.mainScene.main.PredictionsMainAppController;
@@ -50,7 +49,11 @@ public class ProgressController {
     private PredictionsMainAppController predictionsMainAppController;
     private PredictionsLogic engine;
     private ResultsController resultsController;
-    private UpdateSimulationDetailsTask detailsTask;
+
+    private UpdateSimulationDetailsTask currentDetailsTask;
+    private UpdateEntitiesAmountTask currentEntitiesAmountData;
+
+
     private TabPane tabPane;
 
     private StackPane stackPaneForTableView;
@@ -67,7 +70,7 @@ public class ProgressController {
         progress = new SimpleDoubleProperty(0);
 
         ticksLabel.textProperty().bind(Bindings.format("%d", ticks));
-        secondsLabel.textProperty().bind(Bindings.format("%d", TimeUnit.MILLISECONDS.toSeconds(seconds.get())));
+        secondsLabel.textProperty().bind(Bindings.format("%d", seconds));
         progressBar.progressProperty().bind(progress);
     }
 
@@ -132,32 +135,31 @@ public class ProgressController {
     }
 
 
-    public void onSelectedPropertyChange(Category newValue) {
+    public void onSelectedSimulationChange(Category newValue) {
         selectedSimulation = newValue;
         isStop.set(engine.isStop(newValue.getId()));
         isPause.set(engine.isPaused(newValue.getId()));
 
-        UpdateSimulationDetailsTask task = new UpdateSimulationDetailsTask(engine, selectedSimulation.getId(), stackPaneForTableView);
-        UpdateEntitiesAmountTask updateEntitiesAmountTask = new UpdateEntitiesAmountTask(engine, selectedSimulation.getId(), stackPaneForTableView);
+        if (currentEntitiesAmountData != null && currentDetailsTask != null) {
+            currentDetailsTask.cancel();
+            currentEntitiesAmountData.cancel();
+            progress.unbind();
+        }
 
-        new Thread(task).start();
-        new Thread(updateEntitiesAmountTask).start();
+        currentDetailsTask = new UpdateSimulationDetailsTask(engine, selectedSimulation.getId(), ticks::set, seconds::set);
+        progress.bind(currentDetailsTask.progressProperty());
 
+        currentEntitiesAmountData = new UpdateEntitiesAmountTask(engine, selectedSimulation.getId(), stackPaneForTableView);
+
+
+        new Thread(currentDetailsTask).start();
+        new Thread(currentEntitiesAmountData).start();
     }
 
     public void setPredictionsMainAppController(PredictionsMainAppController predictionsMainAppController) {
         this.predictionsMainAppController = predictionsMainAppController;
     }
 
-    public void bindTaskProperties(UpdateSimulationDetailsTask task) {
-        ticks.unbind();
-        seconds.unbind();
-        progress.unbind();
-
-        ticks.bind(task.ticksProperty());
-        seconds.bind(task.secondsProperty());
-        progress.bind(task.progressProperty());
-    }
 
     public void setTabPane(TabPane tabPane) {
         this.tabPane = tabPane;
