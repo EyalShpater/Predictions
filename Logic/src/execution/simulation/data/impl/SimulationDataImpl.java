@@ -21,12 +21,13 @@ public class SimulationDataImpl implements SimulationData , Serializable {
     EntityInstanceManager entityInstances;
     SimulationInitDataFromUserDTO initData;
 
-    public SimulationDataImpl(int id, long startTime, List<EntityDefinition> entityDefinitions, EntityInstanceManager entityInstances) {
+    public SimulationDataImpl(int id, long startTime, List<EntityDefinition> entityDefinitions, EntityInstanceManager entityInstances, SimulationInitDataFromUserDTO initData) {
         this.id = id;
         this.startTime = startTime;
         this.entityDefinitions = new HashMap<>();
         entityDefinitions.forEach(entity -> this.entityDefinitions.put(entity.getName(), entity));
         this.entityInstances = entityInstances;
+        this.initData = initData;
     }
 
     @Override

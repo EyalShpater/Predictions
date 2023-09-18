@@ -10,13 +10,19 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.mainScene.main.PredictionsMainAppController;
+import javafx.scene.Node;
+import javafx.scene.Parent;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.StackPane;
 import javafx.tab.results.helper.Category;
+import javafx.tab.results.histogram.population.PopulationBarChartController;
 import javafx.tab.results.progress.ProgressController;
 import task.helper.EntityPopulationData;
+
+import java.net.URL;
 
 public class ResultsController {
 
@@ -53,6 +59,7 @@ public class ResultsController {
 
     private ObjectProperty<Category> selectedSimulation = new SimpleObjectProperty<>();
     private PredictionsMainAppController predictionsMainAppController;
+    private PopulationBarChartController populationBarChartController;
 
     private StringProperty propertyToView;
     private StringProperty entityToView;
@@ -72,7 +79,8 @@ public class ResultsController {
 
         selectedSimulation.addListener((observable, oldValue, newValue) -> onSelectedSimulationChange(newValue));
         entityChoiceBox.setOnAction(this::onSelectedEntity);
-//        propertyChoiceBox.setOnAction(this::onSelectedProperty);
+        propertyChoiceBox.setOnAction(this::onSelectedProperty);
+        setPagination();
 
 //
 //        simulationChoiceBox.setOnAction(this::onSelectSimulation);
@@ -82,6 +90,22 @@ public class ResultsController {
 
         entitiesCol.setCellValueFactory(new PropertyValueFactory<>("entityName"));
         populationCol.setCellValueFactory(new PropertyValueFactory<>("population"));
+    }
+
+    private void onSelectedProperty(ActionEvent actionEvent) {
+        if (selectedSimulation.isNotNull().get()) {
+            SimulationDataDTO data = engine.getSimulationData(
+                    selectedSimulation.get().getId(),
+                    entityToView.get(),
+                    propertyChoiceBox.getValue()
+            );
+
+            // populationBarChartController.setChart(propertyToView.get(), data);
+
+            analyzePaging.setCurrentPageIndex(1);
+
+//        analyzePaging.page;
+        }
     }
 
     private void onSelectedEntity(ActionEvent actionEvent) {
@@ -129,7 +153,7 @@ public class ResultsController {
                 propertyToView.get()
         );
 
-        //setChart(data);
+//        setChart(data);
     }
 
 //    private void setSimulationChoiceBox() {
@@ -189,4 +213,49 @@ public class ResultsController {
         this.tabPane = tabPane;
         progressController.setTabPane(tabPane);
     }
+
+    private void setPagination() {
+        analyzePaging.setPageFactory(pageIndex -> {
+            switch (pageIndex) {
+                case 0:
+                    return createPopulationBarChart();
+                case 1:
+                    return test();
+//                case 2:
+//                    return createCustomPage();
+                default:
+                    return null;
+            }
+        });
+    }
+
+    private Node createPopulationBarChart() {
+        StackPane sp = new StackPane();
+
+        try {
+            PopulationBarChartController populationBarChartController;
+
+            URL resource = getClass().getResource("/javafx/tab/results/histogram/population/PopulationBarChart.fxml");
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(resource);
+            Parent resultsContent = loader.load();
+            sp.getChildren().add(resultsContent);
+
+            populationBarChartController = loader.getController();
+//            populationBarChartController.setChart(propertyToView.get(), );
+        } catch (Exception ignored) {
+
+        }
+
+        return sp;
+    }
+
+    private Node test() {
+        StackPane sp = new StackPane();
+
+        sp.getChildren().add(new Label("page 2"));
+
+        return sp;
+    }
+
 }

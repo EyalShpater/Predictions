@@ -91,7 +91,8 @@ public class SimulationImpl implements Simulation , Serializable {
                 throw new RuntimeException(e);
             }
         }
-        System.out.println("end of simulation #" + serialNumber);
+
+        data = new SimulationDataImpl(serialNumber, startTime, world.getEntities(), entities, initData);
     }
 
     @Override
