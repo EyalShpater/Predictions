@@ -11,15 +11,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="27d35137-667f-4e37-a519-ab836acc0a06" name="Changes" comment="some progress">
-      <change beforePath="$PROJECT_DIR$/GUI/src/javafx/mainScene/main/PredictionsMainAppController.java" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/src/javafx/mainScene/main/PredictionsMainAppController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/src/javafx/tab/newExecution/entity/EntityController.java" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/src/javafx/tab/newExecution/entity/EntityController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/src/javafx/tab/newExecution/entity/EntityData.java" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/src/javafx/tab/newExecution/entity/EntityData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/src/javafx/tab/newExecution/environmentVariable/BooleanEnvironmentVariableController.java" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/src/javafx/tab/newExecution/environmentVariable/BooleanEnvironmentVariableController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/src/javafx/tab/newExecution/environmentVariable/NumericEnvironmentVariableController.java" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/src/javafx/tab/newExecution/environmentVariable/NumericEnvironmentVariableController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/src/javafx/tab/newExecution/mainComponent/NewExecutionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/src/javafx/tab/newExecution/mainComponent/NewExecutionController.java" afterDir="false" />
+    <list default="true" id="27d35137-667f-4e37-a519-ab836acc0a06" name="Changes" comment="addd EntitiesAmountDTO">
+      <change afterPath="$PROJECT_DIR$/GUI/src/task/EntityPopulationData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI/src/javafx/tab/results/Results.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/src/javafx/tab/results/Results.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GUI/src/javafx/tab/results/ResultsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/src/javafx/tab/results/ResultsController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GUI/src/javafx/tab/results/progress/ProgressController.java" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/src/javafx/tab/results/progress/ProgressController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI/src/task/UpdateSimulationDetailsTask.java" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/src/task/UpdateSimulationDetailsTask.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -356,13 +354,6 @@
       <workItem from="1694408417392" duration="10450000" />
       <workItem from="1694524231690" duration="15371000" />
       <workItem from="1694857830392" duration="51381000" />
-    </task>
-    <task id="LOCAL-00055" summary="latest">
-      <created>1692128479513</created>
-      <option name="number" value="00055" />
-      <option name="presentableId" value="LOCAL-00055" />
-      <option name="project" value="LOCAL" />
-      <updated>1692128479513</updated>
     </task>
     <task id="LOCAL-00056" summary="latest">
       <created>1692168153217</created>
@@ -732,7 +723,14 @@
       <option name="project" value="LOCAL‎" />
       <updated>1694986653530</updated>
     </task>
-    <option name="localTasksCounter" value="147" />
+    <task id="LOCAL-00147" summary="addd EntitiesAmountDTO">
+      <created>1695024549035</created>
+      <option name="number" value="00147" />
+      <option name="presentableId" value="LOCAL-00147" />
+      <option name="project" value="LOCAL" />
+      <updated>1695024549036</updated>
+    </task>
+    <option name="localTasksCounter" value="148" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -763,7 +761,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="details screen bug fix: now you can view secondary entity, and instead of &quot;calculation&quot; rule you can see the concrete action (multiple\divide)" />
     <MESSAGE value="added a feature to add additional info in ActionDTO" />
     <MESSAGE value="Ruels tab is fixed" />
     <MESSAGE value="General screen is fully functional" />
@@ -788,7 +785,8 @@
     <MESSAGE value="added progress information from engine" />
     <MESSAGE value="added rerun option" />
     <MESSAGE value="some progress" />
-    <option name="LAST_COMMIT_MESSAGE" value="some progress" />
+    <MESSAGE value="addd EntitiesAmountDTO" />
+    <option name="LAST_COMMIT_MESSAGE" value="addd EntitiesAmountDTO" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">

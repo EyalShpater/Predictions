@@ -4,13 +4,17 @@ import execution.simulation.api.PredictionsLogic;
 import impl.SimulationDTO;
 import javafx.beans.binding.Bindings;
 import javafx.beans.property.*;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.mainScene.main.PredictionsMainAppController;
 import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.StackPane;
 import javafx.tab.results.helper.Category;
 import javafx.tab.results.progress.ProgressController;
+import task.EntityPopulationData;
 
 import java.net.URL;
 
@@ -23,13 +27,7 @@ public class ResultsController {
     private ListView<Category> simulationsListView;
 
     @FXML
-    private TableView<String> entitiesPopulationTableView;
-
-    @FXML
-    private TableColumn<String, String> entitiesCol;
-
-    @FXML
-    private TableColumn<String, Integer> populationCol;
+    private StackPane stackPaneForTableView;
 
     @FXML
     private ChoiceBox<String> entityChoiceBox;
@@ -52,12 +50,16 @@ public class ResultsController {
     private boolean isFirstStart = true;
     private TabPane tabPane;
 
+    private ObservableList<EntityPopulationData> entityPopulationList = FXCollections.observableArrayList();
 
     @FXML
     private void initialize() {
         selectedSimulation.bind(simulationsListView.getSelectionModel().selectedItemProperty());
         selectedSimulation.addListener((observable, oldValue, newValue) -> progressController.onSelectedPropertyChange(newValue));
         progress.disableProperty().bind(Bindings.isNull(selectedSimulation));
+        /*entitiesCol.setCellValueFactory(new PropertyValueFactory<>("entityName"));
+        populationCol.setCellValueFactory(new PropertyValueFactory<>("population"));
+        entitiesPopulationTableView.setItems(entityPopulationList);*/
         //progressController.bindSelectedSimulationProperty();
         //System.out.println(progressController);
         // selectedSimulation.addListener((observable, oldValue, newValue) -> progressController.onChosenSimulationChange(newValue));
@@ -83,6 +85,7 @@ public class ResultsController {
     public void onStartButtonClicked(int newSimulationSerialNumber) {
         //setSimulationChoiceBox();
         //example
+        progressController.setStackPaneForTableView(this.stackPaneForTableView);
         System.out.println(progressController);
         SimulationDTO lastSimulation = engine.getSimulationDTOBySerialNumber(newSimulationSerialNumber);
         simulationsListView.getItems().add(new Category(lastSimulation.getStartDate(), lastSimulation.getSerialNumber()));

@@ -10,8 +10,10 @@ import javafx.mainScene.main.PredictionsMainAppController;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.StackPane;
 import javafx.tab.results.ResultsController;
 import javafx.tab.results.helper.Category;
+import task.UpdateEntitiesAmountTask;
 import task.UpdateSimulationDetailsTask;
 
 import java.util.concurrent.TimeUnit;
@@ -50,6 +52,8 @@ public class ProgressController {
     private ResultsController resultsController;
     private UpdateSimulationDetailsTask detailsTask;
     private TabPane tabPane;
+
+    private StackPane stackPaneForTableView;
 
     @FXML
     void initialize() {
@@ -133,7 +137,7 @@ public class ProgressController {
         isStop.set(engine.isStop(newValue.getId()));
         isPause.set(engine.isPaused(newValue.getId()));
 
-        UpdateSimulationDetailsTask task = new UpdateSimulationDetailsTask(engine, selectedSimulation.getId());
+        UpdateSimulationDetailsTask task = new UpdateSimulationDetailsTask(engine, selectedSimulation.getId(), stackPaneForTableView);
 
         new Thread(task).start();
 
@@ -155,5 +159,9 @@ public class ProgressController {
 
     public void setTabPane(TabPane tabPane) {
         this.tabPane = tabPane;
+    }
+
+    public void setStackPaneForTableView(StackPane stackPaneForTableView) {
+        this.stackPaneForTableView = stackPaneForTableView;
     }
 }

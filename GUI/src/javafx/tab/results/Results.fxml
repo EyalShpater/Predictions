@@ -5,8 +5,6 @@
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.Pagination?>
 <?import javafx.scene.control.SplitPane?>
-<?import javafx.scene.control.TableColumn?>
-<?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TitledPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
@@ -15,7 +13,7 @@
 <?import javafx.scene.layout.StackPane?>
 
 <StackPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0"
-           xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1"
+           xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1"
            fx:controller="javafx.tab.results.ResultsController">
     <children>
         <SplitPane dividerPositions="0.2">
@@ -41,22 +39,7 @@
                             <panes>
                                 <TitledPane text="Entities Amount">
                                     <content>
-                                        <StackPane prefHeight="150.0" prefWidth="200.0">
-                                            <children>
-                                                <TableView fx:id="entitiesPopulationTableView" prefHeight="200.0"
-                                                           prefWidth="200.0">
-                                                    <columns>
-                                                        <TableColumn fx:id="entitiesCol" editable="false"
-                                                                     prefWidth="75.0" text="Entity"/>
-                                                        <TableColumn fx:id="populationCol" editable="false"
-                                                                     prefWidth="75.0" text="Population"/>
-                                                    </columns>
-                                                    <columnResizePolicy>
-                                                        <TableView fx:constant="CONSTRAINED_RESIZE_POLICY"/>
-                                                    </columnResizePolicy>
-                                                </TableView>
-                                            </children>
-                                        </StackPane>
+                                        <StackPane fx:id="stackPaneForTableView" prefHeight="150.0" prefWidth="200.0"/>
                                     </content>
                                 </TitledPane>
                                 <TitledPane text="Analizes">
