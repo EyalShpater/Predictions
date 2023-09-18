@@ -50,6 +50,8 @@ public class ResultsController {
     private StringProperty propertyToView = new SimpleStringProperty();
     private StringProperty entityToView = new SimpleStringProperty();
     private boolean isFirstStart = true;
+    private TabPane tabPane;
+
 
     @FXML
     private void initialize() {
@@ -85,7 +87,7 @@ public class ResultsController {
         SimulationDTO lastSimulation = engine.getSimulationDTOBySerialNumber(newSimulationSerialNumber);
         simulationsListView.getItems().add(new Category(lastSimulation.getStartDate(), lastSimulation.getSerialNumber()));
     }
-
+/*
 //    private void onSelectSimulation(ActionEvent event) {
 //        if (isFirstStart) {
 //            setPropertyChoiceBox();
@@ -131,6 +133,8 @@ public class ResultsController {
 //    }
 //
 //
+ */
+
     public void onNewFileLoaded() {
 //        histogramBarChart.getData().clear();
 //        simulationChoiceBox.getItems().clear();
@@ -144,5 +148,10 @@ public class ResultsController {
 
     public ObjectProperty<Category> getSelectedSimulationProperty() {
         return selectedSimulation;
+    }
+
+    public void setTabPane(TabPane tabPane) {
+        this.tabPane = tabPane;
+        progressController.setTabPane(tabPane);
     }
 }

@@ -54,4 +54,10 @@ public class EntityController extends BasicEntityData {
     public void clear() {
         entityPopulationTextField.clear();
     }
+
+    @Override
+    public void restoreTileFromPrevData(String entityName, int population) {
+        setEntity(entityName);
+        entityPopulationTextField.setText(String.valueOf(population));
+    }
 }

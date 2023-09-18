@@ -68,17 +68,18 @@ public class BooleanEnvironmentVariableController extends BasicEnvironmentVariab
     public void restoreFromEnvDTO(PropertyDefinitionDTO environmentVariable) {
         setEnvVarName(environmentVariable.getName());
         if (!environmentVariable.isRandom()) {
-            String value = (String) environmentVariable.getDefaultValue();
+            Boolean value = (Boolean) environmentVariable.getDefaultValue();
             randomRadioButton.setSelected(false);
-            if (value.equals("true")) {
+            if (value) {
                 falseRadioButton.setSelected(false);
                 trueRadioButton.setSelected(true);
-            } else if (value.equals("true")) {
+
+            } else {
                 trueRadioButton.setSelected(false);
                 falseRadioButton.setSelected(true);
             }
             isInitRandom = false;
-            setEnvValue(value);
+            setEnvValue(String.valueOf(value));
         } else {
             trueRadioButton.setSelected(false);
             falseRadioButton.setSelected(false);

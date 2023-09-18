@@ -358,8 +358,9 @@ public class NewExecutionController {
     }
 
     public void restoreDataValuesToTiles(SimulationInitDataFromUserDTO userInputOfSimulationBySerialNumber) {
-
         cleanOldResults();
+        entityList.clear();
+        envVarControllerList.clear();
 
         restoreEntityTilesWithDataValues(userInputOfSimulationBySerialNumber.getEntityNameToPopulation());
         restoreEnvVarsTilesWithDataValues(userInputOfSimulationBySerialNumber.getEnvironmentVariables());
@@ -426,8 +427,6 @@ public class NewExecutionController {
             environmentVariableController.setEnvVarName(environmentVariable.getName());
             environmentVariableController.restoreFromEnvDTO(environmentVariable);
 
-            environmentVariableController.setEnvVarValueSpinnerValueFactory(environmentVariable);
-
             envVarsFlowPane.getChildren().add(singleEnvVarTile);
             envVarControllerList.add(environmentVariableController);
         } catch (IOException e) {
@@ -448,8 +447,7 @@ public class NewExecutionController {
 
             EntityController entityController = loader.getController();
 
-            entityController.setEntity(entityName);
-            entityController.setPopulation(String.valueOf(population));
+            entityController.restoreTileFromPrevData(entityName, population);
             entityList.add(entityController);
 
             entitiesFlowPane.getChildren().add(singleEntityTile);

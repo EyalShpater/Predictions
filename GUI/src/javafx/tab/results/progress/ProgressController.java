@@ -7,9 +7,7 @@ import javafx.concurrent.Task;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.mainScene.main.PredictionsMainAppController;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.ProgressBar;
+import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.tab.results.ResultsController;
@@ -51,6 +49,7 @@ public class ProgressController {
     private PredictionsLogic engine;
     private ResultsController resultsController;
     private UpdateSimulationDetailsTask detailsTask;
+    private TabPane tabPane;
 
     @FXML
     void initialize() {
@@ -84,6 +83,7 @@ public class ProgressController {
     @FXML
     void pauseOnClick(ActionEvent event) {
         if (isStop.get()) {
+            goToResultsTabByName("New Execution");
             predictionsMainAppController.restoreDataValuesToTiles(engine.getUserInputOfSimulationBySerialNumber(selectedSimulation.getId()));
         } else if (isPause.get()) {
             engine.resumeSimulationBySerialNumber((selectedSimulation.getId()));
@@ -114,6 +114,20 @@ public class ProgressController {
         }
     }
 
+    private void goToResultsTabByName(String tabName) {
+        Tab resultsTab = null;
+
+        for (Tab tab : tabPane.getTabs()) {
+            if (tab.getText().equals(tabName)) {
+                resultsTab = tab;
+            }
+        }
+        if (resultsTab != null) {
+            tabPane.getSelectionModel().select(resultsTab);
+        }
+    }
+
+
     public void onSelectedPropertyChange(Category newValue) {
         selectedSimulation = newValue;
         isStop.set(engine.isStop(newValue.getId()));
@@ -137,5 +151,9 @@ public class ProgressController {
         ticks.bind(task.ticksProperty());
         seconds.bind(task.secondsProperty());
         progress.bind(task.progressProperty());
+    }
+
+    public void setTabPane(TabPane tabPane) {
+        this.tabPane = tabPane;
     }
 }

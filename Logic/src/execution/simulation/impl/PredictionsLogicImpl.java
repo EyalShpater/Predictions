@@ -163,6 +163,14 @@ public class PredictionsLogicImpl implements PredictionsLogic , Serializable {
     }
 
     @Override
+    public EntitiesAmountDTO getSimulationEntitiesAmountMap(int serialNumber) {
+        return allSimulations
+                .getSimulationBySerialNumber(serialNumber)
+                .createEntitiesAmountDTO();
+    }
+
+
+    @Override
     public SimulationRunDetailsDTO getSimulationRunDetail(int serialNumber) {
         return allSimulations
                 .getSimulationBySerialNumber(serialNumber)

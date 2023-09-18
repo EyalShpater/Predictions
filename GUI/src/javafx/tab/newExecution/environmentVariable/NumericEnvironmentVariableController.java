@@ -107,10 +107,28 @@ public class NumericEnvironmentVariableController extends BasicEnvironmentVariab
     @Override
     public void restoreFromEnvDTO(PropertyDefinitionDTO environmentVariable) {
         setEnvVarName(environmentVariable.getName());
+
         if (!environmentVariable.isRandom()) {
+            isInitRandom = false;
             randomCheckBox.setSelected(false);
-            setEnvValue((String) environmentVariable.getDefaultValue());
+            double value = (Double) environmentVariable.getDefaultValue();
+            initializeSpinnerWithValue(value, environmentVariable.getFrom(), environmentVariable.getTo());
+        } else {
+            setEnvVarValueSpinnerValueFactory(environmentVariable);
         }
+    }
+
+    private void initializeSpinnerWithValue(double value, double minValue, double maxValue) {
+        setEnvValue(String.valueOf(value));
+        envVarValueSpinner.getEditor().textProperty().bindBidirectional(envValue);
+
+        SpinnerValueFactory.DoubleSpinnerValueFactory valueFactory =
+                new SpinnerValueFactory.DoubleSpinnerValueFactory(minValue, maxValue, value);
+
+        envVarValueSpinner.setValueFactory(valueFactory);
+        setValueOfEnvVarByEnterPressListenerCall(valueFactory);
+        setValueOfEnvVarByReleaseListenerCall(valueFactory);
+        confirmInputCharactersListenerCall(valueFactory);
     }
 
 

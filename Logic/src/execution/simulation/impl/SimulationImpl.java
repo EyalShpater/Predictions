@@ -18,7 +18,9 @@ import instance.enviornment.api.ActiveEnvironment;
 import instance.enviornment.impl.ActiveEnvironmentImpl;
 
 import java.io.Serializable;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Random;
 import java.util.stream.Collectors;
 
@@ -108,6 +110,26 @@ public class SimulationImpl implements Simulation , Serializable {
                         data.getPropertyOfEntityPopulationSortedByValues(entityName, propertyName) :
                         null
         );
+    }
+
+    @Override
+    public EntitiesAmountDTO createEntitiesAmountDTO() {
+        return new EntitiesAmountDTO(createEntityNameToPopulationFromEntityInstanceManager());
+    }
+
+    private Map<String, Integer> createEntityNameToPopulationFromEntityInstanceManager() {
+        List<EntityInstance> entityInstances = entities.getInstances();
+        Map<String, Integer> entityNameToPopulation = new HashMap<>();
+
+        for (EntityInstance entityInstance : entityInstances) {
+            if (entityInstance.isAlive()) {
+                String entityName = entityInstance.getName();
+                int currentCount = entityNameToPopulation.getOrDefault(entityName, 0);
+                entityNameToPopulation.put(entityName, currentCount + 1);
+            }
+        }
+
+        return entityNameToPopulation;
     }
 
     public SimulationRunDetailsDTO createRunDetailDTO() {
@@ -204,6 +226,7 @@ public class SimulationImpl implements Simulation , Serializable {
 
         return progress;
     }
+
 
     @Override
     public SimulationDTO convertToDTO() {

@@ -46,5 +46,7 @@ public interface PredictionsLogic {
 
     SimulationRunDetailsDTO getSimulationRunDetail(int serialNumber);
 
+    EntitiesAmountDTO getSimulationEntitiesAmountMap(int serialNumber);
+
     SimulationQueueDto getSimulationQueueDetails();
 }

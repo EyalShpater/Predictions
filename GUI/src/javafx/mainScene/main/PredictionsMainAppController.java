@@ -105,6 +105,7 @@ public class PredictionsMainAppController {
             resultsTabController = loader.getController();
             resultsTabController.setEngine(engine);
             resultsTabController.setPredictionsMainAppController(this);
+            resultsTabController.setTabPane(tabPane);
 
             tabPane.getTabs().add(results);
         } catch (IOException ignored) {

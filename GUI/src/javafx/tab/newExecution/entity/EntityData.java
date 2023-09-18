@@ -10,4 +10,6 @@ public interface EntityData {
     void setPopulation(String count);
 
     void clear();
+
+    void restoreTileFromPrevData(String entityName, int population);
 }
