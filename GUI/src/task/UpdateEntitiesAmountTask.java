@@ -28,8 +28,8 @@ public class UpdateEntitiesAmountTask extends Task<Boolean> {
     private IntegerProperty entityAmount;
     private StringProperty entityName;
     private StackPane stackPaneForEntitiesPopulation;
-    private static final Map<Integer, TableView<EntityPopulationData>> tableViews = new HashMap<>();
 
+    private TableView<EntityPopulationData> tableView; // Each task has its own TableView
 
     public UpdateEntitiesAmountTask(PredictionsLogic engine, int serialNumber, StackPane stackPaneForTableView) {
         this.engine = engine;
@@ -37,28 +37,32 @@ public class UpdateEntitiesAmountTask extends Task<Boolean> {
         this.entityAmount = new SimpleIntegerProperty();
         this.entityName = new SimpleStringProperty();
         this.stackPaneForEntitiesPopulation = stackPaneForTableView;
-
+        this.tableView = createTableView(); // Create a TableView for this task
     }
 
     @Override
     protected Boolean call() throws Exception {
-        while (!engine.isEnded(serialNumber)) {
+        do {
+            sleepIfSimulationHasNotStarted(serialNumber);
             EntitiesAmountDTO entitiesAmountDTO = engine.getSimulationEntitiesAmountMap(serialNumber);
-
             Map<String, Integer> entityNameToAmount = entitiesAmountDTO.getEntityToPopulationMap();
-            Platform.runLater(() -> createOrUpdateTableViewForEntities(serialNumber, entityNameToAmount));
 
-            Thread.sleep(1000);
-        }
+            Platform.runLater(() -> updateTableView(entityNameToAmount)); // Update the TableView
+
+            Thread.sleep(100);
+        } while (!engine.isEnded(serialNumber));
 
         return true;
     }
 
-    private void createOrUpdateTableViewForEntities(int simulationId, Map<String, Integer> entityNameToAmount) {
-        TableView<EntityPopulationData> tableView = tableViews.computeIfAbsent(simulationId, id -> createTableView());
+    private void sleepIfSimulationHasNotStarted(int serialNumber) throws InterruptedException {
+        while (!engine.hasStarted(serialNumber)) {
+            Thread.sleep(1000);
+        }
+    }
 
+    private void updateTableView(Map<String, Integer> entityNameToAmount) {
         ObservableList<EntityPopulationData> entityPopulationList = FXCollections.observableArrayList();
-
 
         // Populate entityPopulationList with data from entityNameToAmount
         for (Map.Entry<String, Integer> entry : entityNameToAmount.entrySet()) {
@@ -75,15 +79,6 @@ public class UpdateEntitiesAmountTask extends Task<Boolean> {
         if (!stackPaneForEntitiesPopulation.getChildren().contains(tableView)) {
             stackPaneForEntitiesPopulation.getChildren().add(tableView);
         }
-
-        // Hide other TableView instances if necessary
-        tableViews.forEach((id, view) -> {
-            if (id != simulationId) {
-                if (stackPaneForEntitiesPopulation.getChildren().contains(view)) {
-                    stackPaneForEntitiesPopulation.getChildren().remove(view);
-                }
-            }
-        });
     }
 
     private TableView<EntityPopulationData> createTableView() {

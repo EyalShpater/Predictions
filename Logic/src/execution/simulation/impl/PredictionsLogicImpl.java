@@ -78,6 +78,11 @@ public class PredictionsLogicImpl implements PredictionsLogic , Serializable {
         return world.convertToDTO();
     }
 
+    @Override
+    public boolean hasStarted(int serialNumber) {
+        return allSimulations.getSimulationBySerialNumber(serialNumber).isStarted();
+    }
+
     //todo: check how to handle using this method as void.
     @Override
     public int runNewSimulation(SimulationInitDataFromUserDTO initData) {

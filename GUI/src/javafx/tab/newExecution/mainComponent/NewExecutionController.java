@@ -55,6 +55,7 @@ public class NewExecutionController {
     private TabPane tabPane;
     private PredictionsLogic engine;
     private PredictionsMainAppController mainAppController;
+    int count = 1;
 
 
     public NewExecutionController() {
@@ -186,7 +187,10 @@ public class NewExecutionController {
 
     private int runSimulation(Map<String, Integer> entityNameToPopulation) {
         List<PropertyDefinitionDTO> updatedEnvironmentVariables;
-
+        if (count == 4) {
+            int x = 5;
+        }
+        count++;
         updatedEnvironmentVariables = setEnvVariablesFromTextFields();
         SimulationInitDataFromUserDTO simulationInitDataFromUserDTO = new SimulationInitDataFromUserDTO(updatedEnvironmentVariables, entityNameToPopulation);
 
