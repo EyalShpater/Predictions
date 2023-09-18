@@ -18,6 +18,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.StackPane;
 import javafx.tab.results.progress.ProgressController;
 
+import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
@@ -30,13 +31,14 @@ public class UpdateSimulationDetailsTask extends Task<Boolean> {
     private LongProperty seconds;
 
     private ProgressController controller;
-    private StackPane stackPaneForEntitiesPopulation;
+    /*private StackPane stackPaneForEntitiesPopulation;
+    private static final Map<Integer, TableView<EntityPopulationData>> tableViews = new HashMap<>();*/
 
 
     public UpdateSimulationDetailsTask(PredictionsLogic engine, int serialNumber, StackPane stackPaneForTableView) {
         this.engine = engine;
         this.serialNumber = serialNumber;
-        this.stackPaneForEntitiesPopulation = stackPaneForTableView;
+        //this.stackPaneForEntitiesPopulation = stackPaneForTableView;
         this.ticks = new SimpleIntegerProperty();
         this.seconds = new SimpleLongProperty();
     }
@@ -52,7 +54,7 @@ public class UpdateSimulationDetailsTask extends Task<Boolean> {
 
             Platform.runLater(() -> ticks.set(runDetails.getTickNumber()));
             Platform.runLater(() -> seconds.set(runDetails.getRunningTime()));
-            Platform.runLater(() -> createTableViewForEntities(entityNameToAmount));
+            //Platform.runLater(() -> createOrUpdateTableViewForEntities(serialNumber, entityNameToAmount));
 
             updateProgress(runDetails.getStartProgress(), runDetails.getEndProgress());
 
@@ -65,22 +67,38 @@ public class UpdateSimulationDetailsTask extends Task<Boolean> {
         return true;
     }
 
-    private void createTableViewForEntities(Map<String, Integer> entityNameToAmount) {
+   /* private void createOrUpdateTableViewForEntities(int simulationId, Map<String, Integer> entityNameToAmount) {
+        TableView<EntityPopulationData> tableView = tableViews.computeIfAbsent(simulationId, id -> createTableView());
+
         ObservableList<EntityPopulationData> entityPopulationList = FXCollections.observableArrayList();
 
-        // Iterate over the entries of the entityNameToAmount map
+        // Populate entityPopulationList with data from entityNameToAmount
         for (Map.Entry<String, Integer> entry : entityNameToAmount.entrySet()) {
             String entityName = entry.getKey();
             Integer population = entry.getValue();
-
-            // Create an EntityPopulationData object for each entry
             EntityPopulationData entityPopulationData = new EntityPopulationData(entityName, population);
-
-            // Add the EntityPopulationData to the list
             entityPopulationList.add(entityPopulationData);
         }
 
-        // Create a TableView and configure it
+        // Update the data in the TableView
+        tableView.setItems(entityPopulationList);
+
+        // Ensure the TableView is displayed in the UI
+        if (!stackPaneForEntitiesPopulation.getChildren().contains(tableView)) {
+            stackPaneForEntitiesPopulation.getChildren().add(tableView);
+        }
+
+        // Hide other TableView instances if necessary
+        tableViews.forEach((id, view) -> {
+            if (id != simulationId) {
+                if (stackPaneForEntitiesPopulation.getChildren().contains(view)) {
+                    stackPaneForEntitiesPopulation.getChildren().remove(view);
+                }
+            }
+        });
+    }
+
+    private TableView<EntityPopulationData> createTableView() {
         TableView<EntityPopulationData> tableView = new TableView<>();
         TableColumn<EntityPopulationData, String> entityNameCol = new TableColumn<>("Entity Name");
         TableColumn<EntityPopulationData, Integer> populationCol = new TableColumn<>("Population");
@@ -89,11 +107,9 @@ public class UpdateSimulationDetailsTask extends Task<Boolean> {
         populationCol.setCellValueFactory(new PropertyValueFactory<>("population"));
 
         tableView.getColumns().addAll(entityNameCol, populationCol);
-        tableView.setItems(entityPopulationList);
 
-        // Add the TableView to your UI (e.g., stackPaneForEntitiesPopulation)
-        stackPaneForEntitiesPopulation.getChildren().add(tableView);
-    }
+        return tableView;
+    }*/
 
     public int getTicks() {
         return ticks.get();

@@ -138,8 +138,10 @@ public class ProgressController {
         isPause.set(engine.isPaused(newValue.getId()));
 
         UpdateSimulationDetailsTask task = new UpdateSimulationDetailsTask(engine, selectedSimulation.getId(), stackPaneForTableView);
+        UpdateEntitiesAmountTask updateEntitiesAmountTask = new UpdateEntitiesAmountTask(engine, selectedSimulation.getId(), stackPaneForTableView);
 
         new Thread(task).start();
+        new Thread(updateEntitiesAmountTask).start();
 
     }
 
