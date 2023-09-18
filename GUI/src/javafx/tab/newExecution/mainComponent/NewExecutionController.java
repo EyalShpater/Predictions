@@ -28,7 +28,6 @@ import java.util.Map;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.scene.media.MediaPlayer.Status;
-import task.RunSimulationTask;
 
 public class NewExecutionController {
     @FXML

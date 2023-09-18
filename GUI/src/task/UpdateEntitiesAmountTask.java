@@ -2,7 +2,6 @@ package task;
 
 import execution.simulation.api.PredictionsLogic;
 import impl.EntitiesAmountDTO;
-import impl.SimulationRunDetailsDTO;
 import javafx.application.Platform;
 import javafx.beans.property.*;
 import javafx.collections.FXCollections;
@@ -11,13 +10,10 @@ import javafx.concurrent.Task;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.layout.StackPane;
 import javafx.tab.results.ResultsController;
-import javafx.tab.results.progress.ProgressController;
+import task.helper.EntityPopulationData;
 
-import java.util.HashMap;
 import java.util.Map;
-import java.util.concurrent.TimeUnit;
 
 public class UpdateEntitiesAmountTask extends Task<Boolean> {
 

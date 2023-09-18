@@ -56,7 +56,7 @@
                     </children>
                 </HBox>
                 <ProgressBar fx:id="progressBar" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308"
-                             progress="0.54" GridPane.columnIndex="1" GridPane.columnSpan="3" GridPane.rowIndex="1"/>
+                             progress="0.0" GridPane.columnIndex="1" GridPane.columnSpan="3" GridPane.rowIndex="1"/>
                 <HBox minWidth="80.0" prefHeight="100.0" prefWidth="200.0" spacing="10.0" GridPane.columnIndex="1"
                       GridPane.rowIndex="2">
                     <children>

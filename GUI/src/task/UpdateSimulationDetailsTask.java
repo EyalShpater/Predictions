@@ -3,14 +3,16 @@ package task;
 import execution.simulation.api.PredictionsLogic;
 import impl.SimulationRunDetailsDTO;
 import javafx.application.Platform;
+import javafx.beans.binding.Bindings;
 import javafx.concurrent.Task;
+import javafx.scene.control.ProgressIndicator;
 import javafx.tab.results.progress.ProgressController;
 
 import java.util.function.Consumer;
 
 public class UpdateSimulationDetailsTask extends Task<Boolean> {
 
-    private static final int TIME_TO_SLEEP = 500;
+    private static final int TIME_TO_SLEEP = 100;
 
 
     private PredictionsLogic engine;
@@ -22,8 +24,6 @@ public class UpdateSimulationDetailsTask extends Task<Boolean> {
     private Consumer<Integer> setTicks;
     private Consumer<Long> setSeconds;
     private Consumer<Boolean> atEnd;
-
-    private ProgressController controller;
 
     public UpdateSimulationDetailsTask(PredictionsLogic engine, int serialNumber, Consumer<Integer> setTicks, Consumer<Long> setSeconds, Consumer<Boolean> atEnd) {
         this.engine = engine;

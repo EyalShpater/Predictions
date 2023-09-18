@@ -41,8 +41,8 @@ public class Category {
     @Override
     public String toString() {
         Date date = new Date(time.get());
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd-MM-yyyy | HH.mm.ss");
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd-MM-yyyy | HH:mm:ss");
 
-        return new String(simpleDateFormat.format(date) + ", id: #" + id.get());
+        return new String(simpleDateFormat.format(date));
     }
 }

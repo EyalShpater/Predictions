@@ -7,13 +7,11 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.mainScene.main.PredictionsMainAppController;
 import javafx.scene.control.*;
-import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.StackPane;
 import javafx.tab.results.ResultsController;
 import javafx.tab.results.helper.Category;
-import task.EntityPopulationData;
+import task.helper.EntityPopulationData;
 import task.UpdateEntitiesAmountTask;
 import task.UpdateSimulationDetailsTask;
 
@@ -145,6 +143,7 @@ public class ProgressController {
             currentDetailsTask.cancel();
             currentEntitiesAmountData.cancel();
             progress.unbind();
+            //progressBar.setProgress(-1);
         }
 
         currentDetailsTask = new UpdateSimulationDetailsTask(engine, selectedSimulation.getId(), ticks::set, seconds::set, isStop::set);

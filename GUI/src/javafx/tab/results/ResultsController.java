@@ -13,7 +13,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.StackPane;
 import javafx.tab.results.helper.Category;
 import javafx.tab.results.progress.ProgressController;
-import task.EntityPopulationData;
+import task.helper.EntityPopulationData;
 
 public class ResultsController {
 
