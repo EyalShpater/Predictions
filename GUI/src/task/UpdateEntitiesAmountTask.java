@@ -27,23 +27,23 @@ public class UpdateEntitiesAmountTask extends Task<Boolean> {
 
     private IntegerProperty entityAmount;
     private StringProperty entityName;
-    private StackPane stackPaneForEntitiesPopulation;
+//    private StackPane stackPaneForEntitiesPopulation;
 
     private TableView<EntityPopulationData> tableView; // Each task has its own TableView
 
-    public UpdateEntitiesAmountTask(PredictionsLogic engine, int serialNumber, StackPane stackPaneForTableView) {
+    public UpdateEntitiesAmountTask(PredictionsLogic engine, int serialNumber, TableView<EntityPopulationData> entityPopulationDataTableView) {
         this.engine = engine;
         this.serialNumber = serialNumber;
         this.entityAmount = new SimpleIntegerProperty();
         this.entityName = new SimpleStringProperty();
-        this.stackPaneForEntitiesPopulation = stackPaneForTableView;
-        this.tableView = createTableView(); // Create a TableView for this task
+        this.tableView = entityPopulationDataTableView;
+//        this.tableView = createTableView(); // Create a TableView for this task
     }
 
     @Override
     protected Boolean call() throws Exception {
         do {
-            sleepIfSimulationHasNotStarted(serialNumber);
+            sleepIfSimulationHasNotStarted(serialNumber); // todo: use wait and notify ?
             EntitiesAmountDTO entitiesAmountDTO = engine.getSimulationEntitiesAmountMap(serialNumber);
             Map<String, Integer> entityNameToAmount = entitiesAmountDTO.getEntityToPopulationMap();
 
@@ -75,10 +75,10 @@ public class UpdateEntitiesAmountTask extends Task<Boolean> {
         // Update the data in the TableView
         tableView.setItems(entityPopulationList);
 
-        // Ensure the TableView is displayed in the UI
-        if (!stackPaneForEntitiesPopulation.getChildren().contains(tableView)) {
-            stackPaneForEntitiesPopulation.getChildren().add(tableView);
-        }
+//        // Ensure the TableView is displayed in the UI
+//        if (!stackPaneForEntitiesPopulation.getChildren().contains(tableView)) {
+//            stackPaneForEntitiesPopulation.getChildren().add(tableView);
+//        }
     }
 
     private TableView<EntityPopulationData> createTableView() {

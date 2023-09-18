@@ -7,15 +7,15 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.mainScene.main.PredictionsMainAppController;
 import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.StackPane;
 import javafx.tab.results.ResultsController;
 import javafx.tab.results.helper.Category;
+import task.EntityPopulationData;
 import task.UpdateEntitiesAmountTask;
 import task.UpdateSimulationDetailsTask;
-
-import java.util.concurrent.TimeUnit;
 
 public class ProgressController {
 
@@ -55,8 +55,9 @@ public class ProgressController {
 
 
     private TabPane tabPane;
+    private TableView<EntityPopulationData> entityPopulationDataTableView;
 
-    private StackPane stackPaneForTableView;
+    // private StackPane stackPaneForTableView;
 
     @FXML
     void initialize() {
@@ -149,7 +150,7 @@ public class ProgressController {
         currentDetailsTask = new UpdateSimulationDetailsTask(engine, selectedSimulation.getId(), ticks::set, seconds::set);
         progress.bind(currentDetailsTask.progressProperty());
 
-        currentEntitiesAmountData = new UpdateEntitiesAmountTask(engine, selectedSimulation.getId(), stackPaneForTableView);
+        currentEntitiesAmountData = new UpdateEntitiesAmountTask(engine, selectedSimulation.getId(), entityPopulationDataTableView);
 
 
         new Thread(currentDetailsTask).start();
@@ -165,7 +166,7 @@ public class ProgressController {
         this.tabPane = tabPane;
     }
 
-    public void setStackPaneForTableView(StackPane stackPaneForTableView) {
-        this.stackPaneForTableView = stackPaneForTableView;
+    public void setTableView(TableView<EntityPopulationData> entitesPopulationTableView) {
+        this.entityPopulationDataTableView = entitesPopulationTableView;
     }
 }

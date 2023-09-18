@@ -11,24 +11,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="27d35137-667f-4e37-a519-ab836acc0a06" name="Changes" comment="entity Population is working for one simulation">
+    <list default="true" id="27d35137-667f-4e37-a519-ab836acc0a06" name="Changes" comment="ui reflects the engine">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI/src/javafx/tab/results/Results.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/src/javafx/tab/results/Results.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GUI/src/javafx/tab/results/ResultsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/src/javafx/tab/results/ResultsController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GUI/src/javafx/tab/results/progress/ProgressController.java" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/src/javafx/tab/results/progress/ProgressController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/src/task/UpdateSimulationDetailsTask.java" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/src/task/UpdateSimulationDetailsTask.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/definition/world/api/World.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/definition/world/api/World.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/definition/world/impl/WorldImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/definition/world/impl/WorldImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/execution/simulation/api/Simulation.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/execution/simulation/api/Simulation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/execution/simulation/impl/SimulationImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/execution/simulation/impl/SimulationImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/execution/simulation/manager/SimulationManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/execution/simulation/manager/SimulationManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/execution/simulation/termination/api/Termination.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/execution/simulation/termination/api/Termination.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/execution/simulation/termination/impl/TerminationImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/execution/simulation/termination/impl/TerminationImpl.java" afterDir="false" />
-    </list>
-    <list id="54379ed2-acd6-4c1a-9653-030f2a1bccc0" name="Changes by ASUS" comment="">
-      <change beforePath="$PROJECT_DIR$/GUI/src/javafx/tab/newExecution/mainComponent/NewExecutionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/src/javafx/tab/newExecution/mainComponent/NewExecutionController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GUI/src/task/UpdateEntitiesAmountTask.java" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/src/task/UpdateEntitiesAmountTask.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/execution/simulation/api/PredictionsLogic.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/execution/simulation/api/PredictionsLogic.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/execution/simulation/impl/PredictionsLogicImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/execution/simulation/impl/PredictionsLogicImpl.java" afterDir="false" />
+    </list>
+    <list id="54379ed2-acd6-4c1a-9653-030f2a1bccc0" name="Changes by ASUS" comment="ui reflects the engine">
+      <change beforePath="$PROJECT_DIR$/GUI/src/task/UpdateEntitiesAmountTask.java" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/src/task/UpdateEntitiesAmountTask.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -86,6 +77,18 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="jar:///Library/Java/JavaVirtualMachines/jdk-1.8.jdk/Contents/Home/javafx-src.zip!/javafx/fxml/FXMLLoader.java" root0="SKIP_INSPECTION" />
+  </component>
+  <component name="LineStatusTrackerManager">
+    <file path="$PROJECT_DIR$/GUI/src/task/UpdateEntitiesAmountTask.java">
+      <ranges>
+        <range start1="29" end1="30" start2="29" end2="30" changelist="27d35137-667f-4e37-a519-ab836acc0a06" />
+        <range start1="33" end1="34" start2="33" end2="34" changelist="27d35137-667f-4e37-a519-ab836acc0a06" />
+        <range start1="38" end1="40" start2="38" end2="40" changelist="27d35137-667f-4e37-a519-ab836acc0a06" />
+        <range start1="45" end1="46" start2="45" end2="46" changelist="27d35137-667f-4e37-a519-ab836acc0a06" />
+        <range start1="49" end1="50" start2="49" end2="52" changelist="54379ed2-acd6-4c1a-9653-030f2a1bccc0" />
+        <range start1="77" end1="81" start2="79" end2="83" changelist="27d35137-667f-4e37-a519-ab836acc0a06" />
+      </ranges>
+    </file>
   </component>
   <component name="ProblemsViewState">
     <option name="selectedTabId" value="CurrentFile" />
@@ -373,14 +376,6 @@
       <option name="project" value="LOCAL" />
       <updated>1692356632414</updated>
     </task>
-    <task id="LOCAL‎-00101" summary="When you load a new simulation, any data from previous simulations gets wiped.">
-      <option name="closed" value="true" />
-      <created>1693784572586</created>
-      <option name="number" value="00101" />
-      <option name="presentableId" value="LOCAL‎-00101" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1693784572586</updated>
-    </task>
     <task id="LOCAL-00102" summary="added a few changes to context to meet SecondEntity expectations">
       <created>1694069647024</created>
       <option name="number" value="00102" />
@@ -464,14 +459,6 @@
       <option name="presentableId" value="LOCAL-00113" />
       <option name="project" value="LOCAL" />
       <updated>1694365533331</updated>
-    </task>
-    <task id="LOCAL‎-00114" summary="implemented grid neighbour function">
-      <option name="closed" value="true" />
-      <created>1694435079543</created>
-      <option name="number" value="00114" />
-      <option name="presentableId" value="LOCAL‎-00114" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1694435079544</updated>
     </task>
     <task id="LOCAL‎-00115" summary="added termination conditions">
       <option name="closed" value="true" />
@@ -741,7 +728,23 @@
       <option name="project" value="LOCAL" />
       <updated>1695031355816</updated>
     </task>
-    <option name="localTasksCounter" value="149" />
+    <task id="LOCAL‎-00149" summary="ui reflects the engine">
+      <option name="closed" value="true" />
+      <created>1695043050250</created>
+      <option name="number" value="00149" />
+      <option name="presentableId" value="LOCAL‎-00149" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1695043050250</updated>
+    </task>
+    <task id="LOCAL‎-00150" summary="ui reflects the engine">
+      <option name="closed" value="true" />
+      <created>1695043065956</created>
+      <option name="number" value="00150" />
+      <option name="presentableId" value="LOCAL‎-00150" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1695043065956</updated>
+    </task>
+    <option name="localTasksCounter" value="151" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -772,7 +775,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Ruels tab is fixed" />
     <MESSAGE value="General screen is fully functional" />
     <MESSAGE value="updated location remove after instance is killed." />
     <MESSAGE value="added in simulation the option to stop / pause / resume" />
@@ -797,7 +799,8 @@
     <MESSAGE value="some progress" />
     <MESSAGE value="addd EntitiesAmountDTO" />
     <MESSAGE value="entity Population is working for one simulation" />
-    <option name="LAST_COMMIT_MESSAGE" value="entity Population is working for one simulation" />
+    <MESSAGE value="ui reflects the engine" />
+    <option name="LAST_COMMIT_MESSAGE" value="ui reflects the engine" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">

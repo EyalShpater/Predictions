@@ -9,6 +9,7 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.mainScene.main.PredictionsMainAppController;
 import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.StackPane;
 import javafx.tab.results.helper.Category;
 import javafx.tab.results.progress.ProgressController;
@@ -23,7 +24,13 @@ public class ResultsController {
     private ListView<Category> simulationsListView;
 
     @FXML
-    private StackPane stackPaneForTableView;
+    private TableView<EntityPopulationData> entitiesPopulationTableView;
+
+    @FXML
+    private TableColumn<EntityPopulationData, String> entitiesCol;
+
+    @FXML
+    private TableColumn<EntityPopulationData, Integer> populationCol;
 
     @FXML
     private ChoiceBox<String> entityChoiceBox;
@@ -66,6 +73,10 @@ public class ResultsController {
 //        simulationChoiceBox.setOnAction(this::onSelectSimulation);
 //        propertyChoiceBox.setOnAction(this::onSelectProperty);
 //        showByAmountRadioButton.setOnAction(this::onToggleRadioButton);
+
+
+        entitiesCol.setCellValueFactory(new PropertyValueFactory<>("entityName"));
+        populationCol.setCellValueFactory(new PropertyValueFactory<>("population"));
     }
 
     public void setEngine(PredictionsLogic engine) {
@@ -81,7 +92,7 @@ public class ResultsController {
     public void onStartButtonClicked(int newSimulationSerialNumber) {
         //setSimulationChoiceBox();
         //example
-        progressController.setStackPaneForTableView(this.stackPaneForTableView);
+        progressController.setTableView(this.entitiesPopulationTableView);
         System.out.println(progressController);
         SimulationDTO lastSimulation = engine.getSimulationDTOBySerialNumber(newSimulationSerialNumber);
         simulationsListView.getItems().add(new Category(lastSimulation.getStartDate(), lastSimulation.getSerialNumber()));
