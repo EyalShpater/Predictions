@@ -17,6 +17,7 @@ import javafx.tab.details.details.DetailsController;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.Queue;
 
 import javafx.tab.newExecution.mainComponent.NewExecutionController;
 import javafx.tab.results.ResultsController;
@@ -122,5 +123,9 @@ public class PredictionsMainAppController {
 
     public void restoreDataValuesToTiles(SimulationInitDataFromUserDTO userInputOfSimulationBySerialNumber) {
         newExecutionTabController.restoreDataValuesToTiles(userInputOfSimulationBySerialNumber);
+    }
+
+    public Queue<Category> getSimulationsQueue() {
+        return resultsTabController.getWaitingQueue();
     }
 }

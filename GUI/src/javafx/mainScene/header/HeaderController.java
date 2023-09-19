@@ -11,8 +11,11 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
+import javafx.tab.results.ResultsController;
+import javafx.tab.results.helper.Category;
 
 import java.io.File;
+import java.util.Queue;
 
 public class HeaderController {
 
@@ -41,6 +44,7 @@ public class HeaderController {
         selectedFilePath.textProperty().bind(filePath);
         selectedFilePath.disableProperty().bind(isFileSelected.not());
     }
+
 
     @FXML
     void loadFileButtonOnAction(ActionEvent event) {
@@ -83,7 +87,12 @@ public class HeaderController {
 
     @FXML
     void simulationsQueueButtonOnAction(ActionEvent event) {
-
+        Queue<Category> waitingQueue = mainAppController.getSimulationsQueue();
+        for (Category simulationInfo : waitingQueue) {
+            if (!engine.hasStarted(simulationInfo.getId())) {
+                System.out.println("Simulation: #" + simulationInfo.getId() + " is waiting " + simulationInfo.getTime());
+            }
+        }
     }
 
     public SimpleBooleanProperty getIsFileSelectedProperty() {

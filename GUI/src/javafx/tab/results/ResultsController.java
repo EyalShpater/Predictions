@@ -11,6 +11,7 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.mainScene.header.HeaderController;
 import javafx.mainScene.main.PredictionsMainAppController;
 import javafx.scene.Node;
 import javafx.scene.Parent;
@@ -23,6 +24,8 @@ import javafx.tab.results.progress.ProgressController;
 import task.helper.EntityPopulationData;
 
 import java.net.URL;
+import java.util.LinkedList;
+import java.util.Queue;
 
 public class ResultsController {
 
@@ -55,6 +58,7 @@ public class ResultsController {
 
     private TabPane tabPane; //todo: why do we need it?
 
+
     private PredictionsLogic engine;
 
     private ObjectProperty<Category> selectedSimulation = new SimpleObjectProperty<>();
@@ -65,6 +69,8 @@ public class ResultsController {
     private StringProperty entityToView;
 
     private ObservableList<EntityPopulationData> entityPopulationList = FXCollections.observableArrayList();
+
+    private Queue<Category> waitingQueue = new LinkedList<>();
 
     @FXML
     private void initialize() {
@@ -133,7 +139,10 @@ public class ResultsController {
         progressController.setTableView(this.entitiesPopulationTableView);
         System.out.println(progressController);
         SimulationDTO lastSimulation = engine.getSimulationDTOBySerialNumber(newSimulationSerialNumber);
-        simulationsListView.getItems().add(new Category(lastSimulation.getStartDate(), lastSimulation.getSerialNumber()));
+
+        Category simulationInfo = new Category(lastSimulation.getStartDate(), lastSimulation.getSerialNumber());
+        simulationsListView.getItems().add(simulationInfo);
+        waitingQueue.add(simulationInfo);
     }
 
 //    private void onSelectSimulation(ActionEvent event) {
@@ -256,6 +265,10 @@ public class ResultsController {
         sp.getChildren().add(new Label("page 2"));
 
         return sp;
+    }
+
+    public Queue<Category> getWaitingQueue() {
+        return waitingQueue;
     }
 
 }

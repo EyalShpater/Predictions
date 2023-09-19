@@ -33,6 +33,8 @@ public class XmlReader {
         // set thread pool size
         world.setThreadPoolSize(this.prdWorld.getPRDThreadCount());
 
+        world.setGridCols(prdWorld.getPRDGrid().getColumns());
+        world.setGridRows(prdWorld.getPRDGrid().getRows());
     }
 
 }
