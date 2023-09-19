@@ -100,7 +100,7 @@ public class HeaderController {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("SimulationQueuePopup.fxml"));
             Stage popupStage = new Stage();
-            popupStage.initModality(Modality.APPLICATION_MODAL);
+            //popupStage.initModality(Modality.APPLICATION_MODAL);
             popupStage.setTitle("Simulation Queue Details");
 
             loader.setController(new SimulationQueuePopUpController());

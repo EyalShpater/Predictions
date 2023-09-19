@@ -11,11 +11,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="27d35137-667f-4e37-a519-ab836acc0a06" name="Changes" comment="basic waiting queue logic">
-      <change afterPath="$PROJECT_DIR$/GUI/src/javafx/mainScene/header/SimulationQueuePopUpController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GUI/src/javafx/mainScene/header/SimulationQueuePopup.fxml" afterDir="false" />
+    <list default="true" id="27d35137-667f-4e37-a519-ab836acc0a06" name="Changes" comment="finished popup">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GUI/src/javafx/mainScene/header/HeaderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/src/javafx/mainScene/header/HeaderController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI/src/javafx/mainScene/header/SimulationQueuePopUpController.java" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/src/javafx/mainScene/header/SimulationQueuePopUpController.java" afterDir="false" />
     </list>
     <list id="54379ed2-acd6-4c1a-9653-030f2a1bccc0" name="Changes by ASUS" comment="ui reflects the engine" />
     <option name="SHOW_DIALOG" value="false" />
@@ -354,13 +353,6 @@
       <workItem from="1694408417392" duration="10450000" />
       <workItem from="1694524231690" duration="15371000" />
       <workItem from="1694857830392" duration="51381000" />
-    </task>
-    <task id="LOCAL-00104" summary="now working&#10;changed evaluate to get the EntityInstance of secondaryEntity in each iteration in order to creare the proper context , also added functions to context to get the filtered SecondaryEntity list">
-      <created>1694177532976</created>
-      <option name="number" value="00104" />
-      <option name="presentableId" value="LOCAL-00104" />
-      <option name="project" value="LOCAL" />
-      <updated>1694177532976</updated>
     </task>
     <task id="LOCAL-00105" summary="ADDED REPLACE">
       <created>1694185035963</created>
@@ -730,7 +722,14 @@
       <option name="project" value="LOCAL" />
       <updated>1695108731789</updated>
     </task>
-    <option name="localTasksCounter" value="159" />
+    <task id="LOCAL-00159" summary="finished popup">
+      <created>1695124293549</created>
+      <option name="number" value="00159" />
+      <option name="presentableId" value="LOCAL-00159" />
+      <option name="project" value="LOCAL" />
+      <updated>1695124293549</updated>
+    </task>
+    <option name="localTasksCounter" value="160" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -761,7 +760,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="ticks is working" />
     <MESSAGE value="changed the way of getting user init info to the simulation" />
     <MESSAGE value="population is set now by user" />
     <MESSAGE value="you can get now a simulation run details by serial number" />
@@ -786,7 +784,8 @@
     <MESSAGE value="fixed logic" />
     <MESSAGE value="fixed logic in xml" />
     <MESSAGE value="basic waiting queue logic" />
-    <option name="LAST_COMMIT_MESSAGE" value="basic waiting queue logic" />
+    <MESSAGE value="finished popup" />
+    <option name="LAST_COMMIT_MESSAGE" value="finished popup" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
@@ -800,6 +799,11 @@
           <url>file://$PROJECT_DIR$/GUI/src/javafx/input/components/mainComponent/SecondScreenController.java</url>
           <line>156</line>
           <option name="timeStamp" value="17" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/Logic/src/execution/simulation/impl/PredictionsLogicImpl.java</url>
+          <line>186</line>
+          <option name="timeStamp" value="89" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

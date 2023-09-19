@@ -184,7 +184,8 @@ public class PredictionsLogicImpl implements PredictionsLogic , Serializable {
 
     @Override
     public SimulationQueueDto getSimulationQueueDetails() {
-        return allSimulations.getSimulationQueueDetails();
+
+        return allSimulations == null ? null : allSimulations.getSimulationQueueDetails();
     }
 
     //Todo: only for debug! need to be delete!
