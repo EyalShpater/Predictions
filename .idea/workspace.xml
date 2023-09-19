@@ -13,8 +13,7 @@
   <component name="ChangeListManager">
     <list default="true" id="27d35137-667f-4e37-a519-ab836acc0a06" name="Changes" comment="entities and property choiceBox implement">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/src/javafx/tab/results/ResultsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/src/javafx/tab/results/ResultsController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/execution/simulation/data/impl/SimulationDataImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/execution/simulation/data/impl/SimulationDataImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI/src/javafx/tab/newExecution/mainComponent/NewExecutionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/src/javafx/tab/newExecution/mainComponent/NewExecutionController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Logic/src/execution/simulation/impl/SimulationImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/execution/simulation/impl/SimulationImpl.java" afterDir="false" />
     </list>
     <list id="54379ed2-acd6-4c1a-9653-030f2a1bccc0" name="Changes by ASUS" comment="ui reflects the engine" />
@@ -813,7 +812,7 @@
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/Logic/src/action/impl/Proximity.java</url>
           <line>75</line>
-          <properties class="action.impl.Proximity" method="evaluateExpressionAsInteger">
+          <properties class="action.impl.Proximity">
             <option name="EMULATED" value="true" />
             <option name="WATCH_EXIT" value="false" />
           </properties>

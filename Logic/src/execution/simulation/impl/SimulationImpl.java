@@ -132,10 +132,13 @@ public class SimulationImpl implements Simulation , Serializable {
         Map<String, Integer> entityNameToPopulation = new HashMap<>();
 
         for (EntityInstance entityInstance : entityInstances) {
+            String entityName = entityInstance.getName();
+            int currentCount = entityNameToPopulation.getOrDefault(entityName, 0);
+
             if (entityInstance.isAlive()) {
-                String entityName = entityInstance.getName();
-                int currentCount = entityNameToPopulation.getOrDefault(entityName, 0);
                 entityNameToPopulation.put(entityName, currentCount + 1);
+            } else {
+                entityNameToPopulation.put(entityName, currentCount);
             }
         }
 

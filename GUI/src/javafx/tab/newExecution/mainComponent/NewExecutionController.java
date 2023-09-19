@@ -91,8 +91,18 @@ public class NewExecutionController {
     }*/
     public void onNewFileLoaded() {
         cleanOldResults();
+        clearControllersList();
         showEnvVariables();
         showEntities();
+    }
+
+    private void clearControllersList() {
+        if (entityList != null) {
+            entityList.clear();
+        }
+        if (envVarControllerList != null) {
+            envVarControllerList.clear();
+        }
     }
 
     private void showEnvVariables() {
