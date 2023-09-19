@@ -11,15 +11,15 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.mainScene.header.HeaderController;
 import javafx.mainScene.main.PredictionsMainAppController;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.StackPane;
+import javafx.tab.results.analyze.AnalyzePaginationController;
 import javafx.tab.results.helper.Category;
-import javafx.tab.results.histogram.population.PopulationBarChartController;
+import javafx.tab.results.analyze.histogram.population.PopulationBarChartController;
 import javafx.tab.results.progress.ProgressController;
 import task.helper.EntityPopulationData;
 
@@ -51,7 +51,10 @@ public class ResultsController {
     private ChoiceBox<String> propertyChoiceBox;
 
     @FXML
-    private Pagination analyzePaging;
+    private Pagination analyzePagination;
+
+    @FXML
+    private AnalyzePaginationController analyzePaginationController;
 
     @FXML
     private ProgressController progressController;
@@ -86,7 +89,7 @@ public class ResultsController {
         selectedSimulation.addListener((observable, oldValue, newValue) -> onSelectedSimulationChange(newValue));
         entityChoiceBox.setOnAction(this::onSelectedEntity);
         propertyChoiceBox.setOnAction(this::onSelectedProperty);
-        setPagination();
+        analyzePaginationController.setPagination();
 
 //
 //        simulationChoiceBox.setOnAction(this::onSelectSimulation);
@@ -108,7 +111,7 @@ public class ResultsController {
 
             // populationBarChartController.setChart(propertyToView.get(), data);
 
-            analyzePaging.setCurrentPageIndex(1);
+            // analyzePaging.setCurrentPageIndex(1);
 
 //        analyzePaging.page;
         }
@@ -221,50 +224,6 @@ public class ResultsController {
     public void setTabPane(TabPane tabPane) {
         this.tabPane = tabPane;
         progressController.setTabPane(tabPane);
-    }
-
-    private void setPagination() {
-        analyzePaging.setPageFactory(pageIndex -> {
-            switch (pageIndex) {
-                case 0:
-                    return createPopulationBarChart();
-                case 1:
-                    return test();
-//                case 2:
-//                    return createCustomPage();
-                default:
-                    return null;
-            }
-        });
-    }
-
-    private Node createPopulationBarChart() {
-        StackPane sp = new StackPane();
-
-        try {
-            PopulationBarChartController populationBarChartController;
-
-            URL resource = getClass().getResource("/javafx/tab/results/histogram/population/PopulationBarChart.fxml");
-            FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(resource);
-            Parent resultsContent = loader.load();
-            sp.getChildren().add(resultsContent);
-
-            populationBarChartController = loader.getController();
-//            populationBarChartController.setChart(propertyToView.get(), );
-        } catch (Exception ignored) {
-
-        }
-
-        return sp;
-    }
-
-    private Node test() {
-        StackPane sp = new StackPane();
-
-        sp.getChildren().add(new Label("page 2"));
-
-        return sp;
     }
 
     public Queue<Category> getWaitingQueue() {
