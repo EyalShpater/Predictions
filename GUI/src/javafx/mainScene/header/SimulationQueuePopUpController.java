@@ -32,9 +32,9 @@ public class SimulationQueuePopUpController {
     }
 
     public SimulationQueuePopUpController() {
-        currentlyRunning = new SimpleStringProperty("");
-        totalSimulations = new SimpleStringProperty("");
-        currentlyWaiting = new SimpleStringProperty("");
+        currentlyRunning = new SimpleStringProperty("0");
+        totalSimulations = new SimpleStringProperty("0");
+        currentlyWaiting = new SimpleStringProperty("0");
     }
 
     public void initialize() {
@@ -47,13 +47,15 @@ public class SimulationQueuePopUpController {
     private void updateUI() {
         Platform.runLater(() -> {
             SimulationQueueDto simulationQueueDto = engine.getSimulationQueueDetails();
-            int running = simulationQueueDto.getRunning();
-            int total = simulationQueueDto.getTotal();
-            int waiting = simulationQueueDto.getWaiting();
+            if (simulationQueueDto != null) {
+                int running = simulationQueueDto.getRunning();
+                int total = simulationQueueDto.getTotal();
+                int waiting = simulationQueueDto.getWaiting();
 
-            totalSimulations.set(String.valueOf(total));
-            currentlyRunning.set(String.valueOf(running));
-            currentlyWaiting.set(String.valueOf(waiting));
+                totalSimulations.set(String.valueOf(total));
+                currentlyRunning.set(String.valueOf(running));
+                currentlyWaiting.set(String.valueOf(waiting));
+            }
         });
     }
 
