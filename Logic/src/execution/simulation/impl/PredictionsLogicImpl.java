@@ -185,33 +185,4 @@ public class PredictionsLogicImpl implements PredictionsLogic , Serializable {
 
         return allSimulations == null ? null : allSimulations.getSimulationQueueDetails();
     }
-
-    //Todo: only for debug! need to be delete!
-    @Override
-    public void initSampleInformation() {
-        EntityDefinition en1 = new EntityDefinitionImpl("ent-1");
-        en1.addProperty(new PropertyDefinitionImpl("p1", PropertyType.INT, true));
-        en1.addProperty(new PropertyDefinitionImpl("p2", PropertyType.STRING, true));
-        EntityDefinition en2 = new EntityDefinitionImpl("ent-2");
-        en2.addProperty(new PropertyDefinitionImpl("sugar", PropertyType.BOOLEAN, false));
-        en2.addProperty(new PropertyDefinitionImpl("salt", PropertyType.STRING, true));
-
-        world = new WorldImpl();
-        world.addEntity(en1);
-        world.addEntity(en2);
-
-        Rule r1 = new RuleImpl("rule-1", new ActivationImpl(0.3));
-        r1.addAction(new IncreaseAction(en1, "p1", "3"));
-        r1.addAction(new MultiplyAction(en1, "p1", "3", "p1"));
-        world.addRule(r1);
-
-        world.addEnvironmentVariable(new PropertyDefinitionImpl("env-1", PropertyType.STRING, true));
-
-        world.setTermination(new TerminationImpl(5, TerminateCondition.BY_SECONDS));
-        world.setGridCols(100);
-        world.setGridRows(100);
-        world.setThreadPoolSize(5);
-
-        allSimulations = new SimulationManager(world);
-    }
 }

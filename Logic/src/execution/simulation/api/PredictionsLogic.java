@@ -42,8 +42,6 @@ public interface PredictionsLogic {
 
     SimulationInitDataFromUserDTO getUserInputOfSimulationBySerialNumber(int serialNumber);
 
-    void initSampleInformation();
-
     SimulationRunDetailsDTO getSimulationRunDetail(int serialNumber);
 
     EntitiesAmountDTO getSimulationEntitiesAmountMap(int serialNumber);

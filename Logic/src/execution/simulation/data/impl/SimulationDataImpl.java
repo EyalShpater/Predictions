@@ -75,20 +75,30 @@ public class SimulationDataImpl implements SimulationData , Serializable {
             throw new IllegalArgumentException(propertyName + " does not exist");
         }
 
-        return entityInstances.
-                getInstances()
+//        return entityInstances.
+//                getInstances()
+//                .stream()
+//                .filter(entityInstance -> entityInstance.getName().equals(entityName))
+//                .filter(EntityInstance::isAlive)
+//                .map(entityInstance -> entityInstance.getPropertyByName(propertyName))
+//                .map(propertyInstance -> {
+//                    System.out.println(propertyInstance.getValue().getClass());
+//                    if (propertyInstance.getValue() instanceof Integer) {
+//                        return Double.valueOf(propertyInstance.getValue().toString());
+//                    } else {
+//                        return propertyInstance.getValue();
+//                    }
+//                })
+//                .sorted()
+//                .collect(Collectors.toList());
+        return entityInstances
+                .getInstances()
                 .stream()
                 .filter(entityInstance -> entityInstance.getName().equals(entityName))
                 .filter(EntityInstance::isAlive)
                 .map(entityInstance -> entityInstance.getPropertyByName(propertyName))
-                .map(propertyInstance -> {
-                    if (propertyInstance.getValue() instanceof Integer) {
-                        return Double.valueOf(propertyInstance.getValue().toString());
-                    } else {
-                        return propertyInstance.getValue();
-                    }
-                })
-                .sorted()
+                .map(PropertyInstance::getValue)
+                .filter(obj -> obj instanceof Object)
                 .collect(Collectors.toList());
     }
 
