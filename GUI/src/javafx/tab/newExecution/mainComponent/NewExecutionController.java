@@ -54,7 +54,6 @@ public class NewExecutionController {
     private TabPane tabPane;
     private PredictionsLogic engine;
     private PredictionsMainAppController mainAppController;
-    int count = 1;
 
 
     public NewExecutionController() {
