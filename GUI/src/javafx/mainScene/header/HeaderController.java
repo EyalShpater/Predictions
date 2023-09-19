@@ -5,16 +5,20 @@ import javafx.beans.property.SimpleBooleanProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.mainScene.main.PredictionsMainAppController;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.stage.FileChooser;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.tab.results.ResultsController;
 import javafx.tab.results.helper.Category;
 
 import java.io.File;
+import java.io.IOException;
 import java.util.Queue;
 
 public class HeaderController {
@@ -87,11 +91,28 @@ public class HeaderController {
 
     @FXML
     void simulationsQueueButtonOnAction(ActionEvent event) {
-        Queue<Category> waitingQueue = mainAppController.getSimulationsQueue();
+        /*Queue<Category> waitingQueue = mainAppController.getSimulationsQueue();
         for (Category simulationInfo : waitingQueue) {
             if (!engine.hasStarted(simulationInfo.getId())) {
                 System.out.println("Simulation: #" + simulationInfo.getId() + " is waiting " + simulationInfo.getTime());
             }
+        }*/
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("SimulationQueuePopup.fxml"));
+            Stage popupStage = new Stage();
+            popupStage.initModality(Modality.APPLICATION_MODAL);
+            popupStage.setTitle("Simulation Queue Details");
+
+            loader.setController(new SimulationQueuePopUpController());
+            popupStage.setScene(new Scene(loader.load()));
+
+            SimulationQueuePopUpController popupController = loader.getController();
+            popupController.setEngine(this.engine);
+
+            popupStage.showAndWait();
+        } catch (IOException e) {
+            // Handle the exception
+            e.printStackTrace();
         }
     }
 
