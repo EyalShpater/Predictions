@@ -34,6 +34,8 @@ public class XmlValidator {
         entityList = world.getPRDEntities().getPRDEntity();
         envPropertiesList = world.getPRDEnvironment().getPRDEnvProperty();
 
+        checkGridInRange(world);
+
         // 2) check env-vars to have different names
         checkEnvVarsNames(world.getPRDEnvironment());
 
@@ -53,8 +55,6 @@ public class XmlValidator {
         // 6) check that in (calculation \ increase \ decrease) the args are numbers only including helper functions
         checkNumericCalculationActionToIncludeNumericArgs(world);
 
-        //7) Check grid to be in range 10 to 100
-        checkGridInRange(world);
 
     }
 
