@@ -53,6 +53,7 @@ public class EntityController extends BasicEntityData {
 
     public void clear() {
         entityPopulationTextField.clear();
+        setPopulation("0");
     }
 
     @Override
