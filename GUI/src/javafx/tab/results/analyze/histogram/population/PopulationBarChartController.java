@@ -24,7 +24,10 @@ public class PopulationBarChartController {
         values = createSortedValuesToAmountMap(data.getPropertyOfEntitySortedByValues());
 
         values.forEach(entry -> series.getData().add(new XYChart.Data(entry.getKey().toString(), entry.getValue())));
-        histogramBarChart.getData().add(series);
+
+        if (!series.getData().isEmpty()) {
+            histogramBarChart.getData().add(series);
+        }
     }
 
     private List<Map.Entry<Object, Integer>> createSortedValuesToAmountMap(List<Object> values) {

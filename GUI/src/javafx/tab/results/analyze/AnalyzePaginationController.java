@@ -1,5 +1,7 @@
 package javafx.tab.results.analyze;
 
+import impl.SimulationDataDTO;
+import javafx.beans.property.StringProperty;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -7,6 +9,7 @@ import javafx.scene.Parent;
 import javafx.scene.control.Label;
 import javafx.scene.control.Pagination;
 import javafx.scene.layout.StackPane;
+import javafx.tab.results.ResultsController;
 import javafx.tab.results.analyze.histogram.population.PopulationBarChartController;
 
 import java.net.URL;
@@ -16,7 +19,19 @@ public class AnalyzePaginationController {
     @FXML
     private Pagination analyzePaging;
 
-    public void setPagination() {
+    private ResultsController resultsController;
+    private PopulationBarChartController populationBarChartController;
+
+    public void setPopulationChart(String property, SimulationDataDTO data) {
+        populationBarChartController.setChart(property, data);
+    }
+
+    @FXML
+    private void initialize() {
+        setPagination();
+    }
+
+    private void setPagination() {
         analyzePaging.setPageFactory(pageIndex -> {
             switch (pageIndex) {
                 case 0:
@@ -35,8 +50,6 @@ public class AnalyzePaginationController {
         StackPane sp = new StackPane();
 
         try {
-            PopulationBarChartController populationBarChartController;
-
             URL resource = getClass().getResource("/javafx/tab/results/analyze/histogram/population/PopulationBarChart.fxml");
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(resource);
@@ -44,7 +57,6 @@ public class AnalyzePaginationController {
             sp.getChildren().add(resultsContent);
 
             populationBarChartController = loader.getController();
-//            populationBarChartController.setChart(propertyToView.get(), );
         } catch (Exception ignored) {
 
         }
@@ -55,6 +67,12 @@ public class AnalyzePaginationController {
     private Node test() {
         StackPane sp = new StackPane();
 
+        sp.getChildren().add(new Label("Page 2"));
+
         return sp;
+    }
+
+    public void setResultsController(ResultsController resultsController) {
+        this.resultsController = resultsController;
     }
 }

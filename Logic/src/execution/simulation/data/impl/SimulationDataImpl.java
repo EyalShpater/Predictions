@@ -11,6 +11,7 @@ import java.io.Serializable;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 import java.util.stream.Collectors;
 
 public class SimulationDataImpl implements SimulationData , Serializable {
@@ -75,13 +76,20 @@ public class SimulationDataImpl implements SimulationData , Serializable {
         }
 
         return entityInstances.
-                getInstances().
-                stream().
-                filter(EntityInstance::isAlive).
-                map(entityInstance -> entityInstance.getPropertyByName(propertyName)).
-                map(PropertyInstance::getValue)
-                .sorted().
-                collect(Collectors.toList());
+                getInstances()
+                .stream()
+                .filter(entityInstance -> entityInstance.getName().equals(entityName))
+                .filter(EntityInstance::isAlive)
+                .map(entityInstance -> entityInstance.getPropertyByName(propertyName))
+                .map(propertyInstance -> {
+                    if (propertyInstance.getValue() instanceof Integer) {
+                        return Double.valueOf(propertyInstance.getValue().toString());
+                    } else {
+                        return propertyInstance.getValue();
+                    }
+                })
+                .sorted()
+                .collect(Collectors.toList());
     }
 
     private EntityDefinition getEntityByName(String name) {

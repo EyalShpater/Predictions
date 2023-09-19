@@ -53,7 +53,6 @@ public class SimulationImpl implements Simulation , Serializable {
         this.environmentVariables = null;
         this.data = null;
         this.startTime = System.currentTimeMillis();
-        ;
         this.runningTimeInSeconds = 0;
         this.pauseDuration = 0;
         this.space = new SphereSpaceImpl(world.getGridRows(), world.getGridCols());

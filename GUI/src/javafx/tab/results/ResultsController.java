@@ -89,16 +89,11 @@ public class ResultsController {
         selectedSimulation.addListener((observable, oldValue, newValue) -> onSelectedSimulationChange(newValue));
         entityChoiceBox.setOnAction(this::onSelectedEntity);
         propertyChoiceBox.setOnAction(this::onSelectedProperty);
-        analyzePaginationController.setPagination();
-
-//
-//        simulationChoiceBox.setOnAction(this::onSelectSimulation);
-//        propertyChoiceBox.setOnAction(this::onSelectProperty);
-//        showByAmountRadioButton.setOnAction(this::onToggleRadioButton);
-
 
         entitiesCol.setCellValueFactory(new PropertyValueFactory<>("entityName"));
         populationCol.setCellValueFactory(new PropertyValueFactory<>("population"));
+
+        analyzePaginationController.setResultsController(this);
     }
 
     private void onSelectedProperty(ActionEvent actionEvent) {
@@ -109,11 +104,9 @@ public class ResultsController {
                     propertyChoiceBox.getValue()
             );
 
-            // populationBarChartController.setChart(propertyToView.get(), data);
-
-            // analyzePaging.setCurrentPageIndex(1);
-
-//        analyzePaging.page;
+            if (!propertyChoiceBox.getItems().isEmpty()) {
+                analyzePaginationController.setPopulationChart(propertyToView.get(), data);
+            }
         }
     }
 
@@ -157,26 +150,6 @@ public class ResultsController {
 //        }
 //    }
 //
-
-    private void onSelectProperty(ActionEvent event) { //todo: fix exception here
-        SimulationDataDTO data = engine.getSimulationData(
-                selectedSimulation.getValue().getId(),
-                entityToView.get(),
-                propertyToView.get()
-        );
-
-//        setChart(data);
-    }
-
-//    private void setSimulationChoiceBox() {
-//        simulationChoiceBox.getItems().clear(); // todo: inefficient
-//
-//        engine.getPreviousSimulationsAsDTO()
-//                .stream()
-//                .map(simulation -> new Category(simulation.getStartDate(), simulation.getSerialNumber()))
-//                .forEach(simulationChoiceBox.getItems()::add);
-//
-//    }
 
     private void setPropertyChoiceBox() {
         propertyChoiceBox.getItems().clear();
@@ -230,4 +203,19 @@ public class ResultsController {
         return waitingQueue;
     }
 
+    public String getPropertyToView() {
+        return propertyToView.get();
+    }
+
+    public StringProperty propertyToViewProperty() {
+        return propertyToView;
+    }
+
+    public String getEntityToView() {
+        return entityToView.get();
+    }
+
+    public StringProperty entityToViewProperty() {
+        return entityToView;
+    }
 }

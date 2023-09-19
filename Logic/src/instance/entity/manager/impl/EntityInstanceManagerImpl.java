@@ -92,7 +92,7 @@ public class EntityInstanceManagerImpl implements EntityInstanceManager , Serial
 
     @Override
     public List<EntityInstance> getInstances() {
-        return new ArrayList<EntityInstance>(instances.values());
+        return new ArrayList<>(instances.values());
     }
 
 //    @Override
