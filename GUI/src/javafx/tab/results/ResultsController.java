@@ -66,7 +66,6 @@ public class ResultsController {
 
     private ObjectProperty<Category> selectedSimulation = new SimpleObjectProperty<>();
     private PredictionsMainAppController predictionsMainAppController;
-    private PopulationBarChartController populationBarChartController;
 
     private StringProperty propertyToView;
     private StringProperty entityToView;
@@ -112,6 +111,7 @@ public class ResultsController {
 
     private void onSelectedEntity(ActionEvent actionEvent) {
         setPropertyChoiceBox();
+        analyzePaginationController.setConsistencyChart(engine.getConsistencyByEntityName(selectedSimulation.get().getId(), entityToView.get()));
     }
 
     private void onSelectedSimulationChange(Category newSimulation) {

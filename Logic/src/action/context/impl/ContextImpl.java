@@ -122,7 +122,7 @@ public class ContextImpl implements Context, Serializable {
                 entityInstanceManager.createNewEntityInstanceFromScratch(entityToCreate, primaryEntityInstance.getSpace());
                 break;
         }
-        this.primaryEntityInstance.kill();
+        this.primaryEntityInstance.kill(currentTickNumber);
     }
 
     private List<EntityInstance> getInstancesWithName(String secondEntityName) {

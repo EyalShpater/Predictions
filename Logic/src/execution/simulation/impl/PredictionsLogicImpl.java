@@ -84,6 +84,11 @@ public class PredictionsLogicImpl implements PredictionsLogic , Serializable {
     }
 
     @Override
+    public Map<String, Double> getConsistencyByEntityName(int serialNumber, String entityName) {
+        return allSimulations.getSimulationBySerialNumber(serialNumber).getConsistencyByEntityName(entityName);
+    }
+
+    @Override
     public int runNewSimulation(SimulationInitDataFromUserDTO initData) {
         return allSimulations.runNewSimulation(world, initData);
     }

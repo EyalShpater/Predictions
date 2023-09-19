@@ -20,7 +20,7 @@ public class KillAction extends AbstractAction implements Serializable {
 
     @Override
     public void apply(Context context) {
-        context.getPrimaryEntityInstance().kill();
+        context.getPrimaryEntityInstance().kill(context.getTickNumber());
     }
 
     @Override

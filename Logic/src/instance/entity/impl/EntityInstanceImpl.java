@@ -17,6 +17,7 @@ public class EntityInstanceImpl implements EntityInstance, Serializable {
     private final String name;
     private Map<String, PropertyInstance> propNameToPropInstance;
     private boolean isAlive;
+    private int deathTick = -1;
     private SphereSpace space;
     private Location locationInSpace;
 
@@ -46,6 +47,11 @@ public class EntityInstanceImpl implements EntityInstance, Serializable {
     }
 
     @Override
+    public List<PropertyInstance> getAllProperties() {
+        return new ArrayList<>(propNameToPropInstance.values());
+    }
+
+    @Override
     public int getId() {
         return id;
     }
@@ -61,9 +67,16 @@ public class EntityInstanceImpl implements EntityInstance, Serializable {
     }
 
     @Override
-    public void kill(){
+    public void kill(int tick) {
         space.removeEntityFromSpace(this);
         this.isAlive = false;
+        this.deathTick = tick;
+    }
+
+
+    @Override
+    public int getDeathTick() {
+        return deathTick;
     }
 
     @Override

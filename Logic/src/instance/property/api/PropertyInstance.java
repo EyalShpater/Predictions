@@ -15,4 +15,6 @@ public interface PropertyInstance extends DTOConvertible<PropertyDefinitionDTO> 
     void setValue(Object val, Context context);
 
     int getLastUpdateTick();
+
+    double getAverageConsistency(int finalTick, int deathTick);
 }

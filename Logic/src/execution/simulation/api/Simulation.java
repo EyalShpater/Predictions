@@ -7,6 +7,8 @@ import execution.simulation.termination.api.TerminateCondition;
 import impl.*;
 import instance.enviornment.api.ActiveEnvironment;
 
+import java.util.Map;
+
 public interface Simulation extends DTOConvertible<SimulationDTO> {
     int getSerialNumber();
 
@@ -31,6 +33,8 @@ public interface Simulation extends DTOConvertible<SimulationDTO> {
     SimulationDataDTO getResultAsDTO(String entityName, String propertyName);
 
     SimulationRunDetailsDTO createRunDetailDTO();
+
+    Map<String, Double> getConsistencyByEntityName(String entityName);
 
     SimulationInitDataFromUserDTO getUserInputDTO();
 

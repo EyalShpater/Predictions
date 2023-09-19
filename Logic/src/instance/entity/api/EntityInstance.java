@@ -13,11 +13,15 @@ public interface EntityInstance {
 
     PropertyInstance getPropertyByName(String name);
 
+    List<PropertyInstance> getAllProperties();
+
     String getName();
 
     boolean isAlive();
 
-    void kill();
+    void kill(int tick);
+
+    int getDeathTick();
 
     void setSpace(SphereSpace space);
 

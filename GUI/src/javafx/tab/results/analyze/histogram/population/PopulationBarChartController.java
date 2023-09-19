@@ -2,8 +2,9 @@ package javafx.tab.results.analyze.histogram.population;
 
 import impl.SimulationDataDTO;
 import javafx.fxml.FXML;
-import javafx.scene.chart.BarChart;
-import javafx.scene.chart.XYChart;
+import javafx.scene.Scene;
+import javafx.scene.chart.*;
+import javafx.scene.control.ScrollPane;
 
 import java.util.*;
 
@@ -14,8 +15,12 @@ public class PopulationBarChartController {
 
     private SimulationDataDTO data;
 
+    @FXML
+    private void initialize() {
+    }
+
     public void setChart(String propertyToView, SimulationDataDTO data) {
-        XYChart.Series series = new XYChart.Series<>();
+        XYChart.Series<String, Integer> series = new XYChart.Series<>();
         List<Map.Entry<Object, Integer>> values;
 
         histogramBarChart.getData().clear();
@@ -23,7 +28,7 @@ public class PopulationBarChartController {
         series.setName(propertyToView);
         values = createSortedValuesToAmountMap(data.getPropertyOfEntitySortedByValues());
 
-        values.forEach(entry -> series.getData().add(new XYChart.Data(entry.getKey().toString(), entry.getValue())));
+        values.forEach(entry -> series.getData().add(new XYChart.Data<>(entry.getKey().toString(), entry.getValue())));
 
         if (!series.getData().isEmpty()) {
             histogramBarChart.getData().add(series);

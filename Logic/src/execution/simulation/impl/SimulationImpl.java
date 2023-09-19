@@ -18,10 +18,7 @@ import instance.enviornment.api.ActiveEnvironment;
 import instance.enviornment.impl.ActiveEnvironmentImpl;
 
 import java.io.Serializable;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Random;
+import java.util.*;
 import java.util.concurrent.TimeUnit;
 import java.util.stream.Collectors;
 
@@ -156,6 +153,41 @@ public class SimulationImpl implements Simulation , Serializable {
                 getStartProgress(),
                 getEndProgress()
         );
+    }
+
+    public Map<String, Double> getConsistencyByEntityName(String entityName) {
+        Map<String, Double> consistency = new HashMap<>();
+        Map<String, List<Double>> calculateAverage = new HashMap<>();
+
+        entities
+                .getInstances()
+                .stream()
+                .filter(entityInstance -> entityInstance.getName().equals(entityName))
+                .forEach(entityInstance -> {
+                    entityInstance
+                            .getAllProperties()
+                            .forEach(propertyInstance -> {
+                                if (!calculateAverage.containsKey(propertyInstance.getName())) {
+                                    calculateAverage.put(propertyInstance.getName(), new ArrayList<>());
+                                }
+
+                                calculateAverage
+                                        .get(propertyInstance.getName()).
+                                        add(propertyInstance.getAverageConsistency(tick, entityInstance.getDeathTick()));
+                            });
+                });
+
+        calculateAverage.forEach((propertyName, values) -> {
+            consistency.put(
+                    propertyName,
+                    values
+                            .stream()
+                            .mapToDouble(Double::doubleValue)
+                            .average()
+                            .orElse(0));
+        });
+
+        return consistency;
     }
 
     private double getEndProgress() {

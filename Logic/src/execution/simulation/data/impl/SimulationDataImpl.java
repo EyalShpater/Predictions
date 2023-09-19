@@ -13,6 +13,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class SimulationDataImpl implements SimulationData , Serializable {
 
@@ -75,22 +76,6 @@ public class SimulationDataImpl implements SimulationData , Serializable {
             throw new IllegalArgumentException(propertyName + " does not exist");
         }
 
-//        return entityInstances.
-//                getInstances()
-//                .stream()
-//                .filter(entityInstance -> entityInstance.getName().equals(entityName))
-//                .filter(EntityInstance::isAlive)
-//                .map(entityInstance -> entityInstance.getPropertyByName(propertyName))
-//                .map(propertyInstance -> {
-//                    System.out.println(propertyInstance.getValue().getClass());
-//                    if (propertyInstance.getValue() instanceof Integer) {
-//                        return Double.valueOf(propertyInstance.getValue().toString());
-//                    } else {
-//                        return propertyInstance.getValue();
-//                    }
-//                })
-//                .sorted()
-//                .collect(Collectors.toList());
         return entityInstances
                 .getInstances()
                 .stream()
@@ -98,7 +83,6 @@ public class SimulationDataImpl implements SimulationData , Serializable {
                 .filter(EntityInstance::isAlive)
                 .map(entityInstance -> entityInstance.getPropertyByName(propertyName))
                 .map(PropertyInstance::getValue)
-                .filter(obj -> obj instanceof Object)
                 .collect(Collectors.toList());
     }
 

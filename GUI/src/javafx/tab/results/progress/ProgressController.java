@@ -111,7 +111,7 @@ public class ProgressController {
 
     private void changePauseButtonIcon() {
         if (isStop.get()) {
-            //
+            //todo
         } else if (isPause.get()) {
             pauseButtonIcon.setImage(new Image("javafx/tab/results/resources/play-button.png"));
         } else {

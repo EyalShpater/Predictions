@@ -49,4 +49,6 @@ public interface PredictionsLogic {
     SimulationQueueDto getSimulationQueueDetails();
 
     boolean hasStarted(int serialNumber);
+
+    Map<String, Double> getConsistencyByEntityName(int serialNumber, String entityName);
 }

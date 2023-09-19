@@ -1,9 +1,11 @@
 package instance.property.api;
 
 public class Consistency {
-    int lastUpdatedTick;
-    int numOfChanges;
-    double average;
+    private int lastUpdatedTick;
+    private int numOfChanges;
+    private double average;
+
+    public static final int NOT_DEAD = -1;
 
     public void update(int currentTick) {
         if (currentTick != lastUpdatedTick) {
@@ -13,8 +15,10 @@ public class Consistency {
         }
     }
 
-    public double calculateAverage(int endTick) {
-        int finalNotUpdatedTicks = endTick - lastUpdatedTick;
+    public double calculateAverage(int endTick, int deathTick) {
+        int finalNotUpdatedTicks = deathTick == NOT_DEAD ?
+                endTick - lastUpdatedTick :
+                deathTick - lastUpdatedTick;
 
         average += finalNotUpdatedTicks;
         numOfChanges++;
