@@ -78,7 +78,7 @@ public class UpdateEntitiesAmountTask extends Task<Boolean> {
             Long population = entityNameToAmount.get(entityName);
             EntityPopulationData entityPopulationData = new EntityPopulationData(entityName, population);
             entityPopulationList.add(entityPopulationData);
-            System.out.println("Entity: " + entityName + ", Population: " + population);
+            //System.out.println("Entity: " + entityName + ", Population: " + population);
         }
 
         tableView.setItems(entityPopulationList);
