@@ -6,9 +6,10 @@ import grid.api.SphereSpace;
 import instance.entity.api.EntityInstance;
 
 import java.util.List;
+import java.util.Map;
 
 public interface EntityInstanceManager {
-    void createInstancesFromDefinition(EntityDefinition entityDefinition, int population, SphereSpace space);
+    void createMultipleInstancesFromDefinition(EntityDefinition entityDefinition, int population, SphereSpace space);
 
     List<EntityInstance> getInstances();
 
@@ -17,4 +18,10 @@ public interface EntityInstanceManager {
     void createNewEntityInstanceFromScratch(EntityDefinition entityToCreate, SphereSpace space);
 
     void createNewEntityInstanceWithSamePropertyValues(EntityInstance entityToCopy, EntityDefinition entityToCreate, Context context);
+
+    Map<String, Long> getPopulationCountByTick(int tick);
+
+    Map<Integer, Map<String, Long>> getPopulationCount();
+
+    void updatePopulationCount(int tick, Map<String, Long> entitiesToPopulation);
 }

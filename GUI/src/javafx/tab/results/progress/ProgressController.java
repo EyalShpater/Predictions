@@ -49,7 +49,7 @@ public class ProgressController {
     private ResultsController resultsController;
 
     private UpdateSimulationDetailsTask currentDetailsTask;
-    private UpdateEntitiesAmountTask currentEntitiesAmountData;
+    private UpdateEntitiesAmountTask currentEntitiesAmountDataTask;
 
 
     private TabPane tabPane;
@@ -141,20 +141,20 @@ public class ProgressController {
         isStop.set(engine.isStop(newValue.getId()) || engine.isEnded(newValue.getId()));
         isPause.set(engine.isPaused(newValue.getId()));
 
-        if (currentEntitiesAmountData != null && currentDetailsTask != null) {
+        if (currentEntitiesAmountDataTask != null && currentDetailsTask != null) {
             currentDetailsTask.cancel();
-            currentEntitiesAmountData.cancel();
+            currentEntitiesAmountDataTask.cancel();
             progress.unbind();
         }
 
         currentDetailsTask = new UpdateSimulationDetailsTask(engine, selectedSimulation.getId(), ticks::set, seconds::set, isStop::set);
         progress.bind(currentDetailsTask.progressProperty());
 
-        currentEntitiesAmountData = new UpdateEntitiesAmountTask(engine, selectedSimulation.getId(), entityPopulationDataTableView);
+        currentEntitiesAmountDataTask = new UpdateEntitiesAmountTask(engine, selectedSimulation.getId(), entityPopulationDataTableView);
 
 
         new Thread(currentDetailsTask).start();
-        new Thread(currentEntitiesAmountData).start();
+        new Thread(currentEntitiesAmountDataTask).start();
     }
 
     public void setPredictionsMainAppController(PredictionsMainAppController predictionsMainAppController) {

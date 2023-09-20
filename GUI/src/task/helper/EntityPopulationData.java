@@ -2,9 +2,9 @@ package task.helper;
 
 public class EntityPopulationData {
     private final String entityName;
-    private final int population;
+    private final long population;
 
-    public EntityPopulationData(String entityName, int population) {
+    public EntityPopulationData(String entityName, long population) {
         this.entityName = entityName;
         this.population = population;
     }
@@ -13,7 +13,7 @@ public class EntityPopulationData {
         return entityName;
     }
 
-    public int getPopulation() {
+    public long getPopulation() {
         return population;
     }
 }

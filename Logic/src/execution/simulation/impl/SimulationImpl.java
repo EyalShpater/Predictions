@@ -34,6 +34,7 @@ public class SimulationImpl implements Simulation , Serializable {
     private SphereSpace space;
     private SimulationInitDataFromUserDTO initData;
 
+    private Map<Integer, Map<String, Long>> populationCounter;
     private long startTime;
     private long runningTimeInSeconds;
     private long pauseDuration;
@@ -74,6 +75,7 @@ public class SimulationImpl implements Simulation , Serializable {
 
             entities.moveAllEntitiesInSpace(space);
             executeRules(tick);
+            entities.updatePopulationCount(tick, createEntityNameToPopulationMap());
             tick++;
 
             if (isPause) {
@@ -81,11 +83,7 @@ public class SimulationImpl implements Simulation , Serializable {
                 runningTimeInSeconds = TimeUnit.MILLISECONDS.toSeconds(System.currentTimeMillis() - startTime - pauseDuration);
             }
 
-            try {
-                Thread.sleep(100);
-            } catch (InterruptedException e) {
-                throw new RuntimeException(e);
-            }
+            sleep();
         }
 
         data = new SimulationDataImpl(serialNumber, startTime, world.getEntities(), entities, initData);
@@ -115,7 +113,7 @@ public class SimulationImpl implements Simulation , Serializable {
 
     @Override
     public EntitiesAmountDTO createEntitiesAmountDTO() {
-        return new EntitiesAmountDTO(createEntityNameToPopulationFromEntityInstanceManager());
+        return new EntitiesAmountDTO(createEntityNameToPopulationMap());
     }
 
     @Override
@@ -229,7 +227,7 @@ public class SimulationImpl implements Simulation , Serializable {
             population = initData
                     .getEntityNameToPopulation()
                     .get(entityDefinition.getName());
-            instances.createInstancesFromDefinition(entityDefinition, population, space);
+            instances.createMultipleInstancesFromDefinition(entityDefinition, population, space);
         }
 
         entities = instances;
@@ -346,5 +344,32 @@ public class SimulationImpl implements Simulation , Serializable {
                         .equals(entity.getName())
                 )
                 .forEach(action -> action.invoke(new ContextImpl(entity, entities, environmentVariables, tick)));
+    }
+
+    private Map<String, Long> createEntityNameToPopulationMap() {
+        List<EntityInstance> entityInstances = entities.getInstances();
+        Map<String, Long> entityNameToPopulation = new HashMap<>();
+
+        for (EntityInstance entityInstance : entityInstances) {
+            String entityName = entityInstance.getName();
+            long currentCount = entityNameToPopulation.getOrDefault(entityName, 0L);
+
+            if (entityInstance.isAlive()) {
+                entityNameToPopulation.put(entityName, currentCount + 1);
+            } else {
+                entityNameToPopulation.put(entityName, currentCount);
+            }
+        }
+
+        return entityNameToPopulation;
+    }
+
+
+    private void sleep() {
+        try {
+            Thread.sleep(100);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
     }
 }

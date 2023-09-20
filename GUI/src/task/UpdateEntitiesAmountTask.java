@@ -46,7 +46,7 @@ public class UpdateEntitiesAmountTask extends Task<Boolean> {
         do {
             if (simulationStarted(serialNumber)) {
                 EntitiesAmountDTO entitiesAmountDTO = engine.getSimulationEntitiesAmountMap(serialNumber);
-                Map<String, Integer> entityNameToAmount = entitiesAmountDTO.getEntityToPopulationMap();
+                Map<String, Long> entityNameToAmount = entitiesAmountDTO.getEntityToPopulationMap();
 
                 Platform.runLater(() -> {
                     tableView.setVisible(true);
@@ -71,11 +71,11 @@ public class UpdateEntitiesAmountTask extends Task<Boolean> {
     }
 
 
-    private void updateTableView(Map<String, Integer> entityNameToAmount) {
+    private void updateTableView(Map<String, Long> entityNameToAmount) {
         ObservableList<EntityPopulationData> entityPopulationList = FXCollections.observableArrayList();
 
         for (String entityName : entityNameToAmount.keySet()) {
-            Integer population = entityNameToAmount.get(entityName);
+            Long population = entityNameToAmount.get(entityName);
             EntityPopulationData entityPopulationData = new EntityPopulationData(entityName, population);
             entityPopulationList.add(entityPopulationData);
             System.out.println("Entity: " + entityName + ", Population: " + population);
