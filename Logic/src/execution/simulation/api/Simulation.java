@@ -2,10 +2,9 @@ package execution.simulation.api;
 
 import api.DTOConvertible;
 import definition.world.api.World;
-import execution.simulation.data.api.SimulationData;
 import execution.simulation.termination.api.TerminateCondition;
 import impl.*;
-import instance.enviornment.api.ActiveEnvironment;
+import javafx.util.Pair;
 
 import java.util.Map;
 
@@ -45,4 +44,8 @@ public interface Simulation extends DTOConvertible<SimulationDTO> {
     EntitiesAmountDTO createEntitiesAmountDTO();
 
     boolean isStarted();
+
+    Map<Integer, Map<String, Long>> getPopulationPerTickData();
+
+    Map<String, Map<Integer, Long>> getPopulationCountSortedByName();
 }

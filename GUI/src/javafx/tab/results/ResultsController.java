@@ -10,20 +10,15 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.mainScene.main.PredictionsMainAppController;
-import javafx.scene.Node;
-import javafx.scene.Parent;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.StackPane;
 import javafx.tab.results.analyze.AnalyzePaginationController;
 import javafx.tab.results.helper.Category;
-import javafx.tab.results.analyze.histogram.population.PopulationBarChartController;
 import javafx.tab.results.progress.ProgressController;
 import task.helper.EntityPopulationData;
 
-import java.net.URL;
 import java.util.LinkedList;
 import java.util.Queue;
 
@@ -103,8 +98,10 @@ public class ResultsController {
                     propertyChoiceBox.getValue()
             );
 
+            setPopulationData();
+
             if (!propertyChoiceBox.getItems().isEmpty()) {
-                analyzePaginationController.setPopulationChart(propertyToView.get(), data);
+                analyzePaginationController.setPropertiesChart(propertyToView.get(), data);
             }
         }
     }
@@ -197,6 +194,10 @@ public class ResultsController {
     public void setTabPane(TabPane tabPane) {
         this.tabPane = tabPane;
         progressController.setTabPane(tabPane);
+    }
+
+    public void setPopulationData() {
+        analyzePaginationController.setPopulationData(engine.getPopulationCountSortedByName(selectedSimulation.get().getId()));
     }
 
     public Queue<Category> getWaitingQueue() {

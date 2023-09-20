@@ -6,7 +6,7 @@
 
 <BarChart fx:id="histogramBarChart" animated="false" xmlns="http://javafx.com/javafx/8.0.171"
           xmlns:fx="http://javafx.com/fxml/1"
-          fx:controller="javafx.tab.results.analyze.histogram.population.PopulationBarChartController">
+          fx:controller="javafx.tab.results.analyze.histogram.property.PropertyChartController">
   <xAxis>
     <CategoryAxis side="BOTTOM"/>
   </xAxis>

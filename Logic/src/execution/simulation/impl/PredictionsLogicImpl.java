@@ -1,34 +1,21 @@
 package execution.simulation.impl;
 
-import action.impl.IncreaseAction;
-import action.impl.MultiplyAction;
-import api.DTOConvertible;
-import definition.entity.api.EntityDefinition;
-import definition.entity.impl.EntityDefinitionImpl;
-import definition.property.api.PropertyType;
-import definition.property.impl.PropertyDefinitionImpl;
 import execution.simulation.api.PredictionsLogic;
 import execution.simulation.manager.SimulationManager;
 import definition.world.api.World;
 import definition.world.impl.WorldImpl;
-import execution.simulation.termination.api.TerminateCondition;
-import execution.simulation.termination.impl.TerminationImpl;
 import execution.simulation.xml.reader.impl.XmlReader;
 import execution.simulation.xml.validation.XmlValidator;
 import impl.*;
-import instance.entity.api.EntityInstance;
 import instance.enviornment.api.ActiveEnvironment;
 import instance.enviornment.impl.ActiveEnvironmentImpl;
-import rule.api.Rule;
-import rule.impl.ActivationImpl;
-import rule.impl.RuleImpl;
+import javafx.util.Pair;
 
 import javax.xml.bind.JAXBException;
 import java.io.Serializable;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.stream.Collectors;
 
 public class PredictionsLogicImpl implements PredictionsLogic , Serializable {
     private static final int DEFAULT_START_POPULATION = 0;
@@ -86,6 +73,16 @@ public class PredictionsLogicImpl implements PredictionsLogic , Serializable {
     @Override
     public Map<String, Double> getConsistencyByEntityName(int serialNumber, String entityName) {
         return allSimulations.getSimulationBySerialNumber(serialNumber).getConsistencyByEntityName(entityName);
+    }
+
+    @Override
+    public Map<Integer, Map<String, Long>> getPopulationPerTickData(int serialNumber) {
+        return allSimulations.getSimulationBySerialNumber(serialNumber).getPopulationPerTickData();
+    }
+
+    @Override
+    public Map<String, Map<Integer, Long>> getPopulationCountSortedByName(int serialNumber) {
+        return allSimulations.getSimulationBySerialNumber(serialNumber).getPopulationCountSortedByName();
     }
 
     @Override

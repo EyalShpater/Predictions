@@ -4,6 +4,7 @@ import action.context.api.Context;
 import definition.entity.api.EntityDefinition;
 import grid.api.SphereSpace;
 import instance.entity.api.EntityInstance;
+import javafx.util.Pair;
 
 import java.util.List;
 import java.util.Map;
@@ -21,7 +22,9 @@ public interface EntityInstanceManager {
 
     Map<String, Long> getPopulationCountByTick(int tick);
 
-    Map<Integer, Map<String, Long>> getPopulationCount();
+    Map<Integer, Map<String, Long>> getPopulationCountSortedByTick();
+
+    Map<String, Map<Integer, Long>> getPopulationCountSortedByByName();
 
     void updatePopulationCount(int tick, Map<String, Long> entitiesToPopulation);
 }

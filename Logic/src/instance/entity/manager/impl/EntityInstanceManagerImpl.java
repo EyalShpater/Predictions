@@ -2,18 +2,16 @@ package instance.entity.manager.impl;
 
 import action.context.api.Context;
 import definition.entity.api.EntityDefinition;
-import definition.property.api.PropertyDefinition;
 import grid.api.Location;
 import grid.api.SphereSpace;
 import instance.entity.api.EntityInstance;
 import instance.entity.impl.EntityInstanceImpl;
 import instance.entity.manager.api.EntityInstanceManager;
 import instance.entity.manager.api.PopulationCounter;
-import instance.property.impl.PropertyInstanceImpl;
+import javafx.util.Pair;
 
 import java.io.Serializable;
 import java.util.*;
-import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 public class EntityInstanceManagerImpl implements EntityInstanceManager , Serializable {
@@ -93,12 +91,17 @@ public class EntityInstanceManagerImpl implements EntityInstanceManager , Serial
 
     @Override
     public Map<String, Long> getPopulationCountByTick(int tick) {
-        return populationCounter.getPopulationCountByTick(tick);
+        return populationCounter.getPopulationCounterByTick(tick);
     }
 
     @Override
-    public Map<Integer, Map<String, Long>> getPopulationCount() {
-        return populationCounter.getPopulationCounter();
+    public Map<Integer, Map<String, Long>> getPopulationCountSortedByTick() {
+        return populationCounter.getPopulationCounterByTick();
+    }
+
+    @Override
+    public Map<String, Map<Integer, Long>> getPopulationCountSortedByByName() {
+        return populationCounter.getPopulationCounterByName();
     }
 
     @Override

@@ -16,6 +16,7 @@ import instance.entity.manager.api.EntityInstanceManager;
 import instance.entity.manager.impl.EntityInstanceManagerImpl;
 import instance.enviornment.api.ActiveEnvironment;
 import instance.enviornment.impl.ActiveEnvironmentImpl;
+import javafx.util.Pair;
 
 import java.io.Serializable;
 import java.util.*;
@@ -68,6 +69,7 @@ public class SimulationImpl implements Simulation , Serializable {
 
         initEntities();
         initEnvironmentVariables();
+        entities.updatePopulationCount(tick, createEntityNameToPopulationMap());
         tick = 1;
 
         while ((endReason = world.isActive(tick, runningTimeInSeconds, isStop)) == null) {
@@ -194,6 +196,16 @@ public class SimulationImpl implements Simulation , Serializable {
         }
 
         return progress;
+    }
+
+    @Override
+    public Map<Integer, Map<String, Long>> getPopulationPerTickData() {
+        return entities.getPopulationCountSortedByTick();
+    }
+
+    @Override
+    public Map<String, Map<Integer, Long>> getPopulationCountSortedByName() {
+        return entities.getPopulationCountSortedByByName();
     }
 
     @Override

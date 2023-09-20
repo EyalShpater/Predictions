@@ -1,6 +1,7 @@
 package execution.simulation.api;
 
 import impl.*;
+import javafx.util.Pair;
 
 import javax.xml.bind.JAXBException;
 import java.util.*;
@@ -15,6 +16,10 @@ public interface PredictionsLogic {
     Map<String, Integer> getEntitiesToPopulation();
 
     WorldDTO getLoadedSimulationDetails();
+
+    Map<Integer, Map<String, Long>> getPopulationPerTickData(int serialNumber);
+
+    Map<String, Map<Integer, Long>> getPopulationCountSortedByName(int serialNumber);
 
     int runNewSimulation(SimulationInitDataFromUserDTO initData);
 
@@ -51,4 +56,5 @@ public interface PredictionsLogic {
     boolean hasStarted(int serialNumber);
 
     Map<String, Double> getConsistencyByEntityName(int serialNumber, String entityName);
+
 }

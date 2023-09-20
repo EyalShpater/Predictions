@@ -9,24 +9,38 @@ import javafx.scene.control.Pagination;
 import javafx.scene.layout.StackPane;
 import javafx.tab.results.ResultsController;
 import javafx.tab.results.analyze.histogram.consistency.ConsistencyBarChartController;
-import javafx.tab.results.analyze.histogram.population.PopulationBarChartController;
+import javafx.tab.results.analyze.histogram.population.PopulationChartController;
+import javafx.tab.results.analyze.histogram.property.PropertyChartController;
 
 import java.net.URL;
 import java.util.Map;
 
 public class AnalyzePaginationController {
-    private static final int POPULATION_PAGE_INDEX = 0;
+    private static final int PROPERTIES_PAGE_INDEX = 0;
     private static final int CONSISTENCY_PAGE_INDEX = 1;
+    private static final int POPULATION_PADE_INDEX = 2;
 
     @FXML
     private Pagination analyzePaging;
 
     private ResultsController resultsController;
-    private PopulationBarChartController populationBarChartController;
+    private PropertyChartController propertyChartController;
     private ConsistencyBarChartController consistencyBarChartController;
+    private PopulationChartController populationChartController;
 
-    public void setPopulationChart(String property, SimulationDataDTO data) {
-        populationBarChartController.setChart(property, data);
+    private Map<String, Map<Integer, Long>> populationData;
+
+    private void setPopulationChart(Map<String, Map<Integer, Long>> data) {
+        populationChartController.setChart(data);
+    }
+
+    public void setPopulationData(Map<String, Map<Integer, Long>> data) {
+        populationData = data;
+        setPopulationChart(data);
+    }
+
+    public void setPropertiesChart(String property, SimulationDataDTO data) {
+        propertyChartController.setChart(property, data);
     }
 
     public void setConsistencyChart(Map<String, Double> consistency) {
@@ -43,29 +57,30 @@ public class AnalyzePaginationController {
     private void setPagination() {
         analyzePaging.setPageFactory(pageIndex -> {
             switch (pageIndex) {
-                case 0:
-                    return createPopulationBarChart();
-                case 1:
+                case PROPERTIES_PAGE_INDEX:
+                    return createPropertiesChart();
+                case CONSISTENCY_PAGE_INDEX:
                     return createConsistencyChart();
-//                case 2:
-//                    return createCustomPage();
+                case POPULATION_PADE_INDEX:
+                    return createPopulationChart();
                 default:
                     return null;
             }
         });
     }
 
-    private Node createPopulationBarChart() {
+
+    private Node createPropertiesChart() {
         StackPane sp = new StackPane();
 
         try {
-            URL resource = getClass().getResource("/javafx/tab/results/analyze/histogram/population/PopulationBarChart.fxml");
+            URL resource = getClass().getResource("/javafx/tab/results/analyze/histogram/property/PropertyChart.fxml");
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(resource);
             Parent resultsContent = loader.load();
             sp.getChildren().add(resultsContent);
 
-            populationBarChartController = loader.getController();
+            propertyChartController = loader.getController();
         } catch (Exception ignored) {
 
         }
@@ -84,6 +99,24 @@ public class AnalyzePaginationController {
             sp.getChildren().add(resultsContent);
 
             consistencyBarChartController = loader.getController();
+        } catch (Exception ignored) {
+
+        }
+
+        return sp;
+    }
+
+    private Node createPopulationChart() {
+        StackPane sp = new StackPane();
+
+        try {
+            URL resource = getClass().getResource("/javafx/tab/results/analyze/histogram/population/PopulationChart.fxml");
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(resource);
+            Parent resultsContent = loader.load();
+            sp.getChildren().add(resultsContent);
+
+            populationChartController = loader.getController();
         } catch (Exception ignored) {
 
         }

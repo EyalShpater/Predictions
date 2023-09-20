@@ -1,14 +1,12 @@
-package javafx.tab.results.analyze.histogram.population;
+package javafx.tab.results.analyze.histogram.property;
 
 import impl.SimulationDataDTO;
 import javafx.fxml.FXML;
-import javafx.scene.Scene;
 import javafx.scene.chart.*;
-import javafx.scene.control.ScrollPane;
 
 import java.util.*;
 
-public class PopulationBarChartController {
+public class PropertyChartController {
 
     @FXML
     private BarChart<String, Integer> histogramBarChart;
