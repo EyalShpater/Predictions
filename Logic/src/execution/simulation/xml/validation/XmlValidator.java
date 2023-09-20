@@ -48,7 +48,6 @@ public class XmlValidator {
 
 
         // 5) check that in action no call to a property that doesnt exist
-        // TODO: implement condition to get helper functions
         checkRulesToNotContainActionWithPropertyWithNoMatchEntity(world);
 
 
