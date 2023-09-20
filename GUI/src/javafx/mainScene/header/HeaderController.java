@@ -61,6 +61,21 @@ public class HeaderController {
                 mainAppController.onNewFileLoaded();
             }
         }
+        flipButtonAnimation(loadFileButton);
+    }
+
+    private void flipButtonAnimation(Button button) {
+        RotateTransition rotateTransition = new RotateTransition(Duration.seconds(1), button);
+
+        rotateTransition.setByAngle(360);
+
+        String buttonText = button.getText();
+
+        rotateTransition.setOnFinished(event -> {
+            button.setText(buttonText);
+        });
+
+        rotateTransition.play();
     }
 
     private File getFileUsingFileChooserDialog() {

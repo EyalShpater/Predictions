@@ -167,10 +167,46 @@ public class NewExecutionController {
         simulationSerialNumber = runSimulation(entityNameToPopulation);
         mainAppController.onStartButtonClick(simulationSerialNumber);
 
-        Tab resultsTab = findResultsTabByName("Results");
+
+        transitionToTab("Results");
+
+       /* Tab resultsTab = findResultsTabByName("Results");
         if (resultsTab != null) {
             tabPane.getSelectionModel().select(resultsTab);
+        }*/
+    }
+
+    private void transitionToTab(String tabName) {
+        Tab targetTab = findTabByName(tabName);
+        if (targetTab != null) {
+            Tab currentTab = tabPane.getSelectionModel().getSelectedItem();
+            Node currentContent = (Node) currentTab.getContent();
+            Node targetContent = (Node) targetTab.getContent();
+
+            targetContent.translateYProperty().set(tabPane.getHeight());
+
+            Timeline timeline = new Timeline();
+            KeyValue currentTabValue = new KeyValue(currentContent.translateYProperty(), -tabPane.getHeight());
+            KeyValue targetTabValue = new KeyValue(targetContent.translateYProperty(), 0);
+            KeyFrame keyFrame = new KeyFrame(Duration.seconds(1), currentTabValue, targetTabValue);
+
+            timeline.getKeyFrames().add(keyFrame);
+            timeline.setOnFinished(event -> {
+                currentContent.translateYProperty().set(0);
+                targetContent.translateYProperty().set(0);
+                tabPane.getSelectionModel().select(targetTab);
+            });
+            timeline.play();
         }
+    }
+
+    private Tab findTabByName(String tabName) {
+        for (Tab tab : tabPane.getTabs()) {
+            if (tab.getText().equals(tabName)) {
+                return tab;
+            }
+        }
+        return null; // Tab not found
     }
 
     private int calculateTotalEntities() {
