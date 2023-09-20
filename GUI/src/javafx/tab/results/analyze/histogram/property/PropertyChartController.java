@@ -3,6 +3,7 @@ package javafx.tab.results.analyze.histogram.property;
 import impl.SimulationDataDTO;
 import javafx.fxml.FXML;
 import javafx.scene.chart.*;
+import javafx.scene.control.Label;
 
 import java.util.*;
 
@@ -11,13 +12,12 @@ public class PropertyChartController {
     @FXML
     private BarChart<String, Integer> histogramBarChart;
 
+    @FXML
+    private Label averageLabel;
+
     private SimulationDataDTO data;
 
-    @FXML
-    private void initialize() {
-    }
-
-    public void setChart(String propertyToView, SimulationDataDTO data) {
+    public void setChart(String propertyToView, SimulationDataDTO data, Double average) {
         histogramBarChart.getData().clear();
 
         if (propertyToView != null && data != null) {
@@ -31,6 +31,13 @@ public class PropertyChartController {
 
             if (!series.getData().isEmpty()) {
                 histogramBarChart.getData().add(series);
+            }
+
+            if (average != null) {
+                averageLabel.setVisible(true);
+                averageLabel.setText(String.format("Average: %.2f", average));
+            } else {
+                averageLabel.setVisible(false);
             }
         }
     }
@@ -48,6 +55,7 @@ public class PropertyChartController {
 
         return dataList;
     }
+
 
     public void setData(SimulationDataDTO data) {
         this.data = data;

@@ -267,4 +267,8 @@ public class ResultsController {
     public Map<String, Map<Integer, Long>> getPopulationData() {
         return engine.getPopulationCountSortedByName(selectedSimulationSerialNumber.get());
     }
+
+    public Double getAverageProperty() {
+        return engine.getFinalNumericPropertyAvg(entityToView.get(), propertyToView.get(), selectedSimulationSerialNumber.get());
+    }
 }

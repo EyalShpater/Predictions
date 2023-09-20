@@ -27,4 +27,6 @@ public interface EntityInstanceManager {
     Map<String, Map<Integer, Long>> getPopulationCountSortedByByName();
 
     void updatePopulationCount(int tick, Map<String, Long> entitiesToPopulation);
+
+    Double getFinalNumericPropertyAvg(String entityName, String propertyName);
 }

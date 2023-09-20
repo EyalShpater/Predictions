@@ -109,4 +109,25 @@ public class EntityInstanceManagerImpl implements EntityInstanceManager , Serial
         populationCounter.update(tick, entitiesToPopulation);
     }
 
+    @Override
+    public Double getFinalNumericPropertyAvg(String entityName, String propertyName) {
+        double sum = 0;
+        int count = 0;
+
+        for (EntityInstance entityInstance : instances.values()) {
+            if (entityInstance.getName().equals(entityName) && entityInstance.isAlive()) {
+                if (entityInstance.getPropertyByName(propertyName).getPropertyDefinition().isInteger()) {
+                    sum += (Integer) entityInstance.getPropertyByName(propertyName).getValue();
+                    count++;
+                } else if (entityInstance.getPropertyByName(propertyName).getPropertyDefinition().isDouble()) {
+                    sum += (Double) entityInstance.getPropertyByName(propertyName).getValue();
+                    count++;
+                } else {
+                    return null;
+                }
+            }
+        }
+
+        return sum / count;
+    }
 }

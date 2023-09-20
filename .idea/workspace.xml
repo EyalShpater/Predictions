@@ -11,15 +11,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="27d35137-667f-4e37-a519-ab836acc0a06" name="Changes" comment="buttons behaviours fix">
+    <list default="true" id="27d35137-667f-4e37-a519-ab836acc0a06" name="Changes" comment="hell bug fix">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GUI/src/javafx/tab/results/ResultsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/src/javafx/tab/results/ResultsController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GUI/src/javafx/tab/results/analyze/AnalyzePaginationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/src/javafx/tab/results/analyze/AnalyzePaginationController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/src/javafx/tab/results/analyze/histogram/consistency/ConsistencyBarChartController.java" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/src/javafx/tab/results/analyze/histogram/consistency/ConsistencyBarChartController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/src/javafx/tab/results/helper/Category.java" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/src/javafx/tab/results/helper/Category.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI/src/javafx/tab/results/analyze/histogram/consistency/ConsistencyBarChart.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/src/javafx/tab/results/analyze/histogram/consistency/ConsistencyBarChart.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI/src/javafx/tab/results/analyze/histogram/property/PropertyChart.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/src/javafx/tab/results/analyze/histogram/property/PropertyChart.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI/src/javafx/tab/results/analyze/histogram/property/PropertyChartController.java" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/src/javafx/tab/results/analyze/histogram/property/PropertyChartController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/execution/simulation/api/Simulation.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/execution/simulation/api/Simulation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/instance/entity/manager/api/EntityInstanceManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/instance/entity/manager/api/EntityInstanceManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/instance/entity/manager/impl/EntityInstanceManagerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/instance/entity/manager/impl/EntityInstanceManagerImpl.java" afterDir="false" />
     </list>
-    <list id="e2a3c4d4-ea53-44ce-ad71-517b27fb520e" name="Changes by ASUS" comment="added animations">
-      <change beforePath="$PROJECT_DIR$/GUI/src/task/UpdateEntitiesAmountTask.java" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/src/task/UpdateEntitiesAmountTask.java" afterDir="false" />
+    <list id="e2a3c4d4-ea53-44ce-ad71-517b27fb520e" name="Changes by ASUS" comment="hell bug fix">
+      <change beforePath="$PROJECT_DIR$/Logic/src/execution/simulation/api/PredictionsLogic.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/execution/simulation/api/PredictionsLogic.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/execution/simulation/impl/PredictionsLogicImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/execution/simulation/impl/PredictionsLogicImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/execution/simulation/impl/SimulationImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/execution/simulation/impl/SimulationImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -462,22 +468,6 @@
       <option name="project" value="LOCAL" />
       <updated>1694776291781</updated>
     </task>
-    <task id="LOCAL‎-00133" summary="implemented the context swap entities by action method">
-      <option name="closed" value="true" />
-      <created>1694886370618</created>
-      <option name="number" value="00133" />
-      <option name="presentableId" value="LOCAL‎-00133" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1694886370618</updated>
-    </task>
-    <task id="LOCAL‎-00134" summary="added SimulationQueueDto">
-      <option name="closed" value="true" />
-      <created>1694886885834</created>
-      <option name="number" value="00134" />
-      <option name="presentableId" value="LOCAL‎-00134" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1694886885834</updated>
-    </task>
     <task id="LOCAL‎-00135" summary="made details tab disabled when no file was chosen">
       <option name="closed" value="true" />
       <created>1694888608730</created>
@@ -746,7 +736,23 @@
       <option name="project" value="LOCAL‎" />
       <updated>1695234266739</updated>
     </task>
-    <option name="localTasksCounter" value="169" />
+    <task id="LOCAL‎-00169" summary="hell bug fix">
+      <option name="closed" value="true" />
+      <created>1695247475443</created>
+      <option name="number" value="00169" />
+      <option name="presentableId" value="LOCAL‎-00169" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1695247475443</updated>
+    </task>
+    <task id="LOCAL‎-00170" summary="hell bug fix">
+      <option name="closed" value="true" />
+      <created>1695247485994</created>
+      <option name="number" value="00170" />
+      <option name="presentableId" value="LOCAL‎-00170" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1695247485994</updated>
+    </task>
+    <option name="localTasksCounter" value="171" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -777,7 +783,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="more changes" />
     <MESSAGE value="shavit changes" />
     <MESSAGE value="pause / stop / resume buttons are active" />
     <MESSAGE value="added progress information from engine" />
@@ -802,7 +807,8 @@
     <MESSAGE value="buttons behaviours fix" />
     <MESSAGE value="kaka" />
     <MESSAGE value="added animations" />
-    <option name="LAST_COMMIT_MESSAGE" value="added animations" />
+    <MESSAGE value="hell bug fix" />
+    <option name="LAST_COMMIT_MESSAGE" value="hell bug fix" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
@@ -818,9 +824,9 @@
           <option name="timeStamp" value="17" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/GUI/src/javafx/tab/results/analyze/AnalyzePaginationController.java</url>
-          <line>150</line>
-          <option name="timeStamp" value="148" />
+          <url>file://$PROJECT_DIR$/Logic/src/execution/simulation/impl/PredictionsLogicImpl.java</url>
+          <line>193</line>
+          <option name="timeStamp" value="150" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/GUI/src/javafx/tab/results/analyze/histogram/population/PopulationChartController.java</url>
@@ -830,15 +836,6 @@
             <option name="WATCH_EXIT" value="false" />
           </properties>
           <option name="timeStamp" value="123" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/GUI/src/javafx/tab/results/analyze/AnalyzePaginationController.java</url>
-          <line>204</line>
-          <properties class="javafx.tab.results.analyze.AnalyzePaginationController" method="setEngine">
-            <option name="EMULATED" value="true" />
-            <option name="WATCH_EXIT" value="false" />
-          </properties>
-          <option name="timeStamp" value="149" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

@@ -48,4 +48,6 @@ public interface Simulation extends DTOConvertible<SimulationDTO> {
     Map<Integer, Map<String, Long>> getPopulationPerTickData();
 
     Map<String, Map<Integer, Long>> getPopulationCountSortedByName();
+
+    Double getFinalNumericPropertyAvg(String entityName, String propertyName);
 }

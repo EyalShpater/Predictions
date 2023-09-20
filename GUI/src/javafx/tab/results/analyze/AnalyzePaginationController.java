@@ -181,7 +181,7 @@ public class AnalyzePaginationController {
     public void setPropertiesChart(String property) {
         if (currentPage.get() == PROPERTIES_PAGE_INDEX) {
             SimulationDataDTO simulationData = resultsController.getSimulationData();
-            propertyChartController.setChart(property, simulationData);
+            propertyChartController.setChart(property, simulationData, resultsController.getAverageProperty());
         }
     }
 
