@@ -6,8 +6,6 @@ import impl.SimulationDataDTO;
 import impl.WorldDTO;
 import javafx.beans.binding.Bindings;
 import javafx.beans.property.*;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.mainScene.main.PredictionsMainAppController;
 import javafx.scene.control.*;
@@ -96,7 +94,7 @@ public class ResultsController {
 
         selectedSimulation.addListener((observable, oldValue, newValue) -> onSelectedSimulationChange(newValue));
         isSelectedSimulationEnded.addListener((observable, oldValue, newValue) -> onSelectedSimulationStop());
-        entityToView.addListener((observable, oldValue, newValue) -> onSelectedEntity());
+        entityToView.addListener((observable, oldValue, newValue) -> onSelectedEntity(newValue));
 
         entitiesCol.setCellValueFactory(new PropertyValueFactory<>("entityName"));
         populationCol.setCellValueFactory(new PropertyValueFactory<>("population"));
@@ -111,8 +109,6 @@ public class ResultsController {
     }
 
     public SimulationDataDTO getSimulationData() {
-        System.out.println("getSimulationData id#" + selectedSimulation.get().getId());
-
         return selectedSimulation.isNotNull().get() ?
                 engine.getSimulationData(
                         selectedSimulation.get().getId(),
@@ -122,14 +118,13 @@ public class ResultsController {
                 null;
     }
 
-    private void onSelectedEntity() {
+    private void onSelectedEntity(String newValue) {
         setPropertyChoiceBox();
-        analyzePaginationController.setConsistency(engine.getConsistencyByEntityName(selectedSimulationSerialNumber.get(), entityToView.get()));
+        analyzePaginationController.setConsistency(engine.getConsistencyByEntityName(selectedSimulationSerialNumber.get(), newValue));
     }
 
     public void onStartButtonClicked(int newSimulationSerialNumber) {
         progressController.setTableView(this.entitiesPopulationTableView);
-        System.out.println(progressController);
         SimulationDTO lastSimulation = engine.getSimulationDTOBySerialNumber(newSimulationSerialNumber);
 
         Category simulationInfo = new Category(lastSimulation.getStartDate(), lastSimulation.getSerialNumber());

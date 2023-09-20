@@ -151,7 +151,6 @@ public class AnalyzePaginationController {
         if (engine.isEnded(newSerialNumber) && selectedEntity.isNotNull().get()) {
             switch (currentPage.get()) {
                 case PROPERTIES_PAGE_INDEX:
-//                propertyChartController.setChart(selectedProperty.get(), engine.getSimulationData(newSerialNumber, selectedEntity.get(), selectedProperty.get()));
                     if (selectedProperty.isNotNull().get()) {
                         setPropertiesChart(selectedProperty.get());
                     }
@@ -179,7 +178,7 @@ public class AnalyzePaginationController {
 
 
     public void setPropertiesChart(String property) {
-        if (currentPage.get() == PROPERTIES_PAGE_INDEX) {
+        if (currentPage.get() == PROPERTIES_PAGE_INDEX && property != null) {
             SimulationDataDTO simulationData = resultsController.getSimulationData();
             propertyChartController.setChart(property, simulationData, resultsController.getAverageProperty());
         }

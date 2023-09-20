@@ -116,16 +116,17 @@ public class EntityInstanceManagerImpl implements EntityInstanceManager , Serial
 
         for (EntityInstance entityInstance : instances.values()) {
             if (entityInstance.getName().equals(entityName) && entityInstance.isAlive()) {
-                if (entityInstance.getPropertyByName(propertyName).getPropertyDefinition().isInteger()) {
+                if (entityInstance.getPropertyByName(propertyName).getValue() instanceof Integer) {
                     sum += (Integer) entityInstance.getPropertyByName(propertyName).getValue();
                     count++;
-                } else if (entityInstance.getPropertyByName(propertyName).getPropertyDefinition().isDouble()) {
+                } else if (entityInstance.getPropertyByName(propertyName).getValue() instanceof Double) {
                     sum += (Double) entityInstance.getPropertyByName(propertyName).getValue();
                     count++;
                 } else {
                     return null;
                 }
             }
+            
         }
 
         return sum / count;

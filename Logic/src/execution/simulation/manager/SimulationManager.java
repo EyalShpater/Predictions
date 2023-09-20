@@ -25,7 +25,6 @@ public class SimulationManager implements Serializable {
         this.threadPool = Executors.newFixedThreadPool(world.getThreadPoolSize());
     }
 
-    // todo: handle the void situation, maybe its need to return the simulation id?
     public int runNewSimulation(World world, SimulationInitDataFromUserDTO initData) {
         Simulation simulation;
         TerminateCondition stopReason;

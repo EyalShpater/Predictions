@@ -27,7 +27,6 @@ public class Category {
     }
 
     public IntegerProperty getIdProperty() {
-        System.out.println("getId #" + id); //todo
         return id;
     }
 
@@ -36,7 +35,6 @@ public class Category {
     }
 
     public void setId(int id) {
-        System.out.println("setId #" + id); //todo
         this.id.set(id);
     }
 

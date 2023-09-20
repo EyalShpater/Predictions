@@ -51,7 +51,6 @@ public class UpdateEntitiesAmountTask extends Task<Boolean> {
                 Platform.runLater(() -> {
                     tableView.setVisible(true);
                     updateTableView(entityNameToAmount);
-                    //updateTableViewNew(entityNameToAmount , serialNumber);
                 });
             } else {
                 Platform.runLater(() -> {
@@ -78,7 +77,6 @@ public class UpdateEntitiesAmountTask extends Task<Boolean> {
             Long population = entityNameToAmount.get(entityName);
             EntityPopulationData entityPopulationData = new EntityPopulationData(entityName, population);
             entityPopulationList.add(entityPopulationData);
-            //System.out.println("Entity: " + entityName + ", Population: " + population);
         }
 
         tableView.setItems(entityPopulationList);
@@ -94,42 +92,5 @@ public class UpdateEntitiesAmountTask extends Task<Boolean> {
 
     public void setController(ResultsController controller) {
         this.resultsController = controller;
-        //controller.bindTaskProperties(this);
     }
-    /*private void updateTableViewNew(Map<String, Integer> entityNameToAmount , int serialNumber)  {
-        ObservableList<EntityPopulationData> entityPopulationList = FXCollections.observableArrayList();
-
-        if (simulationStarted(serialNumber)){
-            for (String entityName : entityNameToAmount.keySet()) {
-                Integer population = entityNameToAmount.getOrDefault(entityName, 0); // Use 0 if not found
-                EntityPopulationData entityPopulationData = new EntityPopulationData(entityName, population);
-                entityPopulationList.add(entityPopulationData);
-                System.out.println("Entity: " + entityName + ", Population: " + population);
-            }
-        }else{
-            Map<String, Integer> entityPopulationFirstInit = engine.getEntitiesToPopulation();
-            for (String entityName : entityPopulationFirstInit.keySet()) {
-                Integer initialPopulation = entityPopulationFirstInit.getOrDefault(entityName, 0); // Use 0 as the initial value
-                EntityPopulationData entityPopulationData = new EntityPopulationData(entityName, initialPopulation);
-                entityPopulationList.add(entityPopulationData);
-                try {
-                    sleepIfSimulationHasNotStarted(serialNumber);
-                } catch (InterruptedException e) {
-                    throw new RuntimeException(e);
-                }
-            }
-        }
-    }*/
-    /*private TableView<EntityPopulationData> createTableView() {
-        TableView<EntityPopulationData> tableView = new TableView<>();
-        TableColumn<EntityPopulationData, String> entityNameCol = new TableColumn<>("Entity Name");
-        TableColumn<EntityPopulationData, Integer> populationCol = new TableColumn<>("Population");
-
-        entityNameCol.setCellValueFactory(new PropertyValueFactory<>("entityName"));
-        populationCol.setCellValueFactory(new PropertyValueFactory<>("population"));
-
-        tableView.getColumns().addAll(entityNameCol, populationCol);
-
-        return tableView;
-    }*/
 }

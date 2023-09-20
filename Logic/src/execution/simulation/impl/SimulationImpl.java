@@ -249,22 +249,6 @@ public class SimulationImpl implements Simulation , Serializable {
         return world;
     }
 
-    //todo: maybe delete
-    @Override
-    public double getProgress() {
-        double progress = 0;
-        TerminateCondition terminateCondition = world.getTerminationCondition();
-
-        if (!terminateCondition.equals(TerminateCondition.BY_USER)) {
-            progress = terminateCondition.equals(TerminateCondition.BY_SECONDS) ?
-                    (System.currentTimeMillis() - startTime - pauseDuration) :
-                    world.getTermination().getTicksToTerminate() - tick;
-        }
-
-        return progress;
-    }
-
-
     @Override
     public SimulationDTO convertToDTO() {
         return new SimulationDTO(startTime, serialNumber, world.convertToDTO());
@@ -273,12 +257,10 @@ public class SimulationImpl implements Simulation , Serializable {
     @Override
     public void pause() {
         isPause = true;
-        System.out.println("pause " + serialNumber);
     }
 
     @Override
     public void stop() {
-        System.out.println("stop " + serialNumber);
         isStop = true;
         resume();
     }
@@ -286,7 +268,7 @@ public class SimulationImpl implements Simulation , Serializable {
     @Override
     public void resume() {
         isPause = false;
-        System.out.println("resume " + serialNumber);
+
         synchronized (this) {
             this.notifyAll();
         }

@@ -104,16 +104,9 @@ public class HeaderController {
 
     @FXML
     void simulationsQueueButtonOnAction(ActionEvent event) {
-        /*Queue<Category> waitingQueue = mainAppController.getSimulationsQueue();
-        for (Category simulationInfo : waitingQueue) {
-            if (!engine.hasStarted(simulationInfo.getId())) {
-                System.out.println("Simulation: #" + simulationInfo.getId() + " is waiting " + simulationInfo.getTime());
-            }
-        }*/
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("SimulationQueuePopup.fxml"));
             Stage popupStage = new Stage();
-//            popupStage.initModality(Modality.APPLICATION_MODAL);
             popupStage.setTitle("Simulation Queue Details");
 
             loader.setController(new SimulationQueuePopUpController());
@@ -123,9 +116,7 @@ public class HeaderController {
             popupController.setEngine(this.engine);
 
             popupStage.showAndWait();
-        } catch (IOException e) {
-            // Handle the exception
-            e.printStackTrace();
+        } catch (IOException ignored) {
         }
     }
 

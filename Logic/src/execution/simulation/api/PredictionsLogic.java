@@ -35,8 +35,6 @@ public interface PredictionsLogic {
 
     boolean isEnded(int serialNumber);
 
-    double getProgress(int serialNumber);
-
     List<SimulationDTO> getPreviousSimulationsAsDTO();
 
     SimulationDataDTO getSimulationData(int serialNumber, String entityName, String propertyName);

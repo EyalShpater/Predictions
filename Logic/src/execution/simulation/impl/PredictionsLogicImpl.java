@@ -127,11 +127,6 @@ public class PredictionsLogicImpl implements PredictionsLogic , Serializable {
     }
 
     @Override
-    public double getProgress(int serialNumber) {
-        return allSimulations.getSimulationBySerialNumber(serialNumber).getProgress();
-    }
-
-    @Override
     public List<SimulationDTO> getPreviousSimulationsAsDTO() {
         return allSimulations.getAllSimulationsDTO();
     }

@@ -77,9 +77,7 @@ public class Proximity extends AbstractAction {
         Expression expression = new ExpressionFactory(ofExpression, context);
         Object of = expression.getValue(context);
 
-        //todo: look for Aviad's answer
-        if (!(of instanceof Integer)) {
-            //throw new IllegalArgumentException("'of' value must be an integer!");
+        if (of instanceof Double) {
             double temp = (double) of;
             return (int) temp;
         }
