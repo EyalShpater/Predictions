@@ -1,6 +1,7 @@
 package javafx.mainScene.header;
 
 import execution.simulation.api.PredictionsLogic;
+import javafx.animation.RotateTransition;
 import javafx.beans.property.SimpleBooleanProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.event.ActionEvent;
@@ -12,14 +13,11 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.stage.FileChooser;
-import javafx.stage.Modality;
 import javafx.stage.Stage;
-import javafx.tab.results.ResultsController;
-import javafx.tab.results.helper.Category;
+import javafx.util.Duration;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.Queue;
 
 public class HeaderController {
 

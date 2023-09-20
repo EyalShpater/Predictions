@@ -55,7 +55,6 @@ public class ProgressController {
     private TabPane tabPane;
     private TableView<EntityPopulationData> entityPopulationDataTableView;
 
-
     @FXML
     void initialize() {
         isPause.set(false);
@@ -70,6 +69,7 @@ public class ProgressController {
         ticksLabel.textProperty().bind(Bindings.format("%d", ticks));
         secondsLabel.textProperty().bind(Bindings.format("%d", seconds));
         progressBar.progressProperty().bind(progress);
+        stopButton.disableProperty().bind(isStopProperty()); //todo
     }
 
     private void toggleButtons() {
@@ -110,12 +110,10 @@ public class ProgressController {
     }
 
     private void changePauseButtonIcon() {
-        if (isStop.get()) {
-            //todo
-        } else if (isPause.get()) {
-            pauseButtonIcon.setImage(new Image("javafx/tab/results/resources/play-button.png"));
-        } else {
-            pauseButtonIcon.setImage(new Image("javafx/tab/results/resources/pause.png"));
+        if (!isStop.get()) {
+            pauseButtonIcon.setImage(isPause.get()
+                    ? new Image("javafx/tab/results/resources/play-button.png")
+                    : new Image("javafx/tab/results/resources/pause.png"));
         }
     }
 
@@ -168,5 +166,17 @@ public class ProgressController {
 
     public void setTableView(TableView<EntityPopulationData> entitesPopulationTableView) {
         this.entityPopulationDataTableView = entitesPopulationTableView;
+    }
+
+    public boolean isIsStop() {
+        return isStop.get();
+    }
+
+    public BooleanProperty isStopProperty() {
+        return isStop;
+    }
+
+    public void setIsStop(boolean isStop) {
+        this.isStop.set(isStop);
     }
 }

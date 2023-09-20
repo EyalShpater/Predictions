@@ -46,6 +46,12 @@ public class ResultsController {
     private ChoiceBox<String> propertyChoiceBox;
 
     @FXML
+    private TitledPane entityAmountTitlePane;
+
+    @FXML
+    private TitledPane dataAnalyzeTitlePane;
+
+    @FXML
     private Pagination analyzePagination;
 
     @FXML
@@ -56,31 +62,39 @@ public class ResultsController {
 
     private TabPane tabPane; //todo: why do we need it?
 
-
     private PredictionsLogic engine;
-
-    private ObjectProperty<Category> selectedSimulation = new SimpleObjectProperty<>();
     private PredictionsMainAppController predictionsMainAppController;
 
+    private ObjectProperty<Category> selectedSimulation;
     private StringProperty propertyToView;
     private StringProperty entityToView;
+    private BooleanProperty isSelectedSimulationEnded;
+    private BooleanProperty isNewFileLoaded;
 
     private ObservableList<EntityPopulationData> entityPopulationList = FXCollections.observableArrayList();
 
     private Queue<Category> waitingQueue = new LinkedList<>();
 
-    @FXML
-    private void initialize() {
+    public ResultsController() {
+        selectedSimulation = new SimpleObjectProperty<>();
         propertyToView = new SimpleStringProperty();
         entityToView = new SimpleStringProperty();
+        isSelectedSimulationEnded = new SimpleBooleanProperty();
+        isNewFileLoaded = new SimpleBooleanProperty();
+    }
 
+    @FXML
+    private void initialize() {
         propertyToView.bind(propertyChoiceBox.valueProperty());
         entityToView.bind(entityChoiceBox.valueProperty());
         selectedSimulation.bind(simulationsListView.getSelectionModel().selectedItemProperty());
-        selectedSimulation.addListener((observable, oldValue, newValue) -> progressController.onSelectedSimulationChange(newValue));
+        isSelectedSimulationEnded.bind(progressController.isStopProperty());
         progress.disableProperty().bind(Bindings.isNull(selectedSimulation));
+        dataAnalyzeTitlePane.disableProperty().bind(isSelectedSimulationEnded.not());
 
+        selectedSimulation.addListener((observable, oldValue, newValue) -> progressController.onSelectedSimulationChange(newValue));
         selectedSimulation.addListener((observable, oldValue, newValue) -> onSelectedSimulationChange(newValue));
+
         entityChoiceBox.setOnAction(this::onSelectedEntity);
         propertyChoiceBox.setOnAction(this::onSelectedProperty);
 
@@ -118,16 +132,6 @@ public class ResultsController {
         }
     }
 
-    public void setEngine(PredictionsLogic engine) {
-        this.engine = engine;
-        progressController.setEngine(engine);
-    }
-
-    public void setPredictionsMainAppController(PredictionsMainAppController predictionsMainAppController) {
-        this.predictionsMainAppController = predictionsMainAppController;
-        progressController.setPredictionsMainAppController(predictionsMainAppController);
-    }
-
     public void onStartButtonClicked(int newSimulationSerialNumber) {
         progressController.setTableView(this.entitiesPopulationTableView);
         System.out.println(progressController);
@@ -136,32 +140,6 @@ public class ResultsController {
         Category simulationInfo = new Category(lastSimulation.getStartDate(), lastSimulation.getSerialNumber());
         simulationsListView.getItems().add(simulationInfo);
         waitingQueue.add(simulationInfo);
-    }
-
-//    private void onSelectSimulation(ActionEvent event) {
-//        if (isFirstStart) {
-//            setPropertyChoiceBox();
-//            isFirstStart = false;
-//        } else {
-//            onSelectProperty(event);
-//        }
-//    }
-//
-
-    private void setPropertyChoiceBox() {
-        propertyChoiceBox.getItems().clear();
-
-        if (entityToView.isNotNull().get()) {
-            WorldDTO simulation = engine.getLoadedSimulationDetails();
-            simulation
-                    .getEntities()
-                    .stream()
-                    .filter(entity -> entity.getName().equals(entityToView.get()))
-                    .findAny()
-                    .get()
-                    .getProperties()
-                    .forEach(property -> propertyChoiceBox.getItems().add(property.getName()));
-        }
     }
 
     public void onNewFileLoaded() {
@@ -174,30 +152,12 @@ public class ResultsController {
         //propertyChoiceBox.getItems().clear();
     }
 
-    private void setEntitiesChoiceBox() {
-        entityChoiceBox.getItems().clear();
-
-        WorldDTO simulationDTO = engine.getLoadedSimulationDetails();
-        simulationDTO
-                .getEntities()
-                .forEach(entity -> entityChoiceBox.getItems().add(entity.getName()));
-    }
-
     public Category getSelectedSimulation() {
         return selectedSimulation.get();
     }
 
     public ObjectProperty<Category> getSelectedSimulationProperty() {
         return selectedSimulation;
-    }
-
-    public void setTabPane(TabPane tabPane) {
-        this.tabPane = tabPane;
-        progressController.setTabPane(tabPane);
-    }
-
-    public void setPopulationData() {
-        analyzePaginationController.setPopulationData(engine.getPopulationCountSortedByName(selectedSimulation.get().getId()));
     }
 
     public Queue<Category> getWaitingQueue() {
@@ -218,5 +178,66 @@ public class ResultsController {
 
     public StringProperty entityToViewProperty() {
         return entityToView;
+    }
+
+    public boolean isNewFileLoaded() {
+        return isNewFileLoaded.get();
+    }
+
+    public BooleanProperty isNewFileLoadedProperty() {
+        return isNewFileLoaded;
+    }
+
+    public boolean isIsSelectedSimulationEnded() {
+        return isSelectedSimulationEnded.get();
+    }
+
+    public BooleanProperty isSelectedSimulationEndedProperty() {
+        return isSelectedSimulationEnded;
+    }
+
+    public void setEngine(PredictionsLogic engine) {
+        this.engine = engine;
+        progressController.setEngine(engine);
+    }
+
+    public void setPredictionsMainAppController(PredictionsMainAppController predictionsMainAppController) {
+        this.predictionsMainAppController = predictionsMainAppController;
+        progressController.setPredictionsMainAppController(predictionsMainAppController);
+        isNewFileLoaded.bind(predictionsMainAppController.isFileSelectedProperty());
+    }
+
+    private void setPropertyChoiceBox() {
+        propertyChoiceBox.getItems().clear();
+
+        if (entityToView.isNotNull().get()) {
+            WorldDTO simulation = engine.getLoadedSimulationDetails();
+            simulation
+                    .getEntities()
+                    .stream()
+                    .filter(entity -> entity.getName().equals(entityToView.get()))
+                    .findAny()
+                    .get()
+                    .getProperties()
+                    .forEach(property -> propertyChoiceBox.getItems().add(property.getName()));
+        }
+    }
+
+    private void setEntitiesChoiceBox() {
+        entityChoiceBox.getItems().clear();
+
+        WorldDTO simulationDTO = engine.getLoadedSimulationDetails();
+        simulationDTO
+                .getEntities()
+                .forEach(entity -> entityChoiceBox.getItems().add(entity.getName()));
+    }
+
+    public void setTabPane(TabPane tabPane) {
+        this.tabPane = tabPane;
+        progressController.setTabPane(tabPane);
+    }
+
+    public void setPopulationData() {
+        analyzePaginationController.setPopulationData(engine.getPopulationCountSortedByName(selectedSimulation.get().getId()));
     }
 }

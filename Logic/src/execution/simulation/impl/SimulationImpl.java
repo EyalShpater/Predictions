@@ -361,7 +361,7 @@ public class SimulationImpl implements Simulation , Serializable {
 
     private void sleep() {
         try {
-            Thread.sleep(100);
+            Thread.sleep(50);
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }

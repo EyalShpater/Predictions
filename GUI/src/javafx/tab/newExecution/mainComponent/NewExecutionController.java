@@ -2,6 +2,9 @@ package javafx.tab.newExecution.mainComponent;
 
 import execution.simulation.api.PredictionsLogic;
 import impl.*;
+import javafx.animation.KeyFrame;
+import javafx.animation.KeyValue;
+import javafx.animation.Timeline;
 import javafx.mainScene.main.PredictionsMainAppController;
 import javafx.scene.control.*;
 import javafx.tab.newExecution.entity.EntityController;
@@ -28,6 +31,7 @@ import java.util.Map;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.scene.media.MediaPlayer.Status;
+import javafx.util.Duration;
 
 public class NewExecutionController {
     @FXML

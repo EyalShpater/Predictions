@@ -1,6 +1,8 @@
 package javafx.tab.results.analyze;
 
 import impl.SimulationDataDTO;
+import javafx.beans.property.BooleanProperty;
+import javafx.beans.property.SimpleBooleanProperty;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -28,30 +30,14 @@ public class AnalyzePaginationController {
     private ConsistencyBarChartController consistencyBarChartController;
     private PopulationChartController populationChartController;
 
+    private BooleanProperty isSelectedSimulationEnded = new SimpleBooleanProperty();
+
     private Map<String, Map<Integer, Long>> populationData;
-
-    private void setPopulationChart(Map<String, Map<Integer, Long>> data) {
-        populationChartController.setChart(data);
-    }
-
-    public void setPopulationData(Map<String, Map<Integer, Long>> data) {
-        populationData = data;
-        setPopulationChart(data);
-    }
-
-    public void setPropertiesChart(String property, SimulationDataDTO data) {
-        propertyChartController.setChart(property, data);
-    }
-
-    public void setConsistencyChart(Map<String, Double> consistency) {
-        if (analyzePaging.currentPageIndexProperty().get() == CONSISTENCY_PAGE_INDEX) {
-            consistencyBarChartController.setChart(consistency);
-        }
-    }
 
     @FXML
     private void initialize() {
         setPagination();
+        isSelectedSimulationEnded.addListener(((observable, oldValue, newValue) -> onSelectedSimulationEnd(newValue)));
     }
 
     private void setPagination() {
@@ -124,7 +110,31 @@ public class AnalyzePaginationController {
         return sp;
     }
 
+    private void onSelectedSimulationEnd(Boolean newValue) {
+
+    }
+
     public void setResultsController(ResultsController resultsController) {
         this.resultsController = resultsController;
+        isSelectedSimulationEnded.bind(resultsController.isSelectedSimulationEndedProperty());
+    }
+
+    private void setPopulationChart(Map<String, Map<Integer, Long>> data) {
+        populationChartController.setChart(data);
+    }
+
+    public void setPopulationData(Map<String, Map<Integer, Long>> data) {
+        populationData = data;
+        setPopulationChart(data);
+    }
+
+    public void setPropertiesChart(String property, SimulationDataDTO data) {
+        propertyChartController.setChart(property, data);
+    }
+
+    public void setConsistencyChart(Map<String, Double> consistency) {
+        if (analyzePaging.currentPageIndexProperty().get() == CONSISTENCY_PAGE_INDEX) {
+            consistencyBarChartController.setChart(consistency);
+        }
     }
 }

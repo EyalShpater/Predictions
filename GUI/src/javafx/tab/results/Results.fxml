@@ -41,7 +41,7 @@
                                             GridPane.halignment="CENTER" GridPane.valignment="CENTER"/>
                                 <Accordion GridPane.columnSpan="3" GridPane.rowIndex="1" GridPane.rowSpan="2">
                                     <panes>
-                                        <TitledPane text="Entities Amount">
+                                        <TitledPane fx:id="entityAmountTitlePane" text="Entities Amount">
                                             <content>
                                                 <StackPane prefHeight="150.0" prefWidth="200.0">
                                                     <children>
@@ -61,7 +61,7 @@
                                                 </StackPane>
                                             </content>
                                         </TitledPane>
-                                        <TitledPane text="Data Analyze">
+                                        <TitledPane fx:id="dataAnalyzeTitlePane" text="Data Analyze">
                                             <content>
                                                 <GridPane>
                                                     <columnConstraints>

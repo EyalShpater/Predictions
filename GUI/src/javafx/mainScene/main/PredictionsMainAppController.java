@@ -38,7 +38,7 @@ public class PredictionsMainAppController {
     private ResultsController resultsTabController;
 
     private PredictionsLogic engine = new PredictionsLogicImpl();
-    private BooleanProperty isFileSelected = new SimpleBooleanProperty();
+    private BooleanProperty isFileSelected = new SimpleBooleanProperty(false);
 
     @FXML
     private void initialize() {
@@ -127,5 +127,13 @@ public class PredictionsMainAppController {
 
     public Queue<Category> getSimulationsQueue() {
         return resultsTabController.getWaitingQueue();
+    }
+
+    public boolean isIsFileSelected() {
+        return isFileSelected.get();
+    }
+
+    public BooleanProperty isFileSelectedProperty() {
+        return isFileSelected;
     }
 }

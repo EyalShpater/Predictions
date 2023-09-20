@@ -11,15 +11,10 @@ import javafx.tab.results.progress.ProgressController;
 import java.util.function.Consumer;
 
 public class UpdateSimulationDetailsTask extends Task<Boolean> {
-
     private static final int TIME_TO_SLEEP = 100;
-
 
     private PredictionsLogic engine;
     private int serialNumber;
-
-    private int ticks;
-    private long seconds;
 
     private Consumer<Integer> setTicks;
     private Consumer<Long> setSeconds;
@@ -28,8 +23,6 @@ public class UpdateSimulationDetailsTask extends Task<Boolean> {
     public UpdateSimulationDetailsTask(PredictionsLogic engine, int serialNumber, Consumer<Integer> setTicks, Consumer<Long> setSeconds, Consumer<Boolean> atEnd) {
         this.engine = engine;
         this.serialNumber = serialNumber;
-        this.ticks = 0;
-        this.seconds = 0;
         this.setTicks = setTicks;
         this.setSeconds = setSeconds;
         this.atEnd = atEnd;
@@ -49,6 +42,7 @@ public class UpdateSimulationDetailsTask extends Task<Boolean> {
             Thread.sleep(TIME_TO_SLEEP);
         } while (!engine.isEnded(serialNumber));
 
+        updateProgress(1, 1);
         atEnd.accept(true);
 
         return true;
