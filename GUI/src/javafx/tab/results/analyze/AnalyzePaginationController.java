@@ -32,6 +32,7 @@ public class AnalyzePaginationController {
     private BooleanProperty isSelectedSimulationEnded = new SimpleBooleanProperty();
     private IntegerProperty currentPage = new SimpleIntegerProperty();
     private StringProperty selectedProperty = new SimpleStringProperty();
+    private StringProperty selectedEntity = new SimpleStringProperty();
 
     private SimulationDataDTO simulationData;
     private Map<String, Double> consistency;
@@ -44,6 +45,7 @@ public class AnalyzePaginationController {
         isSelectedSimulationEnded.addListener(((observable, oldValue, newValue) -> onSelectedSimulationEnd(newValue)));
         currentPage.bind(analyzePaging.currentPageIndexProperty());
         selectedProperty.addListener((observable, oldValue, newValue) -> setPropertiesChart(selectedProperty.get()));
+        selectedEntity.addListener((observable, oldValue, newValue) -> setConsistencyChart(consistency));
     }
 
     private void setPagination() {
@@ -65,6 +67,10 @@ public class AnalyzePaginationController {
     private Node createPropertiesChart() {
         StackPane sp = new StackPane();
 
+        if (resultsController != null) {
+            setEntityAndPropertyChoiceBoxDisableProperty(false, false);
+        }
+
         try {
             URL resource = getClass().getResource("/javafx/tab/results/analyze/histogram/property/PropertyChart.fxml");
             FXMLLoader loader = new FXMLLoader();
@@ -81,6 +87,10 @@ public class AnalyzePaginationController {
 
     private Node createConsistencyChart() {
         StackPane sp = new StackPane();
+
+        if (resultsController != null) {
+            setEntityAndPropertyChoiceBoxDisableProperty(false, true);
+        }
 
         try {
             URL resource = getClass().getResource("/javafx/tab/results/analyze/histogram/consistency/ConsistencyBarChart.fxml");
@@ -100,6 +110,10 @@ public class AnalyzePaginationController {
 
     private Node createPopulationChart() {
         StackPane sp = new StackPane();
+
+        if (resultsController != null) {
+            setEntityAndPropertyChoiceBoxDisableProperty(true, true);
+        }
 
         try {
             URL resource = getClass().getResource("/javafx/tab/results/analyze/histogram/population/PopulationChart.fxml");
@@ -124,11 +138,10 @@ public class AnalyzePaginationController {
         this.resultsController = resultsController;
         isSelectedSimulationEnded.bind(resultsController.isSelectedSimulationEndedProperty());
         selectedProperty.bind(resultsController.propertyToViewProperty());
+        selectedEntity.bind(resultsController.entityToViewProperty());
     }
 
     private void setPopulationChart(Map<String, Map<Integer, Long>> data) {
-        resultsController.setDisableEntityChoiceBoxValue(false);
-        resultsController.setDisablePropertyChoiceBoxValue(false);
         populationChartController.setChart(data);
     }
 
@@ -155,5 +168,14 @@ public class AnalyzePaginationController {
 
     public void setConsistency(Map<String, Double> consistency) {
         this.consistency = consistency;
+
+        if (currentPage.get() == CONSISTENCY_PAGE_INDEX) {
+            setConsistencyChart(consistency);
+        }
+    }
+
+    private void setEntityAndPropertyChoiceBoxDisableProperty(boolean entity, boolean property) {
+        resultsController.setDisableEntityChoiceBoxValue(entity);
+        resultsController.setDisablePropertyChoiceBoxValue(property);
     }
 }

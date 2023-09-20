@@ -8,7 +8,6 @@ import javafx.beans.binding.Bindings;
 import javafx.beans.property.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.mainScene.main.PredictionsMainAppController;
 import javafx.scene.control.*;
@@ -93,7 +92,6 @@ public class ResultsController {
         dataAnalyzeTitlePane.disableProperty().bind(isSelectedSimulationEnded.not());
 
         selectedSimulation.addListener((observable, oldValue, newValue) -> progressController.onSelectedSimulationChange(newValue));
-        selectedSimulation.addListener((observable, oldValue, newValue) -> onSimulationChange(newValue));
         isSelectedSimulationEnded.addListener((observable, oldValue, newValue) -> onSelectedSimulationStop());
 
         entityToView.addListener((observable, oldValue, newValue) -> onSelectedEntity());
@@ -116,14 +114,7 @@ public class ResultsController {
 
     private void onSelectedEntity() {
         setPropertyChoiceBox();
-        analyzePaginationController.setConsistencyChart(engine.getConsistencyByEntityName(selectedSimulation.get().getId(), entityToView.get()));
-    }
-
-    private void onSimulationChange(Category newSimulation) {
-        if (newSimulation != null && engine.isStop(newSimulation.getId())) {
-            setEntitiesChoiceBox();
-            setPropertyChoiceBox();
-        }
+        analyzePaginationController.setConsistency(engine.getConsistencyByEntityName(selectedSimulation.get().getId(), entityToView.get()));
     }
 
     public void onStartButtonClicked(int newSimulationSerialNumber) {
@@ -194,6 +185,10 @@ public class ResultsController {
         return isSelectedSimulationEnded;
     }
 
+    public ObjectProperty<Category> selectedSimulationProperty() {
+        return selectedSimulation;
+    }
+
     public void setEngine(PredictionsLogic engine) {
         this.engine = engine;
         progressController.setEngine(engine);
@@ -235,11 +230,18 @@ public class ResultsController {
         progressController.setTabPane(tabPane);
     }
 
-    public void setDisableEntityChoiceBoxValue(boolean value) {
-        entityChoiceBox.setDisable(value);
+    public void setDisableEntityChoiceBoxValue(boolean disable) {
+        String value = entityChoiceBox.getValue();
+
+        entityChoiceBox.setDisable(disable);
+        entityChoiceBox.valueProperty().set(disable ? null : value);
+
     }
 
-    public void setDisablePropertyChoiceBoxValue(boolean value) {
-        propertyChoiceBox.setDisable(value);
+    public void setDisablePropertyChoiceBoxValue(boolean disable) {
+        String value = propertyChoiceBox.getValue();
+
+        propertyChoiceBox.setDisable(disable);
+        propertyChoiceBox.valueProperty().set(disable ? null : value);
     }
 }

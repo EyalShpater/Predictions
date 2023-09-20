@@ -11,11 +11,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="27d35137-667f-4e37-a519-ab836acc0a06" name="Changes" comment="added animations">
+    <list default="true" id="27d35137-667f-4e37-a519-ab836acc0a06" name="Changes" comment="buttons behaviours fix">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GUI/src/javafx/tab/results/ResultsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/src/javafx/tab/results/ResultsController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GUI/src/javafx/tab/results/analyze/AnalyzePaginationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/src/javafx/tab/results/analyze/AnalyzePaginationController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/src/javafx/tab/results/progress/ProgressController.java" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/src/javafx/tab/results/progress/ProgressController.java" afterDir="false" />
     </list>
     <list id="e2a3c4d4-ea53-44ce-ad71-517b27fb520e" name="Changes by ASUS" comment="added animations" />
     <option name="SHOW_DIALOG" value="false" />
@@ -366,7 +365,7 @@
       <workItem from="1694408417392" duration="10450000" />
       <workItem from="1694524231690" duration="15371000" />
       <workItem from="1694857830392" duration="51381000" />
-      <workItem from="1695210575067" duration="13621000" />
+      <workItem from="1695210575067" duration="16423000" />
     </task>
     <task id="LOCAL-00103" summary="changed evaluate to get the EntityInstance of secondaryEntity in each iteration in order to creare the proper context , also added functions to context to get the filtered SecondaryEntity list">
       <created>1694175010163</created>
@@ -458,14 +457,6 @@
       <option name="presentableId" value="LOCAL-00129" />
       <option name="project" value="LOCAL" />
       <updated>1694776291781</updated>
-    </task>
-    <task id="LOCAL‎-00132" summary="you can get now a simulation run details by serial number">
-      <option name="closed" value="true" />
-      <created>1694856539370</created>
-      <option name="number" value="00132" />
-      <option name="presentableId" value="LOCAL‎-00132" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1694856539370</updated>
     </task>
     <task id="LOCAL‎-00133" summary="implemented the context swap entities by action method">
       <option name="closed" value="true" />
@@ -743,7 +734,15 @@
       <option name="project" value="LOCAL‎" />
       <updated>1695226312107</updated>
     </task>
-    <option name="localTasksCounter" value="168" />
+    <task id="LOCAL‎-00168" summary="buttons behaviours fix">
+      <option name="closed" value="true" />
+      <created>1695234266739</created>
+      <option name="number" value="00168" />
+      <option name="presentableId" value="LOCAL‎-00168" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1695234266739</updated>
+    </task>
+    <option name="localTasksCounter" value="169" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -774,7 +773,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="added components in result tab" />
     <MESSAGE value="added histogram bar chart component" />
     <MESSAGE value="more changes" />
     <MESSAGE value="shavit changes" />
@@ -799,7 +797,8 @@
     <MESSAGE value="population per tick graph implemented" />
     <MESSAGE value="changed the population chart" />
     <MESSAGE value="added animations" />
-    <option name="LAST_COMMIT_MESSAGE" value="added animations" />
+    <MESSAGE value="buttons behaviours fix" />
+    <option name="LAST_COMMIT_MESSAGE" value="buttons behaviours fix" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
@@ -822,15 +821,6 @@
             <option name="WATCH_EXIT" value="false" />
           </properties>
           <option name="timeStamp" value="123" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/GUI/src/javafx/tab/results/analyze/AnalyzePaginationController.java</url>
-          <line>136</line>
-          <properties class="javafx.tab.results.analyze.AnalyzePaginationController" method="setPropertiesChart">
-            <option name="EMULATED" value="true" />
-            <option name="WATCH_EXIT" value="false" />
-          </properties>
-          <option name="timeStamp" value="139" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
