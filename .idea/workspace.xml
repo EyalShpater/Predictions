@@ -15,8 +15,12 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GUI/src/javafx/tab/results/ResultsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/src/javafx/tab/results/ResultsController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GUI/src/javafx/tab/results/analyze/AnalyzePaginationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/src/javafx/tab/results/analyze/AnalyzePaginationController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI/src/javafx/tab/results/analyze/histogram/consistency/ConsistencyBarChartController.java" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/src/javafx/tab/results/analyze/histogram/consistency/ConsistencyBarChartController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI/src/javafx/tab/results/helper/Category.java" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/src/javafx/tab/results/helper/Category.java" afterDir="false" />
     </list>
-    <list id="e2a3c4d4-ea53-44ce-ad71-517b27fb520e" name="Changes by ASUS" comment="added animations" />
+    <list id="e2a3c4d4-ea53-44ce-ad71-517b27fb520e" name="Changes by ASUS" comment="added animations">
+      <change beforePath="$PROJECT_DIR$/GUI/src/task/UpdateEntitiesAmountTask.java" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/src/task/UpdateEntitiesAmountTask.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -759,7 +763,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="origin/GUI" />
+                        <option value="HEAD" />
                       </list>
                     </value>
                   </entry>
@@ -773,7 +777,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="added histogram bar chart component" />
     <MESSAGE value="more changes" />
     <MESSAGE value="shavit changes" />
     <MESSAGE value="pause / stop / resume buttons are active" />
@@ -796,9 +799,10 @@
     <MESSAGE value="population per tick implement" />
     <MESSAGE value="population per tick graph implemented" />
     <MESSAGE value="changed the population chart" />
-    <MESSAGE value="added animations" />
     <MESSAGE value="buttons behaviours fix" />
-    <option name="LAST_COMMIT_MESSAGE" value="buttons behaviours fix" />
+    <MESSAGE value="kaka" />
+    <MESSAGE value="added animations" />
+    <option name="LAST_COMMIT_MESSAGE" value="added animations" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
@@ -813,6 +817,11 @@
           <line>156</line>
           <option name="timeStamp" value="17" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/GUI/src/javafx/tab/results/analyze/AnalyzePaginationController.java</url>
+          <line>150</line>
+          <option name="timeStamp" value="148" />
+        </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/GUI/src/javafx/tab/results/analyze/histogram/population/PopulationChartController.java</url>
           <line>17</line>
@@ -821,6 +830,15 @@
             <option name="WATCH_EXIT" value="false" />
           </properties>
           <option name="timeStamp" value="123" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/GUI/src/javafx/tab/results/analyze/AnalyzePaginationController.java</url>
+          <line>204</line>
+          <properties class="javafx.tab.results.analyze.AnalyzePaginationController" method="setEngine">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="149" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

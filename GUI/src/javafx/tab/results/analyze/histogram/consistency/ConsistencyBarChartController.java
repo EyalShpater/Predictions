@@ -23,8 +23,6 @@ public class ConsistencyBarChartController {
 
         consistencyChart.getData().clear();
 
-//        series.setName("");
-
         data.forEach((key, value) -> series.getData().add(new XYChart.Data<>(key, value)));
 
         if (!series.getData().isEmpty()) {

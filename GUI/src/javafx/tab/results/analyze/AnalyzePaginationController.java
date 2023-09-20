@@ -1,5 +1,7 @@
 package javafx.tab.results.analyze;
 
+import execution.simulation.api.PredictionsLogic;
+import impl.SimulationDTO;
 import impl.SimulationDataDTO;
 import javafx.beans.property.*;
 import javafx.fxml.FXML;
@@ -15,6 +17,7 @@ import javafx.tab.results.analyze.histogram.property.PropertyChartController;
 
 import java.net.URL;
 import java.util.Map;
+import java.util.function.Consumer;
 
 public class AnalyzePaginationController {
     private static final int PROPERTIES_PAGE_INDEX = 0;
@@ -34,9 +37,8 @@ public class AnalyzePaginationController {
     private StringProperty selectedProperty = new SimpleStringProperty();
     private StringProperty selectedEntity = new SimpleStringProperty();
 
-    private SimulationDataDTO simulationData;
-    private Map<String, Double> consistency;
-    private Map<String, Map<Integer, Long>> populationData;
+    private PredictionsLogic engine;
+    private int currentSimulationSerialNumber;
 
     @FXML
     private void initialize() {
@@ -45,7 +47,7 @@ public class AnalyzePaginationController {
         isSelectedSimulationEnded.addListener(((observable, oldValue, newValue) -> onSelectedSimulationEnd(newValue)));
         currentPage.bind(analyzePaging.currentPageIndexProperty());
         selectedProperty.addListener((observable, oldValue, newValue) -> setPropertiesChart(selectedProperty.get()));
-        selectedEntity.addListener((observable, oldValue, newValue) -> setConsistencyChart(consistency));
+        selectedEntity.addListener((observable, oldValue, newValue) -> setConsistencyChart(resultsController.getConsistency()));
     }
 
     private void setPagination() {
@@ -66,7 +68,6 @@ public class AnalyzePaginationController {
 
     private Node createPropertiesChart() {
         StackPane sp = new StackPane();
-
         if (resultsController != null) {
             setEntityAndPropertyChoiceBoxDisableProperty(false, false);
         }
@@ -78,6 +79,7 @@ public class AnalyzePaginationController {
             Parent resultsContent = loader.load();
             sp.getChildren().add(resultsContent);
 
+            System.out.println("page" + currentPage.get());
             propertyChartController = loader.getController();
         } catch (Exception ignored) {
         }
@@ -100,7 +102,11 @@ public class AnalyzePaginationController {
             sp.getChildren().add(resultsContent);
 
             consistencyBarChartController = loader.getController();
-            setConsistencyChart(consistency);
+
+            if (resultsController != null) {
+                System.out.println("page" + currentPage.get());
+                setConsistencyChart(resultsController.getConsistency());
+            }
         } catch (Exception ignored) {
 
         }
@@ -123,7 +129,12 @@ public class AnalyzePaginationController {
             sp.getChildren().add(resultsContent);
 
             populationChartController = loader.getController();
-            setPopulationChart(populationData);
+
+            if (resultsController != null) {
+                System.out.println("page" + currentPage.get());
+
+                setPopulationChart(resultsController.getPopulationData());
+            }
         } catch (Exception ignored) {
         }
 
@@ -132,6 +143,27 @@ public class AnalyzePaginationController {
 
     private void onSelectedSimulationEnd(Boolean newValue) {
 
+    }
+
+    public void onSelectedSimulationChange(int newSerialNumber) {
+        currentSimulationSerialNumber = newSerialNumber;
+
+        if (engine.isEnded(newSerialNumber) && selectedEntity.isNotNull().get()) {
+            switch (currentPage.get()) {
+                case PROPERTIES_PAGE_INDEX:
+//                propertyChartController.setChart(selectedProperty.get(), engine.getSimulationData(newSerialNumber, selectedEntity.get(), selectedProperty.get()));
+                    if (selectedProperty.isNotNull().get()) {
+                        setPropertiesChart(selectedProperty.get());
+                    }
+                    break;
+                case CONSISTENCY_PAGE_INDEX:
+                    setConsistencyChart(engine.getConsistencyByEntityName(newSerialNumber, selectedEntity.get()));
+            }
+        }
+
+        if (currentPage.get() == POPULATION_PADE_INDEX) {
+            setPopulationChart(engine.getPopulationCountSortedByName(newSerialNumber));
+        }
     }
 
     public void setResultsController(ResultsController resultsController) {
@@ -145,13 +177,10 @@ public class AnalyzePaginationController {
         populationChartController.setChart(data);
     }
 
-    public void setPopulationData(Map<String, Map<Integer, Long>> data) {
-        populationData = data;
-    }
 
     public void setPropertiesChart(String property) {
         if (currentPage.get() == PROPERTIES_PAGE_INDEX) {
-            simulationData = resultsController.getSimulationData();
+            SimulationDataDTO simulationData = resultsController.getSimulationData();
             propertyChartController.setChart(property, simulationData);
         }
     }
@@ -162,13 +191,7 @@ public class AnalyzePaginationController {
         }
     }
 
-    public void setSimulationData(SimulationDataDTO simulationData) {
-        this.simulationData = simulationData;
-    }
-
     public void setConsistency(Map<String, Double> consistency) {
-        this.consistency = consistency;
-
         if (currentPage.get() == CONSISTENCY_PAGE_INDEX) {
             setConsistencyChart(consistency);
         }
@@ -177,5 +200,9 @@ public class AnalyzePaginationController {
     private void setEntityAndPropertyChoiceBoxDisableProperty(boolean entity, boolean property) {
         resultsController.setDisableEntityChoiceBoxValue(entity);
         resultsController.setDisablePropertyChoiceBoxValue(property);
+    }
+
+    public void setEngine(PredictionsLogic engine) {
+        this.engine = engine;
     }
 }

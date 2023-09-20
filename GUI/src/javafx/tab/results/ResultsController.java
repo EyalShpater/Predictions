@@ -19,6 +19,7 @@ import javafx.tab.results.progress.ProgressController;
 import task.helper.EntityPopulationData;
 
 import java.util.LinkedList;
+import java.util.Map;
 import java.util.Queue;
 
 public class ResultsController {
@@ -59,18 +60,19 @@ public class ResultsController {
     @FXML
     private ProgressController progressController;
 
-    private TabPane tabPane; //todo: why do we need it?
+    private TabPane tabPane;
 
     private PredictionsLogic engine;
     private PredictionsMainAppController predictionsMainAppController;
 
     private ObjectProperty<Category> selectedSimulation;
+    private IntegerProperty selectedSimulationSerialNumber;
     private StringProperty propertyToView;
     private StringProperty entityToView;
     private BooleanProperty isSelectedSimulationEnded;
     private BooleanProperty isNewFileLoaded;
 
-    private ObservableList<EntityPopulationData> entityPopulationList = FXCollections.observableArrayList();
+    private int selectedSimulationID;
 
     private Queue<Category> waitingQueue = new LinkedList<>();
 
@@ -80,6 +82,7 @@ public class ResultsController {
         entityToView = new SimpleStringProperty();
         isSelectedSimulationEnded = new SimpleBooleanProperty();
         isNewFileLoaded = new SimpleBooleanProperty();
+        selectedSimulationSerialNumber = new SimpleIntegerProperty();
     }
 
     @FXML
@@ -91,9 +94,8 @@ public class ResultsController {
         progress.disableProperty().bind(Bindings.isNull(selectedSimulation));
         dataAnalyzeTitlePane.disableProperty().bind(isSelectedSimulationEnded.not());
 
-        selectedSimulation.addListener((observable, oldValue, newValue) -> progressController.onSelectedSimulationChange(newValue));
+        selectedSimulation.addListener((observable, oldValue, newValue) -> onSelectedSimulationChange(newValue));
         isSelectedSimulationEnded.addListener((observable, oldValue, newValue) -> onSelectedSimulationStop());
-
         entityToView.addListener((observable, oldValue, newValue) -> onSelectedEntity());
 
         entitiesCol.setCellValueFactory(new PropertyValueFactory<>("entityName"));
@@ -102,7 +104,15 @@ public class ResultsController {
         analyzePaginationController.setResultsController(this);
     }
 
+    private void onSelectedSimulationChange(Category newValue) {
+        progressController.onSelectedSimulationChange(newValue);
+        selectedSimulationSerialNumber.set(newValue.getIdProperty().get());
+        analyzePaginationController.onSelectedSimulationChange(selectedSimulationSerialNumber.get());
+    }
+
     public SimulationDataDTO getSimulationData() {
+        System.out.println("getSimulationData id#" + selectedSimulation.get().getId());
+
         return selectedSimulation.isNotNull().get() ?
                 engine.getSimulationData(
                         selectedSimulation.get().getId(),
@@ -114,7 +124,7 @@ public class ResultsController {
 
     private void onSelectedEntity() {
         setPropertyChoiceBox();
-        analyzePaginationController.setConsistency(engine.getConsistencyByEntityName(selectedSimulation.get().getId(), entityToView.get()));
+        analyzePaginationController.setConsistency(engine.getConsistencyByEntityName(selectedSimulationSerialNumber.get(), entityToView.get()));
     }
 
     public void onStartButtonClicked(int newSimulationSerialNumber) {
@@ -138,7 +148,7 @@ public class ResultsController {
     }
 
     private void onSelectedSimulationStop() {
-        analyzePaginationController.setPopulationData(engine.getPopulationCountSortedByName(selectedSimulation.get().getId()));
+//        analyzePaginationController.setPopulationData(engine.getPopulationCountSortedByName(selectedSimulation.get().getId()));
     }
 
     public Category getSelectedSimulation() {
@@ -189,9 +199,14 @@ public class ResultsController {
         return selectedSimulation;
     }
 
+    public PredictionsLogic getEngine() {
+        return engine;
+    }
+
     public void setEngine(PredictionsLogic engine) {
         this.engine = engine;
         progressController.setEngine(engine);
+        analyzePaginationController.setEngine(engine);
     }
 
     public void setPredictionsMainAppController(PredictionsMainAppController predictionsMainAppController) {
@@ -243,5 +258,13 @@ public class ResultsController {
 
         propertyChoiceBox.setDisable(disable);
         propertyChoiceBox.valueProperty().set(disable ? null : value);
+    }
+
+    public Map<String, Double> getConsistency() {
+        return engine.getConsistencyByEntityName(selectedSimulationSerialNumber.get(), entityToView.get());
+    }
+
+    public Map<String, Map<Integer, Long>> getPopulationData() {
+        return engine.getPopulationCountSortedByName(selectedSimulationSerialNumber.get());
     }
 }
