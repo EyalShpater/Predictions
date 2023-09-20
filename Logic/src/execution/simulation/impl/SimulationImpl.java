@@ -121,24 +121,6 @@ public class SimulationImpl implements Simulation , Serializable {
         return tick >= 1;
     }
 
-    private Map<String, Integer> createEntityNameToPopulationFromEntityInstanceManager() {
-        List<EntityInstance> entityInstances = entities.getInstances();
-        Map<String, Integer> entityNameToPopulation = new HashMap<>();
-
-        for (EntityInstance entityInstance : entityInstances) {
-            String entityName = entityInstance.getName();
-            int currentCount = entityNameToPopulation.getOrDefault(entityName, 0);
-
-            if (entityInstance.isAlive()) {
-                entityNameToPopulation.put(entityName, currentCount + 1);
-            } else {
-                entityNameToPopulation.put(entityName, currentCount);
-            }
-        }
-
-        return entityNameToPopulation;
-    }
-
     public SimulationRunDetailsDTO createRunDetailDTO() {
         return new SimulationRunDetailsDTO(
 //                endReason.equals(TerminateCondition.BY_SECONDS),
