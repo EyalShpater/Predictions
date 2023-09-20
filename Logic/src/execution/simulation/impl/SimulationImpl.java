@@ -366,4 +366,9 @@ public class SimulationImpl implements Simulation , Serializable {
             throw new RuntimeException(e);
         }
     }
+
+    @Override
+    public Double getFinalNumericPropertyAvg(String entityName, String propertyName) {
+        return entities.getFinalNumericPropertyAvg(entityName, propertyName);
+    }
 }

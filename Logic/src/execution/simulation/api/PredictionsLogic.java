@@ -57,4 +57,6 @@ public interface PredictionsLogic {
 
     Map<String, Double> getConsistencyByEntityName(int serialNumber, String entityName);
 
+    Double getFinalNumericPropertyAvg(String entityName, String propertyName, int serialNumber);
+
 }

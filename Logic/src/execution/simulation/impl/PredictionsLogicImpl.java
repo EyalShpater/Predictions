@@ -187,4 +187,13 @@ public class PredictionsLogicImpl implements PredictionsLogic , Serializable {
 
         return allSimulations == null ? null : allSimulations.getSimulationQueueDetails();
     }
+
+    @Override
+    public Double getFinalNumericPropertyAvg(String entityName, String propertyName, int serialNumber) {
+        return allSimulations != null ?
+                allSimulations.getSimulationBySerialNumber(serialNumber).getFinalNumericPropertyAvg(entityName, propertyName)
+                : null;
+
+    }
+
 }
