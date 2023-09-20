@@ -80,8 +80,6 @@ public class ProgressController {
         } else {
             pauseButtonIcon.setImage(new Image("javafx/tab/results/resources/pause.png"));
         }
-
-        stopButton.setDisable(isStop.get());
     }
 
 

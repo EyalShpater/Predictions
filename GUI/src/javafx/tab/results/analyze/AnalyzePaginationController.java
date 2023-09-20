@@ -1,8 +1,7 @@
 package javafx.tab.results.analyze;
 
 import impl.SimulationDataDTO;
-import javafx.beans.property.BooleanProperty;
-import javafx.beans.property.SimpleBooleanProperty;
+import javafx.beans.property.*;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -31,13 +30,20 @@ public class AnalyzePaginationController {
     private PopulationChartController populationChartController;
 
     private BooleanProperty isSelectedSimulationEnded = new SimpleBooleanProperty();
+    private IntegerProperty currentPage = new SimpleIntegerProperty();
+    private StringProperty selectedProperty = new SimpleStringProperty();
 
+    private SimulationDataDTO simulationData;
+    private Map<String, Double> consistency;
     private Map<String, Map<Integer, Long>> populationData;
 
     @FXML
     private void initialize() {
         setPagination();
+
         isSelectedSimulationEnded.addListener(((observable, oldValue, newValue) -> onSelectedSimulationEnd(newValue)));
+        currentPage.bind(analyzePaging.currentPageIndexProperty());
+        selectedProperty.addListener((observable, oldValue, newValue) -> setPropertiesChart(selectedProperty.get()));
     }
 
     private void setPagination() {
@@ -68,7 +74,6 @@ public class AnalyzePaginationController {
 
             propertyChartController = loader.getController();
         } catch (Exception ignored) {
-
         }
 
         return sp;
@@ -85,6 +90,7 @@ public class AnalyzePaginationController {
             sp.getChildren().add(resultsContent);
 
             consistencyBarChartController = loader.getController();
+            setConsistencyChart(consistency);
         } catch (Exception ignored) {
 
         }
@@ -103,8 +109,8 @@ public class AnalyzePaginationController {
             sp.getChildren().add(resultsContent);
 
             populationChartController = loader.getController();
+            setPopulationChart(populationData);
         } catch (Exception ignored) {
-
         }
 
         return sp;
@@ -117,24 +123,37 @@ public class AnalyzePaginationController {
     public void setResultsController(ResultsController resultsController) {
         this.resultsController = resultsController;
         isSelectedSimulationEnded.bind(resultsController.isSelectedSimulationEndedProperty());
+        selectedProperty.bind(resultsController.propertyToViewProperty());
     }
 
     private void setPopulationChart(Map<String, Map<Integer, Long>> data) {
+        resultsController.setDisableEntityChoiceBoxValue(false);
+        resultsController.setDisablePropertyChoiceBoxValue(false);
         populationChartController.setChart(data);
     }
 
     public void setPopulationData(Map<String, Map<Integer, Long>> data) {
         populationData = data;
-        setPopulationChart(data);
     }
 
-    public void setPropertiesChart(String property, SimulationDataDTO data) {
-        propertyChartController.setChart(property, data);
+    public void setPropertiesChart(String property) {
+        if (currentPage.get() == PROPERTIES_PAGE_INDEX) {
+            simulationData = resultsController.getSimulationData();
+            propertyChartController.setChart(property, simulationData);
+        }
     }
 
     public void setConsistencyChart(Map<String, Double> consistency) {
         if (analyzePaging.currentPageIndexProperty().get() == CONSISTENCY_PAGE_INDEX) {
             consistencyBarChartController.setChart(consistency);
         }
+    }
+
+    public void setSimulationData(SimulationDataDTO simulationData) {
+        this.simulationData = simulationData;
+    }
+
+    public void setConsistency(Map<String, Double> consistency) {
+        this.consistency = consistency;
     }
 }

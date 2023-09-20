@@ -93,10 +93,10 @@ public class ResultsController {
         dataAnalyzeTitlePane.disableProperty().bind(isSelectedSimulationEnded.not());
 
         selectedSimulation.addListener((observable, oldValue, newValue) -> progressController.onSelectedSimulationChange(newValue));
-        selectedSimulation.addListener((observable, oldValue, newValue) -> onSelectedSimulationChange(newValue));
+        selectedSimulation.addListener((observable, oldValue, newValue) -> onSimulationChange(newValue));
+        isSelectedSimulationEnded.addListener((observable, oldValue, newValue) -> onSelectedSimulationStop());
 
-        entityChoiceBox.setOnAction(this::onSelectedEntity);
-        propertyChoiceBox.setOnAction(this::onSelectedProperty);
+        entityToView.addListener((observable, oldValue, newValue) -> onSelectedEntity());
 
         entitiesCol.setCellValueFactory(new PropertyValueFactory<>("entityName"));
         populationCol.setCellValueFactory(new PropertyValueFactory<>("population"));
@@ -104,28 +104,22 @@ public class ResultsController {
         analyzePaginationController.setResultsController(this);
     }
 
-    private void onSelectedProperty(ActionEvent actionEvent) {
-        if (selectedSimulation.isNotNull().get()) {
-            SimulationDataDTO data = engine.getSimulationData(
-                    selectedSimulation.get().getId(),
-                    entityToView.get(),
-                    propertyChoiceBox.getValue()
-            );
-
-            setPopulationData();
-
-            if (!propertyChoiceBox.getItems().isEmpty()) {
-                analyzePaginationController.setPropertiesChart(propertyToView.get(), data);
-            }
-        }
+    public SimulationDataDTO getSimulationData() {
+        return selectedSimulation.isNotNull().get() ?
+                engine.getSimulationData(
+                        selectedSimulation.get().getId(),
+                        entityToView.get(),
+                        propertyChoiceBox.getValue()
+                ) :
+                null;
     }
 
-    private void onSelectedEntity(ActionEvent actionEvent) {
+    private void onSelectedEntity() {
         setPropertyChoiceBox();
         analyzePaginationController.setConsistencyChart(engine.getConsistencyByEntityName(selectedSimulation.get().getId(), entityToView.get()));
     }
 
-    private void onSelectedSimulationChange(Category newSimulation) {
+    private void onSimulationChange(Category newSimulation) {
         if (newSimulation != null && engine.isStop(newSimulation.getId())) {
             setEntitiesChoiceBox();
             setPropertyChoiceBox();
@@ -150,6 +144,10 @@ public class ResultsController {
         setPropertyChoiceBox();
 
         //propertyChoiceBox.getItems().clear();
+    }
+
+    private void onSelectedSimulationStop() {
+        analyzePaginationController.setPopulationData(engine.getPopulationCountSortedByName(selectedSimulation.get().getId()));
     }
 
     public Category getSelectedSimulation() {
@@ -237,7 +235,11 @@ public class ResultsController {
         progressController.setTabPane(tabPane);
     }
 
-    public void setPopulationData() {
-        analyzePaginationController.setPopulationData(engine.getPopulationCountSortedByName(selectedSimulation.get().getId()));
+    public void setDisableEntityChoiceBoxValue(boolean value) {
+        entityChoiceBox.setDisable(value);
+    }
+
+    public void setDisablePropertyChoiceBoxValue(boolean value) {
+        propertyChoiceBox.setDisable(value);
     }
 }

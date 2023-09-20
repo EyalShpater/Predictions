@@ -18,18 +18,20 @@ public class PropertyChartController {
     }
 
     public void setChart(String propertyToView, SimulationDataDTO data) {
-        XYChart.Series<String, Integer> series = new XYChart.Series<>();
-        List<Map.Entry<Object, Integer>> values;
-
         histogramBarChart.getData().clear();
 
-        series.setName(propertyToView);
-        values = createSortedValuesToAmountMap(data.getPropertyOfEntitySortedByValues());
+        if (propertyToView != null && data != null) {
+            XYChart.Series<String, Integer> series = new XYChart.Series<>();
+            List<Map.Entry<Object, Integer>> values;
 
-        values.forEach(entry -> series.getData().add(new XYChart.Data<>(entry.getKey().toString(), entry.getValue())));
+            series.setName(propertyToView);
+            values = createSortedValuesToAmountMap(data.getPropertyOfEntitySortedByValues());
 
-        if (!series.getData().isEmpty()) {
-            histogramBarChart.getData().add(series);
+            values.forEach(entry -> series.getData().add(new XYChart.Data<>(entry.getKey().toString(), entry.getValue())));
+
+            if (!series.getData().isEmpty()) {
+                histogramBarChart.getData().add(series);
+            }
         }
     }
 

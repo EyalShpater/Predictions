@@ -11,24 +11,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="27d35137-667f-4e37-a519-ab836acc0a06" name="Changes" comment="changed the population chart">
+    <list default="true" id="27d35137-667f-4e37-a519-ab836acc0a06" name="Changes" comment="added animations">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/src/javafx/mainScene/main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/src/javafx/mainScene/main/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/src/javafx/mainScene/main/PredictionsMainAppController.java" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/src/javafx/mainScene/main/PredictionsMainAppController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/src/javafx/tab/newExecution/mainComponent/NewExecutionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/src/javafx/tab/newExecution/mainComponent/NewExecutionController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/src/javafx/tab/results/Results.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/src/javafx/tab/results/Results.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GUI/src/javafx/tab/results/ResultsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/src/javafx/tab/results/ResultsController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GUI/src/javafx/tab/results/analyze/AnalyzePaginationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/src/javafx/tab/results/analyze/AnalyzePaginationController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GUI/src/javafx/tab/results/progress/ProgressController.java" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/src/javafx/tab/results/progress/ProgressController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/src/task/UpdateSimulationDetailsTask.java" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/src/task/UpdateSimulationDetailsTask.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/execution/simulation/impl/SimulationImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/execution/simulation/impl/SimulationImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hs_err_pid17066.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/hs_err_pid58007.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/hs_err_pid58200.log" beforeDir="false" />
     </list>
-    <list id="e2a3c4d4-ea53-44ce-ad71-517b27fb520e" name="Changes by ASUS" comment="">
-      <change beforePath="$PROJECT_DIR$/GUI/src/javafx/tab/newExecution/mainComponent/NewExecutionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/src/javafx/tab/newExecution/mainComponent/NewExecutionController.java" afterDir="false" />
-    </list>
+    <list id="e2a3c4d4-ea53-44ce-ad71-517b27fb520e" name="Changes by ASUS" comment="added animations" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -92,16 +81,6 @@
     <setting file="jar:///Library/Java/JavaVirtualMachines/jdk-1.8.jdk/Contents/Home/javafx-src.zip!/javafx/fxml/FXMLLoader.java" root0="SKIP_INSPECTION" />
     <setting file="jar:///Library/Java/JavaVirtualMachines/jdk-1.8.jdk/Contents/Home/javafx-src.zip!/javafx/scene/chart/ValueAxis.java" root0="SKIP_INSPECTION" />
     <setting file="jar:///Library/Java/JavaVirtualMachines/jdk-1.8.jdk/Contents/Home/javafx-src.zip!/javafx/scene/chart/XYChart.java" root0="SKIP_INSPECTION" />
-  </component>
-  <component name="LineStatusTrackerManager">
-    <file path="$PROJECT_DIR$/GUI/src/javafx/tab/newExecution/mainComponent/NewExecutionController.java">
-      <ranges>
-        <range start1="4" end1="4" start2="4" end2="7" changelist="27d35137-667f-4e37-a519-ab836acc0a06" />
-        <range start1="30" end1="30" start2="33" end2="34" changelist="27d35137-667f-4e37-a519-ab836acc0a06" />
-        <range start1="165" end1="166" start2="169" end2="173" changelist="e2a3c4d4-ea53-44ce-ad71-517b27fb520e" />
-        <range start1="168" end1="169" start2="175" end2="209" changelist="e2a3c4d4-ea53-44ce-ad71-517b27fb520e" />
-      </ranges>
-    </file>
   </component>
   <component name="ProblemsViewState">
     <option name="selectedTabId" value="CurrentFile" />
@@ -387,7 +366,7 @@
       <workItem from="1694408417392" duration="10450000" />
       <workItem from="1694524231690" duration="15371000" />
       <workItem from="1694857830392" duration="51381000" />
-      <workItem from="1695210575067" duration="6724000" />
+      <workItem from="1695210575067" duration="13621000" />
     </task>
     <task id="LOCAL-00103" summary="changed evaluate to get the EntityInstance of secondaryEntity in each iteration in order to creare the proper context , also added functions to context to get the filtered SecondaryEntity list">
       <created>1694175010163</created>
@@ -479,22 +458,6 @@
       <option name="presentableId" value="LOCAL-00129" />
       <option name="project" value="LOCAL" />
       <updated>1694776291781</updated>
-    </task>
-    <task id="LOCAL‎-00130" summary="changed the way of getting user init info to the simulation">
-      <option name="closed" value="true" />
-      <created>1694852323751</created>
-      <option name="number" value="00130" />
-      <option name="presentableId" value="LOCAL‎-00130" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1694852323751</updated>
-    </task>
-    <task id="LOCAL‎-00131" summary="population is set now by user">
-      <option name="closed" value="true" />
-      <created>1694855235062</created>
-      <option name="number" value="00131" />
-      <option name="presentableId" value="LOCAL‎-00131" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1694855235062</updated>
     </task>
     <task id="LOCAL‎-00132" summary="you can get now a simulation run details by serial number">
       <option name="closed" value="true" />
@@ -764,7 +727,23 @@
       <option name="project" value="LOCAL‎" />
       <updated>1695206702082</updated>
     </task>
-    <option name="localTasksCounter" value="166" />
+    <task id="LOCAL‎-00166" summary="added animations">
+      <option name="closed" value="true" />
+      <created>1695225375756</created>
+      <option name="number" value="00166" />
+      <option name="presentableId" value="LOCAL‎-00166" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1695225375756</updated>
+    </task>
+    <task id="LOCAL‎-00167" summary="added animations">
+      <option name="closed" value="true" />
+      <created>1695226312107</created>
+      <option name="number" value="00167" />
+      <option name="presentableId" value="LOCAL‎-00167" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1695226312107</updated>
+    </task>
+    <option name="localTasksCounter" value="168" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -795,7 +774,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="start of Result tab" />
     <MESSAGE value="added components in result tab" />
     <MESSAGE value="added histogram bar chart component" />
     <MESSAGE value="more changes" />
@@ -820,7 +798,8 @@
     <MESSAGE value="population per tick implement" />
     <MESSAGE value="population per tick graph implemented" />
     <MESSAGE value="changed the population chart" />
-    <option name="LAST_COMMIT_MESSAGE" value="changed the population chart" />
+    <MESSAGE value="added animations" />
+    <option name="LAST_COMMIT_MESSAGE" value="added animations" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
@@ -843,6 +822,15 @@
             <option name="WATCH_EXIT" value="false" />
           </properties>
           <option name="timeStamp" value="123" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/GUI/src/javafx/tab/results/analyze/AnalyzePaginationController.java</url>
+          <line>136</line>
+          <properties class="javafx.tab.results.analyze.AnalyzePaginationController" method="setPropertiesChart">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="139" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
