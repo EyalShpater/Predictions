@@ -17,6 +17,11 @@ public class PropertyChartController {
 
     private SimulationDataDTO data;
 
+    @FXML
+    private void initialize() {
+        histogramBarChart.setAnimated(false);
+    }
+
     public void setChart(String propertyToView, SimulationDataDTO data, Double average) {
         histogramBarChart.getData().clear();
 

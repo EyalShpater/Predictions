@@ -2,30 +2,30 @@
 <project version="4">
   <component name="ArtifactsWorkspaceSettings">
     <artifacts-to-build>
-      <artifact name="consoleUI" />
-      <artifact name="dto" />
-      <artifact name="logic" />
+      <artifact name="GUI:jar" />
     </artifacts-to-build>
   </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="27d35137-667f-4e37-a519-ab836acc0a06" name="Changes" comment="added css">
-      <change afterPath="$PROJECT_DIR$/GUI/src/javafx/mainScene/header/resources/setting.png" afterDir="false" />
+    <list default="true" id="27d35137-667f-4e37-a519-ab836acc0a06" name="Changes" comment="Predictions version 2:0">
+      <change afterPath="$PROJECT_DIR$/.idea/artifacts/GUI_jar.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GUI/src/META-INF/MANIFEST.MF" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GUI/src/javafx/mainScene/header/resources/animation.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GUI/src/javafx/mainScene/header/resources/motion-graphic.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/artifacts/consoleUI.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/artifacts/dto.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/artifacts/logic.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/src/javafx/mainScene/header/Header.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/src/javafx/mainScene/header/Header.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI/GUI.iml" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/GUI.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GUI/src/javafx/mainScene/header/HeaderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/src/javafx/mainScene/header/HeaderController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GUI/src/javafx/mainScene/main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/src/javafx/mainScene/main/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/src/javafx/mainScene/main/PredictionsLogicMainApp.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/src/javafx/mainScene/main/PredictionsMainApp.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/src/javafx/mainScene/main/PredictionsMainApp.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/src/javafx/mainScene/main/PredictionsMainAppController.java" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/src/javafx/mainScene/main/PredictionsMainAppController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/src/javafx/tab/newExecution/mainComponent/NewExecutionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/src/javafx/tab/newExecution/mainComponent/NewExecutionController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/src/javafx/tab/results/ResultsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/src/javafx/tab/results/ResultsController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI/src/javafx/tab/results/analyze/histogram/consistency/ConsistencyBarChartController.java" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/src/javafx/tab/results/analyze/histogram/consistency/ConsistencyBarChartController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI/src/javafx/tab/results/analyze/histogram/population/PopulationChartController.java" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/src/javafx/tab/results/analyze/histogram/population/PopulationChartController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI/src/javafx/tab/results/analyze/histogram/property/PropertyChartController.java" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/src/javafx/tab/results/analyze/histogram/property/PropertyChartController.java" afterDir="false" />
     </list>
-    <list id="e2a3c4d4-ea53-44ce-ad71-517b27fb520e" name="Changes by ASUS" comment="bug fix">
-      <change beforePath="$PROJECT_DIR$/GUI/src/javafx/tab/newExecution/mainComponent/NewExecutionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/src/javafx/tab/newExecution/mainComponent/NewExecutionController.java" afterDir="false" />
-    </list>
+    <list id="ff084db0-cb92-43bb-9658-8af184568cf4" name="Changes by ASUS" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -91,17 +91,6 @@
     <setting file="jar:///Library/Java/JavaVirtualMachines/jdk-1.8.jdk/Contents/Home/javafx-src.zip!/javafx/scene/chart/ValueAxis.java" root0="SKIP_INSPECTION" />
     <setting file="jar:///Library/Java/JavaVirtualMachines/jdk-1.8.jdk/Contents/Home/javafx-src.zip!/javafx/scene/chart/XYChart.java" root0="SKIP_INSPECTION" />
   </component>
-  <component name="LineStatusTrackerManager">
-    <file path="$PROJECT_DIR$/GUI/src/javafx/tab/newExecution/mainComponent/NewExecutionController.java">
-      <ranges>
-        <range start1="7" end1="7" start2="7" end2="8" changelist="27d35137-667f-4e37-a519-ab836acc0a06" />
-        <range start1="80" end1="81" start2="81" end2="82" changelist="e2a3c4d4-ea53-44ce-ad71-517b27fb520e" />
-        <range start1="93" end1="94" start2="94" end2="95" changelist="e2a3c4d4-ea53-44ce-ad71-517b27fb520e" />
-        <range start1="169" end1="176" start2="170" end2="178" changelist="27d35137-667f-4e37-a519-ab836acc0a06" />
-        <range start1="398" end1="398" start2="400" end2="401" changelist="e2a3c4d4-ea53-44ce-ad71-517b27fb520e" />
-      </ranges>
-    </file>
-  </component>
   <component name="ProblemsViewState">
     <option name="selectedTabId" value="CurrentFile" />
   </component>
@@ -136,7 +125,7 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Modules",
+    "project.structure.last.edited": "Artifacts",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
     "settings.editor.selected.configurable": "inlay.hints",
@@ -480,22 +469,6 @@
       <option name="project" value="LOCAL" />
       <updated>1694776291781</updated>
     </task>
-    <task id="LOCAL‎-00142" summary="pause / stop / resume buttons are active">
-      <option name="closed" value="true" />
-      <created>1694964842729</created>
-      <option name="number" value="00142" />
-      <option name="presentableId" value="LOCAL‎-00142" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1694964842729</updated>
-    </task>
-    <task id="LOCAL‎-00143" summary="added progress information from engine">
-      <option name="closed" value="true" />
-      <created>1694966441918</created>
-      <option name="number" value="00143" />
-      <option name="presentableId" value="LOCAL‎-00143" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1694966441918</updated>
-    </task>
     <task id="LOCAL‎-00144" summary="added progress information from engine">
       <option name="closed" value="true" />
       <created>1694967789277</created>
@@ -764,7 +737,23 @@
       <option name="project" value="LOCAL‎" />
       <updated>1695258186801</updated>
     </task>
-    <option name="localTasksCounter" value="178" />
+    <task id="LOCAL‎-00178" summary="Predictions version 2:0">
+      <option name="closed" value="true" />
+      <created>1695265192319</created>
+      <option name="number" value="00178" />
+      <option name="presentableId" value="LOCAL‎-00178" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1695265192319</updated>
+    </task>
+    <task id="LOCAL‎-00179" summary="Predictions version 2:0">
+      <option name="closed" value="true" />
+      <created>1695265219868</created>
+      <option name="number" value="00179" />
+      <option name="presentableId" value="LOCAL‎-00179" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1695265219868</updated>
+    </task>
+    <option name="localTasksCounter" value="180" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -795,7 +784,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="some progress" />
     <MESSAGE value="addd EntitiesAmountDTO" />
     <MESSAGE value="entity Population is working for one simulation" />
     <MESSAGE value="ui reflects the engine" />
@@ -820,7 +808,8 @@
     <MESSAGE value="annoying bug fix" />
     <MESSAGE value="bug fix" />
     <MESSAGE value="added css" />
-    <option name="LAST_COMMIT_MESSAGE" value="added css" />
+    <MESSAGE value="Predictions version 2:0" />
+    <option name="LAST_COMMIT_MESSAGE" value="Predictions version 2:0" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
@@ -839,15 +828,6 @@
           <url>file://$PROJECT_DIR$/GUI/src/javafx/tab/newExecution/mainComponent/NewExecutionController.java</url>
           <line>400</line>
           <option name="timeStamp" value="157" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/GUI/src/javafx/tab/results/analyze/histogram/population/PopulationChartController.java</url>
-          <line>17</line>
-          <properties class="javafx.tab.results.analyze.histogram.population.PopulationChartController" method="setChart">
-            <option name="EMULATED" value="true" />
-            <option name="WATCH_EXIT" value="false" />
-          </properties>
-          <option name="timeStamp" value="123" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

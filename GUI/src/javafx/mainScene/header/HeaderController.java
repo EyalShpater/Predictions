@@ -122,12 +122,12 @@ public class HeaderController {
 
             engine.loadXML(absolutePath);
             filePath.set(absolutePath);
-            isNewFileSelected.set(!lastFilePath.equals(absolutePath));
+            isNewFileSelected.set(true);
         } catch (Exception e) {
             showErrorPopUp(e.getMessage() == null ?
                     "General Error has occurred." :
                     e.getMessage());
-            isNewFileSelected.set(false);
+            //isNewFileSelected.set(false);
         }
     }
 

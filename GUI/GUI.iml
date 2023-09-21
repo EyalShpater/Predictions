@@ -9,7 +9,6 @@
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module" module-name="DTO" />
     <orderEntry type="module" module-name="Logic" />
-    <orderEntry type="library" name="controlsfx-8.40.14" level="project" />
     <orderEntry type="module" module-name="ConsoleUI" />
   </component>
 </module>

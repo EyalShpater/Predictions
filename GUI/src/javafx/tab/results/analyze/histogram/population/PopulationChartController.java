@@ -15,6 +15,11 @@ public class PopulationChartController {
     @FXML
     private AreaChart<Integer, Long> populationChart;
 
+    @FXML
+    private void initialize() {
+        populationChart.setAnimated(false);
+    }
+
     public void setChart(Map<String, Map<Integer, Long>> data) {
         populationChart.getData().clear();
 

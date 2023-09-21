@@ -15,7 +15,7 @@ public class ConsistencyBarChartController {
 
     @FXML
     private void initialize() {
-
+        consistencyChart.setAnimated(false);
     }
 
     public void setChart(Map<String, Double> data) {

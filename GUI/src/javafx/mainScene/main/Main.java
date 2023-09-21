@@ -1,6 +1,7 @@
 package javafx.mainScene.main;
 
 import javafx.application.Application;
+import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -24,6 +25,11 @@ public class Main extends Application {
         Scene scene = new Scene(mainApp, 960, 640);
         primaryStage.setScene(scene);
         predictionsMainAppController.setScene(scene);
+
+        primaryStage.setOnCloseRequest(request -> {
+            Platform.exit();
+            System.exit(0);
+        });
 
         primaryStage.show();
     }
