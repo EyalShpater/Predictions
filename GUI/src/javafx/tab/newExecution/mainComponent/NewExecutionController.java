@@ -323,8 +323,7 @@ public class NewExecutionController {
             entityList.add(entityController);
 
             entitiesFlowPane.getChildren().add(singleEntityTile);
-        } catch (IOException e) {
-            e.printStackTrace();
+        } catch (IOException ignored) {
         }
     }
 
@@ -354,8 +353,7 @@ public class NewExecutionController {
             //environmentVariableController.
             envVarsFlowPane.getChildren().add(singleEnvVarTile);
             envVarControllerList.add(environmentVariableController);
-        } catch (IOException e) {
-            e.printStackTrace();
+        } catch (IOException ignored) {
         }
     }
 
@@ -372,8 +370,7 @@ public class NewExecutionController {
 
             envVarsFlowPane.getChildren().add(singleEnvVarTile);
             envVarControllerList.add(environmentVariableController);
-        } catch (IOException e) {
-            e.printStackTrace();
+        } catch (IOException ignored) {
         }
     }
 
@@ -388,8 +385,7 @@ public class NewExecutionController {
 
             envVarsFlowPane.getChildren().add(singleEnvVarTile);
             envVarControllerList.add(environmentVariableController);
-        } catch (IOException e) {
-            e.printStackTrace();
+        } catch (IOException ignored) {
         }
     }
 
@@ -445,8 +441,7 @@ public class NewExecutionController {
 
             envVarsFlowPane.getChildren().add(singleEnvVarTile);
             envVarControllerList.add(environmentVariableController);
-        } catch (IOException e) {
-            e.printStackTrace();
+        } catch (IOException ignored) {
         }
     }
 
@@ -461,8 +456,7 @@ public class NewExecutionController {
 
             envVarsFlowPane.getChildren().add(singleEnvVarTile);
             envVarControllerList.add(environmentVariableController);
-        } catch (IOException e) {
-            e.printStackTrace();
+        } catch (IOException ignored) {
         }
     }
 
@@ -478,8 +472,7 @@ public class NewExecutionController {
 
             envVarsFlowPane.getChildren().add(singleEnvVarTile);
             envVarControllerList.add(environmentVariableController);
-        } catch (IOException e) {
-            e.printStackTrace();
+        } catch (IOException ignored) {
         }
     }
 
@@ -500,8 +493,7 @@ public class NewExecutionController {
             entityList.add(entityController);
 
             entitiesFlowPane.getChildren().add(singleEntityTile);
-        } catch (IOException e) {
-            e.printStackTrace();
+        } catch (IOException ignored) {
         }
     }
 }

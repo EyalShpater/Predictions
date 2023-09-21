@@ -9,9 +9,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.mainScene.main.PredictionsMainAppController;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import javafx.util.Duration;
@@ -34,17 +32,19 @@ public class HeaderController {
     private Stage primaryStage;
     private PredictionsMainAppController mainAppController;
     private SimpleStringProperty filePath;
-    private SimpleBooleanProperty isFileSelected;
+    private SimpleBooleanProperty isNewFileSelected;
+
+    private TabPane tabPane;
 
     public HeaderController() {
         filePath = new SimpleStringProperty("load file here...");
-        isFileSelected = new SimpleBooleanProperty(false);
+        isNewFileSelected = new SimpleBooleanProperty(false);
     }
 
     @FXML
     private void initialize() {
         selectedFilePath.textProperty().bind(filePath);
-        selectedFilePath.disableProperty().bind(isFileSelected.not());
+        selectedFilePath.disableProperty().bind(isNewFileSelected.not());
     }
 
 
@@ -93,12 +93,12 @@ public class HeaderController {
 
             engine.loadXML(absolutePath);
             filePath.set(absolutePath);
-            isFileSelected.set(true);
+            isNewFileSelected.set(!lastFilePath.equals(absolutePath));
         } catch (Exception e) {
             showErrorPopUp(e.getMessage() == null ?
                     "General Error has occurred." :
                     e.getMessage());
-            isFileSelected.set(false);
+            isNewFileSelected.set(false);
         }
     }
 
@@ -121,7 +121,7 @@ public class HeaderController {
     }
 
     public SimpleBooleanProperty getIsFileSelectedProperty() {
-        return isFileSelected;
+        return isNewFileSelected;
     }
 
     public void setEngine(PredictionsLogic engine) {
@@ -143,5 +143,9 @@ public class HeaderController {
         alert.setContentText(message);
         alert.setHeaderText("Error Has Occurred!");
         alert.showAndWait();
+    }
+
+    public void setTabPane(TabPane tabPane) {
+        this.tabPane = tabPane;
     }
 }

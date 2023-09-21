@@ -44,6 +44,7 @@ public class PredictionsMainAppController {
     private void initialize() {
         headerComponentController.setEngine(engine);
         headerComponentController.setMainAppController(this);
+        headerComponentController.setTabPane(tabPane);
 
         setDetailsTab();
         setNewExecutionTab();

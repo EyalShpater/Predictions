@@ -11,28 +11,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="27d35137-667f-4e37-a519-ab836acc0a06" name="Changes" comment="works">
+    <list default="true" id="27d35137-667f-4e37-a519-ab836acc0a06" name="Changes" comment="annoying bug fix">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GUI/src/javafx/mainScene/header/HeaderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/src/javafx/mainScene/header/HeaderController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/src/javafx/tab/details/details/DetailsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/src/javafx/tab/details/details/DetailsController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI/src/javafx/tab/newExecution/mainComponent/NewExecutionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/src/javafx/tab/newExecution/mainComponent/NewExecutionController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GUI/src/javafx/tab/results/ResultsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/src/javafx/tab/results/ResultsController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GUI/src/javafx/tab/results/analyze/AnalyzePaginationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/src/javafx/tab/results/analyze/AnalyzePaginationController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/src/javafx/tab/results/helper/Category.java" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/src/javafx/tab/results/helper/Category.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/src/task/UpdateEntitiesAmountTask.java" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/src/task/UpdateEntitiesAmountTask.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/action/context/api/Context.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/action/context/api/Context.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/action/impl/Proximity.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/action/impl/Proximity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/execution/simulation/api/PredictionsLogic.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/execution/simulation/api/PredictionsLogic.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/execution/simulation/api/Simulation.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/execution/simulation/api/Simulation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/execution/simulation/impl/PredictionsLogicImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/execution/simulation/impl/PredictionsLogicImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/execution/simulation/impl/SimulationImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/execution/simulation/impl/SimulationImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/execution/simulation/manager/SimulationManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/execution/simulation/manager/SimulationManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/grid/SphereSpaceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/grid/SphereSpaceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/instance/entity/manager/impl/EntityInstanceManagerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/instance/entity/manager/impl/EntityInstanceManagerImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI/src/javafx/tab/results/progress/ProgressController.java" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/src/javafx/tab/results/progress/ProgressController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/action/helper/function/impl/Ticks.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/action/helper/function/impl/Ticks.java" afterDir="false" />
     </list>
     <list id="e2a3c4d4-ea53-44ce-ad71-517b27fb520e" name="Changes by ASUS" comment="works">
-      <change beforePath="$PROJECT_DIR$/Logic/src/execution/simulation/xml/reader/impl/EntityReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/execution/simulation/xml/reader/impl/EntityReader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/execution/simulation/xml/validation/XmlValidator.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/execution/simulation/xml/validation/XmlValidator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/instance/entity/manager/impl/EntityInstanceManagerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/instance/entity/manager/impl/EntityInstanceManagerImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI/src/javafx/mainScene/header/HeaderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/src/javafx/mainScene/header/HeaderController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI/src/javafx/tab/newExecution/mainComponent/NewExecutionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/src/javafx/tab/newExecution/mainComponent/NewExecutionController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -99,11 +89,30 @@
     <setting file="jar:///Library/Java/JavaVirtualMachines/jdk-1.8.jdk/Contents/Home/javafx-src.zip!/javafx/scene/chart/XYChart.java" root0="SKIP_INSPECTION" />
   </component>
   <component name="LineStatusTrackerManager">
-    <file path="$PROJECT_DIR$/Logic/src/instance/entity/manager/impl/EntityInstanceManagerImpl.java">
+    <file path="$PROJECT_DIR$/GUI/src/javafx/tab/newExecution/mainComponent/NewExecutionController.java">
       <ranges>
-        <range start1="118" end1="119" start2="118" end2="119" changelist="27d35137-667f-4e37-a519-ab836acc0a06" />
-        <range start1="121" end1="126" start2="121" end2="139" changelist="27d35137-667f-4e37-a519-ab836acc0a06" />
-        <range start1="127" end1="128" start2="140" end2="141" changelist="e2a3c4d4-ea53-44ce-ad71-517b27fb520e" />
+        <range start1="325" end1="327" start2="325" end2="326" changelist="27d35137-667f-4e37-a519-ab836acc0a06" />
+        <range start1="353" end1="354" start2="352" end2="353" changelist="e2a3c4d4-ea53-44ce-ad71-517b27fb520e" />
+        <range start1="356" end1="358" start2="355" end2="356" changelist="27d35137-667f-4e37-a519-ab836acc0a06" />
+        <range start1="374" end1="376" start2="372" end2="373" changelist="27d35137-667f-4e37-a519-ab836acc0a06" />
+        <range start1="390" end1="392" start2="387" end2="388" changelist="27d35137-667f-4e37-a519-ab836acc0a06" />
+        <range start1="447" end1="449" start2="443" end2="444" changelist="27d35137-667f-4e37-a519-ab836acc0a06" />
+        <range start1="463" end1="465" start2="458" end2="459" changelist="27d35137-667f-4e37-a519-ab836acc0a06" />
+        <range start1="480" end1="482" start2="474" end2="475" changelist="27d35137-667f-4e37-a519-ab836acc0a06" />
+        <range start1="502" end1="504" start2="495" end2="496" changelist="27d35137-667f-4e37-a519-ab836acc0a06" />
+      </ranges>
+    </file>
+    <file path="$PROJECT_DIR$/GUI/src/javafx/mainScene/header/HeaderController.java">
+      <ranges>
+        <range start1="11" end1="14" start2="11" end2="12" changelist="27d35137-667f-4e37-a519-ab836acc0a06" />
+        <range start1="36" end1="37" start2="34" end2="37" changelist="27d35137-667f-4e37-a519-ab836acc0a06" />
+        <range start1="40" end1="41" start2="40" end2="41" changelist="27d35137-667f-4e37-a519-ab836acc0a06" />
+        <range start1="46" end1="47" start2="46" end2="47" changelist="27d35137-667f-4e37-a519-ab836acc0a06" />
+        <range start1="64" end1="64" start2="64" end2="68" changelist="e2a3c4d4-ea53-44ce-ad71-517b27fb520e" />
+        <range start1="65" end1="65" start2="69" end2="77" changelist="e2a3c4d4-ea53-44ce-ad71-517b27fb520e" />
+        <range start1="95" end1="96" start2="107" end2="108" changelist="27d35137-667f-4e37-a519-ab836acc0a06" />
+        <range start1="100" end1="101" start2="112" end2="113" changelist="27d35137-667f-4e37-a519-ab836acc0a06" />
+        <range start1="123" end1="124" start2="135" end2="136" changelist="27d35137-667f-4e37-a519-ab836acc0a06" />
       </ranges>
     </file>
   </component>
@@ -484,22 +493,6 @@
       <option name="project" value="LOCAL" />
       <updated>1694776291781</updated>
     </task>
-    <task id="LOCAL‎-00137" summary="added components in result tab">
-      <option name="closed" value="true" />
-      <created>1694945522386</created>
-      <option name="number" value="00137" />
-      <option name="presentableId" value="LOCAL‎-00137" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1694945522386</updated>
-    </task>
-    <task id="LOCAL‎-00138" summary="added components in result tab">
-      <option name="closed" value="true" />
-      <created>1694945532607</created>
-      <option name="number" value="00138" />
-      <option name="presentableId" value="LOCAL‎-00138" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1694945532607</updated>
-    </task>
     <task id="LOCAL‎-00139" summary="added histogram bar chart component">
       <option name="closed" value="true" />
       <created>1694947275404</created>
@@ -768,7 +761,23 @@
       <option name="project" value="LOCAL‎" />
       <updated>1695251467276</updated>
     </task>
-    <option name="localTasksCounter" value="173" />
+    <task id="LOCAL‎-00173" summary="annoying bug fix">
+      <option name="closed" value="true" />
+      <created>1695253585384</created>
+      <option name="number" value="00173" />
+      <option name="presentableId" value="LOCAL‎-00173" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1695253585384</updated>
+    </task>
+    <task id="LOCAL‎-00174" summary="works">
+      <option name="closed" value="true" />
+      <created>1695253594720</created>
+      <option name="number" value="00174" />
+      <option name="presentableId" value="LOCAL‎-00174" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1695253594720</updated>
+    </task>
+    <option name="localTasksCounter" value="175" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -799,7 +808,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="pause / stop / resume buttons are active" />
     <MESSAGE value="added progress information from engine" />
     <MESSAGE value="added rerun option" />
     <MESSAGE value="some progress" />
@@ -823,6 +831,7 @@
     <MESSAGE value="kaka" />
     <MESSAGE value="added animations" />
     <MESSAGE value="hell bug fix" />
+    <MESSAGE value="annoying bug fix" />
     <MESSAGE value="works" />
     <option name="LAST_COMMIT_MESSAGE" value="works" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />

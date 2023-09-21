@@ -177,4 +177,8 @@ public class ProgressController {
     public void setIsStop(boolean isStop) {
         this.isStop.set(isStop);
     }
+
+    public void clear() {
+
+    }
 }

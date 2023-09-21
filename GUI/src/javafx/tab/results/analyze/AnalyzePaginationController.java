@@ -79,7 +79,6 @@ public class AnalyzePaginationController {
             Parent resultsContent = loader.load();
             sp.getChildren().add(resultsContent);
 
-            System.out.println("page" + currentPage.get());
             propertyChartController = loader.getController();
         } catch (Exception ignored) {
         }
@@ -104,7 +103,6 @@ public class AnalyzePaginationController {
             consistencyBarChartController = loader.getController();
 
             if (resultsController != null) {
-                System.out.println("page" + currentPage.get());
                 setConsistencyChart(resultsController.getConsistency());
             }
         } catch (Exception ignored) {
@@ -131,8 +129,6 @@ public class AnalyzePaginationController {
             populationChartController = loader.getController();
 
             if (resultsController != null) {
-                System.out.println("page" + currentPage.get());
-
                 setPopulationChart(resultsController.getPopulationData());
             }
         } catch (Exception ignored) {
@@ -185,7 +181,7 @@ public class AnalyzePaginationController {
     }
 
     public void setConsistencyChart(Map<String, Double> consistency) {
-        if (analyzePaging.currentPageIndexProperty().get() == CONSISTENCY_PAGE_INDEX) {
+        if (analyzePaging.currentPageIndexProperty().get() == CONSISTENCY_PAGE_INDEX && consistency != null) {
             consistencyBarChartController.setChart(consistency);
         }
     }
@@ -203,5 +199,9 @@ public class AnalyzePaginationController {
 
     public void setEngine(PredictionsLogic engine) {
         this.engine = engine;
+    }
+
+    public void clear() {
+        setPagination();
     }
 }

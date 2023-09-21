@@ -70,8 +70,6 @@ public class ResultsController {
     private BooleanProperty isSelectedSimulationEnded;
     private BooleanProperty isNewFileLoaded;
 
-    private int selectedSimulationID;
-
     private Queue<Category> waitingQueue = new LinkedList<>();
 
     public ResultsController() {
@@ -95,6 +93,7 @@ public class ResultsController {
         selectedSimulation.addListener((observable, oldValue, newValue) -> onSelectedSimulationChange(newValue));
         isSelectedSimulationEnded.addListener((observable, oldValue, newValue) -> onSelectedSimulationStop());
         entityToView.addListener((observable, oldValue, newValue) -> onSelectedEntity(newValue));
+        isNewFileLoaded.addListener((observable, oldValue, newValue) -> clear());
 
         entitiesCol.setCellValueFactory(new PropertyValueFactory<>("entityName"));
         populationCol.setCellValueFactory(new PropertyValueFactory<>("population"));
@@ -102,10 +101,17 @@ public class ResultsController {
         analyzePaginationController.setResultsController(this);
     }
 
+    private void clear() {
+        progressController.isStopProperty().set(false);
+    }
+
     private void onSelectedSimulationChange(Category newValue) {
         progressController.onSelectedSimulationChange(newValue);
-        selectedSimulationSerialNumber.set(newValue.getIdProperty().get());
-        analyzePaginationController.onSelectedSimulationChange(selectedSimulationSerialNumber.get());
+
+        if (newValue != null) {
+            selectedSimulationSerialNumber.set(newValue.getIdProperty().get());
+            analyzePaginationController.onSelectedSimulationChange(selectedSimulationSerialNumber.get());
+        }
     }
 
     public SimulationDataDTO getSimulationData() {
@@ -133,13 +139,11 @@ public class ResultsController {
     }
 
     public void onNewFileLoaded() {
-//        histogramBarChart.getData().clear();
-//        simulationChoiceBox.getItems().clear();
+        progressController.clear();
+        analyzePaginationController.clear();
         simulationsListView.getItems().clear();
         setEntitiesChoiceBox();
         setPropertyChoiceBox();
-
-        //propertyChoiceBox.getItems().clear();
     }
 
     private void onSelectedSimulationStop() {
@@ -256,7 +260,10 @@ public class ResultsController {
     }
 
     public Map<String, Double> getConsistency() {
-        return engine.getConsistencyByEntityName(selectedSimulationSerialNumber.get(), entityToView.get());
+
+        return selectedSimulation.isNotNull().get() ?
+                engine.getConsistencyByEntityName(selectedSimulationSerialNumber.get(), entityToView.get()) :
+                null;
     }
 
     public Map<String, Map<Integer, Long>> getPopulationData() {
