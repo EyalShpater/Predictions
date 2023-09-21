@@ -350,7 +350,7 @@ public class NewExecutionController {
 
             BooleanEnvironmentVariableController environmentVariableController = loader.getController();
             environmentVariableController.setEnvVarName(envVar.getName());
-            //environmentVariableController.
+
             envVarsFlowPane.getChildren().add(singleEnvVarTile);
             envVarControllerList.add(environmentVariableController);
         } catch (IOException ignored) {

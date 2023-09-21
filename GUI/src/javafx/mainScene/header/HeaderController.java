@@ -62,6 +62,19 @@ public class HeaderController {
             }
         }
         flipButtonAnimation(loadFileButton);
+        Tab resultsTab = findTabByName("New Execution");
+        if (resultsTab != null) {
+            tabPane.getSelectionModel().select(resultsTab);
+        }
+    }
+
+    private Tab findTabByName(String tabName) {
+        for (Tab tab : tabPane.getTabs()) {
+            if (tab.getText().equals(tabName)) {
+                return tab;
+            }
+        }
+        return null;
     }
 
     private void flipButtonAnimation(Button button) {
