@@ -5,6 +5,7 @@ import impl.*;
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
 import javafx.animation.Timeline;
+import javafx.beans.property.SimpleBooleanProperty;
 import javafx.mainScene.main.PredictionsMainAppController;
 import javafx.scene.control.*;
 import javafx.tab.newExecution.entity.EntityController;
@@ -167,13 +168,14 @@ public class NewExecutionController {
         simulationSerialNumber = runSimulation(entityNameToPopulation);
         mainAppController.onStartButtonClick(simulationSerialNumber);
 
-
-        transitionToTab("Results");
-
-       /* Tab resultsTab = findResultsTabByName("Results");
-        if (resultsTab != null) {
-            tabPane.getSelectionModel().select(resultsTab);
-        }*/
+        if (mainAppController.isIsAnimated()) {
+            transitionToTab("Results");
+        } else {
+            Tab resultsTab = findResultsTabByName("Results");
+            if (resultsTab != null) {
+                tabPane.getSelectionModel().select(resultsTab);
+            }
+        }
     }
 
     private void transitionToTab(String tabName) {

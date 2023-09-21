@@ -273,4 +273,8 @@ public class ResultsController {
     public Double getAverageProperty() {
         return engine.getFinalNumericPropertyAvg(entityToView.get(), propertyToView.get(), selectedSimulationSerialNumber.get());
     }
+
+    public BooleanProperty isAnimated() {
+        return predictionsMainAppController.isAnimatedProperty();
+    }
 }

@@ -6,10 +6,13 @@ import impl.SimulationInitDataFromUserDTO;
 import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleBooleanProperty;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.mainScene.header.HeaderController;
 import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.MenuButton;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
 import javafx.scene.layout.GridPane;
@@ -39,6 +42,8 @@ public class PredictionsMainAppController {
 
     private PredictionsLogic engine = new PredictionsLogicImpl();
     private BooleanProperty isFileSelected = new SimpleBooleanProperty(false);
+    private BooleanProperty isAnimated = new SimpleBooleanProperty(true);
+    private Scene primaryScene;
 
     @FXML
     private void initialize() {
@@ -50,6 +55,7 @@ public class PredictionsMainAppController {
         setNewExecutionTab();
         setResultsTab();
 
+        isAnimated.bind(headerComponentController.isAnimatedProperty());
         isFileSelected.bind(headerComponentController.getIsFileSelectedProperty());
         detailsTabController.getTabDisableProperty().bind(isFileSelected.not());
     }
@@ -136,5 +142,21 @@ public class PredictionsMainAppController {
 
     public BooleanProperty isFileSelectedProperty() {
         return isFileSelected;
+    }
+
+    public void setScene(Scene scene) {
+        primaryScene = scene;
+    }
+
+    public SimpleBooleanProperty getIsFileSelected() {
+        return headerComponentController.getIsFileSelectedProperty();
+    }
+
+    public boolean isIsAnimated() {
+        return isAnimated.get();
+    }
+
+    public BooleanProperty isAnimatedProperty() {
+        return isAnimated;
     }
 }

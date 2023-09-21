@@ -2,6 +2,7 @@ package javafx.mainScene.header;
 
 import execution.simulation.api.PredictionsLogic;
 import javafx.animation.RotateTransition;
+import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.SimpleBooleanProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.event.ActionEvent;
@@ -28,23 +29,34 @@ public class HeaderController {
     @FXML
     private Button simulationsQueueButton;
 
+    @FXML
+    private MenuButton themeMenuButton;
+
+    @FXML
+    private RadioButton animationRadioButton;
+
+
     private PredictionsLogic engine;
     private Stage primaryStage;
     private PredictionsMainAppController mainAppController;
+
     private SimpleStringProperty filePath;
     private SimpleBooleanProperty isNewFileSelected;
+    private SimpleBooleanProperty isAnimated;
 
     private TabPane tabPane;
 
     public HeaderController() {
         filePath = new SimpleStringProperty("load file here...");
         isNewFileSelected = new SimpleBooleanProperty(false);
+        isAnimated = new SimpleBooleanProperty();
     }
 
     @FXML
     private void initialize() {
         selectedFilePath.textProperty().bind(filePath);
         selectedFilePath.disableProperty().bind(isNewFileSelected.not());
+        isAnimated.bind(animationRadioButton.selectedProperty());
     }
 
 
@@ -61,7 +73,11 @@ public class HeaderController {
                 mainAppController.onNewFileLoaded();
             }
         }
-        flipButtonAnimation(loadFileButton);
+
+        if (isAnimated.get()) {
+            flipButtonAnimation(loadFileButton);
+        }
+
         Tab resultsTab = findTabByName("New Execution");
         if (resultsTab != null) {
             tabPane.getSelectionModel().select(resultsTab);
@@ -160,5 +176,13 @@ public class HeaderController {
 
     public void setTabPane(TabPane tabPane) {
         this.tabPane = tabPane;
+    }
+
+    public boolean isIsAnimated() {
+        return isAnimated.get();
+    }
+
+    public SimpleBooleanProperty isAnimatedProperty() {
+        return isAnimated;
     }
 }

@@ -6,14 +6,25 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+import java.net.URL;
+
 public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
+        PredictionsMainAppController predictionsMainAppController;
+
         primaryStage.setTitle("Predictions");
 
-        Parent load = FXMLLoader.load(getClass().getResource("PredictionsMainApp.fxml"));
-        Scene scene = new Scene(load, 960, 640);
+        URL resource = getClass().getResource("PredictionsMainApp.fxml");
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(resource);
+        Parent mainApp = loader.load();
+
+        predictionsMainAppController = loader.getController();
+        Scene scene = new Scene(mainApp, 960, 640);
         primaryStage.setScene(scene);
+        predictionsMainAppController.setScene(scene);
+
         primaryStage.show();
     }
 
