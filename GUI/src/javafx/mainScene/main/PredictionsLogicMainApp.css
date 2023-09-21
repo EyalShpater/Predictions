@@ -1,0 +1,63 @@
+/* Dark Mode Styles */
+
+#TitleRow {
+    -fx-font-size: 18px;
+    -fx-text-fill: white;
+    -fx-font-family: "Arial";
+}
+
+.button {
+    -fx-font-size: 14px;
+    -fx-background-color: #333;
+    -fx-text-fill: white;
+    -fx-font-family: "Tahoma";
+}
+
+.button:hover {
+    -fx-background-color: #555;
+}
+
+.button:pressed {
+    -fx-background-color: #222;
+}
+
+#HeaderLabel {
+    -fx-font-size: 20px;
+    -fx-text-fill: #eee;
+    -fx-font-family: "Verdana";
+}
+
+.tab-pane {
+    -fx-background-color: #111;
+}
+
+.tab-header-area {
+    -fx-background-color: #222;
+}
+
+.tab {
+    -fx-background-color: #111;
+}
+
+.tab:selected {
+    -fx-background-color: #333;
+}
+
+.tab-label {
+    -fx-font-size: 16px;
+    -fx-text-fill: white;
+    -fx-font-family: "Arial";
+}
+
+.tab-content-area {
+    -fx-background-color: #111;
+}
+
+flow-pane {
+    -fx-background-color: #222;
+    -fx-padding: 10px;
+    -fx-hgap: 10px;
+    -fx-vgap: 10px;
+    -fx-border-color: #555;
+    -fx-border-width: 1px;
+}

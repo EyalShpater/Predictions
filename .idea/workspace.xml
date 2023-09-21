@@ -12,18 +12,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="27d35137-667f-4e37-a519-ab836acc0a06" name="Changes" comment="annoying bug fix">
+      <change afterPath="$PROJECT_DIR$/GUI/src/javafx/mainScene/main/PredictionsLogicMainApp.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/src/javafx/mainScene/header/HeaderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/src/javafx/mainScene/header/HeaderController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/src/javafx/tab/newExecution/mainComponent/NewExecutionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/src/javafx/tab/newExecution/mainComponent/NewExecutionController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/src/javafx/tab/results/ResultsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/src/javafx/tab/results/ResultsController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/src/javafx/tab/results/analyze/AnalyzePaginationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/src/javafx/tab/results/analyze/AnalyzePaginationController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/src/javafx/tab/results/progress/ProgressController.java" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/src/javafx/tab/results/progress/ProgressController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/action/helper/function/impl/Ticks.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/action/helper/function/impl/Ticks.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI/src/javafx/mainScene/main/PredictionsMainApp.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/src/javafx/mainScene/main/PredictionsMainApp.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI/src/javafx/tab/newExecution/entity/Entity.css" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/src/javafx/tab/newExecution/entity/Entity.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI/src/javafx/tab/newExecution/environmentVariable/singleEntity.css" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/src/javafx/tab/newExecution/environmentVariable/singleEntity.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI/src/javafx/tab/newExecution/mainComponent/NewExecution.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/src/javafx/tab/newExecution/mainComponent/NewExecution.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI/src/javafx/tab/newExecution/mainComponent/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/src/javafx/tab/newExecution/mainComponent/styles.css" afterDir="false" />
     </list>
-    <list id="e2a3c4d4-ea53-44ce-ad71-517b27fb520e" name="Changes by ASUS" comment="works">
-      <change beforePath="$PROJECT_DIR$/GUI/src/javafx/mainScene/header/HeaderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/src/javafx/mainScene/header/HeaderController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/src/javafx/tab/newExecution/mainComponent/NewExecutionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/src/javafx/tab/newExecution/mainComponent/NewExecutionController.java" afterDir="false" />
-    </list>
+    <list id="e2a3c4d4-ea53-44ce-ad71-517b27fb520e" name="Changes by ASUS" comment="bug fix" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -42,6 +39,7 @@
         <option value="Enum" />
         <option value="FxmlFile" />
         <option value="Class" />
+        <option value="CSS File" />
       </list>
     </option>
   </component>
@@ -88,34 +86,6 @@
     <setting file="jar:///Library/Java/JavaVirtualMachines/jdk-1.8.jdk/Contents/Home/javafx-src.zip!/javafx/scene/chart/ValueAxis.java" root0="SKIP_INSPECTION" />
     <setting file="jar:///Library/Java/JavaVirtualMachines/jdk-1.8.jdk/Contents/Home/javafx-src.zip!/javafx/scene/chart/XYChart.java" root0="SKIP_INSPECTION" />
   </component>
-  <component name="LineStatusTrackerManager">
-    <file path="$PROJECT_DIR$/GUI/src/javafx/tab/newExecution/mainComponent/NewExecutionController.java">
-      <ranges>
-        <range start1="325" end1="327" start2="325" end2="326" changelist="27d35137-667f-4e37-a519-ab836acc0a06" />
-        <range start1="353" end1="354" start2="352" end2="353" changelist="e2a3c4d4-ea53-44ce-ad71-517b27fb520e" />
-        <range start1="356" end1="358" start2="355" end2="356" changelist="27d35137-667f-4e37-a519-ab836acc0a06" />
-        <range start1="374" end1="376" start2="372" end2="373" changelist="27d35137-667f-4e37-a519-ab836acc0a06" />
-        <range start1="390" end1="392" start2="387" end2="388" changelist="27d35137-667f-4e37-a519-ab836acc0a06" />
-        <range start1="447" end1="449" start2="443" end2="444" changelist="27d35137-667f-4e37-a519-ab836acc0a06" />
-        <range start1="463" end1="465" start2="458" end2="459" changelist="27d35137-667f-4e37-a519-ab836acc0a06" />
-        <range start1="480" end1="482" start2="474" end2="475" changelist="27d35137-667f-4e37-a519-ab836acc0a06" />
-        <range start1="502" end1="504" start2="495" end2="496" changelist="27d35137-667f-4e37-a519-ab836acc0a06" />
-      </ranges>
-    </file>
-    <file path="$PROJECT_DIR$/GUI/src/javafx/mainScene/header/HeaderController.java">
-      <ranges>
-        <range start1="11" end1="14" start2="11" end2="12" changelist="27d35137-667f-4e37-a519-ab836acc0a06" />
-        <range start1="36" end1="37" start2="34" end2="37" changelist="27d35137-667f-4e37-a519-ab836acc0a06" />
-        <range start1="40" end1="41" start2="40" end2="41" changelist="27d35137-667f-4e37-a519-ab836acc0a06" />
-        <range start1="46" end1="47" start2="46" end2="47" changelist="27d35137-667f-4e37-a519-ab836acc0a06" />
-        <range start1="64" end1="64" start2="64" end2="68" changelist="e2a3c4d4-ea53-44ce-ad71-517b27fb520e" />
-        <range start1="65" end1="65" start2="69" end2="77" changelist="e2a3c4d4-ea53-44ce-ad71-517b27fb520e" />
-        <range start1="95" end1="96" start2="107" end2="108" changelist="27d35137-667f-4e37-a519-ab836acc0a06" />
-        <range start1="100" end1="101" start2="112" end2="113" changelist="27d35137-667f-4e37-a519-ab836acc0a06" />
-        <range start1="123" end1="124" start2="135" end2="136" changelist="27d35137-667f-4e37-a519-ab836acc0a06" />
-      </ranges>
-    </file>
-  </component>
   <component name="ProblemsViewState">
     <option name="selectedTabId" value="CurrentFile" />
   </component>
@@ -130,33 +100,34 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;dart.analysis.tool.window.visible&quot;: &quot;false&quot;,
-    &quot;extract.method.default.visibility&quot;: &quot;private&quot;,
-    &quot;full.screen.before.presentation.mode&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;GUI&quot;,
-    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;1.8&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/eyal/Java-Course/Predictions/GUI/src/javafx/tab/results/analyze/histogram/consistency&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;inlay.hints&quot;,
-    &quot;two.files.diff.last.used.file&quot;: &quot;C:/Users/ASUS/IdeaProjects/PredictionsNew/Logic/src/resources/xml/ex2/master-ex2.xml&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "dart.analysis.tool.window.visible": "false",
+    "extract.method.default.visibility": "private",
+    "full.screen.before.presentation.mode": "false",
+    "git-widget-placeholder": "GUI",
+    "jdk.selected.JAVA_MODULE": "1.8",
+    "last_opened_file_path": "/Users/eyal/Java-Course/Predictions/GUI/src/javafx/tab/results/analyze/histogram/consistency",
+    "list.type.of.created.stylesheet": "CSS",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "inlay.hints",
+    "two.files.diff.last.used.file": "C:/Users/ASUS/IdeaProjects/PredictionsNew/Logic/src/resources/xml/ex2/master-ex2.xml",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/GUI/src/javafx/tab/results/analyze/histogram/consistency" />
@@ -493,22 +464,6 @@
       <option name="project" value="LOCAL" />
       <updated>1694776291781</updated>
     </task>
-    <task id="LOCAL‎-00139" summary="added histogram bar chart component">
-      <option name="closed" value="true" />
-      <created>1694947275404</created>
-      <option name="number" value="00139" />
-      <option name="presentableId" value="LOCAL‎-00139" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1694947275404</updated>
-    </task>
-    <task id="LOCAL‎-00140" summary="more changes">
-      <option name="closed" value="true" />
-      <created>1694948184476</created>
-      <option name="number" value="00140" />
-      <option name="presentableId" value="LOCAL‎-00140" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1694948184476</updated>
-    </task>
     <task id="LOCAL‎-00141" summary="shavit changes">
       <option name="closed" value="true" />
       <created>1694964816510</created>
@@ -777,7 +732,23 @@
       <option name="project" value="LOCAL‎" />
       <updated>1695253594720</updated>
     </task>
-    <option name="localTasksCounter" value="175" />
+    <task id="LOCAL‎-00175" summary="annoying bug fix">
+      <option name="closed" value="true" />
+      <created>1695257248014</created>
+      <option name="number" value="00175" />
+      <option name="presentableId" value="LOCAL‎-00175" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1695257248014</updated>
+    </task>
+    <task id="LOCAL‎-00176" summary="bug fix">
+      <option name="closed" value="true" />
+      <created>1695257264255</created>
+      <option name="number" value="00176" />
+      <option name="presentableId" value="LOCAL‎-00176" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1695257264255</updated>
+    </task>
+    <option name="localTasksCounter" value="177" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -808,7 +779,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="added progress information from engine" />
     <MESSAGE value="added rerun option" />
     <MESSAGE value="some progress" />
     <MESSAGE value="addd EntitiesAmountDTO" />
@@ -831,9 +801,10 @@
     <MESSAGE value="kaka" />
     <MESSAGE value="added animations" />
     <MESSAGE value="hell bug fix" />
-    <MESSAGE value="annoying bug fix" />
     <MESSAGE value="works" />
-    <option name="LAST_COMMIT_MESSAGE" value="works" />
+    <MESSAGE value="annoying bug fix" />
+    <MESSAGE value="bug fix" />
+    <option name="LAST_COMMIT_MESSAGE" value="bug fix" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">

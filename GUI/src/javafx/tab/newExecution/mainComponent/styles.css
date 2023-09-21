@@ -1,56 +1,55 @@
+/*#text.file-label {*/
+/*    -fx-font-size: 14px; !* Font size *!*/
+/*    -fx-font-weight: bold; !* Font weight *!*/
+/*    -fx-text-fill: #8e49c7; !* Text color (you can change the color code) *!*/
+/*}*/
 
-#text.file-label {
-    -fx-font-size: 14px; /* Font size */
-    -fx-font-weight: bold; /* Font weight */
-    -fx-text-fill: #8e49c7; /* Text color (you can change the color code) */
-}
+/*.header-label {*/
+/*    -fx-font-size: 24px; !* Adjust the font size as needed *!*/
+/*    -fx-font-weight: bold; !* Make the text bold *!*/
+/*    -fx-text-fill: #e06f6f; !* Text color (you can change the color code) *!*/
+/*    -fx-padding: 10px; !* Padding around the label *!*/
+/*    -fx-background-color: #d5d0d0; !* Background color (you can change the color code) *!*/
+/*    -fx-border-color: #ccc; !* Border color (you can change the color code) *!*/
+/*    -fx-border-width: 0 0 1 0; !* Add a border only to the bottom *!*/
+/*    -fx-border-style: solid;*/
+/*}*/
 
-.header-label {
-    -fx-font-size: 24px; /* Adjust the font size as needed */
-    -fx-font-weight: bold; /* Make the text bold */
-    -fx-text-fill: #e06f6f; /* Text color (you can change the color code) */
-    -fx-padding: 10px; /* Padding around the label */
-    -fx-background-color: #d5d0d0; /* Background color (you can change the color code) */
-    -fx-border-color: #ccc; /* Border color (you can change the color code) */
-    -fx-border-width: 0 0 1 0; /* Add a border only to the bottom */
-    -fx-border-style: solid;
-}
+/*.button {*/
+/*    -fx-background-color: #04653f; !* Button background color *!*/
+/*    -fx-text-fill: white; !* Text color *!*/
+/*    -fx-font-size: 14px; !* Font size *!*/
+/*    -fx-font-weight: bold; !* Font weight *!*/
+/*    -fx-padding: 2px 4px; !* Padding (top and bottom 10px, left and right 20px) *!*/
+/*    -fx-background-radius: 5px; !* Rounded corners *!*/
+/*    -fx-border-radius: 5px; !* Rounded corners for border *!*/
+/*    -fx-border-color: #005ea1; !* Border color *!*/
+/*    -fx-border-width: 2px; !* Border width *!*/
+/*}*/
 
-.button {
-    -fx-background-color: #04653f; /* Button background color */
-    -fx-text-fill: white; /* Text color */
-    -fx-font-size: 14px; /* Font size */
-    -fx-font-weight: bold; /* Font weight */
-    -fx-padding: 2px 4px; /* Padding (top and bottom 10px, left and right 20px) */
-    -fx-background-radius: 5px; /* Rounded corners */
-    -fx-border-radius: 5px; /* Rounded corners for border */
-    -fx-border-color: #005ea1; /* Border color */
-    -fx-border-width: 2px; /* Border width */
-}
+/*.button:hover {*/
+/*    -fx-background-color: #005ea1; !* Button background color on hover *!*/
+/*}*/
 
-.button:hover {
-    -fx-background-color: #005ea1; /* Button background color on hover */
-}
+/*.white-background {*/
+/*    -fx-background-color: #fff;*/
+/*}*/
 
-.white-background {
-    -fx-background-color: #fff;
-}
+/*.transparent {*/
+/*    -fx-background-color: rgba(0, 0, 0, 0);*/
+/*}*/
 
-.transparent {
-    -fx-background-color: rgba(0, 0, 0, 0);
-}
+/*.round-layout {*/
+/*    -fx-border-color: #D7D7D7;*/
+/*    -fx-border-radius: 20px;*/
+/*}*/
 
-.round-layout {
-    -fx-border-color: #D7D7D7;
-    -fx-border-radius: 20px;
-}
+/*.selected {*/
+/*    -fx-background-color: #F3F3F3;*/
+/*}*/
 
-.selected {
-    -fx-background-color: #F3F3F3;
-}
-
-.mouse-moved:hover {
-    -fx-background-color: #E4E4E4;
-}
+/*.mouse-moved:hover {*/
+/*    -fx-background-color: #E4E4E4;*/
+/*}*/
 
 
