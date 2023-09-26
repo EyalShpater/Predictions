@@ -2,6 +2,7 @@ package execution.simulation.data.impl;
 
 import definition.entity.api.EntityDefinition;
 import execution.simulation.data.api.SimulationData;
+import impl.SimulationInitDataFromUserDTO;
 import instance.entity.api.EntityInstance;
 import instance.entity.manager.api.EntityInstanceManager;
 import instance.property.api.PropertyInstance;
@@ -10,7 +11,9 @@ import java.io.Serializable;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class SimulationDataImpl implements SimulationData , Serializable {
 
@@ -18,13 +21,15 @@ public class SimulationDataImpl implements SimulationData , Serializable {
     long startTime;
     Map<String, EntityDefinition> entityDefinitions;
     EntityInstanceManager entityInstances;
+    SimulationInitDataFromUserDTO initData;
 
-    public SimulationDataImpl(int id, long startTime, List<EntityDefinition> entityDefinitions, EntityInstanceManager entityInstances) {
+    public SimulationDataImpl(int id, long startTime, List<EntityDefinition> entityDefinitions, EntityInstanceManager entityInstances, SimulationInitDataFromUserDTO initData) {
         this.id = id;
         this.startTime = startTime;
         this.entityDefinitions = new HashMap<>();
         entityDefinitions.forEach(entity -> this.entityDefinitions.put(entity.getName(), entity));
         this.entityInstances = entityInstances;
+        this.initData = initData;
     }
 
     @Override
@@ -44,13 +49,9 @@ public class SimulationDataImpl implements SimulationData , Serializable {
 
     @Override
     public int getStarterPopulationQuantity(String entityName) {
-        EntityDefinition entity = getEntityByName(entityName);
-
-        if (entity == null) {
-            throw new IllegalArgumentException(entityName + " does not exist!");
-        }
-
-        return entity.getPopulation();
+        return initData
+                .getEntityNameToPopulation()
+                .get(entityName);
     }
 
     @Override
@@ -75,14 +76,14 @@ public class SimulationDataImpl implements SimulationData , Serializable {
             throw new IllegalArgumentException(propertyName + " does not exist");
         }
 
-        return entityInstances.
-                getInstances().
-                stream().
-                filter(EntityInstance::isAlive).
-                map(entityInstance -> entityInstance.getPropertyByName(propertyName)).
-                map(PropertyInstance::getValue)
-                .sorted().
-                collect(Collectors.toList());
+        return entityInstances
+                .getInstances()
+                .stream()
+                .filter(entityInstance -> entityInstance.getName().equals(entityName))
+                .filter(EntityInstance::isAlive)
+                .map(entityInstance -> entityInstance.getPropertyByName(propertyName))
+                .map(PropertyInstance::getValue)
+                .collect(Collectors.toList());
     }
 
     private EntityDefinition getEntityByName(String name) {

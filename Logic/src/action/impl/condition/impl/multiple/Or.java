@@ -18,7 +18,12 @@ public class Or extends MultipleCondition implements Serializable {
         boolean result = false;
 
         for (Condition condition : conditions) {
-            result = result || condition.evaluate(context);
+            Context relevantContext = checkAndReplaceContextByConditionPrimaryInstance(condition, context);
+            Boolean evaluateResult = condition.evaluate(relevantContext);
+
+            if (evaluateResult != null) {
+                result = result || evaluateResult;
+            }
         }
 
         return result;

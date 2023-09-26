@@ -2,7 +2,6 @@ package menu.helper;
 
 import execution.simulation.api.PredictionsLogic;
 import impl.*;
-import instance.property.api.PropertyInstance;
 import menu.api.MenuOptions;
 
 import java.text.SimpleDateFormat;
@@ -10,7 +9,6 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 public class PrintToScreen {
@@ -125,9 +123,9 @@ public class PrintToScreen {
     public void printEntityDefinitionDTO(EntityDefinitionDTO entity, int indentation) {
         printLine(indentation, ' ');
         System.out.println("Name: " + entity.getName());
-
-        printLine(indentation, ' ');
-        System.out.println("Population: " + entity.getPopulation());
+//
+//        printLine(indentation, ' ');
+//        System.out.println("Population: " + entity.getPopulation());
 
         printLine(indentation, ' ');
         System.out.println("Properties:");
@@ -155,11 +153,11 @@ public class PrintToScreen {
         System.out.println();
 
         printLine(indentation, ' ');
-        System.out.println(rule.getName() + " has " + rule.getActionsNames().size() + " actions:");
-        IntStream.range(0, rule.getActionsNames().size())
+        System.out.println(rule.getName() + " has " + rule.getActionsDTO().size() + " actions:");
+        IntStream.range(0, rule.getActionsDTO().size())
                 .forEach(i -> {
                     printLine(indentation * 2, ' ');
-                    System.out.println((i + 1) + ". " + rule.getActionsNames().get(i));
+                    System.out.println((i + 1) + ". " + rule.getActionsDTO().get(i).getType());
                     System.out.println();
                 });
     }

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.chart.AreaChart?>
+<AreaChart fx:id="populationChart" alternativeColumnFillVisible="true" animated="true" title="Population Per Ticks"
+           xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1"
+           fx:controller="javafx.tab.results.analyze.histogram.population.PopulationChartController">
+  <xAxis>
+    <NumberAxis animated="true" label="Ticks" side="BOTTOM"/>
+  </xAxis>
+  <yAxis>
+    <NumberAxis animated="true" label="Population" side="LEFT"/>
+  </yAxis>
+</AreaChart>

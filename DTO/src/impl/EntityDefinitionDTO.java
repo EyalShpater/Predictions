@@ -5,12 +5,12 @@ import java.util.List;
 
 public class EntityDefinitionDTO implements DTO {
     private final String name;
-    private final int population;
+    //private final int population;
     private List<PropertyDefinitionDTO> properties;
 
-    public EntityDefinitionDTO(String name, int population, List<PropertyDefinitionDTO> properties) {
+    public EntityDefinitionDTO(String name, /*int population,*/ List<PropertyDefinitionDTO> properties) {
         this.name = name;
-        this.population = population;
+        //this.population = population;
         this.properties = properties;
     }
 
@@ -18,9 +18,9 @@ public class EntityDefinitionDTO implements DTO {
         return name;
     }
 
-    public int getPopulation() {
-        return population;
-    }
+//    public int getPopulation() {
+//        return population;
+//    }
 
     public List<PropertyDefinitionDTO> getProperties() {
         return properties;

@@ -11,6 +11,8 @@ import execution.simulation.termination.api.TerminateCondition;
 import execution.simulation.termination.api.Termination;
 import definition.world.api.World;
 import execution.simulation.termination.impl.TerminationImpl;
+import grid.SphereSpaceImpl;
+import grid.api.SphereSpace;
 import impl.PropertyDefinitionDTO;
 import impl.WorldDTO;
 import instance.enviornment.api.ActiveEnvironment;
@@ -22,23 +24,23 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 public class WorldImpl implements World  , Serializable {
+    private static final int MIN_ROWS_SIZE = 10;
+    private static final int MIN_COLS_SIZE = 10;
+    private static final int MAX_ROWS_SIZE = 100;
+    private static final int MAX_COLS_SIZE = 100;
+
     private Map<String, EntityDefinition> entitiesDefinition;
     private List<Rule> rules;
     private EnvironmentVariableManager environmentVariables;
     private Termination terminate;
+    private int gridRows;
+    private int gridCols;
+    private int threadPoolSize;
 
     public WorldImpl() {
         entitiesDefinition = new HashMap<>();
         rules = new ArrayList<>();
         environmentVariables = new EnvironmentVariableManagerImpl();
-    }
-
-    public WorldImpl(WorldDTO dto) {
-        this();
-
-        dto.getEntities().forEach(entity -> addEntity(new EntityDefinitionImpl(entity)));
-        dto.getRules().forEach(rule -> addRule(new RuleImpl(rule)));
-        this.terminate = new TerminationImpl(dto.getTermination());
     }
 
     @Override
@@ -62,22 +64,13 @@ public class WorldImpl implements World  , Serializable {
     }
 
     @Override
-    public ActiveEnvironment createActiveEnvironment() {
-        if (environmentVariables != null) {
-            return environmentVariables.createActiveEnvironment();
-        }
-
-        return null;
-    }
-
-    @Override
     public List<EntityDefinition> getEntities() {
         return new ArrayList<>(entitiesDefinition.values());
     }
 
     @Override
-    public TerminateCondition isActive(int currentTick, long startTime) {
-        return terminate.isTerminate(currentTick, startTime);
+    public TerminateCondition isActive(int currentTick, long secondsDuration, boolean userRequestedStop) {
+        return terminate.isTerminate(currentTick, secondsDuration, userRequestedStop);
     }
 
     @Override
@@ -114,7 +107,9 @@ public class WorldImpl implements World  , Serializable {
                 rules.stream()
                         .map(DTOConvertible::convertToDTO)
                         .collect(Collectors.toList()),
-                terminate.convertToDTO()
+                terminate.convertToDTO(),
+                gridRows,
+                gridCols
         );
     }
 
@@ -141,6 +136,15 @@ public class WorldImpl implements World  , Serializable {
     }
 
     @Override
+    public TerminateCondition getTerminationCondition() {
+        return terminate.isTerminateByTicks() ?
+                TerminateCondition.BY_TICKS :
+                terminate.isTerminateBySeconds() ?
+                        TerminateCondition.BY_SECONDS :
+                        TerminateCondition.BY_USER;
+    }
+
+    @Override
     public EntityDefinition getEntityByName(String name) {
         return entitiesDefinition.get(name);
     }
@@ -148,5 +152,48 @@ public class WorldImpl implements World  , Serializable {
     @Override
     public Collection<PropertyDefinition> getEnvironmentVariables() {
         return environmentVariables.getEnvironmentVariables();
+    }
+
+    @Override
+    public Termination getTermination() {
+        return terminate;
+    }
+
+    @Override
+    public int getThreadPoolSize() {
+        return threadPoolSize;
+    }
+
+    @Override
+    public void setThreadPoolSize(int size) {
+        threadPoolSize = size;
+    }
+
+    @Override
+    public int getGridRows() {
+        return gridRows;
+    }
+
+    @Override
+    public int getGridCols() {
+        return gridCols;
+    }
+
+    @Override
+    public void setGridRows(int rows) {
+        if (rows < MIN_ROWS_SIZE || rows > MAX_ROWS_SIZE) {
+            throw new IllegalArgumentException("Rows size must be between " + MIN_ROWS_SIZE + " to " + MAX_ROWS_SIZE);
+        }
+
+        gridRows = rows;
+    }
+
+    @Override
+    public void setGridCols(int cols) {
+        if (cols < MIN_COLS_SIZE || cols > MAX_COLS_SIZE) {
+            throw new IllegalArgumentException("Columns size must be between " + MIN_COLS_SIZE + " to " + MAX_COLS_SIZE);
+        }
+
+        gridCols = cols;
     }
 }

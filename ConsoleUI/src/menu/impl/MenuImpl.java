@@ -7,8 +7,9 @@ import menu.api.Menu;
 import menu.api.MenuOptions;
 import menu.helper.PrintToScreen;
 import menu.helper.TypesScanner;
+
+import javax.xml.bind.JAXBException;
 import java.io.FileOutputStream;
-import java.io.IOException;
 import java.io.FileNotFoundException;
 import java.io.ObjectOutputStream;
 import java.io.FileInputStream;
@@ -140,7 +141,11 @@ public class MenuImpl implements Menu {
         String filePath;
 
         filePath = scanner.nextLine().trim();
-        engine.loadXML(filePath);
+        try {
+            engine.loadXML(filePath);
+        } catch (JAXBException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     private void showSimulationDetails() {
@@ -151,14 +156,23 @@ public class MenuImpl implements Menu {
 
     private void runSimulation() {
         List<PropertyDefinitionDTO> updatedEnvironmentVariables;
+        Map<String, Integer> entityNameToPopulation = engine.getEntitiesToPopulation();
         SimulationRunDetailsDTO runDetails;
 
         updatedEnvironmentVariables = getEnvironmentVariablesFromUser();
         updatedEnvironmentVariables = engine.setEnvironmentVariables(updatedEnvironmentVariables);
 
+        //hardcoded user init
+        entityNameToPopulation.forEach((name, population) -> {
+            Random random = new Random();
+            population = random.nextInt(200);
+            entityNameToPopulation.put(name, population);
+        });
+
         printer.viewEnvironmentVariablesValues(updatedEnvironmentVariables);
-         runDetails = engine.runNewSimulation(updatedEnvironmentVariables);
-        printer.printRunDetailsDTO(runDetails);
+        /*runDetails = */
+        engine.runNewSimulation(new SimulationInitDataFromUserDTO(updatedEnvironmentVariables, entityNameToPopulation));
+        //printer.printRunDetailsDTO(runDetails);
         System.out.println();
     }
 

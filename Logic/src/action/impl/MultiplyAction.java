@@ -5,66 +5,75 @@ import action.api.ActionType;
 import action.context.api.Context;
 import action.expression.api.Expression;
 import action.expression.impl.ExpressionFactory;
+import action.second.entity.SecondaryEntity;
 import definition.entity.api.EntityDefinition;
 import definition.property.api.Range;
 import instance.entity.api.EntityInstance;
 import instance.property.api.PropertyInstance;
 
 import java.io.Serializable;
+import java.util.LinkedHashMap;
+import java.util.Map;
 
 public class MultiplyAction extends AbstractAction implements Serializable {
 
     private final String propertyName;
-    private final String Expression1;
-    private final String Expression2;
+    private final String arg1;
+    private final String arg2;
 
-    public MultiplyAction(EntityDefinition entity, String propertyName, String expression1, String expression2) {
-        super(entity, ActionType.CALCULATION);
+    public MultiplyAction(EntityDefinition entity, String propertyName, String arg1, String arg2) {
+        super(entity, ActionType.MULTIPLE);
         this.propertyName = propertyName;
-        this.Expression1 = expression1;
-        this.Expression2 = expression2;
+        this.arg1 = arg1;
+        this.arg2 = arg2;
+    }
+
+    public MultiplyAction(EntityDefinition mainEntity, SecondaryEntity secondaryEntity, String propertyName, String arg1, String arg2) {
+        super(mainEntity, secondaryEntity, ActionType.MULTIPLE);
+        this.propertyName = propertyName;
+        this.arg1 = arg1;
+        this.arg2 = arg2;
     }
 
     @Override
-    public void invoke(Context context) {
-        EntityInstance invokeOn = context.getEntityInstance();
+    public void apply(Context context) {
+        EntityInstance invokeOn = context.getPrimaryEntityInstance();
         PropertyInstance propertyToUpdate = invokeOn.getPropertyByName(propertyName);
-        Expression firstExpression = new ExpressionFactory(this.Expression1, invokeOn);
+        Expression firstExpression = new ExpressionFactory(this.arg1, context);
         Object firstExpressionValue = firstExpression.getValue(context);
-        Expression secoundExpression = new ExpressionFactory(this.Expression2, invokeOn);
-        Object secoundExpressionValue = secoundExpression.getValue(context);
+        Expression secoundExpression = new ExpressionFactory(this.arg2, context);
+        Object secondExpressionValue = secoundExpression.getValue(context);
 
         if (propertyToUpdate.getPropertyDefinition().isNumeric()) {
             if (propertyToUpdate.getPropertyDefinition().isInteger()) {
-                multiplyInteger(propertyToUpdate, firstExpressionValue ,secoundExpressionValue );
+                multiplyInteger(propertyToUpdate, firstExpressionValue, secondExpressionValue, context);
             } else {
-                multiplyDouble(propertyToUpdate, firstExpressionValue ,secoundExpressionValue);
+                multiplyDouble(propertyToUpdate, firstExpressionValue, secondExpressionValue, context);
             }
         } else {
             throw new IllegalArgumentException("Increase action only available on numeric type!");
         }
-
     }
 
-    private void multiplyInteger(PropertyInstance propertyToUpdate, Object firstExpressionValue , Object secondExpressionValue){
+    private void multiplyInteger(PropertyInstance propertyToUpdate, Object firstExpressionValue, Object secondExpressionValue, Context context) {
 
-        if (!(areBothIntegers(firstExpressionValue,secondExpressionValue ))){
+        if (!(areBothIntegers(firstExpressionValue, secondExpressionValue))) {
             throw new IllegalArgumentException("Multiply on integer number can get only two integers.");
         }
         Integer result = (Integer) firstExpressionValue * (Integer) secondExpressionValue;
-        checkRangeAndUpdateNumericValue(propertyToUpdate , result );
+        checkRangeAndUpdateNumericValue(propertyToUpdate, result, context);
     }
 
 
-    private void multiplyDouble(PropertyInstance propertyToUpdate, Object firstExpressionValue , Object secondExpressionValue){
+    private void multiplyDouble(PropertyInstance propertyToUpdate, Object firstExpressionValue, Object secondExpressionValue, Context context) {
 
-        if (!areExpressionsNumeric(firstExpressionValue,secondExpressionValue)){
+        if (!areExpressionsNumeric(firstExpressionValue, secondExpressionValue)) {
             throw new IllegalArgumentException("value of expression must be numeric");
         }
         Double arg1 = ((Number) firstExpressionValue).doubleValue();
         Double arg2 = ((Number) secondExpressionValue).doubleValue();
         Double result = arg1 * arg2;
-        checkRangeAndUpdateNumericValue(propertyToUpdate , result );
+        checkRangeAndUpdateNumericValue(propertyToUpdate, result, context);
 
     }
 
@@ -77,7 +86,7 @@ public class MultiplyAction extends AbstractAction implements Serializable {
     }
 
 
-    private void checkRangeAndUpdateNumericValue(PropertyInstance propertyToUpdate, Number result){
+    private void checkRangeAndUpdateNumericValue(PropertyInstance propertyToUpdate, Number result, Context context) {
         Range range = propertyToUpdate.getPropertyDefinition().getRange();
 
         if (range != null) {
@@ -87,11 +96,25 @@ public class MultiplyAction extends AbstractAction implements Serializable {
             double resultValue = result.doubleValue(); // Convert Number to double
 
             if (resultValue > min && resultValue < max) {
-                propertyToUpdate.setValue(result);
+                propertyToUpdate.setValue(result, context);
             }
         } else {
-            propertyToUpdate.setValue(result);
+            propertyToUpdate.setValue(result, context);
         }
     }
 
+    @Override
+    public Map<String, String> getArguments() {
+        Map<String, String> arguments = new LinkedHashMap<>();
+
+        arguments.put("arg1", arg1);
+        arguments.put("arg2", arg2);
+
+        return arguments;
+    }
+
+    @Override
+    public Map<String, String> getAdditionalInformation() {
+        return null;
+    }
 }

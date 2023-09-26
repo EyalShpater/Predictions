@@ -2,6 +2,7 @@ package action.impl.condition.impl.multiple;
 
 import action.context.api.Context;
 import action.impl.condition.Condition;
+import instance.entity.api.EntityInstance;
 
 import java.io.Serializable;
 import java.util.List;
@@ -17,7 +18,12 @@ public class And extends MultipleCondition implements Serializable {
         boolean result = true;
 
         for (Condition condition : conditions) {
-            result = result && condition.evaluate(context);
+            Context relevantContext = checkAndReplaceContextByConditionPrimaryInstance(condition, context);
+            Boolean evaluateResult = condition.evaluate(relevantContext);
+
+            if (evaluateResult != null) {
+                result = result && evaluateResult;
+            }
         }
 
         return result;

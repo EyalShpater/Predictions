@@ -2,7 +2,6 @@ package rule.impl;
 
 import action.api.Action;
 import action.context.api.Context;
-import api.DTO;
 import impl.RuleDTO;
 import rule.api.Activation;
 import rule.api.Rule;
@@ -11,32 +10,17 @@ import java.io.Serializable;
 import java.util.*;
 import java.util.stream.Collectors;
 
-
 public class RuleImpl implements Rule , Serializable {
     private final String name;
-    private SortedSet<String> relevantEntities;
     private List<Action> actions;
     private Activation activation;
 
-    
-    public RuleImpl(String name, Activation activation, String... relevantEntity) {
+    public RuleImpl(String name, Activation activation) {
         this.name = name;
         this.actions = new ArrayList<>();
         this.activation = activation;
-        initRelevantEntities(Arrays.asList(relevantEntity));
-    }
-    public RuleImpl(String name, Activation activation, List<String> relevantEntity ) {
-        this.name = name;
-        this.actions = new ArrayList<>();
-        this.activation = activation;
-        initRelevantEntities(relevantEntity);
     }
 
-    public RuleImpl(RuleDTO dto) {
-        this(dto.getName(),
-                new ActivationImpl(dto.getTicks(), dto.getProbability()),
-                dto.getActionsNames().toArray(new String[0]));
-    }
 
     @Override
     public String getName() {
@@ -50,9 +34,7 @@ public class RuleImpl implements Rule , Serializable {
 
     @Override
     public void invoke(Context context) {
-        if (relevantEntities.contains(context.getEntityInstance().getName()) && context.getEntityInstance().isAlive()) {
-            actions.forEach(action -> action.invoke(context));
-        }
+        actions.forEach(action -> action.invoke(context));
     }
 
     @Override
@@ -65,13 +47,18 @@ public class RuleImpl implements Rule , Serializable {
     }
 
     @Override
+    public List<Action> getActions() {
+        return new ArrayList<>(actions);
+    }
+
+    @Override
     public RuleDTO convertToDTO() {
         return new RuleDTO(
                 name,
                 activation.getNumOfTicksToActivate(),
                 activation.getProbabilityToActivate(),
                 actions.stream()
-                        .map(Action::getName)
+                        .map(Action::convertToDTO)
                         .collect(Collectors.toList())
         );
     }
@@ -101,10 +88,5 @@ public class RuleImpl implements Rule , Serializable {
     @Override
     public int hashCode() {
         return Objects.hash(name);
-    }
-
-    private void initRelevantEntities(List<String> names) {
-        relevantEntities = new TreeSet<>();
-        relevantEntities.addAll(names);
     }
 }

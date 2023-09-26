@@ -4,16 +4,19 @@ import definition.property.api.PropertyDefinition;
 import definition.property.api.PropertyType;
 import definition.property.api.Range;
 import definition.property.impl.PropertyDefinitionImpl;
-import resources.generated.PRDProperty;
-import resources.generated.PRDRange;
+import resources.xml.ex2.generated.PRDProperty;
+import resources.xml.ex2.generated.PRDRange;
+
+/*import resources.xml.ex1.generated.PRDProperty;
+import resources.xml.ex1.generated.PRDRange;*/
 
 public class PropertyReader {
 
-    public PropertyDefinition read( PRDProperty prdProperty ){
+    public PropertyDefinition read(PRDProperty prdProperty) {
         return readDataFromPRDPropertyToPropertyDefinition(prdProperty);
     }
 
-    private PropertyDefinition readDataFromPRDPropertyToPropertyDefinition( PRDProperty prdProperty ) {
+    private PropertyDefinition readDataFromPRDPropertyToPropertyDefinition(PRDProperty prdProperty) {
         Range range = checkRangeExist(prdProperty.getPRDRange());
         PropertyDefinition newProperty = null;
         if ( range == null ){
@@ -32,7 +35,6 @@ public class PropertyReader {
         }
         else{
             String value = prdProperty.getPRDValue().getInit();
-
             return new PropertyDefinitionImpl( prdProperty.getPRDName() , type , range  , isRandomInitialize , convertValue(value, type) ) ;
         }
     }
@@ -48,7 +50,6 @@ public class PropertyReader {
             default:
                 return value;
         }
-
     }
 
     private PropertyDefinition createPropertyWithOutRange(PRDProperty prdProperty) {

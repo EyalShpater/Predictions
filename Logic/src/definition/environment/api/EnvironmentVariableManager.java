@@ -9,8 +9,12 @@ import java.util.Collection;
 
 public interface EnvironmentVariableManager {
     void addEnvironmentVariable(PropertyDefinition property);
+
     Collection<PropertyDefinition> getEnvironmentVariables();
-    ActiveEnvironment createActiveEnvironment();
+
+//    ActiveEnvironment createActiveEnvironment();
+
     void addEnvironmentVariableDTO(PropertyDefinitionDTO environmentVariables);
+
     boolean isEmpty();
 }

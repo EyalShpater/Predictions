@@ -1,32 +1,37 @@
 package execution.simulation.xml.reader.impl;
 
 import definition.world.api.World;
-import resources.generated.PRDAction;
-import resources.generated.PRDActivation;
-import resources.generated.PRDRule;
-import resources.generated.PRDWorld;
+import resources.xml.ex2.generated.PRDAction;
+import resources.xml.ex2.generated.PRDActivation;
+import resources.xml.ex2.generated.PRDRule;
+import resources.xml.ex2.generated.PRDWorld;
+
 import rule.api.Activation;
 import rule.api.Rule;
 import rule.impl.ActivationImpl;
 import rule.impl.RuleImpl;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-public class RuleReader  {
+/*import resources.xml.ex1.generated.PRDAction;
+import resources.xml.ex1.generated.PRDActivation;
+import resources.xml.ex1.generated.PRDRule;
+import resources.xml.ex1.generated.PRDWorld;*/
 
-    public void read (PRDWorld prdWorld , World world){
+public class RuleReader {
+
+    public void read(PRDWorld prdWorld, World world) {
         List<PRDRule> prdRuleList = prdWorld.getPRDRules().getPRDRule();
-        prdRuleList.forEach(prdRule -> readDataFromPRDRuleToRule(prdRule , world));
+        prdRuleList.forEach(prdRule -> readDataFromPRDRuleToRule(prdRule, world));
     }
 
     private void readDataFromPRDRuleToRule(PRDRule prdRule, World world) {
-        List<String> relevantEntitiesForRule = createRelevantEntityList(prdRule.getPRDActions().getPRDAction());
+
         Activation activation = createActivation(prdRule.getPRDActivation());
-        Rule newRule = new RuleImpl(prdRule.getName(), activation, relevantEntitiesForRule.toArray(new String[0]));
+        Rule newRule = new RuleImpl(prdRule.getName(), activation);
         List<PRDAction> prdActionsList = prdRule.getPRDActions().getPRDAction();
         for( PRDAction prdAction : prdActionsList ){
             ActionReader actionReader = new ActionReader();

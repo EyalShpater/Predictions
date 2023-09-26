@@ -5,6 +5,7 @@ import action.context.api.Context;
 import api.DTOConvertible;
 import impl.RuleDTO;
 
+import java.util.List;
 
 public interface Rule extends DTOConvertible<RuleDTO> {
     String getName();
@@ -14,4 +15,6 @@ public interface Rule extends DTOConvertible<RuleDTO> {
     void invoke(Context context);
 
     void addAction(Action action);
+
+    List<Action> getActions();
 }

@@ -1,43 +1,50 @@
 package execution.simulation.manager;
 
-import api.DTO;
 import api.DTOConvertible;
 import execution.simulation.api.Simulation;
 import execution.simulation.impl.SimulationImpl;
 import definition.world.api.World;
 import execution.simulation.termination.api.TerminateCondition;
-import impl.PropertyDefinitionDTO;
-import impl.SimulationDTO;
-import impl.SimulationDataDTO;
-import impl.SimulationRunDetailsDTO;
-import instance.property.api.PropertyInstance;
+import impl.*;
 
 import java.io.Serializable;
 import java.util.*;
+import java.util.concurrent.*;
 import java.util.stream.Collectors;
 
 public class SimulationManager implements Serializable {
     private int serialNumber;
     private Map<Integer, Simulation> simulations;
+    private ExecutorService threadPool;
+    private World world;
 
-    public SimulationManager() {
-        serialNumber = 1;
-        simulations = new HashMap<>();
+    public SimulationManager(World world) {
+        this.serialNumber = 1;
+        this.simulations = new HashMap<>();
+        this.world = world;
+        this.threadPool = Executors.newFixedThreadPool(world.getThreadPoolSize());
     }
 
-    public SimulationRunDetailsDTO runNewSimulation(World world, List<PropertyDefinitionDTO> environmentVariables) {
+    public int runNewSimulation(World world, SimulationInitDataFromUserDTO initData) {
         Simulation simulation;
         TerminateCondition stopReason;
         SimulationRunDetailsDTO dto;
 
-        updateEnvironmentVariablesFromDTO(world, environmentVariables);
-        simulation = new SimulationImpl(world, serialNumber);
-        stopReason = simulation.run();
-        simulations.put(serialNumber, simulation);
-        dto = createRunDetailDTO(stopReason, serialNumber);
+        simulation = new SimulationImpl(world, initData, serialNumber);
         serialNumber++;
 
-        return dto;
+        threadPool.execute(simulation::run);
+        //stopReason = simulation.getEndReason();
+
+        simulations.put(simulation.getSerialNumber(), simulation);
+//        dto = createRunDetailDTO(stopReason, simulation.getSerialNumber());
+//        return dto;
+        return simulation.getSerialNumber();
+    }
+
+    private void resetEnvironmentVariables() {
+        world.getEnvironmentVariables()
+                .forEach(propertyDefinition -> propertyDefinition.setRandom(true));
     }
 
     public List<SimulationDTO> getAllSimulationsDTO() {
@@ -56,11 +63,17 @@ public class SimulationManager implements Serializable {
         return simulations.get(serialNumber);
     }
 
-    private SimulationRunDetailsDTO createRunDetailDTO(TerminateCondition condition, int serialNumber) {
-        return new SimulationRunDetailsDTO(
-                condition.equals(TerminateCondition.BY_SECONDS),
-                condition.equals(TerminateCondition.BY_TICKS),
-                serialNumber
+    public SimulationQueueDto getSimulationQueueDetails() {
+        ThreadPoolExecutor threadPoolExecutor = (ThreadPoolExecutor) threadPool;
+
+        return new SimulationQueueDto(
+                simulations.size(),
+                threadPoolExecutor.getQueue().size(),
+                threadPoolExecutor.getActiveCount()
         );
+    }
+
+    public void clearAllSimulations() {
+        simulations.clear();
     }
 }

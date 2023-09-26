@@ -28,16 +28,16 @@ public class EnvironmentVariableManagerImpl implements EnvironmentVariableManage
         return propNameToPropDefinition.values();
     }
 
-    @Override
-    public ActiveEnvironment createActiveEnvironment() {
-        ActiveEnvironment environment = new ActiveEnvironmentImpl();
-
-        for (PropertyDefinition property : propNameToPropDefinition.values()) {
-            environment.addPropertyInstance(new PropertyInstanceImpl(property));
-        }
-
-        return environment;
-    }
+//    @Override
+//    public ActiveEnvironment createActiveEnvironment() {
+//        ActiveEnvironment environment = new ActiveEnvironmentImpl();
+//
+//        for (PropertyDefinition property : propNameToPropDefinition.values()) {
+//            environment.addPropertyInstance(new PropertyInstanceImpl(property));
+//        }
+//
+//        return environment;
+//    }
 
     @Override
     public void addEnvironmentVariableDTO(PropertyDefinitionDTO environmentVariable) {

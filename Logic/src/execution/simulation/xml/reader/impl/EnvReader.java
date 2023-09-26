@@ -5,17 +5,21 @@ import definition.property.api.PropertyType;
 import definition.property.api.Range;
 import definition.property.impl.PropertyDefinitionImpl;
 import definition.world.api.World;
-import resources.generated.PRDEnvProperty;
-import resources.generated.PRDRange;
-import resources.generated.PRDWorld;
+import resources.xml.ex2.generated.PRDEnvProperty;
+import resources.xml.ex2.generated.PRDRange;
+import resources.xml.ex2.generated.PRDWorld;
+/*import resources.xml.ex1.generated.PRDEnvProperty;
+import resources.xml.ex1.generated.PRDRange;
+import resources.xml.ex1.generated.PRDWorld;*/
 
 import java.util.List;
 
 public class EnvReader {
 
     public void read (PRDWorld prdWorld , World world){
-        List<PRDEnvProperty> envVarList = prdWorld.getPRDEvironment().getPRDEnvProperty();
+        List<PRDEnvProperty> envVarList = prdWorld.getPRDEnvironment().getPRDEnvProperty();
         envVarList.forEach(prdEnvVar -> readDataFromPRDEnvPropertyToEnvVarManager(prdEnvVar , world));
+
     }
 
     private void readDataFromPRDEnvPropertyToEnvVarManager(PRDEnvProperty prdEnvVar, World world) {

@@ -1,21 +1,39 @@
 package execution.simulation.api;
 
-import definition.property.api.PropertyDefinition;
 import impl.*;
-import instance.property.api.PropertyInstance;
+import javafx.util.Pair;
 
+import javax.xml.bind.JAXBException;
 import java.util.*;
 
 public interface PredictionsLogic {
-    void loadXML(String path);
+    void loadXML(String path) throws JAXBException;
 
     List<PropertyDefinitionDTO> getEnvironmentVariablesToSet();
 
     List<PropertyDefinitionDTO> setEnvironmentVariables(List<PropertyDefinitionDTO> variables);
 
+    Map<String, Integer> getEntitiesToPopulation();
+
     WorldDTO getLoadedSimulationDetails();
 
-    SimulationRunDetailsDTO runNewSimulation(List<PropertyDefinitionDTO> environmentVariables);
+    Map<Integer, Map<String, Long>> getPopulationPerTickData(int serialNumber);
+
+    Map<String, Map<Integer, Long>> getPopulationCountSortedByName(int serialNumber);
+
+    int runNewSimulation(SimulationInitDataFromUserDTO initData);
+
+    void pauseSimulationBySerialNumber(int serialNumber);
+
+    void stopSimulationBySerialNumber(int serialNumber);
+
+    void resumeSimulationBySerialNumber(int serialNumber);
+
+    boolean isPaused(int serialNumber);
+
+    boolean isStop(int serialNumber);
+
+    boolean isEnded(int serialNumber);
 
     List<SimulationDTO> getPreviousSimulationsAsDTO();
 
@@ -24,4 +42,19 @@ public interface PredictionsLogic {
     SimulationDTO getSimulationDTOBySerialNumber(int serialNumber);
 
     List<PropertyDefinitionDTO> getEntityPropertiesByEntityName(int serialNumber, String name);
+
+    SimulationInitDataFromUserDTO getUserInputOfSimulationBySerialNumber(int serialNumber);
+
+    SimulationRunDetailsDTO getSimulationRunDetail(int serialNumber);
+
+    EntitiesAmountDTO getSimulationEntitiesAmountMap(int serialNumber);
+
+    SimulationQueueDto getSimulationQueueDetails();
+
+    boolean hasStarted(int serialNumber);
+
+    Map<String, Double> getConsistencyByEntityName(int serialNumber, String entityName);
+
+    Double getFinalNumericPropertyAvg(String entityName, String propertyName, int serialNumber);
+
 }

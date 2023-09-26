@@ -1,13 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="GUI:jar" />
+    </artifacts-to-build>
+  </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="27d35137-667f-4e37-a519-ab836acc0a06" name="Changes" comment="version 1:1.">
-      <change beforePath="$PROJECT_DIR$/ConsoleUI/src/menu/impl/MenuImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/ConsoleUI/src/menu/impl/MenuImpl.java" afterDir="false" />
+    <list default="true" id="27d35137-667f-4e37-a519-ab836acc0a06" name="Changes" comment="Predictions version 2:0">
+      <change afterPath="$PROJECT_DIR$/.idea/artifacts/GUI_jar.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GUI/src/META-INF/MANIFEST.MF" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GUI/src/javafx/mainScene/header/resources/animation.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GUI/src/javafx/mainScene/header/resources/motion-graphic.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/artifacts/consoleUI.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/artifacts/dto.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/artifacts/logic.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI/GUI.iml" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/GUI.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI/src/javafx/mainScene/header/HeaderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/src/javafx/mainScene/header/HeaderController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI/src/javafx/mainScene/main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/src/javafx/mainScene/main/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI/src/javafx/tab/results/analyze/histogram/consistency/ConsistencyBarChartController.java" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/src/javafx/tab/results/analyze/histogram/consistency/ConsistencyBarChartController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI/src/javafx/tab/results/analyze/histogram/population/PopulationChartController.java" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/src/javafx/tab/results/analyze/histogram/population/PopulationChartController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI/src/javafx/tab/results/analyze/histogram/property/PropertyChartController.java" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/src/javafx/tab/results/analyze/histogram/property/PropertyChartController.java" afterDir="false" />
     </list>
-    <list id="9eb12e0a-64d7-4be1-90c5-9941354570ea" name="Changes by ASUS" comment="version 1.0" />
+    <list id="ff084db0-cb92-43bb-9658-8af184568cf4" name="Changes by ASUS" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -21,9 +39,12 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="JavaFXApplication" />
         <option value="Interface" />
         <option value="Enum" />
+        <option value="FxmlFile" />
         <option value="Class" />
+        <option value="CSS File" />
       </list>
     </option>
   </component>
@@ -33,6 +54,11 @@
         <option value="Eyal Shpater" />
       </list>
     </option>
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="main" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="RESET_MODE" value="HARD" />
   </component>
@@ -41,6 +67,13 @@
     &quot;state&quot;: &quot;OPEN&quot;
   }
 }</component>
+  <component name="GithubProjectSettings">
+    <option name="branchProtectionPatterns">
+      <list>
+        <option value="main" />
+      </list>
+    </option>
+  </component>
   <component name="GithubPullRequestsUISettings">
     <option name="selectedUrlAndAccountId">
       <UrlAndAccount>
@@ -48,6 +81,15 @@
         <option name="url" value="https://github.com/shpater1234/Predictions.git" />
       </UrlAndAccount>
     </option>
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="jar:///Library/Java/JavaVirtualMachines/jdk-1.8.jdk/Contents/Home/javafx-src.zip!/com/sun/javafx/tk/Toolkit.java" root0="SKIP_INSPECTION" />
+    <setting file="jar:///Library/Java/JavaVirtualMachines/jdk-1.8.jdk/Contents/Home/javafx-src.zip!/com/sun/javafx/tk/quantum/QuantumToolkit.java" root0="SKIP_INSPECTION" />
+    <setting file="jar:///Library/Java/JavaVirtualMachines/jdk-1.8.jdk/Contents/Home/javafx-src.zip!/javafx/beans/binding/ObjectExpression.java" root0="SKIP_INSPECTION" />
+    <setting file="jar:///Library/Java/JavaVirtualMachines/jdk-1.8.jdk/Contents/Home/javafx-src.zip!/javafx/beans/property/ObjectPropertyBase.java" root0="SKIP_INSPECTION" />
+    <setting file="jar:///Library/Java/JavaVirtualMachines/jdk-1.8.jdk/Contents/Home/javafx-src.zip!/javafx/fxml/FXMLLoader.java" root0="SKIP_INSPECTION" />
+    <setting file="jar:///Library/Java/JavaVirtualMachines/jdk-1.8.jdk/Contents/Home/javafx-src.zip!/javafx/scene/chart/ValueAxis.java" root0="SKIP_INSPECTION" />
+    <setting file="jar:///Library/Java/JavaVirtualMachines/jdk-1.8.jdk/Contents/Home/javafx-src.zip!/javafx/scene/chart/XYChart.java" root0="SKIP_INSPECTION" />
   </component>
   <component name="ProblemsViewState">
     <option name="selectedTabId" value="CurrentFile" />
@@ -71,11 +113,13 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
+    "dart.analysis.tool.window.visible": "false",
     "extract.method.default.visibility": "private",
     "full.screen.before.presentation.mode": "false",
-    "git-widget-placeholder": "main",
+    "git-widget-placeholder": "GUI",
     "jdk.selected.JAVA_MODULE": "1.8",
-    "last_opened_file_path": "C:/Users/ASUS/IdeaProjects/Predictions",
+    "last_opened_file_path": "/Users/eyal/Java-Course/Predictions/GUI/src/javafx/mainScene/main",
+    "list.type.of.created.stylesheet": "CSS",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -85,22 +129,42 @@
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
     "settings.editor.selected.configurable": "inlay.hints",
+    "two.files.diff.last.used.file": "C:/Users/ASUS/IdeaProjects/PredictionsNew/Logic/src/resources/xml/ex2/master-ex2.xml",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/GUI/src/javafx/mainScene/main" />
+      <recent name="$PROJECT_DIR$/GUI/src/javafx/tab/results/analyze/histogram/consistency" />
+      <recent name="$PROJECT_DIR$/GUI/src/javafx/tab/results/analyze/histogram/bar/chart" />
+      <recent name="C:\Users\ASUS\IdeaProjects\Prediction19.9\Logic\src\resources\xml\ex2\newfiles" />
+      <recent name="C:\Users\ASUS\IdeaProjects\PredictionsNew\Logic\src\resources\xml\ex2" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/logic/src" />
-      <recent name="$PROJECT_DIR$/logic" />
+      <recent name="C:\Users\ASUS\IdeaProjects\Prediction19.9\Logic\src\resources\xml\ex2\newfiles" />
+      <recent name="C:\Users\ASUS\IdeaProjects\Predictions\Logic\src\resources\xml\ex2" />
+      <recent name="C:\Users\ASUS\IdeaProjects\Predictions\Logic\src\resources\xml\ex1" />
+      <recent name="$PROJECT_DIR$/JavaFX/src/javafx/details/impl" />
+      <recent name="$PROJECT_DIR$/JavaFX/src/javafx/details/resources" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="javafx.tab.results.graph" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="javafx.tab.results" />
+      <recent name="javafx.tab.details.environment.variables" />
+      <recent name="javafx.details.rules" />
+      <recent name="javafx.details.details" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.main.Main">
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="testmain.Main" />
-      <module name="ConsoleUI" />
+  <component name="RunManager" selected="Application.Main">
+    <configuration name="LineChartSample" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="javafx.tab.results.analyze.histogram.population.LineChartSample" />
+      <module name="GUI" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="testmain.*" />
+          <option name="PATTERN" value="javafx.tab.results.analyze.histogram.property.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -108,12 +172,90 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Program" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="program.Program" />
-      <module name="ConsoleUI" />
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="javafx.mainScene.main.Main" />
+      <module name="GUI" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="program.*" />
+          <option name="PATTERN" value="javafx.mainScene.main.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="javafx.mainScene.main.Main" />
+      <module name="GUI" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="javafx.mainScene.main.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SimulationImpl" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="execution.simulation.impl.SimulationImpl" />
+      <module name="Logic" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="execution.simulation.impl.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SimulationImpl" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="execution.simulation.impl.SimulationImpl" />
+      <module name="Logic" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="execution.simulation.impl.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TestMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="javafx.mainScene.main.TestMain" />
+      <module name="GUI" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="javafx.mainScene.main.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="grid.TestMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="grid.TestMain" />
+      <module name="Logic" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="grid.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="grid.TestMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="grid.TestMain" />
+      <module name="Logic" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="grid.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -134,12 +276,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="xmlMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="execution.simulation.xml.validation.xmlMain" />
-      <module name="Logic" />
+    <configuration name="main.Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="main.Main" />
+      <module name="ConsoleUI" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="execution.simulation.xml.validation.*" />
+          <option name="PATTERN" value="main.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -149,14 +291,18 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.main.Main" />
-        <item itemvalue="Application.xmlMain" />
         <item itemvalue="Application.Main" />
-        <item itemvalue="Application.Program" />
+        <item itemvalue="Application.LineChartSample" />
+        <item itemvalue="Application.main.Main" />
+        <item itemvalue="Application.SimulationImpl" />
+        <item itemvalue="Application.grid.TestMain" />
       </list>
     </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="SvnConfiguration">
+    <configuration>$USER_HOME$/.subversion</configuration>
+  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="27d35137-667f-4e37-a519-ab836acc0a06" name="Changes" comment="" />
@@ -197,383 +343,417 @@
       <workItem from="1692027270981" duration="1391000" />
       <workItem from="1692256597011" duration="37171000" />
       <workItem from="1692337503978" duration="27713000" />
+      <workItem from="1692498596637" duration="104000" />
+      <workItem from="1692498714578" duration="209000" />
+      <workItem from="1692499689150" duration="35000" />
+      <workItem from="1692520159421" duration="1495000" />
+      <workItem from="1692522358602" duration="357000" />
+      <workItem from="1692558178117" duration="6065000" />
+      <workItem from="1692627162928" duration="178000" />
+      <workItem from="1692688716070" duration="1339000" />
+      <workItem from="1692776848492" duration="1363000" />
+      <workItem from="1693062309486" duration="318000" />
+      <workItem from="1693065925490" duration="40000" />
+      <workItem from="1693066005165" duration="3815000" />
+      <workItem from="1693127766309" duration="626000" />
+      <workItem from="1693139830114" duration="627000" />
+      <workItem from="1693140761874" duration="6594000" />
+      <workItem from="1693210810072" duration="785000" />
+      <workItem from="1693301663496" duration="10558000" />
+      <workItem from="1693322020069" duration="9242000" />
+      <workItem from="1693385372478" duration="154000" />
+      <workItem from="1693393358711" duration="1386000" />
+      <workItem from="1693395480521" duration="1416000" />
+      <workItem from="1693461936482" duration="14820000" />
+      <workItem from="1693561653847" duration="8515000" />
+      <workItem from="1693610882907" duration="67000" />
+      <workItem from="1693611603575" duration="283000" />
+      <workItem from="1693640598304" duration="35386000" />
+      <workItem from="1694153897973" duration="17306000" />
+      <workItem from="1694254442123" duration="16346000" />
+      <workItem from="1694315233531" duration="13724000" />
+      <workItem from="1694330441189" duration="28414000" />
+      <workItem from="1694408417392" duration="10450000" />
+      <workItem from="1694524231690" duration="15371000" />
+      <workItem from="1694857830392" duration="51381000" />
+      <workItem from="1695210575067" duration="16423000" />
     </task>
-    <task id="LOCAL-00034" summary="Fixed the EntityInstance problem">
-      <created>1691746931845</created>
-      <option name="number" value="00034" />
-      <option name="presentableId" value="LOCAL-00034" />
+    <task id="LOCAL-00103" summary="changed evaluate to get the EntityInstance of secondaryEntity in each iteration in order to creare the proper context , also added functions to context to get the filtered SecondaryEntity list">
+      <created>1694175010163</created>
+      <option name="number" value="00103" />
+      <option name="presentableId" value="LOCAL-00103" />
       <option name="project" value="LOCAL" />
-      <updated>1691746931845</updated>
+      <updated>1694175010164</updated>
     </task>
-    <task id="LOCAL-00035" summary="added deacreaseAction based on IncreaseAction logic&#10;added an abstract class for calcs">
-      <created>1691824938625</created>
-      <option name="number" value="00035" />
-      <option name="presentableId" value="LOCAL-00035" />
+    <task id="LOCAL-00104" summary="now working&#10;changed evaluate to get the EntityInstance of secondaryEntity in each iteration in order to creare the proper context , also added functions to context to get the filtered SecondaryEntity list">
+      <created>1694177532976</created>
+      <option name="number" value="00104" />
+      <option name="presentableId" value="LOCAL-00104" />
       <option name="project" value="LOCAL" />
-      <updated>1691824938625</updated>
+      <updated>1694177532976</updated>
     </task>
-    <task id="LOCAL-00036" summary="added deacreaseAction based on IncreaseAction logic&#10;added an abstract class for calcs">
-      <created>1691825085908</created>
-      <option name="number" value="00036" />
-      <option name="presentableId" value="LOCAL-00036" />
+    <task id="LOCAL-00105" summary="ADDED REPLACE">
+      <created>1694185035963</created>
+      <option name="number" value="00105" />
+      <option name="presentableId" value="LOCAL-00105" />
       <option name="project" value="LOCAL" />
-      <updated>1691825085908</updated>
+      <updated>1694185035963</updated>
     </task>
-    <task id="LOCAL-00037" summary="Updated the main to fit context change">
-      <created>1691830663807</created>
-      <option name="number" value="00037" />
-      <option name="presentableId" value="LOCAL-00037" />
+    <task id="LOCAL-00106" summary="updated Proximity">
+      <created>1694185501507</created>
+      <option name="number" value="00106" />
+      <option name="presentableId" value="LOCAL-00106" />
       <option name="project" value="LOCAL" />
-      <updated>1691830663807</updated>
+      <updated>1694185501507</updated>
     </task>
-    <task id="LOCAL-00038" summary="Updated the main to check for ProperyExpression">
-      <created>1691834018427</created>
-      <option name="number" value="00038" />
-      <option name="presentableId" value="LOCAL-00038" />
+    <task id="LOCAL-00107" summary="changed replace and proximity">
+      <created>1694256576571</created>
+      <option name="number" value="00107" />
+      <option name="presentableId" value="LOCAL-00107" />
       <option name="project" value="LOCAL" />
-      <updated>1691834018427</updated>
+      <updated>1694256576571</updated>
     </task>
-    <task id="LOCAL-00039" summary="created a factory for HelperFunctions from here on need to ask eyal">
-      <created>1691848032025</created>
-      <option name="number" value="00039" />
-      <option name="presentableId" value="LOCAL-00039" />
+    <task id="LOCAL-00108" summary="added helper functions">
+      <created>1694261798174</created>
+      <option name="number" value="00108" />
+      <option name="presentableId" value="LOCAL-00108" />
       <option name="project" value="LOCAL" />
-      <updated>1691848032025</updated>
+      <updated>1694261798174</updated>
     </task>
-    <task id="LOCAL-00040" summary="created a factory for HelperFunctions from here on need to ask eyal">
-      <created>1691848060542</created>
-      <option name="number" value="00040" />
-      <option name="presentableId" value="LOCAL-00040" />
+    <task id="LOCAL-00109" summary="added files xml for ex2">
+      <created>1694273557303</created>
+      <option name="number" value="00109" />
+      <option name="presentableId" value="LOCAL-00109" />
       <option name="project" value="LOCAL" />
-      <updated>1691848060542</updated>
+      <updated>1694273557303</updated>
     </task>
-    <task id="LOCAL-00041" summary="created a factory for HelperFunctions from here on need to ask eyal">
-      <created>1691848157296</created>
-      <option name="number" value="00041" />
-      <option name="presentableId" value="LOCAL-00041" />
+    <task id="LOCAL-00110" summary="fixed the xml part to fit the new generated files including the imports">
+      <created>1694285490963</created>
+      <option name="number" value="00110" />
+      <option name="presentableId" value="LOCAL-00110" />
       <option name="project" value="LOCAL" />
-      <updated>1691848157296</updated>
+      <updated>1694285490963</updated>
     </task>
-    <task id="LOCAL-00042" summary="the helper function is working the implementation is wrong , need to change first thing in the morning">
-      <created>1691871335464</created>
-      <option name="number" value="00042" />
-      <option name="presentableId" value="LOCAL-00042" />
+    <task id="LOCAL-00111" summary="finished name validation">
+      <created>1694324118529</created>
+      <option name="number" value="00111" />
+      <option name="presentableId" value="LOCAL-00111" />
       <option name="project" value="LOCAL" />
-      <updated>1691871335464</updated>
+      <updated>1694324118530</updated>
     </task>
-    <task id="LOCAL-00043" summary="changed the context and expression to contain the expression and the string value of it , added getters and setters for it to work , dogma: &#10;- expression = &quot;environment(e1)&quot;&#10;- expressionStringValue = e1">
-      <created>1691905496932</created>
-      <option name="number" value="00043" />
-      <option name="presentableId" value="LOCAL-00043" />
+    <task id="LOCAL-00112" summary="almost finished xml validation only condition property validation left">
+      <created>1694363895763</created>
+      <option name="number" value="00112" />
+      <option name="presentableId" value="LOCAL-00112" />
       <option name="project" value="LOCAL" />
-      <updated>1691905496932</updated>
+      <updated>1694363895763</updated>
     </task>
-    <task id="LOCAL‎-00047" summary="Action and helper are working!">
-      <option name="closed" value="true" />
-      <created>1691981503388</created>
-      <option name="number" value="00047" />
-      <option name="presentableId" value="LOCAL‎-00047" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1691981503388</updated>
-    </task>
-    <task id="LOCAL-00048" summary="Action and helper are working!">
-      <created>1692000107329</created>
-      <option name="number" value="00048" />
-      <option name="presentableId" value="LOCAL-00048" />
+    <task id="LOCAL-00113" summary="almost finished xml validation only condition property validation left">
+      <created>1694365533331</created>
+      <option name="number" value="00113" />
+      <option name="presentableId" value="LOCAL-00113" />
       <option name="project" value="LOCAL" />
-      <updated>1692000107329</updated>
+      <updated>1694365533331</updated>
     </task>
-    <task id="LOCAL-00049" summary="fixed IncreaseAction DecreaseAction to work on my main , problem was trying to cast Integer to Double">
-      <created>1692003349312</created>
-      <option name="number" value="00049" />
-      <option name="presentableId" value="LOCAL-00049" />
+    <task id="LOCAL-00128" summary="replace is working">
+      <created>1694765013209</created>
+      <option name="number" value="00128" />
+      <option name="presentableId" value="LOCAL-00128" />
       <option name="project" value="LOCAL" />
-      <updated>1692003349312</updated>
+      <updated>1694765013209</updated>
     </task>
-    <task id="LOCAL‎-00050" summary="ConsoleUI menu implement - not full implementation.">
-      <option name="closed" value="true" />
-      <created>1692017668201</created>
-      <option name="number" value="00050" />
-      <option name="presentableId" value="LOCAL‎-00050" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1692017668203</updated>
-    </task>
-    <task id="LOCAL‎-00051" summary="Changes by ASUS">
-      <option name="closed" value="true" />
-      <created>1692017705996</created>
-      <option name="number" value="00051" />
-      <option name="presentableId" value="LOCAL‎-00051" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1692017705996</updated>
-    </task>
-    <task id="LOCAL‎-00052" summary="Divide added">
-      <option name="closed" value="true" />
-      <created>1692022417983</created>
-      <option name="number" value="00052" />
-      <option name="presentableId" value="LOCAL‎-00052" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1692022417983</updated>
-    </task>
-    <task id="LOCAL-00053" summary="added xml logic">
-      <created>1692124813678</created>
-      <option name="number" value="00053" />
-      <option name="presentableId" value="LOCAL-00053" />
+    <task id="LOCAL-00129" summary="ticks is working">
+      <created>1694776291781</created>
+      <option name="number" value="00129" />
+      <option name="presentableId" value="LOCAL-00129" />
       <option name="project" value="LOCAL" />
-      <updated>1692124813678</updated>
+      <updated>1694776291781</updated>
     </task>
-    <task id="LOCAL-00054" summary="latest">
-      <created>1692127005802</created>
-      <option name="number" value="00054" />
-      <option name="presentableId" value="LOCAL-00054" />
+    <task id="LOCAL‎-00144" summary="added progress information from engine">
+      <option name="closed" value="true" />
+      <created>1694967789277</created>
+      <option name="number" value="00144" />
+      <option name="presentableId" value="LOCAL‎-00144" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1694967789277</updated>
+    </task>
+    <task id="LOCAL‎-00145" summary="added rerun option">
+      <option name="closed" value="true" />
+      <created>1694967802594</created>
+      <option name="number" value="00145" />
+      <option name="presentableId" value="LOCAL‎-00145" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1694967802594</updated>
+    </task>
+    <task id="LOCAL‎-00146" summary="some progress">
+      <option name="closed" value="true" />
+      <created>1694986653530</created>
+      <option name="number" value="00146" />
+      <option name="presentableId" value="LOCAL‎-00146" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1694986653530</updated>
+    </task>
+    <task id="LOCAL-00147" summary="addd EntitiesAmountDTO">
+      <created>1695024549035</created>
+      <option name="number" value="00147" />
+      <option name="presentableId" value="LOCAL-00147" />
       <option name="project" value="LOCAL" />
-      <updated>1692127005802</updated>
+      <updated>1695024549036</updated>
     </task>
-    <task id="LOCAL-00055" summary="latest">
-      <created>1692128479513</created>
-      <option name="number" value="00055" />
-      <option name="presentableId" value="LOCAL-00055" />
+    <task id="LOCAL-00148" summary="entity Population is working for one simulation">
+      <created>1695031355816</created>
+      <option name="number" value="00148" />
+      <option name="presentableId" value="LOCAL-00148" />
       <option name="project" value="LOCAL" />
-      <updated>1692128479513</updated>
+      <updated>1695031355816</updated>
     </task>
-    <task id="LOCAL-00056" summary="latest">
-      <created>1692168153217</created>
-      <option name="number" value="00056" />
-      <option name="presentableId" value="LOCAL-00056" />
+    <task id="LOCAL‎-00149" summary="ui reflects the engine">
+      <option name="closed" value="true" />
+      <created>1695043050250</created>
+      <option name="number" value="00149" />
+      <option name="presentableId" value="LOCAL‎-00149" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1695043050250</updated>
+    </task>
+    <task id="LOCAL‎-00150" summary="ui reflects the engine">
+      <option name="closed" value="true" />
+      <created>1695043065956</created>
+      <option name="number" value="00150" />
+      <option name="presentableId" value="LOCAL‎-00150" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1695043065956</updated>
+    </task>
+    <task id="LOCAL‎-00151" summary="ui reflects the engine">
+      <option name="closed" value="true" />
+      <created>1695050697617</created>
+      <option name="number" value="00151" />
+      <option name="presentableId" value="LOCAL‎-00151" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1695050697617</updated>
+    </task>
+    <task id="LOCAL‎-00152" summary="ui reflects the engine">
+      <option name="closed" value="true" />
+      <created>1695050702622</created>
+      <option name="number" value="00152" />
+      <option name="presentableId" value="LOCAL‎-00152" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1695050702622</updated>
+    </task>
+    <task id="LOCAL‎-00153" summary="proximity and grid bug fixes">
+      <option name="closed" value="true" />
+      <created>1695054976886</created>
+      <option name="number" value="00153" />
+      <option name="presentableId" value="LOCAL‎-00153" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1695054976886</updated>
+    </task>
+    <task id="LOCAL‎-00154" summary="bug fixes">
+      <option name="closed" value="true" />
+      <created>1695057636628</created>
+      <option name="number" value="00154" />
+      <option name="presentableId" value="LOCAL‎-00154" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1695057636628</updated>
+    </task>
+    <task id="LOCAL‎-00155" summary="entities and property choiceBox implement">
+      <option name="closed" value="true" />
+      <created>1695067327762</created>
+      <option name="number" value="00155" />
+      <option name="presentableId" value="LOCAL‎-00155" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1695067327762</updated>
+    </task>
+    <task id="LOCAL-00156" summary="fixed logic">
+      <created>1695101375096</created>
+      <option name="number" value="00156" />
+      <option name="presentableId" value="LOCAL-00156" />
       <option name="project" value="LOCAL" />
-      <updated>1692168153217</updated>
+      <updated>1695101375096</updated>
     </task>
-    <task id="LOCAL‎-00057" summary="simulation run complete">
-      <option name="closed" value="true" />
-      <created>1692182404915</created>
-      <option name="number" value="00057" />
-      <option name="presentableId" value="LOCAL‎-00057" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1692182404916</updated>
-    </task>
-    <task id="LOCAL‎-00058" summary="Changes by ASUS">
-      <option name="closed" value="true" />
-      <created>1692182416768</created>
-      <option name="number" value="00058" />
-      <option name="presentableId" value="LOCAL‎-00058" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1692182416768</updated>
-    </task>
-    <task id="LOCAL‎-00059" summary="WorldDTO complete">
-      <option name="closed" value="true" />
-      <created>1692188162011</created>
-      <option name="number" value="00059" />
-      <option name="presentableId" value="LOCAL‎-00059" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1692188162011</updated>
-    </task>
-    <task id="LOCAL‎-00060" summary="XML checks">
-      <option name="closed" value="true" />
-      <created>1692188176721</created>
-      <option name="number" value="00060" />
-      <option name="presentableId" value="LOCAL‎-00060" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1692188176721</updated>
-    </task>
-    <task id="LOCAL‎-00061" summary="method 2 is some what completed">
-      <option name="closed" value="true" />
-      <created>1692220462056</created>
-      <option name="number" value="00061" />
-      <option name="presentableId" value="LOCAL‎-00061" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1692220462056</updated>
-    </task>
-    <task id="LOCAL‎-00062" summary="XML checks">
-      <option name="closed" value="true" />
-      <created>1692220468307</created>
-      <option name="number" value="00062" />
-      <option name="presentableId" value="LOCAL‎-00062" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1692220468307</updated>
-    </task>
-    <task id="LOCAL‎-00063" summary="XML checks">
-      <option name="closed" value="true" />
-      <created>1692221066655</created>
-      <option name="number" value="00063" />
-      <option name="presentableId" value="LOCAL‎-00063" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1692221066655</updated>
-    </task>
-    <task id="LOCAL‎-00064" summary="refactor the DTOConvertible interface.">
-      <option name="closed" value="true" />
-      <created>1692221336123</created>
-      <option name="number" value="00064" />
-      <option name="presentableId" value="LOCAL‎-00064" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1692221336123</updated>
-    </task>
-    <task id="LOCAL‎-00065" summary="xml validator">
-      <option name="closed" value="true" />
-      <created>1692257155485</created>
-      <option name="number" value="00065" />
-      <option name="presentableId" value="LOCAL‎-00065" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1692257155486</updated>
-    </task>
-    <task id="LOCAL‎-00066" summary="dto almost complete">
-      <option name="closed" value="true" />
-      <created>1692271712969</created>
-      <option name="number" value="00066" />
-      <option name="presentableId" value="LOCAL‎-00066" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1692271712969</updated>
-    </task>
-    <task id="LOCAL‎-00067" summary="xml validator">
-      <option name="closed" value="true" />
-      <created>1692271728261</created>
-      <option name="number" value="00067" />
-      <option name="presentableId" value="LOCAL‎-00067" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1692271728261</updated>
-    </task>
-    <task id="LOCAL‎-00068" summary="more implementations">
-      <option name="closed" value="true" />
-      <created>1692279162096</created>
-      <option name="number" value="00068" />
-      <option name="presentableId" value="LOCAL‎-00068" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1692279162096</updated>
-    </task>
-    <task id="LOCAL‎-00069" summary="pretty good">
-      <option name="closed" value="true" />
-      <created>1692300131304</created>
-      <option name="number" value="00069" />
-      <option name="presentableId" value="LOCAL‎-00069" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1692300131304</updated>
-    </task>
-    <task id="LOCAL-00070" summary="read everything to world except rule">
-      <created>1692356632414</created>
-      <option name="number" value="00070" />
-      <option name="presentableId" value="LOCAL-00070" />
+    <task id="LOCAL-00157" summary="fixed logic in xml">
+      <created>1695105621094</created>
+      <option name="number" value="00157" />
+      <option name="presentableId" value="LOCAL-00157" />
       <option name="project" value="LOCAL" />
-      <updated>1692356632414</updated>
+      <updated>1695105621094</updated>
     </task>
-    <task id="LOCAL‎-00071" summary="condition problem fixed">
+    <task id="LOCAL‎-00158" summary="made pagination as sub component">
       <option name="closed" value="true" />
-      <created>1692378671103</created>
-      <option name="number" value="00071" />
-      <option name="presentableId" value="LOCAL‎-00071" />
+      <created>1695124389134</created>
+      <option name="number" value="00158" />
+      <option name="presentableId" value="LOCAL‎-00158" />
       <option name="project" value="LOCAL‎" />
-      <updated>1692378671104</updated>
+      <updated>1695124389134</updated>
     </task>
-    <task id="LOCAL‎-00072" summary="Changes by ASUS">
+    <task id="LOCAL‎-00159" summary="population bar chart is implemented">
       <option name="closed" value="true" />
-      <created>1692378697222</created>
-      <option name="number" value="00072" />
-      <option name="presentableId" value="LOCAL‎-00072" />
+      <created>1695132113728</created>
+      <option name="number" value="00159" />
+      <option name="presentableId" value="LOCAL‎-00159" />
       <option name="project" value="LOCAL‎" />
-      <updated>1692378697222</updated>
+      <updated>1695132113728</updated>
     </task>
-    <task id="LOCAL‎-00073" summary="ConditionImpl">
+    <task id="LOCAL‎-00160" summary="added Consistency object">
       <option name="closed" value="true" />
-      <created>1692382302111</created>
-      <option name="number" value="00073" />
-      <option name="presentableId" value="LOCAL‎-00073" />
+      <created>1695141571447</created>
+      <option name="number" value="00160" />
+      <option name="presentableId" value="LOCAL‎-00160" />
       <option name="project" value="LOCAL‎" />
-      <updated>1692382302111</updated>
+      <updated>1695141571447</updated>
     </task>
-    <task id="LOCAL‎-00074" summary="ConditionImpl">
+    <task id="LOCAL‎-00161" summary="consistency in gui">
       <option name="closed" value="true" />
-      <created>1692382330480</created>
-      <option name="number" value="00074" />
-      <option name="presentableId" value="LOCAL‎-00074" />
+      <created>1695157267008</created>
+      <option name="number" value="00161" />
+      <option name="presentableId" value="LOCAL‎-00161" />
       <option name="project" value="LOCAL‎" />
-      <updated>1692382330480</updated>
+      <updated>1695157267008</updated>
     </task>
-    <task id="LOCAL‎-00075" summary="exception catch while loading file">
+    <task id="LOCAL‎-00162" summary="clear button bug fix">
       <option name="closed" value="true" />
-      <created>1692460251967</created>
-      <option name="number" value="00075" />
-      <option name="presentableId" value="LOCAL‎-00075" />
+      <created>1695157760379</created>
+      <option name="number" value="00162" />
+      <option name="presentableId" value="LOCAL‎-00162" />
       <option name="project" value="LOCAL‎" />
-      <updated>1692460251968</updated>
+      <updated>1695157760379</updated>
     </task>
-    <task id="LOCAL‎-00076" summary="exception catch while loading file">
+    <task id="LOCAL‎-00163" summary="population per tick implement">
       <option name="closed" value="true" />
-      <created>1692469939253</created>
-      <option name="number" value="00076" />
-      <option name="presentableId" value="LOCAL‎-00076" />
+      <created>1695197387398</created>
+      <option name="number" value="00163" />
+      <option name="presentableId" value="LOCAL‎-00163" />
       <option name="project" value="LOCAL‎" />
-      <updated>1692469939254</updated>
+      <updated>1695197387398</updated>
     </task>
-    <task id="LOCAL‎-00077" summary="nice print to screen">
+    <task id="LOCAL‎-00164" summary="population per tick implement">
       <option name="closed" value="true" />
-      <created>1692475730108</created>
-      <option name="number" value="00077" />
-      <option name="presentableId" value="LOCAL‎-00077" />
+      <created>1695197395831</created>
+      <option name="number" value="00164" />
+      <option name="presentableId" value="LOCAL‎-00164" />
       <option name="project" value="LOCAL‎" />
-      <updated>1692475730108</updated>
+      <updated>1695197395831</updated>
     </task>
-    <task id="LOCAL‎-00078" summary="file path readable using trim">
+    <task id="LOCAL‎-00165" summary="changed the population chart">
       <option name="closed" value="true" />
-      <created>1692475838832</created>
-      <option name="number" value="00078" />
-      <option name="presentableId" value="LOCAL‎-00078" />
+      <created>1695206702081</created>
+      <option name="number" value="00165" />
+      <option name="presentableId" value="LOCAL‎-00165" />
       <option name="project" value="LOCAL‎" />
-      <updated>1692475838832</updated>
+      <updated>1695206702082</updated>
     </task>
-    <task id="LOCAL‎-00079" summary="close to finish">
+    <task id="LOCAL‎-00166" summary="added animations">
       <option name="closed" value="true" />
-      <created>1692484977384</created>
-      <option name="number" value="00079" />
-      <option name="presentableId" value="LOCAL‎-00079" />
+      <created>1695225375756</created>
+      <option name="number" value="00166" />
+      <option name="presentableId" value="LOCAL‎-00166" />
       <option name="project" value="LOCAL‎" />
-      <updated>1692484977384</updated>
+      <updated>1695225375756</updated>
     </task>
-    <task id="LOCAL‎-00080" summary="close to the end">
+    <task id="LOCAL‎-00167" summary="added animations">
       <option name="closed" value="true" />
-      <created>1692484996744</created>
-      <option name="number" value="00080" />
-      <option name="presentableId" value="LOCAL‎-00080" />
+      <created>1695226312107</created>
+      <option name="number" value="00167" />
+      <option name="presentableId" value="LOCAL‎-00167" />
       <option name="project" value="LOCAL‎" />
-      <updated>1692484996744</updated>
+      <updated>1695226312107</updated>
     </task>
-    <task id="LOCAL‎-00081" summary="finish until next bug would be detected">
+    <task id="LOCAL‎-00168" summary="buttons behaviours fix">
       <option name="closed" value="true" />
-      <created>1692491416175</created>
-      <option name="number" value="00081" />
-      <option name="presentableId" value="LOCAL‎-00081" />
+      <created>1695234266739</created>
+      <option name="number" value="00168" />
+      <option name="presentableId" value="LOCAL‎-00168" />
       <option name="project" value="LOCAL‎" />
-      <updated>1692491416175</updated>
+      <updated>1695234266739</updated>
     </task>
-    <task id="LOCAL‎-00082" summary="finish">
+    <task id="LOCAL‎-00169" summary="hell bug fix">
       <option name="closed" value="true" />
-      <created>1692491428916</created>
-      <option name="number" value="00082" />
-      <option name="presentableId" value="LOCAL‎-00082" />
+      <created>1695247475443</created>
+      <option name="number" value="00169" />
+      <option name="presentableId" value="LOCAL‎-00169" />
       <option name="project" value="LOCAL‎" />
-      <updated>1692491428916</updated>
+      <updated>1695247475443</updated>
     </task>
-    <task id="LOCAL‎-00083" summary="version 1:0.">
+    <task id="LOCAL‎-00170" summary="hell bug fix">
       <option name="closed" value="true" />
-      <created>1692492663642</created>
-      <option name="number" value="00083" />
-      <option name="presentableId" value="LOCAL‎-00083" />
+      <created>1695247485994</created>
+      <option name="number" value="00170" />
+      <option name="presentableId" value="LOCAL‎-00170" />
       <option name="project" value="LOCAL‎" />
-      <updated>1692492663642</updated>
+      <updated>1695247485994</updated>
     </task>
-    <task id="LOCAL‎-00084" summary="version 1.0">
+    <task id="LOCAL‎-00171" summary="works">
       <option name="closed" value="true" />
-      <created>1692492690187</created>
-      <option name="number" value="00084" />
-      <option name="presentableId" value="LOCAL‎-00084" />
+      <created>1695251453210</created>
+      <option name="number" value="00171" />
+      <option name="presentableId" value="LOCAL‎-00171" />
       <option name="project" value="LOCAL‎" />
-      <updated>1692492690187</updated>
+      <updated>1695251453210</updated>
     </task>
-    <task id="LOCAL‎-00085" summary="version 1:1.">
+    <task id="LOCAL‎-00172" summary="works">
       <option name="closed" value="true" />
-      <created>1692493596747</created>
-      <option name="number" value="00085" />
-      <option name="presentableId" value="LOCAL‎-00085" />
+      <created>1695251467276</created>
+      <option name="number" value="00172" />
+      <option name="presentableId" value="LOCAL‎-00172" />
       <option name="project" value="LOCAL‎" />
-      <updated>1692493596747</updated>
+      <updated>1695251467276</updated>
     </task>
-    <option name="localTasksCounter" value="86" />
+    <task id="LOCAL‎-00173" summary="annoying bug fix">
+      <option name="closed" value="true" />
+      <created>1695253585384</created>
+      <option name="number" value="00173" />
+      <option name="presentableId" value="LOCAL‎-00173" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1695253585384</updated>
+    </task>
+    <task id="LOCAL‎-00174" summary="works">
+      <option name="closed" value="true" />
+      <created>1695253594720</created>
+      <option name="number" value="00174" />
+      <option name="presentableId" value="LOCAL‎-00174" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1695253594720</updated>
+    </task>
+    <task id="LOCAL‎-00175" summary="annoying bug fix">
+      <option name="closed" value="true" />
+      <created>1695257248014</created>
+      <option name="number" value="00175" />
+      <option name="presentableId" value="LOCAL‎-00175" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1695257248014</updated>
+    </task>
+    <task id="LOCAL‎-00176" summary="bug fix">
+      <option name="closed" value="true" />
+      <created>1695257264255</created>
+      <option name="number" value="00176" />
+      <option name="presentableId" value="LOCAL‎-00176" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1695257264255</updated>
+    </task>
+    <task id="LOCAL‎-00177" summary="added css">
+      <option name="closed" value="true" />
+      <created>1695258186801</created>
+      <option name="number" value="00177" />
+      <option name="presentableId" value="LOCAL‎-00177" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1695258186801</updated>
+    </task>
+    <task id="LOCAL‎-00178" summary="Predictions version 2:0">
+      <option name="closed" value="true" />
+      <created>1695265192319</created>
+      <option name="number" value="00178" />
+      <option name="presentableId" value="LOCAL‎-00178" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1695265192319</updated>
+    </task>
+    <task id="LOCAL‎-00179" summary="Predictions version 2:0">
+      <option name="closed" value="true" />
+      <created>1695265219868</created>
+      <option name="number" value="00179" />
+      <option name="presentableId" value="LOCAL‎-00179" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1695265219868</updated>
+    </task>
+    <option name="localTasksCounter" value="180" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -584,7 +764,19 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="HEAD" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>
@@ -592,32 +784,32 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="added xml logic" />
-    <MESSAGE value="latest" />
-    <MESSAGE value="simulation run complete" />
-    <MESSAGE value="WorldDTO complete" />
-    <MESSAGE value="method 2 is some what completed" />
-    <MESSAGE value="XML checks" />
-    <MESSAGE value="refactor the DTOConvertible interface." />
-    <MESSAGE value="dto almost complete" />
-    <MESSAGE value="xml validator" />
-    <MESSAGE value="more implementations" />
-    <MESSAGE value="pretty good" />
-    <MESSAGE value="read everything to world except rule" />
-    <MESSAGE value="condition problem fixed" />
-    <MESSAGE value="Changes by ASUS" />
-    <MESSAGE value="ConditionImpl" />
-    <MESSAGE value="exception catch while loading file" />
-    <MESSAGE value="nice print to screen" />
-    <MESSAGE value="file path readable using trim" />
-    <MESSAGE value="close to finish" />
-    <MESSAGE value="close to the end" />
-    <MESSAGE value="finish until next bug would be detected" />
-    <MESSAGE value="finish" />
-    <MESSAGE value="version 1:0." />
-    <MESSAGE value="version 1.0" />
-    <MESSAGE value="version 1:1." />
-    <option name="LAST_COMMIT_MESSAGE" value="version 1:1." />
+    <MESSAGE value="addd EntitiesAmountDTO" />
+    <MESSAGE value="entity Population is working for one simulation" />
+    <MESSAGE value="ui reflects the engine" />
+    <MESSAGE value="proximity and grid bug fixes" />
+    <MESSAGE value="bug fixes" />
+    <MESSAGE value="entities and property choiceBox implement" />
+    <MESSAGE value="fixed logic" />
+    <MESSAGE value="fixed logic in xml" />
+    <MESSAGE value="made pagination as sub component" />
+    <MESSAGE value="population bar chart is implemented" />
+    <MESSAGE value="added Consistency object" />
+    <MESSAGE value="consistency in gui" />
+    <MESSAGE value="clear button bug fix" />
+    <MESSAGE value="population per tick implement" />
+    <MESSAGE value="population per tick graph implemented" />
+    <MESSAGE value="changed the population chart" />
+    <MESSAGE value="buttons behaviours fix" />
+    <MESSAGE value="kaka" />
+    <MESSAGE value="added animations" />
+    <MESSAGE value="hell bug fix" />
+    <MESSAGE value="works" />
+    <MESSAGE value="annoying bug fix" />
+    <MESSAGE value="bug fix" />
+    <MESSAGE value="added css" />
+    <MESSAGE value="Predictions version 2:0" />
+    <option name="LAST_COMMIT_MESSAGE" value="Predictions version 2:0" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
@@ -628,23 +820,34 @@
           <option name="timeStamp" value="8" />
         </breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/ConsoleUI/src/menu/impl/MenuImpl.java</url>
-          <line>52</line>
-          <option name="timeStamp" value="79" />
+          <url>file://$PROJECT_DIR$/GUI/src/javafx/input/components/mainComponent/SecondScreenController.java</url>
+          <line>156</line>
+          <option name="timeStamp" value="17" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/GUI/src/javafx/tab/newExecution/mainComponent/NewExecutionController.java</url>
+          <line>400</line>
+          <option name="timeStamp" value="157" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
     <pin-to-top-manager>
       <pinned-members>
         <PinnedItemInfo parentTag="resources.generated.PRDAction" memberName="prdDivide" />
+        <PinnedItemInfo parentTag="instance.entity.impl.EntityInstanceImpl" memberName="name" />
         <PinnedItemInfo parentTag="execution.simulation.impl.SimulationImpl" memberName="entities" />
         <PinnedItemInfo parentTag="definition.entity.impl.EntityDefinitionImpl" memberName="population" />
-        <PinnedItemInfo parentTag="java.lang.Integer" memberName="value" />
-        <PinnedItemInfo parentTag="resources.generated.PRDRules" memberName="prdRule" />
         <PinnedItemInfo parentTag="resources.generated.PRDAction" memberName="entity" />
-        <PinnedItemInfo parentTag="definition.entity.impl.EntityDefinitionImpl" memberName="name" />
         <PinnedItemInfo parentTag="definition.world.impl.WorldImpl" memberName="terminate" />
+        <PinnedItemInfo parentTag="instance.entity.impl.EntityInstanceImpl" memberName="propNameToPropInstance" />
+        <PinnedItemInfo parentTag="java.lang.Integer" memberName="value" />
+        <PinnedItemInfo parentTag="rule.impl.RuleImpl" memberName="activation" />
+        <PinnedItemInfo parentTag="grid.SphereSpaceImpl" memberName="emptyCells" />
+        <PinnedItemInfo parentTag="resources.generated.PRDRules" memberName="prdRule" />
+        <PinnedItemInfo parentTag="impl.SimulationDataDTO" memberName="propertyOfEntitySortedByValues" />
+        <PinnedItemInfo parentTag="definition.entity.impl.EntityDefinitionImpl" memberName="name" />
         <PinnedItemInfo parentTag="execution.simulation.impl.SimulationImpl" memberName="environmentVariables" />
+        <PinnedItemInfo parentTag="grid.SphereSpaceImpl" memberName="grid" />
       </pinned-members>
     </pin-to-top-manager>
   </component>

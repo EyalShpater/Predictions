@@ -14,6 +14,7 @@ public class TerminationImpl implements Termination , Serializable {
     private final int secondsToTerminate;
     private boolean isTerminateByTicks = false;
     private boolean isTerminateBySeconds = false;
+    private boolean isTerminateByUser = false;
 
     public TerminationImpl(int ticksToTerminate, int secondsToTerminate) {
         this.ticksToTerminate = ticksToTerminate;
@@ -33,19 +34,26 @@ public class TerminationImpl implements Termination , Serializable {
                 Integer.MAX_VALUE;
     }
 
+    public TerminationImpl() {
+        ticksToTerminate = Integer.MAX_VALUE;
+        secondsToTerminate = Integer.MAX_VALUE;
+        isTerminateByUser = true;
+    }
+
     public TerminationImpl(TerminationDTO dto) {
         this(dto.getTicksToTerminate(), dto.getSecondsToTerminate());
     }
 
     @Override
-    public  TerminateCondition isTerminate(int currentTick, long startTimeInMillis) {
-        long secondsSinceStart = TimeUnit.MILLISECONDS.toSeconds(System.currentTimeMillis() - startTimeInMillis);
+    public TerminateCondition isTerminate(int currentTick, long secondsDuration, boolean userRequestedStop) {
         TerminateCondition terminateReason;
 
         if (currentTick >= ticksToTerminate) {
             terminateReason = TerminateCondition.BY_TICKS;
-        } else if (secondsSinceStart >= secondsToTerminate) {
+        } else if (secondsDuration >= secondsToTerminate) {
             terminateReason = TerminateCondition.BY_SECONDS;
+        } else if (userRequestedStop) {
+            terminateReason = TerminateCondition.BY_USER;
         } else {
             terminateReason = null;
         }
@@ -61,6 +69,16 @@ public class TerminationImpl implements Termination , Serializable {
     @Override
     public boolean isTerminateByTicks() {
         return isTerminateByTicks;
+    }
+
+    @Override
+    public int getTicksToTerminate() {
+        return ticksToTerminate;
+    }
+
+    @Override
+    public int getSecondsToTerminate() {
+        return secondsToTerminate;
     }
 
     @Override

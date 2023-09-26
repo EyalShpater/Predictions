@@ -1,5 +1,6 @@
 package execution.simulation.impl;
 
+import action.api.Action;
 import action.context.impl.ContextImpl;
 import definition.entity.api.EntityDefinition;
 import execution.simulation.api.Simulation;
@@ -7,16 +8,20 @@ import definition.world.api.World;
 import execution.simulation.data.api.SimulationData;
 import execution.simulation.data.impl.SimulationDataImpl;
 import execution.simulation.termination.api.TerminateCondition;
-import impl.SimulationDTO;
-import impl.SimulationDataDTO;
+import grid.SphereSpaceImpl;
+import grid.api.SphereSpace;
+import impl.*;
 import instance.entity.api.EntityInstance;
 import instance.entity.manager.api.EntityInstanceManager;
 import instance.entity.manager.impl.EntityInstanceManagerImpl;
 import instance.enviornment.api.ActiveEnvironment;
-import rule.api.Rule;
+import instance.enviornment.impl.ActiveEnvironmentImpl;
+import javafx.util.Pair;
 
 import java.io.Serializable;
-import java.util.Random;
+import java.util.*;
+import java.util.concurrent.TimeUnit;
+import java.util.stream.Collectors;
 
 public class SimulationImpl implements Simulation , Serializable {
     private final int serialNumber;
@@ -26,16 +31,31 @@ public class SimulationImpl implements Simulation , Serializable {
     private EntityInstanceManager entities;
     private ActiveEnvironment environmentVariables;
     private SimulationData data;
-    private long startTime;
+    private TerminateCondition endReason;
+    private SphereSpace space;
+    private SimulationInitDataFromUserDTO initData;
 
-    public SimulationImpl(World world, int serialNumber) {
+    private Map<Integer, Map<String, Long>> populationCounter;
+    private long startTime;
+    private long runningTimeInSeconds;
+    private long pauseDuration;
+    private int tick;
+    private boolean isStop;
+    private boolean isPause;
+
+    public SimulationImpl(World world, SimulationInitDataFromUserDTO initData, int serialNumber) {
         this.world = world;
+        this.initData = initData;
         this.serialNumber = serialNumber;
         this.random = new Random();
         this.entities = null;
         this.environmentVariables = null;
         this.data = null;
-        this.startTime = 0;
+        this.startTime = System.currentTimeMillis();
+        this.runningTimeInSeconds = 0;
+        this.pauseDuration = 0;
+        this.space = new SphereSpaceImpl(world.getGridRows(), world.getGridCols());
+        this.tick = 0;
     }
 
     @Override
@@ -44,35 +64,41 @@ public class SimulationImpl implements Simulation , Serializable {
     }
 
     @Override
-    public TerminateCondition run() {
-        int tick = 1;
-        TerminateCondition reasonToStop;
-
+    public void run() {
         startTime = System.currentTimeMillis();
+
         initEntities();
         initEnvironmentVariables();
+        entities.updatePopulationCount(tick, createEntityNameToPopulationMap());
+        tick = 1;
 
-        while ((reasonToStop = world.isActive(tick, startTime)) == null) {
+        while ((endReason = world.isActive(tick, runningTimeInSeconds, isStop)) == null) {
+            runningTimeInSeconds = TimeUnit.MILLISECONDS.toSeconds(System.currentTimeMillis() - startTime - pauseDuration);
+
+            entities.moveAllEntitiesInSpace(space);
             executeRules(tick);
+            entities.updatePopulationCount(tick, createEntityNameToPopulationMap());
             tick++;
+
+            if (isPause) {
+                pauseDuration += pauseDuringRunning();
+                runningTimeInSeconds = TimeUnit.MILLISECONDS.toSeconds(System.currentTimeMillis() - startTime - pauseDuration);
+            }
+
+            sleep();
         }
 
-        data = new SimulationDataImpl(serialNumber, startTime, world.getEntities(), entities);
-        resetEnvironmentVariables();
+        data = new SimulationDataImpl(serialNumber, startTime, world.getEntities(), entities, initData);
+    }
 
-        return reasonToStop;
+    @Override
+    public TerminateCondition getEndReason() {
+        return endReason;
     }
 
     @Override
     public long getRunStartTime() {
         return startTime;
-    }
-
-    @Override
-    public ActiveEnvironment setEnvironmentVariables() {
-        this.environmentVariables = world.createActiveEnvironment();
-
-        return this.environmentVariables;
     }
 
     @Override
@@ -84,23 +110,125 @@ public class SimulationImpl implements Simulation , Serializable {
                 propertyName != null ?
                         data.getPropertyOfEntityPopulationSortedByValues(entityName, propertyName) :
                         null
-                );
+        );
+    }
+
+    @Override
+    public EntitiesAmountDTO createEntitiesAmountDTO() {
+        return new EntitiesAmountDTO(createEntityNameToPopulationMap());
+    }
+
+    @Override
+    public boolean isStarted() {
+        return tick >= 1;
+    }
+
+    public SimulationRunDetailsDTO createRunDetailDTO() {
+        return new SimulationRunDetailsDTO(
+//                endReason.equals(TerminateCondition.BY_SECONDS),
+//                endReason.equals(TerminateCondition.BY_TICKS),
+                false,
+                false,
+                serialNumber,
+                tick,
+                runningTimeInSeconds,
+                getStartProgress(),
+                getEndProgress()
+        );
+    }
+
+    public Map<String, Double> getConsistencyByEntityName(String entityName) {
+        Map<String, Double> consistency = new HashMap<>();
+        Map<String, List<Double>> calculateAverage = new HashMap<>();
+
+        entities
+                .getInstances()
+                .stream()
+                .filter(entityInstance -> entityInstance.getName().equals(entityName))
+                .forEach(entityInstance -> {
+                    entityInstance
+                            .getAllProperties()
+                            .forEach(propertyInstance -> {
+                                if (!calculateAverage.containsKey(propertyInstance.getName())) {
+                                    calculateAverage.put(propertyInstance.getName(), new ArrayList<>());
+                                }
+
+                                calculateAverage
+                                        .get(propertyInstance.getName()).
+                                        add(propertyInstance.getAverageConsistency(tick, entityInstance.getDeathTick()));
+                            });
+                });
+
+        calculateAverage.forEach((propertyName, values) -> {
+            consistency.put(
+                    propertyName,
+                    values
+                            .stream()
+                            .mapToDouble(Double::doubleValue)
+                            .average()
+                            .orElse(0));
+        });
+
+        return consistency;
+    }
+
+    private double getEndProgress() {
+        double progress = 0;
+        TerminateCondition terminateCondition = world.getTerminationCondition();
+
+        if (!terminateCondition.equals(TerminateCondition.BY_USER)) {
+            progress = terminateCondition.equals(TerminateCondition.BY_SECONDS) ?
+                    world.getTermination().getSecondsToTerminate() :
+                    world.getTermination().getTicksToTerminate();
+        }
+
+        return progress;
+    }
+
+    private double getStartProgress() {
+        double progress = 0;
+        TerminateCondition terminateCondition = world.getTerminationCondition();
+
+        if (!terminateCondition.equals(TerminateCondition.BY_USER)) {
+            progress = terminateCondition.equals(TerminateCondition.BY_SECONDS) ?
+                    runningTimeInSeconds :
+                    tick;
+        }
+
+        return progress;
+    }
+
+    @Override
+    public Map<Integer, Map<String, Long>> getPopulationPerTickData() {
+        return entities.getPopulationCountSortedByTick();
+    }
+
+    @Override
+    public Map<String, Map<Integer, Long>> getPopulationCountSortedByName() {
+        return entities.getPopulationCountSortedByByName();
+    }
+
+    @Override
+    public SimulationInitDataFromUserDTO getUserInputDTO() {
+        return initData;
     }
 
     private void initEntities() {
+        int population;
         EntityInstanceManager instances = new EntityInstanceManagerImpl();
 
         for (EntityDefinition entityDefinition : world.getEntities()) {
-            for (int i = 1; i <= entityDefinition.getPopulation(); i++) {
-                instances.create(entityDefinition);
-            }
+            population = initData
+                    .getEntityNameToPopulation()
+                    .get(entityDefinition.getName());
+            instances.createMultipleInstancesFromDefinition(entityDefinition, population, space);
         }
 
         entities = instances;
     }
 
-    private void initEnvironmentVariables() {
-        this.environmentVariables = world.createActiveEnvironment();
+    private synchronized void initEnvironmentVariables() {
+        environmentVariables = new ActiveEnvironmentImpl(initData.getEnvironmentVariables());
     }
 
     private void resetEnvironmentVariables() {
@@ -109,15 +237,11 @@ public class SimulationImpl implements Simulation , Serializable {
     }
 
     private void executeRules(int tick) {
-        for (EntityInstance entity : entities.getInstances()) {
-            for (Rule rule : world.getRules()) {
-                double probability = random.nextDouble();
+        List<Action> activeActions = createActionToInvokeList(tick);
 
-                if (rule.isActive(tick, probability)) {
-                    rule.invoke(new ContextImpl(entity, entities, environmentVariables));
-                }
-            }
-        }
+        entities.getInstances().stream()
+                .filter(EntityInstance::isAlive)
+                .forEach(entity -> invokeActionsOnEntity(entity, activeActions));
     }
 
     @Override
@@ -128,5 +252,105 @@ public class SimulationImpl implements Simulation , Serializable {
     @Override
     public SimulationDTO convertToDTO() {
         return new SimulationDTO(startTime, serialNumber, world.convertToDTO());
+    }
+
+    @Override
+    public void pause() {
+        isPause = true;
+    }
+
+    @Override
+    public void stop() {
+        isStop = true;
+        resume();
+    }
+
+    @Override
+    public void resume() {
+        isPause = false;
+
+        synchronized (this) {
+            this.notifyAll();
+        }
+    }
+
+    @Override
+    public boolean isPaused() {
+        return isPause;
+    }
+
+    @Override
+    public boolean isStop() {
+        return isStop;
+    }
+
+    private long pauseDuringRunning() {
+        long startTime = System.currentTimeMillis();
+
+        synchronized (this) {
+            while (isPause) {
+                try {
+                    this.wait();
+                } catch (InterruptedException e) {
+                    stop();
+                }
+            }
+        }
+
+        return System.currentTimeMillis() - startTime;
+    }
+
+    @Override
+    public boolean isEnded() {
+        return endReason != null;
+    }
+
+    private List<Action> createActionToInvokeList(int tick) {
+        return world.getRules().stream()
+                .filter(rule -> rule.isActive(tick, random.nextDouble()))
+                .flatMap(rule -> rule.getActions().stream())
+                .collect(Collectors.toList());
+    }
+
+    private void invokeActionsOnEntity(EntityInstance entity, List<Action> activeActions) {
+        activeActions.stream()
+                .filter(action -> action
+                        .applyOn()
+                        .getName()
+                        .equals(entity.getName())
+                )
+                .forEach(action -> action.invoke(new ContextImpl(entity, entities, environmentVariables, tick)));
+    }
+
+    private Map<String, Long> createEntityNameToPopulationMap() {
+        List<EntityInstance> entityInstances = entities.getInstances();
+        Map<String, Long> entityNameToPopulation = new HashMap<>();
+
+        for (EntityInstance entityInstance : entityInstances) {
+            String entityName = entityInstance.getName();
+            long currentCount = entityNameToPopulation.getOrDefault(entityName, 0L);
+
+            if (entityInstance.isAlive()) {
+                entityNameToPopulation.put(entityName, currentCount + 1);
+            } else {
+                entityNameToPopulation.put(entityName, currentCount);
+            }
+        }
+
+        return entityNameToPopulation;
+    }
+
+
+    private void sleep() {
+        try {
+            Thread.sleep(50);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    @Override
+    public Double getFinalNumericPropertyAvg(String entityName, String propertyName) {
+        return entities.getFinalNumericPropertyAvg(entityName, propertyName);
     }
 }
