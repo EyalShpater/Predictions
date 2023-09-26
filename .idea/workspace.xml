@@ -9,22 +9,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="27d35137-667f-4e37-a519-ab836acc0a06" name="Changes" comment="Predictions version 2:0">
-      <change afterPath="$PROJECT_DIR$/.idea/artifacts/GUI_jar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GUI/src/META-INF/MANIFEST.MF" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GUI/src/javafx/mainScene/header/resources/animation.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GUI/src/javafx/mainScene/header/resources/motion-graphic.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/artifacts/consoleUI.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/artifacts/dto.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/artifacts/logic.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/GUI.iml" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/GUI.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/src/javafx/mainScene/header/HeaderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/src/javafx/mainScene/header/HeaderController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/src/javafx/mainScene/main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/src/javafx/mainScene/main/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/src/javafx/tab/results/analyze/histogram/consistency/ConsistencyBarChartController.java" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/src/javafx/tab/results/analyze/histogram/consistency/ConsistencyBarChartController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/src/javafx/tab/results/analyze/histogram/population/PopulationChartController.java" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/src/javafx/tab/results/analyze/histogram/population/PopulationChartController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/src/javafx/tab/results/analyze/histogram/property/PropertyChartController.java" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/src/javafx/tab/results/analyze/histogram/property/PropertyChartController.java" afterDir="false" />
-    </list>
+    <list default="true" id="27d35137-667f-4e37-a519-ab836acc0a06" name="Changes" comment="Predictions version 2:0" />
     <list id="ff084db0-cb92-43bb-9658-8af184568cf4" name="Changes by ASUS" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -116,7 +101,7 @@
     "dart.analysis.tool.window.visible": "false",
     "extract.method.default.visibility": "private",
     "full.screen.before.presentation.mode": "false",
-    "git-widget-placeholder": "GUI",
+    "git-widget-placeholder": "main",
     "jdk.selected.JAVA_MODULE": "1.8",
     "last_opened_file_path": "/Users/eyal/Java-Course/Predictions/GUI/src/javafx/mainScene/main",
     "list.type.of.created.stylesheet": "CSS",
@@ -250,19 +235,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="grid.TestMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="grid.TestMain" />
-      <module name="Logic" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="grid.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="main.Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="main.Main" />
       <module name="ConsoleUI" />
@@ -292,10 +264,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.Main" />
-        <item itemvalue="Application.LineChartSample" />
-        <item itemvalue="Application.main.Main" />
+        <item itemvalue="Application.TestMain" />
         <item itemvalue="Application.SimulationImpl" />
-        <item itemvalue="Application.grid.TestMain" />
+        <item itemvalue="Application.main.Main" />
+        <item itemvalue="Application.LineChartSample" />
       </list>
     </recent_temporary>
   </component>
