@@ -1,5 +1,7 @@
 package init;
 
+import constans.Constants;
+import execution.simulation.api.PredictionsLogic;
 import execution.simulation.impl.PredictionsLogicImpl;
 import jakarta.servlet.ServletContextEvent;
 import jakarta.servlet.ServletContextListener;
@@ -7,12 +9,13 @@ import jakarta.servlet.annotation.WebListener;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 
-@WebServlet
+import javax.xml.bind.JAXBException;
+
 @WebListener
-public class InitContextListener extends HttpServlet implements ServletContextListener {
+public class InitContextListener implements ServletContextListener {
     @Override
-    public void contextInitialized(ServletContextEvent sce) {
-        // getServletContext().setAttribute("engine", new PredictionsLogicImpl());
+    public void contextInitialized(ServletContextEvent servletContextEvent) {
+        servletContextEvent.getServletContext().setAttribute(Constants.PREDICTIONS_OBJECT_NAME, new PredictionsLogicImpl());
     }
 
     @Override
