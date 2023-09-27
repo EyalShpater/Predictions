@@ -9,7 +9,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="27d35137-667f-4e37-a519-ab836acc0a06" name="Changes" comment="Predictions version 2:0" />
+    <list default="true" id="27d35137-667f-4e37-a519-ab836acc0a06" name="Changes" comment="init client-server branch and delete console ui module">
+      <change afterPath="$PROJECT_DIR$/PredictionsWebApplication/src/test/Test.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PredictionsWebApplication/web/WEB-INF/web.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI/GUI.iml" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/GUI.iml" afterDir="false" />
+    </list>
     <list id="ff084db0-cb92-43bb-9658-8af184568cf4" name="Changes by ASUS" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,8 +35,8 @@
         <option value="Interface" />
         <option value="Enum" />
         <option value="FxmlFile" />
-        <option value="Class" />
         <option value="CSS File" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -101,7 +108,7 @@
     "dart.analysis.tool.window.visible": "false",
     "extract.method.default.visibility": "private",
     "full.screen.before.presentation.mode": "false",
-    "git-widget-placeholder": "main",
+    "git-widget-placeholder": "Client-Server",
     "jdk.selected.JAVA_MODULE": "1.8",
     "last_opened_file_path": "/Users/eyal/Java-Course/Predictions/GUI/src/javafx/mainScene/main",
     "list.type.of.created.stylesheet": "CSS",
@@ -110,7 +117,7 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Artifacts",
+    "project.structure.last.edited": "Global Libraries",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
     "settings.editor.selected.configurable": "inlay.hints",
@@ -143,20 +150,7 @@
       <recent name="javafx.details.details" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Main">
-    <configuration name="LineChartSample" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="javafx.tab.results.analyze.histogram.population.LineChartSample" />
-      <module name="GUI" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="javafx.tab.results.analyze.histogram.property.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="Tomcat Server.Tomcat 10.0.11">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="javafx.mainScene.main.Main" />
       <module name="GUI" />
@@ -261,13 +255,108 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="Tomcat 10.0.11" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 10.0.11" ALTERNATIVE_JRE_ENABLED="false" nameIsGenerated="true">
+      <option name="BROWSER_ID" value="98ca6316-2f89-46d9-a9e5-fa9e2b0625b3" />
+      <option name="UPDATING_POLICY" value="restart-server" />
+      <deployment>
+        <artifact name="PredictionsWebApplication:Web exploded">
+          <settings>
+            <option name="CONTEXT_PATH" value="/PredictionsWebApplication_Web_exploded" />
+          </settings>
+        </artifact>
+      </deployment>
+      <server-settings>
+        <option name="BASE_DIRECTORY_NAME" value="0f08dc44-5a24-45a6-9577-31bae8850023" />
+      </server-settings>
+      <predefined_log_file enabled="true" id="Tomcat" />
+      <predefined_log_file enabled="true" id="Tomcat Catalina" />
+      <predefined_log_file id="Tomcat Manager" />
+      <predefined_log_file id="Tomcat Host Manager" />
+      <predefined_log_file id="Tomcat Localhost Access" />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="55033" />
+      </RunnerSettings>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Cover">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Debug">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Profile">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Run">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <method v="2">
+        <option name="Make" enabled="true" />
+        <option name="BuildArtifacts" enabled="true">
+          <artifact name="PredictionsWebApplication:Web exploded" />
+        </option>
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Application.grid.TestMain" />
+      <item itemvalue="Application.Main" />
+      <item itemvalue="Application.main.Main" />
+      <item itemvalue="Application.SimulationImpl" />
+      <item itemvalue="Application.TestMain" />
+      <item itemvalue="Tomcat Server.Tomcat 10.0.11" />
+    </list>
     <recent_temporary>
       <list>
         <item itemvalue="Application.Main" />
         <item itemvalue="Application.TestMain" />
         <item itemvalue="Application.SimulationImpl" />
         <item itemvalue="Application.main.Main" />
-        <item itemvalue="Application.LineChartSample" />
       </list>
     </recent_temporary>
   </component>
@@ -349,6 +438,8 @@
       <workItem from="1694524231690" duration="15371000" />
       <workItem from="1694857830392" duration="51381000" />
       <workItem from="1695210575067" duration="16423000" />
+      <workItem from="1695800899807" duration="34000" />
+      <workItem from="1695809078507" duration="1588000" />
     </task>
     <task id="LOCAL-00103" summary="changed evaluate to get the EntityInstance of secondaryEntity in each iteration in order to creare the proper context , also added functions to context to get the filtered SecondaryEntity list">
       <created>1694175010163</created>
@@ -440,14 +531,6 @@
       <option name="presentableId" value="LOCAL-00129" />
       <option name="project" value="LOCAL" />
       <updated>1694776291781</updated>
-    </task>
-    <task id="LOCAL‎-00144" summary="added progress information from engine">
-      <option name="closed" value="true" />
-      <created>1694967789277</created>
-      <option name="number" value="00144" />
-      <option name="presentableId" value="LOCAL‎-00144" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1694967789277</updated>
     </task>
     <task id="LOCAL‎-00145" summary="added rerun option">
       <option name="closed" value="true" />
@@ -725,7 +808,15 @@
       <option name="project" value="LOCAL‎" />
       <updated>1695265219868</updated>
     </task>
-    <option name="localTasksCounter" value="180" />
+    <task id="LOCAL‎-00180" summary="init client-server branch and delete console ui module">
+      <option name="closed" value="true" />
+      <created>1695735601540</created>
+      <option name="number" value="00180" />
+      <option name="presentableId" value="LOCAL‎-00180" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1695735601541</updated>
+    </task>
+    <option name="localTasksCounter" value="181" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -756,7 +847,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="addd EntitiesAmountDTO" />
     <MESSAGE value="entity Population is working for one simulation" />
     <MESSAGE value="ui reflects the engine" />
     <MESSAGE value="proximity and grid bug fixes" />
@@ -781,7 +871,8 @@
     <MESSAGE value="bug fix" />
     <MESSAGE value="added css" />
     <MESSAGE value="Predictions version 2:0" />
-    <option name="LAST_COMMIT_MESSAGE" value="Predictions version 2:0" />
+    <MESSAGE value="init client-server branch and delete console ui module" />
+    <option name="LAST_COMMIT_MESSAGE" value="init client-server branch and delete console ui module" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
