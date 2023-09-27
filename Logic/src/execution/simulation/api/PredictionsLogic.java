@@ -9,19 +9,19 @@ import java.util.*;
 public interface PredictionsLogic {
     void loadXML(String path) throws JAXBException;
 
-    List<PropertyDefinitionDTO> getEnvironmentVariablesToSet();
+    List<PropertyDefinitionDTO> getEnvironmentVariablesToSet(String worldName);
 
     List<PropertyDefinitionDTO> setEnvironmentVariables(List<PropertyDefinitionDTO> variables);
 
-    Map<String, Integer> getEntitiesToPopulation();
+    Map<String, Integer> getEntitiesToPopulation(String worldName);
 
-    WorldDTO getLoadedSimulationDetails();
+    WorldDTO getLoadedSimulationDetails(String worldName);
 
     Map<Integer, Map<String, Long>> getPopulationPerTickData(int serialNumber);
 
     Map<String, Map<Integer, Long>> getPopulationCountSortedByName(int serialNumber);
 
-    int runNewSimulation(SimulationInitDataFromUserDTO initData);
+    int runNewSimulation(SimulationInitDataFromUserDTO initData, String worldName);
 
     void pauseSimulationBySerialNumber(int serialNumber);
 

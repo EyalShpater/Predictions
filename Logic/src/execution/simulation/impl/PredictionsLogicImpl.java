@@ -4,6 +4,7 @@ import execution.simulation.api.PredictionsLogic;
 import execution.simulation.manager.SimulationManager;
 import definition.world.api.World;
 import definition.world.impl.WorldImpl;
+import execution.simulation.manager.WorldManager;
 import execution.simulation.xml.reader.impl.XmlReader;
 import execution.simulation.xml.validation.XmlValidator;
 import impl.*;
@@ -20,8 +21,9 @@ import java.util.Map;
 public class PredictionsLogicImpl implements PredictionsLogic , Serializable {
     private static final int DEFAULT_START_POPULATION = 0;
 
-    private SimulationManager allSimulations;
-    private World world;
+    private SimulationManager allSimulations = new SimulationManager();
+    ;
+    private WorldManager worlds = new WorldManager();
 
     @Override
     public void loadXML(String path) throws JAXBException {
@@ -33,13 +35,14 @@ public class PredictionsLogicImpl implements PredictionsLogic , Serializable {
         reader = new XmlReader(validator.getWorld());
         reader.readXml(newWorld);
 
-        world = newWorld;
-        allSimulations = new SimulationManager(world);
+        worlds.addWorld(newWorld);
     }
 
     @Override
-    public List<PropertyDefinitionDTO> getEnvironmentVariablesToSet() {
-        return world.getEnvironmentVariablesDTO();
+    public List<PropertyDefinitionDTO> getEnvironmentVariablesToSet(String worldName) {
+        return worlds
+                .getWorld(worldName)
+                .getEnvironmentVariablesDTO();
     }
 
     @Override
@@ -50,10 +53,11 @@ public class PredictionsLogicImpl implements PredictionsLogic , Serializable {
     }
 
     @Override
-    public Map<String, Integer> getEntitiesToPopulation() {
+    public Map<String, Integer> getEntitiesToPopulation(String worldName) {
         Map<String, Integer> entitiesNameToPopulation = new HashMap<>();
 
-        world
+        worlds
+                .getWorld(worldName)
                 .getEntities()
                 .forEach(entity -> entitiesNameToPopulation.put(entity.getName(), DEFAULT_START_POPULATION));
 
@@ -61,8 +65,10 @@ public class PredictionsLogicImpl implements PredictionsLogic , Serializable {
     }
 
     @Override
-    public WorldDTO getLoadedSimulationDetails() {
-        return world.convertToDTO();
+    public WorldDTO getLoadedSimulationDetails(String worldName) {
+        return worlds
+                .getWorld(worldName)
+                .convertToDTO();
     }
 
     @Override
@@ -86,8 +92,8 @@ public class PredictionsLogicImpl implements PredictionsLogic , Serializable {
     }
 
     @Override
-    public int runNewSimulation(SimulationInitDataFromUserDTO initData) {
-        return allSimulations.runNewSimulation(world, initData);
+    public int runNewSimulation(SimulationInitDataFromUserDTO initData, String worldName) {
+        return allSimulations.runNewSimulation(worlds.getWorld(worldName), initData);
     }
 
     @Override

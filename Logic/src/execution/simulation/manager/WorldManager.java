@@ -11,4 +11,8 @@ public class WorldManager {
     public boolean addWorld(World newWorld) {
         return worlds.putIfAbsent(newWorld.getName(), newWorld) != null;
     }
+
+    public World getWorld(String name) {
+        return worlds.get(name);
+    }
 }

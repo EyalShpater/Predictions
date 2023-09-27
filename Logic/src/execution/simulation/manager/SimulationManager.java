@@ -16,13 +16,13 @@ public class SimulationManager implements Serializable {
     private int serialNumber;
     private Map<Integer, Simulation> simulations;
     private ExecutorService threadPool;
-    private World world;
+    private WorldManager worlds;
 
-    public SimulationManager(World world) {
+    public SimulationManager() {
         this.serialNumber = 1;
         this.simulations = new HashMap<>();
-        this.world = world;
-        this.threadPool = Executors.newFixedThreadPool(world.getThreadPoolSize());
+        this.worlds = new WorldManager();
+        this.threadPool = Executors.newFixedThreadPool(5); // todo: default value? world.getThreadPoolSize());
     }
 
     public int runNewSimulation(World world, SimulationInitDataFromUserDTO initData) {
@@ -34,17 +34,10 @@ public class SimulationManager implements Serializable {
         serialNumber++;
 
         threadPool.execute(simulation::run);
-        //stopReason = simulation.getEndReason();
 
         simulations.put(simulation.getSerialNumber(), simulation);
-//        dto = createRunDetailDTO(stopReason, simulation.getSerialNumber());
-//        return dto;
-        return simulation.getSerialNumber();
-    }
 
-    private void resetEnvironmentVariables() {
-        world.getEnvironmentVariables()
-                .forEach(propertyDefinition -> propertyDefinition.setRandom(true));
+        return simulation.getSerialNumber();
     }
 
     public List<SimulationDTO> getAllSimulationsDTO() {
@@ -52,11 +45,6 @@ public class SimulationManager implements Serializable {
                 .stream()
                 .map(DTOConvertible::convertToDTO)
                 .collect(Collectors.toList());
-    }
-
-
-    private void updateEnvironmentVariablesFromDTO(World world, List<PropertyDefinitionDTO> environmentVariables) {
-        world.setEnvironmentVariablesValues(environmentVariables);
     }
 
     public Simulation getSimulationBySerialNumber(int serialNumber){

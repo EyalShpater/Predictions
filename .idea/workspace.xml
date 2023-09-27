@@ -9,11 +9,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="27d35137-667f-4e37-a519-ab836acc0a06" name="Changes" comment="engine init while the server is starting">
-      <change afterPath="$PROJECT_DIR$/Logic/src/execution/simulation/manager/WorldManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/definition/world/api/World.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/definition/world/api/World.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/definition/world/impl/WorldImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/definition/world/impl/WorldImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PredictionsWebApplication/src/init/InitContextListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/PredictionsWebApplication/src/init/InitContextListener.java" afterDir="false" />
+    <list default="true" id="27d35137-667f-4e37-a519-ab836acc0a06" name="Changes" comment="added WorldManager class">
+      <change beforePath="$PROJECT_DIR$/Logic/src/execution/simulation/impl/PredictionsLogicImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/execution/simulation/impl/PredictionsLogicImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/execution/simulation/manager/SimulationManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/execution/simulation/manager/SimulationManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/execution/simulation/manager/WorldManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/execution/simulation/manager/WorldManager.java" afterDir="false" />
     </list>
     <list id="ff084db0-cb92-43bb-9658-8af184568cf4" name="Changes by ASUS" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -390,7 +389,7 @@
       <workItem from="1695210575067" duration="16423000" />
       <workItem from="1695800899807" duration="34000" />
       <workItem from="1695809078507" duration="6608000" />
-      <workItem from="1695827828126" duration="1585000" />
+      <workItem from="1695827828126" duration="2284000" />
     </task>
     <task id="LOCAL-00103" summary="changed evaluate to get the EntityInstance of secondaryEntity in each iteration in order to creare the proper context , also added functions to context to get the filtered SecondaryEntity list">
       <created>1694175010163</created>
@@ -496,14 +495,6 @@
       <option name="presentableId" value="LOCAL-00148" />
       <option name="project" value="LOCAL" />
       <updated>1695031355816</updated>
-    </task>
-    <task id="LOCAL‎-00151" summary="ui reflects the engine">
-      <option name="closed" value="true" />
-      <created>1695050697617</created>
-      <option name="number" value="00151" />
-      <option name="presentableId" value="LOCAL‎-00151" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1695050697617</updated>
     </task>
     <task id="LOCAL‎-00152" summary="ui reflects the engine">
       <option name="closed" value="true" />
@@ -767,7 +758,15 @@
       <option name="project" value="LOCAL‎" />
       <updated>1695830486459</updated>
     </task>
-    <option name="localTasksCounter" value="185" />
+    <task id="LOCAL‎-00185" summary="added WorldManager class">
+      <option name="closed" value="true" />
+      <created>1695831248357</created>
+      <option name="number" value="00185" />
+      <option name="presentableId" value="LOCAL‎-00185" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1695831248357</updated>
+    </task>
+    <option name="localTasksCounter" value="186" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -798,7 +797,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="bug fixes" />
     <MESSAGE value="entities and property choiceBox implement" />
     <MESSAGE value="fixed logic" />
     <MESSAGE value="fixed logic in xml" />
@@ -823,7 +821,8 @@
     <MESSAGE value="added test web servlet and configured tomcat to the project" />
     <MESSAGE value="added management fxml file" />
     <MESSAGE value="engine init while the server is starting" />
-    <option name="LAST_COMMIT_MESSAGE" value="engine init while the server is starting" />
+    <MESSAGE value="added WorldManager class" />
+    <option name="LAST_COMMIT_MESSAGE" value="added WorldManager class" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
