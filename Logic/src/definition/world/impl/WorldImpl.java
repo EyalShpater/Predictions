@@ -29,6 +29,7 @@ public class WorldImpl implements World  , Serializable {
     private static final int MAX_ROWS_SIZE = 100;
     private static final int MAX_COLS_SIZE = 100;
 
+    private String name;
     private Map<String, EntityDefinition> entitiesDefinition;
     private List<Rule> rules;
     private EnvironmentVariableManager environmentVariables;
@@ -96,6 +97,21 @@ public class WorldImpl implements World  , Serializable {
 
         this.terminate = terminate;
     }
+
+    @Override
+    public String getName() {
+        return name;
+    }
+
+    @Override
+    public void setName(String name) {
+        if (name.isEmpty()) {
+            throw new IllegalArgumentException("Name can not be empty!");
+        }
+
+        this.name = name;
+    }
+
 
     @Override
     public WorldDTO convertToDTO() {
