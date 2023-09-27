@@ -2,8 +2,11 @@ package execution.simulation.manager;
 
 import definition.world.api.World;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 public class WorldManager {
     private Map<String, World> worlds = new HashMap<>();
@@ -14,5 +17,9 @@ public class WorldManager {
 
     public World getWorld(String name) {
         return worlds.get(name);
+    }
+
+    public List<String> getAllWorldsNames() {
+        return new ArrayList<>(worlds.keySet());
     }
 }
