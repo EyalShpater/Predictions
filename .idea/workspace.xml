@@ -2,20 +2,18 @@
 <project version="4">
   <component name="ArtifactsWorkspaceSettings">
     <artifacts-to-build>
-      <artifact name="GUI:jar" />
+      <artifact name="PredictionsWebApplication:Web exploded" />
     </artifacts-to-build>
   </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="27d35137-667f-4e37-a519-ab836acc0a06" name="Changes" comment="init client-server branch and delete console ui module">
-      <change afterPath="$PROJECT_DIR$/PredictionsWebApplication/src/test/Test.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/PredictionsWebApplication/web/WEB-INF/web.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+    <list default="true" id="27d35137-667f-4e37-a519-ab836acc0a06" name="Changes" comment="added test web servlet and configured tomcat to the project">
+      <change afterPath="$PROJECT_DIR$/PredictionsWebApplication/src/init/InitContextListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/controlsfx_8_40_14.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/GUI.iml" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/GUI.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PredictionsWebApplication/src/test/Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/PredictionsWebApplication/src/test/Test.java" afterDir="false" />
     </list>
     <list id="ff084db0-cb92-43bb-9658-8af184568cf4" name="Changes by ASUS" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -83,6 +81,13 @@
     <setting file="jar:///Library/Java/JavaVirtualMachines/jdk-1.8.jdk/Contents/Home/javafx-src.zip!/javafx/scene/chart/ValueAxis.java" root0="SKIP_INSPECTION" />
     <setting file="jar:///Library/Java/JavaVirtualMachines/jdk-1.8.jdk/Contents/Home/javafx-src.zip!/javafx/scene/chart/XYChart.java" root0="SKIP_INSPECTION" />
   </component>
+  <component name="LogFilters">
+    <option name="FILTER_ERRORS" value="false" />
+    <option name="FILTER_WARNINGS" value="false" />
+    <option name="FILTER_INFO" value="true" />
+    <option name="FILTER_DEBUG" value="true" />
+    <option name="CUSTOM_FILTER" />
+  </component>
   <component name="ProblemsViewState">
     <option name="selectedTabId" value="CurrentFile" />
   </component>
@@ -103,7 +108,6 @@
     "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
     "dart.analysis.tool.window.visible": "false",
     "extract.method.default.visibility": "private",
@@ -117,7 +121,7 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Global Libraries",
+    "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
     "settings.editor.selected.configurable": "inlay.hints",
@@ -256,12 +260,13 @@
       </method>
     </configuration>
     <configuration name="Tomcat 10.0.11" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 10.0.11" ALTERNATIVE_JRE_ENABLED="false" nameIsGenerated="true">
+      <option name="OPEN_IN_BROWSER" value="false" />
       <option name="BROWSER_ID" value="98ca6316-2f89-46d9-a9e5-fa9e2b0625b3" />
       <option name="UPDATING_POLICY" value="restart-server" />
       <deployment>
         <artifact name="PredictionsWebApplication:Web exploded">
           <settings>
-            <option name="CONTEXT_PATH" value="/PredictionsWebApplication_Web_exploded" />
+            <option name="CONTEXT_PATH" value="/PredictionsWebApplication" />
           </settings>
         </artifact>
       </deployment>
@@ -439,7 +444,7 @@
       <workItem from="1694857830392" duration="51381000" />
       <workItem from="1695210575067" duration="16423000" />
       <workItem from="1695800899807" duration="34000" />
-      <workItem from="1695809078507" duration="1588000" />
+      <workItem from="1695809078507" duration="4507000" />
     </task>
     <task id="LOCAL-00103" summary="changed evaluate to get the EntityInstance of secondaryEntity in each iteration in order to creare the proper context , also added functions to context to get the filtered SecondaryEntity list">
       <created>1694175010163</created>
@@ -531,14 +536,6 @@
       <option name="presentableId" value="LOCAL-00129" />
       <option name="project" value="LOCAL" />
       <updated>1694776291781</updated>
-    </task>
-    <task id="LOCAL‎-00145" summary="added rerun option">
-      <option name="closed" value="true" />
-      <created>1694967802594</created>
-      <option name="number" value="00145" />
-      <option name="presentableId" value="LOCAL‎-00145" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1694967802594</updated>
     </task>
     <task id="LOCAL‎-00146" summary="some progress">
       <option name="closed" value="true" />
@@ -816,7 +813,15 @@
       <option name="project" value="LOCAL‎" />
       <updated>1695735601541</updated>
     </task>
-    <option name="localTasksCounter" value="181" />
+    <task id="LOCAL‎-00181" summary="added test web servlet and configured tomcat to the project">
+      <option name="closed" value="true" />
+      <created>1695810896527</created>
+      <option name="number" value="00181" />
+      <option name="presentableId" value="LOCAL‎-00181" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1695810896528</updated>
+    </task>
+    <option name="localTasksCounter" value="182" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -847,7 +852,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="entity Population is working for one simulation" />
     <MESSAGE value="ui reflects the engine" />
     <MESSAGE value="proximity and grid bug fixes" />
     <MESSAGE value="bug fixes" />
@@ -872,7 +876,8 @@
     <MESSAGE value="added css" />
     <MESSAGE value="Predictions version 2:0" />
     <MESSAGE value="init client-server branch and delete console ui module" />
-    <option name="LAST_COMMIT_MESSAGE" value="init client-server branch and delete console ui module" />
+    <MESSAGE value="added test web servlet and configured tomcat to the project" />
+    <option name="LAST_COMMIT_MESSAGE" value="added test web servlet and configured tomcat to the project" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
