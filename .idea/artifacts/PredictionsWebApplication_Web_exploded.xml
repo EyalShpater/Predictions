@@ -1,0 +1,15 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="PredictionsWebApplication:Web exploded">
+    <output-path>$PROJECT_DIR$/out/artifacts/PredictionsWebApplication_Web_exploded</output-path>
+    <root id="root">
+      <element id="javaee-facet-resources" facet="PredictionsWebApplication/web/Web" />
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="PredictionsWebApplication" />
+          <element id="module-output" name="Logic" />
+          <element id="module-output" name="DTO" />
+        </element>
+      </element>
+    </root>
+  </artifact>
+</component>
