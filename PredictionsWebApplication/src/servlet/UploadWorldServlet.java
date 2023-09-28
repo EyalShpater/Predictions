@@ -32,7 +32,5 @@ public class UploadWorldServlet extends HttpServlet {
                 throw new RuntimeException(e);
             }
         }
-
-        System.out.println("heidad");
     }
 }
