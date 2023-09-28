@@ -4,10 +4,13 @@ import impl.*;
 import javafx.util.Pair;
 
 import javax.xml.bind.JAXBException;
+import java.io.InputStream;
 import java.util.*;
 
 public interface PredictionsLogic {
     void loadXML(String path) throws JAXBException;
+
+    void loadXML(InputStream file) throws JAXBException;
 
     List<PropertyDefinitionDTO> getEnvironmentVariablesToSet(String worldName);
 

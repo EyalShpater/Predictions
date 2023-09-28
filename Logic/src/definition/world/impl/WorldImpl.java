@@ -39,6 +39,8 @@ public class WorldImpl implements World  , Serializable {
     private int threadPoolSize;
 
     public WorldImpl() {
+        Random random = new Random();
+        name = "temporary" + random.nextInt(Integer.MAX_VALUE);//todo: delete after implement the name
         entitiesDefinition = new HashMap<>();
         rules = new ArrayList<>();
         environmentVariables = new EnvironmentVariableManagerImpl();

@@ -13,6 +13,7 @@ import instance.enviornment.impl.ActiveEnvironmentImpl;
 import javafx.util.Pair;
 
 import javax.xml.bind.JAXBException;
+import java.io.InputStream;
 import java.io.Serializable;
 import java.util.HashMap;
 import java.util.List;
@@ -36,6 +37,11 @@ public class PredictionsLogicImpl implements PredictionsLogic , Serializable {
         reader.readXml(newWorld);
 
         worlds.addWorld(newWorld);
+    }
+
+    public void loadXML(InputStream file) throws JAXBException {
+        XmlValidator validator = new XmlValidator(file);
+        processXmlData(validator);
     }
 
     @Override
@@ -197,4 +203,14 @@ public class PredictionsLogicImpl implements PredictionsLogic , Serializable {
 
     }
 
+    private void processXmlData(XmlValidator validator) throws JAXBException {
+        World newWorld = new WorldImpl();
+        XmlReader reader;
+
+        validator.isValid();
+        reader = new XmlReader(validator.getWorld());
+        reader.readXml(newWorld);
+
+        worlds.addWorld(newWorld);
+    }
 }

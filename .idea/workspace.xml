@@ -10,7 +10,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="27d35137-667f-4e37-a519-ab836acc0a06" name="Changes" comment="logic now can get multiple worlds (GUI does not compile)">
-      <change beforePath="$PROJECT_DIR$/Logic/src/execution/simulation/manager/WorldManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/execution/simulation/manager/WorldManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PredictionsWebApplication/src/servlet/UploadWorldServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/definition/world/impl/WorldImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/definition/world/impl/WorldImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/execution/simulation/api/PredictionsLogic.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/execution/simulation/api/PredictionsLogic.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/execution/simulation/impl/PredictionsLogicImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/execution/simulation/impl/PredictionsLogicImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/execution/simulation/xml/validation/XmlValidator.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/execution/simulation/xml/validation/XmlValidator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PredictionsWebApplication/src/test/Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/PredictionsWebApplication/src/servlet/TestServlet.java" afterDir="false" />
     </list>
     <list id="ff084db0-cb92-43bb-9658-8af184568cf4" name="Changes by ASUS" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -99,35 +105,35 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;dart.analysis.tool.window.visible&quot;: &quot;false&quot;,
-    &quot;extract.method.default.visibility&quot;: &quot;private&quot;,
-    &quot;full.screen.before.presentation.mode&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;Client-Server&quot;,
-    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;1.8&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/eyal/Java-Course/Predictions/GUI/src/javafx/mainScene/main&quot;,
-    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;onboarding.tips.debug.path&quot;: &quot;/Users/eyal/Java-Course/Predictions/PredictionsWebApplication/src/init/InitContextListener.java&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;inlay.hints&quot;,
-    &quot;two.files.diff.last.used.file&quot;: &quot;C:/Users/ASUS/IdeaProjects/PredictionsNew/Logic/src/resources/xml/ex2/master-ex2.xml&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "dart.analysis.tool.window.visible": "false",
+    "extract.method.default.visibility": "private",
+    "full.screen.before.presentation.mode": "false",
+    "git-widget-placeholder": "Client-Server",
+    "jdk.selected.JAVA_MODULE": "1.8",
+    "last_opened_file_path": "/Users/eyal/Java-Course/Predictions/GUI/src/javafx/mainScene/main",
+    "list.type.of.created.stylesheet": "CSS",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "onboarding.tips.debug.path": "/Users/eyal/Java-Course/Predictions/PredictionsWebApplication/src/init/InitContextListener.java",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "two.files.diff.last.used.file": "C:/Users/ASUS/IdeaProjects/PredictionsNew/Logic/src/resources/xml/ex2/master-ex2.xml",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/GUI/src/javafx/mainScene/main" />
@@ -173,32 +179,6 @@
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="javafx.mainScene.main.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="SimulationImpl" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="execution.simulation.impl.SimulationImpl" />
-      <module name="Logic" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="execution.simulation.impl.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="main.Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="main.Main" />
-      <module name="ConsoleUI" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="main.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -296,8 +276,6 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="Application.SimulationImpl" />
-      <item itemvalue="Application.main.Main" />
       <item itemvalue="Application.Main" />
       <item itemvalue="Tomcat Server.Tomcat 10.0.11" />
     </list>
@@ -387,7 +365,9 @@
       <workItem from="1695210575067" duration="16423000" />
       <workItem from="1695800899807" duration="34000" />
       <workItem from="1695809078507" duration="6608000" />
-      <workItem from="1695827828126" duration="2946000" />
+      <workItem from="1695827828126" duration="3342000" />
+      <workItem from="1695888575428" duration="1073000" />
+      <workItem from="1695926013645" duration="4888000" />
     </task>
     <task id="LOCAL-00103" summary="changed evaluate to get the EntityInstance of secondaryEntity in each iteration in order to creare the proper context , also added functions to context to get the filtered SecondaryEntity list">
       <created>1694175010163</created>
@@ -493,14 +473,6 @@
       <option name="presentableId" value="LOCAL-00148" />
       <option name="project" value="LOCAL" />
       <updated>1695031355816</updated>
-    </task>
-    <task id="LOCAL‎-00153" summary="proximity and grid bug fixes">
-      <option name="closed" value="true" />
-      <created>1695054976886</created>
-      <option name="number" value="00153" />
-      <option name="presentableId" value="LOCAL‎-00153" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1695054976886</updated>
     </task>
     <task id="LOCAL‎-00154" summary="bug fixes">
       <option name="closed" value="true" />
@@ -764,7 +736,15 @@
       <option name="project" value="LOCAL‎" />
       <updated>1695832242304</updated>
     </task>
-    <option name="localTasksCounter" value="187" />
+    <task id="LOCAL‎-00187" summary="logic now can get multiple worlds (GUI does not compile)">
+      <option name="closed" value="true" />
+      <created>1695832395021</created>
+      <option name="number" value="00187" />
+      <option name="presentableId" value="LOCAL‎-00187" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1695832395021</updated>
+    </task>
+    <option name="localTasksCounter" value="188" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -839,6 +819,11 @@
           <url>file://$PROJECT_DIR$/GUI/src/javafx/tab/newExecution/mainComponent/NewExecutionController.java</url>
           <line>400</line>
           <option name="timeStamp" value="157" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/PredictionsWebApplication/src/servlet/UploadWorldServlet.java</url>
+          <line>35</line>
+          <option name="timeStamp" value="165" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

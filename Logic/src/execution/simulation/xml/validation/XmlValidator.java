@@ -6,23 +6,28 @@ import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Unmarshaller;
 import java.io.File;
+import java.io.InputStream;
 import java.nio.file.*;
 import java.util.List;
 
 public class XmlValidator {
+    private final static char HELPER_FUNCTION_TOKEN = '(';
+    private final static int NOT_FOUND = -1;
+
     private final String path;
-
+    private final InputStream inputStream;
     private PRDWorld world;
-
     private List<PRDEntity> entityList;
-
     private List<PRDEnvProperty> envPropertiesList;
-
-    private final char HELPER_FUNCTION_TOKEN = '(';
-    private final int NOT_FOUND = -1;
 
     public XmlValidator(String path) {
         this.path = path;
+        this.inputStream = null;
+    }
+
+    public XmlValidator(InputStream inputStream) {
+        this.path = "";
+        this.inputStream = inputStream;
     }
 
     public void isValid() throws IllegalArgumentException, JAXBException {
@@ -63,26 +68,32 @@ public class XmlValidator {
     //11111111111111111111111
 
     private void checkIfPathExist(){
-        Path xmlpath = Paths.get(this.path);
+        if (!path.isEmpty()) { //todo:
+            Path xmlpath = Paths.get(this.path);
 
-        if (!Files.exists(xmlpath)) {
-            throw new IllegalArgumentException("File path does not exist");
+            if (!Files.exists(xmlpath)) {
+                throw new IllegalArgumentException("File path does not exist");
+            }
         }
     }
 
     private void checkIfXmlType(){
-        if(!path.endsWith(".xml")) {
-            throw new IllegalArgumentException("File path must end with .xml .");
+        if (!path.isEmpty()) { //todo
+            if (!path.endsWith(".xml")) {
+                throw new IllegalArgumentException("File path must end with .xml .");
+            }
         }
     }
 
     private PRDWorld loadXmlToWorld() throws JAXBException {
 
-        File file = new File(this.path);
+        File file = path.isEmpty() ? null : new File(this.path);
         JAXBContext jaxbContent = JAXBContext.newInstance(PRDWorld.class);
 
         Unmarshaller jaxbUnmarshaller = jaxbContent.createUnmarshaller();
-        PRDWorld world = (PRDWorld) jaxbUnmarshaller.unmarshal(file);
+        PRDWorld world = path.isEmpty() ?
+                (PRDWorld) jaxbUnmarshaller.unmarshal(inputStream) :
+                (PRDWorld) jaxbUnmarshaller.unmarshal(file);
 
         return world;
     }
