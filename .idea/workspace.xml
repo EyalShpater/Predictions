@@ -9,14 +9,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="27d35137-667f-4e37-a519-ab836acc0a06" name="Changes" comment="logic now can get multiple worlds (GUI does not compile)">
-      <change afterPath="$PROJECT_DIR$/PredictionsWebApplication/src/servlet/UploadWorldServlet.java" afterDir="false" />
+    <list default="true" id="27d35137-667f-4e37-a519-ab836acc0a06" name="Changes" comment="implemented file upload endpoint">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/definition/world/impl/WorldImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/definition/world/impl/WorldImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/execution/simulation/api/PredictionsLogic.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/execution/simulation/api/PredictionsLogic.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/execution/simulation/impl/PredictionsLogicImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/execution/simulation/impl/PredictionsLogicImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/execution/simulation/xml/validation/XmlValidator.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/execution/simulation/xml/validation/XmlValidator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PredictionsWebApplication/src/test/Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/PredictionsWebApplication/src/servlet/TestServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PredictionsWebApplication/src/servlet/UploadWorldServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/PredictionsWebApplication/src/servlet/UploadWorldServlet.java" afterDir="false" />
     </list>
     <list id="ff084db0-cb92-43bb-9658-8af184568cf4" name="Changes by ASUS" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -367,7 +362,7 @@
       <workItem from="1695809078507" duration="6608000" />
       <workItem from="1695827828126" duration="3342000" />
       <workItem from="1695888575428" duration="1073000" />
-      <workItem from="1695926013645" duration="4888000" />
+      <workItem from="1695926013645" duration="6077000" />
     </task>
     <task id="LOCAL-00103" summary="changed evaluate to get the EntityInstance of secondaryEntity in each iteration in order to creare the proper context , also added functions to context to get the filtered SecondaryEntity list">
       <created>1694175010163</created>
@@ -473,22 +468,6 @@
       <option name="presentableId" value="LOCAL-00148" />
       <option name="project" value="LOCAL" />
       <updated>1695031355816</updated>
-    </task>
-    <task id="LOCAL‎-00154" summary="bug fixes">
-      <option name="closed" value="true" />
-      <created>1695057636628</created>
-      <option name="number" value="00154" />
-      <option name="presentableId" value="LOCAL‎-00154" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1695057636628</updated>
-    </task>
-    <task id="LOCAL‎-00155" summary="entities and property choiceBox implement">
-      <option name="closed" value="true" />
-      <created>1695067327762</created>
-      <option name="number" value="00155" />
-      <option name="presentableId" value="LOCAL‎-00155" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1695067327762</updated>
     </task>
     <task id="LOCAL-00156" summary="fixed logic">
       <created>1695101375096</created>
@@ -744,7 +723,23 @@
       <option name="project" value="LOCAL‎" />
       <updated>1695832395021</updated>
     </task>
-    <option name="localTasksCounter" value="188" />
+    <task id="LOCAL‎-00188" summary="implemented file upload endpoint">
+      <option name="closed" value="true" />
+      <created>1695931075360</created>
+      <option name="number" value="00188" />
+      <option name="presentableId" value="LOCAL‎-00188" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1695931075361</updated>
+    </task>
+    <task id="LOCAL‎-00189" summary="implemented file upload endpoint">
+      <option name="closed" value="true" />
+      <created>1695931133633</created>
+      <option name="number" value="00189" />
+      <option name="presentableId" value="LOCAL‎-00189" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1695931133633</updated>
+    </task>
+    <option name="localTasksCounter" value="190" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -775,7 +770,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="fixed logic" />
     <MESSAGE value="fixed logic in xml" />
     <MESSAGE value="made pagination as sub component" />
     <MESSAGE value="population bar chart is implemented" />
@@ -800,7 +794,8 @@
     <MESSAGE value="engine init while the server is starting" />
     <MESSAGE value="added WorldManager class" />
     <MESSAGE value="logic now can get multiple worlds (GUI does not compile)" />
-    <option name="LAST_COMMIT_MESSAGE" value="logic now can get multiple worlds (GUI does not compile)" />
+    <MESSAGE value="implemented file upload endpoint" />
+    <option name="LAST_COMMIT_MESSAGE" value="implemented file upload endpoint" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
@@ -820,11 +815,6 @@
           <line>400</line>
           <option name="timeStamp" value="157" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/PredictionsWebApplication/src/servlet/UploadWorldServlet.java</url>
-          <line>35</line>
-          <option name="timeStamp" value="165" />
-        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
     <pin-to-top-manager>
@@ -839,6 +829,7 @@
         <PinnedItemInfo parentTag="java.lang.Integer" memberName="value" />
         <PinnedItemInfo parentTag="rule.impl.RuleImpl" memberName="activation" />
         <PinnedItemInfo parentTag="grid.SphereSpaceImpl" memberName="emptyCells" />
+        <PinnedItemInfo parentTag="execution.simulation.impl.PredictionsLogicImpl" memberName="allSimulations" />
         <PinnedItemInfo parentTag="resources.generated.PRDRules" memberName="prdRule" />
         <PinnedItemInfo parentTag="impl.SimulationDataDTO" memberName="propertyOfEntitySortedByValues" />
         <PinnedItemInfo parentTag="definition.entity.impl.EntityDefinitionImpl" memberName="name" />

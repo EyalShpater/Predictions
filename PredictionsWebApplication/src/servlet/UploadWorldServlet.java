@@ -28,8 +28,9 @@ public class UploadWorldServlet extends HttpServlet {
         for (Part part : parts) {
             try { //todo: handle exception
                 engine.loadXML(part.getInputStream());
-            } catch (JAXBException e) {
-                throw new RuntimeException(e);
+            } catch (Exception exception) {
+                response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
+                response.getWriter().println(exception.getMessage());
             }
         }
     }
