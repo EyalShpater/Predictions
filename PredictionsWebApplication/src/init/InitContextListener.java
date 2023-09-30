@@ -1,6 +1,6 @@
 package init;
 
-import constans.Constants;
+import constants.Constants;
 import execution.simulation.impl.PredictionsLogicImpl;
 import jakarta.servlet.ServletContextEvent;
 import jakarta.servlet.ServletContextListener;

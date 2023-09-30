@@ -22,5 +22,6 @@
     <orderEntry type="library" scope="PROVIDED" name="Tomcat 10.0.11" level="application_server_libraries" />
     <orderEntry type="module" module-name="DTO" />
     <orderEntry type="module" module-name="Logic" />
+    <orderEntry type="module" module-name="Common" />
   </component>
 </module>

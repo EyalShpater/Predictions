@@ -11,8 +11,8 @@
 <?import javafx.scene.layout.VBox?>
 
 <SplitPane dividerPositions="0.5" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
-           prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1"
-           xmlns="http://javafx.com/javafx/8.0.171">
+           prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171"
+           xmlns:fx="http://javafx.com/fxml/1" fx:controller="tab.managment.ManagementController">
     <items>
         <StackPane prefHeight="150.0" prefWidth="200.0">
             <children>
@@ -35,14 +35,15 @@
                         <VBox alignment="CENTER_RIGHT" spacing="10.0" GridPane.columnIndex="1" GridPane.columnSpan="2"
                               GridPane.rowIndex="1">
                             <children>
-                                <TextField/>
-                                <Button mnemonicParsing="false" text="Load File"/>
+                                <TextField editable="false" promptText="Please enter file path here..."/>
+                                <Button fx:id="loadFileButton" mnemonicParsing="false" onAction="#onLoadFileClicked"
+                                        text="Load File"/>
                             </children>
                         </VBox>
                         <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.columnSpan="2"
                                    GridPane.rowIndex="2" GridPane.rowSpan="3">
                             <children>
-                                <ListView prefHeight="200.0" prefWidth="200.0"/>
+                                <ListView fx:id="simulationsListView" prefHeight="200.0" prefWidth="200.0"/>
                             </children>
                         </StackPane>
                     </children>

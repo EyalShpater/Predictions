@@ -23,7 +23,6 @@ public class PredictionsLogicImpl implements PredictionsLogic , Serializable {
     private static final int DEFAULT_START_POPULATION = 0;
 
     private SimulationManager allSimulations = new SimulationManager();
-    ;
     private WorldManager worlds = new WorldManager();
 
     @Override
