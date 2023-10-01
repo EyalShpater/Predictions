@@ -10,29 +10,46 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="27d35137-667f-4e37-a519-ab836acc0a06" name="Changes" comment="If the uploaded file is not valid, the response includes a 400 code and a message describing the error.">
-      <change afterPath="$PROJECT_DIR$/AdminClient/src/main/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AdminClient/src/tab/managment/Management.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AdminClient/src/tab/managment/ManagementController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Common/src/general/constants/GeneralConstants.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Common/src/resources/GSON/gson-2.8.8-javadoc.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Common/src/resources/GSON/gson-2.8.8-sources.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Common/src/resources/GSON/gson-2.8.8.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Common/src/resources/OK Http Client/annotations-13.0.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Common/src/resources/OK Http Client/kotlin-stdlib-1.4.10.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Common/src/resources/OK Http Client/kotlin-stdlib-common-1.4.10.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Common/src/resources/OK Http Client/okhttp-4.9.1.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Common/src/resources/OK Http Client/okio-2.8.0.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/artifacts/PredictionsWebApplication_Web.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/artifacts/PredictionsWebApplication_Web2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Logic/src/resources/xml/ex3/ex3-cigarets.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Logic/src/resources/xml/ex3/ex3-error.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Logic/src/resources/xml/ex3/ex3-virus.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Logic/src/resources/xml/ex3/generated/ObjectFactory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Logic/src/resources/xml/ex3/generated/PRDAction.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Logic/src/resources/xml/ex3/generated/PRDActions.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Logic/src/resources/xml/ex3/generated/PRDActivation.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Logic/src/resources/xml/ex3/generated/PRDBySecond.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Logic/src/resources/xml/ex3/generated/PRDByTicks.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Logic/src/resources/xml/ex3/generated/PRDCondition.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Logic/src/resources/xml/ex3/generated/PRDDivide.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Logic/src/resources/xml/ex3/generated/PRDElse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Logic/src/resources/xml/ex3/generated/PRDEntities.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Logic/src/resources/xml/ex3/generated/PRDEntity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Logic/src/resources/xml/ex3/generated/PRDEnvProperty.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Logic/src/resources/xml/ex3/generated/PRDEnvironment.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Logic/src/resources/xml/ex3/generated/PRDMultiply.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Logic/src/resources/xml/ex3/generated/PRDProperties.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Logic/src/resources/xml/ex3/generated/PRDProperty.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Logic/src/resources/xml/ex3/generated/PRDRange.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Logic/src/resources/xml/ex3/generated/PRDRule.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Logic/src/resources/xml/ex3/generated/PRDRules.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Logic/src/resources/xml/ex3/generated/PRDTermination.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Logic/src/resources/xml/ex3/generated/PRDThen.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Logic/src/resources/xml/ex3/generated/PRDValue.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Logic/src/resources/xml/ex3/generated/PRDWorld.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Logic/src/resources/xml/ex3/master-ex3.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Logic/src/resources/xml/ex3/predictions-v3.xsd" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AdminClient/AdminClient.iml" beforeDir="false" afterPath="$PROJECT_DIR$/AdminClient/AdminClient.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AdminClient/src/tab/managment/Managment.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/execution/simulation/impl/PredictionsLogicImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/execution/simulation/impl/PredictionsLogicImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Predictions.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Predictions.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PredictionsWebApplication/PredictionsWebApplication.iml" beforeDir="false" afterPath="$PROJECT_DIR$/PredictionsWebApplication/PredictionsWebApplication.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PredictionsWebApplication/src/constans/Constants.java" beforeDir="false" afterPath="$PROJECT_DIR$/PredictionsWebApplication/src/constants/Constants.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PredictionsWebApplication/src/init/InitContextListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/PredictionsWebApplication/src/init/InitContextListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PredictionsWebApplication/src/servlet/UploadWorldServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/PredictionsWebApplication/src/servlet/UploadWorldServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI/src/javafx/tab/results/ResultsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/src/javafx/tab/results/ResultsController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/execution/simulation/xml/reader/impl/ActionReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/execution/simulation/xml/reader/impl/ActionReader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/execution/simulation/xml/reader/impl/EntityReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/execution/simulation/xml/reader/impl/EntityReader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/execution/simulation/xml/reader/impl/EnvReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/execution/simulation/xml/reader/impl/EnvReader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/execution/simulation/xml/reader/impl/PropertyReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/execution/simulation/xml/reader/impl/PropertyReader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/execution/simulation/xml/reader/impl/RuleReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/execution/simulation/xml/reader/impl/RuleReader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/execution/simulation/xml/reader/impl/TerminationReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/execution/simulation/xml/reader/impl/TerminationReader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/execution/simulation/xml/reader/impl/XmlReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/execution/simulation/xml/reader/impl/XmlReader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/execution/simulation/xml/validation/XmlValidator.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/execution/simulation/xml/validation/XmlValidator.java" afterDir="false" />
     </list>
     <list id="ff084db0-cb92-43bb-9658-8af184568cf4" name="Changes by ASUS" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -76,13 +93,6 @@
     &quot;state&quot;: &quot;OPEN&quot;
   }
 }</component>
-  <component name="GithubProjectSettings">
-    <option name="branchProtectionPatterns">
-      <list>
-        <option value="main" />
-      </list>
-    </option>
-  </component>
   <component name="GithubPullRequestsUISettings">
     <option name="selectedUrlAndAccountId">
       <UrlAndAccount>
@@ -121,35 +131,35 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "dart.analysis.tool.window.visible": "false",
-    "extract.method.default.visibility": "private",
-    "full.screen.before.presentation.mode": "false",
-    "git-widget-placeholder": "Client-Server",
-    "jdk.selected.JAVA_MODULE": "1.8",
-    "last_opened_file_path": "/Users/eyal/Java-Course/Predictions/GUI/src/javafx/mainScene/main",
-    "list.type.of.created.stylesheet": "CSS",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "onboarding.tips.debug.path": "/Users/eyal/Java-Course/Predictions/PredictionsWebApplication/src/init/InitContextListener.java",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "preferences.applicationServers",
-    "two.files.diff.last.used.file": "C:/Users/ASUS/IdeaProjects/PredictionsNew/Logic/src/resources/xml/ex2/master-ex2.xml",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;dart.analysis.tool.window.visible&quot;: &quot;false&quot;,
+    &quot;extract.method.default.visibility&quot;: &quot;private&quot;,
+    &quot;full.screen.before.presentation.mode&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;Client-Server&quot;,
+    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;1.8&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/eyal/Java-Course/Predictions/GUI/src/javafx/mainScene/main&quot;,
+    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;onboarding.tips.debug.path&quot;: &quot;/Users/eyal/Java-Course/Predictions/PredictionsWebApplication/src/init/InitContextListener.java&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.applicationServers&quot;,
+    &quot;two.files.diff.last.used.file&quot;: &quot;C:/Users/ASUS/IdeaProjects/PredictionsNew/Logic/src/resources/xml/ex2/master-ex2.xml&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/GUI/src/javafx/mainScene/main" />
@@ -159,11 +169,11 @@
       <recent name="C:\Users\ASUS\IdeaProjects\PredictionsNew\Logic\src\resources\xml\ex2" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\ASUS\IdeaProjects\PredictionsPart3.30.9\Logic\src\resources\xml\ex3" />
       <recent name="C:\Users\ASUS\IdeaProjects\Prediction19.9\Logic\src\resources\xml\ex2\newfiles" />
       <recent name="C:\Users\ASUS\IdeaProjects\Predictions\Logic\src\resources\xml\ex2" />
       <recent name="C:\Users\ASUS\IdeaProjects\Predictions\Logic\src\resources\xml\ex1" />
       <recent name="$PROJECT_DIR$/JavaFX/src/javafx/details/impl" />
-      <recent name="$PROJECT_DIR$/JavaFX/src/javafx/details/resources" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="javafx.tab.results.graph" />
@@ -203,7 +213,6 @@
       </method>
     </configuration>
     <configuration name="Tomcat 10.0.11" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 10.0.11" ALTERNATIVE_JRE_ENABLED="false" nameIsGenerated="true">
-      <option name="OPEN_IN_BROWSER" value="false" />
       <option name="BROWSER_ID" value="98ca6316-2f89-46d9-a9e5-fa9e2b0625b3" />
       <option name="UPDATING_POLICY" value="restart-server" />
       <deployment>
@@ -836,11 +845,6 @@
           <url>file://$PROJECT_DIR$/GUI/src/javafx/tab/newExecution/mainComponent/NewExecutionController.java</url>
           <line>400</line>
           <option name="timeStamp" value="157" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/PredictionsWebApplication/src/servlet/UploadWorldServlet.java</url>
-          <line>30</line>
-          <option name="timeStamp" value="160" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

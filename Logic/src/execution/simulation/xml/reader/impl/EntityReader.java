@@ -3,9 +3,9 @@ package execution.simulation.xml.reader.impl;
 import definition.entity.api.EntityDefinition;
 import definition.entity.impl.EntityDefinitionImpl;
 import definition.world.api.World;
-import resources.xml.ex2.generated.PRDEntity;
-import resources.xml.ex2.generated.PRDProperty;
-import resources.xml.ex2.generated.PRDWorld;
+import resources.xml.ex3.generated.PRDEntity;
+import resources.xml.ex3.generated.PRDProperty;
+import resources.xml.ex3.generated.PRDWorld;
 /*import resources.xml.ex1.generated.PRDEntity;
 import resources.xml.ex1.generated.PRDProperty;
 import resources.xml.ex1.generated.PRDWorld;*/

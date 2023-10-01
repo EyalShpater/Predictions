@@ -218,7 +218,7 @@ public class ResultsController {
         propertyChoiceBox.getItems().clear();
 
         if (entityToView.isNotNull().get()) {
-            WorldDTO simulation = engine.getLoadedSimulationDetails();
+            WorldDTO simulation = engine.getLoadedSimulationDetails("");
             simulation
                     .getEntities()
                     .stream()
@@ -233,7 +233,7 @@ public class ResultsController {
     private void setEntitiesChoiceBox() {
         entityChoiceBox.getItems().clear();
 
-        WorldDTO simulationDTO = engine.getLoadedSimulationDetails();
+        WorldDTO simulationDTO = engine.getLoadedSimulationDetails("");
         simulationDTO
                 .getEntities()
                 .forEach(entity -> entityChoiceBox.getItems().add(entity.getName()));
