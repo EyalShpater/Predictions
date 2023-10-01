@@ -212,6 +212,13 @@ public class PredictionsLogicImpl implements PredictionsLogic , Serializable {
         return worlds.getAllWorldsAsDTO();
     }
 
+    @Override
+    public GridDTO getGridInformation(String worldName) {
+        World slectedWorld = worlds.getWorld(worldName);
+
+        return new GridDTO(slectedWorld.getGridRows(), slectedWorld.getGridCols());
+    }
+
     private void processXmlData(XmlValidator validator) throws JAXBException {
         World newWorld = new WorldImpl();
         XmlReader reader;
@@ -220,6 +227,10 @@ public class PredictionsLogicImpl implements PredictionsLogic , Serializable {
         reader = new XmlReader(validator.getWorld());
         reader.readXml(newWorld);
 
-        worlds.addWorld(newWorld);
+        boolean isAccepted = worlds.addWorld(newWorld);
+
+        if (!isAccepted) {
+            throw new IllegalArgumentException("World name \"" + newWorld.getName() + "\" is already exist!");
+        }
     }
 }

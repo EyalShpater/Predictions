@@ -33,7 +33,7 @@ public class WorldImpl implements World  , Serializable {
     private Map<String, EntityDefinition> entitiesDefinition;
     private List<Rule> rules;
     private EnvironmentVariableManager environmentVariables;
-    private Termination terminate;
+    private Termination terminate; //todo: move terminate to Simulation
     private int gridRows;
     private int gridCols;
     private int threadPoolSize;
@@ -41,7 +41,6 @@ public class WorldImpl implements World  , Serializable {
 
     public WorldImpl() {
         Random random = new Random();
-        name = "temporary" + random.nextInt(Integer.MAX_VALUE);//todo: delete after implement the name
         entitiesDefinition = new HashMap<>();
         rules = new ArrayList<>();
         environmentVariables = new EnvironmentVariableManagerImpl();
@@ -134,7 +133,6 @@ public class WorldImpl implements World  , Serializable {
                 rules.stream()
                         .map(DTOConvertible::convertToDTO)
                         .collect(Collectors.toList()),
-                terminate.convertToDTO(),
                 gridRows,
                 gridCols
         );

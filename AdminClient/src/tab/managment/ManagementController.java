@@ -9,6 +9,7 @@ import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
@@ -21,7 +22,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import static common.Configuration.HTTP_CLIENT;
+import static general.configuration.Configuration.HTTP_CLIENT;
 
 public class ManagementController {
 
@@ -95,7 +96,14 @@ public class ManagementController {
 
             Response response = call.execute();
 
-            System.out.println(response.body().string());
+            if (response.code() != 200) {
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+
+                alert.setTitle("Error!");
+                alert.setContentText(response.body().string());
+                alert.setHeaderText("Error Has Occurred!");
+                alert.showAndWait();
+            }
         }
     }
 

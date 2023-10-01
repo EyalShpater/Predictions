@@ -9,41 +9,50 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="27d35137-667f-4e37-a519-ab836acc0a06" name="Changes" comment="implement client upload class">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/gson_2_8.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/PredictionsWebApplication/src/servlet/LoadedWorldsServlet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/gson-2.8.8/gson-2.8.8-javadoc.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/gson-2.8.8/gson-2.8.8-sources.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/gson-2.8.8/gson-2.8.8.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/artifacts/PredictionsWebApplication_Web_exploded.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/PredictionsWebApplication_Web_exploded.xml" afterDir="false" />
+    <list default="true" id="27d35137-667f-4e37-a519-ab836acc0a06" name="Changes" comment="implement getWorlds endpoint using GSON">
+      <change afterPath="$PROJECT_DIR$/UserClient/UserClient.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/UserClient/src/main/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/UserClient/src/tab/details/components/Components.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/UserClient/src/tab/details/components/ComponentsController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/UserClient/src/tab/details/components/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/UserClient/src/tab/details/details/Details.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/UserClient/src/tab/details/details/DetailsController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/UserClient/src/tab/details/details/TestMain.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/UserClient/src/tab/details/entities/Entities.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/UserClient/src/tab/details/entities/EntitiesController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/UserClient/src/tab/details/entities/TestMain.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/UserClient/src/tab/details/environment/variables/EnvironmentVariables.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/UserClient/src/tab/details/environment/variables/EnvironmentVariablesController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/UserClient/src/tab/details/environment/variables/TestMain.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/UserClient/src/tab/details/general/General.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/UserClient/src/tab/details/general/GeneralController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/UserClient/src/tab/details/main/MainDetails.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/UserClient/src/tab/details/main/MainDetailsController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/UserClient/src/tab/details/resources/employee.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/UserClient/src/tab/details/resources/environment variables.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/UserClient/src/tab/details/resources/general.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/UserClient/src/tab/details/resources/rules.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/UserClient/src/tab/details/resources/termination.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/UserClient/src/tab/details/resources/world-wide-web.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/UserClient/src/tab/details/rules/Rules.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/UserClient/src/tab/details/rules/RulesController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/UserClient/src/tab/details/rules/TestMain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AdminClient/AdminClient.iml" beforeDir="false" afterPath="$PROJECT_DIR$/AdminClient/AdminClient.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AdminClient/src/main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/AdminClient/src/main/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AdminClient/src/tab/managment/Management.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/AdminClient/src/tab/managment/Management.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AdminClient/src/common/Configuration.java" beforeDir="false" afterPath="$PROJECT_DIR$/Common/src/general/configuration/Configuration.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/AdminClient/src/tab/managment/ManagementController.java" beforeDir="false" afterPath="$PROJECT_DIR$/AdminClient/src/tab/managment/ManagementController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Common/src/general/constants/GeneralConstants.java" beforeDir="false" afterPath="$PROJECT_DIR$/Common/src/general/constants/GeneralConstants.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Common/src/resources/GSON/gson-2.8.8-javadoc.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Common/src/resources/GSON/gson-2.8.8-sources.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Common/src/resources/GSON/gson-2.8.8.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Common/Common.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Common/Common.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DTO/src/impl/WorldDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/DTO/src/impl/WorldDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/src/javafx/mainScene/header/HeaderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/src/javafx/mainScene/header/HeaderController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/src/javafx/mainScene/main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/src/javafx/mainScene/main/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/src/javafx/mainScene/main/PredictionsMainAppController.java" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/src/javafx/mainScene/main/PredictionsMainAppController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/src/javafx/tab/details/components/ComponentsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/src/javafx/tab/details/components/ComponentsController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/src/javafx/tab/details/details/DetailsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/src/javafx/tab/details/details/DetailsController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/src/javafx/tab/details/general/GeneralController.java" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/src/javafx/tab/details/general/GeneralController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/src/javafx/tab/newExecution/mainComponent/NewExecutionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/src/javafx/tab/newExecution/mainComponent/NewExecutionController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GUI/src/javafx/tab/results/ResultsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/src/javafx/tab/results/ResultsController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/src/javafx/tab/results/analyze/AnalyzePaginationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/src/javafx/tab/results/analyze/AnalyzePaginationController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/src/javafx/tab/results/progress/ProgressController.java" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/src/javafx/tab/results/progress/ProgressController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/src/task/UpdateEntitiesAmountTask.java" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/src/task/UpdateEntitiesAmountTask.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Logic/src/definition/world/impl/WorldImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/definition/world/impl/WorldImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/execution/simulation/api/PredictionsLogic.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/execution/simulation/api/PredictionsLogic.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Logic/src/execution/simulation/impl/PredictionsLogicImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/execution/simulation/impl/PredictionsLogicImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Logic/src/execution/simulation/manager/WorldManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/execution/simulation/manager/WorldManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PredictionsWebApplication/PredictionsWebApplication.iml" beforeDir="false" afterPath="$PROJECT_DIR$/PredictionsWebApplication/PredictionsWebApplication.iml" afterDir="false" />
     </list>
-    <list id="ff084db0-cb92-43bb-9658-8af184568cf4" name="Changes by ASUS" comment="" />
+    <list id="ff084db0-cb92-43bb-9658-8af184568cf4" name="Changes by ASUS" comment="">
+      <change beforePath="$PROJECT_DIR$/Logic/src/definition/world/api/World.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/definition/world/api/World.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/definition/world/impl/WorldImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/definition/world/impl/WorldImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/execution/simulation/xml/reader/impl/XmlReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/execution/simulation/xml/reader/impl/XmlReader.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -109,6 +118,18 @@
     <setting file="jar:///Library/Java/JavaVirtualMachines/jdk-1.8.jdk/Contents/Home/javafx-src.zip!/javafx/scene/chart/ValueAxis.java" root0="SKIP_INSPECTION" />
     <setting file="jar:///Library/Java/JavaVirtualMachines/jdk-1.8.jdk/Contents/Home/javafx-src.zip!/javafx/scene/chart/XYChart.java" root0="SKIP_INSPECTION" />
   </component>
+  <component name="LineStatusTrackerManager">
+    <file path="$PROJECT_DIR$/Logic/src/definition/world/impl/WorldImpl.java">
+      <ranges>
+        <range start1="35" end1="36" start2="35" end2="36" changelist="27d35137-667f-4e37-a519-ab836acc0a06" />
+        <range start1="39" end1="39" start2="39" end2="40" changelist="ff084db0-cb92-43bb-9658-8af184568cf4" />
+        <range start1="42" end1="43" start2="43" end2="43" changelist="27d35137-667f-4e37-a519-ab836acc0a06" />
+        <range start1="46" end1="46" start2="46" end2="47" changelist="ff084db0-cb92-43bb-9658-8af184568cf4" />
+        <range start1="77" end1="77" start2="78" end2="84" changelist="ff084db0-cb92-43bb-9658-8af184568cf4" />
+        <range start1="128" end1="129" start2="135" end2="135" changelist="27d35137-667f-4e37-a519-ab836acc0a06" />
+      </ranges>
+    </file>
+  </component>
   <component name="LogFilters">
     <option name="FILTER_ERRORS" value="false" />
     <option name="FILTER_WARNINGS" value="false" />
@@ -151,7 +172,7 @@
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
     "onboarding.tips.debug.path": "/Users/eyal/Java-Course/Predictions/PredictionsWebApplication/src/init/InitContextListener.java",
-    "project.structure.last.edited": "Artifacts",
+    "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
     "settings.editor.selected.configurable": "preferences.applicationServers",
@@ -184,34 +205,8 @@
       <recent name="javafx.details.details" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.main.Main">
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="javafx.mainScene.main.Main" />
-      <module name="GUI" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="javafx.mainScene.main.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="javafx.mainScene.main.Main" />
-      <module name="GUI" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="javafx.mainScene.main.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="main.Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Tomcat Server.PredictionsWebApplication">
+    <configuration name="AdminClientManagement" type="Application" factoryName="Application" temporary="true">
       <option name="MAIN_CLASS_NAME" value="main.Main" />
       <module name="AdminClient" />
       <extension name="coverage">
@@ -224,7 +219,46 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Tomcat 10.0.11" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 10.0.11" ALTERNATIVE_JRE_ENABLED="false" nameIsGenerated="true">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="javafx.mainScene.main.Main" />
+      <module name="GUI" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="javafx.mainScene.main.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="javafx.mainScene.main.Main" />
+      <module name="GUI" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="javafx.mainScene.main.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UserClientDetails" type="Application" factoryName="Application" temporary="true">
+      <option name="MAIN_CLASS_NAME" value="main.Main" />
+      <module name="UserClient" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="main.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PredictionsWebApplication" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 10.0.11" ALTERNATIVE_JRE_ENABLED="false">
       <option name="OPEN_IN_BROWSER" value="false" />
       <option name="BROWSER_ID" value="98ca6316-2f89-46d9-a9e5-fa9e2b0625b3" />
       <option name="UPDATING_POLICY" value="restart-server" />
@@ -314,13 +348,15 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="Application.main.Main" />
+      <item itemvalue="Application.UserClientDetails" />
+      <item itemvalue="Application.AdminClientManagement" />
       <item itemvalue="Application.Main" />
-      <item itemvalue="Tomcat Server.Tomcat 10.0.11" />
+      <item itemvalue="Tomcat Server.PredictionsWebApplication" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.main.Main" />
+        <item itemvalue="Application.UserClientDetails" />
+        <item itemvalue="Application.AdminClientManagement" />
         <item itemvalue="Application.Main" />
       </list>
     </recent_temporary>
@@ -410,7 +446,7 @@
       <workItem from="1695926013645" duration="14091000" />
       <workItem from="1696093293644" duration="6573000" />
       <workItem from="1696160638044" duration="1116000" />
-      <workItem from="1696162411212" duration="1767000" />
+      <workItem from="1696162411212" duration="11136000" />
     </task>
     <task id="LOCAL-00103" summary="changed evaluate to get the EntityInstance of secondaryEntity in each iteration in order to creare the proper context , also added functions to context to get the filtered SecondaryEntity list">
       <created>1694175010163</created>
@@ -530,14 +566,6 @@
       <option name="presentableId" value="LOCAL-00157" />
       <option name="project" value="LOCAL" />
       <updated>1695105621094</updated>
-    </task>
-    <task id="LOCAL‎-00161" summary="consistency in gui">
-      <option name="closed" value="true" />
-      <created>1695157267008</created>
-      <option name="number" value="00161" />
-      <option name="presentableId" value="LOCAL‎-00161" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1695157267008</updated>
     </task>
     <task id="LOCAL‎-00162" summary="clear button bug fix">
       <option name="closed" value="true" />
@@ -787,7 +815,15 @@
       <option name="project" value="LOCAL‎" />
       <updated>1696096373566</updated>
     </task>
-    <option name="localTasksCounter" value="193" />
+    <task id="LOCAL‎-00193" summary="implement getWorlds endpoint using GSON">
+      <option name="closed" value="true" />
+      <created>1696164400331</created>
+      <option name="number" value="00193" />
+      <option name="presentableId" value="LOCAL‎-00193" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1696164400332</updated>
+    </task>
+    <option name="localTasksCounter" value="194" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -818,7 +854,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="population bar chart is implemented" />
     <MESSAGE value="added Consistency object" />
     <MESSAGE value="consistency in gui" />
     <MESSAGE value="clear button bug fix" />
@@ -843,7 +878,8 @@
     <MESSAGE value="implemented file upload endpoint" />
     <MESSAGE value="If the uploaded file is not valid, the response includes a 400 code and a message describing the error." />
     <MESSAGE value="implement client upload class" />
-    <option name="LAST_COMMIT_MESSAGE" value="implement client upload class" />
+    <MESSAGE value="implement getWorlds endpoint using GSON" />
+    <option name="LAST_COMMIT_MESSAGE" value="implement getWorlds endpoint using GSON" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
@@ -862,6 +898,11 @@
           <url>file://$PROJECT_DIR$/GUI/src/javafx/tab/newExecution/mainComponent/NewExecutionController.java</url>
           <line>400</line>
           <option name="timeStamp" value="157" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/PredictionsWebApplication/src/servlet/UploadWorldServlet.java</url>
+          <line>30</line>
+          <option name="timeStamp" value="171" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

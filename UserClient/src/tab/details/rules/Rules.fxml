@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.control.TreeView?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
+
+<TitledPane fx:id="mainScreen" minHeight="100.0" minWidth="100.0" prefHeight="400.0" prefWidth="420.0"
+            xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="javafx.tab.details.rules.RulesController">
+    <content>
+        <ScrollPane fitToHeight="true" fitToWidth="true">
+            <content>
+                <StackPane minHeight="300.0" minWidth="300.0">
+                    <children>
+                        <GridPane minHeight="100.0" minWidth="100.0" vgap="10.0">
+                            <columnConstraints>
+                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="10.0" minWidth="10.0" prefWidth="10.0"/>
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="10.0" minWidth="10.0" prefWidth="10.0"/>
+                            </columnConstraints>
+                            <rowConstraints>
+                                <RowConstraints vgrow="NEVER"/>
+                                <RowConstraints vgrow="NEVER"/>
+                                <RowConstraints vgrow="NEVER"/>
+                                <RowConstraints vgrow="NEVER"/>
+                                <RowConstraints vgrow="SOMETIMES"/>
+                                <RowConstraints maxHeight="10.0" minHeight="10.0" prefHeight="10.0" vgrow="SOMETIMES"/>
+                            </rowConstraints>
+                            <children>
+                                <HBox alignment="CENTER" GridPane.columnSpan="4" GridPane.rowIndex="1">
+                                    <children>
+                                        <Label fx:id="nameLabel" text="Label"/>
+                                    </children>
+                                    <padding>
+                                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+                                    </padding>
+                                </HBox>
+                                <HBox spacing="5.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                    <children>
+                                        <Label text="Ticks To Activate:"/>
+                                        <Label fx:id="numOfTicksLabel"/>
+                                    </children>
+                                    <opaqueInsets>
+                                        <Insets left="10.0" top="10.0"/>
+                                    </opaqueInsets>
+                                </HBox>
+                                <HBox alignment="TOP_RIGHT" spacing="5.0" GridPane.columnIndex="2"
+                                      GridPane.rowIndex="2">
+                                    <children>
+                                        <Label text="Probability To Activate:"/>
+                                        <Label fx:id="probabilityLabel"/>
+                                    </children>
+                                    <opaqueInsets>
+                                        <Insets left="10.0" top="10.0"/>
+                                    </opaqueInsets>
+                                </HBox>
+                                <TreeView fx:id="actionsTreeView" GridPane.columnIndex="1" GridPane.columnSpan="2"
+                                          GridPane.hgrow="SOMETIMES" GridPane.rowIndex="4" GridPane.vgrow="SOMETIMES"/>
+                                <HBox alignment="CENTER" GridPane.columnIndex="1" GridPane.columnSpan="2"
+                                      GridPane.rowIndex="3">
+                                    <children>
+                                        <Label contentDisplay="CENTER" text="Actions"/>
+                                    </children>
+                                    <GridPane.margin>
+                                        <Insets/>
+                                    </GridPane.margin>
+                                    <padding>
+                                        <Insets bottom="10.0" top="30.0"/>
+                                    </padding>
+                                </HBox>
+                            </children>
+                        </GridPane>
+                    </children>
+                </StackPane>
+            </content>
+        </ScrollPane>
+    </content>
+</TitledPane>

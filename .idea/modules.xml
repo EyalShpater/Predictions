@@ -9,6 +9,7 @@
       <module fileurl="file://$PROJECT_DIR$/Logic/Logic.iml" filepath="$PROJECT_DIR$/Logic/Logic.iml" />
       <module fileurl="file://$PROJECT_DIR$/Predictions.iml" filepath="$PROJECT_DIR$/Predictions.iml" />
       <module fileurl="file://$PROJECT_DIR$/PredictionsWebApplication/PredictionsWebApplication.iml" filepath="$PROJECT_DIR$/PredictionsWebApplication/PredictionsWebApplication.iml" />
+      <module fileurl="file://$PROJECT_DIR$/UserClient/UserClient.iml" filepath="$PROJECT_DIR$/UserClient/UserClient.iml" />
     </modules>
   </component>
 </project>

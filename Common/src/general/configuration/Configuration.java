@@ -1,4 +1,4 @@
-package common;
+package general.configuration;
 
 import okhttp3.OkHttpClient;
 

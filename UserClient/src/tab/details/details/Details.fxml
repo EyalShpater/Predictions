@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.StackPane?>
+
+
+<BorderPane fx:id="borderPane" maxHeight="5000.0" maxWidth="5000.0" minHeight="100.0" minWidth="100.0"
+            prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171"
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="tab.details.details.DetailsController">
+    <left>
+        <fx:include fx:id="buttonsComponent" source="../components/Components.fxml"/>
+    </left>
+    <center>
+        <ScrollPane fitToHeight="true" fitToWidth="true" minHeight="100.0" minWidth="100.0"
+                    BorderPane.alignment="CENTER_LEFT">
+            <content>
+                <StackPane fx:id="sceneSwitcher"/>
+            </content>
+        </ScrollPane>
+    </center>
+</BorderPane>

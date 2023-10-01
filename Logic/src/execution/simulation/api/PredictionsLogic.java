@@ -63,4 +63,6 @@ public interface PredictionsLogic {
     List<String> getAllWorldsNames();
 
     List<WorldDTO> getAllWorldsDTO();
+
+    GridDTO getGridInformation(String worldName);
 }
