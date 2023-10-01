@@ -1,6 +1,6 @@
 package execution.simulation.xml.validation;
 
-import resources.xml.ex2.generated.*;
+import resources.xml.ex3.generated.*;
 
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;

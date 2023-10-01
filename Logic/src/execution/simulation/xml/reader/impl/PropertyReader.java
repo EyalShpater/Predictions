@@ -4,8 +4,8 @@ import definition.property.api.PropertyDefinition;
 import definition.property.api.PropertyType;
 import definition.property.api.Range;
 import definition.property.impl.PropertyDefinitionImpl;
-import resources.xml.ex2.generated.PRDProperty;
-import resources.xml.ex2.generated.PRDRange;
+import resources.xml.ex3.generated.PRDProperty;
+import resources.xml.ex3.generated.PRDRange;
 
 /*import resources.xml.ex1.generated.PRDProperty;
 import resources.xml.ex1.generated.PRDRange;*/

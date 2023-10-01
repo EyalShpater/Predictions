@@ -3,9 +3,9 @@ package execution.simulation.xml.reader.impl;
 import definition.world.api.World;
 import execution.simulation.termination.api.TerminateCondition;
 import execution.simulation.termination.impl.TerminationImpl;
-import resources.xml.ex2.generated.PRDBySecond;
-import resources.xml.ex2.generated.PRDByTicks;
-import resources.xml.ex2.generated.PRDWorld;
+import resources.xml.ex3.generated.PRDBySecond;
+import resources.xml.ex3.generated.PRDByTicks;
+import resources.xml.ex3.generated.PRDWorld;
 
 import java.util.List;
 
@@ -14,7 +14,7 @@ import resources.xml.ex1.generated.PRDByTicks;
 import resources.xml.ex1.generated.PRDWorld;*/
 
 public class TerminationReader {
-    public void read(PRDWorld prdWorld, World world) {
+    /*public void read(PRDWorld prdWorld, World world) {
         List<Object> terminationList = prdWorld.getPRDTermination().getPRDBySecondOrPRDByTicks();
         Object terminationByUser = prdWorld.getPRDTermination().getPRDByUser();
         if (terminationByUser == null) {
@@ -37,5 +37,5 @@ public class TerminationReader {
             world.setTermination(new TerminationImpl());
         }
 
-    }
+    }*/
 }

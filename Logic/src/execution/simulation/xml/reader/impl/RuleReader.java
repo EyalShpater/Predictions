@@ -1,10 +1,10 @@
 package execution.simulation.xml.reader.impl;
 
 import definition.world.api.World;
-import resources.xml.ex2.generated.PRDAction;
-import resources.xml.ex2.generated.PRDActivation;
-import resources.xml.ex2.generated.PRDRule;
-import resources.xml.ex2.generated.PRDWorld;
+import resources.xml.ex3.generated.PRDAction;
+import resources.xml.ex3.generated.PRDActivation;
+import resources.xml.ex3.generated.PRDRule;
+import resources.xml.ex3.generated.PRDWorld;
 
 import rule.api.Activation;
 import rule.api.Rule;
