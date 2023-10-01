@@ -118,6 +118,7 @@ public class WorldImpl implements World  , Serializable {
     @Override
     public WorldDTO convertToDTO() {
         return new WorldDTO(
+                name,
                 entitiesDefinition.values()
                         .stream()
                         .map(DTOConvertible::convertToDTO)

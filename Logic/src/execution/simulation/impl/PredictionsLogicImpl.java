@@ -202,6 +202,16 @@ public class PredictionsLogicImpl implements PredictionsLogic , Serializable {
 
     }
 
+    @Override
+    public List<String> getAllWorldsNames() {
+        return worlds.getAllWorldsNames();
+    }
+
+    @Override
+    public List<WorldDTO> getAllWorldsDTO() {
+        return worlds.getAllWorldsAsDTO();
+    }
+
     private void processXmlData(XmlValidator validator) throws JAXBException {
         World newWorld = new WorldImpl();
         XmlReader reader;

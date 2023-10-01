@@ -1,6 +1,8 @@
 package execution.simulation.manager;
 
+import api.DTOConvertible;
 import definition.world.api.World;
+import impl.WorldDTO;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -21,5 +23,13 @@ public class WorldManager {
 
     public List<String> getAllWorldsNames() {
         return new ArrayList<>(worlds.keySet());
+    }
+
+    public List<WorldDTO> getAllWorldsAsDTO() {
+        return worlds
+                .values()
+                .stream()
+                .map(DTOConvertible::convertToDTO)
+                .collect(Collectors.toList());
     }
 }

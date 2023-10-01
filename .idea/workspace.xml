@@ -9,30 +9,39 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="27d35137-667f-4e37-a519-ab836acc0a06" name="Changes" comment="If the uploaded file is not valid, the response includes a 400 code and a message describing the error.">
-      <change afterPath="$PROJECT_DIR$/AdminClient/src/main/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AdminClient/src/tab/managment/Management.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AdminClient/src/tab/managment/ManagementController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Common/src/general/constants/GeneralConstants.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Common/src/resources/GSON/gson-2.8.8-javadoc.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Common/src/resources/GSON/gson-2.8.8-sources.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Common/src/resources/GSON/gson-2.8.8.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Common/src/resources/OK Http Client/annotations-13.0.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Common/src/resources/OK Http Client/kotlin-stdlib-1.4.10.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Common/src/resources/OK Http Client/kotlin-stdlib-common-1.4.10.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Common/src/resources/OK Http Client/okhttp-4.9.1.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Common/src/resources/OK Http Client/okio-2.8.0.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+    <list default="true" id="27d35137-667f-4e37-a519-ab836acc0a06" name="Changes" comment="implement client upload class">
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/gson_2_8.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PredictionsWebApplication/src/servlet/LoadedWorldsServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/gson-2.8.8/gson-2.8.8-javadoc.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/gson-2.8.8/gson-2.8.8-sources.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/gson-2.8.8/gson-2.8.8.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/artifacts/PredictionsWebApplication_Web_exploded.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/PredictionsWebApplication_Web_exploded.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/AdminClient/AdminClient.iml" beforeDir="false" afterPath="$PROJECT_DIR$/AdminClient/AdminClient.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AdminClient/src/tab/managment/Managment.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AdminClient/src/main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/AdminClient/src/main/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AdminClient/src/tab/managment/Management.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/AdminClient/src/tab/managment/Management.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AdminClient/src/tab/managment/ManagementController.java" beforeDir="false" afterPath="$PROJECT_DIR$/AdminClient/src/tab/managment/ManagementController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Common/src/general/constants/GeneralConstants.java" beforeDir="false" afterPath="$PROJECT_DIR$/Common/src/general/constants/GeneralConstants.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Common/src/resources/GSON/gson-2.8.8-javadoc.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Common/src/resources/GSON/gson-2.8.8-sources.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Common/src/resources/GSON/gson-2.8.8.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DTO/src/impl/WorldDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/DTO/src/impl/WorldDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI/src/javafx/mainScene/header/HeaderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/src/javafx/mainScene/header/HeaderController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI/src/javafx/mainScene/main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/src/javafx/mainScene/main/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI/src/javafx/mainScene/main/PredictionsMainAppController.java" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/src/javafx/mainScene/main/PredictionsMainAppController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI/src/javafx/tab/details/components/ComponentsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/src/javafx/tab/details/components/ComponentsController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI/src/javafx/tab/details/details/DetailsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/src/javafx/tab/details/details/DetailsController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI/src/javafx/tab/details/general/GeneralController.java" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/src/javafx/tab/details/general/GeneralController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI/src/javafx/tab/newExecution/mainComponent/NewExecutionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/src/javafx/tab/newExecution/mainComponent/NewExecutionController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI/src/javafx/tab/results/ResultsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/src/javafx/tab/results/ResultsController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI/src/javafx/tab/results/analyze/AnalyzePaginationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/src/javafx/tab/results/analyze/AnalyzePaginationController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI/src/javafx/tab/results/progress/ProgressController.java" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/src/javafx/tab/results/progress/ProgressController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI/src/task/UpdateEntitiesAmountTask.java" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/src/task/UpdateEntitiesAmountTask.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/definition/world/impl/WorldImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/definition/world/impl/WorldImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/execution/simulation/api/PredictionsLogic.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/execution/simulation/api/PredictionsLogic.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Logic/src/execution/simulation/impl/PredictionsLogicImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/execution/simulation/impl/PredictionsLogicImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Predictions.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Predictions.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/execution/simulation/manager/WorldManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/execution/simulation/manager/WorldManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/PredictionsWebApplication/PredictionsWebApplication.iml" beforeDir="false" afterPath="$PROJECT_DIR$/PredictionsWebApplication/PredictionsWebApplication.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PredictionsWebApplication/src/constans/Constants.java" beforeDir="false" afterPath="$PROJECT_DIR$/PredictionsWebApplication/src/constants/Constants.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PredictionsWebApplication/src/init/InitContextListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/PredictionsWebApplication/src/init/InitContextListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PredictionsWebApplication/src/servlet/UploadWorldServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/PredictionsWebApplication/src/servlet/UploadWorldServlet.java" afterDir="false" />
     </list>
     <list id="ff084db0-cb92-43bb-9658-8af184568cf4" name="Changes by ASUS" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -142,7 +151,7 @@
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
     "onboarding.tips.debug.path": "/Users/eyal/Java-Course/Predictions/PredictionsWebApplication/src/init/InitContextListener.java",
-    "project.structure.last.edited": "Modules",
+    "project.structure.last.edited": "Artifacts",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
     "settings.editor.selected.configurable": "preferences.applicationServers",
@@ -175,7 +184,7 @@
       <recent name="javafx.details.details" />
     </key>
   </component>
-  <component name="RunManager" selected="Tomcat Server.Tomcat 10.0.11">
+  <component name="RunManager" selected="Application.main.Main">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="javafx.mainScene.main.Main" />
       <module name="GUI" />
@@ -195,6 +204,19 @@
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="javafx.mainScene.main.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="main.Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="main.Main" />
+      <module name="AdminClient" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="main.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -292,11 +314,13 @@
       </method>
     </configuration>
     <list>
+      <item itemvalue="Application.main.Main" />
       <item itemvalue="Application.Main" />
       <item itemvalue="Tomcat Server.Tomcat 10.0.11" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.main.Main" />
         <item itemvalue="Application.Main" />
       </list>
     </recent_temporary>
@@ -384,7 +408,9 @@
       <workItem from="1695827828126" duration="3342000" />
       <workItem from="1695888575428" duration="1073000" />
       <workItem from="1695926013645" duration="14091000" />
-      <workItem from="1696093293644" duration="2414000" />
+      <workItem from="1696093293644" duration="6573000" />
+      <workItem from="1696160638044" duration="1116000" />
+      <workItem from="1696162411212" duration="1767000" />
     </task>
     <task id="LOCAL-00103" summary="changed evaluate to get the EntityInstance of secondaryEntity in each iteration in order to creare the proper context , also added functions to context to get the filtered SecondaryEntity list">
       <created>1694175010163</created>
@@ -504,14 +530,6 @@
       <option name="presentableId" value="LOCAL-00157" />
       <option name="project" value="LOCAL" />
       <updated>1695105621094</updated>
-    </task>
-    <task id="LOCAL‎-00160" summary="added Consistency object">
-      <option name="closed" value="true" />
-      <created>1695141571447</created>
-      <option name="number" value="00160" />
-      <option name="presentableId" value="LOCAL‎-00160" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1695141571447</updated>
     </task>
     <task id="LOCAL‎-00161" summary="consistency in gui">
       <option name="closed" value="true" />
@@ -761,7 +779,15 @@
       <option name="project" value="LOCAL‎" />
       <updated>1695986811163</updated>
     </task>
-    <option name="localTasksCounter" value="192" />
+    <task id="LOCAL‎-00192" summary="implement client upload class">
+      <option name="closed" value="true" />
+      <created>1696096373564</created>
+      <option name="number" value="00192" />
+      <option name="presentableId" value="LOCAL‎-00192" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1696096373566</updated>
+    </task>
+    <option name="localTasksCounter" value="193" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -792,7 +818,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="made pagination as sub component" />
     <MESSAGE value="population bar chart is implemented" />
     <MESSAGE value="added Consistency object" />
     <MESSAGE value="consistency in gui" />
@@ -817,7 +842,8 @@
     <MESSAGE value="logic now can get multiple worlds (GUI does not compile)" />
     <MESSAGE value="implemented file upload endpoint" />
     <MESSAGE value="If the uploaded file is not valid, the response includes a 400 code and a message describing the error." />
-    <option name="LAST_COMMIT_MESSAGE" value="If the uploaded file is not valid, the response includes a 400 code and a message describing the error." />
+    <MESSAGE value="implement client upload class" />
+    <option name="LAST_COMMIT_MESSAGE" value="implement client upload class" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
@@ -836,11 +862,6 @@
           <url>file://$PROJECT_DIR$/GUI/src/javafx/tab/newExecution/mainComponent/NewExecutionController.java</url>
           <line>400</line>
           <option name="timeStamp" value="157" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/PredictionsWebApplication/src/servlet/UploadWorldServlet.java</url>
-          <line>30</line>
-          <option name="timeStamp" value="160" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

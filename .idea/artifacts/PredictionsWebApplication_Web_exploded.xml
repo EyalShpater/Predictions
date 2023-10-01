@@ -9,6 +9,9 @@
           <element id="module-output" name="Logic" />
           <element id="module-output" name="DTO" />
         </element>
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="gson-2.8" />
+        </element>
       </element>
     </root>
   </artifact>

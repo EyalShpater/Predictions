@@ -60,4 +60,7 @@ public interface PredictionsLogic {
 
     Double getFinalNumericPropertyAvg(String entityName, String propertyName, int serialNumber);
 
+    List<String> getAllWorldsNames();
+
+    List<WorldDTO> getAllWorldsDTO();
 }

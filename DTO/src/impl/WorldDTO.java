@@ -10,9 +10,11 @@ public class WorldDTO implements DTO {
     private final TerminationDTO termination;
     private final int gridNumOfRows;
     private final int gridNumOfCols;
+    private final String name;
 
 
-    public WorldDTO(List<EntityDefinitionDTO> entities, List<RuleDTO> rules, TerminationDTO termination, int gridNumOfRows, int gridNumOfCols) {
+    public WorldDTO(String name, List<EntityDefinitionDTO> entities, List<RuleDTO> rules, TerminationDTO termination, int gridNumOfRows, int gridNumOfCols) {
+        this.name = name;
         this.entities = entities;
         this.rules = rules;
         this.termination = termination;
@@ -38,5 +40,9 @@ public class WorldDTO implements DTO {
 
     public int getGridNumOfCols() {
         return gridNumOfCols;
+    }
+
+    public String getName() {
+        return name;
     }
 }
