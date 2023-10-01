@@ -17,6 +17,11 @@ public class XmlReader {
 
         world.setName(prdWorld.getName());
 
+        Integer sleep = prdWorld.getSleep();
+        if (sleep != null) {
+            world.setSleepTime(sleep);
+        }
+
         //Object that reads into env vars
         EnvReader envReader = new EnvReader();
         envReader.read(this.prdWorld, world);

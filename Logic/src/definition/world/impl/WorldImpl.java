@@ -37,6 +37,7 @@ public class WorldImpl implements World  , Serializable {
     private int gridRows;
     private int gridCols;
     private int threadPoolSize;
+    private int sleepTime;
 
     public WorldImpl() {
         Random random = new Random();
@@ -44,6 +45,7 @@ public class WorldImpl implements World  , Serializable {
         entitiesDefinition = new HashMap<>();
         rules = new ArrayList<>();
         environmentVariables = new EnvironmentVariableManagerImpl();
+        this.sleepTime = 0;
     }
 
     @Override
@@ -74,6 +76,12 @@ public class WorldImpl implements World  , Serializable {
     @Override
     public TerminateCondition isActive(int currentTick, long secondsDuration, boolean userRequestedStop) {
         return terminate.isTerminate(currentTick, secondsDuration, userRequestedStop);
+    }
+
+    @Override
+    public void setSleepTime(Integer sleepTime) {
+        //TODO: use sleep in main loop
+        this.sleepTime = sleepTime;
     }
 
     @Override

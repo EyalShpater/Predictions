@@ -60,4 +60,6 @@ public interface World extends DTOConvertible<WorldDTO> {
     String getName();
 
     void setName(String name);
+
+    void setSleepTime(Integer sleepTime);
 }
