@@ -6,7 +6,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import tab.details.main.MainDetailsController;
+import component.details.main.MainDetailsController;
 
 import java.net.URL;
 
@@ -17,7 +17,7 @@ public class Main extends Application {
 
         primaryStage.setTitle("Predictions");
 
-        URL resource = getClass().getResource("/tab/details/main/MainDetails.fxml");
+        URL resource = getClass().getResource("/component/details/main/MainDetails.fxml");
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(resource);
         Parent mainApp = loader.load();

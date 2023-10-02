@@ -6,9 +6,9 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.StackPane?>
 
-<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0"
-           prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1"
-           fx:controller="tab.details.main.MainDetailsController">
+<StackPane maxHeight="1.7976931348623157E308" minWidth="400.0" prefHeight="400.0" prefWidth="600.0"
+           xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1"
+           fx:controller="component.details.main.MainDetailsController">
     <children>
         <SplitPane dividerPositions="0.1" orientation="VERTICAL">
             <items>

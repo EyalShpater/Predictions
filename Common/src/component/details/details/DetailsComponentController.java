@@ -1,9 +1,8 @@
-package tab.details.details;
+package component.details.details;
 
-import com.google.gson.Gson;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonParser;
-import general.constants.GeneralConstants;
+import component.details.components.ComponentsController;
+import component.details.entities.EntitiesController;
+import component.details.rules.RulesController;
 import impl.EntityDefinitionDTO;
 import impl.PropertyDefinitionDTO;
 import impl.RuleDTO;
@@ -19,23 +18,12 @@ import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TitledPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.StackPane;
-import javafx.tab.details.rules.RulesController;
-import okhttp3.Call;
-import okhttp3.HttpUrl;
-import okhttp3.Request;
-import okhttp3.Response;
 import servlet.request.RequestHandler;
-import tab.details.components.ComponentsController;
-import tab.details.entities.EntitiesController;
-import tab.details.environment.variables.EnvironmentVariablesController;
-import tab.details.general.GeneralController;
+import component.details.environment.variables.EnvironmentVariablesController;
+import component.details.general.GeneralController;
 
 import java.io.IOException;
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.List;
-
-import static general.configuration.Configuration.HTTP_CLIENT;
 
 public class DetailsComponentController {
 
@@ -101,7 +89,7 @@ public class DetailsComponentController {
 
     public void generalOnAction(ActionEvent event) {
         try {
-            URL resource = getClass().getResource("/tab/details/general/General.fxml");
+            URL resource = getClass().getResource("/component/details/general/General.fxml");
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(resource);
             StackPane general = loader.load();
@@ -123,7 +111,7 @@ public class DetailsComponentController {
 
     private void setNewEntity(EntityDefinitionDTO entity, Accordion accordion) {
         try {
-            URL resource = getClass().getResource("/tab/details/entities/Entities.fxml");
+            URL resource = getClass().getResource("/component/details/entities/Entities.fxml");
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(resource);
             TitledPane titledPane = loader.load();
@@ -137,7 +125,7 @@ public class DetailsComponentController {
 
     private void setNewEnvironmentVariableTile(PropertyDefinitionDTO env, FlowPane flowPane) {
         try {
-            URL resource = getClass().getResource("/tab/details/environment/variables/EnvironmentVariables.fxml");
+            URL resource = getClass().getResource("/component/details/environment/variables/EnvironmentVariables.fxml");
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(resource);
             StackPane stackPane = loader.load();
@@ -151,7 +139,7 @@ public class DetailsComponentController {
 
     private void setNewRule(RuleDTO rule, Accordion accordion) {
         try {
-            URL resource = getClass().getResource("/tab/details/rules/Rules.fxml");
+            URL resource = getClass().getResource("/component/details/rules/Rules.fxml");
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(resource);
             TitledPane rulePane = loader.load();

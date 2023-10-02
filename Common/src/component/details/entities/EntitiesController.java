@@ -1,4 +1,4 @@
-package tab.details.entities;
+package component.details.entities;
 
 import java.net.URL;
 import java.util.List;

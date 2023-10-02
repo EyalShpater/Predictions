@@ -1,4 +1,4 @@
-package tab.details.components;
+package component.details.components;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -6,7 +6,7 @@ import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
-import tab.details.details.DetailsComponentController;
+import component.details.details.DetailsComponentController;
 
 public class ComponentsController {
     private DetailsComponentController mainController;

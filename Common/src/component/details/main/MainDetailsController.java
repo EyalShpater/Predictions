@@ -1,5 +1,6 @@
-package tab.details.main;
+package component.details.main;
 
+import component.details.details.DetailsComponentController;
 import impl.WorldDTO;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
@@ -8,7 +9,6 @@ import javafx.scene.control.ChoiceBox;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import servlet.request.RequestHandler;
-import tab.details.details.DetailsComponentController;
 
 import java.io.IOException;
 import java.util.List;

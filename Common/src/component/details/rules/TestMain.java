@@ -1,4 +1,4 @@
-package javafx.tab.details.components;
+package component.details.rules;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -6,12 +6,12 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-public class Main extends Application {
+public class TestMain extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
         primaryStage.setTitle("Predictions");
 
-        Parent load = FXMLLoader.load(getClass().getResource("Components.fxml"));
+        Parent load = FXMLLoader.load(getClass().getResource("Rules.fxml"));
         Scene scene = new Scene(load, 600, 400);
         primaryStage.setScene(scene);
         primaryStage.show();

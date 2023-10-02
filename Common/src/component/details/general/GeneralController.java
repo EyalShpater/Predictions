@@ -1,4 +1,4 @@
-package tab.details.general;
+package component.details.general;
 
 import com.google.gson.Gson;
 import general.constants.GeneralConstants;

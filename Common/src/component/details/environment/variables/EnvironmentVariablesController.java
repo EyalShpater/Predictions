@@ -1,4 +1,4 @@
-package tab.details.environment.variables;
+package component.details.environment.variables;
 
 import impl.PropertyDefinitionDTO;
 import javafx.beans.property.SimpleStringProperty;

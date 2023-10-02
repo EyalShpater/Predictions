@@ -1,4 +1,4 @@
-package javafx.tab.details.rules;
+package component.details.rules;
 
 import impl.ActionDTO;
 import impl.RuleDTO;

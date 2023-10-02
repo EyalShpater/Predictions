@@ -1,5 +1,6 @@
 package tab.management;
 
+import component.details.details.DetailsComponentController;
 import general.constants.GeneralConstants;
 import impl.WorldDTO;
 import javafx.beans.property.IntegerProperty;
@@ -10,6 +11,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.StackPane;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import okhttp3.*;
@@ -31,9 +33,6 @@ public class ManagementController {
     private Button loadFileButton;
 
     @FXML
-    private ListView<String> simulationsListView;
-
-    @FXML
     private Button setThreadPoolSizeButton;
 
     @FXML
@@ -43,7 +42,13 @@ public class ManagementController {
     private GridPane queueDetails;
 
     @FXML
+    private StackPane detailsComponent;
+
+    @FXML
     private SimulationQueueController queueDetailsController;
+
+    @FXML
+    private DetailsComponentController detailsComponentController;
 
     private Stage primaryStage;
 
@@ -77,14 +82,6 @@ public class ManagementController {
     @FXML
     void onLoadFileClicked(ActionEvent event) throws IOException {
         uploadFile();
-        updateLoadedWorldsInTable();
-    }
-
-    private void updateLoadedWorldsInTable() throws IOException {
-        List<WorldDTO> worlds = RequestHandler.getWorlds();
-
-        simulationsListView.getItems().clear();
-        worlds.forEach(world -> simulationsListView.getItems().add(world.getName()));
     }
 
     private void uploadFile() throws IOException {
