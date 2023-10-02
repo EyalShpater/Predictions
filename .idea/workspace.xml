@@ -174,7 +174,7 @@
       <recent name="javafx.details.details" />
     </key>
   </component>
-  <component name="RunManager" selected="Tomcat Server.PredictionsWebApplication">
+  <component name="RunManager" selected="Application.AdminClientManagement">
     <configuration name="AdminClientManagement" type="Application" factoryName="Application" temporary="true">
       <option name="MAIN_CLASS_NAME" value="main.Main" />
       <module name="AdminClient" />
