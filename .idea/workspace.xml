@@ -331,6 +331,8 @@
         <item itemvalue="Application.AdminClientManagement" />
         <item itemvalue="Application.UserClientDetails" />
         <item itemvalue="Application.Main" />
+        <item itemvalue="Application.AdminClientManagement" />
+        <item itemvalue="Application.UserClientDetails" />
       </list>
     </recent_temporary>
   </component>

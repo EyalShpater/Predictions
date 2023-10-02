@@ -14,11 +14,11 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 
-<ScrollPane fitToHeight="true" fitToWidth="true" minHeight="500.0" minWidth="750.0"
+<ScrollPane fitToHeight="true" fitToWidth="true" minHeight="500.0" minWidth="700.0"
             xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1"
             fx:controller="tab.management.ManagementController">
     <content>
-        <BorderPane minWidth="700.0">
+        <BorderPane minHeight="500.0" minWidth="700.0">
             <center>
                 <StackPane>
                     <children>
@@ -48,14 +48,36 @@
                                     </children>
                                 </VBox>
                                 <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="1"
-                                           GridPane.columnSpan="2" GridPane.rowIndex="2" GridPane.rowSpan="3"/>
+                                           GridPane.columnSpan="2" GridPane.rowIndex="2" GridPane.rowSpan="3">
+                                    <children>
+                                        <GridPane alignment="CENTER" vgap="10.0">
+                                            <columnConstraints>
+                                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0"/>
+                                            </columnConstraints>
+                                            <rowConstraints>
+                                                <RowConstraints maxHeight="-Infinity" minHeight="-Infinity"
+                                                                vgrow="SOMETIMES"/>
+                                                <RowConstraints minHeight="10.0" vgrow="SOMETIMES"/>
+                                            </rowConstraints>
+                                            <children>
+                                                <fx:include source="component/details/main/MainDetails.fxml"
+                                                            GridPane.rowIndex="1"/>
+                                                <HBox alignment="CENTER">
+                                                    <children>
+                                                        <Label text="Loaded Simulations"/>
+                                                    </children>
+                                                </HBox>
+                                            </children>
+                                        </GridPane>
+                                    </children>
+                                </StackPane>
                             </children>
                         </GridPane>
                     </children>
                 </StackPane>
             </center>
             <right>
-                <StackPane BorderPane.alignment="CENTER">
+                <StackPane prefHeight="150.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                     <children>
                         <GridPane vgap="10.0">
                             <columnConstraints>
