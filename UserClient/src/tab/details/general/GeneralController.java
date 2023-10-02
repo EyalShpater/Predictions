@@ -3,6 +3,7 @@ package tab.details.general;
 import com.google.gson.Gson;
 import general.constants.GeneralConstants;
 import impl.GridDTO;
+import impl.WorldDTO;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import javafx.fxml.FXML;
@@ -11,6 +12,7 @@ import okhttp3.Call;
 import okhttp3.HttpUrl;
 import okhttp3.Request;
 import okhttp3.Response;
+import servlet.request.RequestHandler;
 
 import java.io.IOException;
 
@@ -45,24 +47,10 @@ public class GeneralController {
     }
 
     public void setPropertiesFromEngine() throws IOException {
-        Gson gson = new Gson();
+        WorldDTO world = RequestHandler.getWorld(selectedWorld);
 
-        HttpUrl.Builder urlBuilder = HttpUrl.parse(GeneralConstants.BASE_URL + GeneralConstants.GET_WORLD_GENERAL_INFORMATION_RESOURCE).newBuilder();
-        urlBuilder.addQueryParameter(GeneralConstants.WORLD_NAME_PARAMETER_NAME, selectedWorld);
-        String finalUrl = urlBuilder.build().toString();
-
-        Request request = new Request.Builder()
-                .url(finalUrl)
-                .build();
-
-        Call call = HTTP_CLIENT.newCall(request);
-
-        Response response = call.execute();
-
-        GridDTO gridInformation = gson.fromJson(response.body().string(), GridDTO.class);
-
-        numOfCols.set(String.valueOf(gridInformation.getCol()));
-        numOfRows.set(String.valueOf(gridInformation.getRow()));
+        numOfCols.set(String.valueOf(world.getGridNumOfCols()));
+        numOfRows.set(String.valueOf(world.getGridNumOfRows()));
     }
 
     public void setSelectedWorld(String worldName) {

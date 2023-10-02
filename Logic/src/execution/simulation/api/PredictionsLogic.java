@@ -64,4 +64,6 @@ public interface PredictionsLogic {
     List<WorldDTO> getAllWorldsDTO();
 
     GridDTO getGridInformation(String worldName);
+
+    void setThreadPoolSize(int size);
 }

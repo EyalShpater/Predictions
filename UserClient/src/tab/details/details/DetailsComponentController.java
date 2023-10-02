@@ -72,9 +72,13 @@ public class DetailsComponentController {
         fp.setHgap(5);
         fp.setVgap(5);
         fp.setPadding(new Insets(5));
-//
-//        engine.getEnvironmentVariablesToSet()
-//                .forEach(env -> setNewEnvironmentVariableTile(env, fp));
+
+        try {
+            RequestHandler.getEnvironmentVariablesToSet(worldName)
+                    .forEach(env -> setNewEnvironmentVariableTile(env, fp));
+        } catch (Exception ignored) {
+        }
+
 
         ScrollPane sp = new ScrollPane(fp);
         sp.setFitToWidth(true);
@@ -85,10 +89,9 @@ public class DetailsComponentController {
         try {
             Accordion newScene = new Accordion();
 
-//            engine
-//                    .getLoadedSimulationDetails()
-//                    .getRules()
-//                    .forEach(rule -> setNewRule(rule, newScene));
+            RequestHandler.getWorld(worldName)
+                    .getRules()
+                    .forEach(rule -> setNewRule(rule, newScene));
 
             sceneSwitcher.getChildren().clear();
             sceneSwitcher.getChildren().add(newScene);

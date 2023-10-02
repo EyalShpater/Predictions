@@ -3,14 +3,10 @@ package servlet.request;
 import com.google.gson.Gson;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonParser;
+import com.sun.org.apache.bcel.internal.generic.RET;
 import general.constants.GeneralConstants;
-import impl.EntityDefinitionDTO;
-import impl.RuleDTO;
-import impl.WorldDTO;
-import okhttp3.Call;
-import okhttp3.HttpUrl;
-import okhttp3.Request;
-import okhttp3.Response;
+import impl.*;
+import okhttp3.*;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -21,24 +17,7 @@ import static general.configuration.Configuration.HTTP_CLIENT;
 public class RequestHandler {
 
     public static List<EntityDefinitionDTO> getEntities(String worldName) throws IOException {
-        List<EntityDefinitionDTO> entities = new ArrayList<>();
-        Gson gson = new Gson();
-
-        HttpUrl.Builder urlBuilder = HttpUrl.parse(GeneralConstants.BASE_URL + GeneralConstants.GET_ENTITIES_INFO_RESOURCE).newBuilder();
-        urlBuilder.addQueryParameter(GeneralConstants.WORLD_NAME_PARAMETER_NAME, worldName);
-        String finalUrl = urlBuilder.build().toString();
-
-        Request request = new Request.Builder()
-                .url(finalUrl)
-                .build();
-
-        Call call = HTTP_CLIENT.newCall(request);
-        Response response = call.execute();
-
-        JsonArray entitiesJson = JsonParser.parseString(response.body().string()).getAsJsonArray();
-        entitiesJson.forEach(entity -> entities.add(gson.fromJson(entity, EntityDefinitionDTO.class)));
-
-        return entities;
+        return getWorld(worldName).getEntities();
     }
 
     public static List<WorldDTO> getWorlds() throws IOException {
@@ -61,10 +40,60 @@ public class RequestHandler {
     }
 
     public static List<RuleDTO> getRules(String worldName) throws IOException {
-        List<RuleDTO> rules = new ArrayList<>();
+        return getWorld(worldName).getRules();
+    }
+
+    public static WorldDTO getWorld(String worldName) throws IOException {
+        Response response = getResponseUsingWorldName(GeneralConstants.GET_WORLD_RESOURCE, worldName);
         Gson gson = new Gson();
 
-        HttpUrl.Builder urlBuilder = HttpUrl.parse(GeneralConstants.BASE_URL + GeneralConstants.GET_RULES_INFO_RESOURCE).newBuilder();
+        return (WorldDTO) gson.fromJson(response.body().string(), WorldDTO.class);
+    }
+
+    public static List<PropertyDefinitionDTO> getEnvironmentVariablesToSet(String worldName) throws IOException {
+        List<PropertyDefinitionDTO> environmentVariables = new ArrayList<>();
+        Response response = getResponseUsingWorldName(GeneralConstants.GET_ENVIRONMENT_VARIABLES_TO_SET_RESOURCE, worldName);
+        Gson gson = new Gson();
+
+        JsonArray varsJson = JsonParser.parseString(response.body().string()).getAsJsonArray();
+        varsJson.forEach(varJson -> environmentVariables.add(gson.fromJson(varJson, PropertyDefinitionDTO.class)));
+
+        return environmentVariables;
+    }
+
+    public static SimulationQueueDto getSimulationQueueData() throws IOException {
+        Gson gson = new Gson();
+
+        Request request = new Request.Builder()
+                .url(GeneralConstants.BASE_URL + GeneralConstants.GET_SIMULATION_QUEUE_DETAILS_RESOURCE)
+                .build();
+
+        Call call = HTTP_CLIENT.newCall(request);
+        Response response = call.execute();
+
+        return (SimulationQueueDto) gson.fromJson(response.body().string(), SimulationQueueDto.class);
+    }
+
+    public static int setThreadPoolSize(int size) throws IOException {
+        HttpUrl.Builder urlBuilder = HttpUrl.parse(GeneralConstants.BASE_URL + GeneralConstants.SET_THREAD_POOL_SIZE_RESOURCE).newBuilder();
+        urlBuilder.addQueryParameter(GeneralConstants.THREAD_POOL_SIZE_PARAMETER_NAME, String.valueOf(size));
+        String finalUrl = urlBuilder.build().toString();
+
+        RequestBody body = RequestBody.create("".getBytes());
+
+        Request request = new Request.Builder()
+                .url(finalUrl)
+                .put(body)
+                .build();
+
+        Call call = HTTP_CLIENT.newCall(request);
+        Response response = call.execute();
+
+        return response.code();
+    }
+
+    private static Response getResponseUsingWorldName(String resource, String worldName) throws IOException {
+        HttpUrl.Builder urlBuilder = HttpUrl.parse(GeneralConstants.BASE_URL + resource).newBuilder();
         urlBuilder.addQueryParameter(GeneralConstants.WORLD_NAME_PARAMETER_NAME, worldName);
         String finalUrl = urlBuilder.build().toString();
 
@@ -75,9 +104,6 @@ public class RequestHandler {
         Call call = HTTP_CLIENT.newCall(request);
         Response response = call.execute();
 
-        JsonArray rulesJson = JsonParser.parseString(response.body().string()).getAsJsonArray();
-        rulesJson.forEach(ruleJson -> rules.add(gson.fromJson(ruleJson, RuleDTO.class)));
-
-        return rules;
+        return response;
     }
 }

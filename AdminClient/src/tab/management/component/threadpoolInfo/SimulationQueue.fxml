@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+
+<GridPane alignment="CENTER_RIGHT" hgap="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
+          minWidth="-Infinity" nodeOrientation="LEFT_TO_RIGHT" vgap="10.0" xmlns="http://javafx.com/javafx/8.0.171"
+          xmlns:fx="http://javafx.com/fxml/1"
+          fx:controller="tab.management.component.threadpoolInfo.SimulationQueueController">
+    <columnConstraints>
+        <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="10.0" minWidth="10.0" prefWidth="10.0"/>
+        <ColumnConstraints halignment="RIGHT" hgrow="NEVER" maxWidth="-Infinity" minWidth="-Infinity"/>
+        <ColumnConstraints halignment="LEFT" hgrow="NEVER" maxWidth="-Infinity" minWidth="-Infinity"/>
+        <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="10.0" minWidth="10.0" prefWidth="10.0"/>
+    </columnConstraints>
+    <rowConstraints>
+        <RowConstraints maxHeight="10.0" minHeight="10.0" prefHeight="10.0" vgrow="SOMETIMES"/>
+        <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="NEVER"/>
+        <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="SOMETIMES"/>
+        <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="SOMETIMES"/>
+        <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="SOMETIMES"/>
+        <RowConstraints maxHeight="10.0" minHeight="10.0" prefHeight="10.0" vgrow="SOMETIMES"/>
+        <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="SOMETIMES"/>
+        <RowConstraints maxHeight="10.0" minHeight="10.0" prefHeight="10.0" vgrow="SOMETIMES"/>
+    </rowConstraints>
+    <children>
+        <Label alignment="CENTER" text="Total Simulations:" GridPane.columnIndex="1" GridPane.rowIndex="4"/>
+        <Label fx:id="totalLabel" GridPane.columnIndex="2" GridPane.rowIndex="4"/>
+        <Label text="Waiting Simulations:" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+        <Label fx:id="waitingLabel" GridPane.columnIndex="2" GridPane.rowIndex="2"/>
+        <Label text="Runing Simulations:" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+        <Label fx:id="runningLabel" GridPane.columnIndex="2" GridPane.rowIndex="1"/>
+        <Label text="Runing Simulations:" GridPane.columnIndex="1" GridPane.rowIndex="3"/>
+        <Label fx:id="completedLabel" GridPane.columnIndex="2" GridPane.rowIndex="3"/>
+        <Label text="Threads Amount:" GridPane.columnIndex="1" GridPane.rowIndex="6"/>
+        <Label fx:id="threadsAmountLabel" GridPane.columnIndex="3" GridPane.rowIndex="6"/>
+    </children>
+</GridPane>

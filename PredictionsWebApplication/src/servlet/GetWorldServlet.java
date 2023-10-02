@@ -14,13 +14,12 @@ import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet(GeneralConstants.GET_ENTITIES_INFO_RESOURCE)
-public class EntitiesServlet extends HttpServlet {
+@WebServlet(GeneralConstants.GET_WORLD_RESOURCE)
+public class GetWorldServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         PredictionsLogic engine = (PredictionsLogic) getServletContext().getAttribute(Constants.PREDICTIONS_OBJECT_NAME);
         String worldName = req.getParameter(GeneralConstants.WORLD_NAME_PARAMETER_NAME);
-        List<EntityDefinitionDTO> entities;
 
         if (worldName == null) {
             resp.setStatus(HttpServletResponse.SC_FORBIDDEN);
@@ -28,7 +27,6 @@ public class EntitiesServlet extends HttpServlet {
             return;
         }
 
-        entities = engine.getWorldDetails(worldName).getEntities();
-        resp.getWriter().println(new Gson().toJson(entities));
+        resp.getWriter().println(new Gson().toJson(engine.getWorldDetails(worldName)));
     }
 }

@@ -1,25 +1,23 @@
-package tab.managment;
+package tab.management;
 
-import com.google.gson.Gson;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonParser;
 import general.constants.GeneralConstants;
 import impl.WorldDTO;
+import javafx.beans.property.IntegerProperty;
+import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
-import javafx.scene.control.ListView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
+import javafx.scene.layout.GridPane;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import okhttp3.*;
+import servlet.request.RequestHandler;
+import tab.management.component.threadpoolInfo.SimulationQueueController;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 
 import static general.configuration.Configuration.HTTP_CLIENT;
@@ -35,16 +33,45 @@ public class ManagementController {
     @FXML
     private ListView<String> simulationsListView;
 
-    private OkHttpClient httpClient;
+    @FXML
+    private Button setThreadPoolSizeButton;
+
+    @FXML
+    private Spinner<Integer> threadPoolSizeSpinner;
+
+    @FXML
+    private GridPane queueDetails;
+
+    @FXML
+    private SimulationQueueController queueDetailsController;
+
+    private Stage primaryStage;
 
     private StringProperty filePath;
-    private Stage primaryStage;
+    private IntegerProperty threadPoolSize;
 
     @FXML
     private void initialize() {
         filePath = new SimpleStringProperty("");
+        threadPoolSize = new SimpleIntegerProperty(100);
+
+        setSpinner();
 
         filePathTextField.textProperty().bind(filePath);
+        threadPoolSizeSpinner.accessibleTextProperty().bind(threadPoolSize.asString());
+        queueDetails.setStyle(("-fx-border-color: #000000; -fx-border-width: 3px;"));
+    }
+
+    private void setSpinner() {
+        threadPoolSizeSpinner.setValueFactory(new SpinnerValueFactory.IntegerSpinnerValueFactory(1, GeneralConstants.MAX_THREAD_POOL_SIZE));
+        threadPoolSizeSpinner.getValueFactory().setWrapAround(true);
+
+        threadPoolSizeSpinner.getEditor().setOnAction(event -> threadPoolSizeSpinner.increment(0));
+        threadPoolSizeSpinner.focusedProperty().addListener((observable, oldValue, newValue) -> {
+            if (!newValue) {
+                threadPoolSizeSpinner.increment(0);
+            }
+        });
     }
 
     @FXML
@@ -54,20 +81,7 @@ public class ManagementController {
     }
 
     private void updateLoadedWorldsInTable() throws IOException {
-        Gson gson = new Gson();
-
-        Request request = new Request.Builder()
-                .url(GeneralConstants.BASE_URL + GeneralConstants.GET_LOADED_WORLDS_RESOURCE)
-                .build();
-
-        Call call = HTTP_CLIENT.newCall(request);
-
-        Response response = call.execute();
-
-        JsonArray worldsJson = JsonParser.parseString(response.body().string()).getAsJsonArray();
-        List<WorldDTO> worlds = new ArrayList<>();
-
-        worldsJson.forEach(json -> worlds.add(gson.fromJson(json, WorldDTO.class)));
+        List<WorldDTO> worlds = RequestHandler.getWorlds();
 
         simulationsListView.getItems().clear();
         worlds.forEach(world -> simulationsListView.getItems().add(world.getName()));
@@ -118,5 +132,19 @@ public class ManagementController {
 
     public void setStage(Stage stage) {
         this.primaryStage = stage;
+    }
+
+    public void onSetClicked(ActionEvent actionEvent) {
+        try {
+            if (RequestHandler.setThreadPoolSize(threadPoolSizeSpinner.getValue()) != 200) {
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+
+                alert.setTitle("Error!");
+                alert.setContentText("Illegal Argument!");
+                alert.setHeaderText("Error Has Occurred!");
+                alert.showAndWait();
+            }
+        } catch (Exception ignored) {
+        }
     }
 }

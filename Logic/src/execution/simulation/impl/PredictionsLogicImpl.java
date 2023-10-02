@@ -190,7 +190,6 @@ public class PredictionsLogicImpl implements PredictionsLogic , Serializable {
 
     @Override
     public SimulationQueueDto getSimulationQueueDetails() {
-
         return allSimulations == null ? null : allSimulations.getSimulationQueueDetails();
     }
 
@@ -217,6 +216,11 @@ public class PredictionsLogicImpl implements PredictionsLogic , Serializable {
         World slectedWorld = worlds.getWorld(worldName);
 
         return new GridDTO(slectedWorld.getGridRows(), slectedWorld.getGridCols());
+    }
+
+    @Override
+    public void setThreadPoolSize(int size) {
+        allSimulations.setThreadPoolSize(size);
     }
 
     private void processXmlData(XmlValidator validator) throws JAXBException {

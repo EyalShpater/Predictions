@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Spinner?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="tab.management.ManagementController">
+    <center>
+        <StackPane prefHeight="150.0" prefWidth="200.0">
+            <children>
+                <GridPane vgap="10.0">
+                    <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="10.0" minWidth="10.0" prefWidth="10.0"/>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="10.0" minWidth="10.0" prefWidth="10.0"/>
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints maxHeight="10.0" minHeight="10.0" prefHeight="10.0" vgrow="SOMETIMES"/>
+                        <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="SOMETIMES"/>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                        <RowConstraints maxHeight="10.0" minHeight="10.0" prefHeight="10.0" vgrow="SOMETIMES"/>
+                    </rowConstraints>
+                    <children>
+                        <VBox alignment="CENTER_RIGHT" spacing="5.0" GridPane.columnIndex="1" GridPane.columnSpan="2"
+                              GridPane.rowIndex="1">
+                            <children>
+                                <TextField fx:id="filePathTextField" editable="false"
+                                           promptText="Please enter file path here..."/>
+                                <Button fx:id="loadFileButton" mnemonicParsing="false" onAction="#onLoadFileClicked"
+                                        text="Load File"/>
+                            </children>
+                        </VBox>
+                        <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.columnSpan="2"
+                                   GridPane.rowIndex="2" GridPane.rowSpan="3">
+                            <children>
+                                <GridPane alignment="CENTER" vgap="10.0">
+                                    <columnConstraints>
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0"/>
+                                    </columnConstraints>
+                                    <rowConstraints>
+                                        <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="SOMETIMES"/>
+                                        <RowConstraints minHeight="10.0" vgrow="SOMETIMES"/>
+                                    </rowConstraints>
+                                    <children>
+                                        <ListView fx:id="simulationsListView" prefHeight="200.0" prefWidth="200.0"
+                                                  GridPane.rowIndex="1"/>
+                                        <HBox alignment="CENTER">
+                                            <children>
+                                                <Label text="Loaded Simulations"/>
+                                            </children>
+                                        </HBox>
+                                    </children>
+                                </GridPane>
+                            </children>
+                        </StackPane>
+                    </children>
+                </GridPane>
+            </children>
+        </StackPane>
+    </center>
+    <right>
+        <StackPane prefHeight="150.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+            <children>
+                <GridPane vgap="10.0">
+                    <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="10.0" minWidth="10.0" prefWidth="10.0"/>
+                        <ColumnConstraints hgrow="ALWAYS"/>
+                        <ColumnConstraints hgrow="ALWAYS"/>
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="10.0" minWidth="10.0" prefWidth="10.0"/>
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints maxHeight="10.0" minHeight="10.0" prefHeight="10.0" vgrow="SOMETIMES"/>
+                        <RowConstraints maxHeight="-Infinity" minHeight="60.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                        <RowConstraints minHeight="-Infinity" vgrow="SOMETIMES"/>
+                        <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="SOMETIMES"/>
+                        <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" prefHeight="30.0"
+                                        vgrow="SOMETIMES"/>
+                        <RowConstraints maxHeight="10.0" minHeight="10.0" prefHeight="10.0" vgrow="SOMETIMES"/>
+                    </rowConstraints>
+                    <children>
+                        <HBox alignment="CENTER" GridPane.columnIndex="1" GridPane.columnSpan="2"
+                              GridPane.rowIndex="1"/>
+                        <StackPane GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="2">
+                            <children>
+                                <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="180.0">
+                                    <children>
+                                        <Label text="Thread Pool Information">
+                                            <padding>
+                                                <Insets bottom="10.0"/>
+                                            </padding>
+                                        </Label>
+                                        <fx:include fx:id="queueDetails"
+                                                    source="component/threadpoolInfo/SimulationQueue.fxml"/>
+                                    </children>
+                                </VBox>
+                            </children>
+                        </StackPane>
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="10.0"
+                              GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="4"
+                              GridPane.vgrow="SOMETIMES">
+                            <children>
+                                <Spinner fx:id="threadPoolSizeSpinner" editable="true" minHeight="-Infinity"
+                                         minWidth="-Infinity"/>
+                                <Button fx:id="setThreadPoolSizeButton" minHeight="-Infinity" minWidth="-Infinity"
+                                        mnemonicParsing="false" onAction="#onSetClicked" text="Set"/>
+                            </children>
+                        </HBox>
+                        <HBox alignment="CENTER" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="3">
+                            <children>
+                                <Label text="Set Thread Pool Size"/>
+                            </children>
+                        </HBox>
+                    </children>
+                </GridPane>
+            </children>
+        </StackPane>
+    </right>
+</BorderPane>

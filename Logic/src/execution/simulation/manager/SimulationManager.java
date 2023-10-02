@@ -13,16 +13,21 @@ import java.util.concurrent.*;
 import java.util.stream.Collectors;
 
 public class SimulationManager implements Serializable {
+    private final static int DEFAULT_THREAD_POOL_SIZE = 5;
+
     private int serialNumber;
     private Map<Integer, Simulation> simulations;
     private ExecutorService threadPool;
     private WorldManager worlds;
 
+    private int poolSize;
+
     public SimulationManager() {
         this.serialNumber = 1;
         this.simulations = new HashMap<>();
         this.worlds = new WorldManager();
-        this.threadPool = Executors.newFixedThreadPool(5); // todo: default value? world.getThreadPoolSize());
+        this.poolSize = DEFAULT_THREAD_POOL_SIZE;
+        this.threadPool = Executors.newFixedThreadPool(poolSize);
     }
 
     public int runNewSimulation(World world, SimulationInitDataFromUserDTO initData) {
@@ -57,11 +62,18 @@ public class SimulationManager implements Serializable {
         return new SimulationQueueDto(
                 simulations.size(),
                 threadPoolExecutor.getQueue().size(),
-                threadPoolExecutor.getActiveCount()
+                threadPoolExecutor.getActiveCount(),
+                poolSize
         );
     }
 
     public void clearAllSimulations() {
         simulations.clear();
+    }
+
+    public void setThreadPoolSize(int size) {
+        this.poolSize = size;
+        this.threadPool.shutdownNow();
+        this.threadPool = Executors.newFixedThreadPool(poolSize);
     }
 }
