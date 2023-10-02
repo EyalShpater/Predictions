@@ -24,6 +24,7 @@ import okhttp3.Call;
 import okhttp3.HttpUrl;
 import okhttp3.Request;
 import okhttp3.Response;
+import servlet.request.RequestHandler;
 import tab.details.components.ComponentsController;
 import tab.details.entities.EntitiesController;
 import tab.details.environment.variables.EnvironmentVariablesController;
@@ -58,33 +59,12 @@ public class DetailsComponentController {
         try {
             Accordion newScene = new Accordion();
 
-            getEntities().forEach(entity -> setNewEntity(entity, newScene));
+            RequestHandler.getEntities(worldName).forEach(entity -> setNewEntity(entity, newScene));
 
             sceneSwitcher.getChildren().clear();
             sceneSwitcher.getChildren().add(newScene);
         } catch (Exception ignored) {
         }
-    }
-
-    private List<EntityDefinitionDTO> getEntities() throws IOException {
-        List<EntityDefinitionDTO> entities = new ArrayList<>();
-        Gson gson = new Gson();
-
-        HttpUrl.Builder urlBuilder = HttpUrl.parse(GeneralConstants.BASE_URL + GeneralConstants.GET_ENTITIES_INFO_RESOURCE).newBuilder();
-        urlBuilder.addQueryParameter(GeneralConstants.WORLD_NAME_PARAMETER_NAME, worldName);
-        String finalUrl = urlBuilder.build().toString();
-
-        Request request = new Request.Builder()
-                .url(finalUrl)
-                .build();
-
-        Call call = HTTP_CLIENT.newCall(request);
-        Response response = call.execute();
-
-        JsonArray entitiesJson = JsonParser.parseString(response.body().string()).getAsJsonArray();
-        entitiesJson.forEach(entity -> entities.add(gson.fromJson(entity, EntityDefinitionDTO.class)));
-
-        return entities;
     }
 
     public void environmentVarOnAction(ActionEvent event) {
@@ -124,7 +104,7 @@ public class DetailsComponentController {
             StackPane general = loader.load();
             GeneralController generalController = loader.getController();
 
-//            generalController.setEngine(engine);
+            generalController.setSelectedWorld(worldName);
             generalController.setPropertiesFromEngine();
             setScene(general);
 

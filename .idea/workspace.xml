@@ -9,19 +9,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="27d35137-667f-4e37-a519-ab836acc0a06" name="Changes" comment="implement user client">
-      <change afterPath="$PROJECT_DIR$/PredictionsWebApplication/src/servlet/EntitiesServlet.java" afterDir="false" />
+    <list default="true" id="27d35137-667f-4e37-a519-ab836acc0a06" name="Changes" comment="userClient - details - entities implemented">
+      <change afterPath="$PROJECT_DIR$/Common/src/servlet/request/RequestHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PredictionsWebApplication/src/servlet/RulesServlet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Common/Common.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Common/Common.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Common/src/general/constants/GeneralConstants.java" beforeDir="false" afterPath="$PROJECT_DIR$/Common/src/general/constants/GeneralConstants.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/src/javafx/tab/details/details/Details.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/src/javafx/tab/details/details/Details.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/execution/simulation/api/PredictionsLogic.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/execution/simulation/api/PredictionsLogic.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/execution/simulation/impl/PredictionsLogicImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/execution/simulation/impl/PredictionsLogicImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PredictionsWebApplication/src/servlet/TestServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/PredictionsWebApplication/src/servlet/TestServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserClient/src/tab/details/components/ComponentsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/UserClient/src/tab/details/components/ComponentsController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserClient/src/tab/details/details/Details.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/UserClient/src/tab/details/details/DetailsComponent.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserClient/src/tab/details/details/DetailsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/UserClient/src/tab/details/details/DetailsComponentController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserClient/src/tab/details/details/TestMain.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserClient/src/tab/details/main/MainDetails.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/UserClient/src/tab/details/main/MainDetails.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserClient/src/tab/details/details/DetailsComponentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/UserClient/src/tab/details/details/DetailsComponentController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserClient/src/tab/details/entities/TestMain.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserClient/src/tab/details/environment/variables/TestMain.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserClient/src/tab/details/general/General.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/UserClient/src/tab/details/general/General.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserClient/src/tab/details/general/GeneralController.java" beforeDir="false" afterPath="$PROJECT_DIR$/UserClient/src/tab/details/general/GeneralController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UserClient/src/tab/details/main/MainDetailsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/UserClient/src/tab/details/main/MainDetailsController.java" afterDir="false" />
     </list>
     <list id="6cbafc1d-7dde-494d-8286-c6ac637af650" name="Changes by ASUS" comment="" />
@@ -406,7 +404,7 @@
       <workItem from="1695926013645" duration="14091000" />
       <workItem from="1696093293644" duration="6573000" />
       <workItem from="1696160638044" duration="1116000" />
-      <workItem from="1696162411212" duration="17155000" />
+      <workItem from="1696162411212" duration="19482000" />
     </task>
     <task id="LOCAL-00103" summary="changed evaluate to get the EntityInstance of secondaryEntity in each iteration in order to creare the proper context , also added functions to context to get the filtered SecondaryEntity list">
       <created>1694175010163</created>
@@ -526,14 +524,6 @@
       <option name="presentableId" value="LOCAL-00157" />
       <option name="project" value="LOCAL" />
       <updated>1695105621094</updated>
-    </task>
-    <task id="LOCAL‎-00164" summary="population per tick implement">
-      <option name="closed" value="true" />
-      <created>1695197395831</created>
-      <option name="number" value="00164" />
-      <option name="presentableId" value="LOCAL‎-00164" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1695197395831</updated>
     </task>
     <task id="LOCAL‎-00165" summary="changed the population chart">
       <option name="closed" value="true" />
@@ -783,7 +773,15 @@
       <option name="project" value="LOCAL‎" />
       <updated>1696180356698</updated>
     </task>
-    <option name="localTasksCounter" value="196" />
+    <task id="LOCAL‎-00196" summary="userClient - details - entities implemented">
+      <option name="closed" value="true" />
+      <created>1696228874782</created>
+      <option name="number" value="00196" />
+      <option name="presentableId" value="LOCAL‎-00196" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1696228874782</updated>
+    </task>
+    <option name="localTasksCounter" value="197" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -814,7 +812,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="clear button bug fix" />
     <MESSAGE value="population per tick implement" />
     <MESSAGE value="population per tick graph implemented" />
     <MESSAGE value="changed the population chart" />
@@ -839,7 +836,8 @@
     <MESSAGE value="implement getWorlds endpoint using GSON" />
     <MESSAGE value="Changes by ASUS" />
     <MESSAGE value="implement user client" />
-    <option name="LAST_COMMIT_MESSAGE" value="implement user client" />
+    <MESSAGE value="userClient - details - entities implemented" />
+    <option name="LAST_COMMIT_MESSAGE" value="userClient - details - entities implemented" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
@@ -861,8 +859,8 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/UserClient/src/tab/details/details/DetailsComponentController.java</url>
-          <line>58</line>
-          <option name="timeStamp" value="174" />
+          <line>101</line>
+          <option name="timeStamp" value="178" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

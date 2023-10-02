@@ -16,5 +16,7 @@
         <SOURCES />
       </library>
     </orderEntry>
+    <orderEntry type="module" module-name="DTO" />
+    <orderEntry type="library" name="gson-2.8" level="project" />
   </component>
 </module>

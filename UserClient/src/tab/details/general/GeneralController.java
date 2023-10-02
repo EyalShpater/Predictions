@@ -45,30 +45,6 @@ public class GeneralController {
     }
 
     public void setPropertiesFromEngine() throws IOException {
-//        boolean isTerminateByTicks = engine
-//                .getLoadedSimulationDetails()
-//                .getTermination()
-//                .isTerminateByTicks();
-//        boolean isTerminateBySeconds = engine
-//                .getLoadedSimulationDetails()
-//                .getTermination()
-//                .isTerminateBySeconds();
-//
-//        numOfTicks.set(
-//                isTerminateByTicks ?
-//                        String.valueOf(engine
-//                                .getLoadedSimulationDetails()
-//                                .getTermination()
-//                                .getTicksToTerminate()) :
-//                        "");
-//
-//        numOfSeconds.set(
-//                isTerminateBySeconds ?
-//                        String.valueOf(engine
-//                                .getLoadedSimulationDetails()
-//                                .getTermination()
-//                                .getSecondsToTerminate()) :
-//                        "");
         Gson gson = new Gson();
 
         HttpUrl.Builder urlBuilder = HttpUrl.parse(GeneralConstants.BASE_URL + GeneralConstants.GET_WORLD_GENERAL_INFORMATION_RESOURCE).newBuilder();

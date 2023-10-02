@@ -8,6 +8,7 @@ public class GeneralConstants {
     public static final String GET_LOADED_WORLDS_RESOURCE = "/info/loaded_worlds";
     public static final String GET_WORLD_GENERAL_INFORMATION_RESOURCE = "/info/world_info";
     public static final String GET_ENTITIES_INFO_RESOURCE = "/info/entities";
+    public static final String GET_RULES_INFO_RESOURCE = "/info/rules";
 
     public static final String WORLD_NAME_PARAMETER_NAME = "name";
 }
