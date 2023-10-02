@@ -25,7 +25,7 @@
                         </HBox>
                     </children>
                 </StackPane>
-                <fx:include source="../details/Details.fxml"/>
+                <fx:include fx:id="detailsComponent" source="../details/DetailsComponent.fxml"/>
             </items>
         </SplitPane>
     </children>

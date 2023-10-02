@@ -1,7 +1,6 @@
 package execution.simulation.api;
 
 import impl.*;
-import javafx.util.Pair;
 
 import javax.xml.bind.JAXBException;
 import java.io.InputStream;
@@ -18,7 +17,7 @@ public interface PredictionsLogic {
 
     Map<String, Integer> getEntitiesToPopulation(String worldName);
 
-    WorldDTO getLoadedSimulationDetails(String worldName);
+    WorldDTO getWorldDetails(String worldName);
 
     Map<Integer, Map<String, Long>> getPopulationPerTickData(int serialNumber);
 

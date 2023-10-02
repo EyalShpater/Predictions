@@ -6,10 +6,10 @@ import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
-import tab.details.details.DetailsController;
+import tab.details.details.DetailsComponentController;
 
 public class ComponentsController {
-    private DetailsController mainController;
+    private DetailsComponentController mainController;
 
     @FXML
     private ResourceBundle resources;
@@ -30,7 +30,7 @@ public class ComponentsController {
     private Button generalButton;
 
 
-    public void setMainController(DetailsController mainController) {
+    public void setMainController(DetailsComponentController mainController) {
         this.mainController = mainController;
     }
 

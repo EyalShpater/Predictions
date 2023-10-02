@@ -10,9 +10,11 @@ import javafx.beans.property.StringProperty;
 import javafx.fxml.FXML;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.BorderPane;
 import okhttp3.Call;
 import okhttp3.Request;
 import okhttp3.Response;
+import tab.details.details.DetailsComponentController;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -24,6 +26,12 @@ public class MainDetailsController {
 
     @FXML
     private ChoiceBox<String> worldChoiceBox;
+
+    @FXML
+    private BorderPane detailsComponent;
+
+    @FXML
+    private DetailsComponentController detailsComponentController;
 
     private StringProperty selectedWorld = new SimpleStringProperty();
 
@@ -61,7 +69,7 @@ public class MainDetailsController {
 
     private void onValueChanged(String newValue) {
         if (newValue != null) {
-            
+            detailsComponentController.setWorldName(newValue);
             //logic
 
             System.out.println(newValue);

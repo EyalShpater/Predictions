@@ -70,7 +70,7 @@ public class PredictionsLogicImpl implements PredictionsLogic , Serializable {
     }
 
     @Override
-    public WorldDTO getLoadedSimulationDetails(String worldName) {
+    public WorldDTO getWorldDetails(String worldName) {
         return worlds
                 .getWorld(worldName)
                 .convertToDTO();

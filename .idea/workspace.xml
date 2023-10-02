@@ -9,50 +9,22 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="27d35137-667f-4e37-a519-ab836acc0a06" name="Changes" comment="implement getWorlds endpoint using GSON">
-      <change afterPath="$PROJECT_DIR$/UserClient/UserClient.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/UserClient/src/main/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/UserClient/src/tab/details/components/Components.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/UserClient/src/tab/details/components/ComponentsController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/UserClient/src/tab/details/components/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/UserClient/src/tab/details/details/Details.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/UserClient/src/tab/details/details/DetailsController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/UserClient/src/tab/details/details/TestMain.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/UserClient/src/tab/details/entities/Entities.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/UserClient/src/tab/details/entities/EntitiesController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/UserClient/src/tab/details/entities/TestMain.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/UserClient/src/tab/details/environment/variables/EnvironmentVariables.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/UserClient/src/tab/details/environment/variables/EnvironmentVariablesController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/UserClient/src/tab/details/environment/variables/TestMain.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/UserClient/src/tab/details/general/General.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/UserClient/src/tab/details/general/GeneralController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/UserClient/src/tab/details/main/MainDetails.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/UserClient/src/tab/details/main/MainDetailsController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/UserClient/src/tab/details/resources/employee.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/UserClient/src/tab/details/resources/environment variables.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/UserClient/src/tab/details/resources/general.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/UserClient/src/tab/details/resources/rules.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/UserClient/src/tab/details/resources/termination.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/UserClient/src/tab/details/resources/world-wide-web.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/UserClient/src/tab/details/rules/Rules.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/UserClient/src/tab/details/rules/RulesController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/UserClient/src/tab/details/rules/TestMain.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+    <list default="true" id="27d35137-667f-4e37-a519-ab836acc0a06" name="Changes" comment="implement user client">
+      <change afterPath="$PROJECT_DIR$/PredictionsWebApplication/src/servlet/EntitiesServlet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AdminClient/src/common/Configuration.java" beforeDir="false" afterPath="$PROJECT_DIR$/Common/src/general/configuration/Configuration.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AdminClient/src/tab/managment/ManagementController.java" beforeDir="false" afterPath="$PROJECT_DIR$/AdminClient/src/tab/managment/ManagementController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Common/Common.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Common/Common.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DTO/src/impl/WorldDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/DTO/src/impl/WorldDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/src/javafx/tab/results/ResultsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/src/javafx/tab/results/ResultsController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/definition/world/impl/WorldImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/definition/world/impl/WorldImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Common/src/general/constants/GeneralConstants.java" beforeDir="false" afterPath="$PROJECT_DIR$/Common/src/general/constants/GeneralConstants.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI/src/javafx/tab/details/details/Details.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/src/javafx/tab/details/details/Details.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/execution/simulation/api/PredictionsLogic.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/execution/simulation/api/PredictionsLogic.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Logic/src/execution/simulation/impl/PredictionsLogicImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/execution/simulation/impl/PredictionsLogicImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/execution/simulation/manager/WorldManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/execution/simulation/manager/WorldManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PredictionsWebApplication/src/servlet/TestServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/PredictionsWebApplication/src/servlet/TestServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserClient/src/tab/details/components/ComponentsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/UserClient/src/tab/details/components/ComponentsController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserClient/src/tab/details/details/Details.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/UserClient/src/tab/details/details/DetailsComponent.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserClient/src/tab/details/details/DetailsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/UserClient/src/tab/details/details/DetailsComponentController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserClient/src/tab/details/details/TestMain.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserClient/src/tab/details/main/MainDetails.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/UserClient/src/tab/details/main/MainDetails.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserClient/src/tab/details/main/MainDetailsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/UserClient/src/tab/details/main/MainDetailsController.java" afterDir="false" />
     </list>
-    <list id="ff084db0-cb92-43bb-9658-8af184568cf4" name="Changes by ASUS" comment="">
-      <change beforePath="$PROJECT_DIR$/Logic/src/definition/world/api/World.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/definition/world/api/World.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/definition/world/impl/WorldImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/definition/world/impl/WorldImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/execution/simulation/xml/reader/impl/XmlReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/execution/simulation/xml/reader/impl/XmlReader.java" afterDir="false" />
-    </list>
+    <list id="6cbafc1d-7dde-494d-8286-c6ac637af650" name="Changes by ASUS" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -117,18 +89,6 @@
     <setting file="jar:///Library/Java/JavaVirtualMachines/jdk-1.8.jdk/Contents/Home/javafx-src.zip!/javafx/fxml/FXMLLoader.java" root0="SKIP_INSPECTION" />
     <setting file="jar:///Library/Java/JavaVirtualMachines/jdk-1.8.jdk/Contents/Home/javafx-src.zip!/javafx/scene/chart/ValueAxis.java" root0="SKIP_INSPECTION" />
     <setting file="jar:///Library/Java/JavaVirtualMachines/jdk-1.8.jdk/Contents/Home/javafx-src.zip!/javafx/scene/chart/XYChart.java" root0="SKIP_INSPECTION" />
-  </component>
-  <component name="LineStatusTrackerManager">
-    <file path="$PROJECT_DIR$/Logic/src/definition/world/impl/WorldImpl.java">
-      <ranges>
-        <range start1="35" end1="36" start2="35" end2="36" changelist="27d35137-667f-4e37-a519-ab836acc0a06" />
-        <range start1="39" end1="39" start2="39" end2="40" changelist="ff084db0-cb92-43bb-9658-8af184568cf4" />
-        <range start1="42" end1="43" start2="43" end2="43" changelist="27d35137-667f-4e37-a519-ab836acc0a06" />
-        <range start1="46" end1="46" start2="46" end2="47" changelist="ff084db0-cb92-43bb-9658-8af184568cf4" />
-        <range start1="77" end1="77" start2="78" end2="84" changelist="ff084db0-cb92-43bb-9658-8af184568cf4" />
-        <range start1="128" end1="129" start2="135" end2="135" changelist="27d35137-667f-4e37-a519-ab836acc0a06" />
-      </ranges>
-    </file>
   </component>
   <component name="LogFilters">
     <option name="FILTER_ERRORS" value="false" />
@@ -205,7 +165,7 @@
       <recent name="javafx.details.details" />
     </key>
   </component>
-  <component name="RunManager" selected="Tomcat Server.PredictionsWebApplication">
+  <component name="RunManager" selected="Application.UserClientDetails">
     <configuration name="AdminClientManagement" type="Application" factoryName="Application" temporary="true">
       <option name="MAIN_CLASS_NAME" value="main.Main" />
       <module name="AdminClient" />
@@ -446,7 +406,7 @@
       <workItem from="1695926013645" duration="14091000" />
       <workItem from="1696093293644" duration="6573000" />
       <workItem from="1696160638044" duration="1116000" />
-      <workItem from="1696162411212" duration="11136000" />
+      <workItem from="1696162411212" duration="17155000" />
     </task>
     <task id="LOCAL-00103" summary="changed evaluate to get the EntityInstance of secondaryEntity in each iteration in order to creare the proper context , also added functions to context to get the filtered SecondaryEntity list">
       <created>1694175010163</created>
@@ -566,22 +526,6 @@
       <option name="presentableId" value="LOCAL-00157" />
       <option name="project" value="LOCAL" />
       <updated>1695105621094</updated>
-    </task>
-    <task id="LOCAL‎-00162" summary="clear button bug fix">
-      <option name="closed" value="true" />
-      <created>1695157760379</created>
-      <option name="number" value="00162" />
-      <option name="presentableId" value="LOCAL‎-00162" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1695157760379</updated>
-    </task>
-    <task id="LOCAL‎-00163" summary="population per tick implement">
-      <option name="closed" value="true" />
-      <created>1695197387398</created>
-      <option name="number" value="00163" />
-      <option name="presentableId" value="LOCAL‎-00163" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1695197387398</updated>
     </task>
     <task id="LOCAL‎-00164" summary="population per tick implement">
       <option name="closed" value="true" />
@@ -823,7 +767,23 @@
       <option name="project" value="LOCAL‎" />
       <updated>1696164400332</updated>
     </task>
-    <option name="localTasksCounter" value="194" />
+    <task id="LOCAL‎-00194" summary="Changes by ASUS">
+      <option name="closed" value="true" />
+      <created>1696180333999</created>
+      <option name="number" value="00194" />
+      <option name="presentableId" value="LOCAL‎-00194" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1696180333999</updated>
+    </task>
+    <task id="LOCAL‎-00195" summary="implement user client">
+      <option name="closed" value="true" />
+      <created>1696180356698</created>
+      <option name="number" value="00195" />
+      <option name="presentableId" value="LOCAL‎-00195" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1696180356698</updated>
+    </task>
+    <option name="localTasksCounter" value="196" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -854,8 +814,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="added Consistency object" />
-    <MESSAGE value="consistency in gui" />
     <MESSAGE value="clear button bug fix" />
     <MESSAGE value="population per tick implement" />
     <MESSAGE value="population per tick graph implemented" />
@@ -879,7 +837,9 @@
     <MESSAGE value="If the uploaded file is not valid, the response includes a 400 code and a message describing the error." />
     <MESSAGE value="implement client upload class" />
     <MESSAGE value="implement getWorlds endpoint using GSON" />
-    <option name="LAST_COMMIT_MESSAGE" value="implement getWorlds endpoint using GSON" />
+    <MESSAGE value="Changes by ASUS" />
+    <MESSAGE value="implement user client" />
+    <option name="LAST_COMMIT_MESSAGE" value="implement user client" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
@@ -900,9 +860,9 @@
           <option name="timeStamp" value="157" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/PredictionsWebApplication/src/servlet/UploadWorldServlet.java</url>
-          <line>30</line>
-          <option name="timeStamp" value="171" />
+          <url>file://$PROJECT_DIR$/UserClient/src/tab/details/details/DetailsComponentController.java</url>
+          <line>58</line>
+          <option name="timeStamp" value="174" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
