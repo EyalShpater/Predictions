@@ -14,6 +14,9 @@ public class GeneralConstants {
     public static final String GET_ENVIRONMENT_VARIABLES_TO_SET_RESOURCE = "/info/environment_variables_to_set";
     public static final String GET_SIMULATION_QUEUE_DETAILS_RESOURCE = "/info/simulation_queue";
 
+    public static final String GET_ENV_VAR_INFO_RESOURCE = "/info/env_var";
+    public static final String LOGIN_PAGE = "/loginPage";
+
     public static final String WORLD_NAME_PARAMETER_NAME = "name";
 
     public static final int MAX_THREAD_POOL_SIZE = 35;
