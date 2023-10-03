@@ -20,8 +20,10 @@ public class Admin {
         isConnected = false;
     }
 
-    public void addNewUserRequest(RunRequestDTO newRequest) {
-        requestManager.addNewRequest(newRequest);
+    public void addNewUserRequest(RunRequestDTO newRequest, User user) {
+        int requestSerialNumber = requestManager.addNewRequest(newRequest);
+
+        user.addRequestSerialNumber(requestSerialNumber);
     }
 
     public void addEndedSimulation(int serialNumber) {
@@ -38,9 +40,6 @@ public class Admin {
 
     public void acceptRequest(int serialNumber, User user) {
         UserRequest request = requestManager.getRequest(serialNumber);
-
-        //add requests to user
-
         request.changeStatus(RequestStatus.APPROVED);
     }
 
@@ -52,5 +51,13 @@ public class Admin {
         requestManager
                 .getRequest(serialNumber)
                 .changeStatus(status);
+    }
+
+    public UserRequest getRequest(int serialNumber) {
+        return requestManager.getRequest(serialNumber);
+    }
+
+    public void increaseNumOfRunningSimulation(int requestSerialNumber) {
+        requestManager.getRequest(requestSerialNumber).increaseRunningCounter();
     }
 }

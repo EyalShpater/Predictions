@@ -1,30 +1,26 @@
 package user.api;
 
-import java.util.Collections;
-import java.util.HashSet;
-import java.util.Set;
+import user.impl.User;
+
+import java.util.*;
 
 public class UserManager {
-    private final Set<String> usersSet;
+    private final Map<String, User> nameToUser;
 
     public UserManager() {
-        usersSet = new HashSet<>();
+        nameToUser = new HashMap<>();
     }
 
-    public synchronized void addUser(String username) {
-        usersSet.add(username);
+    public synchronized void addUser(String userName) {
+        nameToUser.putIfAbsent(userName, new User(userName));
     }
 
-    public synchronized void removeUser(String username) {
-        usersSet.remove(username);
-    }
-
-    public synchronized Set<String> getUsers() {
-        return Collections.unmodifiableSet(usersSet);
+    public User getUser(String userName) {
+        return nameToUser.get(userName);
     }
 
     public boolean isUserExists(String username) {
-        return usersSet.contains(username);
+        return nameToUser.containsKey(username);
     }
 }
 

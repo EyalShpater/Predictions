@@ -16,7 +16,7 @@ public class RequestManager {
         requests = new HashMap<>();
     }
 
-    public void addNewRequest(RunRequestDTO request) {
+    public int addNewRequest(RunRequestDTO request) {
         int id = serialNumber.getAndIncrement();
 
         UserRequest newRequest = new UserRequest(
@@ -29,6 +29,8 @@ public class RequestManager {
         synchronized (this) {
             requests.put(id, newRequest);
         }
+
+        return id;
     }
 
     public UserRequest getRequest(int serialNUmber) {

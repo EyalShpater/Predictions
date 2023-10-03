@@ -9,22 +9,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="27d35137-667f-4e37-a519-ab836acc0a06" name="Changes" comment="details component is now single">
-      <change afterPath="$PROJECT_DIR$/Logic/src/admin/api/RequestManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Logic/src/admin/api/RequestStatus.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Logic/src/admin/api/UserRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Logic/src/admin/impl/Admin.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Logic/src/definition/simulation/SimulationDefinition.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Logic/src/definition/simulation/manager/SimulationDefinitionManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Logic/src/definition/simulation/manager/api/SimulationDefinitionNode.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Logic/src/user/impl/User.java" afterDir="false" />
+    <list default="true" id="27d35137-667f-4e37-a519-ab836acc0a06" name="Changes" comment="added user management logic">
+      <change afterPath="$PROJECT_DIR$/DTO/src/impl/RequestedSimulationDataDTO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DTO/src/impl/RunRequestDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/DTO/src/impl/RunRequestDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/user/UserManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/user/api/UserManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PredictionsWebApplication/src/servlet/LoginServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/PredictionsWebApplication/src/servlet/LoginServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PredictionsWebApplication/src/utils/ServletUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/PredictionsWebApplication/src/utils/ServletUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DTO/src/impl/SimulationInitDataFromUserDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/DTO/src/impl/SimulationInitDataFromUserDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/admin/api/RequestManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/admin/api/RequestManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/admin/api/UserRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/admin/api/UserRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/admin/impl/Admin.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/admin/impl/Admin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/definition/simulation/manager/SimulationDefinitionManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/definition/simulation/manager/SimulationDefinitionManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/execution/simulation/api/PredictionsLogic.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/execution/simulation/api/PredictionsLogic.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/execution/simulation/impl/PredictionsLogicImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/execution/simulation/impl/PredictionsLogicImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/user/api/UserManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/user/api/UserManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/user/impl/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/user/impl/User.java" afterDir="false" />
     </list>
-    <list id="e9b068d8-3080-4151-9fd5-f93ede56e0d2" name="Changes by ASUS" comment="Changes by ASUS" />
+    <list id="b9db3811-bf68-4fa7-a6e7-03865e50f57d" name="Changes by ASUS" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -410,7 +408,7 @@
       <workItem from="1696160638044" duration="1116000" />
       <workItem from="1696162411212" duration="43780000" />
       <workItem from="1696273433987" duration="350000" />
-      <workItem from="1696315652458" duration="20916000" />
+      <workItem from="1696315652458" duration="27055000" />
     </task>
     <task id="LOCAL-00103" summary="changed evaluate to get the EntityInstance of secondaryEntity in each iteration in order to creare the proper context , also added functions to context to get the filtered SecondaryEntity list">
       <created>1694175010163</created>
@@ -530,14 +528,6 @@
       <option name="presentableId" value="LOCAL-00157" />
       <option name="project" value="LOCAL" />
       <updated>1695105621094</updated>
-    </task>
-    <task id="LOCAL‎-00173" summary="annoying bug fix">
-      <option name="closed" value="true" />
-      <created>1695253585384</created>
-      <option name="number" value="00173" />
-      <option name="presentableId" value="LOCAL‎-00173" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1695253585384</updated>
     </task>
     <task id="LOCAL‎-00174" summary="works">
       <option name="closed" value="true" />
@@ -787,7 +777,15 @@
       <option name="project" value="LOCAL‎" />
       <updated>1696339395267</updated>
     </task>
-    <option name="localTasksCounter" value="205" />
+    <task id="LOCAL‎-00205" summary="added user management logic">
+      <option name="closed" value="true" />
+      <created>1696345251625</created>
+      <option name="number" value="00205" />
+      <option name="presentableId" value="LOCAL‎-00205" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1696345251625</updated>
+    </task>
+    <option name="localTasksCounter" value="206" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -818,7 +816,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="hell bug fix" />
     <MESSAGE value="works" />
     <MESSAGE value="annoying bug fix" />
     <MESSAGE value="bug fix" />
@@ -843,7 +840,8 @@
     <MESSAGE value="add a lot of things" />
     <MESSAGE value="details component is now single" />
     <MESSAGE value="Changes by ASUS" />
-    <option name="LAST_COMMIT_MESSAGE" value="Changes by ASUS" />
+    <MESSAGE value="added user management logic" />
+    <option name="LAST_COMMIT_MESSAGE" value="added user management logic" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">

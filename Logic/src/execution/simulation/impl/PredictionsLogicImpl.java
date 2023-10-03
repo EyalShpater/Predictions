@@ -1,5 +1,6 @@
 package execution.simulation.impl;
 
+import admin.impl.Admin;
 import execution.simulation.api.PredictionsLogic;
 import execution.simulation.manager.SimulationManager;
 import definition.world.api.World;
@@ -11,10 +12,12 @@ import impl.*;
 import instance.enviornment.api.ActiveEnvironment;
 import instance.enviornment.impl.ActiveEnvironmentImpl;
 import javafx.util.Pair;
+import user.api.UserManager;
 
 import javax.xml.bind.JAXBException;
 import java.io.InputStream;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -24,6 +27,8 @@ public class PredictionsLogicImpl implements PredictionsLogic , Serializable {
 
     private SimulationManager allSimulations = new SimulationManager();
     private WorldManager worlds = new WorldManager();
+    private UserManager userManager = new UserManager();
+    private Admin admin = new Admin();
 
     @Override
     public void loadXML(String path) throws JAXBException {
@@ -42,6 +47,7 @@ public class PredictionsLogicImpl implements PredictionsLogic , Serializable {
         XmlValidator validator = new XmlValidator(file);
         processXmlData(validator);
     }
+
 
     @Override
     public List<PropertyDefinitionDTO> getEnvironmentVariablesToSet(String worldName) {
@@ -97,8 +103,13 @@ public class PredictionsLogicImpl implements PredictionsLogic , Serializable {
     }
 
     @Override
-    public int runNewSimulation(SimulationInitDataFromUserDTO initData, String worldName) {
-        return allSimulations.runNewSimulation(worlds.getWorld(worldName), initData);
+    public int runNewSimulation(SimulationInitDataFromUserDTO initData, String worldName, String userName) {
+        int simulationSerialNumber = allSimulations.runNewSimulation(worlds.getWorld(worldName), initData);
+
+        userManager.getUser(userName).addActivatedSimulationSerialNumber(simulationSerialNumber);
+        admin.increaseNumOfRunningSimulation(simulationSerialNumber);
+
+        return simulationSerialNumber;
     }
 
     @Override
@@ -221,6 +232,18 @@ public class PredictionsLogicImpl implements PredictionsLogic , Serializable {
     @Override
     public void setThreadPoolSize(int size) {
         allSimulations.setThreadPoolSize(size);
+    }
+
+    @Override
+    public List<RequestedSimulationDataDTO> getRequestsSimulationDataByUser(String userName) {
+        List<RequestedSimulationDataDTO> requests = new ArrayList<>();
+
+        userManager
+                .getUser(userName)
+                .getRequestsSerialNumbers()
+                .forEach(requestID -> requests.add(admin.getRequest(requestID).convertToDTO()));
+
+        return requests;
     }
 
     private void processXmlData(XmlValidator validator) throws JAXBException {

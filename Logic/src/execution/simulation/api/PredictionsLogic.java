@@ -23,7 +23,7 @@ public interface PredictionsLogic {
 
     Map<String, Map<Integer, Long>> getPopulationCountSortedByName(int serialNumber);
 
-    int runNewSimulation(SimulationInitDataFromUserDTO initData, String worldName);
+    int runNewSimulation(SimulationInitDataFromUserDTO initData, String worldName, String userName);
 
     void pauseSimulationBySerialNumber(int serialNumber);
 
@@ -66,4 +66,6 @@ public interface PredictionsLogic {
     GridDTO getGridInformation(String worldName);
 
     void setThreadPoolSize(int size);
+
+    List<RequestedSimulationDataDTO> getRequestsSimulationDataByUser(String userName);
 }
