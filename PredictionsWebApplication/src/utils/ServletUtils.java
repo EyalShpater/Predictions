@@ -1,7 +1,7 @@
 package utils;
 
 import jakarta.servlet.ServletContext;
-import user.UserManager;
+import user.api.UserManager;
 
 public class ServletUtils {
 

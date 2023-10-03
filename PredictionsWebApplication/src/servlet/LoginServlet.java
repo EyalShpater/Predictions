@@ -7,11 +7,10 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import user.UserManager;
+import user.api.UserManager;
 import utils.ServletUtils;
 import utils.SessionUtils;
 
-import javax.jws.soap.SOAPBinding;
 import java.io.IOException;
 
 @WebServlet(GeneralConstants.LOGIN_PAGE)
