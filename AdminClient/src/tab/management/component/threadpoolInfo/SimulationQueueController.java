@@ -1,6 +1,5 @@
 package tab.management.component.threadpoolInfo;
 
-import general.constants.GeneralConstants;
 import impl.SimulationQueueDto;
 import javafx.application.Platform;
 import javafx.beans.property.SimpleStringProperty;

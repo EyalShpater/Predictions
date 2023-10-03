@@ -60,7 +60,7 @@
                                                 <RowConstraints minHeight="10.0" vgrow="SOMETIMES"/>
                                             </rowConstraints>
                                             <children>
-                                                <fx:include source="component/details/main/MainDetails.fxml"
+                                                <fx:include source="/component/details/main/MainDetails.fxml"
                                                             GridPane.rowIndex="1"/>
                                                 <HBox alignment="CENTER">
                                                     <children>

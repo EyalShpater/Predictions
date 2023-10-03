@@ -39,7 +39,7 @@ public class MainDetailsController {
     }
 
     private void getWorldsUpdateFromServer() throws IOException {
-        List<WorldDTO> worlds = RequestHandler.getWorlds();
+        List<WorldDTO> worlds = RequestHandler.getWorlds(); // todo: make async
 
         worldChoiceBox.getItems().clear();
         worlds.forEach(world -> worldChoiceBox.getItems().add(world.getName()));

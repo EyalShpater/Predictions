@@ -1,6 +1,8 @@
 package impl;
 
-public class GridDTO {
+import api.DTO;
+
+public class GridDTO implements DTO {
     private final int row;
     private final int col;
 

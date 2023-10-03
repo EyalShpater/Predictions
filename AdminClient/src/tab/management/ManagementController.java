@@ -2,7 +2,6 @@ package tab.management;
 
 import component.details.details.DetailsComponentController;
 import general.constants.GeneralConstants;
-import impl.WorldDTO;
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
@@ -20,7 +19,6 @@ import tab.management.component.threadpoolInfo.SimulationQueueController;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.List;
 
 import static general.configuration.Configuration.HTTP_CLIENT;
 

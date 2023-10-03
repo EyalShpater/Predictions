@@ -1,6 +1,8 @@
 package impl;
 
-public class SimulationQueueDto {
+import api.DTO;
+
+public class SimulationQueueDto implements DTO {
     private final int total;
     private final int waiting;
     private final int running;

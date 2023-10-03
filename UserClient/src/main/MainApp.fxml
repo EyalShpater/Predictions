@@ -1,27 +1,57 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Font?>
 
-<ScrollPane fitToHeight="true" fitToWidth="true" minHeight="100.0" minWidth="600.0" prefHeight="100.0" prefWidth="669.0"
-            xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="main.MainAppController">
-    <content>
-        <BorderPane fx:id="borderPane" prefHeight="97.0" prefWidth="667.0">
-            <top>
-                <HBox prefHeight="82.0" prefWidth="673.0" BorderPane.alignment="CENTER"/>
-            </top>
+
+<StackPane fx:id="mainPanel" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1"
+           fx:controller="main.MainAppController">
+    <children>
+        <BorderPane prefHeight="400.0" prefWidth="600.0">
             <center>
-                <AnchorPane fx:id="mainPanel" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308"
-                            minHeight="-Infinity" minWidth="-Infinity">
-                    <children>
-                        <TabPane fx:id="tabPane" prefHeight="12.0" prefWidth="667.0" tabClosingPolicy="UNAVAILABLE"/>
-                    </children>
-                </AnchorPane>
+                <ScrollPane fitToHeight="true" fitToWidth="true" BorderPane.alignment="CENTER">
+                    <content>
+                        <TabPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="200.0"
+                                 tabClosingPolicy="UNAVAILABLE">
+                            <tabs>
+                                <Tab text="Details">
+                                    <content>
+                                        <StackPane minHeight="200.0" minWidth="400.0">
+                                            <children>
+                                                <fx:include source="/component/details/main/MainDetails.fxml"/>
+                                            </children>
+                                        </StackPane>
+                                    </content>
+                                </Tab>
+                                <Tab>
+                                    <content>
+                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0"
+                                                    prefWidth="200.0"/>
+                                    </content>
+                                </Tab>
+                            </tabs>
+                        </TabPane>
+                    </content>
+                </ScrollPane>
             </center>
+            <top>
+                <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                    <children>
+                        <Label text="Predictions User Application">
+                            <font>
+                                <Font size="41.0"/>
+                            </font>
+                        </Label>
+                    </children>
+                </HBox>
+            </top>
         </BorderPane>
-    </content>
-</ScrollPane>
+    </children>
+</StackPane>

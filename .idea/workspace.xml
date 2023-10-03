@@ -9,24 +9,41 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="27d35137-667f-4e37-a519-ab836acc0a06" name="Changes" comment="add details window to management">
-      <change afterPath="$PROJECT_DIR$/Logic/src/user/UserManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/PredictionsWebApplication/src/servlet/LoginServlet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/PredictionsWebApplication/src/utils/ServletUtils.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/PredictionsWebApplication/src/utils/SessionUtils.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/UserClient/src/login/LoginController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/UserClient/src/login/login.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/UserClient/src/main/MainApp.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/UserClient/src/main/MainAppController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/UserClient/src/util/http/HttpClientUtil.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/UserClient/src/util/http/SimpleCookieManager.java" afterDir="false" />
+    <list default="true" id="27d35137-667f-4e37-a519-ab836acc0a06" name="Changes" comment="add a lot of things">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AdminClient/src/tab/management/Management.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/AdminClient/src/tab/management/Management.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AdminClient/src/tab/management/ManagementController.java" beforeDir="false" afterPath="$PROJECT_DIR$/AdminClient/src/tab/management/ManagementController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AdminClient/src/tab/management/component/details/components/Components.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AdminClient/src/tab/management/component/details/components/ComponentsController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AdminClient/src/tab/management/component/details/components/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AdminClient/src/tab/management/component/details/details/DetailsComponent.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AdminClient/src/tab/management/component/details/details/DetailsComponentController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AdminClient/src/tab/management/component/details/entities/Entities.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AdminClient/src/tab/management/component/details/entities/EntitiesController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AdminClient/src/tab/management/component/details/general/General.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AdminClient/src/tab/management/component/details/general/GeneralController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AdminClient/src/tab/management/component/details/main/MainDetails.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AdminClient/src/tab/management/component/details/main/MainDetailsController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AdminClient/src/tab/management/component/details/resources/employee.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AdminClient/src/tab/management/component/details/resources/environment variables.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AdminClient/src/tab/management/component/details/resources/general.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AdminClient/src/tab/management/component/details/resources/rules.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AdminClient/src/tab/management/component/details/resources/termination.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AdminClient/src/tab/management/component/details/resources/world-wide-web.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AdminClient/src/tab/management/component/details/rules/Rules.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AdminClient/src/tab/management/component/details/rules/RulesController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AdminClient/src/tab/management/component/details/rules/TestMain.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AdminClient/src/tab/management/component/details/variables/EnvironmentVariables.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AdminClient/src/tab/management/component/details/variables/EnvironmentVariablesController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AdminClient/src/tab/management/component/threadpoolInfo/SimulationQueueController.java" beforeDir="false" afterPath="$PROJECT_DIR$/AdminClient/src/tab/management/component/threadpoolInfo/SimulationQueueController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Common/src/component/details/main/MainDetails.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Common/src/component/details/main/MainDetails.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Common/src/component/details/main/MainDetailsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Common/src/component/details/main/MainDetailsController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserClient/src/main/MainApp.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/UserClient/src/main/MainApp.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserClient/src/main/MainAppController.java" beforeDir="false" afterPath="$PROJECT_DIR$/UserClient/src/main/MainAppController.java" afterDir="false" />
     </list>
-    <list id="e9b068d8-3080-4151-9fd5-f93ede56e0d2" name="Changes by ASUS" comment="">
-      <change beforePath="$PROJECT_DIR$/Common/src/general/constants/GeneralConstants.java" beforeDir="false" afterPath="$PROJECT_DIR$/Common/src/general/constants/GeneralConstants.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Common/src/servlet/request/RequestHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/Common/src/servlet/request/RequestHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PredictionsWebApplication/src/constants/Constants.java" beforeDir="false" afterPath="$PROJECT_DIR$/PredictionsWebApplication/src/constants/Constants.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserClient/src/main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/UserClient/src/main/Main.java" afterDir="false" />
+    <list id="e9b068d8-3080-4151-9fd5-f93ede56e0d2" name="Changes by ASUS" comment="Changes by ASUS">
+      <change beforePath="$PROJECT_DIR$/Logic/src/user/UserManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/user/UserManager.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -114,42 +131,42 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;dart.analysis.tool.window.visible&quot;: &quot;false&quot;,
-    &quot;extract.method.default.visibility&quot;: &quot;private&quot;,
-    &quot;full.screen.before.presentation.mode&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;Client-Server&quot;,
-    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;1.8&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/eyal/Java-Course/Predictions/AdminClient/src/tab/management/component/details&quot;,
-    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;onboarding.tips.debug.path&quot;: &quot;/Users/eyal/Java-Course/Predictions/PredictionsWebApplication/src/init/InitContextListener.java&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.applicationServers&quot;,
-    &quot;two.files.diff.last.used.file&quot;: &quot;C:/Users/ASUS/IdeaProjects/PredictionsNew/Logic/src/resources/xml/ex2/master-ex2.xml&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "dart.analysis.tool.window.visible": "false",
+    "extract.method.default.visibility": "private",
+    "full.screen.before.presentation.mode": "false",
+    "git-widget-placeholder": "Client-Server",
+    "jdk.selected.JAVA_MODULE": "1.8",
+    "last_opened_file_path": "/Users/eyal/Java-Course/Predictions/UserClient/src/tab/details",
+    "list.type.of.created.stylesheet": "CSS",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "onboarding.tips.debug.path": "/Users/eyal/Java-Course/Predictions/PredictionsWebApplication/src/init/InitContextListener.java",
+    "project.structure.last.edited": "Global Libraries",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "preferences.applicationServers",
+    "two.files.diff.last.used.file": "C:/Users/ASUS/IdeaProjects/PredictionsNew/Logic/src/resources/xml/ex2/master-ex2.xml",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/UserClient/src/tab/details" />
       <recent name="$PROJECT_DIR$/AdminClient/src/tab/management/component/details" />
       <recent name="$PROJECT_DIR$/AdminClient/src/tab/managment/component/threadpoolInfo" />
       <recent name="$PROJECT_DIR$/GUI/src/javafx/mainScene/main" />
       <recent name="$PROJECT_DIR$/GUI/src/javafx/tab/results/analyze/histogram/consistency" />
-      <recent name="$PROJECT_DIR$/GUI/src/javafx/tab/results/analyze/histogram/bar/chart" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\ASUS\IdeaProjects\Prediction19.9\Logic\src\resources\xml\ex2\newfiles" />
@@ -413,7 +430,7 @@
       <workItem from="1696160638044" duration="1116000" />
       <workItem from="1696162411212" duration="43780000" />
       <workItem from="1696273433987" duration="350000" />
-      <workItem from="1696315652458" duration="2304000" />
+      <workItem from="1696315652458" duration="14666000" />
     </task>
     <task id="LOCAL-00103" summary="changed evaluate to get the EntityInstance of secondaryEntity in each iteration in order to creare the proper context , also added functions to context to get the filtered SecondaryEntity list">
       <created>1694175010163</created>
@@ -533,22 +550,6 @@
       <option name="presentableId" value="LOCAL-00157" />
       <option name="project" value="LOCAL" />
       <updated>1695105621094</updated>
-    </task>
-    <task id="LOCAL‎-00169" summary="hell bug fix">
-      <option name="closed" value="true" />
-      <created>1695247475443</created>
-      <option name="number" value="00169" />
-      <option name="presentableId" value="LOCAL‎-00169" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1695247475443</updated>
-    </task>
-    <task id="LOCAL‎-00170" summary="hell bug fix">
-      <option name="closed" value="true" />
-      <created>1695247485994</created>
-      <option name="number" value="00170" />
-      <option name="presentableId" value="LOCAL‎-00170" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1695247485994</updated>
     </task>
     <task id="LOCAL‎-00171" summary="works">
       <option name="closed" value="true" />
@@ -790,7 +791,23 @@
       <option name="project" value="LOCAL‎" />
       <updated>1696279875829</updated>
     </task>
-    <option name="localTasksCounter" value="201" />
+    <task id="LOCAL‎-00201" summary="add a lot of things">
+      <option name="closed" value="true" />
+      <created>1696318029417</created>
+      <option name="number" value="00201" />
+      <option name="presentableId" value="LOCAL‎-00201" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1696318029419</updated>
+    </task>
+    <task id="LOCAL‎-00202" summary="Changes by ASUS">
+      <option name="closed" value="true" />
+      <created>1696318044199</created>
+      <option name="number" value="00202" />
+      <option name="presentableId" value="LOCAL‎-00202" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1696318044199</updated>
+    </task>
+    <option name="localTasksCounter" value="203" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -821,7 +838,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="kaka" />
     <MESSAGE value="added animations" />
     <MESSAGE value="hell bug fix" />
     <MESSAGE value="works" />
@@ -839,14 +855,15 @@
     <MESSAGE value="If the uploaded file is not valid, the response includes a 400 code and a message describing the error." />
     <MESSAGE value="implement client upload class" />
     <MESSAGE value="implement getWorlds endpoint using GSON" />
-    <MESSAGE value="Changes by ASUS" />
     <MESSAGE value="implement user client" />
     <MESSAGE value="userClient - details - entities implemented" />
     <MESSAGE value="userClient - details - rules implemented" />
     <MESSAGE value="implemented thread pool size can be changed by user." />
     <MESSAGE value="fixed issue in queue fxml file" />
     <MESSAGE value="add details window to management" />
-    <option name="LAST_COMMIT_MESSAGE" value="add details window to management" />
+    <MESSAGE value="add a lot of things" />
+    <MESSAGE value="Changes by ASUS" />
+    <option name="LAST_COMMIT_MESSAGE" value="Changes by ASUS" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
@@ -877,7 +894,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/AdminClient/src/tab/management/ManagementController.java</url>
-          <line>59</line>
+          <line>57</line>
           <option name="timeStamp" value="193" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
