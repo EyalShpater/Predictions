@@ -56,6 +56,7 @@ public class LoginController {
             return;
         }
 
+
         String finalUrl = HttpUrl
                 .parse((GeneralConstants.BASE_URL + GeneralConstants.LOGIN_RESOURCE))
                 .newBuilder()
@@ -76,7 +77,9 @@ public class LoginController {
                     });
                 } else {
                     Platform.runLater(() -> {
-                        mainAppController.switchToTabs();
+                        //mainAppController.switchToTabs();
+                        loadMainApp();
+//                        mainAppController.setUserName(userName);
                     });
                 }
             }
@@ -122,7 +125,7 @@ public class LoginController {
 
     }
 
-    public void setChatAppMainController(MainAppController mainAppController) {
+    public void setAppMainController(MainAppController mainAppController) {
         this.mainAppController = mainAppController;
     }
 
