@@ -1,7 +1,9 @@
-package component.requests;
+package tab.requests.component.table;
 
 import impl.RequestedSimulationDataDTO;
 import javafx.application.Platform;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -11,6 +13,7 @@ import servlet.request.RequestHandler;
 import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
+import java.util.stream.Collectors;
 
 public class RequestsComponentController {
 
@@ -38,6 +41,7 @@ public class RequestsComponentController {
     private String userName;
     private RequestedSimulationDataDTO selectedRequest;
     private TimerTask refreshRequestsTable;
+    final ObservableList<RequestedSimulationDataDTO> data = FXCollections.observableArrayList();
 
     @FXML
     private void initialize() {
@@ -49,6 +53,7 @@ public class RequestsComponentController {
         };
         Timer timer = new Timer();
         timer.schedule(refreshRequestsTable, 1000, 2000);
+        initTableView();
     }
 
     private void initTableView() {
@@ -58,6 +63,7 @@ public class RequestsComponentController {
         statusCol.setCellValueFactory(new PropertyValueFactory<RequestedSimulationDataDTO, String>("status"));
         runningCol.setCellValueFactory(new PropertyValueFactory<RequestedSimulationDataDTO, Integer>("numOfRunningSimulations"));
         endedCol.setCellValueFactory(new PropertyValueFactory<RequestedSimulationDataDTO, Integer>("numOfEndedSimulations"));
+        allRequestsTableView.setItems(data);
         allRequestsTableView.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
     }
 
@@ -70,20 +76,22 @@ public class RequestsComponentController {
     }
 
     private void setAllRequestsTableView() {
-        List<RequestedSimulationDataDTO> requests = null;
+        List<RequestedSimulationDataDTO> updatedRequests = null;
 
         try {
-            requests = RequestHandler.getRequestsByUserName(userName);
+            updatedRequests = RequestHandler.getRequestsByUserName(userName);
         } catch (Exception ignored) {
-            System.out.println("ignored"); //todo: delete
+            return;
         }
 
-        initTableView();
-        allRequestsTableView.getItems().clear();
+        updatedRequests.forEach(updated -> {
+            int index = data.indexOf(updated);
+            data.set(index, updated);
+        });
 
-        if (requests != null) {
-            requests.forEach(request -> allRequestsTableView.getItems().add(request));
-        }
+        data.addAll(updatedRequests.stream()
+                .filter(item -> !data.contains(item))
+                .collect(Collectors.toList()));
     }
 
     public RequestedSimulationDataDTO getSelectedRequest() {

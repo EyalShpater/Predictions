@@ -159,7 +159,7 @@
                                                    GridPane.columnSpan="2" GridPane.rowIndex="2" GridPane.rowSpan="2">
                                             <children>
                                                 <fx:include fx:id="requestsTableView"
-                                                            source="/component/requests/RequestsComponent.fxml"/>
+                                                            source="component/table/RequestsComponent.fxml"/>
                                             </children>
                                         </StackPane>
                                     </children>

@@ -1,21 +1,11 @@
 package tab.requests;
 
-import com.google.gson.Gson;
-import component.requests.RequestsComponentController;
-import general.constants.GeneralConstants;
+import tab.requests.component.table.RequestsComponentController;
 import impl.RequestedSimulationDataDTO;
-import javafx.application.Platform;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
-import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.input.MouseEvent;
-import servlet.request.RequestHandler;
 
-import java.util.List;
-import java.util.Observable;
-import java.util.Timer;
 import java.util.TimerTask;
 
 public class RequestsController {

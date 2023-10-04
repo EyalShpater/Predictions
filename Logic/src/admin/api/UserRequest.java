@@ -80,6 +80,8 @@ public class UserRequest implements DTOConvertible<RequestedSimulationDataDTO> {
                 numOfRunningSimulations,
                 numOfEndedSimulations,
                 worldName,
-                status.toString());
+                status.toString(),
+                userName,
+                termination.convertToDTO());
     }
 }
