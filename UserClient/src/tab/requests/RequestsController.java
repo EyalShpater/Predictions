@@ -58,6 +58,7 @@ public class RequestsController {
         }
     }
 
+    @FXML
     void onSubmitButtonClicked(ActionEvent event) {
 
     }
