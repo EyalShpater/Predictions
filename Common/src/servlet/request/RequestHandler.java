@@ -92,6 +92,27 @@ public class RequestHandler {
         return response.code();
     }
 
+    public static List<RequestedSimulationDataDTO> getRequestsByUserName(String userName) throws IOException {
+        List<RequestedSimulationDataDTO> requests = new ArrayList<>();
+        Gson gson = new Gson();
+
+        HttpUrl.Builder urlBuilder = HttpUrl.parse(GeneralConstants.BASE_URL + GeneralConstants.GET_ALL_USER_REQUESTS_RESOURCE).newBuilder();
+        urlBuilder.addQueryParameter(GeneralConstants.USER_NAME_PARAMETER_NAME, userName);
+        String finalUrl = urlBuilder.build().toString();
+
+        Request request = new Request.Builder()
+                .url(finalUrl)
+                .build();
+
+        Call call = HTTP_CLIENT.newCall(request);
+        Response response = call.execute();
+
+        JsonArray requestsJson = JsonParser.parseString(response.body().string()).getAsJsonArray();
+        requestsJson.forEach(requestJson -> requests.add(gson.fromJson(requestJson, RequestedSimulationDataDTO.class)));
+
+        return requests;
+    }
+
     private static Response getResponseUsingWorldName(String resource, String worldName) throws IOException {
         HttpUrl.Builder urlBuilder = HttpUrl.parse(GeneralConstants.BASE_URL + resource).newBuilder();
         urlBuilder.addQueryParameter(GeneralConstants.WORLD_NAME_PARAMETER_NAME, worldName);

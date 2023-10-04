@@ -6,10 +6,14 @@ import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyEvent;
+import javafx.stage.Stage;
 import main.MainAppController;
 import okhttp3.Call;
 import okhttp3.Callback;
@@ -19,6 +23,7 @@ import org.jetbrains.annotations.NotNull;
 import util.http.HttpClientUtil;
 
 import java.io.IOException;
+import java.net.URL;
 
 public class LoginController {
 
@@ -31,6 +36,8 @@ public class LoginController {
     @FXML
     private TextField userNameTextField;
 
+    private String userName;
+    private Stage primaryStage;
     private MainAppController mainAppController;
 
     private final StringProperty errorMessageProperty = new SimpleStringProperty();
@@ -42,8 +49,8 @@ public class LoginController {
 
     @FXML
     private void loginButtonClicked(ActionEvent event) {
+        userName = userNameTextField.getText();
 
-        String userName = userNameTextField.getText();
         if (userName.isEmpty()) {
             errorMessageProperty.set("User name is empty. You can't login with empty user name");
             return;
@@ -84,6 +91,32 @@ public class LoginController {
 
     }
 
+    private void loadMainApp() {
+        primaryStage.setMinHeight(400);
+        primaryStage.setMinWidth(400);
+        primaryStage.setMaxWidth(Integer.MAX_VALUE);
+        primaryStage.setMaxHeight(Integer.MAX_VALUE);
+        primaryStage.setTitle("Predictions User Application");
+
+        URL loginPage = getClass().getResource("/main/MainApp.fxml");
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader();
+            fxmlLoader.setLocation(loginPage);
+            Parent root = fxmlLoader.load();
+            mainAppController = fxmlLoader.getController();
+            mainAppController.setUserName(userName);
+
+            Scene scene = new Scene(root, 960, 640);
+            primaryStage.setScene(scene);
+
+            primaryStage.setOnCloseRequest(request -> {
+                Platform.exit();
+                System.exit(0);
+            });
+
+        } catch (Exception e) {
+        }
+    }
     @FXML
     void userNameKeyTyped(KeyEvent event) {
 
@@ -93,5 +126,8 @@ public class LoginController {
         this.mainAppController = mainAppController;
     }
 
+    public void setPrimaryStage(Stage primaryStage) {
+        this.primaryStage = primaryStage;
+    }
 
 }

@@ -13,6 +13,7 @@ import javafx.scene.control.TabPane;
 import javafx.scene.layout.*;
 
 import login.LoginController;
+import tab.requests.RequestsController;
 
 
 import java.io.IOException;
@@ -41,7 +42,7 @@ public class MainAppController {
 //    }
 //
 //    private void loadLoginPage() {
-//        URL loginPageUrl = getClass().getResource("/login/login.fxml");
+//        URL loginPageUrl = getClass().getResource("/login/Login.fxml");
 //        try {
 //            FXMLLoader fxmlLoader = new FXMLLoader();
 //            fxmlLoader.setLocation(loginPageUrl);
@@ -95,29 +96,19 @@ public class MainAppController {
     @FXML
     private StackPane mainPanel;
 
+    @FXML
+    private StackPane requestsTab;
+
+    @FXML
+    private RequestsController requestsTabController;
+
+    private String userName;
     private LoginController logicController;
     private ScrollPane loginComponent;
     private Parent mainApp;
 
     @FXML
     public void initialize() {
-        mainApp = (Parent) mainPanel.getChildren().get(0);
-        loadLoginPage();
-    }
-
-    private void loadLoginPage() {
-        URL loginPageUrl = getClass().getResource("/login/login.fxml");
-
-        try {
-            FXMLLoader fxmlLoader = new FXMLLoader();
-            fxmlLoader.setLocation(loginPageUrl);
-            loginComponent = fxmlLoader.load();
-            logicController = fxmlLoader.getController();
-            logicController.setChatAppMainController(this);
-            setMainPanelTo(loginComponent);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
     }
 
     private void setMainPanelTo(Parent pane) {
@@ -132,6 +123,12 @@ public class MainAppController {
 
     public void switchToTabs() {
         setMainPanelTo(mainApp);
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
+        requestsTabController.setUserName(userName);
+        System.out.println("Main app user name: " + userName);
     }
 
 }

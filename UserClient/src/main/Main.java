@@ -37,22 +37,26 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) {
-
+        LoginController loginController;
         MainAppController mainAppController;
 
-        primaryStage.setMinHeight(600);
-        primaryStage.setMinWidth(600);
-        primaryStage.setTitle("Chat App Client");
+        primaryStage.setMinHeight(200);
+        primaryStage.setMinWidth(400);
+        primaryStage.setMaxHeight(200);
+        primaryStage.setMaxWidth(400);
+        primaryStage.setTitle("Login");
 
-        URL loginPage = getClass().getResource("/main/MainApp.fxml");
+        URL loginPage = getClass().getResource("/login/Login.fxml");
         try {
             FXMLLoader fxmlLoader = new FXMLLoader();
             fxmlLoader.setLocation(loginPage);
             Parent root = fxmlLoader.load();
-            mainAppController = fxmlLoader.getController();
+            loginController = fxmlLoader.getController();
 
-            Scene scene = new Scene(root, 960, 600);
+            loginController.setPrimaryStage(primaryStage);
+            Scene scene = new Scene(root, 400, 200);
             primaryStage.setScene(scene);
+
             primaryStage.setOnCloseRequest(request -> {
                 Platform.exit();
                 System.exit(0);

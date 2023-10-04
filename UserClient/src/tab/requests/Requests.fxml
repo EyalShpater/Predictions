@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Spinner?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
+
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0"
+           prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1"
+           fx:controller="tab.requests.RequestsController">
+    <children>
+        <SplitPane dividerPositions="0.4" orientation="VERTICAL" prefHeight="200.0" prefWidth="160.0">
+            <items>
+                <ScrollPane fitToHeight="true" fitToWidth="true" prefHeight="200.0" prefWidth="200.0">
+                    <content>
+                        <StackPane>
+                            <children>
+                                <HBox alignment="CENTER">
+                                    <children>
+                                        <GridPane vgap="5.0">
+                                            <columnConstraints>
+                                                <ColumnConstraints hgrow="NEVER" maxWidth="10.0" minWidth="10.0"
+                                                                   prefWidth="100.0"/>
+                                                <ColumnConstraints hgrow="NEVER"/>
+                                                <ColumnConstraints hgrow="NEVER"/>
+                                                <ColumnConstraints hgrow="NEVER"/>
+                                                <ColumnConstraints hgrow="NEVER" maxWidth="10.0" minWidth="10.0"
+                                                                   prefWidth="100.0"/>
+                                            </columnConstraints>
+                                            <rowConstraints>
+                                                <RowConstraints maxHeight="10.0" minHeight="10.0" prefHeight="10.0"
+                                                                vgrow="NEVER"/>
+                                                <RowConstraints vgrow="NEVER"/>
+                                                <RowConstraints minHeight="-Infinity" vgrow="NEVER"/>
+                                                <RowConstraints minHeight="-Infinity" vgrow="NEVER"/>
+                                                <RowConstraints maxHeight="5.0" minHeight="5.0" prefHeight="5.0"
+                                                                vgrow="NEVER"/>
+                                                <RowConstraints minHeight="-Infinity" vgrow="NEVER"/>
+                                                <RowConstraints vgrow="NEVER"/>
+                                                <RowConstraints maxHeight="10.0" minHeight="10.0" prefHeight="10.0"
+                                                                vgrow="NEVER"/>
+                                            </rowConstraints>
+                                            <children>
+                                                <HBox alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity"
+                                                      GridPane.columnIndex="1" GridPane.columnSpan="3"
+                                                      GridPane.rowIndex="1">
+                                                    <children>
+                                                        <Label alignment="CENTER" text="New Request"/>
+                                                    </children>
+                                                </HBox>
+                                                <HBox GridPane.columnIndex="1" GridPane.rowIndex="3">
+                                                    <children>
+                                                        <ComboBox fx:id="worldComboBox" prefWidth="150.0"/>
+                                                    </children>
+                                                </HBox>
+                                                <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1"
+                                                      GridPane.rowIndex="6">
+                                                    <children>
+                                                        <Spinner fx:id="runsAmountSpinner"/>
+                                                    </children>
+                                                </HBox>
+                                                <HBox minHeight="-Infinity" minWidth="-Infinity"
+                                                      GridPane.columnIndex="3" GridPane.rowIndex="3">
+                                                    <children>
+                                                        <Spinner fx:id="secondsSpinner"/>
+                                                    </children>
+                                                </HBox>
+                                                <HBox prefHeight="100.0" prefWidth="200.0"/>
+                                                <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="3"
+                                                      GridPane.rowIndex="6">
+                                                    <children>
+                                                        <Spinner fx:id="ticksSpinner"/>
+                                                    </children>
+                                                </HBox>
+                                                <HBox minHeight="-Infinity" minWidth="-Infinity"
+                                                      GridPane.columnIndex="3" GridPane.rowIndex="2">
+                                                    <children>
+                                                        <Label text="Terminate By Seconds"/>
+                                                    </children>
+                                                </HBox>
+                                                <HBox GridPane.columnIndex="3" GridPane.rowIndex="5">
+                                                    <children>
+                                                        <Label text="Terminate By Ticks"/>
+                                                    </children>
+                                                </HBox>
+                                                <HBox alignment="TOP_RIGHT" GridPane.columnIndex="2"
+                                                      GridPane.rowIndex="3">
+                                                    <children>
+                                                        <RadioButton fx:id="terminateBySecondsRadioButton"
+                                                                     alignment="TOP_LEFT" contentDisplay="TOP"
+                                                                     mnemonicParsing="false"/>
+                                                    </children>
+                                                </HBox>
+                                                <HBox alignment="TOP_RIGHT" GridPane.columnIndex="2"
+                                                      GridPane.rowIndex="6">
+                                                    <children>
+                                                        <RadioButton fx:id="terminateByTicksRadioButton"
+                                                                     mnemonicParsing="false"/>
+                                                    </children>
+                                                </HBox>
+                                                <Label text="Amount of Runs" GridPane.columnIndex="1"
+                                                       GridPane.rowIndex="5"/>
+                                                <Label text="Choose Simulation" GridPane.columnIndex="1"
+                                                       GridPane.rowIndex="2"/>
+                                            </children>
+                                        </GridPane>
+                                    </children>
+                                </HBox>
+                            </children>
+                        </StackPane>
+                    </content>
+                </ScrollPane>
+                <ScrollPane fitToHeight="true" fitToWidth="true" prefHeight="200.0" prefWidth="200.0">
+                    <content>
+                        <StackPane prefHeight="150.0" prefWidth="200.0">
+                            <children>
+                                <GridPane vgap="5.0">
+                                    <columnConstraints>
+                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="10.0" minWidth="10.0"
+                                                           prefWidth="10.0"/>
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="10.0" minWidth="10.0"
+                                                           prefWidth="10.0"/>
+                                    </columnConstraints>
+                                    <rowConstraints>
+                                        <RowConstraints maxHeight="10.0" minHeight="10.0" prefHeight="10.0"
+                                                        vgrow="SOMETIMES"/>
+                                        <RowConstraints vgrow="NEVER"/>
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="ALWAYS"/>
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="ALWAYS"/>
+                                        <RowConstraints vgrow="NEVER"/>
+                                        <RowConstraints maxHeight="10.0" minHeight="10.0" prefHeight="30.0"
+                                                        vgrow="SOMETIMES"/>
+                                    </rowConstraints>
+                                    <children>
+                                        <HBox alignment="BOTTOM_RIGHT" minHeight="-Infinity" minWidth="-Infinity"
+                                              GridPane.columnIndex="2" GridPane.rowIndex="4">
+                                            <children>
+                                                <Button mnemonicParsing="false" onAction="#onExecuteButtonClicked"
+                                                        text="Execute"/>
+                                            </children>
+                                        </HBox>
+                                        <TableView fx:id="allRequestsTableView" onMouseClicked="#onSelectedRequest"
+                                                   prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1"
+                                                   GridPane.columnSpan="2" GridPane.rowIndex="2" GridPane.rowSpan="2">
+                                            <columns>
+                                                <TableColumn fx:id="serialNumberCol" editable="false" prefWidth="75.0"
+                                                             text="Serial Number"/>
+                                                <TableColumn fx:id="nameCol" prefWidth="75.0" text="Name"/>
+                                                <TableColumn fx:id="runAmountCol" prefWidth="75.0" text="Runs Amount"/>
+                                                <TableColumn fx:id="statusCol" prefWidth="75.0" text="Status"/>
+                                                <TableColumn fx:id="runningCol" prefWidth="75.0" text="Running"/>
+                                                <TableColumn fx:id="endedCol" prefWidth="75.0" text="Ended"/>
+                                            </columns>
+                                            <columnResizePolicy>
+                                                <TableView fx:constant="CONSTRAINED_RESIZE_POLICY"/>
+                                            </columnResizePolicy>
+                                        </TableView>
+                                        <HBox alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity"
+                                              GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="1">
+                                            <children>
+                                                <Label text="All Requests"/>
+                                            </children>
+                                        </HBox>
+                                    </children>
+                                </GridPane>
+                            </children>
+                        </StackPane>
+                    </content>
+                </ScrollPane>
+            </items>
+        </SplitPane>
+    </children>
+</StackPane>
