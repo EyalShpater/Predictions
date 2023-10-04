@@ -78,4 +78,8 @@ public interface PredictionsLogic {
     void loginUser(String userName);
 
     void logOutUser(String userName);
+
+    void acceptUserRequest(int requestID, String userName);
+
+    void declineUserRequest(int requestID);
 }

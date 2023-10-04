@@ -3,6 +3,7 @@ package admin.impl;
 import admin.api.RequestManager;
 import admin.api.RequestStatus;
 import admin.api.UserRequest;
+import definition.simulation.SimulationDefinition;
 import impl.RunRequestDTO;
 import user.impl.User;
 
@@ -39,8 +40,12 @@ public class Admin {
     }
 
     public void acceptRequest(int serialNumber, User user) {
+        SimulationDefinition simulationDefinition;
         UserRequest request = requestManager.getRequest(serialNumber);
         request.changeStatus(RequestStatus.APPROVED);
+
+        simulationDefinition = new SimulationDefinition(request.getWorldName(), request.getTermination());
+        user.addSimulationDefinition(serialNumber, simulationDefinition, request.getNumOfRequestedRuns());
     }
 
     public void declineRequest(int serialNumber) {

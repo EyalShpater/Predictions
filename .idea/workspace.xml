@@ -9,23 +9,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="27d35137-667f-4e37-a519-ab836acc0a06" name="Changes" comment="added post request servlet">
-      <change afterPath="$PROJECT_DIR$/PredictionsWebApplication/src/servlet/AllocationRequestServlet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/PredictionsWebApplication/src/servlet/LogOutServlet.java" afterDir="false" />
+    <list default="true" id="27d35137-667f-4e37-a519-ab836acc0a06" name="Changes" comment="added login logout servlets">
+      <change afterPath="$PROJECT_DIR$/PredictionsWebApplication/src/servlet/ChangeRequestStatusServlet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AdminClient/src/main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/AdminClient/src/main/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Common/src/general/constants/GeneralConstants.java" beforeDir="false" afterPath="$PROJECT_DIR$/Common/src/general/constants/GeneralConstants.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/admin/impl/Admin.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/admin/impl/Admin.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Logic/src/execution/simulation/api/PredictionsLogic.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/execution/simulation/api/PredictionsLogic.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Logic/src/execution/simulation/impl/PredictionsLogicImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/execution/simulation/impl/PredictionsLogicImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/user/api/UserManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/user/api/UserManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/user/impl/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/user/impl/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PredictionsWebApplication/src/servlet/LoginServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/PredictionsWebApplication/src/servlet/LoginServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserClient/src/login/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/UserClient/src/login/LoginController.java" afterDir="false" />
     </list>
-    <list id="8123ace7-ae58-4182-a91b-fc6a6886389a" name="Changes by ASUS" comment="">
-      <change beforePath="$PROJECT_DIR$/PredictionsWebApplication/src/servlet/LoginServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/PredictionsWebApplication/src/servlet/LoginServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PredictionsWebApplication/src/utils/ServletUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/PredictionsWebApplication/src/utils/ServletUtils.java" afterDir="false" />
-    </list>
+    <list id="8123ace7-ae58-4182-a91b-fc6a6886389a" name="Changes by ASUS" comment="added login logout servlets" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -90,19 +82,6 @@
     <setting file="jar:///Library/Java/JavaVirtualMachines/jdk-1.8.jdk/Contents/Home/javafx-src.zip!/javafx/fxml/FXMLLoader.java" root0="SKIP_INSPECTION" />
     <setting file="jar:///Library/Java/JavaVirtualMachines/jdk-1.8.jdk/Contents/Home/javafx-src.zip!/javafx/scene/chart/ValueAxis.java" root0="SKIP_INSPECTION" />
     <setting file="jar:///Library/Java/JavaVirtualMachines/jdk-1.8.jdk/Contents/Home/javafx-src.zip!/javafx/scene/chart/XYChart.java" root0="SKIP_INSPECTION" />
-  </component>
-  <component name="LineStatusTrackerManager">
-    <file path="$PROJECT_DIR$/PredictionsWebApplication/src/servlet/LoginServlet.java">
-      <ranges>
-        <range start1="3" end1="3" start2="3" end2="4" changelist="27d35137-667f-4e37-a519-ab836acc0a06" />
-        <range start1="9" end1="12" start2="10" end2="11" changelist="8123ace7-ae58-4182-a91b-fc6a6886389a" />
-        <range start1="15" end1="16" start2="14" end2="15" changelist="27d35137-667f-4e37-a519-ab836acc0a06" />
-        <range start1="19" end1="21" start2="18" end2="20" changelist="27d35137-667f-4e37-a519-ab836acc0a06" />
-        <range start1="22" end1="33" start2="21" end2="25" changelist="27d35137-667f-4e37-a519-ab836acc0a06" />
-        <range start1="34" end1="36" start2="26" end2="28" changelist="27d35137-667f-4e37-a519-ab836acc0a06" />
-        <range start1="38" end1="50" start2="30" end2="36" changelist="27d35137-667f-4e37-a519-ab836acc0a06" />
-      </ranges>
-    </file>
   </component>
   <component name="LogFilters">
     <option name="FILTER_ERRORS" value="false" />
@@ -424,7 +403,7 @@
       <workItem from="1696160638044" duration="1116000" />
       <workItem from="1696162411212" duration="43780000" />
       <workItem from="1696273433987" duration="350000" />
-      <workItem from="1696315652458" duration="32911000" />
+      <workItem from="1696315652458" duration="36077000" />
     </task>
     <task id="LOCAL-00103" summary="changed evaluate to get the EntityInstance of secondaryEntity in each iteration in order to creare the proper context , also added functions to context to get the filtered SecondaryEntity list">
       <created>1694175010163</created>
@@ -544,22 +523,6 @@
       <option name="presentableId" value="LOCAL-00157" />
       <option name="project" value="LOCAL" />
       <updated>1695105621094</updated>
-    </task>
-    <task id="LOCAL‎-00175" summary="annoying bug fix">
-      <option name="closed" value="true" />
-      <created>1695257248014</created>
-      <option name="number" value="00175" />
-      <option name="presentableId" value="LOCAL‎-00175" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1695257248014</updated>
-    </task>
-    <task id="LOCAL‎-00176" summary="bug fix">
-      <option name="closed" value="true" />
-      <created>1695257264255</created>
-      <option name="number" value="00176" />
-      <option name="presentableId" value="LOCAL‎-00176" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1695257264255</updated>
     </task>
     <task id="LOCAL‎-00177" summary="added css">
       <option name="closed" value="true" />
@@ -801,7 +764,23 @@
       <option name="project" value="LOCAL‎" />
       <updated>1696356928833</updated>
     </task>
-    <option name="localTasksCounter" value="207" />
+    <task id="LOCAL‎-00207" summary="added login logout servlets">
+      <option name="closed" value="true" />
+      <created>1696405944255</created>
+      <option name="number" value="00207" />
+      <option name="presentableId" value="LOCAL‎-00207" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1696405944255</updated>
+    </task>
+    <task id="LOCAL‎-00208" summary="added login logout servlets">
+      <option name="closed" value="true" />
+      <created>1696405957469</created>
+      <option name="number" value="00208" />
+      <option name="presentableId" value="LOCAL‎-00208" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1696405957469</updated>
+    </task>
+    <option name="localTasksCounter" value="209" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -832,7 +811,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="bug fix" />
     <MESSAGE value="added css" />
     <MESSAGE value="Predictions version 2:0" />
     <MESSAGE value="init client-server branch and delete console ui module" />
@@ -857,7 +835,8 @@
     <MESSAGE value="added user management logic" />
     <MESSAGE value="almost complete user management logic" />
     <MESSAGE value="added post request servlet" />
-    <option name="LAST_COMMIT_MESSAGE" value="added post request servlet" />
+    <MESSAGE value="added login logout servlets" />
+    <option name="LAST_COMMIT_MESSAGE" value="added login logout servlets" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
@@ -888,9 +867,9 @@
           <option name="timeStamp" value="193" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/PredictionsWebApplication/src/servlet/AllocationRequestServlet.java</url>
-          <line>20</line>
-          <option name="timeStamp" value="198" />
+          <url>file://$PROJECT_DIR$/PredictionsWebApplication/src/servlet/ChangeRequestStatusServlet.java</url>
+          <line>18</line>
+          <option name="timeStamp" value="199" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>jar:///Library/Java/JavaVirtualMachines/jdk-1.8.jdk/Contents/Home/javafx-src.zip!/javafx/fxml/FXMLLoader.java</url>

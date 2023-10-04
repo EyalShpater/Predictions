@@ -271,6 +271,16 @@ public class PredictionsLogicImpl implements PredictionsLogic , Serializable {
         userManager.logOutUser(userName);
     }
 
+    @Override
+    public void acceptUserRequest(int requestID, String userName) {
+        admin.acceptRequest(requestID, userManager.getUser(userName));
+    }
+
+    @Override
+    public void declineUserRequest(int requestID) {
+        admin.declineRequest(requestID);
+    }
+
     private void processXmlData(XmlValidator validator) throws JAXBException {
         World newWorld = new WorldImpl();
         XmlReader reader;
