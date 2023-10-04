@@ -1,5 +1,8 @@
 package main;
 
+import com.google.gson.Gson;
+import impl.RunRequestDTO;
+import impl.TerminationDTO;
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
@@ -33,5 +36,7 @@ public class Main extends Application {
         });
 
         primaryStage.show();
+
+        System.out.println(new Gson().toJson(new RunRequestDTO("Eyal", "Smoker", 10, new TerminationDTO(10, 0, true, false))));
     }
 }

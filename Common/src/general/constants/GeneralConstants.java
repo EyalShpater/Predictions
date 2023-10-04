@@ -13,9 +13,9 @@ public class GeneralConstants {
     public static final String GET_WORLD_RESOURCE = "/info/world";
     public static final String GET_ENVIRONMENT_VARIABLES_TO_SET_RESOURCE = "/info/environment_variables_to_set";
     public static final String GET_SIMULATION_QUEUE_DETAILS_RESOURCE = "/info/simulation_queue";
-
-    public static final String GET_ENV_VAR_INFO_RESOURCE = "/info/env_var";
-    public static final String LOGIN_PAGE = "/loginPage";
+    public static final String ALLOCATION_REQUEST_RESOURCE = "/allocation_request";
+    public static final String LOGIN_RESOURCE = "/login_page";
+    public static final String LOGOUT_RESOURCE = "/logout_page";
 
     public static final String WORLD_NAME_PARAMETER_NAME = "name";
 

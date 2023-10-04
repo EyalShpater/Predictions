@@ -68,4 +68,14 @@ public interface PredictionsLogic {
     void setThreadPoolSize(int size);
 
     List<RequestedSimulationDataDTO> getRequestsSimulationDataByUser(String userName);
+
+    void addNewUserRequest(RunRequestDTO request);
+
+    boolean isUserLoggedIn(String userName);
+
+    boolean isUserExist(String userName);
+
+    void loginUser(String userName);
+
+    void logOutUser(String userName);
 }

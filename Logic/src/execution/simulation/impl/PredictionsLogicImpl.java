@@ -246,6 +246,31 @@ public class PredictionsLogicImpl implements PredictionsLogic , Serializable {
         return requests;
     }
 
+    @Override
+    public void addNewUserRequest(RunRequestDTO request) {
+        admin.addNewUserRequest(request, userManager.getUser(request.getUserName()));
+    }
+
+    @Override
+    public boolean isUserLoggedIn(String userName) {
+        return isUserExist(userName) && userManager.isUserLoggedIn(userName);
+    }
+
+    @Override
+    public boolean isUserExist(String userName) {
+        return userManager.isUserExists(userName);
+    }
+
+    @Override
+    public void loginUser(String userName) {
+        userManager.logInUser(userName);
+    }
+
+    @Override
+    public void logOutUser(String userName) {
+        userManager.logOutUser(userName);
+    }
+
     private void processXmlData(XmlValidator validator) throws JAXBException {
         World newWorld = new WorldImpl();
         XmlReader reader;

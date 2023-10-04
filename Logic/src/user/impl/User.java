@@ -16,7 +16,7 @@ public class User {
 
     public User(String name) {
         this.name = name;
-        this.isConnected = false;
+        this.isConnected = true;
         this.simulationsSerialNumber = new ArrayList<>();
         this.requestsID = new ArrayList<>();
         this.simulationDefinitionManager = new SimulationDefinitionManager();

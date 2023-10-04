@@ -50,7 +50,7 @@ public class LoginController {
         }
 
         String finalUrl = HttpUrl
-                .parse((GeneralConstants.BASE_URL + GeneralConstants.LOGIN_PAGE))
+                .parse((GeneralConstants.BASE_URL + GeneralConstants.LOGIN_RESOURCE))
                 .newBuilder()
                 .addQueryParameter("username", userName)
                 .build()
