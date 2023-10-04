@@ -85,13 +85,13 @@ public class RequestsComponentController {
         }
 
         updatedRequests.forEach(updated -> {
-            int index = data.indexOf(updated);
-            data.set(index, updated);
+            if (data.contains(updated)) {
+                int index = data.indexOf(updated);
+                data.set(index, updated);
+            } else {
+                data.add(updated);
+            }
         });
-
-        data.addAll(updatedRequests.stream()
-                .filter(item -> !data.contains(item))
-                .collect(Collectors.toList()));
     }
 
     public RequestedSimulationDataDTO getSelectedRequest() {

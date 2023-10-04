@@ -9,16 +9,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="27d35137-667f-4e37-a519-ab836acc0a06" name="Changes" comment="added allocations tab">
+    <list default="true" id="27d35137-667f-4e37-a519-ab836acc0a06" name="Changes" comment="fixed bug">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AdminClient/src/tab/allocations/Allocations.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/AdminClient/src/tab/allocations/Allocations.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AdminClient/src/tab/allocations/AllocationsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/AdminClient/src/tab/allocations/AllocationsController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Common/src/component/requests/RequestsComponent.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/UserClient/src/tab/requests/component/table/RequestsComponent.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Common/src/component/requests/RequestsComponentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/UserClient/src/tab/requests/component/table/RequestsComponentController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DTO/src/impl/RequestedSimulationDataDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/DTO/src/impl/RequestedSimulationDataDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/admin/api/UserRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/admin/api/UserRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserClient/src/tab/requests/Requests.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/UserClient/src/tab/requests/Requests.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserClient/src/tab/requests/RequestsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/UserClient/src/tab/requests/RequestsController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserClient/src/tab/requests/component/table/RequestsComponentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/UserClient/src/tab/requests/component/table/RequestsComponentController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -405,7 +398,7 @@
       <workItem from="1696160638044" duration="1116000" />
       <workItem from="1696162411212" duration="43780000" />
       <workItem from="1696273433987" duration="350000" />
-      <workItem from="1696315652458" duration="59751000" />
+      <workItem from="1696315652458" duration="60523000" />
     </task>
     <task id="LOCAL-00103" summary="changed evaluate to get the EntityInstance of secondaryEntity in each iteration in order to creare the proper context , also added functions to context to get the filtered SecondaryEntity list">
       <created>1694175010163</created>
@@ -525,14 +518,6 @@
       <option name="presentableId" value="LOCAL-00157" />
       <option name="project" value="LOCAL" />
       <updated>1695105621094</updated>
-    </task>
-    <task id="LOCAL‎-00181" summary="added test web servlet and configured tomcat to the project">
-      <option name="closed" value="true" />
-      <created>1695810896527</created>
-      <option name="number" value="00181" />
-      <option name="presentableId" value="LOCAL‎-00181" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1695810896528</updated>
     </task>
     <task id="LOCAL‎-00182" summary="added management fxml file">
       <option name="closed" value="true" />
@@ -782,7 +767,15 @@
       <option name="project" value="LOCAL‎" />
       <updated>1696432282252</updated>
     </task>
-    <option name="localTasksCounter" value="213" />
+    <task id="LOCAL‎-00213" summary="fixed bug">
+      <option name="closed" value="true" />
+      <created>1696450608578</created>
+      <option name="number" value="00213" />
+      <option name="presentableId" value="LOCAL‎-00213" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1696450608578</updated>
+    </task>
+    <option name="localTasksCounter" value="214" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -813,7 +806,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="added test web servlet and configured tomcat to the project" />
     <MESSAGE value="added management fxml file" />
     <MESSAGE value="engine init while the server is starting" />
     <MESSAGE value="added WorldManager class" />
@@ -838,7 +830,8 @@
     <MESSAGE value="Changes by ASUS" />
     <MESSAGE value="added requests tab" />
     <MESSAGE value="added allocations tab" />
-    <option name="LAST_COMMIT_MESSAGE" value="added allocations tab" />
+    <MESSAGE value="fixed bug" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed bug" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">

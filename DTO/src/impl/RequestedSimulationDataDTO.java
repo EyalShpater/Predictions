@@ -57,15 +57,6 @@ public class RequestedSimulationDataDTO implements DTO {
         return termination;
     }
 
-    public void setRunningAndEndedAmount(int numOfRunningSimulations, int numOfEndedSimulations) {
-        this.numOfRunningSimulations = numOfRunningSimulations;
-        this.numOfEndedSimulations = numOfEndedSimulations;
-    }
-
-    public void setStatus(String Status) {
-        this.status = status;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

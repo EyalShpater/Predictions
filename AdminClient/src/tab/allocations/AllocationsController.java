@@ -43,6 +43,11 @@ public class AllocationsController {
     private Button acceptButton;
 
     @FXML
+    private void initialize() {
+
+    }
+
+    @FXML
     void onAcceptClicked(ActionEvent event) {
 
     }
