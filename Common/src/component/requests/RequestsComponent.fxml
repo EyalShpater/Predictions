@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+
+
+<TableView fx:id="allRequestsTableView" onMouseClicked="#onSelectedRequest" xmlns="http://javafx.com/javafx/8.0.171"
+           xmlns:fx="http://javafx.com/fxml/1" fx:controller="component.requests.RequestsComponentController">
+   <columns>
+      <TableColumn fx:id="serialNumberCol" editable="false" prefWidth="75.0" text="Serial Number"/>
+      <TableColumn fx:id="nameCol" prefWidth="75.0" text="Name"/>
+      <TableColumn fx:id="runAmountCol" prefWidth="75.0" text="Runs Amount"/>
+      <TableColumn fx:id="statusCol" prefWidth="75.0" text="Status"/>
+      <TableColumn fx:id="runningCol" prefWidth="75.0" text="Running"/>
+      <TableColumn fx:id="endedCol" prefWidth="75.0" text="Ended"/>
+   </columns>
+   <columnResizePolicy>
+      <TableView fx:constant="CONSTRAINED_RESIZE_POLICY"/>
+   </columnResizePolicy>
+</TableView>
