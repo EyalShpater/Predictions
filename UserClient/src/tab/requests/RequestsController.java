@@ -29,13 +29,15 @@ public class RequestsController {
     private RadioButton terminateByTicksRadioButton;
 
     @FXML
+    private Button submitButton;
+
+    @FXML
     private TableView<RequestedSimulationDataDTO> requestsTableView;
 
     @FXML
     private RequestsComponentController requestsTableViewController;
 
     private String userName;
-    private TimerTask refreshRequestsTable;
 
     @FXML
     private void initialize() {
@@ -54,5 +56,9 @@ public class RequestsController {
         if (selectedRequest != null) {
             System.out.println("request id #" + selectedRequest.getRequestSerialNumber());
         }
+    }
+
+    void onSubmitButtonClicked(ActionEvent event) {
+
     }
 }

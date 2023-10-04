@@ -10,7 +10,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="27d35137-667f-4e37-a519-ab836acc0a06" name="Changes" comment="fixed bug">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserClient/src/tab/requests/Requests.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/UserClient/src/tab/requests/Requests.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserClient/src/tab/requests/RequestsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/UserClient/src/tab/requests/RequestsController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UserClient/src/tab/requests/component/table/RequestsComponentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/UserClient/src/tab/requests/component/table/RequestsComponentController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -398,7 +399,7 @@
       <workItem from="1696160638044" duration="1116000" />
       <workItem from="1696162411212" duration="43780000" />
       <workItem from="1696273433987" duration="350000" />
-      <workItem from="1696315652458" duration="60523000" />
+      <workItem from="1696315652458" duration="61801000" />
     </task>
     <task id="LOCAL-00103" summary="changed evaluate to get the EntityInstance of secondaryEntity in each iteration in order to creare the proper context , also added functions to context to get the filtered SecondaryEntity list">
       <created>1694175010163</created>
@@ -518,14 +519,6 @@
       <option name="presentableId" value="LOCAL-00157" />
       <option name="project" value="LOCAL" />
       <updated>1695105621094</updated>
-    </task>
-    <task id="LOCAL‎-00182" summary="added management fxml file">
-      <option name="closed" value="true" />
-      <created>1695821294094</created>
-      <option name="number" value="00182" />
-      <option name="presentableId" value="LOCAL‎-00182" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1695821294094</updated>
     </task>
     <task id="LOCAL‎-00183" summary="added management fxml file">
       <option name="closed" value="true" />
@@ -775,7 +768,15 @@
       <option name="project" value="LOCAL‎" />
       <updated>1696450608578</updated>
     </task>
-    <option name="localTasksCounter" value="214" />
+    <task id="LOCAL‎-00214" summary="fixed bug">
+      <option name="closed" value="true" />
+      <created>1696451747594</created>
+      <option name="number" value="00214" />
+      <option name="presentableId" value="LOCAL‎-00214" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1696451747594</updated>
+    </task>
+    <option name="localTasksCounter" value="215" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
