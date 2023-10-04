@@ -1,5 +1,6 @@
-package utils;
+/*package utils;
 
+import execution.simulation.api.PredictionsLogic;
 import jakarta.servlet.ServletContext;
 import user.api.UserManager;
 
@@ -12,6 +13,7 @@ public class ServletUtils {
     public static UserManager getUserManager(ServletContext servletContext) {
 
         synchronized (userManagerLock) {
+            PredictionsLogic engine = servletContext.getAttribute()
             if (servletContext.getAttribute(USER_MANAGER_ATTRIBUTE_NAME) == null) {
                 servletContext.setAttribute(USER_MANAGER_ATTRIBUTE_NAME, new UserManager());
             }
@@ -19,4 +21,4 @@ public class ServletUtils {
 
         return (UserManager) servletContext.getAttribute(USER_MANAGER_ATTRIBUTE_NAME);
     }
-}
+}*/
