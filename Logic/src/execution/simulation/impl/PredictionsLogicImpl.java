@@ -105,7 +105,9 @@ public class PredictionsLogicImpl implements PredictionsLogic , Serializable {
     }
 
     @Override
-    public int runNewSimulation(SimulationInitDataFromUserDTO initData, String worldName, String userName) {
+    public int runNewSimulation(SimulationInitDataFromUserDTO initData) {
+        String userName = initData.getUserName();
+        String worldName = initData.getWorldName();
         int simulationSerialNumber = allSimulations.runNewSimulation(worlds.getWorld(worldName), initData);
 
         userManager.getUser(userName).addActivatedSimulationSerialNumber(simulationSerialNumber);

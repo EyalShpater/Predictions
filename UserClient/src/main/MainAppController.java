@@ -2,6 +2,8 @@
 package main;
 
 import component.details.main.MainDetailsController;
+import impl.RequestedSimulationDataDTO;
+import impl.TerminationDTO;
 import javafx.beans.binding.Bindings;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -13,6 +15,7 @@ import javafx.scene.control.TabPane;
 import javafx.scene.layout.*;
 
 import login.LoginController;
+import tab.newExecution.mainComponent.NewExecutionController;
 import tab.requests.RequestsController;
 
 
@@ -100,12 +103,21 @@ public class MainAppController {
     private StackPane requestsTab;
 
     @FXML
+    private TabPane tabPane;
+
+    @FXML
     private RequestsController requestsTabController;
+
+    @FXML
+    private BorderPane newExecutionComponent;
+    @FXML
+    private NewExecutionController newExecutionComponentController;
 
     private String userName;
     private LoginController logicController;
     private ScrollPane loginComponent;
     private Parent mainApp;
+    private RequestedSimulationDataDTO selectedRequest;
 
     @FXML
     public void initialize() {
@@ -121,6 +133,10 @@ public class MainAppController {
         AnchorPane.setRightAnchor(pane, 0.0);
     }
 
+    private void setSelectedRequest(RequestedSimulationDataDTO selectedRequest) {
+        this.selectedRequest = selectedRequest;
+    }
+
     public void switchToTabs() {
         setMainPanelTo(mainApp);
     }
@@ -128,8 +144,27 @@ public class MainAppController {
     public void setUserName(String userName) {
         this.userName = userName;
         requestsTabController.setUserName(userName);
+        requestsTabController.setMainAppController(this);
         System.out.println("Main app user name: " + userName);
     }
 
+    public void onExecutionButtonClicked(RequestedSimulationDataDTO selectedRequest) {
+        setSelectedRequest(selectedRequest);
+        newExecutionComponentController.onNewExecutionClicked(selectedRequest.getWorldName());
+        newExecutionComponentController.setMainAppController(this);
+        newExecutionComponentController.setTabPane(tabPane);
+    }
+
+    public TerminationDTO getSelectedSimulationTermination() {
+        return selectedRequest.getTermination();
+    }
+
+    public void onStartButtonClick(int simulationSerialNumber) {
+        //TODO: When eyal finishes resultsTab
+    }
+
+    public String getUserName() {
+        return userName;
+    }
 }
 

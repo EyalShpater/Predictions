@@ -158,4 +158,21 @@ public class RequestHandler {
         return response;
     }
 
+    public static int runSimulation(SimulationInitDataFromUserDTO simulationInitDataFromUserDTO) throws IOException {
+        HttpUrl.Builder urlBuilder = HttpUrl.parse(GeneralConstants.BASE_URL + GeneralConstants.RUN_SIMULATION_RESOURCE).newBuilder();
+        String finalURL = urlBuilder.build().toString();
+
+        RequestBody body = RequestBody.create("".getBytes());
+
+        Request request = new Request.Builder()
+                .url(finalURL)
+                .put(body)
+                .build();
+
+        Call call = HTTP_CLIENT.newCall(request);
+        Response response = call.execute();
+
+        Integer simulationSerialNumber = Integer.valueOf(response.body().string());
+        return simulationSerialNumber;
+    }
 }

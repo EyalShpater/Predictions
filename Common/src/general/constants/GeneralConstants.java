@@ -23,6 +23,8 @@ public class GeneralConstants {
     public static final String CHANGE_REQUEST_STATUS_RESOURCE = "/change_request_status";
     public static final String LOGIN_RESOURCE = "/login_page";
     public static final String LOGOUT_RESOURCE = "/logout_page";
+    public static final String RUN_SIMULATION_RESOURCE = "/run_simulation";
+
 
     public static final int MAX_THREAD_POOL_SIZE = Integer.MAX_VALUE;
 }

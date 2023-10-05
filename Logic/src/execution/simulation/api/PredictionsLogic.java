@@ -23,7 +23,7 @@ public interface PredictionsLogic {
 
     Map<String, Map<Integer, Long>> getPopulationCountSortedByName(int serialNumber);
 
-    int runNewSimulation(SimulationInitDataFromUserDTO initData, String worldName, String userName);
+    int runNewSimulation(SimulationInitDataFromUserDTO initData);
 
     void pauseSimulationBySerialNumber(int serialNumber);
 

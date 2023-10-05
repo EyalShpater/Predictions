@@ -7,6 +7,8 @@ import impl.RequestedSimulationDataDTO;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+import main.MainAppController;
+
 
 import java.util.TimerTask;
 
@@ -24,6 +26,8 @@ public class RequestsController {
     @FXML
     private RequestsComponentController requestsTableViewController;
 
+    MainAppController mainAppController;
+
     private String userName;
 
     @FXML
@@ -40,6 +44,8 @@ public class RequestsController {
     @FXML
     void onExecuteButtonClicked(ActionEvent event) {
         RequestedSimulationDataDTO selectedRequest = requestsTableViewController.getSelectedRequest();
+        mainAppController.onExecutionButtonClicked(selectedRequest);
+
 
         if (selectedRequest != null) {
             System.out.println("request id #" + selectedRequest.getRequestSerialNumber());
@@ -49,5 +55,9 @@ public class RequestsController {
     @FXML
     void onSubmitButtonClicked(ActionEvent event) {
 
+    }
+
+    public void setMainAppController(MainAppController mainAppController) {
+        this.mainAppController = mainAppController;
     }
 }
