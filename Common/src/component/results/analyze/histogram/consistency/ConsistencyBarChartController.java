@@ -1,4 +1,4 @@
-package javafx.tab.results.analyze.histogram.consistency;
+package component.results.analyze.histogram.consistency;
 
 import impl.SimulationDataDTO;
 import javafx.fxml.FXML;

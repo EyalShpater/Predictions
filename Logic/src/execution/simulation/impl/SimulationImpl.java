@@ -125,7 +125,7 @@ public class SimulationImpl implements Simulation , Serializable {
 
     public SimulationRunDetailsDTO createRunDetailDTO() {
         return new SimulationRunDetailsDTO(
-//                endReason.equals(TerminateCondition.BY_SECONDS),
+//                endReason.equals(TerminateCondition.BY_SECONDS), //todo
 //                endReason.equals(TerminateCondition.BY_TICKS),
                 false,
                 false,

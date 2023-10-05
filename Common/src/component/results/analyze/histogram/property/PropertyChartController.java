@@ -1,4 +1,4 @@
-package javafx.tab.results.analyze.histogram.property;
+package component.results.analyze.histogram.property;
 
 import impl.SimulationDataDTO;
 import javafx.fxml.FXML;

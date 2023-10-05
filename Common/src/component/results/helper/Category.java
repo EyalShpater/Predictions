@@ -1,4 +1,4 @@
-package javafx.tab.results.helper;
+package component.results.helper;
 
 import javafx.beans.property.*;
 
@@ -8,10 +8,12 @@ import java.util.Date;
 public class Category {
     private LongProperty time;
     private IntegerProperty id;
+    private StringProperty simulationName;
 
-    public Category(long time, int id) {
+    public Category(String simulationName, long time, int id) {
         this.time = new SimpleLongProperty(time);
         this.id = new SimpleIntegerProperty(id);
+        this.simulationName = new SimpleStringProperty(simulationName);
     }
 
     public LongProperty getTimeProperty() {
@@ -36,6 +38,14 @@ public class Category {
 
     public void setId(int id) {
         this.id.set(id);
+    }
+
+    public String getSimulationName() {
+        return simulationName.get();
+    }
+
+    public StringProperty simulationNameProperty() {
+        return simulationName;
     }
 
     @Override

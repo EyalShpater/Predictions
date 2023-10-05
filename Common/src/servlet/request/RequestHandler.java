@@ -3,7 +3,9 @@ package servlet.request;
 import com.google.gson.Gson;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonParser;
-import com.sun.org.apache.bcel.internal.generic.RET;
+import com.google.gson.reflect.TypeToken;
+
+import java.lang.reflect.Type;
 import general.constants.GeneralConstants;
 import impl.*;
 import okhttp3.*;
@@ -11,6 +13,7 @@ import okhttp3.*;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import static general.configuration.Configuration.HTTP_CLIENT;
 
@@ -143,21 +146,6 @@ public class RequestHandler {
         HTTP_CLIENT.newCall(request).execute();
     }
 
-    private static Response getResponseUsingWorldName(String resource, String worldName) throws IOException {
-        HttpUrl.Builder urlBuilder = HttpUrl.parse(GeneralConstants.BASE_URL + resource).newBuilder();
-        urlBuilder.addQueryParameter(GeneralConstants.WORLD_NAME_PARAMETER_NAME, worldName);
-        String finalUrl = urlBuilder.build().toString();
-
-        Request request = new Request.Builder()
-                .url(finalUrl)
-                .build();
-
-        Call call = HTTP_CLIENT.newCall(request);
-        Response response = call.execute();
-
-        return response;
-    }
-
     public static int runSimulation(SimulationInitDataFromUserDTO simulationInitDataFromUserDTO) throws IOException {
         HttpUrl.Builder urlBuilder = HttpUrl.parse(GeneralConstants.BASE_URL + GeneralConstants.RUN_SIMULATION_RESOURCE).newBuilder();
         String finalURL = urlBuilder.build().toString();
@@ -174,5 +162,118 @@ public class RequestHandler {
 
         Integer simulationSerialNumber = Integer.valueOf(response.body().string());
         return simulationSerialNumber;
+    }
+
+    public static SimulationDataDTO getSimulationData(int simulationId, String entityName, String propertyName) throws IOException {
+        Gson gson = new Gson();
+
+        HttpUrl.Builder urlBuilder = HttpUrl.parse(GeneralConstants.BASE_URL + GeneralConstants.GET_ALL_USER_REQUESTS_RESOURCE).newBuilder();
+        urlBuilder.addQueryParameter(GeneralConstants.SIMULATION_SERIAL_NUMBER_PARAMETER_NAME, String.valueOf(simulationId));
+        urlBuilder.addQueryParameter(GeneralConstants.ENTITY_NAME_PARAMETER_NAME, entityName);
+        urlBuilder.addQueryParameter(GeneralConstants.PROPERTY_NAME_PARAMETER_NAME, propertyName);
+        String finalUrl = urlBuilder.build().toString();
+
+        Request request = new Request.Builder()
+                .url(finalUrl)
+                .build();
+
+        Call call = HTTP_CLIENT.newCall(request);
+        Response response = call.execute();
+
+        return (SimulationDataDTO) gson.fromJson(response.body().string(), SimulationDataDTO.class);
+    }
+
+    public static Map<String, Double> getConsistencyByEntityName(int serialNumber, String entityName) throws IOException {
+        //todo: debug
+        Gson gson = new Gson();
+
+        HttpUrl.Builder urlBuilder = HttpUrl.parse(GeneralConstants.BASE_URL + GeneralConstants.GET_CONSISTENCY_BT_ENTITY_RESOURCE).newBuilder();
+        urlBuilder.addQueryParameter(GeneralConstants.SIMULATION_SERIAL_NUMBER_PARAMETER_NAME, String.valueOf(serialNumber));
+        urlBuilder.addQueryParameter(GeneralConstants.ENTITY_NAME_PARAMETER_NAME, entityName);
+        String finalUrl = urlBuilder.build().toString();
+
+        Request request = new Request.Builder()
+                .url(finalUrl)
+                .build();
+
+        Call call = HTTP_CLIENT.newCall(request);
+        Response response = call.execute();
+
+        Type mapType = new TypeToken<Map<String, Double>>() {
+        }.getType();
+
+        return gson.fromJson(response.body().string(), mapType);
+    }
+
+    public static SimulationDTO getSimulationDTOBySerialNumber(int serialNumber) throws IOException {
+        Gson gson = new Gson();
+
+        HttpUrl.Builder urlBuilder = HttpUrl.parse(GeneralConstants.BASE_URL + GeneralConstants.GET_SIMULATION_DTO_RESOURCE).newBuilder();
+        urlBuilder.addQueryParameter(GeneralConstants.SIMULATION_SERIAL_NUMBER_PARAMETER_NAME, String.valueOf(serialNumber));
+        String finalUrl = urlBuilder.build().toString();
+
+        Request request = new Request.Builder()
+                .url(finalUrl)
+                .build();
+
+        Call call = HTTP_CLIENT.newCall(request);
+        Response response = call.execute();
+
+        return gson.fromJson(response.body().string(), SimulationDTO.class);
+    }
+
+    public static Map<String, Map<Integer, Long>> getPopulationCountSortedByName(int serialNumber) throws IOException {
+        //todo: debug
+        Gson gson = new Gson();
+
+        HttpUrl.Builder urlBuilder = HttpUrl.parse(GeneralConstants.BASE_URL + GeneralConstants.GET_POPULATION_COUNT_SORTED_BY_NAME_RESOURCE).newBuilder();
+        urlBuilder.addQueryParameter(GeneralConstants.SIMULATION_SERIAL_NUMBER_PARAMETER_NAME, String.valueOf(serialNumber));
+        String finalUrl = urlBuilder.build().toString();
+
+        Request request = new Request.Builder()
+                .url(finalUrl)
+                .build();
+
+        Call call = HTTP_CLIENT.newCall(request);
+        Response response = call.execute();
+
+        Type mapType = new TypeToken<Map<String, Map<Integer, Long>>>() {
+        }.getType();
+
+        return gson.fromJson(response.body().string(), mapType);
+    }
+
+    public static double getFinalNumericPropertyAvg(int simulationId, String entityName, String propertyName) throws IOException {
+        Gson gson = new Gson();
+
+        HttpUrl.Builder urlBuilder = HttpUrl.parse(GeneralConstants.BASE_URL + GeneralConstants.GET_FINAL_PROPERTY_AVERAGE_RESOURCE).newBuilder();
+        urlBuilder.addQueryParameter(GeneralConstants.SIMULATION_SERIAL_NUMBER_PARAMETER_NAME, String.valueOf(simulationId));
+        urlBuilder.addQueryParameter(GeneralConstants.ENTITY_NAME_PARAMETER_NAME, entityName);
+        urlBuilder.addQueryParameter(GeneralConstants.PROPERTY_NAME_PARAMETER_NAME, propertyName);
+        String finalUrl = urlBuilder.build().toString();
+
+        Request request = new Request.Builder()
+                .url(finalUrl)
+                .build();
+
+        Call call = HTTP_CLIENT.newCall(request);
+        Response response = call.execute();
+
+        return gson.fromJson(response.body().string(), Double.class);
+    }
+
+    private static Response getResponseUsingWorldName(String resource, String worldName) throws IOException {
+        HttpUrl.Builder urlBuilder = HttpUrl.parse(GeneralConstants.BASE_URL + resource).newBuilder();
+        urlBuilder.addQueryParameter(GeneralConstants.WORLD_NAME_PARAMETER_NAME, worldName);
+        String finalUrl = urlBuilder.build().toString();
+
+        Request request = new Request.Builder()
+                .url(finalUrl)
+                .build();
+
+        Call call = HTTP_CLIENT.newCall(request);
+        Response response = call.execute();
+
+        return response;
     }
 }

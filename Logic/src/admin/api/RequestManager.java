@@ -1,7 +1,6 @@
 package admin.api;
 
 import execution.simulation.termination.impl.TerminationImpl;
-import impl.RequestedSimulationDataDTO;
 import impl.RunRequestDTO;
 
 import java.util.ArrayList;
@@ -9,7 +8,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicInteger;
-import java.util.stream.Collectors;
 
 public class RequestManager {
     private Map<Integer, UserRequest> requests;

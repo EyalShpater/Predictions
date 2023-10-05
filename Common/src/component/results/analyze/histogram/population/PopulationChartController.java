@@ -1,4 +1,4 @@
-package javafx.tab.results.analyze.histogram.population;
+package component.results.analyze.histogram.population;
 
 import impl.SimulationDataDTO;
 import javafx.fxml.FXML;
