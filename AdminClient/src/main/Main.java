@@ -17,19 +17,15 @@ import java.net.URL;
 public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
-        AllocationsController managementController;
-
-        primaryStage.setTitle("Predictions");
+        primaryStage.setTitle("Predictions Admin Application");
 
         URL resource = getClass().getResource("/main/AdminMainApp.fxml");
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(resource);
         Parent mainApp = loader.load();
 
-//        managementController = loader.getController();
         Scene scene = new Scene(mainApp, 960, 640);
         primaryStage.setScene(scene);
-        // managementController.setStage(primaryStage);
 
         primaryStage.setOnCloseRequest(request -> {
             Platform.exit();

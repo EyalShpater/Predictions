@@ -154,7 +154,7 @@
       <recent name="javafx.details.details" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.AdminClientManagement">
+  <component name="RunManager" selected="Application.UserClientDetails">
     <configuration name="AdminClientManagement" type="Application" factoryName="Application" temporary="true">
       <option name="MAIN_CLASS_NAME" value="main.Main" />
       <module name="AdminClient" />
@@ -304,8 +304,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.AdminClientManagement" />
         <item itemvalue="Application.UserClientDetails" />
+        <item itemvalue="Application.AdminClientManagement" />
         <item itemvalue="Application.Main" />
         <item itemvalue="Application.AdminClientManagement" />
         <item itemvalue="Application.UserClientDetails" />
