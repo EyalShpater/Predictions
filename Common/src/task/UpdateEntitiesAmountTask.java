@@ -12,6 +12,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.StackPane;
+import servlet.request.RequestHandler;
 import task.helper.EntityPopulationData;
 
 import java.util.HashMap;
@@ -37,30 +38,31 @@ public class UpdateEntitiesAmountTask extends Task<Boolean> {
 
     @Override
     protected Boolean call() throws Exception {
-        do {
-            if (simulationStarted(serialNumber)) {
-                EntitiesAmountDTO entitiesAmountDTO = engine.getSimulationEntitiesAmountMap(serialNumber);
-                Map<String, Long> entityNameToAmount = entitiesAmountDTO.getEntityToPopulationMap();
-
-                Platform.runLater(() -> {
-                    tableView.setVisible(true);
-                    updateTableView(entityNameToAmount);
-                });
-            } else {
-                Platform.runLater(() -> {
-                    tableView.setVisible(false); // Hide the TableView
-                });
-                sleepIfSimulationHasNotStarted(serialNumber);
-            }
-
-            Thread.sleep(100);
-        } while (!engine.isEnded(serialNumber));
+//        do {
+//            if (simulationStarted(serialNumber)) {
+//                EntitiesAmountDTO entitiesAmountDTO = engine.getSimulationEntitiesAmountMap(serialNumber);
+//                Map<String, Long> entityNameToAmount = entitiesAmountDTO.getEntityToPopulationMap();
+//
+//                Platform.runLater(() -> {
+//                    tableView.setVisible(true);
+//                    updateTableView(entityNameToAmount);
+//                });
+//            } else {
+//                Platform.runLater(() -> {
+//                    tableView.setVisible(false); // Hide the TableView
+//                });
+//                sleepIfSimulationHasNotStarted(serialNumber);
+//            }
+//
+//            Thread.sleep(100);
+//        } while (!RequestHandler.isEnded(serialNumber));
 
         return true;
     }
 
     private boolean simulationStarted(int serialNumber) {
-        return engine.hasStarted(serialNumber);
+//        return engine.hasStarted(serialNumber);
+        return true;
     }
 
 
@@ -77,10 +79,11 @@ public class UpdateEntitiesAmountTask extends Task<Boolean> {
     }
 
     private boolean sleepIfSimulationHasNotStarted(int serialNumber) throws InterruptedException {
-        while (!engine.hasStarted(serialNumber)) {
-            Thread.sleep(1000);
-        }
-        return engine.hasStarted(serialNumber);
+//        while (!engine.hasStarted(serialNumber)) {
+//            Thread.sleep(1000);
+//        }
+//        return engine.hasStarted(serialNumber);
+        return true;
     }
 
 

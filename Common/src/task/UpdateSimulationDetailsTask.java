@@ -5,6 +5,7 @@ import javafx.application.Platform;
 import javafx.beans.binding.Bindings;
 import javafx.concurrent.Task;
 import javafx.scene.control.ProgressIndicator;
+import servlet.request.RequestHandler;
 
 import java.util.function.Consumer;
 
@@ -27,16 +28,16 @@ public class UpdateSimulationDetailsTask extends Task<Boolean> {
     @Override
     protected Boolean call() throws Exception {
         do {
-            SimulationRunDetailsDTO runDetails = engine.getSimulationRunDetail(serialNumber);
-            updateProgress(runDetails.getStartProgress(), runDetails.getEndProgress());
-
-            Platform.runLater(() -> setTicks.accept(runDetails.getTickNumber()));
-            Platform.runLater(() -> setSeconds.accept(runDetails.getRunningTime()));
-
-            updateProgress(runDetails.getStartProgress(), runDetails.getEndProgress());
+//            SimulationRunDetailsDTO runDetails = engine.getSimulationRunDetail(serialNumber);
+//            updateProgress(runDetails.getStartProgress(), runDetails.getEndProgress());
+//
+//            Platform.runLater(() -> setTicks.accept(runDetails.getTickNumber()));
+//            Platform.runLater(() -> setSeconds.accept(runDetails.getRunningTime()));
+//
+//            updateProgress(runDetails.getStartProgress(), runDetails.getEndProgress());
 
             Thread.sleep(TIME_TO_SLEEP);
-        } while (!engine.isEnded(serialNumber));
+        } while (!RequestHandler.isEnded(serialNumber));
 
         updateProgress(1, 1);
         atEnd.accept(true);

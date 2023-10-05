@@ -9,40 +9,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="27d35137-667f-4e37-a519-ab836acc0a06" name="Changes" comment="combine">
-      <change afterPath="$PROJECT_DIR$/PredictionsWebApplication/src/servlet/GetConsistencyByEntity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/PredictionsWebApplication/src/servlet/GetFinalPropertyAverageServlet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/PredictionsWebApplication/src/servlet/GetPopulationCountServlet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/PredictionsWebApplication/src/servlet/GetSimulationDTOServlet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/PredictionsWebApplication/src/servlet/GetSimulationDataServlet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/PredictionsWebApplication/src/servlet/IsSimulationEndedServlet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/PredictionsWebApplication/src/servlet/PauseSimulationServlet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/PredictionsWebApplication/src/servlet/ResumeSimulationServlet.java" afterDir="false" />
+    <list default="true" id="27d35137-667f-4e37-a519-ab836acc0a06" name="Changes" comment="a lot">
+      <change afterPath="$PROJECT_DIR$/PredictionsWebApplication/src/servlet/StopSimulationServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Common/src/component/results/analyze/AnalyzePaginationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Common/src/component/results/analyze/AnalyzePaginationController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Common/src/component/results/progress/ProgressController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Common/src/component/results/progress/ProgressController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Common/src/general/constants/GeneralConstants.java" beforeDir="false" afterPath="$PROJECT_DIR$/Common/src/general/constants/GeneralConstants.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Common/src/servlet/request/RequestHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/Common/src/servlet/request/RequestHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/src/javafx/tab/results/Results.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Common/src/component/results/Results.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/src/javafx/tab/results/ResultsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Common/src/component/results/ResultsController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/src/javafx/tab/results/TestMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/Common/src/component/results/TestMain.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/src/javafx/tab/results/analyze/AnalyzePagination.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Common/src/component/results/analyze/AnalyzePagination.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/src/javafx/tab/results/analyze/AnalyzePaginationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Common/src/component/results/analyze/AnalyzePaginationController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/src/javafx/tab/results/analyze/histogram/consistency/ConsistencyBarChart.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Common/src/component/results/analyze/histogram/consistency/ConsistencyBarChart.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/src/javafx/tab/results/analyze/histogram/consistency/ConsistencyBarChartController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Common/src/component/results/analyze/histogram/consistency/ConsistencyBarChartController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/src/javafx/tab/results/analyze/histogram/population/PopulationChart.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Common/src/component/results/analyze/histogram/population/PopulationChart.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/src/javafx/tab/results/analyze/histogram/population/PopulationChartController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Common/src/component/results/analyze/histogram/population/PopulationChartController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/src/javafx/tab/results/analyze/histogram/property/PropertyChart.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Common/src/component/results/analyze/histogram/property/PropertyChart.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/src/javafx/tab/results/analyze/histogram/property/PropertyChartController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Common/src/component/results/analyze/histogram/property/PropertyChartController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/src/javafx/tab/results/helper/Category.java" beforeDir="false" afterPath="$PROJECT_DIR$/Common/src/component/results/helper/Category.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/src/javafx/tab/results/progress/Progress.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Common/src/component/results/progress/Progress.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/src/javafx/tab/results/progress/ProgressController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Common/src/component/results/progress/ProgressController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/src/javafx/tab/results/resources/pause.png" beforeDir="false" afterPath="$PROJECT_DIR$/Common/src/component/results/resources/pause.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/src/javafx/tab/results/resources/play-button.png" beforeDir="false" afterPath="$PROJECT_DIR$/Common/src/component/results/resources/play-button.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/src/javafx/tab/results/resources/rerun.png" beforeDir="false" afterPath="$PROJECT_DIR$/Common/src/component/results/resources/rerun.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/src/javafx/tab/results/resources/stop-button.png" beforeDir="false" afterPath="$PROJECT_DIR$/Common/src/component/results/resources/stop-button.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/src/task/UpdateEntitiesAmountTask.java" beforeDir="false" afterPath="$PROJECT_DIR$/Common/src/task/UpdateEntitiesAmountTask.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/src/task/UpdateSimulationDetailsTask.java" beforeDir="false" afterPath="$PROJECT_DIR$/Common/src/task/UpdateSimulationDetailsTask.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/src/task/helper/EntityPopulationData.java" beforeDir="false" afterPath="$PROJECT_DIR$/Common/src/task/helper/EntityPopulationData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/admin/api/RequestManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/admin/api/RequestManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/execution/simulation/impl/SimulationImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/execution/simulation/impl/SimulationImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Common/src/task/UpdateEntitiesAmountTask.java" beforeDir="false" afterPath="$PROJECT_DIR$/Common/src/task/UpdateEntitiesAmountTask.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Common/src/task/UpdateSimulationDetailsTask.java" beforeDir="false" afterPath="$PROJECT_DIR$/Common/src/task/UpdateSimulationDetailsTask.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -429,7 +404,7 @@
       <workItem from="1696160638044" duration="1116000" />
       <workItem from="1696162411212" duration="43780000" />
       <workItem from="1696273433987" duration="350000" />
-      <workItem from="1696315652458" duration="96146000" />
+      <workItem from="1696315652458" duration="99667000" />
     </task>
     <task id="LOCAL-00103" summary="changed evaluate to get the EntityInstance of secondaryEntity in each iteration in order to creare the proper context , also added functions to context to get the filtered SecondaryEntity list">
       <created>1694175010163</created>
@@ -549,14 +524,6 @@
       <option name="presentableId" value="LOCAL-00157" />
       <option name="project" value="LOCAL" />
       <updated>1695105621094</updated>
-    </task>
-    <task id="LOCAL‎-00191" summary="If the uploaded file is not valid, the response includes a 400 code and a message describing the error.">
-      <option name="closed" value="true" />
-      <created>1695986811163</created>
-      <option name="number" value="00191" />
-      <option name="presentableId" value="LOCAL‎-00191" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1695986811163</updated>
     </task>
     <task id="LOCAL‎-00192" summary="implement client upload class">
       <option name="closed" value="true" />
@@ -806,7 +773,15 @@
       <option name="project" value="LOCAL‎" />
       <updated>1696514219596</updated>
     </task>
-    <option name="localTasksCounter" value="223" />
+    <task id="LOCAL‎-00223" summary="a lot">
+      <option name="closed" value="true" />
+      <created>1696532820246</created>
+      <option name="number" value="00223" />
+      <option name="presentableId" value="LOCAL‎-00223" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1696532820246</updated>
+    </task>
+    <option name="localTasksCounter" value="224" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -837,7 +812,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="implemented file upload endpoint" />
     <MESSAGE value="If the uploaded file is not valid, the response includes a 400 code and a message describing the error." />
     <MESSAGE value="implement client upload class" />
     <MESSAGE value="implement getWorlds endpoint using GSON" />
@@ -862,7 +836,8 @@
     <MESSAGE value="merged the admin tabs to one main component" />
     <MESSAGE value="combine" />
     <MESSAGE value="Changes by ASUS" />
-    <option name="LAST_COMMIT_MESSAGE" value="Changes by ASUS" />
+    <MESSAGE value="a lot" />
+    <option name="LAST_COMMIT_MESSAGE" value="a lot" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">

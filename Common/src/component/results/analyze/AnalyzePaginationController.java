@@ -4,8 +4,6 @@ import component.results.ResultsController;
 import component.results.analyze.histogram.consistency.ConsistencyBarChartController;
 import component.results.analyze.histogram.population.PopulationChartController;
 import component.results.analyze.histogram.property.PropertyChartController;
-import general.constants.GeneralConstants;
-import impl.SimulationDTO;
 import impl.SimulationDataDTO;
 import javafx.beans.property.*;
 import javafx.fxml.FXML;
@@ -16,10 +14,8 @@ import javafx.scene.control.Pagination;
 import javafx.scene.layout.StackPane;
 import servlet.request.RequestHandler;
 
-
 import java.net.URL;
 import java.util.Map;
-import java.util.function.Consumer;
 
 public class AnalyzePaginationController {
     private static final int PROPERTIES_PAGE_INDEX = 0;
@@ -146,7 +142,7 @@ public class AnalyzePaginationController {
         currentSimulationSerialNumber = newSerialNumber;
 
         try {
-            if (engine.isEnded(newSerialNumber) && selectedEntity.isNotNull().get()) {
+            if (RequestHandler.isEnded(newSerialNumber) && selectedEntity.isNotNull().get()) {
                 switch (currentPage.get()) {
                     case PROPERTIES_PAGE_INDEX:
                         if (selectedProperty.isNotNull().get()) {

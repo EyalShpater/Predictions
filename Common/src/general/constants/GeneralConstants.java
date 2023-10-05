@@ -21,7 +21,7 @@ public class GeneralConstants {
     public static final String GET_ALL_USER_REQUESTS_RESOURCE = "/info/user_requests";
     public static final String GET_CONSISTENCY_BT_ENTITY_RESOURCE = "/info/consistency_by_name";
     public static final String GET_SIMULATION_DATA_RESOURCE = "/info/simulation_data";
-    public static final String GET_SIMULATION_DTO_RESOURCE = "info/simulation_details";
+    public static final String GET_SIMULATION_DTO_RESOURCE = "/info/simulation_details";
     public static final String GET_POPULATION_COUNT_SORTED_BY_NAME_RESOURCE = "/info/population_count_sorted_by_name";
     public static final String GET_IF_SIMULATION_ENDED_RESOURCE = "/info/is_simulation/ended";
     public static final String GET_FINAL_PROPERTY_AVERAGE_RESOURCE = "/info/final_property_average";
@@ -35,6 +35,7 @@ public class GeneralConstants {
     public static final String RUN_SIMULATION_RESOURCE = "/run_simulation";
     public static final String PAUSE_SIMULATION_RESOURCE = "/pause_simulation";
     public static final String RESUME_SIMULATION_RESOURCE = "/resume_simulation";
+    public static final String STOP_SIMULATION_RESOURCE = "/stop_simulation";
 
     public static final int MAX_THREAD_POOL_SIZE = Integer.MAX_VALUE;
 }

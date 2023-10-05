@@ -262,6 +262,63 @@ public class RequestHandler {
         return gson.fromJson(response.body().string(), Double.class);
     }
 
+    public static boolean isEnded(int serialNumber) throws IOException {
+        return checkSimulationRunningStatus(serialNumber, GeneralConstants.GET_IF_SIMULATION_ENDED_RESOURCE);
+    }
+
+    public static void resumeSimulationBySerialNumber(int serialNumber) throws IOException {
+        changeSimulationRunningStatus(serialNumber, GeneralConstants.RESUME_SIMULATION_RESOURCE);
+    }
+
+    public static void pauseSimulationBySerialNumber(int serialNumber) throws IOException {
+        changeSimulationRunningStatus(serialNumber, GeneralConstants.PAUSE_SIMULATION_RESOURCE);
+    }
+
+    public static boolean isStop(int serialNumber) throws IOException {
+        return checkSimulationRunningStatus(serialNumber, GeneralConstants.STOP_SIMULATION_RESOURCE);
+    }
+
+    public static boolean isPause(int serialNumber) throws IOException {
+        return checkSimulationRunningStatus(serialNumber, GeneralConstants.PAUSE_SIMULATION_RESOURCE);
+    }
+
+
+    public static void stopSimulationBySerialNumber(int serialNumber) throws IOException {
+        changeSimulationRunningStatus(serialNumber, GeneralConstants.STOP_SIMULATION_RESOURCE);
+    }
+
+    private static void changeSimulationRunningStatus(int serialNumber, String resource) throws IOException {
+        HttpUrl.Builder urlBuilder = HttpUrl.parse(GeneralConstants.BASE_URL + resource).newBuilder();
+        urlBuilder.addQueryParameter(GeneralConstants.SIMULATION_SERIAL_NUMBER_PARAMETER_NAME, String.valueOf(serialNumber));
+        String finalURL = urlBuilder.build().toString();
+
+        Request request = new Request.Builder()
+                .url(finalURL)
+                .put(RequestBody.create("".getBytes()))
+                .build();
+
+        Call call = HTTP_CLIENT.newCall(request);
+
+        call.execute();
+    }
+
+    private static boolean checkSimulationRunningStatus(int serialNumber, String resource) throws IOException {
+        Gson gson = new Gson();
+
+        HttpUrl.Builder urlBuilder = HttpUrl.parse(GeneralConstants.BASE_URL + resource).newBuilder();
+        urlBuilder.addQueryParameter(GeneralConstants.SIMULATION_SERIAL_NUMBER_PARAMETER_NAME, String.valueOf(serialNumber));
+        String finalUrl = urlBuilder.build().toString();
+
+        Request request = new Request.Builder()
+                .url(finalUrl)
+                .build();
+
+        Call call = HTTP_CLIENT.newCall(request);
+        Response response = call.execute();
+
+        return gson.fromJson(response.body().string(), Boolean.class);
+    }
+
     private static Response getResponseUsingWorldName(String resource, String worldName) throws IOException {
         HttpUrl.Builder urlBuilder = HttpUrl.parse(GeneralConstants.BASE_URL + resource).newBuilder();
         urlBuilder.addQueryParameter(GeneralConstants.WORLD_NAME_PARAMETER_NAME, worldName);
