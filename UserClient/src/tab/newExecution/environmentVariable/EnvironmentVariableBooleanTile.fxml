@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import java.lang.String?>
+<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
+      prefHeight="79.0" prefWidth="418.0" spacing="10.0" stylesheets="@singleEntity.css"
+      xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="javafx.tab.newExecution.environmentVariable.BooleanEnvironmentVariableController">
+    <children>
+        <Label fx:id="envVarNameLabel" alignment="CENTER" contentDisplay="CENTER" prefHeight="60.0" prefWidth="294.0"/>
+        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="10.0">
+            <children>
+                <RadioButton fx:id="trueRadioButton" contentDisplay="CENTER" mnemonicParsing="false" text="true">
+                    <toggleGroup>
+                        <ToggleGroup fx:id="radioButtonGroup"/>
+                    </toggleGroup>
+                </RadioButton>
+                <RadioButton fx:id="falseRadioButton" mnemonicParsing="false" text="false"
+                             toggleGroup="$radioButtonGroup"/>
+                <RadioButton fx:id="randomRadioButton" mnemonicParsing="false" text="random"
+                             toggleGroup="$radioButtonGroup"/>
+            </children>
+        </HBox>
+    </children>
+    <styleClass>
+        <String fx:value="round-layout"/>
+        <String fx:value="round-layout"/>
+    </styleClass>
+    <opaqueInsets>
+        <Insets/>
+    </opaqueInsets>
+    <padding>
+        <Insets bottom="5.0"/>
+    </padding>
+</VBox>
