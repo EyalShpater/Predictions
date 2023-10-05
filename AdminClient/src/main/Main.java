@@ -21,12 +21,12 @@ public class Main extends Application {
 
         primaryStage.setTitle("Predictions");
 
-        URL resource = getClass().getResource("/tab/allocations/Allocations.fxml");
+        URL resource = getClass().getResource("/main/AdminMainApp.fxml");
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(resource);
         Parent mainApp = loader.load();
 
-        managementController = loader.getController();
+//        managementController = loader.getController();
         Scene scene = new Scene(mainApp, 960, 640);
         primaryStage.setScene(scene);
         // managementController.setStage(primaryStage);
@@ -38,6 +38,5 @@ public class Main extends Application {
 
         primaryStage.show();
 
-        System.out.println(new Gson().toJson(new RunRequestDTO("Eyal", "Smoker", 10, new TerminationDTO(10, 0, true, false))));
     }
 }
