@@ -1,11 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.Separator?>
-<?import javafx.scene.control.Spinner?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
@@ -18,107 +15,6 @@
            fx:controller="tab.requests.RequestsController">
     <children>
         <BorderPane>
-            <top>
-                <StackPane minHeight="-Infinity" minWidth="-Infinity">
-                    <children>
-                        <HBox alignment="CENTER">
-                            <children>
-                                <GridPane hgap="5.0" vgap="5.0">
-                                    <columnConstraints>
-                                        <ColumnConstraints hgrow="NEVER" maxWidth="10.0" minWidth="10.0"
-                                                           prefWidth="100.0"/>
-                                        <ColumnConstraints hgrow="NEVER"/>
-                                        <ColumnConstraints hgrow="NEVER" maxWidth="50.0" minWidth="50.0"
-                                                           prefWidth="50.0"/>
-                                        <ColumnConstraints hgrow="NEVER"/>
-                                        <ColumnConstraints hgrow="NEVER"/>
-                                        <ColumnConstraints hgrow="NEVER" minWidth="10.0" prefWidth="100.0"/>
-                                        <ColumnConstraints hgrow="NEVER" maxWidth="10.0" minWidth="10.0"
-                                                           prefWidth="100.0"/>
-                                    </columnConstraints>
-                                    <rowConstraints>
-                                        <RowConstraints maxHeight="10.0" minHeight="10.0" prefHeight="10.0"
-                                                        vgrow="NEVER"/>
-                                        <RowConstraints vgrow="NEVER"/>
-                                        <RowConstraints maxHeight="10.0" minHeight="10.0" prefHeight="10.0"
-                                                        vgrow="NEVER"/>
-                                        <RowConstraints minHeight="-Infinity" vgrow="NEVER"/>
-                                        <RowConstraints minHeight="-Infinity" vgrow="NEVER"/>
-                                        <RowConstraints maxHeight="5.0" minHeight="5.0" prefHeight="5.0" vgrow="NEVER"/>
-                                        <RowConstraints minHeight="-Infinity" vgrow="NEVER"/>
-                                        <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="NEVER"/>
-                                        <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="30.0"
-                                                        vgrow="NEVER"/>
-                                        <RowConstraints maxHeight="10.0" minHeight="10.0" prefHeight="10.0"
-                                                        vgrow="NEVER"/>
-                                    </rowConstraints>
-                                    <children>
-                                        <HBox alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity"
-                                              GridPane.columnIndex="1" GridPane.columnSpan="5" GridPane.rowIndex="1">
-                                            <children>
-                                                <Label alignment="CENTER" text="New Request"/>
-                                            </children>
-                                        </HBox>
-                                        <HBox GridPane.columnIndex="1" GridPane.rowIndex="4">
-                                            <children>
-                                                <ComboBox fx:id="worldComboBox" prefWidth="150.0"/>
-                                            </children>
-                                        </HBox>
-                                        <HBox minHeight="-Infinity" minWidth="-Infinity" GridPane.columnIndex="1"
-                                              GridPane.rowIndex="7">
-                                            <children>
-                                                <Spinner fx:id="runsAmountSpinner"/>
-                                            </children>
-                                        </HBox>
-                                        <HBox minHeight="-Infinity" minWidth="-Infinity" GridPane.columnIndex="4"
-                                              GridPane.rowIndex="4">
-                                            <children>
-                                                <Spinner fx:id="secondsSpinner"/>
-                                            </children>
-                                        </HBox>
-                                        <HBox prefHeight="100.0" prefWidth="200.0"/>
-                                        <HBox minHeight="-Infinity" minWidth="-Infinity" GridPane.columnIndex="4"
-                                              GridPane.rowIndex="7">
-                                            <children>
-                                                <Spinner fx:id="ticksSpinner"/>
-                                            </children>
-                                        </HBox>
-                                        <HBox minHeight="-Infinity" minWidth="-Infinity" GridPane.columnIndex="4"
-                                              GridPane.rowIndex="3">
-                                            <children>
-                                                <Label text="Terminate By Seconds"/>
-                                            </children>
-                                        </HBox>
-                                        <HBox GridPane.columnIndex="4" GridPane.rowIndex="6">
-                                            <children>
-                                                <Label text="Terminate By Ticks"/>
-                                            </children>
-                                        </HBox>
-                                        <HBox alignment="TOP_RIGHT" GridPane.columnIndex="3" GridPane.rowIndex="4">
-                                            <children>
-                                                <RadioButton fx:id="terminateBySecondsRadioButton" alignment="TOP_LEFT"
-                                                             contentDisplay="TOP" mnemonicParsing="false"/>
-                                            </children>
-                                        </HBox>
-                                        <HBox alignment="TOP_RIGHT" GridPane.columnIndex="3" GridPane.rowIndex="7">
-                                            <children>
-                                                <RadioButton fx:id="terminateByTicksRadioButton"
-                                                             mnemonicParsing="false"/>
-                                            </children>
-                                        </HBox>
-                                        <Label text="Amount of Runs" GridPane.columnIndex="1" GridPane.rowIndex="6"/>
-                                        <Label text="Choose Simulation" GridPane.columnIndex="1" GridPane.rowIndex="3"/>
-                                        <Button fx:id="submitButton" mnemonicParsing="false"
-                                                onAction="#onSubmitButtonClicked" text="Submit" GridPane.columnIndex="5"
-                                                GridPane.halignment="RIGHT" GridPane.rowIndex="8"
-                                                GridPane.valignment="CENTER"/>
-                                    </children>
-                                </GridPane>
-                            </children>
-                        </HBox>
-                    </children>
-                </StackPane>
-            </top>
             <center>
                 <StackPane BorderPane.alignment="CENTER">
                     <children>
@@ -166,6 +62,13 @@
                     </children>
                 </StackPane>
             </center>
+            <top>
+                <StackPane prefHeight="150.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                    <children>
+                        <fx:include fx:id="submitComponent" source="component/submit/SubmitComponent.fxml"/>
+                    </children>
+                </StackPane>
+            </top>
         </BorderPane>
     </children>
 </StackPane>

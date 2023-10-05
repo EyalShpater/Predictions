@@ -75,6 +75,13 @@ public class ManagementController {
                 threadPoolSizeSpinner.increment(0);
             }
         });
+
+        threadPoolSizeSpinner.getEditor().setOnKeyTyped(keyEvent -> {
+            String input = keyEvent.getCharacter();
+            if (!input.matches("[0-9]") && !(input.equals(".") && !threadPoolSizeSpinner.getEditor().getText().contains("."))) {
+                keyEvent.consume();
+            }
+        });
     }
 
     @FXML

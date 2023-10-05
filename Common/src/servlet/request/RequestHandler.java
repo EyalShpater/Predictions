@@ -113,6 +113,21 @@ public class RequestHandler {
         return requests;
     }
 
+    public static void addNewAllocationRequest(RunRequestDTO simulationRequest) {
+        try {
+            Gson gson = new Gson();
+
+            RequestBody body = RequestBody.create(gson.toJson(simulationRequest).getBytes());
+            Request request = new Request.Builder()
+                    .url(GeneralConstants.BASE_URL + GeneralConstants.ALLOCATION_REQUEST_RESOURCE)
+                    .post(body)
+                    .addHeader("Content-Type", "application/json")
+                    .build();
+            Response response = HTTP_CLIENT.newCall(request).execute();
+        } catch (Exception ignored) {
+        }
+    }
+
     private static Response getResponseUsingWorldName(String resource, String worldName) throws IOException {
         HttpUrl.Builder urlBuilder = HttpUrl.parse(GeneralConstants.BASE_URL + resource).newBuilder();
         urlBuilder.addQueryParameter(GeneralConstants.WORLD_NAME_PARAMETER_NAME, worldName);
@@ -127,6 +142,4 @@ public class RequestHandler {
 
         return response;
     }
-
-
 }

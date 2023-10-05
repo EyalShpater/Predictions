@@ -1,5 +1,7 @@
 package tab.requests;
 
+import javafx.scene.layout.StackPane;
+import tab.requests.component.submit.SubmitComponentController;
 import tab.requests.component.table.RequestsComponentController;
 import impl.RequestedSimulationDataDTO;
 import javafx.event.ActionEvent;
@@ -11,25 +13,10 @@ import java.util.TimerTask;
 public class RequestsController {
 
     @FXML
-    private ComboBox<?> worldComboBox;
+    private StackPane submitComponent;
 
     @FXML
-    private Spinner<?> runsAmountSpinner;
-
-    @FXML
-    private Spinner<?> secondsSpinner;
-
-    @FXML
-    private Spinner<?> ticksSpinner;
-
-    @FXML
-    private RadioButton terminateBySecondsRadioButton;
-
-    @FXML
-    private RadioButton terminateByTicksRadioButton;
-
-    @FXML
-    private Button submitButton;
+    private SubmitComponentController submitComponentController;
 
     @FXML
     private TableView<RequestedSimulationDataDTO> requestsTableView;
@@ -47,6 +34,7 @@ public class RequestsController {
     public void setUserName(String userName) {
         this.userName = userName;
         requestsTableViewController.setUserName(userName);
+        submitComponentController.setUserName(userName);
     }
 
     @FXML

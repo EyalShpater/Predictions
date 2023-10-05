@@ -10,9 +10,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="27d35137-667f-4e37-a519-ab836acc0a06" name="Changes" comment="fixed bug">
+      <change afterPath="$PROJECT_DIR$/UserClient/src/tab/requests/component/submit/SubmitComponent.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/UserClient/src/tab/requests/component/submit/SubmitComponentController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AdminClient/src/tab/management/ManagementController.java" beforeDir="false" afterPath="$PROJECT_DIR$/AdminClient/src/tab/management/ManagementController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Common/src/general/constants/GeneralConstants.java" beforeDir="false" afterPath="$PROJECT_DIR$/Common/src/general/constants/GeneralConstants.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Common/src/servlet/request/RequestHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/Common/src/servlet/request/RequestHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UserClient/src/tab/requests/Requests.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/UserClient/src/tab/requests/Requests.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UserClient/src/tab/requests/RequestsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/UserClient/src/tab/requests/RequestsController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserClient/src/tab/requests/component/table/RequestsComponentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/UserClient/src/tab/requests/component/table/RequestsComponentController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -399,7 +404,7 @@
       <workItem from="1696160638044" duration="1116000" />
       <workItem from="1696162411212" duration="43780000" />
       <workItem from="1696273433987" duration="350000" />
-      <workItem from="1696315652458" duration="61801000" />
+      <workItem from="1696315652458" duration="67015000" />
     </task>
     <task id="LOCAL-00103" summary="changed evaluate to get the EntityInstance of secondaryEntity in each iteration in order to creare the proper context , also added functions to context to get the filtered SecondaryEntity list">
       <created>1694175010163</created>
@@ -519,22 +524,6 @@
       <option name="presentableId" value="LOCAL-00157" />
       <option name="project" value="LOCAL" />
       <updated>1695105621094</updated>
-    </task>
-    <task id="LOCAL‎-00183" summary="added management fxml file">
-      <option name="closed" value="true" />
-      <created>1695821774792</created>
-      <option name="number" value="00183" />
-      <option name="presentableId" value="LOCAL‎-00183" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1695821774793</updated>
-    </task>
-    <task id="LOCAL‎-00184" summary="engine init while the server is starting">
-      <option name="closed" value="true" />
-      <created>1695830486459</created>
-      <option name="number" value="00184" />
-      <option name="presentableId" value="LOCAL‎-00184" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1695830486459</updated>
     </task>
     <task id="LOCAL‎-00185" summary="added WorldManager class">
       <option name="closed" value="true" />
@@ -776,7 +765,23 @@
       <option name="project" value="LOCAL‎" />
       <updated>1696451747594</updated>
     </task>
-    <option name="localTasksCounter" value="215" />
+    <task id="LOCAL‎-00215" summary="fixed bug">
+      <option name="closed" value="true" />
+      <created>1696453053846</created>
+      <option name="number" value="00215" />
+      <option name="presentableId" value="LOCAL‎-00215" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1696453053846</updated>
+    </task>
+    <task id="LOCAL‎-00216" summary="fixed bug">
+      <option name="closed" value="true" />
+      <created>1696453194417</created>
+      <option name="number" value="00216" />
+      <option name="presentableId" value="LOCAL‎-00216" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1696453194417</updated>
+    </task>
+    <option name="localTasksCounter" value="217" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -856,11 +861,6 @@
           <url>file://$PROJECT_DIR$/Common/src/component/details/details/DetailsComponentController.java</url>
           <line>104</line>
           <option name="timeStamp" value="178" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/AdminClient/src/tab/management/ManagementController.java</url>
-          <line>57</line>
-          <option name="timeStamp" value="193" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/PredictionsWebApplication/src/servlet/ChangeRequestStatusServlet.java</url>

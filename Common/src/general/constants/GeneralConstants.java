@@ -23,5 +23,5 @@ public class GeneralConstants {
     public static final String LOGIN_RESOURCE = "/login_page";
     public static final String LOGOUT_RESOURCE = "/logout_page";
 
-    public static final int MAX_THREAD_POOL_SIZE = 35;
+    public static final int MAX_THREAD_POOL_SIZE = Integer.MAX_VALUE;
 }
