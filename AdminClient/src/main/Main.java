@@ -9,6 +9,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import tab.allocations.AllocationsController;
 import tab.management.ManagementController;
 
 import java.net.URL;
@@ -16,11 +17,11 @@ import java.net.URL;
 public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
-        ManagementController managementController;
+        AllocationsController managementController;
 
         primaryStage.setTitle("Predictions");
 
-        URL resource = getClass().getResource("/tab/management/Management.fxml");
+        URL resource = getClass().getResource("/tab/allocations/Allocations.fxml");
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(resource);
         Parent mainApp = loader.load();
@@ -28,7 +29,7 @@ public class Main extends Application {
         managementController = loader.getController();
         Scene scene = new Scene(mainApp, 960, 640);
         primaryStage.setScene(scene);
-        managementController.setStage(primaryStage);
+        // managementController.setStage(primaryStage);
 
         primaryStage.setOnCloseRequest(request -> {
             Platform.exit();

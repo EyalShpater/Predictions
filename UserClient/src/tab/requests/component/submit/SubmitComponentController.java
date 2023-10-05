@@ -1,7 +1,5 @@
 package tab.requests.component.submit;
 
-import general.constants.GeneralConstants;
-import impl.RequestedSimulationDataDTO;
 import impl.RunRequestDTO;
 import impl.TerminationDTO;
 import impl.WorldDTO;
@@ -92,11 +90,11 @@ public class SubmitComponentController {
         runsAmount.bind(runsAmountSpinner.valueProperty());
         seconds.bind(secondsSpinner.valueProperty());
         ticks.bind(ticksSpinner.valueProperty());
-        isTerminateByTicks.bind(terminateByTicksRadioButton.selectedProperty().not());
-        isTerminateBySeconds.bind(terminateBySecondsRadioButton.selectedProperty().not());
+        isTerminateByTicks.bind(terminateByTicksRadioButton.selectedProperty());
+        isTerminateBySeconds.bind(terminateBySecondsRadioButton.selectedProperty());
 
-        secondsSpinner.disableProperty().bind(isTerminateBySeconds);
-        ticksSpinner.disableProperty().bind(isTerminateByTicks);
+        secondsSpinner.disableProperty().bind(isTerminateBySeconds.not());
+        ticksSpinner.disableProperty().bind(isTerminateByTicks.not());
     }
 
     private void setSpinners() {

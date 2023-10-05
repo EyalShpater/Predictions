@@ -1,5 +1,6 @@
 package execution.simulation.impl;
 
+import admin.api.UserRequest;
 import admin.impl.Admin;
 import execution.simulation.api.PredictionsLogic;
 import execution.simulation.manager.SimulationManager;
@@ -21,6 +22,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 public class PredictionsLogicImpl implements PredictionsLogic , Serializable {
     private static final int DEFAULT_START_POPULATION = 0;
@@ -244,6 +246,15 @@ public class PredictionsLogicImpl implements PredictionsLogic , Serializable {
                 .forEach(requestID -> requests.add(admin.getRequest(requestID).convertToDTO()));
 
         return requests;
+    }
+
+    @Override
+    public List<RequestedSimulationDataDTO> getAllRequestsSimulationData() {
+        return admin
+                .getAllRequests()
+                .stream()
+                .map(UserRequest::convertToDTO)
+                .collect(Collectors.toList());
     }
 
     @Override

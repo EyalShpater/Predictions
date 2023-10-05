@@ -9,15 +9,22 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="27d35137-667f-4e37-a519-ab836acc0a06" name="Changes" comment="fixed bug">
-      <change afterPath="$PROJECT_DIR$/UserClient/src/tab/requests/component/submit/SubmitComponent.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/UserClient/src/tab/requests/component/submit/SubmitComponentController.java" afterDir="false" />
+    <list default="true" id="27d35137-667f-4e37-a519-ab836acc0a06" name="Changes" comment="submit request component implements">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AdminClient/src/tab/management/ManagementController.java" beforeDir="false" afterPath="$PROJECT_DIR$/AdminClient/src/tab/management/ManagementController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AdminClient/src/main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/AdminClient/src/main/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AdminClient/src/tab/allocations/Allocations.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/AdminClient/src/tab/allocations/Allocations.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AdminClient/src/tab/allocations/AllocationsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/AdminClient/src/tab/allocations/AllocationsController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Common/src/general/constants/GeneralConstants.java" beforeDir="false" afterPath="$PROJECT_DIR$/Common/src/general/constants/GeneralConstants.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Common/src/servlet/request/RequestHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/Common/src/servlet/request/RequestHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserClient/src/tab/requests/Requests.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/UserClient/src/tab/requests/Requests.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserClient/src/tab/requests/RequestsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/UserClient/src/tab/requests/RequestsController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DTO/src/impl/TerminationDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/DTO/src/impl/TerminationDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/admin/api/RequestManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/admin/api/RequestManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/admin/impl/Admin.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/admin/impl/Admin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/execution/simulation/api/PredictionsLogic.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/execution/simulation/api/PredictionsLogic.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/execution/simulation/impl/PredictionsLogicImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/execution/simulation/impl/PredictionsLogicImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/execution/simulation/termination/impl/TerminationImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/execution/simulation/termination/impl/TerminationImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PredictionsWebApplication/src/servlet/AllUserRequestsServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/PredictionsWebApplication/src/servlet/AllUserRequestsServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserClient/src/tab/requests/component/submit/SubmitComponentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/UserClient/src/tab/requests/component/submit/SubmitComponentController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserClient/src/tab/requests/component/table/RequestsComponentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/UserClient/src/tab/requests/component/table/RequestsComponentController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -159,7 +166,7 @@
       <recent name="javafx.details.details" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.UserClientDetails">
+  <component name="RunManager" selected="Application.AdminClientManagement">
     <configuration name="AdminClientManagement" type="Application" factoryName="Application" temporary="true">
       <option name="MAIN_CLASS_NAME" value="main.Main" />
       <module name="AdminClient" />
@@ -309,8 +316,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.UserClientDetails" />
         <item itemvalue="Application.AdminClientManagement" />
+        <item itemvalue="Application.UserClientDetails" />
         <item itemvalue="Application.Main" />
         <item itemvalue="Application.AdminClientManagement" />
         <item itemvalue="Application.UserClientDetails" />
@@ -404,7 +411,7 @@
       <workItem from="1696160638044" duration="1116000" />
       <workItem from="1696162411212" duration="43780000" />
       <workItem from="1696273433987" duration="350000" />
-      <workItem from="1696315652458" duration="67015000" />
+      <workItem from="1696315652458" duration="76759000" />
     </task>
     <task id="LOCAL-00103" summary="changed evaluate to get the EntityInstance of secondaryEntity in each iteration in order to creare the proper context , also added functions to context to get the filtered SecondaryEntity list">
       <created>1694175010163</created>
@@ -524,14 +531,6 @@
       <option name="presentableId" value="LOCAL-00157" />
       <option name="project" value="LOCAL" />
       <updated>1695105621094</updated>
-    </task>
-    <task id="LOCAL‎-00185" summary="added WorldManager class">
-      <option name="closed" value="true" />
-      <created>1695831248357</created>
-      <option name="number" value="00185" />
-      <option name="presentableId" value="LOCAL‎-00185" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1695831248357</updated>
     </task>
     <task id="LOCAL‎-00186" summary="logic now can get multiple worlds (GUI does not compile)">
       <option name="closed" value="true" />
@@ -781,7 +780,15 @@
       <option name="project" value="LOCAL‎" />
       <updated>1696453194417</updated>
     </task>
-    <option name="localTasksCounter" value="217" />
+    <task id="LOCAL‎-00217" summary="submit request component implements">
+      <option name="closed" value="true" />
+      <created>1696492657912</created>
+      <option name="number" value="00217" />
+      <option name="presentableId" value="LOCAL‎-00217" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1696492657912</updated>
+    </task>
+    <option name="localTasksCounter" value="218" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -812,7 +819,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="added management fxml file" />
     <MESSAGE value="engine init while the server is starting" />
     <MESSAGE value="added WorldManager class" />
     <MESSAGE value="logic now can get multiple worlds (GUI does not compile)" />
@@ -837,7 +843,8 @@
     <MESSAGE value="added requests tab" />
     <MESSAGE value="added allocations tab" />
     <MESSAGE value="fixed bug" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixed bug" />
+    <MESSAGE value="submit request component implements" />
+    <option name="LAST_COMMIT_MESSAGE" value="submit request component implements" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
@@ -863,9 +870,14 @@
           <option name="timeStamp" value="178" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/PredictionsWebApplication/src/servlet/ChangeRequestStatusServlet.java</url>
-          <line>18</line>
-          <option name="timeStamp" value="199" />
+          <url>file://$PROJECT_DIR$/AdminClient/src/tab/allocations/AllocationsController.java</url>
+          <line>75</line>
+          <option name="timeStamp" value="210" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/PredictionsWebApplication/src/servlet/AllocationRequestServlet.java</url>
+          <line>22</line>
+          <option name="timeStamp" value="211" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

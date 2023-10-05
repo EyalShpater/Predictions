@@ -30,4 +30,27 @@ public class TerminationDTO implements DTO {
     public boolean isTerminateByTicks() {
         return isTerminateByTicks;
     }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+
+        if (!isTerminateByTicks && !isTerminateBySeconds) {
+            sb.append("User");
+        } else {
+            if (isTerminateBySeconds) {
+                sb.append(String.format("Seconds: %d", secondsToTerminate));
+            }
+
+            if (isTerminateByTicks) {
+                if (isTerminateBySeconds) {
+                    sb.append(System.lineSeparator());
+                }
+
+                sb.append(String.format("Ticks: %d", ticksToTerminate));
+            }
+        }
+
+        return sb.toString();
+    }
 }

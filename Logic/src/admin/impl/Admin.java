@@ -4,6 +4,7 @@ import admin.api.RequestManager;
 import admin.api.RequestStatus;
 import admin.api.UserRequest;
 import definition.simulation.SimulationDefinition;
+import impl.RequestedSimulationDataDTO;
 import impl.RunRequestDTO;
 import user.impl.User;
 
@@ -64,5 +65,9 @@ public class Admin {
 
     public void increaseNumOfRunningSimulation(int requestSerialNumber) {
         requestManager.getRequest(requestSerialNumber).increaseRunningCounter();
+    }
+
+    public List<UserRequest> getAllRequests() {
+        return requestManager.getAllRequests();
     }
 }

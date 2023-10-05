@@ -20,6 +20,10 @@ public class AllUserRequestsServlet extends HttpServlet {
         PredictionsLogic engine = (PredictionsLogic) getServletContext().getAttribute(Constants.PREDICTIONS_OBJECT_NAME);
         String userName = req.getParameter(GeneralConstants.USER_NAME_PARAMETER_NAME);
 
-        resp.getWriter().println(gson.toJson(engine.getRequestsSimulationDataByUser(userName)));
+        if (userName.equals(GeneralConstants.ALL_REQUESTS_KEY_WORD_NAME)) {
+            resp.getWriter().println(gson.toJson(engine.getAllRequestsSimulationData()));
+        } else {
+            resp.getWriter().println(gson.toJson(engine.getRequestsSimulationDataByUser(userName)));
+        }
     }
 }

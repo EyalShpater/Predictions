@@ -69,6 +69,8 @@ public interface PredictionsLogic {
 
     List<RequestedSimulationDataDTO> getRequestsSimulationDataByUser(String userName);
 
+    List<RequestedSimulationDataDTO> getAllRequestsSimulationData();
+
     void addNewUserRequest(RunRequestDTO request);
 
     boolean isUserLoggedIn(String userName);

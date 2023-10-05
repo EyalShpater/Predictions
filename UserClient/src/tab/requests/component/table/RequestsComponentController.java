@@ -40,7 +40,7 @@ public class RequestsComponentController {
     private String userName;
     private RequestedSimulationDataDTO selectedRequest;
     private TimerTask refreshRequestsTable;
-    final ObservableList<RequestedSimulationDataDTO> data = FXCollections.observableArrayList();
+    private final ObservableList<RequestedSimulationDataDTO> data = FXCollections.observableArrayList();
 
     @FXML
     private void initialize() {
@@ -70,8 +70,6 @@ public class RequestsComponentController {
     void onSelectedRequest(MouseEvent event) {
         RequestedSimulationDataDTO selected = allRequestsTableView.getSelectionModel().getSelectedItem();
         selectedRequest = selected != null ? selected : selectedRequest;
-
-        System.out.println("on selected id#" + (selectedRequest != null ? selectedRequest.getRequestSerialNumber() : null));
     }
 
     private void setAllRequestsTableView() {
@@ -80,6 +78,7 @@ public class RequestsComponentController {
         try {
             updatedRequests = RequestHandler.getRequestsByUserName(userName);
         } catch (Exception ignored) {
+            System.out.println("bug");
             return;
         }
 

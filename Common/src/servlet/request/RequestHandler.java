@@ -118,6 +118,8 @@ public class RequestHandler {
             Gson gson = new Gson();
 
             RequestBody body = RequestBody.create(gson.toJson(simulationRequest).getBytes());
+            System.out.println("body check");
+            System.out.println(gson.toJson(simulationRequest));
             Request request = new Request.Builder()
                     .url(GeneralConstants.BASE_URL + GeneralConstants.ALLOCATION_REQUEST_RESOURCE)
                     .post(body)
@@ -126,6 +128,19 @@ public class RequestHandler {
             Response response = HTTP_CLIENT.newCall(request).execute();
         } catch (Exception ignored) {
         }
+    }
+
+    public static void changeRequestStatus(int requestSerialNumber, boolean isAccept, String userName) throws IOException {
+        String body = GeneralConstants.REQUEST_ID_PARAMETER_NAME + "=" + requestSerialNumber + System.lineSeparator()
+                + GeneralConstants.NEW_STATUS_PARAMETER_NAME + "=" + isAccept + System.lineSeparator()
+                + GeneralConstants.USER_NAME_PARAMETER_NAME + "=" + userName;
+
+        Request request = new Request.Builder()
+                .url(GeneralConstants.BASE_URL + GeneralConstants.CHANGE_REQUEST_STATUS_RESOURCE)
+                .put(RequestBody.create(body.getBytes()))
+                .build();
+
+        HTTP_CLIENT.newCall(request).execute();
     }
 
     private static Response getResponseUsingWorldName(String resource, String worldName) throws IOException {
@@ -142,4 +157,5 @@ public class RequestHandler {
 
         return response;
     }
+
 }

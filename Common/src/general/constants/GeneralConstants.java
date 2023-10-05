@@ -9,6 +9,7 @@ public class GeneralConstants {
     public static final String REQUEST_ID_PARAMETER_NAME = "id";
     public static final String NEW_STATUS_PARAMETER_NAME = "status";
     public static final String USER_NAME_PARAMETER_NAME = "username";
+    public static final String ALL_REQUESTS_KEY_WORD_NAME = "admin";
 
     public static final String GET_LOADED_WORLDS_RESOURCE = "/info/loaded_worlds";
     public static final String GET_WORLD_RESOURCE = "/info/world";
