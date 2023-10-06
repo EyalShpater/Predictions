@@ -51,9 +51,9 @@ public class TerminationImpl implements Termination , Serializable {
     public TerminateCondition isTerminate(int currentTick, long secondsDuration, boolean userRequestedStop) {
         TerminateCondition terminateReason;
 
-        if (currentTick >= ticksToTerminate) {
+        if (isTerminateByTicks && currentTick >= ticksToTerminate) {
             terminateReason = TerminateCondition.BY_TICKS;
-        } else if (secondsDuration >= secondsToTerminate) {
+        } else if (isTerminateBySeconds && secondsDuration >= secondsToTerminate) {
             terminateReason = TerminateCondition.BY_SECONDS;
         } else if (userRequestedStop) {
             terminateReason = TerminateCondition.BY_USER;

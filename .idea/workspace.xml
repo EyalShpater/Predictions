@@ -10,26 +10,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="27d35137-667f-4e37-a519-ab836acc0a06" name="Changes" comment="a lot">
+      <change afterPath="$PROJECT_DIR$/UserClient/src/main/TestMain.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Common/src/servlet/request/RequestHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/Common/src/servlet/request/RequestHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/definition/world/impl/WorldImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/definition/world/impl/WorldImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserClient/src/main/MainAppController.java" beforeDir="false" afterPath="$PROJECT_DIR$/UserClient/src/main/MainAppController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserClient/src/tab/newExecution/entity/EntityTile.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/UserClient/src/tab/newExecution/entity/EntityTile.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserClient/src/tab/newExecution/environmentVariable/EnvironmentVariableBooleanTile.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/UserClient/src/tab/newExecution/environmentVariable/EnvironmentVariableBooleanTile.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserClient/src/tab/newExecution/environmentVariable/EnvironmentVariableNumericTile.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/UserClient/src/tab/newExecution/environmentVariable/EnvironmentVariableNumericTile.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserClient/src/tab/newExecution/environmentVariable/EnvironmentVariableStringTile.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/UserClient/src/tab/newExecution/environmentVariable/EnvironmentVariableStringTile.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserClient/src/tab/requests/RequestsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/UserClient/src/tab/requests/RequestsController.java" afterDir="false" />
-    </list>
-    <list id="260ab28c-d5c1-404b-9717-c3e5b78f4a7f" name="Changes by ASUS" comment="">
-      <change beforePath="$PROJECT_DIR$/Common/src/servlet/request/RequestHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/Common/src/servlet/request/RequestHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DTO/src/impl/SimulationInitDataFromUserDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/DTO/src/impl/SimulationInitDataFromUserDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/definition/world/api/World.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/definition/world/api/World.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/definition/world/impl/WorldImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/definition/world/impl/WorldImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/execution/simulation/impl/PredictionsLogicImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/execution/simulation/impl/PredictionsLogicImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Logic/src/execution/simulation/impl/SimulationImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/execution/simulation/impl/SimulationImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PredictionsWebApplication/src/servlet/RunSimulationServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/PredictionsWebApplication/src/servlet/RunSimulationServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/execution/simulation/termination/impl/TerminationImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/execution/simulation/termination/impl/TerminationImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserClient/src/login/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/UserClient/src/login/LoginController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserClient/src/main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/UserClient/src/main/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserClient/src/tab/requests/Requests.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/UserClient/src/tab/requests/Requests.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserClient/src/tab/requests/RequestsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/UserClient/src/tab/requests/RequestsController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserClient/src/tab/requests/component/table/RequestsComponent.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/UserClient/src/tab/requests/component/table/RequestsComponent.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserClient/src/tab/requests/component/table/RequestsComponentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/UserClient/src/tab/requests/component/table/RequestsComponentController.java" afterDir="false" />
+    </list>
+    <list id="260ab28c-d5c1-404b-9717-c3e5b78f4a7f" name="Changes by ASUS" comment="Changes by ASUS">
+      <change beforePath="$PROJECT_DIR$/UserClient/src/login/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/UserClient/src/login/LoginController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UserClient/src/main/MainAppController.java" beforeDir="false" afterPath="$PROJECT_DIR$/UserClient/src/main/MainAppController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserClient/src/tab/newExecution/mainComponent/NewExecutionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/UserClient/src/tab/newExecution/mainComponent/NewExecutionController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -97,23 +91,11 @@
     <setting file="jar:///Library/Java/JavaVirtualMachines/jdk-1.8.jdk/Contents/Home/javafx-src.zip!/javafx/scene/chart/XYChart.java" root0="SKIP_INSPECTION" />
   </component>
   <component name="LineStatusTrackerManager">
-    <file path="$PROJECT_DIR$/Common/src/servlet/request/RequestHandler.java">
+    <file path="$PROJECT_DIR$/UserClient/src/login/LoginController.java">
       <ranges>
-        <range start1="149" end1="149" start2="149" end2="151" changelist="260ab28c-d5c1-404b-9717-c3e5b78f4a7f" />
-        <range start1="161" end1="163" start2="163" end2="169" changelist="27d35137-667f-4e37-a519-ab836acc0a06" />
-      </ranges>
-    </file>
-    <file path="$PROJECT_DIR$/Logic/src/definition/world/impl/WorldImpl.java">
-      <ranges>
-        <range start1="24" end1="24" start2="24" end2="26" changelist="260ab28c-d5c1-404b-9717-c3e5b78f4a7f" />
-        <range start1="94" end1="96" start2="96" end2="97" changelist="27d35137-667f-4e37-a519-ab836acc0a06" />
-      </ranges>
-    </file>
-    <file path="$PROJECT_DIR$/UserClient/src/main/MainAppController.java">
-      <ranges>
-        <range start1="25" end1="97" start2="25" end2="25" changelist="27d35137-667f-4e37-a519-ab836acc0a06" />
-        <range start1="112" end1="112" start2="40" end2="41" changelist="27d35137-667f-4e37-a519-ab836acc0a06" />
-        <range start1="168" end1="168" start2="97" end2="101" changelist="260ab28c-d5c1-404b-9717-c3e5b78f4a7f" />
+        <range start1="107" end1="107" start2="107" end2="108" changelist="27d35137-667f-4e37-a519-ab836acc0a06" />
+        <range start1="109" end1="110" start2="110" end2="111" changelist="260ab28c-d5c1-404b-9717-c3e5b78f4a7f" />
+        <range start1="120" end1="120" start2="121" end2="122" changelist="27d35137-667f-4e37-a519-ab836acc0a06" />
       </ranges>
     </file>
   </component>
@@ -232,6 +214,19 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="TestMain$Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="main.TestMain$Main" />
+      <module name="UserClient" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="main.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="UserClientDetails" type="Application" factoryName="Application" temporary="true">
       <option name="MAIN_CLASS_NAME" value="main.Main" />
       <module name="UserClient" />
@@ -335,6 +330,7 @@
       </method>
     </configuration>
     <list>
+      <item itemvalue="Application.TestMain$Main" />
       <item itemvalue="Application.UserClientDetails" />
       <item itemvalue="Application.AdminClientManagement" />
       <item itemvalue="Application.Main" />
@@ -344,9 +340,9 @@
       <list>
         <item itemvalue="Application.UserClientDetails" />
         <item itemvalue="Application.AdminClientManagement" />
+        <item itemvalue="Application.TestMain$Main" />
         <item itemvalue="Application.Main" />
         <item itemvalue="Application.AdminClientManagement" />
-        <item itemvalue="Application.UserClientDetails" />
       </list>
     </recent_temporary>
   </component>
@@ -438,7 +434,7 @@
       <workItem from="1696162411212" duration="43780000" />
       <workItem from="1696273433987" duration="350000" />
       <workItem from="1696315652458" duration="100749000" />
-      <workItem from="1696576714491" duration="11258000" />
+      <workItem from="1696576714491" duration="16409000" />
     </task>
     <task id="LOCAL-00103" summary="changed evaluate to get the EntityInstance of secondaryEntity in each iteration in order to creare the proper context , also added functions to context to get the filtered SecondaryEntity list">
       <created>1694175010163</created>
@@ -558,22 +554,6 @@
       <option name="presentableId" value="LOCAL-00157" />
       <option name="project" value="LOCAL" />
       <updated>1695105621094</updated>
-    </task>
-    <task id="LOCAL‎-00195" summary="implement user client">
-      <option name="closed" value="true" />
-      <created>1696180356698</created>
-      <option name="number" value="00195" />
-      <option name="presentableId" value="LOCAL‎-00195" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1696180356698</updated>
-    </task>
-    <task id="LOCAL‎-00196" summary="userClient - details - entities implemented">
-      <option name="closed" value="true" />
-      <created>1696228874782</created>
-      <option name="number" value="00196" />
-      <option name="presentableId" value="LOCAL‎-00196" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1696228874782</updated>
     </task>
     <task id="LOCAL‎-00197" summary="userClient - details - rules implemented">
       <option name="closed" value="true" />
@@ -815,7 +795,23 @@
       <option name="project" value="LOCAL‎" />
       <updated>1696587191753</updated>
     </task>
-    <option name="localTasksCounter" value="227" />
+    <task id="LOCAL‎-00227" summary="a lot">
+      <option name="closed" value="true" />
+      <created>1696592319110</created>
+      <option name="number" value="00227" />
+      <option name="presentableId" value="LOCAL‎-00227" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1696592319110</updated>
+    </task>
+    <task id="LOCAL‎-00228" summary="Changes by ASUS">
+      <option name="closed" value="true" />
+      <created>1696592330578</created>
+      <option name="number" value="00228" />
+      <option name="presentableId" value="LOCAL‎-00228" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1696592330578</updated>
+    </task>
+    <option name="localTasksCounter" value="229" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -869,9 +865,9 @@
     <MESSAGE value="admin allocations implemented" />
     <MESSAGE value="merged the admin tabs to one main component" />
     <MESSAGE value="combine" />
-    <MESSAGE value="Changes by ASUS" />
     <MESSAGE value="a lot" />
-    <option name="LAST_COMMIT_MESSAGE" value="a lot" />
+    <MESSAGE value="Changes by ASUS" />
+    <option name="LAST_COMMIT_MESSAGE" value="Changes by ASUS" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
@@ -912,9 +908,24 @@
           <option name="timeStamp" value="214" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/UserClient/src/main/MainAppController.java</url>
-          <line>80</line>
-          <option name="timeStamp" value="215" />
+          <url>file://$PROJECT_DIR$/Logic/src/execution/simulation/impl/SimulationImpl.java</url>
+          <line>75</line>
+          <option name="timeStamp" value="216" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/UserClient/src/main/TestMain.java</url>
+          <line>31</line>
+          <option name="timeStamp" value="217" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/UserClient/src/login/LoginController.java</url>
+          <line>112</line>
+          <option name="timeStamp" value="218" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/UserClient/src/login/LoginController.java</url>
+          <line>105</line>
+          <option name="timeStamp" value="219" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

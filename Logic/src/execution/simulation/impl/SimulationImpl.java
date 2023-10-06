@@ -69,7 +69,7 @@ public class SimulationImpl implements Simulation , Serializable {
     @Override
     public void run() {
         startTime = System.currentTimeMillis();
-
+        System.out.println("start simulation of world: " + world.getName());
         initEntities();
         initEnvironmentVariables();
         //TODO: check if its the correct place todo it
@@ -93,6 +93,7 @@ public class SimulationImpl implements Simulation , Serializable {
             sleep();
         }
 
+        System.out.println("end simulation of world: " + world.getName());
         data = new SimulationDataImpl(serialNumber, startTime, world.getEntities(), entities, initData);
     }
 

@@ -1,13 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.layout.ColumnConstraints?>
-<?import javafx.scene.layout.GridPane?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.StackPane?>
 
 <StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0"
@@ -20,52 +14,16 @@
                     <children>
                         <Separator depthTest="ENABLE" prefWidth="200.0" valignment="TOP"
                                    StackPane.alignment="TOP_CENTER"/>
-                        <GridPane vgap="5.0">
-                            <columnConstraints>
-                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="10.0" minWidth="10.0" prefWidth="10.0"/>
-                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
-                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
-                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="10.0" minWidth="10.0" prefWidth="10.0"/>
-                            </columnConstraints>
-                            <rowConstraints>
-                                <RowConstraints/>
-                                <RowConstraints maxHeight="10.0" minHeight="10.0" prefHeight="10.0" vgrow="NEVER"/>
-                                <RowConstraints vgrow="NEVER"/>
-                                <RowConstraints prefHeight="30.0" vgrow="SOMETIMES"/>
-                                <RowConstraints prefHeight="30.0" vgrow="NEVER"/>
-                                <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="NEVER"/>
-                                <RowConstraints maxHeight="10.0" minHeight="10.0" prefHeight="30.0" vgrow="NEVER"/>
-                            </rowConstraints>
-                            <children>
-                                <HBox alignment="BOTTOM_RIGHT" minHeight="-Infinity" minWidth="-Infinity"
-                                      GridPane.columnIndex="2" GridPane.rowIndex="5">
-                                    <children>
-                                        <Button mnemonicParsing="false" onAction="#onExecuteButtonClicked"
-                                                text="Execute"/>
-                                    </children>
-                                </HBox>
-                                <HBox alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity"
-                                      GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="2">
-                                    <children>
-                                        <Label text="All Requests"/>
-                                    </children>
-                                </HBox>
-                                <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="1"
-                                           GridPane.columnSpan="2" GridPane.rowIndex="3" GridPane.rowSpan="2">
-                                    <children>
-                                        <fx:include fx:id="requestsTableView"
-                                                    source="component/table/RequestsComponent.fxml"/>
-                                    </children>
-                                </StackPane>
-                            </children>
-                        </GridPane>
+                        <fx:include fx:id="requestsTableView"
+                                    source="/tab/requests/component/table/RequestsComponent.fxml"/>
                     </children>
                 </StackPane>
             </center>
             <top>
                 <StackPane prefHeight="150.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                     <children>
-                        <fx:include fx:id="submitComponent" source="component/submit/SubmitComponent.fxml"/>
+                        <fx:include fx:id="submitComponent"
+                                    source="/tab/requests/component/submit/SubmitComponent.fxml"/>
                     </children>
                 </StackPane>
             </top>

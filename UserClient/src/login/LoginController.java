@@ -105,6 +105,7 @@ public class LoginController {
         try {
             FXMLLoader fxmlLoader = new FXMLLoader();
             fxmlLoader.setLocation(loginPage);
+
             Parent root = fxmlLoader.load();
             mainAppController = fxmlLoader.getController();
             mainAppController.setUserName(userName);
@@ -118,6 +119,7 @@ public class LoginController {
             });
 
         } catch (Exception e) {
+            System.out.println("zain");
         }
     }
     @FXML

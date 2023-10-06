@@ -2,12 +2,16 @@ package tab.requests.component.table;
 
 import impl.RequestedSimulationDataDTO;
 import javafx.application.Platform;
+import javafx.beans.binding.Bindings;
+import javafx.beans.property.SimpleBooleanProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
+import main.MainAppController;
 import servlet.request.RequestHandler;
 
 import java.util.List;
@@ -15,6 +19,9 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 public class RequestsComponentController {
+
+    @FXML
+    private Button executeButton;
 
     @FXML
     private TableView<RequestedSimulationDataDTO> allRequestsTableView;
@@ -39,12 +46,12 @@ public class RequestsComponentController {
 
     private String userName;
     private RequestedSimulationDataDTO selectedRequest;
-    private TimerTask refreshRequestsTable;
     private final ObservableList<RequestedSimulationDataDTO> data = FXCollections.observableArrayList();
+    private MainAppController mainAppController;
 
     @FXML
     private void initialize() {
-        refreshRequestsTable = new TimerTask() {
+        TimerTask refreshRequestsTable = new TimerTask() {
             @Override
             public void run() {
                 Platform.runLater(() -> setAllRequestsTableView());
@@ -69,7 +76,9 @@ public class RequestsComponentController {
     @FXML
     void onSelectedRequest(MouseEvent event) {
         RequestedSimulationDataDTO selected = allRequestsTableView.getSelectionModel().getSelectedItem();
+
         selectedRequest = selected != null ? selected : selectedRequest;
+        executeButton.setDisable(selectedRequest.getNumOfEndedSimulations() == selectedRequest.getNumOfSimulationInstances());
     }
 
     private void setAllRequestsTableView() {
@@ -92,11 +101,35 @@ public class RequestsComponentController {
         });
     }
 
+    @FXML
+    void onExecuteButtonClicked(ActionEvent event) {
+        mainAppController.onExecutionButtonClicked(selectedRequest);
+
+//        TabPane tabPane = mainAppController.getTabPane();
+//        Tab resultsTab = findTabByName(tabPane , "New");
+//        if (resultsTab != null) {
+//            tabPane.getSelectionModel().select(resultsTab);
+//        }
+    }
+
     public RequestedSimulationDataDTO getSelectedRequest() {
         return selectedRequest;
     }
 
     public void setUserName(String userName) {
         this.userName = userName;
+    }
+
+    public void setMainAppController(MainAppController mainAppController) {
+        this.mainAppController = mainAppController;
+    }
+
+    private Tab findTabByName(String tabName) {
+//        for (Tab tab : tabPane.getTabs()) {
+//            if (tab.getText().equals(tabName)) {
+//                return tab;
+//            }
+//        }
+        return null;
     }
 }

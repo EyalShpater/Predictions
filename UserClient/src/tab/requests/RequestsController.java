@@ -9,9 +9,6 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import main.MainAppController;
 
-
-import java.util.TimerTask;
-
 public class RequestsController {
 
     @FXML
@@ -21,12 +18,10 @@ public class RequestsController {
     private SubmitComponentController submitComponentController;
 
     @FXML
-    private TableView<RequestedSimulationDataDTO> requestsTableView;
+    private StackPane requestsTableView;
 
     @FXML
     private RequestsComponentController requestsTableViewController;
-
-    MainAppController mainAppController;
 
     private String userName;
 
@@ -41,18 +36,8 @@ public class RequestsController {
         submitComponentController.setUserName(userName);
     }
 
-    @FXML
-    void onExecuteButtonClicked(ActionEvent event) {
-        RequestedSimulationDataDTO selectedRequest = requestsTableViewController.getSelectedRequest();
-        mainAppController.onExecutionButtonClicked(selectedRequest);
-    }
-
-    @FXML
-    void onSubmitButtonClicked(ActionEvent event) {
-
-    }
 
     public void setMainAppController(MainAppController mainAppController) {
-        this.mainAppController = mainAppController;
+        requestsTableViewController.setMainAppController(mainAppController);
     }
 }
