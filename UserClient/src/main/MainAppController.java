@@ -95,5 +95,9 @@ public class MainAppController {
     public String getUserName() {
         return userName;
     }
+
+    public Integer getRequestId() {
+        return selectedRequest.getRequestSerialNumber();
+    }
 }
 

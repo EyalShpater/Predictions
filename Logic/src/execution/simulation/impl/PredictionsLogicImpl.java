@@ -110,8 +110,8 @@ public class PredictionsLogicImpl implements PredictionsLogic , Serializable {
         String worldName = initData.getWorldName();
         int simulationSerialNumber = allSimulations.runNewSimulation(worlds.getWorld(worldName), initData);
 
-        userManager.getUser(userName).addActivatedSimulationSerialNumber(simulationSerialNumber);
-        admin.increaseNumOfRunningSimulation(simulationSerialNumber);
+        userManager.getUser(userName).addActivatedSimulationSerialNumber(initData.getRequesdID());
+        admin.increaseNumOfRunningSimulation(initData.getRequesdID());
 
         return simulationSerialNumber;
     }

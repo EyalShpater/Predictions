@@ -5,8 +5,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
-import javafx.scene.control.Button;
-import javafx.scene.control.TabPane;
+import javafx.scene.control.*;
 import javafx.scene.layout.FlowPane;
 import main.MainAppController;
 import servlet.request.RequestHandler;
@@ -18,6 +17,7 @@ import tab.newExecution.environmentVariable.NumericEnvironmentVariableController
 import tab.newExecution.environmentVariable.StringEnvironmentVariableController;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -51,6 +51,8 @@ public class NewExecutionController {
 
     @FXML
     private void initialize() {
+        envVarControllerList = new ArrayList<>();
+        entityList = new ArrayList<>();
     }
 
     @FXML
@@ -71,17 +73,24 @@ public class NewExecutionController {
     @FXML
     void startButtonActionListener(ActionEvent event) {
         Map<String, Integer> entityNameToPopulation = setNewPopulationOfEntities();
-        if (isValidPopulation(entityNameToPopulation)) {
-            startSimulationAction(entityNameToPopulation);
-        }
-
-       /* Map<String, Integer> entityNameToPopulation = setNewPopulationOfEntities();
 
         if (isValidPopulation(entityNameToPopulation)) {
             startSimulationAction(entityNameToPopulation);
         } else {
             alertAction();
-        }*/
+        }
+    }
+
+    private void alertAction() {
+        Alert alert = new Alert(Alert.AlertType.WARNING);
+        int totalEntities = calculateTotalEntities();
+        alert.setTitle("Invalid Population");
+        alert.setHeaderText("Invalid population values detected.");
+        alert.setContentText("Please make sure that the total population does not exceed the limit: " + totalEntities);
+
+        alert.getButtonTypes().setAll(ButtonType.OK);
+
+        alert.showAndWait();
     }
 
     private void startSimulationAction(Map<String, Integer> entityNameToPopulation) {
@@ -89,8 +98,9 @@ public class NewExecutionController {
 
         simulationSerialNumber = runSimulation(entityNameToPopulation);
         mainAppController.onStartButtonClick(simulationSerialNumber);
+        System.out.println(simulationSerialNumber);
         //TODO: When eyal finishes resultsTab
-        /*Tab resultsTab = findResultsTabByName("Results");
+        /*Tab resultsTab = findTabByName("Results");
         if (resultsTab != null) {
             tabPane.getSelectionModel().select(resultsTab);
         }*/
@@ -109,7 +119,8 @@ public class NewExecutionController {
                 entityNameToPopulation,
                 mainAppController.getSelectedSimulationTermination(),
                 worldName,
-                mainAppController.getUserName());
+                mainAppController.getUserName(),
+                mainAppController.getRequestId());
 
         try {
             return RequestHandler.runSimulation(simulationInitDataFromUserDTO);
@@ -178,19 +189,21 @@ public class NewExecutionController {
     }
 
     private int calculateTotalEntities() {
+        WorldDTO worldData = null;
         int totalEntities = -1;
 
-        WorldDTO worldData = null;
         try {
             worldData = RequestHandler.getWorld(worldName);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+
         if (worldData != null) {
             int gridRows = worldData.getGridNumOfRows();
             int gridCols = worldData.getGridNumOfCols();
             totalEntities = gridRows * gridCols;
         }
+
         return totalEntities;
     }
 
@@ -316,7 +329,111 @@ public class NewExecutionController {
         }
     }
 
+    private Tab findTabByName(String tabName) {
+        for (Tab tab : tabPane.getTabs()) {
+            if (tab.getText().equals(tabName)) {
+                return tab;
+            }
+        }
+        return null;
+    }
+
+    public void restoreDataValuesToTiles(SimulationInitDataFromUserDTO userInputOfSimulationBySerialNumber) {
+        cleanOldResults();
+        entityList.clear();
+        envVarControllerList.clear();
+
+        restoreEntityTilesWithDataValues(userInputOfSimulationBySerialNumber.getEntityNameToPopulation());
+        restoreEnvVarsTilesWithDataValues(userInputOfSimulationBySerialNumber.getEnvironmentVariables());
+    }
+
+    private void restoreEnvVarsTilesWithDataValues(List<PropertyDefinitionDTO> environmentVariables) {
+        environmentVariables.forEach(this::restoreEnvVarTile);
+    }
+
+    private void restoreEnvVarTile(PropertyDefinitionDTO environmentVariable) {
+        switch (environmentVariable.getType()) {
+            case "INT":
+            case "DOUBLE":
+                restoreEnvVarNumericTile(environmentVariable);
+                break;
+            case "BOOLEAN":
+                restoreEnvVarBooleanTile(environmentVariable);
+                break;
+            default:
+                restoreEnvVarStringTile(environmentVariable);
+                break;
+        }
+    }
+
+    private void restoreEnvVarStringTile(PropertyDefinitionDTO environmentVariable) {
+        try {
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(getClass().getResource("tab/newExecution/environmentVariable/EnvironmentVariableStringTile.fxml"));
+            Node singleEnvVarTile = loader.load();
+
+            StringEnvironmentVariableController environmentVariableController = loader.getController();
+            environmentVariableController.restoreFromEnvDTO(environmentVariable);
+
+            envVarsFlowPane.getChildren().add(singleEnvVarTile);
+            envVarControllerList.add(environmentVariableController);
+        } catch (IOException ignored) {
+        }
+    }
+
+    private void restoreEnvVarBooleanTile(PropertyDefinitionDTO environmentVariable) {
+        try {
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(getClass().getResource("tab/newExecution/environmentVariable/EnvironmentVariableBooleanTile.fxml"));
+            Node singleEnvVarTile = loader.load();
+
+            BooleanEnvironmentVariableController environmentVariableController = loader.getController();
+            environmentVariableController.restoreFromEnvDTO(environmentVariable);
+
+            envVarsFlowPane.getChildren().add(singleEnvVarTile);
+            envVarControllerList.add(environmentVariableController);
+        } catch (IOException ignored) {
+        }
+    }
+
+    private void restoreEnvVarNumericTile(PropertyDefinitionDTO environmentVariable) {
+        try {
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(getClass().getResource("tab/newExecution/environmentVariable/EnvironmentVariableNumericTile.fxml"));
+            Node singleEnvVarTile = loader.load();
+
+            NumericEnvironmentVariableController environmentVariableController = loader.getController();
+            environmentVariableController.setEnvVarName(environmentVariable.getName());
+            environmentVariableController.restoreFromEnvDTO(environmentVariable);
+
+            envVarsFlowPane.getChildren().add(singleEnvVarTile);
+            envVarControllerList.add(environmentVariableController);
+        } catch (IOException ignored) {
+        }
+    }
+
+    private void restoreEntityTilesWithDataValues(Map<String, Integer> entityNameToPopulation) {
+        entityNameToPopulation.forEach((name, population) -> restoreEntityTile(name, population));
+    }
+
+    private void restoreEntityTile(String entityName, int population) {
+        try {
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(getClass().getResource("tab/newExecution/entity/EntityTile.fxml"));
+            Node singleEntityTile = loader.load();
+
+            EntityController entityController = loader.getController();
+
+            entityController.restoreTileFromPrevData(entityName, population);
+            entityList.add(entityController);
+
+            entitiesFlowPane.getChildren().add(singleEntityTile);
+        } catch (IOException ignored) {
+        }
+    }
+
     public void onNewExecutionClicked(String worldName) {
+
         setWorldName(worldName);
         cleanOldResults();
         clearControllersList();
@@ -334,5 +451,6 @@ public class NewExecutionController {
 
     public void setMainAppController(MainAppController mainAppController) {
         this.mainAppController = mainAppController;
+        //TODO: add a disable for the execute button
     }
 }

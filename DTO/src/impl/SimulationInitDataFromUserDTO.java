@@ -11,15 +11,16 @@ public class SimulationInitDataFromUserDTO implements DTO {
     private final TerminationDTO termination;
     private final String worldName;
     private final String userName;
-
+    private final Integer requestID;
 
     public SimulationInitDataFromUserDTO(List<PropertyDefinitionDTO> environmentVariables, Map<String, Integer> entityNameToPopulation
-            , TerminationDTO termination, String worldName, String userName) {
+            , TerminationDTO termination, String worldName, String userName, Integer requestID) {
         this.environmentVariables = environmentVariables;
         this.entityNameToPopulation = entityNameToPopulation;
         this.termination = termination;
         this.worldName = worldName;
         this.userName = userName;
+        this.requestID = requestID;
     }
 
     public List<PropertyDefinitionDTO> getEnvironmentVariables() {
@@ -40,5 +41,9 @@ public class SimulationInitDataFromUserDTO implements DTO {
 
     public String getUserName() {
         return userName;
+    }
+
+    public Integer getRequesdID() {
+        return requestID;
     }
 }

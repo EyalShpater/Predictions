@@ -23,6 +23,9 @@ import java.io.Serializable;
 import java.util.*;
 import java.util.stream.Collectors;
 
+import impl.SimulationInitDataFromUserDTO;
+
+
 public class WorldImpl implements World  , Serializable {
     private static final int MIN_ROWS_SIZE = 10;
     private static final int MIN_COLS_SIZE = 10;

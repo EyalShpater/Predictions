@@ -18,6 +18,9 @@ import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 
+import impl.SimulationInitDataFromUserDTO;
+
+
 public interface World extends DTOConvertible<WorldDTO> {
     void setEnvironmentVariablesValues(List<PropertyDefinitionDTO> values);
 

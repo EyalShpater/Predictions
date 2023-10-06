@@ -19,11 +19,16 @@ import java.util.Properties;
 @WebServlet(GeneralConstants.RUN_SIMULATION_RESOURCE)
 public class RunSimulationServlet extends HttpServlet {
     @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    protected void doPut(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         Gson gson = new Gson();
-
+        System.out.println("in RunSimulationServlet");
         PredictionsLogic engine = (PredictionsLogic) getServletContext().getAttribute(Constants.PREDICTIONS_OBJECT_NAME);
-        String reqBody = gerReqBody(req);
+        String reqBody = "";
+        try {
+            reqBody = gerReqBody(req);
+        } catch (Exception e) {
+            int x = 5;
+        }
 
         SimulationInitDataFromUserDTO simulationInitData = gson.fromJson(reqBody, SimulationInitDataFromUserDTO.class);
 

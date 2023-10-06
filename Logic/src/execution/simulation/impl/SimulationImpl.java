@@ -23,6 +23,9 @@ import java.util.*;
 import java.util.concurrent.TimeUnit;
 import java.util.stream.Collectors;
 
+import execution.simulation.termination.impl.TerminationImpl;
+
+
 public class SimulationImpl implements Simulation , Serializable {
     private final int serialNumber;
     private final Random random;
@@ -69,6 +72,8 @@ public class SimulationImpl implements Simulation , Serializable {
 
         initEntities();
         initEnvironmentVariables();
+        //TODO: check if its the correct place todo it
+        world.setTermination(new TerminationImpl(initData.getTermination()));
         entities.updatePopulationCount(tick, createEntityNameToPopulationMap());
         tick = 1;
 
