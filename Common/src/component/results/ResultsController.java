@@ -2,6 +2,7 @@ package component.results;
 
 import component.results.analyze.AnalyzePaginationController;
 import component.results.helper.Category;
+import component.results.list.SimulationsListController;
 import component.results.progress.ProgressController;
 import impl.SimulationDTO;
 import impl.SimulationDataDTO;
@@ -26,8 +27,8 @@ public class ResultsController {
     @FXML
     private StackPane progress;
 
-    @FXML
-    private ListView<Category> simulationsListView;
+//    @FXML
+//    private ListView<Category> simulationsListView;
 
     @FXML
     private TableView<EntityPopulationData> entitiesPopulationTableView;
@@ -59,6 +60,9 @@ public class ResultsController {
     @FXML
     private ProgressController progressController;
 
+    @FXML
+    private SimulationsListController simulationsListViewController;
+
     private TabPane tabPane;
 
     private ObjectProperty<Category> selectedSimulation;
@@ -83,7 +87,7 @@ public class ResultsController {
     private void initialize() {
         propertyToView.bind(propertyChoiceBox.valueProperty());
         entityToView.bind(entityChoiceBox.valueProperty());
-        selectedSimulation.bind(simulationsListView.getSelectionModel().selectedItemProperty());
+        simulationsListViewController.setOnSelectionChange((newValue) -> selectedSimulation.set(newValue)); //debug
         isSelectedSimulationEnded.bind(progressController.isStopProperty());
         progress.disableProperty().bind(Bindings.isNull(selectedSimulation));
         dataAnalyzeTitlePane.disableProperty().bind(isSelectedSimulationEnded.not());
@@ -136,7 +140,6 @@ public class ResultsController {
             SimulationDTO lastSimulation = RequestHandler.getSimulationDTOBySerialNumber(newSimulationSerialNumber);
 
             Category simulationInfo = new Category(lastSimulation.getWorld().getName(), lastSimulation.getStartDate(), lastSimulation.getSerialNumber());
-            simulationsListView.getItems().add(simulationInfo);
             waitingQueue.add(simulationInfo);
         } catch (Exception ignored) {
         }
