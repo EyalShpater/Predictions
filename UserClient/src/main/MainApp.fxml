@@ -40,7 +40,7 @@
                                         </AnchorPane>
                                     </content>
                                 </Tab>
-                                <Tab fx:id="newExecution" text="NewExecution">
+                                <Tab fx:id="newExecution" text="New Execution">
                                     <content>
                                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                             <children>

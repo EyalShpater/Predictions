@@ -113,11 +113,26 @@ public class RequestsComponentController {
     void onExecuteButtonClicked(ActionEvent event) {
         mainAppController.onExecutionButtonClicked(selectedRequest);
 
-//        TabPane tabPane = mainAppController.getTabPane();
-//        Tab resultsTab = findTabByName(tabPane , "New");
-//        if (resultsTab != null) {
-//            tabPane.getSelectionModel().select(resultsTab);
-//        }
+        switchToNewExecution();
+
+        TabPane tabPane = mainAppController.getTabPane();
+        Tab resultsTab = findTabByName(tabPane, "New Execution");
+        if (resultsTab != null) {
+            tabPane.getSelectionModel().select(resultsTab);
+        }
+    }
+
+    private void switchToNewExecution() {
+
+    }
+
+    private Tab findTabByName(TabPane tabPane, String tabName) {
+        for (Tab tab : tabPane.getTabs()) {
+            if (tab.getText().equals(tabName)) {
+                return tab;
+            }
+        }
+        return null;
     }
 
     public RequestedSimulationDataDTO getSelectedRequest() {
@@ -132,12 +147,5 @@ public class RequestsComponentController {
         this.mainAppController = mainAppController;
     }
 
-    private Tab findTabByName(String tabName) {
-//        for (Tab tab : tabPane.getTabs()) {
-//            if (tab.getText().equals(tabName)) {
-//                return tab;
-//            }
-//        }
-        return null;
-    }
+
 }
