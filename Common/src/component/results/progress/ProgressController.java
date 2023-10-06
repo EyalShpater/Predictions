@@ -9,9 +9,9 @@ import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import servlet.request.RequestHandler;
-import task.UpdateEntitiesAmountTask;
-import task.UpdateSimulationDetailsTask;
-import task.helper.EntityPopulationData;
+import component.results.task.UpdateEntitiesAmountTask;
+import component.results.task.UpdateSimulationDetailsTask;
+import component.results.task.helper.EntityPopulationData;
 
 
 public class ProgressController {

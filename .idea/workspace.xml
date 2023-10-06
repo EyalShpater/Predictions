@@ -10,14 +10,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="27d35137-667f-4e37-a519-ab836acc0a06" name="Changes" comment="a lot">
-      <change afterPath="$PROJECT_DIR$/PredictionsWebApplication/src/servlet/StopSimulationServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PredictionsWebApplication/src/servlet/GetSimulationEntitiesAmountServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PredictionsWebApplication/src/servlet/GetSimulationRunDetailsResource.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PredictionsWebApplication/src/servlet/IsSimulationStartedServlet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Common/src/component/results/analyze/AnalyzePaginationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Common/src/component/results/analyze/AnalyzePaginationController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Common/src/component/results/ResultsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Common/src/component/results/ResultsController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Common/src/component/results/progress/ProgressController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Common/src/component/results/progress/ProgressController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Common/src/general/constants/GeneralConstants.java" beforeDir="false" afterPath="$PROJECT_DIR$/Common/src/general/constants/GeneralConstants.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Common/src/servlet/request/RequestHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/Common/src/servlet/request/RequestHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Common/src/task/UpdateEntitiesAmountTask.java" beforeDir="false" afterPath="$PROJECT_DIR$/Common/src/task/UpdateEntitiesAmountTask.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Common/src/task/UpdateSimulationDetailsTask.java" beforeDir="false" afterPath="$PROJECT_DIR$/Common/src/task/UpdateSimulationDetailsTask.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Common/src/task/UpdateEntitiesAmountTask.java" beforeDir="false" afterPath="$PROJECT_DIR$/Common/src/component/results/task/UpdateEntitiesAmountTask.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Common/src/task/UpdateSimulationDetailsTask.java" beforeDir="false" afterPath="$PROJECT_DIR$/Common/src/component/results/task/UpdateSimulationDetailsTask.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Common/src/task/helper/EntityPopulationData.java" beforeDir="false" afterPath="$PROJECT_DIR$/Common/src/component/results/task/helper/EntityPopulationData.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -105,35 +108,35 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "dart.analysis.tool.window.visible": "false",
-    "extract.method.default.visibility": "private",
-    "full.screen.before.presentation.mode": "false",
-    "git-widget-placeholder": "Client-Server",
-    "jdk.selected.JAVA_MODULE": "1.8",
-    "last_opened_file_path": "/Users/eyal/Java-Course/Predictions/UserClient/src/tab/newExecution",
-    "list.type.of.created.stylesheet": "CSS",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "onboarding.tips.debug.path": "/Users/eyal/Java-Course/Predictions/PredictionsWebApplication/src/init/InitContextListener.java",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "reference.settingsdialog.IDE.editor.colors.Code With Me",
-    "two.files.diff.last.used.file": "C:/Users/ASUS/IdeaProjects/PredictionsNew/Logic/src/resources/xml/ex2/master-ex2.xml",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;dart.analysis.tool.window.visible&quot;: &quot;false&quot;,
+    &quot;extract.method.default.visibility&quot;: &quot;private&quot;,
+    &quot;full.screen.before.presentation.mode&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;Client-Server&quot;,
+    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;1.8&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/eyal/Java-Course/Predictions/UserClient/src/tab/newExecution&quot;,
+    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;onboarding.tips.debug.path&quot;: &quot;/Users/eyal/Java-Course/Predictions/PredictionsWebApplication/src/init/InitContextListener.java&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settingsdialog.IDE.editor.colors.Code With Me&quot;,
+    &quot;two.files.diff.last.used.file&quot;: &quot;C:/Users/ASUS/IdeaProjects/PredictionsNew/Logic/src/resources/xml/ex2/master-ex2.xml&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/UserClient/src/tab/newExecution" />
@@ -159,7 +162,7 @@
       <recent name="javafx.details.details" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.UserClientDetails">
+  <component name="RunManager" selected="Application.AdminClientManagement">
     <configuration name="AdminClientManagement" type="Application" factoryName="Application" temporary="true">
       <option name="MAIN_CLASS_NAME" value="main.Main" />
       <module name="AdminClient" />
@@ -309,8 +312,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.UserClientDetails" />
         <item itemvalue="Application.AdminClientManagement" />
+        <item itemvalue="Application.UserClientDetails" />
         <item itemvalue="Application.Main" />
         <item itemvalue="Application.AdminClientManagement" />
         <item itemvalue="Application.UserClientDetails" />
@@ -404,7 +407,8 @@
       <workItem from="1696160638044" duration="1116000" />
       <workItem from="1696162411212" duration="43780000" />
       <workItem from="1696273433987" duration="350000" />
-      <workItem from="1696315652458" duration="99667000" />
+      <workItem from="1696315652458" duration="100749000" />
+      <workItem from="1696576714491" duration="3389000" />
     </task>
     <task id="LOCAL-00103" summary="changed evaluate to get the EntityInstance of secondaryEntity in each iteration in order to creare the proper context , also added functions to context to get the filtered SecondaryEntity list">
       <created>1694175010163</created>
@@ -524,14 +528,6 @@
       <option name="presentableId" value="LOCAL-00157" />
       <option name="project" value="LOCAL" />
       <updated>1695105621094</updated>
-    </task>
-    <task id="LOCAL‎-00192" summary="implement client upload class">
-      <option name="closed" value="true" />
-      <created>1696096373564</created>
-      <option name="number" value="00192" />
-      <option name="presentableId" value="LOCAL‎-00192" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1696096373566</updated>
     </task>
     <task id="LOCAL‎-00193" summary="implement getWorlds endpoint using GSON">
       <option name="closed" value="true" />
@@ -781,7 +777,15 @@
       <option name="project" value="LOCAL‎" />
       <updated>1696532820246</updated>
     </task>
-    <option name="localTasksCounter" value="224" />
+    <task id="LOCAL‎-00224" summary="a lot">
+      <option name="closed" value="true" />
+      <created>1696537724126</created>
+      <option name="number" value="00224" />
+      <option name="presentableId" value="LOCAL‎-00224" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1696537724126</updated>
+    </task>
+    <option name="localTasksCounter" value="225" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

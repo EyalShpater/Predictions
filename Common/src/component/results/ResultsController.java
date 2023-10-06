@@ -13,7 +13,7 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.StackPane;
 import servlet.request.RequestHandler;
-import task.helper.EntityPopulationData;
+import component.results.task.helper.EntityPopulationData;
 
 
 import java.io.IOException;

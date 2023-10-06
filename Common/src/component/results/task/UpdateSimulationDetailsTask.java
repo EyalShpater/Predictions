@@ -1,4 +1,4 @@
-package task;
+package component.results.task;
 
 import impl.SimulationRunDetailsDTO;
 import javafx.application.Platform;
@@ -28,13 +28,13 @@ public class UpdateSimulationDetailsTask extends Task<Boolean> {
     @Override
     protected Boolean call() throws Exception {
         do {
-//            SimulationRunDetailsDTO runDetails = engine.getSimulationRunDetail(serialNumber);
-//            updateProgress(runDetails.getStartProgress(), runDetails.getEndProgress());
-//
-//            Platform.runLater(() -> setTicks.accept(runDetails.getTickNumber()));
-//            Platform.runLater(() -> setSeconds.accept(runDetails.getRunningTime()));
-//
-//            updateProgress(runDetails.getStartProgress(), runDetails.getEndProgress());
+            SimulationRunDetailsDTO runDetails = RequestHandler.getSimulationRunDetail(serialNumber);
+            updateProgress(runDetails.getStartProgress(), runDetails.getEndProgress());
+
+            Platform.runLater(() -> setTicks.accept(runDetails.getTickNumber()));
+            Platform.runLater(() -> setSeconds.accept(runDetails.getRunningTime()));
+
+            updateProgress(runDetails.getStartProgress(), runDetails.getEndProgress());
 
             Thread.sleep(TIME_TO_SLEEP);
         } while (!RequestHandler.isEnded(serialNumber));

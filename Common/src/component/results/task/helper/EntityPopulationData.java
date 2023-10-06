@@ -1,4 +1,4 @@
-package task.helper;
+package component.results.task.helper;
 
 public class EntityPopulationData {
     private final String entityName;

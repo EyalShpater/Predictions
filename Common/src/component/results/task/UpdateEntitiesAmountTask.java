@@ -1,23 +1,18 @@
-package task;
+package component.results.task;
 
 import component.results.ResultsController;
 import impl.EntitiesAmountDTO;
-import impl.SimulationRunDetailsDTO;
 import javafx.application.Platform;
 import javafx.beans.property.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.concurrent.Task;
-import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
-import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.layout.StackPane;
 import servlet.request.RequestHandler;
-import task.helper.EntityPopulationData;
+import component.results.task.helper.EntityPopulationData;
 
-import java.util.HashMap;
+import java.io.IOException;
 import java.util.Map;
-import java.util.concurrent.TimeUnit;
 
 public class UpdateEntitiesAmountTask extends Task<Boolean> {
     private int serialNumber;
@@ -38,31 +33,34 @@ public class UpdateEntitiesAmountTask extends Task<Boolean> {
 
     @Override
     protected Boolean call() throws Exception {
-//        do {
-//            if (simulationStarted(serialNumber)) {
-//                EntitiesAmountDTO entitiesAmountDTO = engine.getSimulationEntitiesAmountMap(serialNumber);
-//                Map<String, Long> entityNameToAmount = entitiesAmountDTO.getEntityToPopulationMap();
-//
-//                Platform.runLater(() -> {
-//                    tableView.setVisible(true);
-//                    updateTableView(entityNameToAmount);
-//                });
-//            } else {
-//                Platform.runLater(() -> {
-//                    tableView.setVisible(false); // Hide the TableView
-//                });
-//                sleepIfSimulationHasNotStarted(serialNumber);
-//            }
-//
-//            Thread.sleep(100);
-//        } while (!RequestHandler.isEnded(serialNumber));
+        do {
+            if (simulationStarted(serialNumber)) {
+                EntitiesAmountDTO entitiesAmountDTO = RequestHandler.getSimulationEntitiesAmountMap(serialNumber);
+                Map<String, Long> entityNameToAmount = entitiesAmountDTO.getEntityToPopulationMap();
+
+                Platform.runLater(() -> {
+                    tableView.setVisible(true);
+                    updateTableView(entityNameToAmount);
+                });
+            } else {
+                Platform.runLater(() -> {
+                    tableView.setVisible(false); // Hide the TableView
+                });
+                sleepIfSimulationHasNotStarted(serialNumber);
+            }
+
+            Thread.sleep(100);
+        } while (!RequestHandler.isEnded(serialNumber));
 
         return true;
     }
 
     private boolean simulationStarted(int serialNumber) {
-//        return engine.hasStarted(serialNumber);
-        return true;
+        try {
+            return RequestHandler.hasStarted(serialNumber);
+        } catch (Exception e) {
+            return false; // todo
+        }
     }
 
 
@@ -78,11 +76,11 @@ public class UpdateEntitiesAmountTask extends Task<Boolean> {
         tableView.setItems(entityPopulationList);
     }
 
-    private boolean sleepIfSimulationHasNotStarted(int serialNumber) throws InterruptedException {
-//        while (!engine.hasStarted(serialNumber)) {
-//            Thread.sleep(1000);
-//        }
-//        return engine.hasStarted(serialNumber);
+    private boolean sleepIfSimulationHasNotStarted(int serialNumber) throws InterruptedException, IOException {
+        while (!RequestHandler.hasStarted(serialNumber)) {
+            Thread.sleep(1000);
+        }
+
         return true;
     }
 

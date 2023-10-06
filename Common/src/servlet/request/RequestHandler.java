@@ -266,6 +266,10 @@ public class RequestHandler {
         return checkSimulationRunningStatus(serialNumber, GeneralConstants.GET_IF_SIMULATION_ENDED_RESOURCE);
     }
 
+    public static boolean hasStarted(int serialNumber) throws IOException {
+        return checkSimulationRunningStatus(serialNumber, GeneralConstants.GET_IF_SIMULATION_STARTED_RESOURCE);
+    }
+
     public static void resumeSimulationBySerialNumber(int serialNumber) throws IOException {
         changeSimulationRunningStatus(serialNumber, GeneralConstants.RESUME_SIMULATION_RESOURCE);
     }
@@ -285,6 +289,40 @@ public class RequestHandler {
 
     public static void stopSimulationBySerialNumber(int serialNumber) throws IOException {
         changeSimulationRunningStatus(serialNumber, GeneralConstants.STOP_SIMULATION_RESOURCE);
+    }
+
+    public static EntitiesAmountDTO getSimulationEntitiesAmountMap(int serialNumber) throws IOException {
+        Gson gson = new Gson();
+
+        HttpUrl.Builder urlBuilder = HttpUrl.parse(GeneralConstants.BASE_URL + GeneralConstants.GET_SIMULATION_ENTITIES_AMOUNT_RESOURCE).newBuilder();
+        urlBuilder.addQueryParameter(GeneralConstants.SIMULATION_SERIAL_NUMBER_PARAMETER_NAME, String.valueOf(serialNumber));
+        String finalUrl = urlBuilder.build().toString();
+
+        Request request = new Request.Builder()
+                .url(finalUrl)
+                .build();
+
+        Call call = HTTP_CLIENT.newCall(request);
+        Response response = call.execute();
+
+        return gson.fromJson(response.body().string(), EntitiesAmountDTO.class);
+    }
+
+    public static SimulationRunDetailsDTO getSimulationRunDetail(int serialNumber) throws IOException {
+        Gson gson = new Gson();
+
+        HttpUrl.Builder urlBuilder = HttpUrl.parse(GeneralConstants.BASE_URL + GeneralConstants.GET_SIMULATION_RUN_DETAILS_RESOURCE).newBuilder();
+        urlBuilder.addQueryParameter(GeneralConstants.SIMULATION_SERIAL_NUMBER_PARAMETER_NAME, String.valueOf(serialNumber));
+        String finalUrl = urlBuilder.build().toString();
+
+        Request request = new Request.Builder()
+                .url(finalUrl)
+                .build();
+
+        Call call = HTTP_CLIENT.newCall(request);
+        Response response = call.execute();
+
+        return gson.fromJson(response.body().string(), SimulationRunDetailsDTO.class);
     }
 
     private static void changeSimulationRunningStatus(int serialNumber, String resource) throws IOException {
