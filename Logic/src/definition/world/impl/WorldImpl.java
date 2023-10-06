@@ -92,8 +92,7 @@ public class WorldImpl implements World  , Serializable {
     public void addRule(Rule newRule) {
         if (newRule != null && !isRuleNameExist(newRule.getName())) {
             rules.add(newRule);
-        }
-        else {
+        } else {
             throw new NullPointerException("Rule can not be null!");
         }
     }

@@ -147,10 +147,14 @@ public class RequestHandler {
     }
 
     public static int runSimulation(SimulationInitDataFromUserDTO simulationInitDataFromUserDTO) throws IOException {
+        Integer simulationSerialNumber = -1;
+        Gson gson = new Gson();
+        String reqJsonData = gson.toJson(simulationInitDataFromUserDTO);
+
         HttpUrl.Builder urlBuilder = HttpUrl.parse(GeneralConstants.BASE_URL + GeneralConstants.RUN_SIMULATION_RESOURCE).newBuilder();
         String finalURL = urlBuilder.build().toString();
 
-        RequestBody body = RequestBody.create("".getBytes());
+        RequestBody body = RequestBody.create(gson.toJson(simulationInitDataFromUserDTO).getBytes());
 
         Request request = new Request.Builder()
                 .url(finalURL)
@@ -160,7 +164,12 @@ public class RequestHandler {
         Call call = HTTP_CLIENT.newCall(request);
         Response response = call.execute();
 
-        Integer simulationSerialNumber = Integer.valueOf(response.body().string());
+        String responseBody = response.body().string().trim();
+        System.out.println("Response Body: " + responseBody);
+        try {
+            simulationSerialNumber = Integer.valueOf(responseBody);
+        } catch (Exception ignored) {
+        }
         return simulationSerialNumber;
     }
 

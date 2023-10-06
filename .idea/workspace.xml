@@ -10,17 +10,26 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="27d35137-667f-4e37-a519-ab836acc0a06" name="Changes" comment="a lot">
-      <change afterPath="$PROJECT_DIR$/AdminClient/src/tab/history/ExecutionsHistory.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AdminClient/src/tab/history/ExecutionsHistoryController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Common/src/component/results/list/SimulationsList.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Common/src/component/results/list/SimulationsListController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AdminClient/src/main/AdminMainApp.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/AdminClient/src/main/AdminMainApp.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Common/src/component/results/Results.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Common/src/component/results/Results.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Common/src/component/results/ResultsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Common/src/component/results/ResultsController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Common/src/component/results/analyze/AnalyzePagination.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Common/src/component/results/analyze/AnalyzePagination.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Common/src/component/results/progress/Progress.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Common/src/component/results/progress/Progress.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserClient/src/main/MainApp.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/UserClient/src/main/MainApp.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Common/src/servlet/request/RequestHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/Common/src/servlet/request/RequestHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/definition/world/impl/WorldImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/definition/world/impl/WorldImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserClient/src/main/MainAppController.java" beforeDir="false" afterPath="$PROJECT_DIR$/UserClient/src/main/MainAppController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserClient/src/tab/newExecution/entity/EntityTile.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/UserClient/src/tab/newExecution/entity/EntityTile.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserClient/src/tab/newExecution/environmentVariable/EnvironmentVariableBooleanTile.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/UserClient/src/tab/newExecution/environmentVariable/EnvironmentVariableBooleanTile.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserClient/src/tab/newExecution/environmentVariable/EnvironmentVariableNumericTile.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/UserClient/src/tab/newExecution/environmentVariable/EnvironmentVariableNumericTile.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserClient/src/tab/newExecution/environmentVariable/EnvironmentVariableStringTile.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/UserClient/src/tab/newExecution/environmentVariable/EnvironmentVariableStringTile.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserClient/src/tab/requests/RequestsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/UserClient/src/tab/requests/RequestsController.java" afterDir="false" />
+    </list>
+    <list id="260ab28c-d5c1-404b-9717-c3e5b78f4a7f" name="Changes by ASUS" comment="">
+      <change beforePath="$PROJECT_DIR$/Common/src/servlet/request/RequestHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/Common/src/servlet/request/RequestHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DTO/src/impl/SimulationInitDataFromUserDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/DTO/src/impl/SimulationInitDataFromUserDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/definition/world/api/World.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/definition/world/api/World.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/definition/world/impl/WorldImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/definition/world/impl/WorldImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/execution/simulation/impl/PredictionsLogicImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/execution/simulation/impl/PredictionsLogicImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/execution/simulation/impl/SimulationImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/execution/simulation/impl/SimulationImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PredictionsWebApplication/src/servlet/RunSimulationServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/PredictionsWebApplication/src/servlet/RunSimulationServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserClient/src/main/MainAppController.java" beforeDir="false" afterPath="$PROJECT_DIR$/UserClient/src/main/MainAppController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserClient/src/tab/newExecution/mainComponent/NewExecutionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/UserClient/src/tab/newExecution/mainComponent/NewExecutionController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -86,6 +95,27 @@
     <setting file="jar:///Library/Java/JavaVirtualMachines/jdk-1.8.jdk/Contents/Home/javafx-src.zip!/javafx/fxml/FXMLLoader.java" root0="SKIP_INSPECTION" />
     <setting file="jar:///Library/Java/JavaVirtualMachines/jdk-1.8.jdk/Contents/Home/javafx-src.zip!/javafx/scene/chart/ValueAxis.java" root0="SKIP_INSPECTION" />
     <setting file="jar:///Library/Java/JavaVirtualMachines/jdk-1.8.jdk/Contents/Home/javafx-src.zip!/javafx/scene/chart/XYChart.java" root0="SKIP_INSPECTION" />
+  </component>
+  <component name="LineStatusTrackerManager">
+    <file path="$PROJECT_DIR$/Common/src/servlet/request/RequestHandler.java">
+      <ranges>
+        <range start1="149" end1="149" start2="149" end2="151" changelist="260ab28c-d5c1-404b-9717-c3e5b78f4a7f" />
+        <range start1="161" end1="163" start2="163" end2="169" changelist="27d35137-667f-4e37-a519-ab836acc0a06" />
+      </ranges>
+    </file>
+    <file path="$PROJECT_DIR$/Logic/src/definition/world/impl/WorldImpl.java">
+      <ranges>
+        <range start1="24" end1="24" start2="24" end2="26" changelist="260ab28c-d5c1-404b-9717-c3e5b78f4a7f" />
+        <range start1="94" end1="96" start2="96" end2="97" changelist="27d35137-667f-4e37-a519-ab836acc0a06" />
+      </ranges>
+    </file>
+    <file path="$PROJECT_DIR$/UserClient/src/main/MainAppController.java">
+      <ranges>
+        <range start1="25" end1="97" start2="25" end2="25" changelist="27d35137-667f-4e37-a519-ab836acc0a06" />
+        <range start1="112" end1="112" start2="40" end2="41" changelist="27d35137-667f-4e37-a519-ab836acc0a06" />
+        <range start1="168" end1="168" start2="97" end2="101" changelist="260ab28c-d5c1-404b-9717-c3e5b78f4a7f" />
+      </ranges>
+    </file>
   </component>
   <component name="LogFilters">
     <option name="FILTER_ERRORS" value="false" />
@@ -408,7 +438,7 @@
       <workItem from="1696162411212" duration="43780000" />
       <workItem from="1696273433987" duration="350000" />
       <workItem from="1696315652458" duration="100749000" />
-      <workItem from="1696576714491" duration="9005000" />
+      <workItem from="1696576714491" duration="11258000" />
     </task>
     <task id="LOCAL-00103" summary="changed evaluate to get the EntityInstance of secondaryEntity in each iteration in order to creare the proper context , also added functions to context to get the filtered SecondaryEntity list">
       <created>1694175010163</created>
@@ -528,14 +558,6 @@
       <option name="presentableId" value="LOCAL-00157" />
       <option name="project" value="LOCAL" />
       <updated>1695105621094</updated>
-    </task>
-    <task id="LOCAL‎-00194" summary="Changes by ASUS">
-      <option name="closed" value="true" />
-      <created>1696180333999</created>
-      <option name="number" value="00194" />
-      <option name="presentableId" value="LOCAL‎-00194" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1696180333999</updated>
     </task>
     <task id="LOCAL‎-00195" summary="implement user client">
       <option name="closed" value="true" />
@@ -785,7 +807,15 @@
       <option name="project" value="LOCAL‎" />
       <updated>1696580821494</updated>
     </task>
-    <option name="localTasksCounter" value="226" />
+    <task id="LOCAL‎-00226" summary="a lot">
+      <option name="closed" value="true" />
+      <created>1696587191753</created>
+      <option name="number" value="00226" />
+      <option name="presentableId" value="LOCAL‎-00226" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1696587191753</updated>
+    </task>
+    <option name="localTasksCounter" value="227" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -875,6 +905,16 @@
           <url>file://$PROJECT_DIR$/PredictionsWebApplication/src/servlet/AllocationRequestServlet.java</url>
           <line>22</line>
           <option name="timeStamp" value="211" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/UserClient/src/tab/newExecution/mainComponent/NewExecutionController.java</url>
+          <line>74</line>
+          <option name="timeStamp" value="214" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/UserClient/src/main/MainAppController.java</url>
+          <line>80</line>
+          <option name="timeStamp" value="215" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

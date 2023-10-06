@@ -45,11 +45,6 @@ public class RequestsController {
     void onExecuteButtonClicked(ActionEvent event) {
         RequestedSimulationDataDTO selectedRequest = requestsTableViewController.getSelectedRequest();
         mainAppController.onExecutionButtonClicked(selectedRequest);
-
-
-        if (selectedRequest != null) {
-            System.out.println("request id #" + selectedRequest.getRequestSerialNumber());
-        }
     }
 
     @FXML
