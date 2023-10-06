@@ -99,5 +99,9 @@ public class MainAppController {
     public Integer getRequestId() {
         return selectedRequest.getRequestSerialNumber();
     }
+
+    public TabPane getTabPane() {
+        return this.tabPane;
+    }
 }
 
