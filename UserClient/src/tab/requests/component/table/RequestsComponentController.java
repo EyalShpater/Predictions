@@ -3,7 +3,7 @@ package tab.requests.component.table;
 import impl.RequestedSimulationDataDTO;
 import javafx.application.Platform;
 import javafx.beans.binding.Bindings;
-import javafx.beans.property.SimpleBooleanProperty;
+import javafx.beans.property.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -59,6 +59,7 @@ public class RequestsComponentController {
         };
         Timer timer = new Timer();
         timer.schedule(refreshRequestsTable, 1000, 2000);
+
         initTableView();
     }
 
@@ -78,7 +79,12 @@ public class RequestsComponentController {
         RequestedSimulationDataDTO selected = allRequestsTableView.getSelectionModel().getSelectedItem();
 
         selectedRequest = selected != null ? selected : selectedRequest;
-        executeButton.setDisable(selectedRequest.getNumOfEndedSimulations() == selectedRequest.getNumOfSimulationInstances());
+        executeButton.setDisable(isExecutableRequest());
+    }
+
+    private boolean isExecutableRequest() {
+        return selectedRequest.getNumOfSimulationInstances() == (selectedRequest.getNumOfEndedSimulations() + selectedRequest.getNumOfRunningSimulations()) ||
+                !selectedRequest.getStatus().equals("APPROVED");
     }
 
     private void setAllRequestsTableView() {
@@ -87,14 +93,16 @@ public class RequestsComponentController {
         try {
             updatedRequests = RequestHandler.getRequestsByUserName(userName);
         } catch (Exception ignored) {
-            System.out.println("bug");
             return;
         }
 
         updatedRequests.forEach(updated -> {
             if (data.contains(updated)) {
-                int index = data.indexOf(updated);
-                data.set(index, updated);
+                data.set(data.indexOf(updated), updated);
+
+                if (updated.equals(selectedRequest)) {
+                    onSelectedRequest(null);
+                }
             } else {
                 data.add(updated);
             }
