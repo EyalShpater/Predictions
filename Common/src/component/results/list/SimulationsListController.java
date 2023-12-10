@@ -4,15 +4,19 @@ import component.results.helper.Category;
 import impl.RequestedSimulationDataDTO;
 import impl.SimulationDTO;
 import javafx.application.Platform;
+import javafx.beans.property.SimpleObjectProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.SelectionMode;
+import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import servlet.request.RequestHandler;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -36,8 +40,6 @@ public class SimulationsListController {
     private String userName;
     private Consumer<Category> onSelectionChange;
     private final ObservableList<Category> allSimulationsData = FXCollections.observableArrayList();
-
-//    private Supplier<List<Category>>
 
     @FXML
     private void initialize() {
@@ -63,10 +65,16 @@ public class SimulationsListController {
 
     private void initTableView() {
         serialNumberCol.setCellValueFactory(new PropertyValueFactory<Category, Integer>("id"));
-        dateCol.setCellValueFactory(new PropertyValueFactory<Category, String>("time"));
         simulationNameCol.setCellValueFactory(new PropertyValueFactory<Category, String>("simulationName"));
         simulationTableView.setItems(allSimulationsData);
         simulationTableView.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
+        dateCol.setCellValueFactory(cellData -> {
+            Date date = new Date(cellData.getValue().getTime());
+            SimpleDateFormat customDateFormat = new SimpleDateFormat("dd-MM-yyyy | HH:mm:ss");
+            String customFormattedDate = customDateFormat.format(date);
+
+            return new SimpleObjectProperty<>(customFormattedDate);
+        });
 
         simulationTableView
                 .getSelectionModel()

@@ -9,11 +9,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="27d35137-667f-4e37-a519-ab836acc0a06" name="Changes" comment="the details choiceBox is automatically updated instead of on every click">
+    <list default="true" id="27d35137-667f-4e37-a519-ab836acc0a06" name="Changes" comment="the spinner value is synced to the tread pull size in the Admin client app">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AdminClient/src/main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/AdminClient/src/main/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AdminClient/src/tab/management/ManagementController.java" beforeDir="false" afterPath="$PROJECT_DIR$/AdminClient/src/tab/management/ManagementController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Common/src/component/details/main/MainDetailsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Common/src/component/details/main/MainDetailsController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Common/src/component/results/list/SimulationsListController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Common/src/component/results/list/SimulationsListController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -120,6 +118,7 @@
     "ASKED_ADD_EXTERNAL_FILES": "true",
     "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "Application.AdminClientManagement.executor": "Run",
+    "Application.TestMain.executor": "Run",
     "Application.UserClientDetails.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
@@ -173,7 +172,7 @@
       <recent name="javafx.details.details" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.AdminClientManagement">
+  <component name="RunManager" selected="Application.UserClientDetails">
     <configuration name="AdminClientManagement" type="Application" factoryName="Application" temporary="true">
       <option name="MAIN_CLASS_NAME" value="main.Main" />
       <module name="AdminClient" />
@@ -193,32 +192,6 @@
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="javafx.mainScene.main.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="javafx.mainScene.main.Main" />
-      <module name="GUI" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="javafx.mainScene.main.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="TestMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="component.results.TestMain" />
-      <module name="Common" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="component.results.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -329,18 +302,14 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="Application.TestMain" />
       <item itemvalue="Application.UserClientDetails" />
       <item itemvalue="Application.AdminClientManagement" />
-      <item itemvalue="Application.Main" />
       <item itemvalue="Tomcat Server.PredictionsWebApplication" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.AdminClientManagement" />
         <item itemvalue="Application.UserClientDetails" />
-        <item itemvalue="Application.TestMain" />
-        <item itemvalue="Application.Main" />
+        <item itemvalue="Application.AdminClientManagement" />
       </list>
     </recent_temporary>
   </component>
@@ -448,7 +417,7 @@
       <workItem from="1701877853761" duration="383000" />
       <workItem from="1701878290367" duration="254000" />
       <workItem from="1701878550139" duration="9625000" />
-      <workItem from="1702209179355" duration="7767000" />
+      <workItem from="1702209179355" duration="10310000" />
     </task>
     <task id="LOCAL-00103" summary="changed evaluate to get the EntityInstance of secondaryEntity in each iteration in order to creare the proper context , also added functions to context to get the filtered SecondaryEntity list">
       <created>1694175010163</created>
@@ -568,14 +537,6 @@
       <option name="presentableId" value="LOCAL-00157" />
       <option name="project" value="LOCAL" />
       <updated>1695105621094</updated>
-    </task>
-    <task id="LOCAL‎-00203" summary="details component is now single">
-      <option name="closed" value="true" />
-      <created>1696339380380</created>
-      <option name="number" value="00203" />
-      <option name="presentableId" value="LOCAL‎-00203" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1696339380380</updated>
     </task>
     <task id="LOCAL‎-00204" summary="Changes by ASUS">
       <option name="closed" value="true" />
@@ -825,7 +786,15 @@
       <option name="project" value="LOCAL‎" />
       <updated>1702212487774</updated>
     </task>
-    <option name="localTasksCounter" value="235" />
+    <task id="LOCAL‎-00235" summary="the spinner value is synced to the tread pull size in the Admin client app">
+      <option name="closed" value="true" />
+      <created>1702227350437</created>
+      <option name="number" value="00235" />
+      <option name="presentableId" value="LOCAL‎-00235" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1702227350437</updated>
+    </task>
+    <option name="localTasksCounter" value="236" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -856,7 +825,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="implement getWorlds endpoint using GSON" />
     <MESSAGE value="implement user client" />
     <MESSAGE value="userClient - details - entities implemented" />
     <MESSAGE value="userClient - details - rules implemented" />
@@ -881,7 +849,8 @@
     <MESSAGE value="Changes by ASUS" />
     <MESSAGE value="fixed user login screen" />
     <MESSAGE value="the details choiceBox is automatically updated instead of on every click" />
-    <option name="LAST_COMMIT_MESSAGE" value="the details choiceBox is automatically updated instead of on every click" />
+    <MESSAGE value="the spinner value is synced to the tread pull size in the Admin client app" />
+    <option name="LAST_COMMIT_MESSAGE" value="the spinner value is synced to the tread pull size in the Admin client app" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
@@ -922,7 +891,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/Common/src/component/results/list/SimulationsListController.java</url>
-          <line>80</line>
+          <line>88</line>
           <option name="timeStamp" value="222" />
         </line-breakpoint>
       </breakpoints>
