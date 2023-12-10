@@ -9,24 +9,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="27d35137-667f-4e37-a519-ab836acc0a06" name="Changes" comment="a lot">
+    <list default="true" id="27d35137-667f-4e37-a519-ab836acc0a06" name="Changes" comment="fixed user login screen">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AdminClient/src/tab/history/ExecutionsHistoryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/AdminClient/src/tab/history/ExecutionsHistoryController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Common/src/component/results/ResultsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Common/src/component/results/ResultsController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Common/src/component/results/TestMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/Common/src/component/results/TestMain.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Common/src/component/results/helper/Category.java" beforeDir="false" afterPath="$PROJECT_DIR$/Common/src/component/results/helper/Category.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Common/src/component/results/list/SimulationsList.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Common/src/component/results/list/SimulationsList.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Common/src/component/results/list/SimulationsListController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Common/src/component/results/list/SimulationsListController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Common/src/component/results/progress/ProgressController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Common/src/component/results/progress/ProgressController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Common/src/servlet/request/RequestHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/Common/src/servlet/request/RequestHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/execution/simulation/api/PredictionsLogic.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/execution/simulation/api/PredictionsLogic.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/execution/simulation/impl/PredictionsLogicImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/execution/simulation/impl/PredictionsLogicImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/user/impl/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/user/impl/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PredictionsWebApplication/src/servlet/GetSimulationDTOServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/PredictionsWebApplication/src/servlet/GetSimulationDTOServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserClient/src/login/Login.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/UserClient/src/login/Login.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Common/src/component/details/main/MainDetailsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Common/src/component/details/main/MainDetailsController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UserClient/src/login/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/UserClient/src/login/LoginController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserClient/src/main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/UserClient/src/main/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserClient/src/main/MainAppController.java" beforeDir="false" afterPath="$PROJECT_DIR$/UserClient/src/main/MainAppController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UserClient/src/tab/requests/component/table/RequestsComponentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/UserClient/src/tab/requests/component/table/RequestsComponentController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -94,14 +80,14 @@
     <setting file="jar:///Library/Java/JavaVirtualMachines/jdk-1.8.jdk/Contents/Home/javafx-src.zip!/javafx/scene/chart/ValueAxis.java" root0="SKIP_INSPECTION" />
     <setting file="jar:///Library/Java/JavaVirtualMachines/jdk-1.8.jdk/Contents/Home/javafx-src.zip!/javafx/scene/chart/XYChart.java" root0="SKIP_INSPECTION" />
   </component>
-  <component name="KubernetesApiProvider"><![CDATA[{
-  "contexts": [
+  <component name="KubernetesApiProvider">{
+  &quot;contexts&quot;: [
     {
-      "name": "arn:aws:eks:us-east-1:644186420585:cluster/eyal_cluster"
+      &quot;name&quot;: &quot;arn:aws:eks:us-east-1:644186420585:cluster/eyal_cluster&quot;
     }
   ],
-  "isMigrated": true
-}]]></component>
+  &quot;isMigrated&quot;: true
+}</component>
   <component name="KubernetesSettings">
     <option name="contextName" value="arn:aws:eks:us-east-1:644186420585:cluster/eyal_cluster" />
   </component>
@@ -157,7 +143,7 @@
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "preferences.updates",
+    "settings.editor.selected.configurable": "ml.llm.LLMConfigurable",
     "two.files.diff.last.used.file": "C:/Users/ASUS/IdeaProjects/PredictionsNew/Logic/src/resources/xml/ex2/master-ex2.xml",
     "vue.rearranger.settings.migration": "true"
   }
@@ -462,6 +448,7 @@
       <workItem from="1701877853761" duration="383000" />
       <workItem from="1701878290367" duration="254000" />
       <workItem from="1701878550139" duration="9625000" />
+      <workItem from="1702209179355" duration="3072000" />
     </task>
     <task id="LOCAL-00103" summary="changed evaluate to get the EntityInstance of secondaryEntity in each iteration in order to creare the proper context , also added functions to context to get the filtered SecondaryEntity list">
       <created>1694175010163</created>
@@ -581,14 +568,6 @@
       <option name="presentableId" value="LOCAL-00157" />
       <option name="project" value="LOCAL" />
       <updated>1695105621094</updated>
-    </task>
-    <task id="LOCAL‎-00201" summary="add a lot of things">
-      <option name="closed" value="true" />
-      <created>1696318029417</created>
-      <option name="number" value="00201" />
-      <option name="presentableId" value="LOCAL‎-00201" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1696318029419</updated>
     </task>
     <task id="LOCAL‎-00202" summary="Changes by ASUS">
       <option name="closed" value="true" />
@@ -838,7 +817,15 @@
       <option name="project" value="LOCAL‎" />
       <updated>1696599400213</updated>
     </task>
-    <option name="localTasksCounter" value="233" />
+    <task id="LOCAL‎-00233" summary="fixed user login screen">
+      <option name="closed" value="true" />
+      <created>1702209290079</created>
+      <option name="number" value="00233" />
+      <option name="presentableId" value="LOCAL‎-00233" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1702209290081</updated>
+    </task>
+    <option name="localTasksCounter" value="234" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -869,7 +856,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="If the uploaded file is not valid, the response includes a 400 code and a message describing the error." />
     <MESSAGE value="implement client upload class" />
     <MESSAGE value="implement getWorlds endpoint using GSON" />
     <MESSAGE value="implement user client" />
@@ -894,7 +880,8 @@
     <MESSAGE value="combine" />
     <MESSAGE value="a lot" />
     <MESSAGE value="Changes by ASUS" />
-    <option name="LAST_COMMIT_MESSAGE" value="Changes by ASUS" />
+    <MESSAGE value="fixed user login screen" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed user login screen" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">

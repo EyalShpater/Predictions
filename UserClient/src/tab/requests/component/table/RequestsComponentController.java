@@ -84,7 +84,7 @@ public class RequestsComponentController {
 
     private boolean isExecutableRequest() {
         return selectedRequest.getNumOfSimulationInstances() == (selectedRequest.getNumOfEndedSimulations() + selectedRequest.getNumOfRunningSimulations()) ||
-                !selectedRequest.getStatus().equals("APPROVED");
+                !selectedRequest.getStatus().equals("APPROVED"); // todo: chane to enum\CONSTS
     }
 
     private void setAllRequestsTableView() {

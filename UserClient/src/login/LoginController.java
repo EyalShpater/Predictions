@@ -93,7 +93,7 @@ public class LoginController {
     }
 
     private void loadMainApp() {
-//        primaryStage.setMinHeight(400);
+//        primaryStage.setMinHeight(400); // todo: check whats wrong and if its needed
 //        primaryStage.setMinWidth(400);
         primaryStage.setMaxWidth(Integer.MAX_VALUE);
         primaryStage.setMaxHeight(Integer.MAX_VALUE);
