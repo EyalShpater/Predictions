@@ -9,11 +9,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="27d35137-667f-4e37-a519-ab836acc0a06" name="Changes" comment="fixed user login screen">
+    <list default="true" id="27d35137-667f-4e37-a519-ab836acc0a06" name="Changes" comment="the details choiceBox is automatically updated instead of on every click">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AdminClient/src/main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/AdminClient/src/main/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AdminClient/src/tab/management/ManagementController.java" beforeDir="false" afterPath="$PROJECT_DIR$/AdminClient/src/tab/management/ManagementController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Common/src/component/details/main/MainDetailsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Common/src/component/details/main/MainDetailsController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserClient/src/login/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/UserClient/src/login/LoginController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserClient/src/tab/requests/component/table/RequestsComponentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/UserClient/src/tab/requests/component/table/RequestsComponentController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -143,7 +143,7 @@
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "ml.llm.LLMConfigurable",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
     "two.files.diff.last.used.file": "C:/Users/ASUS/IdeaProjects/PredictionsNew/Logic/src/resources/xml/ex2/master-ex2.xml",
     "vue.rearranger.settings.migration": "true"
   }
@@ -173,7 +173,7 @@
       <recent name="javafx.details.details" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.UserClientDetails">
+  <component name="RunManager" selected="Application.AdminClientManagement">
     <configuration name="AdminClientManagement" type="Application" factoryName="Application" temporary="true">
       <option name="MAIN_CLASS_NAME" value="main.Main" />
       <module name="AdminClient" />
@@ -337,8 +337,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.UserClientDetails" />
         <item itemvalue="Application.AdminClientManagement" />
+        <item itemvalue="Application.UserClientDetails" />
         <item itemvalue="Application.TestMain" />
         <item itemvalue="Application.Main" />
       </list>
@@ -448,7 +448,7 @@
       <workItem from="1701877853761" duration="383000" />
       <workItem from="1701878290367" duration="254000" />
       <workItem from="1701878550139" duration="9625000" />
-      <workItem from="1702209179355" duration="3072000" />
+      <workItem from="1702209179355" duration="7767000" />
     </task>
     <task id="LOCAL-00103" summary="changed evaluate to get the EntityInstance of secondaryEntity in each iteration in order to creare the proper context , also added functions to context to get the filtered SecondaryEntity list">
       <created>1694175010163</created>
@@ -568,14 +568,6 @@
       <option name="presentableId" value="LOCAL-00157" />
       <option name="project" value="LOCAL" />
       <updated>1695105621094</updated>
-    </task>
-    <task id="LOCAL‎-00202" summary="Changes by ASUS">
-      <option name="closed" value="true" />
-      <created>1696318044199</created>
-      <option name="number" value="00202" />
-      <option name="presentableId" value="LOCAL‎-00202" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1696318044199</updated>
     </task>
     <task id="LOCAL‎-00203" summary="details component is now single">
       <option name="closed" value="true" />
@@ -825,7 +817,15 @@
       <option name="project" value="LOCAL‎" />
       <updated>1702209290081</updated>
     </task>
-    <option name="localTasksCounter" value="234" />
+    <task id="LOCAL‎-00234" summary="the details choiceBox is automatically updated instead of on every click">
+      <option name="closed" value="true" />
+      <created>1702212487774</created>
+      <option name="number" value="00234" />
+      <option name="presentableId" value="LOCAL‎-00234" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1702212487774</updated>
+    </task>
+    <option name="localTasksCounter" value="235" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -856,7 +856,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="implement client upload class" />
     <MESSAGE value="implement getWorlds endpoint using GSON" />
     <MESSAGE value="implement user client" />
     <MESSAGE value="userClient - details - entities implemented" />
@@ -881,7 +880,8 @@
     <MESSAGE value="a lot" />
     <MESSAGE value="Changes by ASUS" />
     <MESSAGE value="fixed user login screen" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixed user login screen" />
+    <MESSAGE value="the details choiceBox is automatically updated instead of on every click" />
+    <option name="LAST_COMMIT_MESSAGE" value="the details choiceBox is automatically updated instead of on every click" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">

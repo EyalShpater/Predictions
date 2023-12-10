@@ -74,7 +74,7 @@ public class MainDetailsController {
     private void onValueChanged(String newValue) {
         if (newValue != null) {
             detailsComponentController.setWorldName(newValue);
-            //logic
+            //todo: logic
 
             System.out.println(newValue);
         }

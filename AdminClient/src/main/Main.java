@@ -33,6 +33,5 @@ public class Main extends Application {
         });
 
         primaryStage.show();
-
     }
 }

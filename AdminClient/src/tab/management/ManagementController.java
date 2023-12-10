@@ -2,6 +2,7 @@ package tab.management;
 
 import component.details.details.DetailsComponentController;
 import general.constants.GeneralConstants;
+import impl.SimulationQueueDto;
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
@@ -61,14 +62,12 @@ public class ManagementController {
         setSpinner();
 
         filePathTextField.textProperty().bind(filePath);
-        threadPoolSizeSpinner.accessibleTextProperty().bind(threadPoolSize.asString());
-        queueDetails.setStyle(("-fx-border-color: #000000; -fx-border-width: 3px;"));
+//        threadPoolSizeSpinner.accessibleTextProperty().bind(threadPoolSize.asString());
+        queueDetails.setStyle(("-fx-border-color: #000000; -fx-border-width: 3px;")); //todo: use with css
     }
 
     private void setSpinner() {
         threadPoolSizeSpinner.setValueFactory(new SpinnerValueFactory.IntegerSpinnerValueFactory(1, GeneralConstants.MAX_THREAD_POOL_SIZE));
-        threadPoolSizeSpinner.getValueFactory().setWrapAround(true);
-
         threadPoolSizeSpinner.getEditor().setOnAction(event -> threadPoolSizeSpinner.increment(0));
         threadPoolSizeSpinner.focusedProperty().addListener((observable, oldValue, newValue) -> {
             if (!newValue) {
@@ -82,6 +81,13 @@ public class ManagementController {
                 keyEvent.consume();
             }
         });
+
+        try {
+            SimulationQueueDto simulationQueueDto = RequestHandler.getSimulationQueueData();
+            threadPoolSizeSpinner.getValueFactory().setValue(simulationQueueDto.getNumOfThreadsInThreadPool());
+        } catch (Exception e) {
+            threadPoolSizeSpinner.getValueFactory().setValue(1);
+        }
     }
 
     @FXML
