@@ -54,4 +54,8 @@ public class User {
     public List<Integer> getRequestsSerialNumbers() {
         return new ArrayList<>(requestsID);
     }
+
+    public List<Integer> getSimulationsSerialNumber() {
+        return new ArrayList<>(simulationsSerialNumber);
+    }
 }

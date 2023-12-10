@@ -58,7 +58,7 @@ public class RequestsComponentController {
             }
         };
         Timer timer = new Timer();
-        timer.schedule(refreshRequestsTable, 1000, 2000);
+        timer.schedule(refreshRequestsTable, 1000, 500);
 
         initTableView();
     }

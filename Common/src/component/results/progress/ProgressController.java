@@ -70,11 +70,11 @@ public class ProgressController {
     //todo
     private void toggleButtons() {
         if (isStop.get()) {
-            pauseButtonIcon.setImage(new Image("javafx/tab/results/resources/rerun.png"));
+            pauseButtonIcon.setImage(new Image("/component/results/resources/rerun.png"));
         } else if (isPause.get()) {
-            pauseButtonIcon.setImage(new Image("javafx/tab/results/resources/play-button.png"));
+            pauseButtonIcon.setImage(new Image("/component/results/resources/play-button.png"));
         } else {
-            pauseButtonIcon.setImage(new Image("javafx/tab/results/resources/pause.png"));
+            pauseButtonIcon.setImage(new Image("/component/results/resources/pause.png"));
         }
     }
 
@@ -108,8 +108,8 @@ public class ProgressController {
     private void changePauseButtonIcon() {
         if (!isStop.get()) {
             pauseButtonIcon.setImage(isPause.get()
-                    ? new Image("javafx/tab/results/resources/play-button.png")
-                    : new Image("javafx/tab/results/resources/pause.png"));
+                    ? new Image("/component/results/resources/play-button.png")
+                    : new Image("/component/results/resources/pause.png"));
         }
     }
 

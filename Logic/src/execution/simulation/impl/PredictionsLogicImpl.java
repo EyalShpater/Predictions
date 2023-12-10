@@ -153,8 +153,13 @@ public class PredictionsLogicImpl implements PredictionsLogic , Serializable {
     }
 
     @Override
-    public List<SimulationDTO> getPreviousSimulationsAsDTO() {
-        return allSimulations.getAllSimulationsDTO();
+    public List<SimulationDTO> getUserSimulations(String userName) {
+        List<SimulationDTO> simulations = new ArrayList<>();
+        List<Integer> serialNumbers = userManager.getUser(userName).getSimulationsSerialNumber();
+
+        serialNumbers.forEach(id -> simulations.add(allSimulations.getSimulationBySerialNumber(id).convertToDTO()));
+
+        return simulations;
     }
 
     @Override

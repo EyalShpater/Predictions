@@ -50,12 +50,10 @@ public class LoginController {
     @FXML
     private void loginButtonClicked(ActionEvent event) {
         userName = userNameTextField.getText();
-
         if (userName.isEmpty()) {
             errorMessageProperty.set("User name is empty. You can't login with empty user name");
             return;
         }
-
 
         String finalUrl = HttpUrl
                 .parse((GeneralConstants.BASE_URL + GeneralConstants.LOGIN_RESOURCE))
@@ -95,8 +93,8 @@ public class LoginController {
     }
 
     private void loadMainApp() {
-        primaryStage.setMinHeight(400);
-        primaryStage.setMinWidth(400);
+//        primaryStage.setMinHeight(400);
+//        primaryStage.setMinWidth(400);
         primaryStage.setMaxWidth(Integer.MAX_VALUE);
         primaryStage.setMaxHeight(Integer.MAX_VALUE);
         primaryStage.setTitle("Predictions User Application");
@@ -119,7 +117,7 @@ public class LoginController {
             });
 
         } catch (Exception e) {
-            System.out.println("zain");
+            System.out.println("zain"); //todo: delete it
         }
     }
     @FXML

@@ -2,6 +2,7 @@
 package main;
 
 import component.details.main.MainDetailsController;
+import component.results.ResultsController;
 import impl.RequestedSimulationDataDTO;
 import impl.TerminationDTO;
 import javafx.beans.binding.Bindings;
@@ -35,6 +36,12 @@ public class MainAppController {
 
     @FXML
     private RequestsController requestsTabController;
+
+    @FXML
+    private ScrollPane resultsScrollPane;
+
+    @FXML
+    private ResultsController resultsScrollPaneController;
 
     @FXML
     private BorderPane newExecutionComponent;
@@ -74,7 +81,7 @@ public class MainAppController {
         this.userName = userName;
         requestsTabController.setUserName(userName);
         requestsTabController.setMainAppController(this);
-        System.out.println("Main app user name: " + userName);
+        resultsScrollPaneController.setUserName(userName);
     }
 
     public void onExecutionButtonClicked(RequestedSimulationDataDTO selectedRequest) {

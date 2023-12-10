@@ -17,9 +17,9 @@ public class Main extends Application {
         LoginController loginController;
         MainAppController mainAppController;
 
-        primaryStage.setMinHeight(200);
+        primaryStage.setMinHeight(250);
         primaryStage.setMinWidth(400);
-        primaryStage.setMaxHeight(200);
+        primaryStage.setMaxHeight(250);
         primaryStage.setMaxWidth(400);
         primaryStage.setTitle("Login");
 
@@ -31,7 +31,7 @@ public class Main extends Application {
             loginController = fxmlLoader.getController();
 
             loginController.setPrimaryStage(primaryStage);
-            Scene scene = new Scene(root, 400, 200);
+            Scene scene = new Scene(root, 400, 250);
             primaryStage.setScene(scene);
 
             primaryStage.setOnCloseRequest(request -> {

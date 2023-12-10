@@ -1,30 +1,96 @@
 package component.results.list;
 
 import component.results.helper.Category;
+import impl.RequestedSimulationDataDTO;
+import impl.SimulationDTO;
+import javafx.application.Platform;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.scene.control.ListView;
+import javafx.scene.control.SelectionMode;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
+import servlet.request.RequestHandler;
 
 import java.util.List;
+import java.util.Timer;
+import java.util.TimerTask;
 import java.util.function.Consumer;
 import java.util.function.Supplier;
 
 public class SimulationsListController {
 
     @FXML
-    private ListView<Category> simulationsListView;
+    private TableView<Category> simulationTableView;
 
+    @FXML
+    private TableColumn<Category, Integer> serialNumberCol;
+
+    @FXML
+    private TableColumn<Category, String> simulationNameCol;
+
+    @FXML
+    private TableColumn<Category, String> dateCol;
+
+    private String userName;
     private Consumer<Category> onSelectionChange;
+    private final ObservableList<Category> allSimulationsData = FXCollections.observableArrayList();
+
 //    private Supplier<List<Category>>
 
     @FXML
     private void initialize() {
-        simulationsListView
+        TimerTask refreshRequestsTable = new TimerTask() {
+            @Override
+            public void run() {
+                Platform.runLater(() -> setAllSimulationsTableView());
+            }
+        };
+        Timer timer = new Timer();
+        timer.schedule(refreshRequestsTable, 1000, 500);
+
+        initTableView();
+    }
+
+    public void setOnSelectionChange(Consumer<Category> onSelectionChange) {
+        this.onSelectionChange = onSelectionChange;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
+
+    private void initTableView() {
+        serialNumberCol.setCellValueFactory(new PropertyValueFactory<Category, Integer>("id"));
+        dateCol.setCellValueFactory(new PropertyValueFactory<Category, String>("time"));
+        simulationNameCol.setCellValueFactory(new PropertyValueFactory<Category, String>("simulationName"));
+        simulationTableView.setItems(allSimulationsData);
+        simulationTableView.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
+
+        simulationTableView
                 .getSelectionModel()
                 .selectedItemProperty()
                 .addListener((observable, oldValue, newValue) -> onSelectionChange.accept(newValue));
     }
 
-    public void setOnSelectionChange(Consumer<Category> onSelectionChange) {
-        this.onSelectionChange = onSelectionChange;
+    private void setAllSimulationsTableView() {
+        List<SimulationDTO> updatedRequests = null;
+
+        try {
+            updatedRequests = RequestHandler.getSimulationsDTOByUserName(userName);
+        } catch (Exception ignored) {
+            return;
+        }
+
+        updatedRequests.forEach(updated -> {
+            Category newCategory = new Category(updated.getWorld().getName(), updated.getStartDate(), updated.getSerialNumber());
+
+            if (allSimulationsData.contains(newCategory)) {
+                allSimulationsData.set(allSimulationsData.indexOf(newCategory), newCategory);
+            } else {
+                allSimulationsData.add(newCategory);
+            }
+        });
     }
 }

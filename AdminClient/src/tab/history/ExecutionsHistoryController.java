@@ -6,11 +6,12 @@ import component.results.list.SimulationsListController;
 import javafx.fxml.FXML;
 import javafx.scene.control.ListView;
 import javafx.scene.control.Pagination;
+import javafx.scene.control.TableView;
 
 public class ExecutionsHistoryController {
 
     @FXML
-    private ListView<Category> simulationsListViewComponent;
+    private TableView<Category> simulationsListViewComponent;
 
     @FXML
     private SimulationsListController simulationsListViewComponentController;

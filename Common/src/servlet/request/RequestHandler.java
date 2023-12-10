@@ -165,7 +165,7 @@ public class RequestHandler {
         Response response = call.execute();
 
         String responseBody = response.body().string().trim();
-        System.out.println("Response Body: " + responseBody);
+
         try {
             simulationSerialNumber = Integer.valueOf(responseBody);
         } catch (Exception ignored) {
@@ -214,11 +214,12 @@ public class RequestHandler {
         return gson.fromJson(response.body().string(), mapType);
     }
 
-    public static SimulationDTO getSimulationDTOBySerialNumber(int serialNumber) throws IOException {
+    public static List<SimulationDTO> getSimulationsDTOByUserName(String userName) throws IOException {
+        List<SimulationDTO> simulations = new ArrayList<>();
         Gson gson = new Gson();
 
         HttpUrl.Builder urlBuilder = HttpUrl.parse(GeneralConstants.BASE_URL + GeneralConstants.GET_SIMULATION_DTO_RESOURCE).newBuilder();
-        urlBuilder.addQueryParameter(GeneralConstants.SIMULATION_SERIAL_NUMBER_PARAMETER_NAME, String.valueOf(serialNumber));
+        urlBuilder.addQueryParameter(GeneralConstants.USER_NAME_PARAMETER_NAME, userName);
         String finalUrl = urlBuilder.build().toString();
 
         Request request = new Request.Builder()
@@ -228,7 +229,12 @@ public class RequestHandler {
         Call call = HTTP_CLIENT.newCall(request);
         Response response = call.execute();
 
-        return gson.fromJson(response.body().string(), SimulationDTO.class);
+        String resp = response.body().string(); //todo: Debug
+
+        JsonArray simulationsJson = JsonParser.parseString(resp).getAsJsonArray();
+        simulationsJson.forEach(simulationJson -> simulations.add(gson.fromJson(simulationJson, SimulationDTO.class)));
+
+        return simulations;
     }
 
     public static Map<String, Map<Integer, Long>> getPopulationCountSortedByName(int serialNumber) throws IOException {

@@ -27,9 +27,6 @@ public class ResultsController {
     @FXML
     private StackPane progress;
 
-//    @FXML
-//    private ListView<Category> simulationsListView;
-
     @FXML
     private TableView<EntityPopulationData> entitiesPopulationTableView;
 
@@ -63,6 +60,7 @@ public class ResultsController {
     @FXML
     private SimulationsListController simulationsListViewController;
 
+    private String userName;
     private TabPane tabPane;
 
     private ObjectProperty<Category> selectedSimulation;
@@ -100,6 +98,7 @@ public class ResultsController {
         entitiesCol.setCellValueFactory(new PropertyValueFactory<>("entityName"));
         populationCol.setCellValueFactory(new PropertyValueFactory<>("population"));
 
+        progressController.setTableView(this.entitiesPopulationTableView);
         analyzePaginationController.setResultsController(this);
     }
 
@@ -111,7 +110,7 @@ public class ResultsController {
         progressController.onSelectedSimulationChange(newValue);
 
         if (newValue != null) {
-            selectedSimulationSerialNumber.set(newValue.getIdProperty().get());
+            selectedSimulationSerialNumber.set(newValue.getId());
             analyzePaginationController.onSelectedSimulationChange(selectedSimulationSerialNumber.get());
         }
     }
@@ -134,16 +133,16 @@ public class ResultsController {
         }
     }
 
-    public void onStartButtonClicked(int newSimulationSerialNumber) {
-        try {
-            progressController.setTableView(this.entitiesPopulationTableView);
-            SimulationDTO lastSimulation = RequestHandler.getSimulationDTOBySerialNumber(newSimulationSerialNumber);
-
-            Category simulationInfo = new Category(lastSimulation.getWorld().getName(), lastSimulation.getStartDate(), lastSimulation.getSerialNumber());
-            waitingQueue.add(simulationInfo);
-        } catch (Exception ignored) {
-        }
-    }
+//    public void onStartButtonClicked(int newSimulationSerialNumber) {
+//        try {
+//            progressController.setTableView(this.entitiesPopulationTableView);
+//            SimulationDTO lastSimulation = RequestHandler.getSimulationDTOBySerialNumber(newSimulationSerialNumber);
+//
+//            Category simulationInfo = new Category(lastSimulation.getWorld().getName(), lastSimulation.getStartDate(), lastSimulation.getSerialNumber());
+//            waitingQueue.add(simulationInfo);
+//        } catch (Exception ignored) {
+//        }
+//    }
 
     private void onSelectedSimulationStop() {
 //        analyzePaginationController.setPopulationData(engine.getPopulationCountSortedByName(selectedSimulation.get().getId()));
@@ -272,5 +271,10 @@ public class ResultsController {
         } catch (Exception e) {
             return null;
         }
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
+        simulationsListViewController.setUserName(userName);
     }
 }

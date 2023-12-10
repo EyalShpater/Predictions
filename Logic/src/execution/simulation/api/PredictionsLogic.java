@@ -37,7 +37,7 @@ public interface PredictionsLogic {
 
     boolean isEnded(int serialNumber);
 
-    List<SimulationDTO> getPreviousSimulationsAsDTO();
+    List<SimulationDTO> getUserSimulations(String userName);
 
     SimulationDataDTO getSimulationData(int serialNumber, String entityName, String propertyName);
 

@@ -11,10 +11,22 @@
   <component name="ChangeListManager">
     <list default="true" id="27d35137-667f-4e37-a519-ab836acc0a06" name="Changes" comment="a lot">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserClient/src/tab/requests/component/table/RequestsComponentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/UserClient/src/tab/requests/component/table/RequestsComponentController.java" afterDir="false" />
-    </list>
-    <list id="260ab28c-d5c1-404b-9717-c3e5b78f4a7f" name="Changes by ASUS" comment="Changes by ASUS">
-      <change beforePath="$PROJECT_DIR$/UserClient/src/main/MainApp.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/UserClient/src/main/MainApp.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AdminClient/src/tab/history/ExecutionsHistoryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/AdminClient/src/tab/history/ExecutionsHistoryController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Common/src/component/results/ResultsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Common/src/component/results/ResultsController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Common/src/component/results/TestMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/Common/src/component/results/TestMain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Common/src/component/results/helper/Category.java" beforeDir="false" afterPath="$PROJECT_DIR$/Common/src/component/results/helper/Category.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Common/src/component/results/list/SimulationsList.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Common/src/component/results/list/SimulationsList.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Common/src/component/results/list/SimulationsListController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Common/src/component/results/list/SimulationsListController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Common/src/component/results/progress/ProgressController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Common/src/component/results/progress/ProgressController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Common/src/servlet/request/RequestHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/Common/src/servlet/request/RequestHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/execution/simulation/api/PredictionsLogic.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/execution/simulation/api/PredictionsLogic.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/execution/simulation/impl/PredictionsLogicImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/execution/simulation/impl/PredictionsLogicImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/user/impl/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/user/impl/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PredictionsWebApplication/src/servlet/GetSimulationDTOServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/PredictionsWebApplication/src/servlet/GetSimulationDTOServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserClient/src/login/Login.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/UserClient/src/login/Login.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserClient/src/login/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/UserClient/src/login/LoginController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserClient/src/main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/UserClient/src/main/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserClient/src/main/MainAppController.java" beforeDir="false" afterPath="$PROJECT_DIR$/UserClient/src/main/MainAppController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UserClient/src/tab/requests/component/table/RequestsComponentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/UserClient/src/tab/requests/component/table/RequestsComponentController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -82,19 +94,16 @@
     <setting file="jar:///Library/Java/JavaVirtualMachines/jdk-1.8.jdk/Contents/Home/javafx-src.zip!/javafx/scene/chart/ValueAxis.java" root0="SKIP_INSPECTION" />
     <setting file="jar:///Library/Java/JavaVirtualMachines/jdk-1.8.jdk/Contents/Home/javafx-src.zip!/javafx/scene/chart/XYChart.java" root0="SKIP_INSPECTION" />
   </component>
-  <component name="LineStatusTrackerManager">
-    <file path="$PROJECT_DIR$/UserClient/src/tab/requests/component/table/RequestsComponentController.java">
-      <ranges>
-        <range start1="5" end1="6" start2="5" end2="6" changelist="27d35137-667f-4e37-a519-ab836acc0a06" />
-        <range start1="61" end1="61" start2="61" end2="62" changelist="27d35137-667f-4e37-a519-ab836acc0a06" />
-        <range start1="80" end1="81" start2="81" end2="87" changelist="27d35137-667f-4e37-a519-ab836acc0a06" />
-        <range start1="89" end1="90" start2="95" end2="95" changelist="27d35137-667f-4e37-a519-ab836acc0a06" />
-        <range start1="95" end1="97" start2="100" end2="105" changelist="27d35137-667f-4e37-a519-ab836acc0a06" />
-        <range start1="107" end1="112" start2="115" end2="122" changelist="260ab28c-d5c1-404b-9717-c3e5b78f4a7f" />
-        <range start1="113" end1="113" start2="123" end2="136" changelist="260ab28c-d5c1-404b-9717-c3e5b78f4a7f" />
-        <range start1="126" end1="134" start2="149" end2="150" changelist="260ab28c-d5c1-404b-9717-c3e5b78f4a7f" />
-      </ranges>
-    </file>
+  <component name="KubernetesApiProvider"><![CDATA[{
+  "contexts": [
+    {
+      "name": "arn:aws:eks:us-east-1:644186420585:cluster/eyal_cluster"
+    }
+  ],
+  "isMigrated": true
+}]]></component>
+  <component name="KubernetesSettings">
+    <option name="contextName" value="arn:aws:eks:us-east-1:644186420585:cluster/eyal_cluster" />
   </component>
   <component name="LogFilters">
     <option name="FILTER_ERRORS" value="false" />
@@ -102,6 +111,9 @@
     <option name="FILTER_INFO" value="true" />
     <option name="FILTER_DEBUG" value="true" />
     <option name="CUSTOM_FILTER" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
   </component>
   <component name="ProblemsViewState">
     <option name="selectedTabId" value="CurrentFile" />
@@ -117,35 +129,39 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;dart.analysis.tool.window.visible&quot;: &quot;false&quot;,
-    &quot;extract.method.default.visibility&quot;: &quot;private&quot;,
-    &quot;full.screen.before.presentation.mode&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;Client-Server&quot;,
-    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;1.8&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/eyal/Java-Course/Predictions/UserClient/src/tab/newExecution&quot;,
-    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;onboarding.tips.debug.path&quot;: &quot;/Users/eyal/Java-Course/Predictions/PredictionsWebApplication/src/init/InitContextListener.java&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settingsdialog.IDE.editor.colors.Code With Me&quot;,
-    &quot;two.files.diff.last.used.file&quot;: &quot;C:/Users/ASUS/IdeaProjects/PredictionsNew/Logic/src/resources/xml/ex2/master-ex2.xml&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "Application.AdminClientManagement.executor": "Run",
+    "Application.UserClientDetails.executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "Tomcat Server.PredictionsWebApplication.executor": "Run",
+    "WebServerToolWindowFactoryState": "false",
+    "dart.analysis.tool.window.visible": "false",
+    "extract.method.default.visibility": "private",
+    "full.screen.before.presentation.mode": "false",
+    "git-widget-placeholder": "Client-Server",
+    "jdk.selected.JAVA_MODULE": "1.8",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "/Users/eyal/Java-Course/Predictions/UserClient/src/tab/newExecution",
+    "list.type.of.created.stylesheet": "CSS",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "onboarding.tips.debug.path": "/Users/eyal/Java-Course/Predictions/PredictionsWebApplication/src/init/InitContextListener.java",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "preferences.updates",
+    "two.files.diff.last.used.file": "C:/Users/ASUS/IdeaProjects/PredictionsNew/Logic/src/resources/xml/ex2/master-ex2.xml",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/UserClient/src/tab/newExecution" />
@@ -211,12 +227,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TestMain$Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="main.TestMain$Main" />
-      <module name="UserClient" />
+    <configuration name="TestMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="component.results.TestMain" />
+      <module name="Common" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="main.*" />
+          <option name="PATTERN" value="component.results.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -327,7 +343,7 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="Application.TestMain$Main" />
+      <item itemvalue="Application.TestMain" />
       <item itemvalue="Application.UserClientDetails" />
       <item itemvalue="Application.AdminClientManagement" />
       <item itemvalue="Application.Main" />
@@ -337,11 +353,17 @@
       <list>
         <item itemvalue="Application.UserClientDetails" />
         <item itemvalue="Application.AdminClientManagement" />
-        <item itemvalue="Application.TestMain$Main" />
+        <item itemvalue="Application.TestMain" />
         <item itemvalue="Application.Main" />
-        <item itemvalue="Application.AdminClientManagement" />
       </list>
     </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="jdk-1.8.0_392-corretto-1.8.0_392-3183f394aec4-22f8fbaa" />
+      </set>
+    </attachedChunks>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
@@ -431,7 +453,15 @@
       <workItem from="1696162411212" duration="43780000" />
       <workItem from="1696273433987" duration="350000" />
       <workItem from="1696315652458" duration="100749000" />
-      <workItem from="1696576714491" duration="18568000" />
+      <workItem from="1696576714491" duration="31843000" />
+      <workItem from="1698398284549" duration="1159000" />
+      <workItem from="1698399826530" duration="615000" />
+      <workItem from="1699878260517" duration="3667000" />
+      <workItem from="1701256582827" duration="443000" />
+      <workItem from="1701871198993" duration="3749000" />
+      <workItem from="1701877853761" duration="383000" />
+      <workItem from="1701878290367" duration="254000" />
+      <workItem from="1701878550139" duration="9625000" />
     </task>
     <task id="LOCAL-00103" summary="changed evaluate to get the EntityInstance of secondaryEntity in each iteration in order to creare the proper context , also added functions to context to get the filtered SecondaryEntity list">
       <created>1694175010163</created>
@@ -551,22 +581,6 @@
       <option name="presentableId" value="LOCAL-00157" />
       <option name="project" value="LOCAL" />
       <updated>1695105621094</updated>
-    </task>
-    <task id="LOCAL‎-00199" summary="fixed issue in queue fxml file">
-      <option name="closed" value="true" />
-      <created>1696262276669</created>
-      <option name="number" value="00199" />
-      <option name="presentableId" value="LOCAL‎-00199" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1696262276669</updated>
-    </task>
-    <task id="LOCAL‎-00200" summary="add details window to management">
-      <option name="closed" value="true" />
-      <created>1696279875828</created>
-      <option name="number" value="00200" />
-      <option name="presentableId" value="LOCAL‎-00200" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1696279875829</updated>
     </task>
     <task id="LOCAL‎-00201" summary="add a lot of things">
       <option name="closed" value="true" />
@@ -808,7 +822,23 @@
       <option name="project" value="LOCAL‎" />
       <updated>1696597449042</updated>
     </task>
-    <option name="localTasksCounter" value="231" />
+    <task id="LOCAL‎-00231" summary="a lot">
+      <option name="closed" value="true" />
+      <created>1696599398039</created>
+      <option name="number" value="00231" />
+      <option name="presentableId" value="LOCAL‎-00231" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1696599398039</updated>
+    </task>
+    <task id="LOCAL‎-00232" summary="Changes by ASUS">
+      <option name="closed" value="true" />
+      <created>1696599400213</created>
+      <option name="number" value="00232" />
+      <option name="presentableId" value="LOCAL‎-00232" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1696599400213</updated>
+    </task>
+    <option name="localTasksCounter" value="233" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -874,6 +904,10 @@
           <properties class="java.lang.IllegalArgumentException" package="java.lang" />
           <option name="timeStamp" value="8" />
         </breakpoint>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.lang.NullPointerException" package="java.lang" />
+          <option name="timeStamp" value="226" />
+        </breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/GUI/src/javafx/input/components/mainComponent/SecondScreenController.java</url>
           <line>156</line>
@@ -895,34 +929,14 @@
           <option name="timeStamp" value="210" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/PredictionsWebApplication/src/servlet/AllocationRequestServlet.java</url>
-          <line>22</line>
-          <option name="timeStamp" value="211" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/UserClient/src/tab/newExecution/mainComponent/NewExecutionController.java</url>
-          <line>74</line>
-          <option name="timeStamp" value="214" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/Logic/src/execution/simulation/impl/SimulationImpl.java</url>
-          <line>75</line>
-          <option name="timeStamp" value="216" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/UserClient/src/main/TestMain.java</url>
           <line>31</line>
           <option name="timeStamp" value="217" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/UserClient/src/login/LoginController.java</url>
-          <line>112</line>
-          <option name="timeStamp" value="218" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/UserClient/src/login/LoginController.java</url>
-          <line>105</line>
-          <option name="timeStamp" value="219" />
+          <url>file://$PROJECT_DIR$/Common/src/component/results/list/SimulationsListController.java</url>
+          <line>80</line>
+          <option name="timeStamp" value="222" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -943,6 +957,7 @@
         <PinnedItemInfo parentTag="resources.generated.PRDRules" memberName="prdRule" />
         <PinnedItemInfo parentTag="impl.SimulationDataDTO" memberName="propertyOfEntitySortedByValues" />
         <PinnedItemInfo parentTag="definition.entity.impl.EntityDefinitionImpl" memberName="name" />
+        <PinnedItemInfo parentTag="java.lang.Double" memberName="value" />
         <PinnedItemInfo parentTag="execution.simulation.impl.SimulationImpl" memberName="environmentVariables" />
         <PinnedItemInfo parentTag="grid.SphereSpaceImpl" memberName="grid" />
       </pinned-members>
