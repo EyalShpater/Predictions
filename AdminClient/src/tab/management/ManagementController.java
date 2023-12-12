@@ -50,7 +50,6 @@ public class ManagementController {
     private DetailsComponentController detailsComponentController;
 
     private Stage primaryStage;
-
     private StringProperty filePath;
     private IntegerProperty threadPoolSize;
 
@@ -97,7 +96,6 @@ public class ManagementController {
 
     private void uploadFile() throws IOException {
         File selectedFile = getFileUsingFileChooserDialog();
-        String previousFilePath = filePath.get();
 
         if (selectedFile != null) {
             filePath.set(selectedFile.getAbsolutePath());
@@ -115,18 +113,30 @@ public class ManagementController {
                     .build();
 
             Call call = HTTP_CLIENT.newCall(request);
-
             Response response = call.execute();
 
-            if (response.code() != 200) {
-                Alert alert = new Alert(Alert.AlertType.ERROR);
-
-                alert.setTitle("Error!");
-                alert.setContentText(response.body().string());
-                alert.setHeaderText("Error Has Occurred!");
-                alert.showAndWait();
+            if (response.code() == 200) {
+                showInformationAlert("File Loaded", "The file was loaded successfully!", null);
+            } else {
+                showErrorAlert("Error!", response.body().string(), "Error Has Occurred!");
             }
         }
+    }
+
+    private void showInformationAlert(String title, String content, String header) {
+        showAlert(Alert.AlertType.INFORMATION, title, content, header);
+    }
+
+    private void showErrorAlert(String title, String content, String header) {
+        showAlert(Alert.AlertType.ERROR, title, content, header);
+    }
+
+    private void showAlert(Alert.AlertType alertType, String title, String content, String header) {
+        Alert alert = new Alert(alertType);
+        alert.setTitle(title);
+        alert.setHeaderText(header);
+        alert.setContentText(content);
+        alert.showAndWait();
     }
 
     private File getFileUsingFileChooserDialog() {

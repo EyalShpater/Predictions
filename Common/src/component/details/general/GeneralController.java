@@ -21,29 +21,18 @@ import static general.configuration.Configuration.HTTP_CLIENT;
 public class GeneralController {
 
     @FXML
-    private Label ticksNumberLabel;
-    @FXML
-    private Label secondsNumberLabel;
-    @FXML
     private Label gridColumnNumberLabel;
     @FXML
     private Label gridRowsNumberLabel;
-    @FXML
-    private Label terminateByUserLabel;
 
     private String selectedWorld;
-    private StringProperty numOfTicks = new SimpleStringProperty();
-    private StringProperty numOfSeconds = new SimpleStringProperty();
     private StringProperty numOfCols = new SimpleStringProperty();
     private StringProperty numOfRows = new SimpleStringProperty();
 
     @FXML
     private void initialize() {
-        ticksNumberLabel.textProperty().bind(numOfTicks);
-        secondsNumberLabel.textProperty().bind(numOfSeconds);
         gridColumnNumberLabel.textProperty().bind(numOfCols);
         gridRowsNumberLabel.textProperty().bind(numOfRows);
-        terminateByUserLabel.visibleProperty().bind(numOfTicks.isEmpty().and(numOfSeconds.isEmpty()));
     }
 
     public void setPropertiesFromEngine() throws IOException {
