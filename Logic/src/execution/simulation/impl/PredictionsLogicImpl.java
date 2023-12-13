@@ -12,7 +12,6 @@ import execution.simulation.xml.validation.XmlValidator;
 import impl.*;
 import instance.enviornment.api.ActiveEnvironment;
 import instance.enviornment.impl.ActiveEnvironmentImpl;
-import javafx.util.Pair;
 import user.api.UserManager;
 
 import javax.xml.bind.JAXBException;
@@ -27,10 +26,19 @@ import java.util.stream.Collectors;
 public class PredictionsLogicImpl implements PredictionsLogic , Serializable {
     private static final int DEFAULT_START_POPULATION = 0;
 
-    private SimulationManager allSimulations = new SimulationManager();
-    private WorldManager worlds = new WorldManager();
-    private UserManager userManager = new UserManager();
-    private Admin admin = new Admin();
+    private SimulationManager allSimulations;
+    private WorldManager worlds;
+    private UserManager userManager;
+    private Admin admin;
+
+    public PredictionsLogicImpl() {
+        this.allSimulations = new SimulationManager();
+        this.worlds = new WorldManager();
+        this.userManager = new UserManager();
+        this.admin = new Admin();
+
+        allSimulations.addObserver((observable, arg) -> admin.decreaseNumOfRunningSimulation((int) arg));
+    }
 
     @Override
     public void loadXML(String path) throws JAXBException {
@@ -110,8 +118,8 @@ public class PredictionsLogicImpl implements PredictionsLogic , Serializable {
         String worldName = initData.getWorldName();
         int simulationSerialNumber = allSimulations.runNewSimulation(worlds.getWorld(worldName), initData);
 
-        userManager.getUser(userName).addActivatedSimulationSerialNumber(initData.getRequesdID());
-        admin.increaseNumOfRunningSimulation(initData.getRequesdID());
+        userManager.getUser(userName).addActivatedSimulationSerialNumber(initData.getRequestID());
+        admin.increaseNumOfRunningSimulation(initData.getRequestID());
 
         return simulationSerialNumber;
     }
@@ -155,9 +163,12 @@ public class PredictionsLogicImpl implements PredictionsLogic , Serializable {
     @Override
     public List<SimulationDTO> getUserSimulations(String userName) {
         List<SimulationDTO> simulations = new ArrayList<>();
-        List<Integer> serialNumbers = userManager.getUser(userName).getSimulationsSerialNumber();
 
-        serialNumbers.forEach(id -> simulations.add(allSimulations.getSimulationBySerialNumber(id).convertToDTO()));
+        if (userName != null && userManager.isUserExists(userName)) {
+            List<Integer> serialNumbers = userManager.getUser(userName).getSimulationsSerialNumber();
+
+            serialNumbers.forEach(id -> simulations.add(allSimulations.getSimulationBySerialNumber(id).convertToDTO()));
+        }
 
         return simulations;
     }

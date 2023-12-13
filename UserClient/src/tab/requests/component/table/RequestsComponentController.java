@@ -84,7 +84,7 @@ public class RequestsComponentController {
 
     private boolean isExecutableRequest() {
         return selectedRequest.getNumOfSimulationInstances() == (selectedRequest.getNumOfEndedSimulations() + selectedRequest.getNumOfRunningSimulations()) ||
-                !selectedRequest.getStatus().equals("APPROVED"); // todo: chane to enum\CONSTS
+                !selectedRequest.getStatus().equals("APPROVED"); // todo: change to enum\CONSTS
     }
 
     private void setAllRequestsTableView() {
@@ -123,7 +123,7 @@ public class RequestsComponentController {
     }
 
     private void switchToNewExecution() {
-
+//todo
     }
 
     private Tab findTabByName(TabPane tabPane, String tabName) {
@@ -132,6 +132,7 @@ public class RequestsComponentController {
                 return tab;
             }
         }
+
         return null;
     }
 
@@ -146,6 +147,4 @@ public class RequestsComponentController {
     public void setMainAppController(MainAppController mainAppController) {
         this.mainAppController = mainAppController;
     }
-
-
 }

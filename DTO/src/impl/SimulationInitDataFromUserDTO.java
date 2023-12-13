@@ -43,7 +43,7 @@ public class SimulationInitDataFromUserDTO implements DTO {
         return userName;
     }
 
-    public Integer getRequesdID() {
+    public Integer getRequestID() {
         return requestID;
     }
 }

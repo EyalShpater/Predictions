@@ -67,7 +67,7 @@ public class NewExecutionController {
 
     @FXML
     void simulationsQueueButtonActionListener(ActionEvent event) {
-
+        //todo: can i delete?
     }
 
     @FXML
@@ -98,7 +98,7 @@ public class NewExecutionController {
 
         simulationSerialNumber = runSimulation(entityNameToPopulation);
         mainAppController.onStartButtonClick(simulationSerialNumber);
-        System.out.println(simulationSerialNumber);
+
         //TODO: When eyal finishes resultsTab
         /*Tab resultsTab = findTabByName("Results");
         if (resultsTab != null) {
@@ -108,6 +108,7 @@ public class NewExecutionController {
 
     private int runSimulation(Map<String, Integer> entityNameToPopulation) {
         List<PropertyDefinitionDTO> updatedEnvironmentVariables;
+
         try {
             updatedEnvironmentVariables = setEnvVariablesFromTextFields();
         } catch (IOException e) {
@@ -132,6 +133,7 @@ public class NewExecutionController {
     private List<PropertyDefinitionDTO> setEnvVariablesFromTextFields() throws IOException {
         final int[] index = {0};
         List<PropertyDefinitionDTO> environmentVariables = RequestHandler.getEnvironmentVariablesToSet(worldName);
+
         environmentVariables.forEach(
                 envVar -> {
                     BasicEnvironmentVariableData controller = envVarControllerList.get(index[0]);
@@ -142,6 +144,7 @@ public class NewExecutionController {
                     index[0]++;
                 }
         );
+
         return environmentVariables;
     }
 

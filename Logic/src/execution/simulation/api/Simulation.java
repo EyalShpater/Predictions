@@ -7,6 +7,8 @@ import impl.*;
 import javafx.util.Pair;
 
 import java.util.Map;
+import java.util.Observable;
+import java.util.Observer;
 
 public interface Simulation extends DTOConvertible<SimulationDTO> {
     int getSerialNumber();
@@ -39,6 +41,8 @@ public interface Simulation extends DTOConvertible<SimulationDTO> {
 
     World getWorld();
 
+    int getRequestSerialNumber();
+
     EntitiesAmountDTO createEntitiesAmountDTO();
 
     boolean isStarted();
@@ -48,4 +52,6 @@ public interface Simulation extends DTOConvertible<SimulationDTO> {
     Map<String, Map<Integer, Long>> getPopulationCountSortedByName();
 
     Double getFinalNumericPropertyAvg(String entityName, String propertyName);
+
+    void addObserver(Observer observer);
 }

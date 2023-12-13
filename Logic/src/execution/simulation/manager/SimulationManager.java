@@ -12,7 +12,7 @@ import java.util.*;
 import java.util.concurrent.*;
 import java.util.stream.Collectors;
 
-public class SimulationManager implements Serializable {
+public class SimulationManager extends Observable implements Serializable, Observer {
     private final static int DEFAULT_THREAD_POOL_SIZE = 5;
 
     private int serialNumber;
@@ -32,14 +32,14 @@ public class SimulationManager implements Serializable {
 
     public int runNewSimulation(World world, SimulationInitDataFromUserDTO initData) {
         Simulation simulation;
-        TerminateCondition stopReason;
-        SimulationRunDetailsDTO dto;
+//        TerminateCondition stopReason; todo: can i delete?
+//        SimulationRunDetailsDTO dto;
 
         simulation = new SimulationImpl(world, initData, serialNumber);
+        simulation.addObserver(this);
         serialNumber++;
 
         threadPool.execute(simulation::run);
-
         simulations.put(simulation.getSerialNumber(), simulation);
 
         return simulation.getSerialNumber();
@@ -75,5 +75,11 @@ public class SimulationManager implements Serializable {
         this.poolSize = size;
         this.threadPool.shutdownNow();
         this.threadPool = Executors.newFixedThreadPool(poolSize);
+    }
+
+    @Override
+    public void update(Observable o, Object arg) {
+        setChanged();
+        notifyObservers(arg);
     }
 }

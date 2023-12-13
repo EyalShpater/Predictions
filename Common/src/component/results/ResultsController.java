@@ -69,7 +69,6 @@ public class ResultsController {
     private StringProperty entityToView;
     private BooleanProperty isSelectedSimulationEnded;
     private BooleanProperty isNewFileLoaded;
-
     private Queue<Category> waitingQueue = new LinkedList<>();
 
     public ResultsController() {

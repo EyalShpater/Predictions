@@ -34,7 +34,6 @@ public class ProgressController {
     @FXML
     private Label ticksLabel;
 
-
     private Category selectedSimulation;
     private BooleanProperty isPause = new SimpleBooleanProperty();
     private BooleanProperty isStop = new SimpleBooleanProperty();

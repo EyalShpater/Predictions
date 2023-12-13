@@ -16,7 +16,6 @@ import instance.entity.manager.api.EntityInstanceManager;
 import instance.entity.manager.impl.EntityInstanceManagerImpl;
 import instance.enviornment.api.ActiveEnvironment;
 import instance.enviornment.impl.ActiveEnvironmentImpl;
-import javafx.util.Pair;
 
 import java.io.Serializable;
 import java.util.*;
@@ -26,8 +25,9 @@ import java.util.stream.Collectors;
 import execution.simulation.termination.impl.TerminationImpl;
 
 
-public class SimulationImpl implements Simulation , Serializable {
+public class SimulationImpl extends Observable implements Simulation, Serializable {
     private final int serialNumber;
+    private final int requestSerialNumber;
     private final Random random;
 
     private World world;
@@ -50,6 +50,7 @@ public class SimulationImpl implements Simulation , Serializable {
         this.world = world;
         this.initData = initData;
         this.serialNumber = serialNumber;
+        this.requestSerialNumber = initData.getRequestID();
         this.random = new Random();
         this.entities = null;
         this.environmentVariables = null;
@@ -69,12 +70,11 @@ public class SimulationImpl implements Simulation , Serializable {
     @Override
     public void run() {
         startTime = System.currentTimeMillis();
-        System.out.println("start simulation of world: " + world.getName());
         initEntities();
         initEnvironmentVariables();
         //TODO: check if its the correct place todo it
         world.setTermination(new TerminationImpl(initData.getTermination()));
-        entities.updatePopulationCount(tick, createEntityNameToPopulationMap());
+        entities.updatePopulationCount(tick, createEntityNameToPopulationMap()); // todo: tick = 0?
         tick = 1;
 
         while ((endReason = world.isActive(tick, runningTimeInSeconds, isStop)) == null) {
@@ -93,8 +93,9 @@ public class SimulationImpl implements Simulation , Serializable {
             sleep();
         }
 
-        System.out.println("end simulation of world: " + world.getName());
         data = new SimulationDataImpl(serialNumber, startTime, world.getEntities(), entities, initData);
+        setChanged();
+        notifyObservers(initData.getRequestID());
     }
 
     @Override
@@ -253,6 +254,11 @@ public class SimulationImpl implements Simulation , Serializable {
     @Override
     public World getWorld() {
         return world;
+    }
+
+    @Override
+    public int getRequestSerialNumber() {
+        return requestSerialNumber;
     }
 
     @Override
