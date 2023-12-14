@@ -9,17 +9,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="27d35137-667f-4e37-a519-ab836acc0a06" name="Changes" comment="the #ended #running cols are updating now">
+    <list default="true" id="27d35137-667f-4e37-a519-ab836acc0a06" name="Changes" comment="the user is automatically logout when he closes the program">
+      <change afterPath="$PROJECT_DIR$/AdminClient/src/main/AdminMainAppController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AdminClient/AdminClient.iml" beforeDir="false" afterPath="$PROJECT_DIR$/AdminClient/AdminClient.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AdminClient/src/main/AdminMainApp.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/AdminClient/src/main/AdminMainApp.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/AdminClient/src/main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/AdminClient/src/main/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Common/src/servlet/request/RequestHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/Common/src/servlet/request/RequestHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/admin/impl/Admin.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/admin/impl/Admin.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PredictionsWebApplication/src/constants/Constants.java" beforeDir="false" afterPath="$PROJECT_DIR$/PredictionsWebApplication/src/constants/Constants.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PredictionsWebApplication/src/servlet/LogOutServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/PredictionsWebApplication/src/servlet/LogOutServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PredictionsWebApplication/src/servlet/LoginServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/PredictionsWebApplication/src/servlet/LoginServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Common/src/general/constants/GeneralConstants.java" beforeDir="false" afterPath="$PROJECT_DIR$/Common/src/general/constants/GeneralConstants.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UserClient/src/login/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/UserClient/src/login/LoginController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserClient/src/main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/UserClient/src/main/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserClient/src/main/MainAppController.java" beforeDir="false" afterPath="$PROJECT_DIR$/UserClient/src/main/MainAppController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -125,6 +122,7 @@
   "keyToString": {
     "ASKED_ADD_EXTERNAL_FILES": "true",
     "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "Application.AdminClientManagement 2nd screen.executor": "Run",
     "Application.AdminClientManagement.executor": "Run",
     "Application.LogicTest.executor": "Run",
     "Application.TestMain.executor": "Run",
@@ -182,7 +180,20 @@
       <recent name="javafx.details.details" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.UserClientDetails 2nd screen">
+  <component name="RunManager" selected="Application.AdminClientManagement">
+    <configuration name="AdminClientManagement 2nd screen" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="main.Main" />
+      <module name="AdminClient" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="main.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="AdminClientManagement" type="Application" factoryName="Application" temporary="true">
       <option name="MAIN_CLASS_NAME" value="main.Main" />
       <module name="AdminClient" />
@@ -320,6 +331,7 @@
     </configuration>
     <list>
       <item itemvalue="Application.UserClientDetails 2nd screen" />
+      <item itemvalue="Application.AdminClientManagement 2nd screen" />
       <item itemvalue="Application.LogicTest" />
       <item itemvalue="Application.UserClientDetails" />
       <item itemvalue="Application.AdminClientManagement" />
@@ -327,8 +339,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.UserClientDetails" />
         <item itemvalue="Application.AdminClientManagement" />
+        <item itemvalue="Application.UserClientDetails" />
         <item itemvalue="Application.LogicTest" />
       </list>
     </recent_temporary>
@@ -435,7 +447,7 @@
       <workItem from="1702238089909" duration="19000" />
       <workItem from="1702238115491" duration="24988000" />
       <workItem from="1702481063839" duration="71000" />
-      <workItem from="1702481141230" duration="10012000" />
+      <workItem from="1702481141230" duration="13623000" />
     </task>
     <task id="LOCAL-00103" summary="changed evaluate to get the EntityInstance of secondaryEntity in each iteration in order to creare the proper context , also added functions to context to get the filtered SecondaryEntity list">
       <created>1694175010163</created>
@@ -555,14 +567,6 @@
       <option name="presentableId" value="LOCAL-00157" />
       <option name="project" value="LOCAL" />
       <updated>1695105621094</updated>
-    </task>
-    <task id="LOCAL‎-00207" summary="added login logout servlets">
-      <option name="closed" value="true" />
-      <created>1696405944255</created>
-      <option name="number" value="00207" />
-      <option name="presentableId" value="LOCAL‎-00207" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1696405944255</updated>
     </task>
     <task id="LOCAL‎-00208" summary="added login logout servlets">
       <option name="closed" value="true" />
@@ -812,7 +816,15 @@
       <option name="project" value="LOCAL‎" />
       <updated>1702486908034</updated>
     </task>
-    <option name="localTasksCounter" value="239" />
+    <task id="LOCAL‎-00239" summary="the user is automatically logout when he closes the program">
+      <option name="closed" value="true" />
+      <created>1702547241056</created>
+      <option name="number" value="00239" />
+      <option name="presentableId" value="LOCAL‎-00239" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1702547241056</updated>
+    </task>
+    <option name="localTasksCounter" value="240" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -843,7 +855,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="implemented thread pool size can be changed by user." />
     <MESSAGE value="fixed issue in queue fxml file" />
     <MESSAGE value="add details window to management" />
     <MESSAGE value="add a lot of things" />
@@ -868,7 +879,8 @@
     <MESSAGE value="the date column in the result table is showing as a date instead of a long." />
     <MESSAGE value="added success alert for file uploading in Admin app" />
     <MESSAGE value="the #ended #running cols are updating now" />
-    <option name="LAST_COMMIT_MESSAGE" value="the #ended #running cols are updating now" />
+    <MESSAGE value="the user is automatically logout when he closes the program" />
+    <option name="LAST_COMMIT_MESSAGE" value="the user is automatically logout when he closes the program" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">

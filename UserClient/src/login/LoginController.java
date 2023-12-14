@@ -94,8 +94,6 @@ public class LoginController {
     }
 
     private void loadMainApp() {
-//        primaryStage.setMinHeight(400); // todo: check whats wrong and if its needed
-//        primaryStage.setMinWidth(400);
         primaryStage.setMaxWidth(Integer.MAX_VALUE);
         primaryStage.setMaxHeight(Integer.MAX_VALUE);
         primaryStage.setTitle("Predictions User Application");
@@ -113,40 +111,20 @@ public class LoginController {
             Scene scene = new Scene(root, 960, 640);
             primaryStage.setScene(scene);
         } catch (Exception e) {
-            System.out.println("zain"); //todo: delete it
+            try {
+                RequestHandler.logoutUser(userName);
+            } catch (IOException ex) {
+                throw new RuntimeException(ex);
+            }
         }
     }
+
     @FXML
     void userNameKeyTyped(KeyEvent event) {
 
     }
 
-    public void setAppMainController(MainAppController mainAppController) {
-        this.mainAppController = mainAppController;
-    }
-
-//    public void setPrimaryStage(Stage primaryStage) {
-//        this.primaryStage = primaryStage;
-//    }
-
-
     public void setPrimaryStage(Stage primaryStage) {
         this.primaryStage = primaryStage;
-//        setupCloseEvent();
     }
-
-//    private void setupCloseEvent() {
-//        if (primaryStage != null) {
-//            primaryStage.setOnCloseRequest(request -> {
-//                try {
-//                    int res = RequestHandler.logoutUser(userName);
-//                    System.out.println(res);
-//                } catch (IOException e) {
-//                    throw new RuntimeException(e);
-//                }
-//                Platform.exit();
-//                System.exit(0);
-//            });
-//        }
-//    }
 }

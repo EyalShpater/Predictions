@@ -24,15 +24,14 @@ public class Main extends Application {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(resource);
         Parent mainApp = loader.load();
+        AdminMainAppController controller = loader.getController();
+
+        controller.setPrimaryStage(primaryStage);
 
         Scene scene = new Scene(mainApp, 960, 640);
         primaryStage.setScene(scene);
 
-        primaryStage.setOnCloseRequest(request -> {
-            Platform.exit();
-
-            System.exit(0);
-        });
+        controller.onStart();
 
         primaryStage.show();
     }
