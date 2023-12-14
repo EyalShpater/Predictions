@@ -6,10 +6,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.stage.Stage;
 import okhttp3.*;
-import org.jetbrains.annotations.NotNull;
 import servlet.request.RequestHandler;
-import util.http.HttpClientUtil;
-
 import java.io.IOException;
 
 import static general.configuration.Configuration.HTTP_CLIENT;
