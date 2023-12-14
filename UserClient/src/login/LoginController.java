@@ -54,6 +54,9 @@ public class LoginController {
         if (userName.isEmpty()) {
             errorMessageProperty.set("User name is empty. You can't login with empty user name");
             return;
+        } else if (userName.equals(GeneralConstants.ADMIN_USER_NAME)) {
+            errorMessageProperty.set("Illegal user name!");
+            return;
         }
 
         String finalUrl = HttpUrl
