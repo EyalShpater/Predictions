@@ -121,8 +121,8 @@ public class RequestHandler {
             Gson gson = new Gson();
 
             RequestBody body = RequestBody.create(gson.toJson(simulationRequest).getBytes());
-            System.out.println("body check");
-            System.out.println(gson.toJson(simulationRequest));
+//            System.out.println("body check"); todo: delete
+//            System.out.println(gson.toJson(simulationRequest));
             Request request = new Request.Builder()
                     .url(GeneralConstants.BASE_URL + GeneralConstants.ALLOCATION_REQUEST_RESOURCE)
                     .post(body)
@@ -131,6 +131,25 @@ public class RequestHandler {
             Response response = HTTP_CLIENT.newCall(request).execute();
         } catch (Exception ignored) {
         }
+    }
+
+    public static int logoutUser(String userName) throws IOException {
+        HttpUrl.Builder urlBuilder = HttpUrl.parse(GeneralConstants.BASE_URL + GeneralConstants.LOGOUT_RESOURCE).newBuilder();
+        urlBuilder.addQueryParameter(GeneralConstants.USER_NAME_PARAMETER_NAME, userName);
+        String finalUrl = urlBuilder.build().toString();
+
+        RequestBody body = RequestBody.create("".getBytes());
+
+        Request request = new Request.Builder()
+                .url(finalUrl)
+                .get()
+                .build();
+
+        System.out.println(finalUrl);
+        Call call = HTTP_CLIENT.newCall(request);
+        Response response = call.execute();
+
+        return response.code();
     }
 
     public static void changeRequestStatus(int requestSerialNumber, boolean isAccept, String userName) throws IOException {

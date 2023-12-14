@@ -17,7 +17,7 @@ public class LoginServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         PredictionsLogic engine = (PredictionsLogic) getServletContext().getAttribute(Constants.PREDICTIONS_OBJECT_NAME);
-        String userName = req.getParameter(Constants.USERNAME);
+        String userName = req.getParameter(GeneralConstants.USER_NAME_PARAMETER_NAME);
 
         if (userName == null || userName.isEmpty()) {
             resp.setStatus(HttpServletResponse.SC_CONFLICT);

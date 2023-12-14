@@ -7,6 +7,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import login.LoginController;
+import servlet.request.RequestHandler;
 
 import java.io.IOException;
 import java.net.URL;
@@ -33,12 +34,6 @@ public class Main extends Application {
             loginController.setPrimaryStage(primaryStage);
             Scene scene = new Scene(root, 400, 250);
             primaryStage.setScene(scene);
-
-            primaryStage.setOnCloseRequest(request -> {
-                Platform.exit();
-                System.exit(0);
-            });
-
             primaryStage.show();
         } catch (IOException e) {
             e.printStackTrace();

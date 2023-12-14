@@ -5,6 +5,7 @@ import component.details.main.MainDetailsController;
 import component.results.ResultsController;
 import impl.RequestedSimulationDataDTO;
 import impl.TerminationDTO;
+import javafx.application.Platform;
 import javafx.beans.binding.Bindings;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -15,7 +16,9 @@ import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
 import javafx.scene.layout.*;
 
+import javafx.stage.Stage;
 import login.LoginController;
+import servlet.request.RequestHandler;
 import tab.newExecution.mainComponent.NewExecutionController;
 import tab.requests.RequestsController;
 
@@ -54,6 +57,7 @@ public class MainAppController {
     private ScrollPane loginComponent;
     private Parent mainApp;
     private RequestedSimulationDataDTO selectedRequest;
+    private Stage primaryStage;
 
     @FXML
     public void initialize() {
@@ -97,6 +101,25 @@ public class MainAppController {
 
     public void onStartButtonClick(int simulationSerialNumber) {
         //TODO: When eyal finishes resultsTab
+    }
+
+    public void setPrimaryStage(Stage primaryStage) {
+        this.primaryStage = primaryStage;
+        setupCloseEvent();
+    }
+
+    private void setupCloseEvent() {
+        if (primaryStage != null) {
+            primaryStage.setOnCloseRequest(request -> {
+                try {
+                    RequestHandler.logoutUser(userName);
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
+                Platform.exit();
+                System.exit(0);
+            });
+        }
     }
 
     public String getUserName() {

@@ -69,7 +69,6 @@ public class Admin {
 
     public void decreaseNumOfRunningSimulation(int requestSerialNumber) {
         requestManager.getRequest(requestSerialNumber).decreaseNumOfRunningCounter();
-        System.out.println("decrease request #" + requestSerialNumber);
     }
 
     public List<UserRequest> getAllRequests() {

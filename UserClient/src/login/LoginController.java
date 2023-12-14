@@ -20,6 +20,7 @@ import okhttp3.Callback;
 import okhttp3.HttpUrl;
 import okhttp3.Response;
 import org.jetbrains.annotations.NotNull;
+import servlet.request.RequestHandler;
 import util.http.HttpClientUtil;
 
 import java.io.IOException;
@@ -58,7 +59,7 @@ public class LoginController {
         String finalUrl = HttpUrl
                 .parse((GeneralConstants.BASE_URL + GeneralConstants.LOGIN_RESOURCE))
                 .newBuilder()
-                .addQueryParameter("username", userName)
+                .addQueryParameter(GeneralConstants.USER_NAME_PARAMETER_NAME, userName)
                 .build()
                 .toString();
 
@@ -71,7 +72,7 @@ public class LoginController {
                     String responseBody = response.body().string();
                     Platform.runLater(() -> {
                         errorMessageProperty.set("Something went wrong " + responseBody);
-                        System.out.println(responseBody);
+//                        System.out.println(responseBody); todo
                     });
                 } else {
                     Platform.runLater(() -> {
@@ -107,15 +108,10 @@ public class LoginController {
             Parent root = fxmlLoader.load();
             mainAppController = fxmlLoader.getController();
             mainAppController.setUserName(userName);
+            mainAppController.setPrimaryStage(primaryStage);
 
             Scene scene = new Scene(root, 960, 640);
             primaryStage.setScene(scene);
-
-            primaryStage.setOnCloseRequest(request -> {
-                Platform.exit();
-                System.exit(0);
-            });
-
         } catch (Exception e) {
             System.out.println("zain"); //todo: delete it
         }
@@ -129,8 +125,28 @@ public class LoginController {
         this.mainAppController = mainAppController;
     }
 
+//    public void setPrimaryStage(Stage primaryStage) {
+//        this.primaryStage = primaryStage;
+//    }
+
+
     public void setPrimaryStage(Stage primaryStage) {
         this.primaryStage = primaryStage;
+//        setupCloseEvent();
     }
 
+//    private void setupCloseEvent() {
+//        if (primaryStage != null) {
+//            primaryStage.setOnCloseRequest(request -> {
+//                try {
+//                    int res = RequestHandler.logoutUser(userName);
+//                    System.out.println(res);
+//                } catch (IOException e) {
+//                    throw new RuntimeException(e);
+//                }
+//                Platform.exit();
+//                System.exit(0);
+//            });
+//        }
+//    }
 }

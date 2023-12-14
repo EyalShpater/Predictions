@@ -9,6 +9,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import servlet.request.RequestHandler;
 import tab.allocations.AllocationsController;
 import tab.management.ManagementController;
 
@@ -29,6 +30,7 @@ public class Main extends Application {
 
         primaryStage.setOnCloseRequest(request -> {
             Platform.exit();
+
             System.exit(0);
         });
 
