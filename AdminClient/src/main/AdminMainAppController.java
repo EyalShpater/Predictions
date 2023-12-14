@@ -19,33 +19,7 @@ public class AdminMainAppController {
 
     @FXML
     void initialize() {
-
-    }
-
-    public void onStart() {
-        HttpUrl.Builder urlBuilder = HttpUrl.parse(GeneralConstants.BASE_URL + GeneralConstants.LOGIN_RESOURCE).newBuilder();
-        urlBuilder.addQueryParameter(GeneralConstants.USER_NAME_PARAMETER_NAME, GeneralConstants.ADMIN_USER_NAME);
-        String finalUrl = urlBuilder.build().toString();
-
-        RequestBody body = RequestBody.create("".getBytes());
-
-        Request request = new Request.Builder()
-                .url(finalUrl)
-                .get()
-                .build();
-
-        Call call = HTTP_CLIENT.newCall(request);
-        try {
-            Response response = call.execute();
-
-            if (response.code() != 200) {
-                alert("Admin is already loged in!");
-                Platform.exit();
-                System.exit(0);
-            }
-        } catch (Exception e) {
-            alert(e.getMessage());
-        }
+        login();
     }
 
     public void setPrimaryStage(Stage primaryStage) {
@@ -58,6 +32,30 @@ public class AdminMainAppController {
             primaryStage.setOnCloseRequest(request -> {
                 onExit();
             });
+        }
+    }
+
+    private void login() {
+        HttpUrl.Builder urlBuilder = HttpUrl.parse(GeneralConstants.BASE_URL + GeneralConstants.LOGIN_RESOURCE).newBuilder();
+        urlBuilder.addQueryParameter(GeneralConstants.USER_NAME_PARAMETER_NAME, GeneralConstants.ADMIN_USER_NAME);
+        String finalUrl = urlBuilder.build().toString();
+
+        Request request = new Request.Builder()
+                .url(finalUrl)
+                .get()
+                .build();
+
+        Call call = HTTP_CLIENT.newCall(request);
+        try {
+            Response response = call.execute();
+
+            if (response.code() != 200) {
+                alert("Admin is already logged in!");
+                Platform.exit();
+                System.exit(0);
+            }
+        } catch (Exception e) {
+            alert(e.getMessage());
         }
     }
 

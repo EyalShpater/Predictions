@@ -31,8 +31,6 @@ public class Main extends Application {
         Scene scene = new Scene(mainApp, 960, 640);
         primaryStage.setScene(scene);
 
-        controller.onStart();
-
         primaryStage.show();
     }
 }
