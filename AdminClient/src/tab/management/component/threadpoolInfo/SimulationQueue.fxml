@@ -32,7 +32,7 @@
         <Label fx:id="waitingLabel" GridPane.columnIndex="2" GridPane.rowIndex="2"/>
         <Label text="Runing Simulations:" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
         <Label fx:id="runningLabel" GridPane.columnIndex="2" GridPane.rowIndex="1"/>
-        <Label text="Runing Simulations:" GridPane.columnIndex="1" GridPane.rowIndex="3"/>
+        <Label text="Ended Simulations:" GridPane.columnIndex="1" GridPane.rowIndex="3"/>
         <Label fx:id="completedLabel" GridPane.columnIndex="2" GridPane.rowIndex="3"/>
         <Label text="Threads Amount:" GridPane.columnIndex="1" GridPane.rowIndex="6"/>
         <Label fx:id="threadsAmountLabel" GridPane.columnIndex="2" GridPane.rowIndex="6"/>
