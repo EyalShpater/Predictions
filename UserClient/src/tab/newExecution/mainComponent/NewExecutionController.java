@@ -436,7 +436,6 @@ public class NewExecutionController {
     }
 
     public void onNewExecutionClicked(String worldName) {
-
         setWorldName(worldName);
         cleanOldResults();
         clearControllersList();

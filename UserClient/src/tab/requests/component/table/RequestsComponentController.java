@@ -72,6 +72,7 @@ public class RequestsComponentController {
         endedCol.setCellValueFactory(new PropertyValueFactory<RequestedSimulationDataDTO, Integer>("numOfEndedSimulations"));
         allRequestsTableView.setItems(data);
         allRequestsTableView.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
+        executeButton.setDisable(true);
     }
 
     @FXML
