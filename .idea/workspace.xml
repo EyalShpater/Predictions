@@ -9,9 +9,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="27d35137-667f-4e37-a519-ab836acc0a06" name="Changes" comment="disable execute button on user app when first loaded">
+    <list default="true" id="27d35137-667f-4e37-a519-ab836acc0a06" name="Changes" comment="fixed label on threadPool info">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AdminClient/src/tab/management/component/threadpoolInfo/SimulationQueue.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/AdminClient/src/tab/management/component/threadpoolInfo/SimulationQueue.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Common/src/component/details/main/MainDetails.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Common/src/component/details/main/MainDetails.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Common/src/component/details/main/MainDetailsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Common/src/component/details/main/MainDetailsController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserClient/src/tab/requests/component/submit/SubmitComponentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/UserClient/src/tab/requests/component/submit/SubmitComponentController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -175,7 +177,7 @@
       <recent name="javafx.details.details" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.UserClientDetails 2nd screen">
+  <component name="RunManager" selected="Application.AdminClientManagement 2nd screen">
     <configuration name="AdminClientManagement 2nd screen" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="main.Main" />
       <module name="AdminClient" />
@@ -442,7 +444,7 @@
       <workItem from="1702238089909" duration="19000" />
       <workItem from="1702238115491" duration="24988000" />
       <workItem from="1702481063839" duration="71000" />
-      <workItem from="1702481141230" duration="19167000" />
+      <workItem from="1702481141230" duration="21493000" />
     </task>
     <task id="LOCAL-00103" summary="changed evaluate to get the EntityInstance of secondaryEntity in each iteration in order to creare the proper context , also added functions to context to get the filtered SecondaryEntity list">
       <created>1694175010163</created>
@@ -562,14 +564,6 @@
       <option name="presentableId" value="LOCAL-00157" />
       <option name="project" value="LOCAL" />
       <updated>1695105621094</updated>
-    </task>
-    <task id="LOCAL‎-00214" summary="fixed bug">
-      <option name="closed" value="true" />
-      <created>1696451747594</created>
-      <option name="number" value="00214" />
-      <option name="presentableId" value="LOCAL‎-00214" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1696451747594</updated>
     </task>
     <task id="LOCAL‎-00215" summary="fixed bug">
       <option name="closed" value="true" />
@@ -819,7 +813,15 @@
       <option name="project" value="LOCAL‎" />
       <updated>1702639353478</updated>
     </task>
-    <option name="localTasksCounter" value="246" />
+    <task id="LOCAL‎-00246" summary="fixed label on threadPool info">
+      <option name="closed" value="true" />
+      <created>1702639910380</created>
+      <option name="number" value="00246" />
+      <option name="presentableId" value="LOCAL‎-00246" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1702639910380</updated>
+    </task>
+    <option name="localTasksCounter" value="247" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -850,7 +852,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="added user management logic" />
     <MESSAGE value="almost complete user management logic" />
     <MESSAGE value="added post request servlet" />
     <MESSAGE value="added login logout servlets" />
@@ -875,7 +876,8 @@
     <MESSAGE value="user cannot log in as admin" />
     <MESSAGE value="added readme" />
     <MESSAGE value="disable execute button on user app when first loaded" />
-    <option name="LAST_COMMIT_MESSAGE" value="disable execute button on user app when first loaded" />
+    <MESSAGE value="fixed label on threadPool info" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed label on threadPool info" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">

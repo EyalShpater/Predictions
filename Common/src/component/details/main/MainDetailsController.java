@@ -10,6 +10,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.ComboBox;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import servlet.request.RequestHandler;
@@ -22,7 +23,7 @@ import java.util.TimerTask;
 public class MainDetailsController {
 
     @FXML
-    private ChoiceBox<String> worldChoiceBox;
+    private ComboBox<String> worldComboBox;
 
     @FXML
     private BorderPane detailsComponent;
@@ -50,9 +51,9 @@ public class MainDetailsController {
         Timer timer = new Timer();
         timer.schedule(refreshRequestsTable, 1000, 500);
 
-
-        worldChoiceBox.setItems(worldsData);
-        selectedWorld.bind(worldChoiceBox.valueProperty());
+        worldComboBox.setPromptText("Simulation Name");
+        worldComboBox.setItems(worldsData);
+        selectedWorld.bind(worldComboBox.valueProperty());
         selectedWorld.addListener((observable, oldValue, newValue) -> onValueChanged(newValue));
     }
 

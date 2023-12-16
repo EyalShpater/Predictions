@@ -95,6 +95,7 @@ public class SubmitComponentController {
 
         secondsSpinner.disableProperty().bind(isTerminateBySeconds.not());
         ticksSpinner.disableProperty().bind(isTerminateByTicks.not());
+        submitButton.disableProperty().bind(selectedWorld.isEmpty());
     }
 
     private void setSpinners() {
