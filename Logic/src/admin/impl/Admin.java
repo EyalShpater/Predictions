@@ -74,4 +74,6 @@ public class Admin {
     public List<UserRequest> getAllRequests() {
         return requestManager.getAllRequests();
     }
+
+
 }
