@@ -27,8 +27,8 @@ public class NewExecutionController {
     @FXML
     private Button clearButton;
 
-    @FXML
-    private Button simulationsQueueButton;
+//    @FXML
+//    private Button simulationsQueueButton;
 
     @FXML
     private Button startButton;
@@ -122,7 +122,6 @@ public class NewExecutionController {
                 worldName,
                 mainAppController.getUserName(),
                 mainAppController.getRequestId());
-
         try {
             return RequestHandler.runSimulation(simulationInitDataFromUserDTO);
         } catch (IOException e) {

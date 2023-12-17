@@ -42,14 +42,14 @@
                                 </Tab>
                                 <Tab fx:id="newExecution" text="New Execution">
                                     <content>
-                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                        <StackPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                             <children>
                                                 <fx:include fx:id="newExecutionComponent"
                                                             source="../tab/newExecution/mainComponent/NewExecution.fxml"
                                                             AnchorPane.bottomAnchor="-191.0" AnchorPane.leftAnchor="0.0"
                                                             AnchorPane.rightAnchor="-2.0" AnchorPane.topAnchor="0.0"/>
                                             </children>
-                                        </AnchorPane>
+                                        </StackPane>
                                     </content>
                                 </Tab>
                                 <Tab text="Results">

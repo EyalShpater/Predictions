@@ -42,9 +42,9 @@ public class User {
         simulationDefinitionManager.add(requestSerialNumber, simulation, numOfInstances);
     }
 
-    public void addActivatedSimulationSerialNumber(int serialNumber) {
-        simulationsSerialNumber.add(serialNumber);
-        simulationDefinitionManager.decreaseSimulationNumOfInstances(serialNumber);
+    public void addActivatedSimulationSerialNumber(int SimulationSerialNumber, int requestSerialNumber) {
+        simulationsSerialNumber.add(SimulationSerialNumber);
+        simulationDefinitionManager.decreaseSimulationNumOfInstances(requestSerialNumber);
     }
 
     public void addRequestSerialNumber(int serialNumber) {

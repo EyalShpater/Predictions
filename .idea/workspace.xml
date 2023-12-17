@@ -9,11 +9,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="27d35137-667f-4e37-a519-ab836acc0a06" name="Changes" comment="fixed label on threadPool info">
+    <list default="true" id="27d35137-667f-4e37-a519-ab836acc0a06" name="Changes" comment="you cannot submit a new request without choosing a simulation name">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Common/src/component/details/main/MainDetails.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Common/src/component/details/main/MainDetails.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Common/src/component/details/main/MainDetailsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Common/src/component/details/main/MainDetailsController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserClient/src/tab/requests/component/submit/SubmitComponentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/UserClient/src/tab/requests/component/submit/SubmitComponentController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Common/src/component/details/components/ComponentsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Common/src/component/details/components/ComponentsController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Common/src/component/details/details/DetailsComponentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Common/src/component/details/details/DetailsComponentController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/execution/simulation/impl/PredictionsLogicImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/execution/simulation/impl/PredictionsLogicImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/user/impl/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/user/impl/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserClient/src/main/MainApp.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/UserClient/src/main/MainApp.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserClient/src/tab/newExecution/mainComponent/NewExecution.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/UserClient/src/tab/newExecution/mainComponent/NewExecution.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserClient/src/tab/newExecution/mainComponent/NewExecutionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/UserClient/src/tab/newExecution/mainComponent/NewExecutionController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -115,43 +119,43 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "Application.AdminClientManagement 2nd screen.executor": "Run",
-    "Application.AdminClientManagement.executor": "Run",
-    "Application.LogicTest.executor": "Run",
-    "Application.TestMain.executor": "Run",
-    "Application.UserClientDetails 2nd screen.executor": "Run",
-    "Application.UserClientDetails.executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "Tomcat Server.PredictionsWebApplication.executor": "Run",
-    "WebServerToolWindowFactoryState": "false",
-    "dart.analysis.tool.window.visible": "false",
-    "extract.method.default.visibility": "private",
-    "full.screen.before.presentation.mode": "false",
-    "git-widget-placeholder": "Client-Server",
-    "jdk.selected.JAVA_MODULE": "1.8",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/Users/eyal/Java-Course/Predictions/UserClient/src/tab/newExecution",
-    "list.type.of.created.stylesheet": "CSS",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "onboarding.tips.debug.path": "/Users/eyal/Java-Course/Predictions/PredictionsWebApplication/src/init/InitContextListener.java",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
-    "two.files.diff.last.used.file": "C:/Users/ASUS/IdeaProjects/PredictionsNew/Logic/src/resources/xml/ex2/master-ex2.xml",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;Application.AdminClientManagement 2nd screen.executor&quot;: &quot;Run&quot;,
+    &quot;Application.AdminClientManagement.executor&quot;: &quot;Run&quot;,
+    &quot;Application.LogicTest.executor&quot;: &quot;Run&quot;,
+    &quot;Application.TestMain.executor&quot;: &quot;Run&quot;,
+    &quot;Application.UserClientDetails 2nd screen.executor&quot;: &quot;Run&quot;,
+    &quot;Application.UserClientDetails.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;Tomcat Server.PredictionsWebApplication.executor&quot;: &quot;Run&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;dart.analysis.tool.window.visible&quot;: &quot;false&quot;,
+    &quot;extract.method.default.visibility&quot;: &quot;private&quot;,
+    &quot;full.screen.before.presentation.mode&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;Client-Server&quot;,
+    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;1.8&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/eyal/Java-Course/Predictions/UserClient/src/tab/newExecution&quot;,
+    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;onboarding.tips.debug.path&quot;: &quot;/Users/eyal/Java-Course/Predictions/PredictionsWebApplication/src/init/InitContextListener.java&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;two.files.diff.last.used.file&quot;: &quot;C:/Users/ASUS/IdeaProjects/PredictionsNew/Logic/src/resources/xml/ex2/master-ex2.xml&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/UserClient/src/tab/newExecution" />
@@ -177,7 +181,7 @@
       <recent name="javafx.details.details" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.AdminClientManagement 2nd screen">
+  <component name="RunManager" selected="Application.UserClientDetails">
     <configuration name="AdminClientManagement 2nd screen" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="main.Main" />
       <module name="AdminClient" />
@@ -444,7 +448,9 @@
       <workItem from="1702238089909" duration="19000" />
       <workItem from="1702238115491" duration="24988000" />
       <workItem from="1702481063839" duration="71000" />
-      <workItem from="1702481141230" duration="21493000" />
+      <workItem from="1702481141230" duration="30276000" />
+      <workItem from="1702806722633" duration="1348000" />
+      <workItem from="1702809713307" duration="1139000" />
     </task>
     <task id="LOCAL-00103" summary="changed evaluate to get the EntityInstance of secondaryEntity in each iteration in order to creare the proper context , also added functions to context to get the filtered SecondaryEntity list">
       <created>1694175010163</created>
@@ -564,14 +570,6 @@
       <option name="presentableId" value="LOCAL-00157" />
       <option name="project" value="LOCAL" />
       <updated>1695105621094</updated>
-    </task>
-    <task id="LOCAL‎-00215" summary="fixed bug">
-      <option name="closed" value="true" />
-      <created>1696453053846</created>
-      <option name="number" value="00215" />
-      <option name="presentableId" value="LOCAL‎-00215" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1696453053846</updated>
     </task>
     <task id="LOCAL‎-00216" summary="fixed bug">
       <option name="closed" value="true" />
@@ -821,7 +819,15 @@
       <option name="project" value="LOCAL‎" />
       <updated>1702639910380</updated>
     </task>
-    <option name="localTasksCounter" value="247" />
+    <task id="LOCAL‎-00247" summary="you cannot submit a new request without choosing a simulation name">
+      <option name="closed" value="true" />
+      <created>1702723311763</created>
+      <option name="number" value="00247" />
+      <option name="presentableId" value="LOCAL‎-00247" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1702723311763</updated>
+    </task>
+    <option name="localTasksCounter" value="248" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -852,7 +858,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="almost complete user management logic" />
     <MESSAGE value="added post request servlet" />
     <MESSAGE value="added login logout servlets" />
     <MESSAGE value="added accept/decline request servlet" />
@@ -877,7 +882,8 @@
     <MESSAGE value="added readme" />
     <MESSAGE value="disable execute button on user app when first loaded" />
     <MESSAGE value="fixed label on threadPool info" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixed label on threadPool info" />
+    <MESSAGE value="you cannot submit a new request without choosing a simulation name" />
+    <option name="LAST_COMMIT_MESSAGE" value="you cannot submit a new request without choosing a simulation name" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
@@ -902,11 +908,6 @@
           <option name="timeStamp" value="157" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/Common/src/component/details/details/DetailsComponentController.java</url>
-          <line>104</line>
-          <option name="timeStamp" value="178" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/UserClient/src/main/TestMain.java</url>
           <line>31</line>
           <option name="timeStamp" value="217" />
@@ -915,11 +916,6 @@
           <url>file://$PROJECT_DIR$/AdminClient/src/tab/allocations/AllocationsController.java</url>
           <line>75</line>
           <option name="timeStamp" value="227" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/Common/src/component/results/ResultsController.java</url>
-          <line>84</line>
-          <option name="timeStamp" value="229" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

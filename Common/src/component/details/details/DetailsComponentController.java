@@ -101,7 +101,6 @@ public class DetailsComponentController {
 
         } catch (Exception ignored) {
         }
-
     }
 
     private void setScene(Node newScene) {
@@ -158,5 +157,9 @@ public class DetailsComponentController {
 
     public void setWorldName(String worldName) {
         this.worldName = worldName;
+
+        if (!worldName.isEmpty()) {
+            buttonsComponentController.clickOnSelectedComponent();
+        }
     }
 }
