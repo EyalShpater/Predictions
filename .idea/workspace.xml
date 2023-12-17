@@ -9,15 +9,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="27d35137-667f-4e37-a519-ab836acc0a06" name="Changes" comment="you cannot submit a new request without choosing a simulation name">
+    <list default="true" id="27d35137-667f-4e37-a519-ab836acc0a06" name="Changes" comment="fix results table to show all simulations per user">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Common/src/component/details/components/ComponentsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Common/src/component/details/components/ComponentsController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Common/src/component/details/details/DetailsComponentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Common/src/component/details/details/DetailsComponentController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/execution/simulation/impl/PredictionsLogicImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/execution/simulation/impl/PredictionsLogicImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/user/impl/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/user/impl/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserClient/src/main/MainApp.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/UserClient/src/main/MainApp.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserClient/src/tab/newExecution/mainComponent/NewExecution.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/UserClient/src/tab/newExecution/mainComponent/NewExecution.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserClient/src/tab/newExecution/mainComponent/NewExecutionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/UserClient/src/tab/newExecution/mainComponent/NewExecutionController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -450,7 +443,7 @@
       <workItem from="1702481063839" duration="71000" />
       <workItem from="1702481141230" duration="30276000" />
       <workItem from="1702806722633" duration="1348000" />
-      <workItem from="1702809713307" duration="1139000" />
+      <workItem from="1702809713307" duration="2798000" />
     </task>
     <task id="LOCAL-00103" summary="changed evaluate to get the EntityInstance of secondaryEntity in each iteration in order to creare the proper context , also added functions to context to get the filtered SecondaryEntity list">
       <created>1694175010163</created>
@@ -570,14 +563,6 @@
       <option name="presentableId" value="LOCAL-00157" />
       <option name="project" value="LOCAL" />
       <updated>1695105621094</updated>
-    </task>
-    <task id="LOCAL‎-00216" summary="fixed bug">
-      <option name="closed" value="true" />
-      <created>1696453194417</created>
-      <option name="number" value="00216" />
-      <option name="presentableId" value="LOCAL‎-00216" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1696453194417</updated>
     </task>
     <task id="LOCAL‎-00217" summary="submit request component implements">
       <option name="closed" value="true" />
@@ -827,7 +812,15 @@
       <option name="project" value="LOCAL‎" />
       <updated>1702723311763</updated>
     </task>
-    <option name="localTasksCounter" value="248" />
+    <task id="LOCAL‎-00248" summary="fix results table to show all simulations per user">
+      <option name="closed" value="true" />
+      <created>1702813933846</created>
+      <option name="number" value="00248" />
+      <option name="presentableId" value="LOCAL‎-00248" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1702813933847</updated>
+    </task>
+    <option name="localTasksCounter" value="249" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -858,7 +851,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="added post request servlet" />
     <MESSAGE value="added login logout servlets" />
     <MESSAGE value="added accept/decline request servlet" />
     <MESSAGE value="added requests tab" />
@@ -883,7 +875,8 @@
     <MESSAGE value="disable execute button on user app when first loaded" />
     <MESSAGE value="fixed label on threadPool info" />
     <MESSAGE value="you cannot submit a new request without choosing a simulation name" />
-    <option name="LAST_COMMIT_MESSAGE" value="you cannot submit a new request without choosing a simulation name" />
+    <MESSAGE value="fix results table to show all simulations per user" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix results table to show all simulations per user" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
