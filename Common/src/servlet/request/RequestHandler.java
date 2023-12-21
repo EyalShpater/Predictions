@@ -377,6 +377,7 @@ public class RequestHandler {
 
     private static boolean checkSimulationRunningStatus(int serialNumber, String resource) throws IOException {
         Gson gson = new Gson();
+        String res;
 
         HttpUrl.Builder urlBuilder = HttpUrl.parse(GeneralConstants.BASE_URL + resource).newBuilder();
         urlBuilder.addQueryParameter(GeneralConstants.SIMULATION_SERIAL_NUMBER_PARAMETER_NAME, String.valueOf(serialNumber));
@@ -389,7 +390,9 @@ public class RequestHandler {
         Call call = HTTP_CLIENT.newCall(request);
         Response response = call.execute();
 
-        return gson.fromJson(response.body().string(), Boolean.class);
+        res = response.body().string();
+
+        return gson.fromJson(res, Boolean.class);
     }
 
     private static Response getResponseUsingWorldName(String resource, String worldName) throws IOException {

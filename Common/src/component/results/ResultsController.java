@@ -84,12 +84,11 @@ public class ResultsController {
     private void initialize() {
         propertyToView.bind(propertyChoiceBox.valueProperty());
         entityToView.bind(entityChoiceBox.valueProperty());
-        simulationsListViewController.setOnSelectionChange((newValue) -> selectedSimulation.set(newValue)); //debug
+        simulationsListViewController.setOnSelectionChange(this::onSelectedSimulationChange);
         isSelectedSimulationEnded.bind(progressController.isStopProperty());
         progress.disableProperty().bind(Bindings.isNull(selectedSimulation));
         dataAnalyzeTitlePane.disableProperty().bind(isSelectedSimulationEnded.not());
 
-        selectedSimulation.addListener((observable, oldValue, newValue) -> onSelectedSimulationChange(newValue));
         isSelectedSimulationEnded.addListener((observable, oldValue, newValue) -> onSelectedSimulationStop());
         entityToView.addListener((observable, oldValue, newValue) -> onSelectedEntity(newValue));
         isNewFileLoaded.addListener((observable, oldValue, newValue) -> clear());
@@ -106,9 +105,9 @@ public class ResultsController {
     }
 
     private void onSelectedSimulationChange(Category newValue) {
-        progressController.onSelectedSimulationChange(newValue);
-
-        if (newValue != null) {
+        if (newValue != null && (selectedSimulation.get() == null || newValue.getId() != selectedSimulation.get().getId())) {
+            selectedSimulation.set(newValue);
+            progressController.onSelectedSimulationChange(newValue);
             selectedSimulationSerialNumber.set(newValue.getId());
             analyzePaginationController.onSelectedSimulationChange(selectedSimulationSerialNumber.get());
         }

@@ -24,7 +24,7 @@ public class GeneralConstants {
     public static final String GET_SIMULATION_DATA_RESOURCE = "/info/simulation/data";
     public static final String GET_SIMULATION_DTO_RESOURCE = "/info/simulation/details";
     public static final String GET_POPULATION_COUNT_SORTED_BY_NAME_RESOURCE = "/info/simulation/population_count_sorted_by_name";
-    public static final String GET_IF_SIMULATION_ENDED_RESOURCE = "/info//simulation/is_ended";
+    public static final String GET_IF_SIMULATION_ENDED_RESOURCE = "/info/simulation/is_ended";
     public static final String GET_FINAL_PROPERTY_AVERAGE_RESOURCE = "/info/simulation/final_property_average";
     public static final String GET_SIMULATION_ENTITIES_AMOUNT_RESOURCE = "/info/simulation/entities_amount";
     public static final String GET_IF_SIMULATION_STARTED_RESOURCE = "/info/simulation/is_started";

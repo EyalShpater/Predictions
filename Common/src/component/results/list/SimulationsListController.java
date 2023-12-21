@@ -4,6 +4,7 @@ import component.results.helper.Category;
 import impl.RequestedSimulationDataDTO;
 import impl.SimulationDTO;
 import javafx.application.Platform;
+import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -39,6 +40,7 @@ public class SimulationsListController {
 
     private String userName;
     private Consumer<Category> onSelectionChange;
+    private ObjectProperty<Category> selectedSimulation = new SimpleObjectProperty<>(null);
     private final ObservableList<Category> allSimulationsData = FXCollections.observableArrayList();
 
     @FXML
@@ -52,6 +54,7 @@ public class SimulationsListController {
         Timer timer = new Timer();
         timer.schedule(refreshRequestsTable, 1000, 500);
 
+        selectedSimulation.addListener((observable, oldValue, newValue) -> onSelectionChange.accept(selectedSimulation.get()));
         initTableView();
     }
 
@@ -79,7 +82,7 @@ public class SimulationsListController {
         simulationTableView
                 .getSelectionModel()
                 .selectedItemProperty()
-                .addListener((observable, oldValue, newValue) -> onSelectionChange.accept(newValue));
+                .addListener((observable, oldValue, newValue) -> selectedSimulation.set(newValue));
     }
 
     private void setAllSimulationsTableView() {

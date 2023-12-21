@@ -19,19 +19,17 @@ public class EntitiesController {
 
     @FXML
     private TreeView<String> propertiesTreeView;
-    @FXML
-    private Label populationNumberLabel;
+
     @FXML
     private Label nameLabel;
+
     @FXML
     private TitledPane mainScreen;
 
-    private StringProperty population = new SimpleStringProperty();
     private StringProperty name = new SimpleStringProperty();
 
     @FXML
     void initialize() {
-        populationNumberLabel.textProperty().bind(population);
         nameLabel.textProperty().bind(name);
         mainScreen.textProperty().bind(name);
         propertiesTreeView.setRoot(new TreeItem<String>("Properties"));

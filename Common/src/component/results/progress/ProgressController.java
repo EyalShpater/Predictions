@@ -120,6 +120,7 @@ public class ProgressController {
                 resultsTab = tab;
             }
         }
+
         if (resultsTab != null) {
             tabPane.getSelectionModel().select(resultsTab);
         }
@@ -128,8 +129,10 @@ public class ProgressController {
 
     public void onSelectedSimulationChange(Category newValue) {
         if (newValue == null) {
+            System.out.println("PC-> new value is null");
             return;
         }
+
         try {
             selectedSimulation = newValue;
             isStop.set(RequestHandler.isStop(newValue.getId()) || RequestHandler.isEnded(newValue.getId()));
@@ -148,7 +151,6 @@ public class ProgressController {
 
         currentEntitiesAmountDataTask = new UpdateEntitiesAmountTask(selectedSimulation.getId(), entityPopulationDataTableView);
 
-
         new Thread(currentDetailsTask).start();
         new Thread(currentEntitiesAmountDataTask).start();
     }
@@ -161,15 +163,7 @@ public class ProgressController {
         this.entityPopulationDataTableView = entitesPopulationTableView;
     }
 
-    public boolean isIsStop() {
-        return isStop.get();
-    }
-
     public BooleanProperty isStopProperty() {
         return isStop;
-    }
-
-    public void setIsStop(boolean isStop) {
-        this.isStop.set(isStop);
     }
 }
