@@ -196,7 +196,7 @@ public class RequestHandler {
     public static SimulationDataDTO getSimulationData(int simulationId, String entityName, String propertyName) throws IOException {
         Gson gson = new Gson();
 
-        HttpUrl.Builder urlBuilder = HttpUrl.parse(GeneralConstants.BASE_URL + GeneralConstants.GET_ALL_USER_REQUESTS_RESOURCE).newBuilder();
+        HttpUrl.Builder urlBuilder = HttpUrl.parse(GeneralConstants.BASE_URL + GeneralConstants.GET_SIMULATION_DATA_RESOURCE).newBuilder();
         urlBuilder.addQueryParameter(GeneralConstants.SIMULATION_SERIAL_NUMBER_PARAMETER_NAME, String.valueOf(simulationId));
         urlBuilder.addQueryParameter(GeneralConstants.ENTITY_NAME_PARAMETER_NAME, entityName);
         urlBuilder.addQueryParameter(GeneralConstants.PROPERTY_NAME_PARAMETER_NAME, propertyName);
@@ -213,7 +213,6 @@ public class RequestHandler {
     }
 
     public static Map<String, Double> getConsistencyByEntityName(int serialNumber, String entityName) throws IOException {
-        //todo: debug
         Gson gson = new Gson();
 
         HttpUrl.Builder urlBuilder = HttpUrl.parse(GeneralConstants.BASE_URL + GeneralConstants.GET_CONSISTENCY_BT_ENTITY_RESOURCE).newBuilder();

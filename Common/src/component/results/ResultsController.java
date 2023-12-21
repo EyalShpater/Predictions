@@ -110,6 +110,7 @@ public class ResultsController {
             progressController.onSelectedSimulationChange(newValue);
             selectedSimulationSerialNumber.set(newValue.getId());
             analyzePaginationController.onSelectedSimulationChange(selectedSimulationSerialNumber.get());
+            setEntitiesChoiceBox();
         }
     }
 
@@ -131,6 +132,7 @@ public class ResultsController {
         }
     }
 
+    //todo: delete
 //    public void onStartButtonClicked(int newSimulationSerialNumber) {
 //        try {
 //            progressController.setTableView(this.entitiesPopulationTableView);
@@ -199,7 +201,7 @@ public class ResultsController {
 
         try {
             if (entityToView.isNotNull().get()) {
-                WorldDTO simulation = RequestHandler.getWorld("");
+                WorldDTO simulation = RequestHandler.getWorld(selectedSimulation.get().getSimulationName());
                 simulation
                         .getEntities()
                         .stream()
@@ -217,7 +219,7 @@ public class ResultsController {
         entityChoiceBox.getItems().clear();
 
         try {
-            WorldDTO simulationDTO = RequestHandler.getWorld("");
+            WorldDTO simulationDTO = RequestHandler.getWorld(selectedSimulation.get().getSimulationName());
             simulationDTO
                     .getEntities()
                     .forEach(entity -> entityChoiceBox.getItems().add(entity.getName()));

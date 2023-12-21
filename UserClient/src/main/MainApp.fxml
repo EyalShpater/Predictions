@@ -54,14 +54,14 @@
                                 </Tab>
                                 <Tab text="Results">
                                     <content>
-                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                        <StackPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                             <children>
                                                 <fx:include fx:id="resultsScrollPane"
                                                             source="/component/results/Results.fxml"
                                                             AnchorPane.bottomAnchor="-137.0" AnchorPane.leftAnchor="0.0"
                                                             AnchorPane.rightAnchor="-4.0" AnchorPane.topAnchor="0.0"/>
                                             </children>
-                                        </AnchorPane>
+                                        </StackPane>
                                     </content>
                                 </Tab>
                             </tabs>

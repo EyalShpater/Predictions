@@ -77,13 +77,12 @@ public class ProgressController {
         }
     }
 
-
     @FXML
     void pauseOnClick(ActionEvent event) {
         try {
             if (isStop.get()) {
                 goToResultsTabByName("New Execution");
-                //predictionsMainAppController.restoreDataValuesToTiles(engine.getUserInputOfSimulationBySerialNumber(selectedSimulation.getId()));
+                //predictionsMainAppController.restoreDataValuesToTiles(engine.getUserInputOfSimulationBySerialNumber(selectedSimulation.getId())); //todo: can i delete?
             } else if (isPause.get()) {
                 RequestHandler.resumeSimulationBySerialNumber((selectedSimulation.getId()));
             } else {
@@ -128,31 +127,11 @@ public class ProgressController {
 
 
     public void onSelectedSimulationChange(Category newValue) {
-        if (newValue == null) {
-            System.out.println("PC-> new value is null");
-            return;
+        if (newValue != null) {
+            updateComponents(newValue);
+            unbindOldSimulation();
+            updateAndApplyNewSimulation();
         }
-
-        try {
-            selectedSimulation = newValue;
-            isStop.set(RequestHandler.isStop(newValue.getId()) || RequestHandler.isEnded(newValue.getId()));
-            isPause.set(RequestHandler.isPause(newValue.getId()));
-        } catch (Exception ignored) {
-        }
-
-        if (currentEntitiesAmountDataTask != null && currentDetailsTask != null) {
-            currentDetailsTask.cancel();
-            currentEntitiesAmountDataTask.cancel();
-            progress.unbind();
-        }
-
-        currentDetailsTask = new UpdateSimulationDetailsTask(selectedSimulation.getId(), ticks::set, seconds::set, isStop::set);
-        progress.bind(currentDetailsTask.progressProperty());
-
-        currentEntitiesAmountDataTask = new UpdateEntitiesAmountTask(selectedSimulation.getId(), entityPopulationDataTableView);
-
-        new Thread(currentDetailsTask).start();
-        new Thread(currentEntitiesAmountDataTask).start();
     }
 
     public void setTabPane(TabPane tabPane) {
@@ -165,5 +144,32 @@ public class ProgressController {
 
     public BooleanProperty isStopProperty() {
         return isStop;
+    }
+
+    private void updateComponents(Category newValue) {
+        try {
+            selectedSimulation = newValue;
+            isStop.set(RequestHandler.isStop(newValue.getId()) || RequestHandler.isEnded(newValue.getId()));
+            isPause.set(RequestHandler.isPause(newValue.getId()));
+        } catch (Exception ignored) {
+        }
+    }
+
+    private void unbindOldSimulation() {
+        if (currentEntitiesAmountDataTask != null && currentDetailsTask != null) {
+            currentDetailsTask.cancel();
+            currentEntitiesAmountDataTask.cancel();
+            progress.unbind();
+        }
+    }
+
+    private void updateAndApplyNewSimulation() {
+        currentDetailsTask = new UpdateSimulationDetailsTask(selectedSimulation.getId(), ticks::set, seconds::set, isStop::set);
+        progress.bind(currentDetailsTask.progressProperty());
+
+        currentEntitiesAmountDataTask = new UpdateEntitiesAmountTask(selectedSimulation.getId(), entityPopulationDataTableView);
+
+        new Thread(currentDetailsTask).start();
+        new Thread(currentEntitiesAmountDataTask).start();
     }
 }

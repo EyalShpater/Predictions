@@ -70,7 +70,7 @@ public class AnalyzePaginationController {
         }
 
         try {
-            URL resource = getClass().getResource("/javafx/tab/results/analyze/histogram/property/PropertyChart.fxml"); //todo
+            URL resource = getClass().getResource("/component/results/analyze/histogram/property/PropertyChart.fxml"); //todo
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(resource);
             Parent resultsContent = loader.load();
@@ -91,7 +91,7 @@ public class AnalyzePaginationController {
         }
 
         try {
-            URL resource = getClass().getResource("/javafx/tab/results/analyze/histogram/consistency/ConsistencyBarChart.fxml"); //todo
+            URL resource = getClass().getResource("/component/results/analyze/histogram/consistency/ConsistencyBarChart.fxml"); //todo
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(resource);
             Parent resultsContent = loader.load();
@@ -117,7 +117,7 @@ public class AnalyzePaginationController {
         }
 
         try {
-            URL resource = getClass().getResource("/javafx/tab/results/analyze/histogram/population/PopulationChart.fxml"); //todo
+            URL resource = getClass().getResource("/component/results/analyze/histogram/population/PopulationChart.fxml"); //todo
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(resource);
             Parent resultsContent = loader.load();
@@ -148,6 +148,7 @@ public class AnalyzePaginationController {
                         if (selectedProperty.isNotNull().get()) {
                             setPropertiesChart(selectedProperty.get());
                         }
+
                         break;
                     case CONSISTENCY_PAGE_INDEX:
                         setConsistencyChart(RequestHandler.getConsistencyByEntityName(newSerialNumber, selectedEntity.get()));
@@ -172,14 +173,17 @@ public class AnalyzePaginationController {
         populationChartController.setChart(data);
     }
 
-
     public void setPropertiesChart(String property) {
         try {
+            System.out.println("on setPropertiesChart");
             if (currentPage.get() == PROPERTIES_PAGE_INDEX && property != null) {
                 SimulationDataDTO simulationData = resultsController.getSimulationData();
                 propertyChartController.setChart(property, simulationData, resultsController.getAverageProperty());
+            } else {
+                System.out.println("setPropertiesChart-> else");
             }
         } catch (Exception ignored) {
+            ignored.printStackTrace();
         }
     }
 

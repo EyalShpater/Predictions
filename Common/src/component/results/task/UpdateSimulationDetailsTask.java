@@ -31,7 +31,7 @@ public class UpdateSimulationDetailsTask extends Task<Boolean> {
         do {
             SimulationRunDetailsDTO runDetails = RequestHandler.getSimulationRunDetail(serialNumber);
             updateProgress(runDetails.getStartProgress(), runDetails.getEndProgress());
-
+            //todo: delete
 //            if (runDetails != null) {
 //                System.out.println("start: " + runDetails.getStartProgress());
 //                System.out.println("running time: " + runDetails.getRunningTime());
@@ -42,15 +42,12 @@ public class UpdateSimulationDetailsTask extends Task<Boolean> {
 //            } else {
 //                System.out.println("run details is null");
 //            }
-
             Platform.runLater(() -> setTicks.accept(runDetails.getTickNumber()));
             Platform.runLater(() -> setSeconds.accept(runDetails.getRunningTime()));
 
             updateProgress(runDetails.getStartProgress(), runDetails.getEndProgress());
 
             Thread.sleep(TIME_TO_SLEEP);
-
-//            System.out.println("UPSD-> count: " + count++);
         } while (!RequestHandler.isEnded(serialNumber));
 
         updateProgress(1, 1);
