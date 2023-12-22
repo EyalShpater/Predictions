@@ -1,21 +1,23 @@
 package execution.simulation.api;
 
 import impl.*;
-import javafx.util.Pair;
 
 import javax.xml.bind.JAXBException;
+import java.io.InputStream;
 import java.util.*;
 
 public interface PredictionsLogic {
     void loadXML(String path) throws JAXBException;
 
-    List<PropertyDefinitionDTO> getEnvironmentVariablesToSet();
+    void loadXML(InputStream file) throws JAXBException;
+
+    List<PropertyDefinitionDTO> getEnvironmentVariablesToSet(String worldName);
 
     List<PropertyDefinitionDTO> setEnvironmentVariables(List<PropertyDefinitionDTO> variables);
 
-    Map<String, Integer> getEntitiesToPopulation();
+    Map<String, Integer> getEntitiesToPopulation(String worldName);
 
-    WorldDTO getLoadedSimulationDetails();
+    WorldDTO getWorldDetails(String worldName);
 
     Map<Integer, Map<String, Long>> getPopulationPerTickData(int serialNumber);
 
@@ -35,7 +37,7 @@ public interface PredictionsLogic {
 
     boolean isEnded(int serialNumber);
 
-    List<SimulationDTO> getPreviousSimulationsAsDTO();
+    List<SimulationDTO> getUserSimulations(String userName);
 
     SimulationDataDTO getSimulationData(int serialNumber, String entityName, String propertyName);
 
@@ -57,4 +59,29 @@ public interface PredictionsLogic {
 
     Double getFinalNumericPropertyAvg(String entityName, String propertyName, int serialNumber);
 
+    List<String> getAllWorldsNames();
+
+    List<WorldDTO> getAllWorldsDTO();
+
+    GridDTO getGridInformation(String worldName);
+
+    void setThreadPoolSize(int size);
+
+    List<RequestedSimulationDataDTO> getRequestsSimulationDataByUser(String userName);
+
+    List<RequestedSimulationDataDTO> getAllRequestsSimulationData();
+
+    void addNewUserRequest(RunRequestDTO request);
+
+    boolean isUserLoggedIn(String userName);
+
+    boolean isUserExist(String userName);
+
+    void loginUser(String userName);
+
+    void logOutUser(String userName);
+
+    void acceptUserRequest(int requestID, String userName);
+
+    void declineUserRequest(int requestID);
 }

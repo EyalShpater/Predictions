@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import java.lang.String?>
+<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
+      prefHeight="79.0" prefWidth="418.0" spacing="10.0" stylesheets="@singleEntity.css"
+      xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="tab.newExecution.environmentVariable.StringEnvironmentVariableController">
+    <children>
+        <Label fx:id="envVarNameLabel" alignment="CENTER" contentDisplay="CENTER" prefHeight="48.0" prefWidth="294.0"/>
+        <HBox alignment="CENTER" spacing="10.0">
+            <children>
+                <TextField fx:id="envVarValueTextField" maxWidth="-Infinity" onAction="#setValueAction"
+                           prefHeight="25.0" prefWidth="90.0"/>
+                <CheckBox fx:id="randomCheckBox" mnemonicParsing="false" onAction="#randomAction" text="random"/>
+            </children>
+        </HBox>
+    </children>
+    <styleClass>
+        <String fx:value="round-layout"/>
+        <String fx:value="round-layout"/>
+    </styleClass>
+    <opaqueInsets>
+        <Insets/>
+    </opaqueInsets>
+    <padding>
+        <Insets bottom="5.0"/>
+    </padding>
+</VBox>

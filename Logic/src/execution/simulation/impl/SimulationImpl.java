@@ -16,15 +16,18 @@ import instance.entity.manager.api.EntityInstanceManager;
 import instance.entity.manager.impl.EntityInstanceManagerImpl;
 import instance.enviornment.api.ActiveEnvironment;
 import instance.enviornment.impl.ActiveEnvironmentImpl;
-import javafx.util.Pair;
 
 import java.io.Serializable;
 import java.util.*;
 import java.util.concurrent.TimeUnit;
 import java.util.stream.Collectors;
 
-public class SimulationImpl implements Simulation , Serializable {
+import execution.simulation.termination.impl.TerminationImpl;
+
+
+public class SimulationImpl extends Observable implements Simulation, Serializable {
     private final int serialNumber;
+    private final int requestSerialNumber;
     private final Random random;
 
     private World world;
@@ -47,6 +50,7 @@ public class SimulationImpl implements Simulation , Serializable {
         this.world = world;
         this.initData = initData;
         this.serialNumber = serialNumber;
+        this.requestSerialNumber = initData.getRequestID();
         this.random = new Random();
         this.entities = null;
         this.environmentVariables = null;
@@ -66,9 +70,9 @@ public class SimulationImpl implements Simulation , Serializable {
     @Override
     public void run() {
         startTime = System.currentTimeMillis();
-
         initEntities();
         initEnvironmentVariables();
+        world.setTermination(new TerminationImpl(initData.getTermination()));
         entities.updatePopulationCount(tick, createEntityNameToPopulationMap());
         tick = 1;
 
@@ -89,6 +93,9 @@ public class SimulationImpl implements Simulation , Serializable {
         }
 
         data = new SimulationDataImpl(serialNumber, startTime, world.getEntities(), entities, initData);
+
+        setChanged();
+        notifyObservers(this);
     }
 
     @Override
@@ -125,8 +132,6 @@ public class SimulationImpl implements Simulation , Serializable {
 
     public SimulationRunDetailsDTO createRunDetailDTO() {
         return new SimulationRunDetailsDTO(
-//                endReason.equals(TerminateCondition.BY_SECONDS),
-//                endReason.equals(TerminateCondition.BY_TICKS),
                 false,
                 false,
                 serialNumber,
@@ -247,6 +252,11 @@ public class SimulationImpl implements Simulation , Serializable {
     @Override
     public World getWorld() {
         return world;
+    }
+
+    @Override
+    public int getRequestSerialNumber() {
+        return requestSerialNumber;
     }
 
     @Override

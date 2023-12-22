@@ -1,6 +1,8 @@
 package impl;
 
-public class SimulationRunDetailsDTO {
+import api.DTO;
+
+public class SimulationRunDetailsDTO implements DTO {
     private final boolean isTerminateBySeconds;
     private final boolean isTerminateByTicks;
     private final int serialNumber;

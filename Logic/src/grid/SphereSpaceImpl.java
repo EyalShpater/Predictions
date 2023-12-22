@@ -1,8 +1,10 @@
 package grid;
 
+import api.DTOConvertible;
 import definition.entity.impl.EntityDefinitionImpl;
 import grid.api.Location;
 import grid.api.SphereSpace;
+import impl.GridDTO;
 import instance.entity.api.EntityInstance;
 import instance.entity.impl.EntityInstanceImpl;
 
@@ -11,7 +13,7 @@ import java.util.List;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
-public class SphereSpaceImpl implements SphereSpace {
+public class SphereSpaceImpl implements SphereSpace, DTOConvertible<GridDTO> {
     private static final int MOVE_UP = 1;
     private static final int MOVE_DOWN = -1;
     private static final int MOVE_LEFT = -1;
@@ -86,6 +88,11 @@ public class SphereSpaceImpl implements SphereSpace {
         }
 
         return new ArrayList<>(neighbours.values());
+    }
+
+    @Override
+    public GridDTO convertToDTO() {
+        return new GridDTO(rows, cols);
     }
 
     private boolean moveUp(EntityInstance entity) {

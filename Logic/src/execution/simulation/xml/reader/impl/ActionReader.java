@@ -12,10 +12,10 @@ import action.second.entity.SecondaryEntity;
 import action.second.entity.impl.SecondaryEntityImpl;
 import definition.entity.api.EntityDefinition;
 import definition.world.api.World;
-import resources.xml.ex2.generated.PRDAction;
-import resources.xml.ex2.generated.PRDCondition;
-import resources.xml.ex2.generated.PRDElse;
-import resources.xml.ex2.generated.PRDThen;
+import resources.xml.ex3.generated.PRDAction;
+import resources.xml.ex3.generated.PRDCondition;
+import resources.xml.ex3.generated.PRDElse;
+import resources.xml.ex3.generated.PRDThen;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -18,14 +18,18 @@ import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 
+import impl.SimulationInitDataFromUserDTO;
+
+
 public interface World extends DTOConvertible<WorldDTO> {
     void setEnvironmentVariablesValues(List<PropertyDefinitionDTO> values);
 
-    //    void setEntitiesPopulation(Map<String, Integer> entityNameToPopulation);
     List<PropertyDefinitionDTO> getEnvironmentVariablesDTO();
+
     List<EntityDefinition> getEntities();
 
     TerminateCondition isActive(int currentTick, long secondsDuration, boolean userRequestedStop);
+
     List<Rule> getRules();
 
     int getThreadPoolSize();
@@ -35,9 +39,13 @@ public interface World extends DTOConvertible<WorldDTO> {
     int getGridCols();
 
     void setThreadPoolSize(int size);
+
     void addRule(Rule newRule);
+
     void addEntity(EntityDefinition newEntity);
+
     void setTermination(Termination terminate);
+
     void addEnvironmentVariable(PropertyDefinition newVariable);
 
     TerminateCondition getTerminationCondition();
@@ -45,8 +53,16 @@ public interface World extends DTOConvertible<WorldDTO> {
     void setGridRows(int rows);
 
     void setGridCols(int cols);
+
     EntityDefinition getEntityByName(String name);
+
     Collection<PropertyDefinition> getEnvironmentVariables();
 
     Termination getTermination();
+
+    String getName();
+
+    void setName(String name);
+
+    void setSleepTime(Integer sleepTime);
 }

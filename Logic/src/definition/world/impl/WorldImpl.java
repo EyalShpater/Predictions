@@ -23,12 +23,16 @@ import java.io.Serializable;
 import java.util.*;
 import java.util.stream.Collectors;
 
+import impl.SimulationInitDataFromUserDTO;
+
+
 public class WorldImpl implements World  , Serializable {
     private static final int MIN_ROWS_SIZE = 10;
     private static final int MIN_COLS_SIZE = 10;
     private static final int MAX_ROWS_SIZE = 100;
     private static final int MAX_COLS_SIZE = 100;
 
+    private String name;
     private Map<String, EntityDefinition> entitiesDefinition;
     private List<Rule> rules;
     private EnvironmentVariableManager environmentVariables;
@@ -36,11 +40,14 @@ public class WorldImpl implements World  , Serializable {
     private int gridRows;
     private int gridCols;
     private int threadPoolSize;
+    private int sleepTime;
 
     public WorldImpl() {
+        Random random = new Random();
         entitiesDefinition = new HashMap<>();
         rules = new ArrayList<>();
         environmentVariables = new EnvironmentVariableManagerImpl();
+        this.sleepTime = 0;
     }
 
     @Override
@@ -74,6 +81,11 @@ public class WorldImpl implements World  , Serializable {
     }
 
     @Override
+    public void setSleepTime(Integer sleepTime) {
+        this.sleepTime = sleepTime;
+    }
+
+    @Override
     public List<Rule> getRules() {
         return rules;
     }
@@ -82,8 +94,7 @@ public class WorldImpl implements World  , Serializable {
     public void addRule(Rule newRule) {
         if (newRule != null && !isRuleNameExist(newRule.getName())) {
             rules.add(newRule);
-        }
-        else {
+        } else {
             throw new NullPointerException("Rule can not be null!");
         }
     }
@@ -98,8 +109,24 @@ public class WorldImpl implements World  , Serializable {
     }
 
     @Override
+    public String getName() {
+        return name;
+    }
+
+    @Override
+    public void setName(String name) {
+        if (name.isEmpty()) {
+            throw new IllegalArgumentException("Name can not be empty!");
+        }
+
+        this.name = name;
+    }
+
+
+    @Override
     public WorldDTO convertToDTO() {
         return new WorldDTO(
+                name,
                 entitiesDefinition.values()
                         .stream()
                         .map(DTOConvertible::convertToDTO)
@@ -107,7 +134,6 @@ public class WorldImpl implements World  , Serializable {
                 rules.stream()
                         .map(DTOConvertible::convertToDTO)
                         .collect(Collectors.toList()),
-                terminate.convertToDTO(),
                 gridRows,
                 gridCols
         );

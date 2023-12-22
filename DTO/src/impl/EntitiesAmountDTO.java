@@ -1,8 +1,10 @@
 package impl;
 
+import api.DTO;
+
 import java.util.Map;
 
-public class EntitiesAmountDTO {
+public class EntitiesAmountDTO implements DTO {
     private final Map<String, Long> entityNameToAmount;
 
     public EntitiesAmountDTO(Map<String, Long> entityNameToAmount) {

@@ -1,28 +1,33 @@
 package execution.simulation.xml.validation;
 
-import resources.xml.ex2.generated.*;
+import resources.xml.ex3.generated.*;
 
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Unmarshaller;
 import java.io.File;
+import java.io.InputStream;
 import java.nio.file.*;
 import java.util.List;
 
 public class XmlValidator {
+    private final static char HELPER_FUNCTION_TOKEN = '(';
+    private final static int NOT_FOUND = -1;
+
     private final String path;
-
+    private final InputStream inputStream;
     private PRDWorld world;
-
     private List<PRDEntity> entityList;
-
     private List<PRDEnvProperty> envPropertiesList;
-
-    private final char HELPER_FUNCTION_TOKEN = '(';
-    private final int NOT_FOUND = -1;
 
     public XmlValidator(String path) {
         this.path = path;
+        this.inputStream = null;
+    }
+
+    public XmlValidator(InputStream inputStream) {
+        this.path = "";
+        this.inputStream = inputStream;
     }
 
     public void isValid() throws IllegalArgumentException, JAXBException {
@@ -39,56 +44,51 @@ public class XmlValidator {
         // 2) check env-vars to have different names
         checkEnvVarsNames(world.getPRDEnvironment());
 
-
         // 3) check properties to have different names
         checkPropertiesNames(world.getPRDEntities());
 
         // 4) check that in action no call to an entity that doesnt exist
         areAllRulesActionsEntityNamesValid(world);
 
-
         // 5) check that in action no call to a property that doesnt exist
         checkRulesToNotContainActionWithPropertyWithNoMatchEntity(world);
 
-
         // 6) check that in (calculation \ increase \ decrease) the args are numbers only including helper functions
         checkNumericCalculationActionToIncludeNumericArgs(world);
-
-
     }
-
 
     public PRDWorld getWorld(){return this.world;}
 
-    //11111111111111111111111
-
     private void checkIfPathExist(){
-        Path xmlpath = Paths.get(this.path);
+        if (!path.isEmpty()) {
+            Path xmlpath = Paths.get(this.path);
 
-        if (!Files.exists(xmlpath)) {
-            throw new IllegalArgumentException("File path does not exist");
+            if (!Files.exists(xmlpath)) {
+                throw new IllegalArgumentException("File path does not exist");
+            }
         }
     }
 
     private void checkIfXmlType(){
-        if(!path.endsWith(".xml")) {
-            throw new IllegalArgumentException("File path must end with .xml .");
+        if (!path.isEmpty()) {
+            if (!path.endsWith(".xml")) {
+                throw new IllegalArgumentException("File path must end with .xml .");
+            }
         }
     }
 
     private PRDWorld loadXmlToWorld() throws JAXBException {
-
-        File file = new File(this.path);
+        File file = path.isEmpty() ? null : new File(this.path);
         JAXBContext jaxbContent = JAXBContext.newInstance(PRDWorld.class);
 
         Unmarshaller jaxbUnmarshaller = jaxbContent.createUnmarshaller();
-        PRDWorld world = (PRDWorld) jaxbUnmarshaller.unmarshal(file);
+        PRDWorld world = path.isEmpty() ?
+                (PRDWorld) jaxbUnmarshaller.unmarshal(inputStream) :
+                (PRDWorld) jaxbUnmarshaller.unmarshal(file);
 
         return world;
     }
 
-
-    //222222222222222222222222
     private void checkEnvVarsNames(PRDEnvironment environment) {
 
         List<PRDEnvProperty> EnvPropertyList = environment.getPRDEnvProperty();
@@ -121,8 +121,6 @@ public class XmlValidator {
         }
     }
 
-    //33333333333333333333
-
     private void checkPropertiesNames(PRDEntities entities){
         List<PRDEntity> entityList = entities.getPRDEntity();
         for (PRDEntity entity: entityList ) {
@@ -146,30 +144,25 @@ public class XmlValidator {
         }
     }
 
-
-    //4444444444444444444444
-
     private void areAllRulesActionsEntityNamesValid(PRDWorld world){
-
         List<PRDEntity> entityList = world.getPRDEntities().getPRDEntity();
         List<PRDRule> ruleList = world.getPRDRules().getPRDRule();
 
         for(PRDRule rule : ruleList){
             try{
-                areAllActionsInsideRulesValid( entityList , rule );
+                areAllActionsInsideRulesValid(entityList, rule);
             }catch (IllegalArgumentException e){
-                throw new IllegalArgumentException("In rule: " +rule.getName() + e.getMessage());
+                throw new IllegalArgumentException("In rule: " + rule.getName() + e.getMessage());
             }
         }
     }
 
-    private void areAllActionsInsideRulesValid(List<PRDEntity>entityList , PRDRule rule) {
-
+    private void areAllActionsInsideRulesValid(List<PRDEntity> entityList, PRDRule rule) {
         PRDActions actions = rule.getPRDActions();
         List<PRDAction> actionList = actions.getPRDAction();
 
         for(PRDAction action : actionList){
-            checkIfActionIsOfTypeConditionAndSendToCheckEntityExistence(entityList , action);
+            checkIfActionIsOfTypeConditionAndSendToCheckEntityExistence(entityList, action);
         }
     }
 
@@ -260,8 +253,6 @@ public class XmlValidator {
         }
     }
 
-
-
     private void checkIfEntityNameExistInConditionAction(List<PRDEntity>entityList , PRDAction action ){
         PRDCondition condition = action.getPRDCondition();
         try{
@@ -273,7 +264,6 @@ public class XmlValidator {
         } catch (IllegalArgumentException e) {
             throw new IllegalArgumentException(" " + condition.getSingularity() + e.getMessage());
         }
-
     }
 
     private void checkIfSecondaryEntityNameExistInEntityList(List<PRDEntity> entityList, PRDAction action) {
@@ -337,8 +327,6 @@ public class XmlValidator {
                     + " does not appear in the system ");
         }
     }
-
-    //5555555555555555555
 
     private void checkRulesToNotContainActionWithPropertyWithNoMatchEntity(PRDWorld world){
         List<PRDRule> ruleList = world.getPRDRules().getPRDRule();
@@ -537,10 +525,7 @@ public class XmlValidator {
                 .orElse(null);
     }
 
-
-    //6666666666666666666
     private void checkNumericCalculationActionToIncludeNumericArgs(PRDWorld world) {
-
         PRDEnvironment env = world.getPRDEnvironment();
         List<PRDRule> ruleList = world.getPRDRules().getPRDRule();
         for(PRDRule rule : ruleList) {
@@ -601,7 +586,6 @@ public class XmlValidator {
 
 
     private void checkIfArgsInActionAreNumericNonConditionVersion(PRDAction action, String... relevantEntities) {
-
         if (action.getType().equals("increase") || action.getType().equals("decrease")) {
             checkIfArgsInActionAreNumericIncreaseDecreaseStructure(action, relevantEntities);
         } else if (action.getType().equals("calculation")) {
@@ -649,7 +633,6 @@ public class XmlValidator {
         }
     }
 
-
     private void isProperty(String entityOfAction, String argument, String... relevantEntities) {
         PRDEntity entity = findEntityFromActionInEntityList(entityOfAction);
         List<PRDProperty> propertyList = entity.getPRDProperties().getPRDProperty();
@@ -665,11 +648,9 @@ public class XmlValidator {
             throw new IllegalArgumentException(" the property name you provided: "
                     + argument+ " for action is not of numeric type");
         }
-
     }
 
     private boolean isHelperFunction(PRDAction action, String argument, String... relevantEntities) {
-
         int indexOfToken = argument.indexOf(HELPER_FUNCTION_TOKEN);
         String functionName = null;
         String functionArgument = null;

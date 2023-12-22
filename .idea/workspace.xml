@@ -2,30 +2,110 @@
 <project version="4">
   <component name="ArtifactsWorkspaceSettings">
     <artifacts-to-build>
-      <artifact name="GUI:jar" />
+      <artifact name="PredictionsWebApplication:Web exploded" />
     </artifacts-to-build>
   </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="27d35137-667f-4e37-a519-ab836acc0a06" name="Changes" comment="Predictions version 2:0">
-      <change afterPath="$PROJECT_DIR$/.idea/artifacts/GUI_jar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GUI/src/META-INF/MANIFEST.MF" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GUI/src/javafx/mainScene/header/resources/animation.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GUI/src/javafx/mainScene/header/resources/motion-graphic.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/artifacts/consoleUI.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/artifacts/dto.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/artifacts/logic.xml" beforeDir="false" />
+    <list default="true" id="27d35137-667f-4e37-a519-ab836acc0a06" name="Changes" comment="fixed table running/ended simulation count bug">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/GUI.iml" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/GUI.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/src/javafx/mainScene/header/HeaderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/src/javafx/mainScene/header/HeaderController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/src/javafx/mainScene/main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/src/javafx/mainScene/main/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/src/javafx/tab/results/analyze/histogram/consistency/ConsistencyBarChartController.java" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/src/javafx/tab/results/analyze/histogram/consistency/ConsistencyBarChartController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/src/javafx/tab/results/analyze/histogram/population/PopulationChartController.java" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/src/javafx/tab/results/analyze/histogram/population/PopulationChartController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/src/javafx/tab/results/analyze/histogram/property/PropertyChartController.java" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/src/javafx/tab/results/analyze/histogram/property/PropertyChartController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AdminClient/src/tab/management/ManagementController.java" beforeDir="false" afterPath="$PROJECT_DIR$/AdminClient/src/tab/management/ManagementController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Common/src/component/details/main/MainDetails.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Common/src/component/details/main/MainDetails.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Common/src/component/details/main/MainDetailsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Common/src/component/details/main/MainDetailsController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Common/src/component/details/rules/RulesController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Common/src/component/details/rules/RulesController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Common/src/component/results/ResultsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Common/src/component/results/ResultsController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Common/src/component/results/analyze/AnalyzePaginationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Common/src/component/results/analyze/AnalyzePaginationController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Common/src/component/results/details/DetailsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Common/src/component/results/details/DetailsController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Common/src/component/results/progress/ProgressController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Common/src/component/results/progress/ProgressController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Common/src/component/results/task/UpdateEntitiesAmountTask.java" beforeDir="false" afterPath="$PROJECT_DIR$/Common/src/component/results/task/UpdateEntitiesAmountTask.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Common/src/component/results/task/UpdateSimulationDetailsTask.java" beforeDir="false" afterPath="$PROJECT_DIR$/Common/src/component/results/task/UpdateSimulationDetailsTask.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Common/src/servlet/request/RequestHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/Common/src/servlet/request/RequestHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI/src/javafx/tab/details/rules/RulesController.java" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/src/javafx/tab/details/rules/RulesController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/LogicTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/definition/simulation/manager/SimulationDefinitionManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/definition/simulation/manager/SimulationDefinitionManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/definition/world/impl/WorldImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/definition/world/impl/WorldImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/execution/simulation/impl/SimulationImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/execution/simulation/impl/SimulationImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/execution/simulation/manager/SimulationManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/execution/simulation/manager/SimulationManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/execution/simulation/xml/reader/impl/XmlReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/execution/simulation/xml/reader/impl/XmlReader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/execution/simulation/xml/validation/XmlValidator.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/execution/simulation/xml/validation/XmlValidator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/resources/xml/ex1/ex1-cigarets.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/resources/xml/ex1/ex1-error-2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/resources/xml/ex1/ex1-error-4.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/resources/xml/ex1/ex1-error-6.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/resources/xml/ex1/generated/ObjectFactory.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/resources/xml/ex1/generated/PRDAction.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/resources/xml/ex1/generated/PRDActions.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/resources/xml/ex1/generated/PRDActivation.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/resources/xml/ex1/generated/PRDBySecond.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/resources/xml/ex1/generated/PRDByTicks.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/resources/xml/ex1/generated/PRDCondition.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/resources/xml/ex1/generated/PRDDivide.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/resources/xml/ex1/generated/PRDElse.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/resources/xml/ex1/generated/PRDEntities.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/resources/xml/ex1/generated/PRDEntity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/resources/xml/ex1/generated/PRDEnvProperty.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/resources/xml/ex1/generated/PRDEvironment.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/resources/xml/ex1/generated/PRDMultiply.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/resources/xml/ex1/generated/PRDProperties.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/resources/xml/ex1/generated/PRDProperty.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/resources/xml/ex1/generated/PRDRange.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/resources/xml/ex1/generated/PRDRule.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/resources/xml/ex1/generated/PRDRules.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/resources/xml/ex1/generated/PRDTermination.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/resources/xml/ex1/generated/PRDThen.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/resources/xml/ex1/generated/PRDValue.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/resources/xml/ex1/generated/PRDWorld.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/resources/xml/ex1/master-ex1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/resources/xml/ex1/predictions-v1.xsd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/resources/xml/ex2/ex2-error-1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/resources/xml/ex2/ex2-error-3.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/resources/xml/ex2/ex2-virus.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/resources/xml/ex2/generated/ObjectFactory.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/resources/xml/ex2/generated/PRDAction.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/resources/xml/ex2/generated/PRDActions.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/resources/xml/ex2/generated/PRDActivation.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/resources/xml/ex2/generated/PRDBySecond.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/resources/xml/ex2/generated/PRDByTicks.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/resources/xml/ex2/generated/PRDCondition.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/resources/xml/ex2/generated/PRDDivide.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/resources/xml/ex2/generated/PRDElse.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/resources/xml/ex2/generated/PRDEntities.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/resources/xml/ex2/generated/PRDEntity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/resources/xml/ex2/generated/PRDEnvProperty.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/resources/xml/ex2/generated/PRDEnvironment.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/resources/xml/ex2/generated/PRDMultiply.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/resources/xml/ex2/generated/PRDProperties.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/resources/xml/ex2/generated/PRDProperty.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/resources/xml/ex2/generated/PRDRange.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/resources/xml/ex2/generated/PRDRule.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/resources/xml/ex2/generated/PRDRules.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/resources/xml/ex2/generated/PRDTermination.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/resources/xml/ex2/generated/PRDThen.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/resources/xml/ex2/generated/PRDValue.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/resources/xml/ex2/generated/PRDWorld.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/resources/xml/ex2/master-ex2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/resources/xml/ex2/newfiles/ex2-error-1 (2).xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/resources/xml/ex2/newfiles/ex2-error-3 (1).xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/resources/xml/ex2/newfiles/ex2-virus (3).xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/resources/xml/ex2/newfiles/master-ex2 (5).xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/resources/xml/ex2/newfiles/predictions-v2.xsd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/resources/xml/ex2/predictions-v2.xsd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/resources/xml/ex2/tests.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/resources/xml/ex3/ex3-cigarets.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Test Files/ex3-cigarets.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/resources/xml/ex3/ex3-error.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Test Files/ex3-error.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/resources/xml/ex3/ex3-virus.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Test Files/ex3-virus.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/resources/xml/ex3/master-ex3.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Test Files/master-ex3.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PredictionsWebApplication/src/init/InitContextListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/PredictionsWebApplication/src/init/InitContextListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PredictionsWebApplication/src/servlet/AllUserRequestsServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/PredictionsWebApplication/src/servlet/AllUserRequestsServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserClient/src/login/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/UserClient/src/login/LoginController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserClient/src/main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/UserClient/src/main/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserClient/src/main/TestMain.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserClient/src/tab/newExecution/mainComponent/NewExecutionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/UserClient/src/tab/newExecution/mainComponent/NewExecutionController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserClient/src/tab/requests/component/table/RequestsComponentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/UserClient/src/tab/requests/component/table/RequestsComponentController.java" afterDir="false" />
     </list>
-    <list id="ff084db0-cb92-43bb-9658-8af184568cf4" name="Changes by ASUS" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -41,10 +121,10 @@
       <list>
         <option value="JavaFXApplication" />
         <option value="Interface" />
+        <option value="CSS File" />
         <option value="Enum" />
         <option value="FxmlFile" />
         <option value="Class" />
-        <option value="CSS File" />
       </list>
     </option>
   </component>
@@ -91,6 +171,27 @@
     <setting file="jar:///Library/Java/JavaVirtualMachines/jdk-1.8.jdk/Contents/Home/javafx-src.zip!/javafx/scene/chart/ValueAxis.java" root0="SKIP_INSPECTION" />
     <setting file="jar:///Library/Java/JavaVirtualMachines/jdk-1.8.jdk/Contents/Home/javafx-src.zip!/javafx/scene/chart/XYChart.java" root0="SKIP_INSPECTION" />
   </component>
+  <component name="KubernetesApiProvider">{
+  &quot;contexts&quot;: [
+    {
+      &quot;name&quot;: &quot;arn:aws:eks:us-east-1:644186420585:cluster/eyal_cluster&quot;
+    }
+  ],
+  &quot;isMigrated&quot;: true
+}</component>
+  <component name="KubernetesSettings">
+    <option name="contextName" value="arn:aws:eks:us-east-1:644186420585:cluster/eyal_cluster" />
+  </component>
+  <component name="LogFilters">
+    <option name="FILTER_ERRORS" value="false" />
+    <option name="FILTER_WARNINGS" value="false" />
+    <option name="FILTER_INFO" value="true" />
+    <option name="FILTER_DEBUG" value="true" />
+    <option name="CUSTOM_FILTER" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
   <component name="ProblemsViewState">
     <option name="selectedTabId" value="CurrentFile" />
   </component>
@@ -109,44 +210,53 @@
   "keyToString": {
     "ASKED_ADD_EXTERNAL_FILES": "true",
     "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "Application.AdminClientManagement 2nd screen.executor": "Run",
+    "Application.AdminClientManagement.executor": "Run",
+    "Application.LogicTest.executor": "Run",
+    "Application.TestMain.executor": "Run",
+    "Application.UserClientDetails 2nd screen.executor": "Run",
+    "Application.UserClientDetails.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "Tomcat Server.PredictionsWebApplication.executor": "Run",
     "WebServerToolWindowFactoryState": "false",
     "dart.analysis.tool.window.visible": "false",
     "extract.method.default.visibility": "private",
     "full.screen.before.presentation.mode": "false",
-    "git-widget-placeholder": "GUI",
+    "git-widget-placeholder": "Client-Server",
     "jdk.selected.JAVA_MODULE": "1.8",
-    "last_opened_file_path": "/Users/eyal/Java-Course/Predictions/GUI/src/javafx/mainScene/main",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "/Users/eyal/Java-Course/Predictions/UserClient/src/tab/newExecution",
     "list.type.of.created.stylesheet": "CSS",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Artifacts",
+    "onboarding.tips.debug.path": "/Users/eyal/Java-Course/Predictions/PredictionsWebApplication/src/init/InitContextListener.java",
+    "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "inlay.hints",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
     "two.files.diff.last.used.file": "C:/Users/ASUS/IdeaProjects/PredictionsNew/Logic/src/resources/xml/ex2/master-ex2.xml",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/UserClient/src/tab/newExecution" />
+      <recent name="$PROJECT_DIR$/UserClient/src/tab/details" />
+      <recent name="$PROJECT_DIR$/AdminClient/src/tab/management/component/details" />
+      <recent name="$PROJECT_DIR$/AdminClient/src/tab/managment/component/threadpoolInfo" />
       <recent name="$PROJECT_DIR$/GUI/src/javafx/mainScene/main" />
-      <recent name="$PROJECT_DIR$/GUI/src/javafx/tab/results/analyze/histogram/consistency" />
-      <recent name="$PROJECT_DIR$/GUI/src/javafx/tab/results/analyze/histogram/bar/chart" />
-      <recent name="C:\Users\ASUS\IdeaProjects\Prediction19.9\Logic\src\resources\xml\ex2\newfiles" />
-      <recent name="C:\Users\ASUS\IdeaProjects\PredictionsNew\Logic\src\resources\xml\ex2" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/Common/src/component/results" />
+      <recent name="$PROJECT_DIR$/UserClient/src/tab/requests/component/table" />
       <recent name="C:\Users\ASUS\IdeaProjects\Prediction19.9\Logic\src\resources\xml\ex2\newfiles" />
       <recent name="C:\Users\ASUS\IdeaProjects\Predictions\Logic\src\resources\xml\ex2" />
       <recent name="C:\Users\ASUS\IdeaProjects\Predictions\Logic\src\resources\xml\ex1" />
-      <recent name="$PROJECT_DIR$/JavaFX/src/javafx/details/impl" />
-      <recent name="$PROJECT_DIR$/JavaFX/src/javafx/details/resources" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="javafx.tab.results.graph" />
@@ -158,114 +268,10 @@
       <recent name="javafx.details.details" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Main">
-    <configuration name="LineChartSample" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="javafx.tab.results.analyze.histogram.population.LineChartSample" />
-      <module name="GUI" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="javafx.tab.results.analyze.histogram.property.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="javafx.mainScene.main.Main" />
-      <module name="GUI" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="javafx.mainScene.main.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="javafx.mainScene.main.Main" />
-      <module name="GUI" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="javafx.mainScene.main.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="SimulationImpl" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="execution.simulation.impl.SimulationImpl" />
-      <module name="Logic" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="execution.simulation.impl.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="SimulationImpl" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="execution.simulation.impl.SimulationImpl" />
-      <module name="Logic" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="execution.simulation.impl.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="TestMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="javafx.mainScene.main.TestMain" />
-      <module name="GUI" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="javafx.mainScene.main.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="grid.TestMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="grid.TestMain" />
-      <module name="Logic" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="grid.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="grid.TestMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="grid.TestMain" />
-      <module name="Logic" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="grid.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="main.Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Application.AdminClientManagement 2nd screen">
+    <configuration name="AdminClientManagement 2nd screen" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="main.Main" />
-      <module name="ConsoleUI" />
+      <module name="AdminClient" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="main.*" />
@@ -276,9 +282,9 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="main.Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+    <configuration name="AdminClientManagement" type="Application" factoryName="Application" temporary="true">
       <option name="MAIN_CLASS_NAME" value="main.Main" />
-      <module name="ConsoleUI" />
+      <module name="AdminClient" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="main.*" />
@@ -289,13 +295,141 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="LogicTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="LogicTest" />
+      <module name="Logic" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UserClientDetails 2nd screen" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="main.Main" />
+      <module name="UserClient" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="main.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UserClientDetails" type="Application" factoryName="Application" temporary="true">
+      <option name="MAIN_CLASS_NAME" value="main.Main" />
+      <module name="UserClient" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="main.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PredictionsWebApplication" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 10.0.11" ALTERNATIVE_JRE_ENABLED="false">
+      <option name="OPEN_IN_BROWSER" value="false" />
+      <option name="BROWSER_ID" value="98ca6316-2f89-46d9-a9e5-fa9e2b0625b3" />
+      <option name="UPDATING_POLICY" value="restart-server" />
+      <deployment>
+        <artifact name="PredictionsWebApplication:Web exploded">
+          <settings>
+            <option name="CONTEXT_PATH" value="/PredictionsWebApplication" />
+          </settings>
+        </artifact>
+      </deployment>
+      <server-settings>
+        <option name="BASE_DIRECTORY_NAME" value="0f08dc44-5a24-45a6-9577-31bae8850023" />
+      </server-settings>
+      <predefined_log_file enabled="true" id="Tomcat" />
+      <predefined_log_file enabled="true" id="Tomcat Catalina" />
+      <predefined_log_file id="Tomcat Manager" />
+      <predefined_log_file id="Tomcat Host Manager" />
+      <predefined_log_file id="Tomcat Localhost Access" />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="55033" />
+      </RunnerSettings>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Cover">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Debug">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Profile">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Run">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <method v="2">
+        <option name="Make" enabled="true" />
+        <option name="BuildArtifacts" enabled="true">
+          <artifact name="PredictionsWebApplication:Web exploded" />
+        </option>
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Application.UserClientDetails 2nd screen" />
+      <item itemvalue="Application.AdminClientManagement 2nd screen" />
+      <item itemvalue="Application.LogicTest" />
+      <item itemvalue="Application.UserClientDetails" />
+      <item itemvalue="Application.AdminClientManagement" />
+      <item itemvalue="Tomcat Server.PredictionsWebApplication" />
+    </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Main" />
-        <item itemvalue="Application.LineChartSample" />
-        <item itemvalue="Application.main.Main" />
-        <item itemvalue="Application.SimulationImpl" />
-        <item itemvalue="Application.grid.TestMain" />
+        <item itemvalue="Application.UserClientDetails" />
+        <item itemvalue="Application.AdminClientManagement" />
+        <item itemvalue="Application.LogicTest" />
       </list>
     </recent_temporary>
   </component>
@@ -377,6 +511,34 @@
       <workItem from="1694524231690" duration="15371000" />
       <workItem from="1694857830392" duration="51381000" />
       <workItem from="1695210575067" duration="16423000" />
+      <workItem from="1695800899807" duration="34000" />
+      <workItem from="1695809078507" duration="6608000" />
+      <workItem from="1695827828126" duration="3342000" />
+      <workItem from="1695888575428" duration="1073000" />
+      <workItem from="1695926013645" duration="14091000" />
+      <workItem from="1696093293644" duration="6573000" />
+      <workItem from="1696160638044" duration="1116000" />
+      <workItem from="1696162411212" duration="43780000" />
+      <workItem from="1696273433987" duration="350000" />
+      <workItem from="1696315652458" duration="100749000" />
+      <workItem from="1696576714491" duration="31843000" />
+      <workItem from="1698398284549" duration="1159000" />
+      <workItem from="1698399826530" duration="615000" />
+      <workItem from="1699878260517" duration="3667000" />
+      <workItem from="1701256582827" duration="443000" />
+      <workItem from="1701871198993" duration="3749000" />
+      <workItem from="1701877853761" duration="383000" />
+      <workItem from="1701878290367" duration="254000" />
+      <workItem from="1701878550139" duration="9625000" />
+      <workItem from="1702209179355" duration="11455000" />
+      <workItem from="1702238058861" duration="25000" />
+      <workItem from="1702238089909" duration="19000" />
+      <workItem from="1702238115491" duration="24988000" />
+      <workItem from="1702481063839" duration="71000" />
+      <workItem from="1702481141230" duration="30276000" />
+      <workItem from="1702806722633" duration="1348000" />
+      <workItem from="1702809713307" duration="5292000" />
+      <workItem from="1703148256520" duration="47334000" />
     </task>
     <task id="LOCAL-00103" summary="changed evaluate to get the EntityInstance of secondaryEntity in each iteration in order to creare the proper context , also added functions to context to get the filtered SecondaryEntity list">
       <created>1694175010163</created>
@@ -469,30 +631,6 @@
       <option name="project" value="LOCAL" />
       <updated>1694776291781</updated>
     </task>
-    <task id="LOCAL‎-00144" summary="added progress information from engine">
-      <option name="closed" value="true" />
-      <created>1694967789277</created>
-      <option name="number" value="00144" />
-      <option name="presentableId" value="LOCAL‎-00144" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1694967789277</updated>
-    </task>
-    <task id="LOCAL‎-00145" summary="added rerun option">
-      <option name="closed" value="true" />
-      <created>1694967802594</created>
-      <option name="number" value="00145" />
-      <option name="presentableId" value="LOCAL‎-00145" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1694967802594</updated>
-    </task>
-    <task id="LOCAL‎-00146" summary="some progress">
-      <option name="closed" value="true" />
-      <created>1694986653530</created>
-      <option name="number" value="00146" />
-      <option name="presentableId" value="LOCAL‎-00146" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1694986653530</updated>
-    </task>
     <task id="LOCAL-00147" summary="addd EntitiesAmountDTO">
       <created>1695024549035</created>
       <option name="number" value="00147" />
@@ -506,62 +644,6 @@
       <option name="presentableId" value="LOCAL-00148" />
       <option name="project" value="LOCAL" />
       <updated>1695031355816</updated>
-    </task>
-    <task id="LOCAL‎-00149" summary="ui reflects the engine">
-      <option name="closed" value="true" />
-      <created>1695043050250</created>
-      <option name="number" value="00149" />
-      <option name="presentableId" value="LOCAL‎-00149" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1695043050250</updated>
-    </task>
-    <task id="LOCAL‎-00150" summary="ui reflects the engine">
-      <option name="closed" value="true" />
-      <created>1695043065956</created>
-      <option name="number" value="00150" />
-      <option name="presentableId" value="LOCAL‎-00150" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1695043065956</updated>
-    </task>
-    <task id="LOCAL‎-00151" summary="ui reflects the engine">
-      <option name="closed" value="true" />
-      <created>1695050697617</created>
-      <option name="number" value="00151" />
-      <option name="presentableId" value="LOCAL‎-00151" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1695050697617</updated>
-    </task>
-    <task id="LOCAL‎-00152" summary="ui reflects the engine">
-      <option name="closed" value="true" />
-      <created>1695050702622</created>
-      <option name="number" value="00152" />
-      <option name="presentableId" value="LOCAL‎-00152" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1695050702622</updated>
-    </task>
-    <task id="LOCAL‎-00153" summary="proximity and grid bug fixes">
-      <option name="closed" value="true" />
-      <created>1695054976886</created>
-      <option name="number" value="00153" />
-      <option name="presentableId" value="LOCAL‎-00153" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1695054976886</updated>
-    </task>
-    <task id="LOCAL‎-00154" summary="bug fixes">
-      <option name="closed" value="true" />
-      <created>1695057636628</created>
-      <option name="number" value="00154" />
-      <option name="presentableId" value="LOCAL‎-00154" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1695057636628</updated>
-    </task>
-    <task id="LOCAL‎-00155" summary="entities and property choiceBox implement">
-      <option name="closed" value="true" />
-      <created>1695067327762</created>
-      <option name="number" value="00155" />
-      <option name="presentableId" value="LOCAL‎-00155" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1695067327762</updated>
     </task>
     <task id="LOCAL-00156" summary="fixed logic">
       <created>1695101375096</created>
@@ -577,183 +659,263 @@
       <option name="project" value="LOCAL" />
       <updated>1695105621094</updated>
     </task>
-    <task id="LOCAL‎-00158" summary="made pagination as sub component">
+    <task id="LOCAL‎-00225" summary="a lot">
       <option name="closed" value="true" />
-      <created>1695124389134</created>
-      <option name="number" value="00158" />
-      <option name="presentableId" value="LOCAL‎-00158" />
+      <created>1696580821493</created>
+      <option name="number" value="00225" />
+      <option name="presentableId" value="LOCAL‎-00225" />
       <option name="project" value="LOCAL‎" />
-      <updated>1695124389134</updated>
+      <updated>1696580821494</updated>
     </task>
-    <task id="LOCAL‎-00159" summary="population bar chart is implemented">
+    <task id="LOCAL‎-00226" summary="a lot">
       <option name="closed" value="true" />
-      <created>1695132113728</created>
-      <option name="number" value="00159" />
-      <option name="presentableId" value="LOCAL‎-00159" />
+      <created>1696587191753</created>
+      <option name="number" value="00226" />
+      <option name="presentableId" value="LOCAL‎-00226" />
       <option name="project" value="LOCAL‎" />
-      <updated>1695132113728</updated>
+      <updated>1696587191753</updated>
     </task>
-    <task id="LOCAL‎-00160" summary="added Consistency object">
+    <task id="LOCAL‎-00227" summary="a lot">
       <option name="closed" value="true" />
-      <created>1695141571447</created>
-      <option name="number" value="00160" />
-      <option name="presentableId" value="LOCAL‎-00160" />
+      <created>1696592319110</created>
+      <option name="number" value="00227" />
+      <option name="presentableId" value="LOCAL‎-00227" />
       <option name="project" value="LOCAL‎" />
-      <updated>1695141571447</updated>
+      <updated>1696592319110</updated>
     </task>
-    <task id="LOCAL‎-00161" summary="consistency in gui">
+    <task id="LOCAL‎-00228" summary="Changes by ASUS">
       <option name="closed" value="true" />
-      <created>1695157267008</created>
-      <option name="number" value="00161" />
-      <option name="presentableId" value="LOCAL‎-00161" />
+      <created>1696592330578</created>
+      <option name="number" value="00228" />
+      <option name="presentableId" value="LOCAL‎-00228" />
       <option name="project" value="LOCAL‎" />
-      <updated>1695157267008</updated>
+      <updated>1696592330578</updated>
     </task>
-    <task id="LOCAL‎-00162" summary="clear button bug fix">
+    <task id="LOCAL‎-00229" summary="a lot">
       <option name="closed" value="true" />
-      <created>1695157760379</created>
-      <option name="number" value="00162" />
-      <option name="presentableId" value="LOCAL‎-00162" />
+      <created>1696597446409</created>
+      <option name="number" value="00229" />
+      <option name="presentableId" value="LOCAL‎-00229" />
       <option name="project" value="LOCAL‎" />
-      <updated>1695157760379</updated>
+      <updated>1696597446409</updated>
     </task>
-    <task id="LOCAL‎-00163" summary="population per tick implement">
+    <task id="LOCAL‎-00230" summary="Changes by ASUS">
       <option name="closed" value="true" />
-      <created>1695197387398</created>
-      <option name="number" value="00163" />
-      <option name="presentableId" value="LOCAL‎-00163" />
+      <created>1696597449042</created>
+      <option name="number" value="00230" />
+      <option name="presentableId" value="LOCAL‎-00230" />
       <option name="project" value="LOCAL‎" />
-      <updated>1695197387398</updated>
+      <updated>1696597449042</updated>
     </task>
-    <task id="LOCAL‎-00164" summary="population per tick implement">
+    <task id="LOCAL‎-00231" summary="a lot">
       <option name="closed" value="true" />
-      <created>1695197395831</created>
-      <option name="number" value="00164" />
-      <option name="presentableId" value="LOCAL‎-00164" />
+      <created>1696599398039</created>
+      <option name="number" value="00231" />
+      <option name="presentableId" value="LOCAL‎-00231" />
       <option name="project" value="LOCAL‎" />
-      <updated>1695197395831</updated>
+      <updated>1696599398039</updated>
     </task>
-    <task id="LOCAL‎-00165" summary="changed the population chart">
+    <task id="LOCAL‎-00232" summary="Changes by ASUS">
       <option name="closed" value="true" />
-      <created>1695206702081</created>
-      <option name="number" value="00165" />
-      <option name="presentableId" value="LOCAL‎-00165" />
+      <created>1696599400213</created>
+      <option name="number" value="00232" />
+      <option name="presentableId" value="LOCAL‎-00232" />
       <option name="project" value="LOCAL‎" />
-      <updated>1695206702082</updated>
+      <updated>1696599400213</updated>
     </task>
-    <task id="LOCAL‎-00166" summary="added animations">
+    <task id="LOCAL‎-00233" summary="fixed user login screen">
       <option name="closed" value="true" />
-      <created>1695225375756</created>
-      <option name="number" value="00166" />
-      <option name="presentableId" value="LOCAL‎-00166" />
+      <created>1702209290079</created>
+      <option name="number" value="00233" />
+      <option name="presentableId" value="LOCAL‎-00233" />
       <option name="project" value="LOCAL‎" />
-      <updated>1695225375756</updated>
+      <updated>1702209290081</updated>
     </task>
-    <task id="LOCAL‎-00167" summary="added animations">
+    <task id="LOCAL‎-00234" summary="the details choiceBox is automatically updated instead of on every click">
       <option name="closed" value="true" />
-      <created>1695226312107</created>
-      <option name="number" value="00167" />
-      <option name="presentableId" value="LOCAL‎-00167" />
+      <created>1702212487774</created>
+      <option name="number" value="00234" />
+      <option name="presentableId" value="LOCAL‎-00234" />
       <option name="project" value="LOCAL‎" />
-      <updated>1695226312107</updated>
+      <updated>1702212487774</updated>
     </task>
-    <task id="LOCAL‎-00168" summary="buttons behaviours fix">
+    <task id="LOCAL‎-00235" summary="the spinner value is synced to the tread pull size in the Admin client app">
       <option name="closed" value="true" />
-      <created>1695234266739</created>
-      <option name="number" value="00168" />
-      <option name="presentableId" value="LOCAL‎-00168" />
+      <created>1702227350437</created>
+      <option name="number" value="00235" />
+      <option name="presentableId" value="LOCAL‎-00235" />
       <option name="project" value="LOCAL‎" />
-      <updated>1695234266739</updated>
+      <updated>1702227350437</updated>
     </task>
-    <task id="LOCAL‎-00169" summary="hell bug fix">
+    <task id="LOCAL‎-00236" summary="the date column in the result table is showing as a date instead of a long.">
       <option name="closed" value="true" />
-      <created>1695247475443</created>
-      <option name="number" value="00169" />
-      <option name="presentableId" value="LOCAL‎-00169" />
+      <created>1702230182843</created>
+      <option name="number" value="00236" />
+      <option name="presentableId" value="LOCAL‎-00236" />
       <option name="project" value="LOCAL‎" />
-      <updated>1695247475443</updated>
+      <updated>1702230182844</updated>
     </task>
-    <task id="LOCAL‎-00170" summary="hell bug fix">
+    <task id="LOCAL‎-00237" summary="added success alert for file uploading in Admin app">
       <option name="closed" value="true" />
-      <created>1695247485994</created>
-      <option name="number" value="00170" />
-      <option name="presentableId" value="LOCAL‎-00170" />
+      <created>1702374926419</created>
+      <option name="number" value="00237" />
+      <option name="presentableId" value="LOCAL‎-00237" />
       <option name="project" value="LOCAL‎" />
-      <updated>1695247485994</updated>
+      <updated>1702374926421</updated>
     </task>
-    <task id="LOCAL‎-00171" summary="works">
+    <task id="LOCAL‎-00238" summary="the #ended #running cols are updating now">
       <option name="closed" value="true" />
-      <created>1695251453210</created>
-      <option name="number" value="00171" />
-      <option name="presentableId" value="LOCAL‎-00171" />
+      <created>1702486908032</created>
+      <option name="number" value="00238" />
+      <option name="presentableId" value="LOCAL‎-00238" />
       <option name="project" value="LOCAL‎" />
-      <updated>1695251453210</updated>
+      <updated>1702486908034</updated>
     </task>
-    <task id="LOCAL‎-00172" summary="works">
+    <task id="LOCAL‎-00239" summary="the user is automatically logout when he closes the program">
       <option name="closed" value="true" />
-      <created>1695251467276</created>
-      <option name="number" value="00172" />
-      <option name="presentableId" value="LOCAL‎-00172" />
+      <created>1702547241056</created>
+      <option name="number" value="00239" />
+      <option name="presentableId" value="LOCAL‎-00239" />
       <option name="project" value="LOCAL‎" />
-      <updated>1695251467276</updated>
+      <updated>1702547241056</updated>
     </task>
-    <task id="LOCAL‎-00173" summary="annoying bug fix">
+    <task id="LOCAL‎-00240" summary="admin is automatically login and logout when he opens and closes the program">
       <option name="closed" value="true" />
-      <created>1695253585384</created>
-      <option name="number" value="00173" />
-      <option name="presentableId" value="LOCAL‎-00173" />
+      <created>1702550952178</created>
+      <option name="number" value="00240" />
+      <option name="presentableId" value="LOCAL‎-00240" />
       <option name="project" value="LOCAL‎" />
-      <updated>1695253585384</updated>
+      <updated>1702550952178</updated>
     </task>
-    <task id="LOCAL‎-00174" summary="works">
+    <task id="LOCAL‎-00241" summary="admin is automatically login and logout when he opens and closes the program">
       <option name="closed" value="true" />
-      <created>1695253594720</created>
-      <option name="number" value="00174" />
-      <option name="presentableId" value="LOCAL‎-00174" />
+      <created>1702551174773</created>
+      <option name="number" value="00241" />
+      <option name="presentableId" value="LOCAL‎-00241" />
       <option name="project" value="LOCAL‎" />
-      <updated>1695253594720</updated>
+      <updated>1702551174773</updated>
     </task>
-    <task id="LOCAL‎-00175" summary="annoying bug fix">
+    <task id="LOCAL‎-00242" summary="admin is automatically login and logout when he opens and closes the program">
       <option name="closed" value="true" />
-      <created>1695257248014</created>
-      <option name="number" value="00175" />
-      <option name="presentableId" value="LOCAL‎-00175" />
+      <created>1702551289481</created>
+      <option name="number" value="00242" />
+      <option name="presentableId" value="LOCAL‎-00242" />
       <option name="project" value="LOCAL‎" />
-      <updated>1695257248014</updated>
+      <updated>1702551289481</updated>
     </task>
-    <task id="LOCAL‎-00176" summary="bug fix">
+    <task id="LOCAL‎-00243" summary="user cannot log in as admin">
       <option name="closed" value="true" />
-      <created>1695257264255</created>
-      <option name="number" value="00176" />
-      <option name="presentableId" value="LOCAL‎-00176" />
+      <created>1702555876792</created>
+      <option name="number" value="00243" />
+      <option name="presentableId" value="LOCAL‎-00243" />
       <option name="project" value="LOCAL‎" />
-      <updated>1695257264255</updated>
+      <updated>1702555876792</updated>
     </task>
-    <task id="LOCAL‎-00177" summary="added css">
+    <task id="LOCAL‎-00244" summary="added readme">
       <option name="closed" value="true" />
-      <created>1695258186801</created>
-      <option name="number" value="00177" />
-      <option name="presentableId" value="LOCAL‎-00177" />
+      <created>1702569754340</created>
+      <option name="number" value="00244" />
+      <option name="presentableId" value="LOCAL‎-00244" />
       <option name="project" value="LOCAL‎" />
-      <updated>1695258186801</updated>
+      <updated>1702569754340</updated>
     </task>
-    <task id="LOCAL‎-00178" summary="Predictions version 2:0">
+    <task id="LOCAL‎-00245" summary="disable execute button on user app when first loaded">
       <option name="closed" value="true" />
-      <created>1695265192319</created>
-      <option name="number" value="00178" />
-      <option name="presentableId" value="LOCAL‎-00178" />
+      <created>1702639353478</created>
+      <option name="number" value="00245" />
+      <option name="presentableId" value="LOCAL‎-00245" />
       <option name="project" value="LOCAL‎" />
-      <updated>1695265192319</updated>
+      <updated>1702639353478</updated>
     </task>
-    <task id="LOCAL‎-00179" summary="Predictions version 2:0">
+    <task id="LOCAL‎-00246" summary="fixed label on threadPool info">
       <option name="closed" value="true" />
-      <created>1695265219868</created>
-      <option name="number" value="00179" />
-      <option name="presentableId" value="LOCAL‎-00179" />
+      <created>1702639910380</created>
+      <option name="number" value="00246" />
+      <option name="presentableId" value="LOCAL‎-00246" />
       <option name="project" value="LOCAL‎" />
-      <updated>1695265219868</updated>
+      <updated>1702639910380</updated>
     </task>
-    <option name="localTasksCounter" value="180" />
+    <task id="LOCAL‎-00247" summary="you cannot submit a new request without choosing a simulation name">
+      <option name="closed" value="true" />
+      <created>1702723311763</created>
+      <option name="number" value="00247" />
+      <option name="presentableId" value="LOCAL‎-00247" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1702723311763</updated>
+    </task>
+    <task id="LOCAL‎-00248" summary="fix results table to show all simulations per user">
+      <option name="closed" value="true" />
+      <created>1702813933846</created>
+      <option name="number" value="00248" />
+      <option name="presentableId" value="LOCAL‎-00248" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1702813933847</updated>
+    </task>
+    <task id="LOCAL‎-00249" summary="fix results table to show all simulations per user">
+      <option name="closed" value="true" />
+      <created>1702841382892</created>
+      <option name="number" value="00249" />
+      <option name="presentableId" value="LOCAL‎-00249" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1702841382892</updated>
+    </task>
+    <task id="LOCAL‎-00250" summary="fix results table to show all simulations per user">
+      <option name="closed" value="true" />
+      <created>1702841411469</created>
+      <option name="number" value="00250" />
+      <option name="presentableId" value="LOCAL‎-00250" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1702841411469</updated>
+    </task>
+    <task id="LOCAL‎-00251" summary="fix result running controllers bug">
+      <option name="closed" value="true" />
+      <created>1703160542784</created>
+      <option name="number" value="00251" />
+      <option name="presentableId" value="LOCAL‎-00251" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1703160542785</updated>
+    </task>
+    <task id="LOCAL‎-00252" summary="fix result tab in user client: the graphs work">
+      <option name="closed" value="true" />
+      <created>1703166672336</created>
+      <option name="number" value="00252" />
+      <option name="presentableId" value="LOCAL‎-00252" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1703166672336</updated>
+    </task>
+    <task id="LOCAL‎-00253" summary="fix result tab in admin client: the graphs work">
+      <option name="closed" value="true" />
+      <created>1703235331294</created>
+      <option name="number" value="00253" />
+      <option name="presentableId" value="LOCAL‎-00253" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1703235331294</updated>
+    </task>
+    <task id="LOCAL‎-00254" summary="disable execution tab when you didn't choose a request to execute">
+      <option name="closed" value="true" />
+      <created>1703254383795</created>
+      <option name="number" value="00254" />
+      <option name="presentableId" value="LOCAL‎-00254" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1703254383795</updated>
+    </task>
+    <task id="LOCAL‎-00255" summary="cancel rerun button and disable pause button when stopped">
+      <option name="closed" value="true" />
+      <created>1703255019618</created>
+      <option name="number" value="00255" />
+      <option name="presentableId" value="LOCAL‎-00255" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1703255019618</updated>
+    </task>
+    <task id="LOCAL‎-00256" summary="fixed table running/ended simulation count bug">
+      <option name="closed" value="true" />
+      <created>1703264116556</created>
+      <option name="number" value="00256" />
+      <option name="presentableId" value="LOCAL‎-00256" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1703264116556</updated>
+    </task>
+    <option name="localTasksCounter" value="257" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -784,32 +946,32 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="addd EntitiesAmountDTO" />
-    <MESSAGE value="entity Population is working for one simulation" />
-    <MESSAGE value="ui reflects the engine" />
-    <MESSAGE value="proximity and grid bug fixes" />
-    <MESSAGE value="bug fixes" />
-    <MESSAGE value="entities and property choiceBox implement" />
-    <MESSAGE value="fixed logic" />
-    <MESSAGE value="fixed logic in xml" />
-    <MESSAGE value="made pagination as sub component" />
-    <MESSAGE value="population bar chart is implemented" />
-    <MESSAGE value="added Consistency object" />
-    <MESSAGE value="consistency in gui" />
-    <MESSAGE value="clear button bug fix" />
-    <MESSAGE value="population per tick implement" />
-    <MESSAGE value="population per tick graph implemented" />
-    <MESSAGE value="changed the population chart" />
-    <MESSAGE value="buttons behaviours fix" />
-    <MESSAGE value="kaka" />
-    <MESSAGE value="added animations" />
-    <MESSAGE value="hell bug fix" />
-    <MESSAGE value="works" />
-    <MESSAGE value="annoying bug fix" />
-    <MESSAGE value="bug fix" />
-    <MESSAGE value="added css" />
-    <MESSAGE value="Predictions version 2:0" />
-    <option name="LAST_COMMIT_MESSAGE" value="Predictions version 2:0" />
+    <MESSAGE value="admin allocations implemented" />
+    <MESSAGE value="merged the admin tabs to one main component" />
+    <MESSAGE value="combine" />
+    <MESSAGE value="a lot" />
+    <MESSAGE value="Changes by ASUS" />
+    <MESSAGE value="fixed user login screen" />
+    <MESSAGE value="the details choiceBox is automatically updated instead of on every click" />
+    <MESSAGE value="the spinner value is synced to the tread pull size in the Admin client app" />
+    <MESSAGE value="the date column in the result table is showing as a date instead of a long." />
+    <MESSAGE value="added success alert for file uploading in Admin app" />
+    <MESSAGE value="the #ended #running cols are updating now" />
+    <MESSAGE value="the user is automatically logout when he closes the program" />
+    <MESSAGE value="admin is automatically login and logout when he opens and closes the program" />
+    <MESSAGE value="user cannot log in as admin" />
+    <MESSAGE value="added readme" />
+    <MESSAGE value="disable execute button on user app when first loaded" />
+    <MESSAGE value="fixed label on threadPool info" />
+    <MESSAGE value="you cannot submit a new request without choosing a simulation name" />
+    <MESSAGE value="fix results table to show all simulations per user" />
+    <MESSAGE value="fix result running controllers bug" />
+    <MESSAGE value="fix result tab in user client: the graphs work" />
+    <MESSAGE value="fix result tab in admin client: the graphs work" />
+    <MESSAGE value="disable execution tab when you didn't choose a request to execute" />
+    <MESSAGE value="cancel rerun button and disable pause button when stopped" />
+    <MESSAGE value="fixed table running/ended simulation count bug" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed table running/ended simulation count bug" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
@@ -818,6 +980,10 @@
         <breakpoint type="java-exception">
           <properties class="java.lang.IllegalArgumentException" package="java.lang" />
           <option name="timeStamp" value="8" />
+        </breakpoint>
+        <breakpoint type="java-exception">
+          <properties class="java.lang.NullPointerException" package="java.lang" />
+          <option name="timeStamp" value="226" />
         </breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/GUI/src/javafx/input/components/mainComponent/SecondScreenController.java</url>
@@ -829,7 +995,29 @@
           <line>400</line>
           <option name="timeStamp" value="157" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/AdminClient/src/tab/allocations/AllocationsController.java</url>
+          <line>75</line>
+          <option name="timeStamp" value="227" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/Logic/src/execution/simulation/impl/SimulationImpl.java</url>
+          <line>97</line>
+          <option name="timeStamp" value="233" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/Logic/src/admin/impl/Admin.java</url>
+          <line>42</line>
+          <properties class="admin.impl.Admin" method="acceptRequest">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="235" />
+        </line-breakpoint>
       </breakpoints>
+      <default-breakpoints>
+        <breakpoint type="dart-exception" />
+      </default-breakpoints>
     </breakpoint-manager>
     <pin-to-top-manager>
       <pinned-members>
@@ -837,15 +1025,18 @@
         <PinnedItemInfo parentTag="instance.entity.impl.EntityInstanceImpl" memberName="name" />
         <PinnedItemInfo parentTag="execution.simulation.impl.SimulationImpl" memberName="entities" />
         <PinnedItemInfo parentTag="definition.entity.impl.EntityDefinitionImpl" memberName="population" />
+        <PinnedItemInfo parentTag="user.impl.User" memberName="simulationsSerialNumber" />
         <PinnedItemInfo parentTag="resources.generated.PRDAction" memberName="entity" />
         <PinnedItemInfo parentTag="definition.world.impl.WorldImpl" memberName="terminate" />
         <PinnedItemInfo parentTag="instance.entity.impl.EntityInstanceImpl" memberName="propNameToPropInstance" />
         <PinnedItemInfo parentTag="java.lang.Integer" memberName="value" />
         <PinnedItemInfo parentTag="rule.impl.RuleImpl" memberName="activation" />
         <PinnedItemInfo parentTag="grid.SphereSpaceImpl" memberName="emptyCells" />
+        <PinnedItemInfo parentTag="execution.simulation.impl.PredictionsLogicImpl" memberName="allSimulations" />
         <PinnedItemInfo parentTag="resources.generated.PRDRules" memberName="prdRule" />
         <PinnedItemInfo parentTag="impl.SimulationDataDTO" memberName="propertyOfEntitySortedByValues" />
         <PinnedItemInfo parentTag="definition.entity.impl.EntityDefinitionImpl" memberName="name" />
+        <PinnedItemInfo parentTag="java.lang.Double" memberName="value" />
         <PinnedItemInfo parentTag="execution.simulation.impl.SimulationImpl" memberName="environmentVariables" />
         <PinnedItemInfo parentTag="grid.SphereSpaceImpl" memberName="grid" />
       </pinned-members>
