@@ -67,9 +67,9 @@ public class SimulationManager extends Observable implements Serializable, Obser
         );
     }
 
-    public void clearAllSimulations() {
-        simulations.clear();
-    }
+//    public void clearAllSimulations() { todo: delete
+//        simulations.clear();
+//    }
 
     public void setThreadPoolSize(int size) {
         this.poolSize = size;

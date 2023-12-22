@@ -100,7 +100,6 @@ public class RequestsComponentController {
         updatedRequests.forEach(updated -> {
             if (data.contains(updated)) {
                 data.set(data.indexOf(updated), updated);
-
                 if (updated.equals(selectedRequest)) {
                     onSelectedRequest(null);
                 }
@@ -124,7 +123,7 @@ public class RequestsComponentController {
     }
 
     private void switchToNewExecution() {
-//todo
+//todo:
     }
 
     private Tab findTabByName(TabPane tabPane, String tabName) {

@@ -42,7 +42,7 @@ public class PredictionsLogicImpl implements PredictionsLogic, Serializable {
         allSimulations.addObserver((observable, arg) -> admin.decreaseNumOfRunningSimulation(((Simulation) arg).getRequestSerialNumber()));
         allSimulations.addObserver((observable, arg) -> userManager
                 .getUser(GeneralConstants.ADMIN_USER_NAME)
-                .addActivatedSimulationSerialNumber(((Simulation) arg).getSerialNumber(), ((Simulation) arg).getRequestSerialNumber()));
+                .addEndedSimulationForAdmin(((SimulationImpl) arg).getSerialNumber()));
     }
 
     @Override

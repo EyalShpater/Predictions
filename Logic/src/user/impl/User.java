@@ -38,13 +38,17 @@ public class User {
         return name;
     }
 
-    public void addSimulationDefinition(int requestSerialNumber, SimulationDefinition simulation, int numOfInstances) {
+    public synchronized void addSimulationDefinition(int requestSerialNumber, SimulationDefinition simulation, int numOfInstances) {
         simulationDefinitionManager.add(requestSerialNumber, simulation, numOfInstances);
     }
 
-    public void addActivatedSimulationSerialNumber(int SimulationSerialNumber, int requestSerialNumber) {
-        simulationsSerialNumber.add(SimulationSerialNumber);
+    public synchronized void addActivatedSimulationSerialNumber(int simulationSerialNumber, int requestSerialNumber) {
+        simulationsSerialNumber.add(simulationSerialNumber);
         simulationDefinitionManager.decreaseSimulationNumOfInstances(requestSerialNumber);
+    }
+
+    public void addEndedSimulationForAdmin(int serialNumber) {
+        simulationsSerialNumber.add(serialNumber);
     }
 
     public void addRequestSerialNumber(int serialNumber) {

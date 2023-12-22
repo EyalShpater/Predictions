@@ -29,7 +29,7 @@ public class RequestManager {
                 new TerminationImpl(request.getTermination()));
 
         synchronized (this) {
-            requests.put(id, newRequest);
+            requests.put(newRequest.getSerialNumber(), newRequest);
         }
 
         return id;
