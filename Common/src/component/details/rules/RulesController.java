@@ -44,7 +44,6 @@ public class RulesController {
         rule.getActionsDTO().forEach(this::addActionToTreeView);
     }
 
-    //todo: split to sub methods
     private void addActionToTreeView(ActionDTO action) {
         TreeItem<String> typeRoot = new TreeItem<>(action.getType().toLowerCase());
 

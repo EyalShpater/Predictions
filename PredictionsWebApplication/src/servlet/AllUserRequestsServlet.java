@@ -22,7 +22,6 @@ public class AllUserRequestsServlet extends HttpServlet {
 
         if (userName.equals(GeneralConstants.ALL_REQUESTS_KEY_WORD_NAME)) {
             resp.getWriter().println(gson.toJson(engine.getAllRequestsSimulationData()));
-            engine.getAllRequestsSimulationData().forEach(request -> System.out.println("ended: " + request.getNumOfEndedSimulations() + " running: " + request.getNumOfRunningSimulations())); //todo: delete
         } else {
             resp.getWriter().println(gson.toJson(engine.getRequestsSimulationDataByUser(userName)));
         }

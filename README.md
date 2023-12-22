@@ -9,6 +9,8 @@ factors and relationships play out, helping you analyze and make informed decisi
 
 * Programming language: Java 8
 * GUI: JavaFX
+* Client: OkHttp
+* Server: Tomcat
 
 ## System overview
 
@@ -42,6 +44,32 @@ At the end of the simulation, users can access the following output:
 * **Entity counts and types:** A summary of the number of entities and their types.
 * **Entity property averages:** The average value of a property for a given entity type over time.
 * **Entity property consistency:** The consistency of a property value for a given entity type over time.
+
+## Actions
+
+* **Increase:** This action allows increasing the numerical property value of a specific entity by a certain amount.
+* **Decrease:** This action allows reducing the numerical property value of a specific entity by a certain amount.
+* **Calculation:** This action allows performing a mathematical calculation on the numerical property value of the main
+  entity.
+    * **Multiply:** Perform multiplication of two numbers. The result of the multiplication will be assigned to the
+      property "result-prop".
+    * **Divide:** Perform division of two numbers. The result of the division will be assigned to the property "
+      result-prop".
+* **Condition:** This action allows defining a conditional operation. The condition can be defined in two ways based on
+  its singularity value:
+    1. **Simple Condition:** This structure describes a simple, unique condition in the system that can be evaluated.
+    2. **Multiple Condition:** This structure describes the union/composition (aggregation) of other conditions, whether
+       they are simple or complex in themselves.<br> The union and composition can be performed using logical
+       operators: "and" and "or." This allows the construction of more complex conditions with deeper nesting levels.
+       This structure does not contain specific conditions by itself but serves solely for the union and composition of
+       simpler conditions.<br>
+* **Set:** This action allows updating the value of a property for a specific entity.
+* **Kill:** This action allows killing the main entity within which it is defined.
+* **Replace:** This action allows replacing one entity with another.
+* **Proximity:** This action allows performing additional operations based on the proximity check between two entities
+  in the simulation "space." Within the action, two entities will be specified for proximity evaluation, and when both
+  are considered "close," a set of actions can be defined to be executed on these two entities. If two entities are
+  found that meet the proximity criteria, a collection of actions can be defined to be performed on both entities.
 
 ## Additional features
 

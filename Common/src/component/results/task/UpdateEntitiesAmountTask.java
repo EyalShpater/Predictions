@@ -59,7 +59,7 @@ public class UpdateEntitiesAmountTask extends Task<Boolean> {
         try {
             return RequestHandler.hasStarted(serialNumber);
         } catch (Exception e) {
-            return false; // todo
+            return false;
         }
     }
 

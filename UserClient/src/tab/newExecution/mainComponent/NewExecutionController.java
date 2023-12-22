@@ -27,9 +27,6 @@ public class NewExecutionController {
     @FXML
     private Button clearButton;
 
-//    @FXML
-//    private Button simulationsQueueButton;
-
     @FXML
     private Button startButton;
 
@@ -56,7 +53,7 @@ public class NewExecutionController {
     }
 
     @FXML
-    void clearButtonActionListener(ActionEvent event) {
+    private void clearButtonActionListener(ActionEvent event) {
         for (BasicEnvironmentVariableData controller : envVarControllerList) {
             controller.clear();
         }
@@ -66,12 +63,7 @@ public class NewExecutionController {
     }
 
     @FXML
-    void simulationsQueueButtonActionListener(ActionEvent event) {
-        //todo: can i delete?
-    }
-
-    @FXML
-    void startButtonActionListener(ActionEvent event) {
+    private void startButtonActionListener(ActionEvent event) {
         Map<String, Integer> entityNameToPopulation = setNewPopulationOfEntities();
 
         if (isValidPopulation(entityNameToPopulation)) {
@@ -99,11 +91,10 @@ public class NewExecutionController {
         simulationSerialNumber = runSimulation(entityNameToPopulation);
         mainAppController.onStartButtonClick(simulationSerialNumber);
 
-        //TODO: When eyal finishes resultsTab
-        /*Tab resultsTab = findTabByName("Results");
+        Tab resultsTab = findTabByName("Results");
         if (resultsTab != null) {
             tabPane.getSelectionModel().select(resultsTab);
-        }*/
+        }
     }
 
     private int runSimulation(Map<String, Integer> entityNameToPopulation) {
@@ -213,6 +204,7 @@ public class NewExecutionController {
         Map<String, Integer> newEntityNameToPopulation = new HashMap<>();
 
         entityList.forEach(entityData -> newEntityNameToPopulation.put(entityData.getEntity(), Integer.parseInt(entityData.getPopulation())));
+
         return newEntityNameToPopulation;
     }
 
@@ -452,6 +444,5 @@ public class NewExecutionController {
 
     public void setMainAppController(MainAppController mainAppController) {
         this.mainAppController = mainAppController;
-        //TODO: add a disable for the execute button
     }
 }

@@ -75,13 +75,10 @@ public class LoginController {
                     String responseBody = response.body().string();
                     Platform.runLater(() -> {
                         errorMessageProperty.set("Something went wrong " + responseBody);
-//                        System.out.println(responseBody); todo
                     });
                 } else {
                     Platform.runLater(() -> {
-                        //mainAppController.switchToTabs();
                         loadMainApp();
-//                        mainAppController.setUserName(userName);
                     });
                 }
             }

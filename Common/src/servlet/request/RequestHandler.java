@@ -121,8 +121,6 @@ public class RequestHandler {
             Gson gson = new Gson();
 
             RequestBody body = RequestBody.create(gson.toJson(simulationRequest).getBytes());
-//            System.out.println("body check"); todo: delete
-//            System.out.println(gson.toJson(simulationRequest));
             Request request = new Request.Builder()
                     .url(GeneralConstants.BASE_URL + GeneralConstants.ALLOCATION_REQUEST_RESOURCE)
                     .post(body)
@@ -145,7 +143,6 @@ public class RequestHandler {
                 .get()
                 .build();
 
-        System.out.println(finalUrl);
         Call call = HTTP_CLIENT.newCall(request);
         Response response = call.execute();
 
@@ -248,7 +245,7 @@ public class RequestHandler {
         Call call = HTTP_CLIENT.newCall(request);
         Response response = call.execute();
 
-        String resp = response.body().string(); //todo: Debug
+        String resp = response.body().string();
 
         JsonArray simulationsJson = JsonParser.parseString(resp).getAsJsonArray();
         simulationsJson.forEach(simulationJson -> simulations.add(gson.fromJson(simulationJson, SimulationDTO.class)));
@@ -257,7 +254,6 @@ public class RequestHandler {
     }
 
     public static Map<String, Map<Integer, Long>> getPopulationCountSortedByName(int serialNumber) throws IOException {
-        //todo: debug
         Gson gson = new Gson();
 
         HttpUrl.Builder urlBuilder = HttpUrl.parse(GeneralConstants.BASE_URL + GeneralConstants.GET_POPULATION_COUNT_SORTED_BY_NAME_RESOURCE).newBuilder();

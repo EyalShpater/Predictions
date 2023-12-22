@@ -31,17 +31,7 @@ public class UpdateSimulationDetailsTask extends Task<Boolean> {
         do {
             SimulationRunDetailsDTO runDetails = RequestHandler.getSimulationRunDetail(serialNumber);
             updateProgress(runDetails.getStartProgress(), runDetails.getEndProgress());
-            //todo: delete
-//            if (runDetails != null) {
-//                System.out.println("start: " + runDetails.getStartProgress());
-//                System.out.println("running time: " + runDetails.getRunningTime());
-//                System.out.println("end: " + runDetails.getEndProgress());
-//                System.out.println("serial: " + runDetails.getSerialNumber());
-//                System.out.println("ticks: " + runDetails.getTickNumber());
-//
-//            } else {
-//                System.out.println("run details is null");
-//            }
+
             Platform.runLater(() -> setTicks.accept(runDetails.getTickNumber()));
             Platform.runLater(() -> setSeconds.accept(runDetails.getRunningTime()));
 

@@ -32,8 +32,6 @@ public class SimulationManager extends Observable implements Serializable, Obser
 
     public int runNewSimulation(World world, SimulationInitDataFromUserDTO initData) {
         Simulation simulation;
-//        TerminateCondition stopReason; todo: can i delete?
-//        SimulationRunDetailsDTO dto;
 
         simulation = new SimulationImpl(world, initData, serialNumber);
         simulation.addObserver(this);
@@ -66,10 +64,6 @@ public class SimulationManager extends Observable implements Serializable, Obser
                 poolSize
         );
     }
-
-//    public void clearAllSimulations() { todo: delete
-//        simulations.clear();
-//    }
 
     public void setThreadPoolSize(int size) {
         this.poolSize = size;

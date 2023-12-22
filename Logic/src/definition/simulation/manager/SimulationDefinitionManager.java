@@ -17,16 +17,6 @@ public class SimulationDefinitionManager {
         requestIdToSimulationDefinitionCount.put(serialNumber, new SimulationDefinitionNode(simulation, numOfInstances));
     }
 
-//    public synchronized SimulationDefinition getSimulationAndDecreaseInstances(int serialNumber) { todo: delete?
-//        SimulationDefinitionNode simulationNode = requestIdToSimulationDefinitionCount.get(serialNumber);
-//
-//        simulationNode.decreaseNumOfInstances();
-//
-//        return simulationNode.getNumOfInstances() != 0 ?
-//                simulationNode.getSimulation() :
-//                null;
-//    }
-
     public synchronized void decreaseSimulationNumOfInstances(int serialNumber) {
         requestIdToSimulationDefinitionCount
                 .get(serialNumber)

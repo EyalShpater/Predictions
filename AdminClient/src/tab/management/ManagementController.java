@@ -61,8 +61,7 @@ public class ManagementController {
         setSpinner();
 
         filePathTextField.textProperty().bind(filePath);
-//        threadPoolSizeSpinner.accessibleTextProperty().bind(threadPoolSize.asString());
-        queueDetails.setStyle(("-fx-border-color: #000000; -fx-border-width: 3px;")); //todo: use with css
+        queueDetails.setStyle(("-fx-border-color: #000000; -fx-border-width: 3px;"));
     }
 
     private void setSpinner() {

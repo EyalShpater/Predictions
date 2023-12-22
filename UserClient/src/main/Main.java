@@ -1,13 +1,11 @@
 package main;
 
 import javafx.application.Application;
-import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import login.LoginController;
-import servlet.request.RequestHandler;
 
 import java.io.IOException;
 import java.net.URL;

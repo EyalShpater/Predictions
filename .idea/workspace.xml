@@ -9,16 +9,102 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="27d35137-667f-4e37-a519-ab836acc0a06" name="Changes" comment="cancel rerun button and disable pause button when stopped">
+    <list default="true" id="27d35137-667f-4e37-a519-ab836acc0a06" name="Changes" comment="fixed table running/ended simulation count bug">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/admin/api/RequestManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/admin/api/RequestManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AdminClient/src/tab/management/ManagementController.java" beforeDir="false" afterPath="$PROJECT_DIR$/AdminClient/src/tab/management/ManagementController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Common/src/component/details/main/MainDetails.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Common/src/component/details/main/MainDetails.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Common/src/component/details/main/MainDetailsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Common/src/component/details/main/MainDetailsController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Common/src/component/details/rules/RulesController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Common/src/component/details/rules/RulesController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Common/src/component/results/ResultsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Common/src/component/results/ResultsController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Common/src/component/results/analyze/AnalyzePaginationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Common/src/component/results/analyze/AnalyzePaginationController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Common/src/component/results/details/DetailsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Common/src/component/results/details/DetailsController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Common/src/component/results/progress/ProgressController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Common/src/component/results/progress/ProgressController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Common/src/component/results/task/UpdateEntitiesAmountTask.java" beforeDir="false" afterPath="$PROJECT_DIR$/Common/src/component/results/task/UpdateEntitiesAmountTask.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Common/src/component/results/task/UpdateSimulationDetailsTask.java" beforeDir="false" afterPath="$PROJECT_DIR$/Common/src/component/results/task/UpdateSimulationDetailsTask.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Common/src/servlet/request/RequestHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/Common/src/servlet/request/RequestHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI/src/javafx/tab/details/rules/RulesController.java" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/src/javafx/tab/details/rules/RulesController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/LogicTest.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Logic/src/definition/simulation/manager/SimulationDefinitionManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/definition/simulation/manager/SimulationDefinitionManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/execution/simulation/impl/PredictionsLogicImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/execution/simulation/impl/PredictionsLogicImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/definition/world/impl/WorldImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/definition/world/impl/WorldImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/execution/simulation/impl/SimulationImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/execution/simulation/impl/SimulationImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Logic/src/execution/simulation/manager/SimulationManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/execution/simulation/manager/SimulationManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/user/impl/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/user/impl/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/execution/simulation/xml/reader/impl/XmlReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/execution/simulation/xml/reader/impl/XmlReader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/execution/simulation/xml/validation/XmlValidator.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/execution/simulation/xml/validation/XmlValidator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/resources/xml/ex1/ex1-cigarets.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/resources/xml/ex1/ex1-error-2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/resources/xml/ex1/ex1-error-4.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/resources/xml/ex1/ex1-error-6.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/resources/xml/ex1/generated/ObjectFactory.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/resources/xml/ex1/generated/PRDAction.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/resources/xml/ex1/generated/PRDActions.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/resources/xml/ex1/generated/PRDActivation.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/resources/xml/ex1/generated/PRDBySecond.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/resources/xml/ex1/generated/PRDByTicks.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/resources/xml/ex1/generated/PRDCondition.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/resources/xml/ex1/generated/PRDDivide.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/resources/xml/ex1/generated/PRDElse.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/resources/xml/ex1/generated/PRDEntities.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/resources/xml/ex1/generated/PRDEntity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/resources/xml/ex1/generated/PRDEnvProperty.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/resources/xml/ex1/generated/PRDEvironment.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/resources/xml/ex1/generated/PRDMultiply.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/resources/xml/ex1/generated/PRDProperties.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/resources/xml/ex1/generated/PRDProperty.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/resources/xml/ex1/generated/PRDRange.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/resources/xml/ex1/generated/PRDRule.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/resources/xml/ex1/generated/PRDRules.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/resources/xml/ex1/generated/PRDTermination.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/resources/xml/ex1/generated/PRDThen.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/resources/xml/ex1/generated/PRDValue.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/resources/xml/ex1/generated/PRDWorld.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/resources/xml/ex1/master-ex1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/resources/xml/ex1/predictions-v1.xsd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/resources/xml/ex2/ex2-error-1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/resources/xml/ex2/ex2-error-3.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/resources/xml/ex2/ex2-virus.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/resources/xml/ex2/generated/ObjectFactory.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/resources/xml/ex2/generated/PRDAction.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/resources/xml/ex2/generated/PRDActions.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/resources/xml/ex2/generated/PRDActivation.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/resources/xml/ex2/generated/PRDBySecond.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/resources/xml/ex2/generated/PRDByTicks.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/resources/xml/ex2/generated/PRDCondition.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/resources/xml/ex2/generated/PRDDivide.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/resources/xml/ex2/generated/PRDElse.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/resources/xml/ex2/generated/PRDEntities.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/resources/xml/ex2/generated/PRDEntity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/resources/xml/ex2/generated/PRDEnvProperty.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/resources/xml/ex2/generated/PRDEnvironment.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/resources/xml/ex2/generated/PRDMultiply.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/resources/xml/ex2/generated/PRDProperties.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/resources/xml/ex2/generated/PRDProperty.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/resources/xml/ex2/generated/PRDRange.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/resources/xml/ex2/generated/PRDRule.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/resources/xml/ex2/generated/PRDRules.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/resources/xml/ex2/generated/PRDTermination.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/resources/xml/ex2/generated/PRDThen.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/resources/xml/ex2/generated/PRDValue.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/resources/xml/ex2/generated/PRDWorld.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/resources/xml/ex2/master-ex2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/resources/xml/ex2/newfiles/ex2-error-1 (2).xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/resources/xml/ex2/newfiles/ex2-error-3 (1).xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/resources/xml/ex2/newfiles/ex2-virus (3).xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/resources/xml/ex2/newfiles/master-ex2 (5).xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/resources/xml/ex2/newfiles/predictions-v2.xsd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/resources/xml/ex2/predictions-v2.xsd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/resources/xml/ex2/tests.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/resources/xml/ex3/ex3-cigarets.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Test Files/ex3-cigarets.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/resources/xml/ex3/ex3-error.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Test Files/ex3-error.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/resources/xml/ex3/ex3-virus.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Test Files/ex3-virus.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/resources/xml/ex3/master-ex3.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Test Files/master-ex3.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PredictionsWebApplication/src/init/InitContextListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/PredictionsWebApplication/src/init/InitContextListener.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/PredictionsWebApplication/src/servlet/AllUserRequestsServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/PredictionsWebApplication/src/servlet/AllUserRequestsServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserClient/src/login/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/UserClient/src/login/LoginController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserClient/src/main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/UserClient/src/main/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserClient/src/main/TestMain.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserClient/src/tab/newExecution/mainComponent/NewExecutionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/UserClient/src/tab/newExecution/mainComponent/NewExecutionController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UserClient/src/tab/requests/component/table/RequestsComponentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/UserClient/src/tab/requests/component/table/RequestsComponentController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserClient/src/util/refresher/AllRequestsRefresher.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -182,7 +268,7 @@
       <recent name="javafx.details.details" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.UserClientDetails">
+  <component name="RunManager" selected="Application.AdminClientManagement 2nd screen">
     <configuration name="AdminClientManagement 2nd screen" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="main.Main" />
       <module name="AdminClient" />
@@ -452,7 +538,7 @@
       <workItem from="1702481141230" duration="30276000" />
       <workItem from="1702806722633" duration="1348000" />
       <workItem from="1702809713307" duration="5292000" />
-      <workItem from="1703148256520" duration="39238000" />
+      <workItem from="1703148256520" duration="47334000" />
     </task>
     <task id="LOCAL-00103" summary="changed evaluate to get the EntityInstance of secondaryEntity in each iteration in order to creare the proper context , also added functions to context to get the filtered SecondaryEntity list">
       <created>1694175010163</created>
@@ -572,14 +658,6 @@
       <option name="presentableId" value="LOCAL-00157" />
       <option name="project" value="LOCAL" />
       <updated>1695105621094</updated>
-    </task>
-    <task id="LOCAL‎-00224" summary="a lot">
-      <option name="closed" value="true" />
-      <created>1696537724126</created>
-      <option name="number" value="00224" />
-      <option name="presentableId" value="LOCAL‎-00224" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1696537724126</updated>
     </task>
     <task id="LOCAL‎-00225" summary="a lot">
       <option name="closed" value="true" />
@@ -829,7 +907,15 @@
       <option name="project" value="LOCAL‎" />
       <updated>1703255019618</updated>
     </task>
-    <option name="localTasksCounter" value="256" />
+    <task id="LOCAL‎-00256" summary="fixed table running/ended simulation count bug">
+      <option name="closed" value="true" />
+      <created>1703264116556</created>
+      <option name="number" value="00256" />
+      <option name="presentableId" value="LOCAL‎-00256" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1703264116556</updated>
+    </task>
+    <option name="localTasksCounter" value="257" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -860,7 +946,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="submit request component implements" />
     <MESSAGE value="admin allocations implemented" />
     <MESSAGE value="merged the admin tabs to one main component" />
     <MESSAGE value="combine" />
@@ -885,7 +970,8 @@
     <MESSAGE value="fix result tab in admin client: the graphs work" />
     <MESSAGE value="disable execution tab when you didn't choose a request to execute" />
     <MESSAGE value="cancel rerun button and disable pause button when stopped" />
-    <option name="LAST_COMMIT_MESSAGE" value="cancel rerun button and disable pause button when stopped" />
+    <MESSAGE value="fixed table running/ended simulation count bug" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed table running/ended simulation count bug" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
@@ -910,18 +996,13 @@
           <option name="timeStamp" value="157" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/UserClient/src/main/TestMain.java</url>
-          <line>31</line>
-          <option name="timeStamp" value="217" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/AdminClient/src/tab/allocations/AllocationsController.java</url>
           <line>75</line>
           <option name="timeStamp" value="227" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/Logic/src/execution/simulation/impl/SimulationImpl.java</url>
-          <line>98</line>
+          <line>97</line>
           <option name="timeStamp" value="233" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">

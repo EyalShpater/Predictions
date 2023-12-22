@@ -70,7 +70,7 @@ public class AnalyzePaginationController {
         }
 
         try {
-            URL resource = getClass().getResource("/component/results/analyze/histogram/property/PropertyChart.fxml"); //todo
+            URL resource = getClass().getResource("/component/results/analyze/histogram/property/PropertyChart.fxml");
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(resource);
             Parent resultsContent = loader.load();
@@ -91,7 +91,7 @@ public class AnalyzePaginationController {
         }
 
         try {
-            URL resource = getClass().getResource("/component/results/analyze/histogram/consistency/ConsistencyBarChart.fxml"); //todo
+            URL resource = getClass().getResource("/component/results/analyze/histogram/consistency/ConsistencyBarChart.fxml");
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(resource);
             Parent resultsContent = loader.load();
@@ -117,7 +117,7 @@ public class AnalyzePaginationController {
         }
 
         try {
-            URL resource = getClass().getResource("/component/results/analyze/histogram/population/PopulationChart.fxml"); //todo
+            URL resource = getClass().getResource("/component/results/analyze/histogram/population/PopulationChart.fxml");
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(resource);
             Parent resultsContent = loader.load();

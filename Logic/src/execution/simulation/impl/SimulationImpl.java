@@ -72,9 +72,8 @@ public class SimulationImpl extends Observable implements Simulation, Serializab
         startTime = System.currentTimeMillis();
         initEntities();
         initEnvironmentVariables();
-        //TODO: check if its the correct place todo it
         world.setTermination(new TerminationImpl(initData.getTermination()));
-        entities.updatePopulationCount(tick, createEntityNameToPopulationMap()); // todo: tick = 0?
+        entities.updatePopulationCount(tick, createEntityNameToPopulationMap());
         tick = 1;
 
         while ((endReason = world.isActive(tick, runningTimeInSeconds, isStop)) == null) {
@@ -133,8 +132,6 @@ public class SimulationImpl extends Observable implements Simulation, Serializab
 
     public SimulationRunDetailsDTO createRunDetailDTO() {
         return new SimulationRunDetailsDTO(
-//                endReason.equals(TerminateCondition.BY_SECONDS), //todo
-//                endReason.equals(TerminateCondition.BY_TICKS),
                 false,
                 false,
                 serialNumber,

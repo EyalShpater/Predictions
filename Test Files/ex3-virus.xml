@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <PRD-world name="virus" sleep="100" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-           xsi:noNamespaceSchemaLocation="predictions-v3.xsd">
+           xsi:noNamespaceSchemaLocation="../Logic/src/resources/xml/ex3/predictions-v3.xsd">
     <PRD-environment>
         <PRD-env-property type="float">
             <PRD-name>infection-proximity</PRD-name>

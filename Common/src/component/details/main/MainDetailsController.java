@@ -57,13 +57,8 @@ public class MainDetailsController {
         selectedWorld.addListener((observable, oldValue, newValue) -> onValueChanged(newValue));
     }
 
-    @FXML
-    private void onMouseClicked(MouseEvent event) throws IOException {
-        //todo: can be deleted...
-    }
-
     private void getWorldsUpdateFromServer() throws IOException {
-        List<WorldDTO> worlds = RequestHandler.getWorlds(); // todo: make async
+        List<WorldDTO> worlds = RequestHandler.getWorlds();
 
         worlds.forEach(updated -> {
             if (!worldsData.contains(updated.getName())) {
@@ -75,9 +70,6 @@ public class MainDetailsController {
     private void onValueChanged(String newValue) {
         if (newValue != null) {
             detailsComponentController.setWorldName(newValue);
-            //todo: logic
-
-            System.out.println(newValue);
         }
     }
 }

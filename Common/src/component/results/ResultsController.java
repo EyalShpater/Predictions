@@ -77,11 +77,6 @@ public class ResultsController {
         }
     }
 
-    private void onSelectedSimulationStop() {
-//        analyzePaginationController.setPopulationData(engine.getPopulationCountSortedByName(selectedSimulation.get().getId())); todo: delete
-//        detailsController.isSelectedSimulationEndedProperty().set(true);
-    }
-
     public Category getSelectedSimulation() {
         return selectedSimulation.get();
     }

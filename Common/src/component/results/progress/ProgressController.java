@@ -63,11 +63,10 @@ public class ProgressController {
         ticksLabel.textProperty().bind(Bindings.format("%d", ticks));
         secondsLabel.textProperty().bind(Bindings.format("%d", seconds));
         progressBar.progressProperty().bind(progress);
-        stopButton.disableProperty().bind(isStop); //todo
+        stopButton.disableProperty().bind(isStop);
         pauseButton.disableProperty().bind(isStop);
     }
 
-    //todo
     private void toggleButtons() {
         if (isPause.get()) {
             pauseButtonIcon.setImage(new Image("/component/results/resources/play-button.png"));

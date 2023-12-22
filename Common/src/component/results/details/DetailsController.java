@@ -90,6 +90,7 @@ public class DetailsController {
         try {
             if (entityToView.isNotNull().get()) {
                 WorldDTO simulation = RequestHandler.getWorld(selectedSimulation.get().getSimulationName());
+
                 simulation
                         .getEntities()
                         .stream()

@@ -36,7 +36,7 @@ public class WorldImpl implements World  , Serializable {
     private Map<String, EntityDefinition> entitiesDefinition;
     private List<Rule> rules;
     private EnvironmentVariableManager environmentVariables;
-    private Termination terminate; //todo: move terminate to Simulation
+    private Termination terminate;
     private int gridRows;
     private int gridCols;
     private int threadPoolSize;
@@ -82,7 +82,6 @@ public class WorldImpl implements World  , Serializable {
 
     @Override
     public void setSleepTime(Integer sleepTime) {
-        //TODO: use sleep in main loop
         this.sleepTime = sleepTime;
     }
 

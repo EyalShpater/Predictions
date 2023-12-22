@@ -15,7 +15,7 @@ public class InitContextListener implements ServletContextListener {
 
     @Override
     public void contextDestroyed(ServletContextEvent sce) {
-        System.out.println("shout down");
+        System.out.println("shut down");
     }
 }
 
