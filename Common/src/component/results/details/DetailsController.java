@@ -2,17 +2,14 @@ package component.results.details;
 
 import component.results.analyze.AnalyzePaginationController;
 import component.results.helper.Category;
-import component.results.list.SimulationsListController;
 import component.results.progress.ProgressController;
 import component.results.task.helper.EntityPopulationData;
 import impl.SimulationDataDTO;
 import impl.WorldDTO;
-import javafx.beans.binding.Bindings;
 import javafx.beans.property.*;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.layout.StackPane;
 import servlet.request.RequestHandler;
 
 import java.io.IOException;
@@ -82,8 +79,8 @@ public class DetailsController {
     public void onSelectedSimulationChange(Category newSimulation) {
         if (newSimulation != null) {
             selectedSimulation.set(newSimulation);
-            analyzePaginationController.onSelectedSimulationChange(newSimulation.getId());
             setEntitiesChoiceBox();
+            analyzePaginationController.onSelectedSimulationChange(newSimulation.getId());
         }
     }
 

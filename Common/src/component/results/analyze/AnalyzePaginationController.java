@@ -148,7 +148,6 @@ public class AnalyzePaginationController {
                         if (selectedProperty.isNotNull().get()) {
                             setPropertiesChart(selectedProperty.get());
                         }
-
                         break;
                     case CONSISTENCY_PAGE_INDEX:
                         setConsistencyChart(RequestHandler.getConsistencyByEntityName(newSerialNumber, selectedEntity.get()));

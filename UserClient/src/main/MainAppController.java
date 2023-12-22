@@ -61,6 +61,7 @@ public class MainAppController {
 
     @FXML
     public void initialize() {
+        newExecutionComponent.disableProperty().set(true);
     }
 
     private void setMainPanelTo(Parent pane) {
@@ -90,6 +91,7 @@ public class MainAppController {
 
     public void onExecutionButtonClicked(RequestedSimulationDataDTO selectedRequest) {
         setSelectedRequest(selectedRequest);
+        newExecutionComponent.disableProperty().set(false);
         newExecutionComponentController.onNewExecutionClicked(selectedRequest.getWorldName());
         newExecutionComponentController.setMainAppController(this);
         newExecutionComponentController.setTabPane(tabPane);
@@ -100,7 +102,7 @@ public class MainAppController {
     }
 
     public void onStartButtonClick(int simulationSerialNumber) {
-        //TODO: When eyal finishes resultsTab
+        newExecutionComponent.disableProperty().set(true);
     }
 
     public void setPrimaryStage(Stage primaryStage) {

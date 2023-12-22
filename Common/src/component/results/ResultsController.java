@@ -49,13 +49,11 @@ public class ResultsController {
     private ObjectProperty<Category> selectedSimulation;
     private IntegerProperty selectedSimulationSerialNumber;
     private BooleanProperty isSelectedSimulationEnded;
-    private BooleanProperty isNewFileLoaded;
     private Queue<Category> waitingQueue = new LinkedList<>();
 
     public ResultsController() {
         selectedSimulation = new SimpleObjectProperty<>();
         isSelectedSimulationEnded = new SimpleBooleanProperty();
-        isNewFileLoaded = new SimpleBooleanProperty();
         selectedSimulationSerialNumber = new SimpleIntegerProperty();
     }
 
@@ -64,16 +62,10 @@ public class ResultsController {
         simulationsListViewController.setOnSelectionChange(this::onSelectedSimulationChange);
         isSelectedSimulationEnded.bind(progressController.isStopProperty());
         progress.disableProperty().bind(Bindings.isNull(selectedSimulation));
-
-        isSelectedSimulationEnded.addListener((observable, oldValue, newValue) -> onSelectedSimulationStop());
-        isNewFileLoaded.addListener((observable, oldValue, newValue) -> clear());
-
+        detailsController.isSelectedSimulationEndedProperty().bind(isSelectedSimulationEnded);
+//        isSelectedSimulationEnded.addListener((observable, oldValue, newValue) -> onSelectedSimulationStop());
         detailsController.setProgressController(progressController);
         progressController.setTableView(detailsController.getEntitiesPopulationTableView());
-    }
-
-    private void clear() {
-        progressController.isStopProperty().set(false);
     }
 
     private void onSelectedSimulationChange(Category newValue) {
@@ -87,7 +79,7 @@ public class ResultsController {
 
     private void onSelectedSimulationStop() {
 //        analyzePaginationController.setPopulationData(engine.getPopulationCountSortedByName(selectedSimulation.get().getId())); todo: delete
-        detailsController.isSelectedSimulationEndedProperty().set(true);
+//        detailsController.isSelectedSimulationEndedProperty().set(true);
     }
 
     public Category getSelectedSimulation() {
@@ -100,14 +92,6 @@ public class ResultsController {
 
     public Queue<Category> getWaitingQueue() {
         return waitingQueue;
-    }
-
-    public boolean isNewFileLoaded() {
-        return isNewFileLoaded.get();
-    }
-
-    public BooleanProperty isNewFileLoadedProperty() {
-        return isNewFileLoaded;
     }
 
     public boolean isIsSelectedSimulationEnded() {
