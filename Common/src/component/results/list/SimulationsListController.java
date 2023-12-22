@@ -54,12 +54,12 @@ public class SimulationsListController {
         Timer timer = new Timer();
         timer.schedule(refreshRequestsTable, 1000, 500);
 
-        selectedSimulation.addListener((observable, oldValue, newValue) -> onSelectionChange.accept(selectedSimulation.get()));
         initTableView();
     }
 
     public void setOnSelectionChange(Consumer<Category> onSelectionChange) {
         this.onSelectionChange = onSelectionChange;
+        selectedSimulation.addListener((observable, oldValue, newValue) -> this.onSelectionChange.accept(newValue));
     }
 
     public void setUserName(String userName) {
@@ -82,7 +82,7 @@ public class SimulationsListController {
         simulationTableView
                 .getSelectionModel()
                 .selectedItemProperty()
-                .addListener((observable, oldValue, newValue) -> selectedSimulation.set(newValue));
+                .addListener((observable, oldValue, newValue) -> changeSelectedSimulation(newValue));
     }
 
     private void setAllSimulationsTableView() {
@@ -103,5 +103,11 @@ public class SimulationsListController {
                 allSimulationsData.add(newCategory);
             }
         });
+    }
+
+    private void changeSelectedSimulation(Category newSimulation) {
+        if (newSimulation != null && (selectedSimulation.get() == null || selectedSimulation.get().getId() != newSimulation.getId())) {
+            this.selectedSimulation.set(newSimulation);
+        }
     }
 }

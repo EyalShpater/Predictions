@@ -1,9 +1,9 @@
 package component.results.analyze;
 
-import component.results.ResultsController;
 import component.results.analyze.histogram.consistency.ConsistencyBarChartController;
 import component.results.analyze.histogram.population.PopulationChartController;
 import component.results.analyze.histogram.property.PropertyChartController;
+import component.results.details.DetailsController;
 import impl.SimulationDataDTO;
 import javafx.beans.property.*;
 import javafx.fxml.FXML;
@@ -25,7 +25,7 @@ public class AnalyzePaginationController {
     @FXML
     private Pagination analyzePaging;
 
-    private ResultsController resultsController;
+    private DetailsController resultsController;
     private PropertyChartController propertyChartController;
     private ConsistencyBarChartController consistencyBarChartController;
     private PopulationChartController populationChartController;
@@ -162,11 +162,11 @@ public class AnalyzePaginationController {
         }
     }
 
-    public void setResultsController(ResultsController resultsController) {
-        this.resultsController = resultsController;
-        isSelectedSimulationEnded.bind(resultsController.isSelectedSimulationEndedProperty());
-        selectedProperty.bind(resultsController.propertyToViewProperty());
-        selectedEntity.bind(resultsController.entityToViewProperty());
+    public void setDetailsController(DetailsController detailsController) {
+        this.resultsController = detailsController;
+        isSelectedSimulationEnded.bind(detailsController.isSelectedSimulationEndedProperty());
+        selectedProperty.bind(detailsController.propertyToViewProperty());
+        selectedEntity.bind(detailsController.entityToViewProperty());
     }
 
     private void setPopulationChart(Map<String, Map<Integer, Long>> data) {
@@ -175,12 +175,9 @@ public class AnalyzePaginationController {
 
     public void setPropertiesChart(String property) {
         try {
-            System.out.println("on setPropertiesChart");
             if (currentPage.get() == PROPERTIES_PAGE_INDEX && property != null) {
                 SimulationDataDTO simulationData = resultsController.getSimulationData();
                 propertyChartController.setChart(property, simulationData, resultsController.getAverageProperty());
-            } else {
-                System.out.println("setPropertiesChart-> else");
             }
         } catch (Exception ignored) {
             ignored.printStackTrace();

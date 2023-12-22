@@ -9,15 +9,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="27d35137-667f-4e37-a519-ab836acc0a06" name="Changes" comment="fix result running controllers bug">
+    <list default="true" id="27d35137-667f-4e37-a519-ab836acc0a06" name="Changes" comment="fix result tab in user client: the graphs work">
+      <change afterPath="$PROJECT_DIR$/Common/src/component/results/details/Details.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Common/src/component/results/details/DetailsController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AdminClient/src/tab/history/ExecutionsHistory.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/AdminClient/src/tab/history/ExecutionsHistory.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AdminClient/src/tab/history/ExecutionsHistoryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/AdminClient/src/tab/history/ExecutionsHistoryController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Common/src/component/results/Results.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Common/src/component/results/Results.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Common/src/component/results/ResultsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Common/src/component/results/ResultsController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Common/src/component/results/analyze/AnalyzePaginationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Common/src/component/results/analyze/AnalyzePaginationController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Common/src/component/results/progress/ProgressController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Common/src/component/results/progress/ProgressController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Common/src/component/results/task/UpdateSimulationDetailsTask.java" beforeDir="false" afterPath="$PROJECT_DIR$/Common/src/component/results/task/UpdateSimulationDetailsTask.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Common/src/servlet/request/RequestHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/Common/src/servlet/request/RequestHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PredictionsWebApplication/src/servlet/AllUserRequestsServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/PredictionsWebApplication/src/servlet/AllUserRequestsServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserClient/src/main/MainApp.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/UserClient/src/main/MainApp.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Common/src/component/results/list/SimulationsListController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Common/src/component/results/list/SimulationsListController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/Logic.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/Logic.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/execution/simulation/impl/PredictionsLogicImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/execution/simulation/impl/PredictionsLogicImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/src/execution/simulation/impl/SimulationImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/execution/simulation/impl/SimulationImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -181,7 +185,7 @@
       <recent name="javafx.details.details" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.UserClientDetails 2nd screen">
+  <component name="RunManager" selected="Application.AdminClientManagement">
     <configuration name="AdminClientManagement 2nd screen" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="main.Main" />
       <module name="AdminClient" />
@@ -451,7 +455,7 @@
       <workItem from="1702481141230" duration="30276000" />
       <workItem from="1702806722633" duration="1348000" />
       <workItem from="1702809713307" duration="5292000" />
-      <workItem from="1703148256520" duration="14198000" />
+      <workItem from="1703148256520" duration="28893000" />
     </task>
     <task id="LOCAL-00103" summary="changed evaluate to get the EntityInstance of secondaryEntity in each iteration in order to creare the proper context , also added functions to context to get the filtered SecondaryEntity list">
       <created>1694175010163</created>
@@ -571,14 +575,6 @@
       <option name="presentableId" value="LOCAL-00157" />
       <option name="project" value="LOCAL" />
       <updated>1695105621094</updated>
-    </task>
-    <task id="LOCAL‎-00220" summary="merged the admin tabs to one main component">
-      <option name="closed" value="true" />
-      <created>1696512214215</created>
-      <option name="number" value="00220" />
-      <option name="presentableId" value="LOCAL‎-00220" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1696512214215</updated>
     </task>
     <task id="LOCAL‎-00221" summary="combine">
       <option name="closed" value="true" />
@@ -828,7 +824,15 @@
       <option name="project" value="LOCAL‎" />
       <updated>1703160542785</updated>
     </task>
-    <option name="localTasksCounter" value="252" />
+    <task id="LOCAL‎-00252" summary="fix result tab in user client: the graphs work">
+      <option name="closed" value="true" />
+      <created>1703166672336</created>
+      <option name="number" value="00252" />
+      <option name="presentableId" value="LOCAL‎-00252" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1703166672336</updated>
+    </task>
+    <option name="localTasksCounter" value="253" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -859,7 +863,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="added accept/decline request servlet" />
     <MESSAGE value="added requests tab" />
     <MESSAGE value="added allocations tab" />
     <MESSAGE value="fixed bug" />
@@ -884,7 +887,8 @@
     <MESSAGE value="you cannot submit a new request without choosing a simulation name" />
     <MESSAGE value="fix results table to show all simulations per user" />
     <MESSAGE value="fix result running controllers bug" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix result running controllers bug" />
+    <MESSAGE value="fix result tab in user client: the graphs work" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix result tab in user client: the graphs work" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">

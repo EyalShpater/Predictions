@@ -94,8 +94,9 @@ public class SimulationImpl extends Observable implements Simulation, Serializab
         }
 
         data = new SimulationDataImpl(serialNumber, startTime, world.getEntities(), entities, initData);
+
         setChanged();
-        notifyObservers(initData.getRequestID());
+        notifyObservers(this);
     }
 
     @Override

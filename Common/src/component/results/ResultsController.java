@@ -1,6 +1,7 @@
 package component.results;
 
 import component.results.analyze.AnalyzePaginationController;
+import component.results.details.DetailsController;
 import component.results.helper.Category;
 import component.results.list.SimulationsListController;
 import component.results.progress.ProgressController;
@@ -28,53 +29,31 @@ public class ResultsController {
     private StackPane progress;
 
     @FXML
-    private TableView<EntityPopulationData> entitiesPopulationTableView;
-
-    @FXML
-    private TableColumn<EntityPopulationData, String> entitiesCol;
-
-    @FXML
-    private TableColumn<EntityPopulationData, Integer> populationCol;
-
-    @FXML
-    private ChoiceBox<String> entityChoiceBox;
-
-    @FXML
-    private ChoiceBox<String> propertyChoiceBox;
-
-    @FXML
-    private TitledPane entityAmountTitlePane;
-
-    @FXML
-    private TitledPane dataAnalyzeTitlePane;
-
-    @FXML
-    private Pagination analyzePagination;
-
-    @FXML
-    private AnalyzePaginationController analyzePaginationController;
-
-    @FXML
     private ProgressController progressController;
 
     @FXML
+    private TableView<Category> simulationsListView;
+
+    @FXML
     private SimulationsListController simulationsListViewController;
+
+    @FXML
+    private Accordion details;
+
+    @FXML
+    private DetailsController detailsController;
 
     private String userName;
     private TabPane tabPane;
 
     private ObjectProperty<Category> selectedSimulation;
     private IntegerProperty selectedSimulationSerialNumber;
-    private StringProperty propertyToView;
-    private StringProperty entityToView;
     private BooleanProperty isSelectedSimulationEnded;
     private BooleanProperty isNewFileLoaded;
     private Queue<Category> waitingQueue = new LinkedList<>();
 
     public ResultsController() {
         selectedSimulation = new SimpleObjectProperty<>();
-        propertyToView = new SimpleStringProperty();
-        entityToView = new SimpleStringProperty();
         isSelectedSimulationEnded = new SimpleBooleanProperty();
         isNewFileLoaded = new SimpleBooleanProperty();
         selectedSimulationSerialNumber = new SimpleIntegerProperty();
@@ -82,22 +61,15 @@ public class ResultsController {
 
     @FXML
     private void initialize() {
-        propertyToView.bind(propertyChoiceBox.valueProperty());
-        entityToView.bind(entityChoiceBox.valueProperty());
         simulationsListViewController.setOnSelectionChange(this::onSelectedSimulationChange);
         isSelectedSimulationEnded.bind(progressController.isStopProperty());
         progress.disableProperty().bind(Bindings.isNull(selectedSimulation));
-        dataAnalyzeTitlePane.disableProperty().bind(isSelectedSimulationEnded.not());
 
         isSelectedSimulationEnded.addListener((observable, oldValue, newValue) -> onSelectedSimulationStop());
-        entityToView.addListener((observable, oldValue, newValue) -> onSelectedEntity(newValue));
         isNewFileLoaded.addListener((observable, oldValue, newValue) -> clear());
 
-        entitiesCol.setCellValueFactory(new PropertyValueFactory<>("entityName"));
-        populationCol.setCellValueFactory(new PropertyValueFactory<>("population"));
-
-        progressController.setTableView(this.entitiesPopulationTableView);
-        analyzePaginationController.setResultsController(this);
+        detailsController.setProgressController(progressController);
+        progressController.setTableView(detailsController.getEntitiesPopulationTableView());
     }
 
     private void clear() {
@@ -109,43 +81,13 @@ public class ResultsController {
             selectedSimulation.set(newValue);
             progressController.onSelectedSimulationChange(newValue);
             selectedSimulationSerialNumber.set(newValue.getId());
-            analyzePaginationController.onSelectedSimulationChange(selectedSimulationSerialNumber.get());
-            setEntitiesChoiceBox();
+            detailsController.onSelectedSimulationChange(newValue);
         }
     }
-
-    public SimulationDataDTO getSimulationData() throws IOException {
-        return selectedSimulation.isNotNull().get() ?
-                RequestHandler.getSimulationData(
-                        selectedSimulation.get().getId(),
-                        entityToView.get(),
-                        propertyChoiceBox.getValue()
-                ) :
-                null;
-    }
-
-    private void onSelectedEntity(String newValue) {
-        try {
-            setPropertyChoiceBox();
-            analyzePaginationController.setConsistency(RequestHandler.getConsistencyByEntityName(selectedSimulationSerialNumber.get(), newValue));
-        } catch (Exception ignored) {
-        }
-    }
-
-    //todo: delete
-//    public void onStartButtonClicked(int newSimulationSerialNumber) {
-//        try {
-//            progressController.setTableView(this.entitiesPopulationTableView);
-//            SimulationDTO lastSimulation = RequestHandler.getSimulationDTOBySerialNumber(newSimulationSerialNumber);
-//
-//            Category simulationInfo = new Category(lastSimulation.getWorld().getName(), lastSimulation.getStartDate(), lastSimulation.getSerialNumber());
-//            waitingQueue.add(simulationInfo);
-//        } catch (Exception ignored) {
-//        }
-//    }
 
     private void onSelectedSimulationStop() {
-//        analyzePaginationController.setPopulationData(engine.getPopulationCountSortedByName(selectedSimulation.get().getId()));
+//        analyzePaginationController.setPopulationData(engine.getPopulationCountSortedByName(selectedSimulation.get().getId())); todo: delete
+        detailsController.isSelectedSimulationEndedProperty().set(true);
     }
 
     public Category getSelectedSimulation() {
@@ -158,22 +100,6 @@ public class ResultsController {
 
     public Queue<Category> getWaitingQueue() {
         return waitingQueue;
-    }
-
-    public String getPropertyToView() {
-        return propertyToView.get();
-    }
-
-    public StringProperty propertyToViewProperty() {
-        return propertyToView;
-    }
-
-    public String getEntityToView() {
-        return entityToView.get();
-    }
-
-    public StringProperty entityToViewProperty() {
-        return entityToView;
     }
 
     public boolean isNewFileLoaded() {
@@ -196,81 +122,9 @@ public class ResultsController {
         return selectedSimulation;
     }
 
-    private void setPropertyChoiceBox() {
-        propertyChoiceBox.getItems().clear();
-
-        try {
-            if (entityToView.isNotNull().get()) {
-                WorldDTO simulation = RequestHandler.getWorld(selectedSimulation.get().getSimulationName());
-                simulation
-                        .getEntities()
-                        .stream()
-                        .filter(entity -> entity.getName().equals(entityToView.get()))
-                        .findAny()
-                        .get()
-                        .getProperties()
-                        .forEach(property -> propertyChoiceBox.getItems().add(property.getName()));
-            }
-        } catch (Exception ignored) {
-        }
-    }
-
-    private void setEntitiesChoiceBox() {
-        entityChoiceBox.getItems().clear();
-
-        try {
-            WorldDTO simulationDTO = RequestHandler.getWorld(selectedSimulation.get().getSimulationName());
-            simulationDTO
-                    .getEntities()
-                    .forEach(entity -> entityChoiceBox.getItems().add(entity.getName()));
-        } catch (Exception ignored) {
-        }
-    }
-
     public void setTabPane(TabPane tabPane) {
         this.tabPane = tabPane;
         progressController.setTabPane(tabPane);
-    }
-
-    public void setDisableEntityChoiceBoxValue(boolean disable) {
-        String value = entityChoiceBox.getValue();
-
-        entityChoiceBox.setDisable(disable);
-        entityChoiceBox.valueProperty().set(disable ? null : value);
-
-    }
-
-    public void setDisablePropertyChoiceBoxValue(boolean disable) {
-        String value = propertyChoiceBox.getValue();
-
-        propertyChoiceBox.setDisable(disable);
-        propertyChoiceBox.valueProperty().set(disable ? null : value);
-    }
-
-    public Map<String, Double> getConsistency() {
-        try {
-            return selectedSimulation.isNotNull().get() ?
-                    RequestHandler.getConsistencyByEntityName(selectedSimulationSerialNumber.get(), entityToView.get()) :
-                    null;
-        } catch (Exception e) {
-            return null;
-        }
-    }
-
-    public Map<String, Map<Integer, Long>> getPopulationData() {
-        try {
-            return RequestHandler.getPopulationCountSortedByName(selectedSimulationSerialNumber.get());
-        } catch (Exception e) {
-            return null;
-        }
-    }
-
-    public Double getAverageProperty() {
-        try {
-            return RequestHandler.getFinalNumericPropertyAvg(selectedSimulationSerialNumber.get(), entityToView.get(), propertyToView.get());
-        } catch (Exception e) {
-            return null;
-        }
     }
 
     public void setUserName(String userName) {

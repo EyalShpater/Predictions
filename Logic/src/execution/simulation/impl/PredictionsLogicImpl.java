@@ -3,12 +3,14 @@ package execution.simulation.impl;
 import admin.api.UserRequest;
 import admin.impl.Admin;
 import execution.simulation.api.PredictionsLogic;
+import execution.simulation.api.Simulation;
 import execution.simulation.manager.SimulationManager;
 import definition.world.api.World;
 import definition.world.impl.WorldImpl;
 import execution.simulation.manager.WorldManager;
 import execution.simulation.xml.reader.impl.XmlReader;
 import execution.simulation.xml.validation.XmlValidator;
+import general.constants.GeneralConstants;
 import impl.*;
 import instance.enviornment.api.ActiveEnvironment;
 import instance.enviornment.impl.ActiveEnvironmentImpl;
@@ -23,7 +25,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-public class PredictionsLogicImpl implements PredictionsLogic , Serializable {
+public class PredictionsLogicImpl implements PredictionsLogic, Serializable {
     private static final int DEFAULT_START_POPULATION = 0;
 
     private SimulationManager allSimulations;
@@ -37,7 +39,10 @@ public class PredictionsLogicImpl implements PredictionsLogic , Serializable {
         this.userManager = new UserManager();
         this.admin = new Admin();
 
-        allSimulations.addObserver((observable, arg) -> admin.decreaseNumOfRunningSimulation((int) arg));
+        allSimulations.addObserver((observable, arg) -> admin.decreaseNumOfRunningSimulation(((Simulation) arg).getRequestSerialNumber()));
+        allSimulations.addObserver((observable, arg) -> userManager
+                .getUser(GeneralConstants.ADMIN_USER_NAME)
+                .addActivatedSimulationSerialNumber(((Simulation) arg).getSerialNumber(), ((Simulation) arg).getRequestSerialNumber()));
     }
 
     @Override
