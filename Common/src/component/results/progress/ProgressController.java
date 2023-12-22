@@ -63,14 +63,13 @@ public class ProgressController {
         ticksLabel.textProperty().bind(Bindings.format("%d", ticks));
         secondsLabel.textProperty().bind(Bindings.format("%d", seconds));
         progressBar.progressProperty().bind(progress);
-        stopButton.disableProperty().bind(isStopProperty()); //todo
+        stopButton.disableProperty().bind(isStop); //todo
+        pauseButton.disableProperty().bind(isStop);
     }
 
     //todo
     private void toggleButtons() {
-        if (isStop.get()) {
-            pauseButtonIcon.setImage(new Image("/component/results/resources/rerun.png"));
-        } else if (isPause.get()) {
+        if (isPause.get()) {
             pauseButtonIcon.setImage(new Image("/component/results/resources/play-button.png"));
         } else {
             pauseButtonIcon.setImage(new Image("/component/results/resources/pause.png"));
@@ -80,10 +79,7 @@ public class ProgressController {
     @FXML
     void pauseOnClick(ActionEvent event) {
         try {
-            if (isStop.get()) {
-                goToResultsTabByName("New Execution");
-                //predictionsMainAppController.restoreDataValuesToTiles(engine.getUserInputOfSimulationBySerialNumber(selectedSimulation.getId())); //todo: can i delete?
-            } else if (isPause.get()) {
+            if (isPause.get()) {
                 RequestHandler.resumeSimulationBySerialNumber((selectedSimulation.getId()));
             } else {
                 RequestHandler.pauseSimulationBySerialNumber(selectedSimulation.getId());
