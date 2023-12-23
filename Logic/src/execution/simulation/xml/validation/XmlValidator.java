@@ -528,16 +528,15 @@ public class XmlValidator {
     private void checkNumericCalculationActionToIncludeNumericArgs(PRDWorld world) {
         PRDEnvironment env = world.getPRDEnvironment();
         List<PRDRule> ruleList = world.getPRDRules().getPRDRule();
+
         for(PRDRule rule : ruleList) {
             try {
                 checkNumericCalculationActionToIncludeNumericArgs(rule);
             } catch (IllegalArgumentException e) {
                 throw new IllegalArgumentException("In rule: " + rule.getName() + e.getMessage());
             }
-
         }
     }
-
 
     private void checkNumericCalculationActionToIncludeNumericArgs(PRDRule rule) {
         PRDActions actions = rule.getPRDActions();
@@ -555,7 +554,6 @@ public class XmlValidator {
         } else {
             checkIfArgsInActionAreNumericNonConditionVersion(action, relevantEntities);
         }
-
     }
 
     private void checkIfArgsInActionAreNumericConditionVersion(PRDAction action, String... relevantEntities) {
@@ -750,9 +748,11 @@ public class XmlValidator {
         } else {
             isPropertyInEntity = isPropertyInEntity || checkIfPropertyExistForEntity(relevantEntity1, propertyName);
         }
+
         if (!isPropertyInEntity) {
             throw new IllegalArgumentException(" the property: " + propertyName + " does not exist for entity " + entityFromArgName);
         }
+
         if (!funcName.equals("ticks")) {
             checkIfNumericProperty(relevantEntities[0], propertyName);
         }
@@ -823,7 +823,7 @@ public class XmlValidator {
 
         if (propertyName != null) {//might be for kill
             PRDProperties properties = prdEntity.getPRDProperties();
-            ;
+
             List<PRDProperty> propertyList = properties.getPRDProperty();
 
             PRDProperty theProperty = propertyList.stream()
