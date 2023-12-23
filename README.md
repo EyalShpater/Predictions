@@ -84,5 +84,5 @@ The Predictions framework also supports the following features:
 
 ## Comments
 
-* **Configuration files:** Two sample simulation configuration files are provided for your convenience. If you want to
+* **Configuration Files:** Sample simulation configuration files are provided for your convenience. If you want to
   write your own configuration file, you can use the provided files or the provided XML schema as a reference.
