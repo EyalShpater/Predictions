@@ -5,7 +5,6 @@
       <module fileurl="file://$PROJECT_DIR$/AdminClient/AdminClient.iml" filepath="$PROJECT_DIR$/AdminClient/AdminClient.iml" />
       <module fileurl="file://$PROJECT_DIR$/Common/Common.iml" filepath="$PROJECT_DIR$/Common/Common.iml" />
       <module fileurl="file://$PROJECT_DIR$/DTO/DTO.iml" filepath="$PROJECT_DIR$/DTO/DTO.iml" />
-      <module fileurl="file://$PROJECT_DIR$/GUI/GUI.iml" filepath="$PROJECT_DIR$/GUI/GUI.iml" />
       <module fileurl="file://$PROJECT_DIR$/Logic/Logic.iml" filepath="$PROJECT_DIR$/Logic/Logic.iml" />
       <module fileurl="file://$PROJECT_DIR$/Predictions.iml" filepath="$PROJECT_DIR$/Predictions.iml" />
       <module fileurl="file://$PROJECT_DIR$/PredictionsWebApplication/PredictionsWebApplication.iml" filepath="$PROJECT_DIR$/PredictionsWebApplication/PredictionsWebApplication.iml" />

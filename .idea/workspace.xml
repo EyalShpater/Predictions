@@ -9,9 +9,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="27d35137-667f-4e37-a519-ab836acc0a06" name="Changes" comment="Predictions 3.0">
+    <list default="true" id="27d35137-667f-4e37-a519-ab836acc0a06" name="Changes" comment="readme fix and added scheme file">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logic/src/execution/simulation/xml/validation/XmlValidator.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/src/execution/simulation/xml/validation/XmlValidator.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,7 +42,7 @@
     </option>
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="main" />
+        <entry key="$PROJECT_DIR$" value="Client-Server" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -131,7 +130,7 @@
     &quot;dart.analysis.tool.window.visible&quot;: &quot;false&quot;,
     &quot;extract.method.default.visibility&quot;: &quot;private&quot;,
     &quot;full.screen.before.presentation.mode&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;Client-Server&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
     &quot;jdk.selected.JAVA_MODULE&quot;: &quot;1.8&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
     &quot;last_opened_file_path&quot;: &quot;/Users/eyal/Java-Course/Predictions/UserClient/src/tab/newExecution&quot;,
@@ -337,7 +336,6 @@
         <item itemvalue="Application.AdminClientManagement" />
         <item itemvalue="Application.UserClientDetails" />
         <item itemvalue="Application.LogicTest" />
-        <item itemvalue="Application.UserClientDetails" />
         <item itemvalue="Application.AdminClientManagement" />
       </list>
     </recent_temporary>
@@ -448,6 +446,7 @@
       <workItem from="1702806722633" duration="1348000" />
       <workItem from="1702809713307" duration="5292000" />
       <workItem from="1703148256520" duration="47334000" />
+      <workItem from="1703357586418" duration="2265000" />
     </task>
     <task id="LOCAL-00103" summary="changed evaluate to get the EntityInstance of secondaryEntity in each iteration in order to creare the proper context , also added functions to context to get the filtered SecondaryEntity list">
       <created>1694175010163</created>
@@ -900,11 +899,6 @@
           <option name="timeStamp" value="17" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/GUI/src/javafx/tab/newExecution/mainComponent/NewExecutionController.java</url>
-          <line>400</line>
-          <option name="timeStamp" value="157" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/AdminClient/src/tab/allocations/AllocationsController.java</url>
           <line>75</line>
           <option name="timeStamp" value="227" />
@@ -914,48 +908,14 @@
           <line>97</line>
           <option name="timeStamp" value="233" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/Logic/src/execution/simulation/xml/validation/XmlValidator.java</url>
-          <line>566</line>
-          <option name="timeStamp" value="243" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/Logic/src/execution/simulation/xml/validation/XmlValidator.java</url>
-          <line>624</line>
-          <option name="timeStamp" value="244" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/Logic/src/execution/simulation/xml/validation/XmlValidator.java</url>
-          <line>674</line>
-          <option name="timeStamp" value="245" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/Logic/src/execution/simulation/xml/validation/XmlValidator.java</url>
-          <line>719</line>
-          <option name="timeStamp" value="246" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/Logic/src/execution/simulation/xml/validation/XmlValidator.java</url>
-          <line>821</line>
-          <option name="timeStamp" value="249" />
-        </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/Logic/src/admin/impl/Admin.java</url>
           <line>42</line>
-          <properties class="admin.impl.Admin" method="acceptRequest">
+          <properties class="admin.impl.Admin">
             <option name="EMULATED" value="true" />
             <option name="WATCH_EXIT" value="false" />
           </properties>
           <option name="timeStamp" value="235" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/Logic/src/execution/simulation/xml/validation/XmlValidator.java</url>
-          <line>558</line>
-          <properties class="execution.simulation.xml.validation.XmlValidator" method="checkIfArgsInActionAreNumericConditionVersion">
-            <option name="EMULATED" value="true" />
-            <option name="WATCH_EXIT" value="false" />
-          </properties>
-          <option name="timeStamp" value="242" />
         </line-breakpoint>
       </breakpoints>
       <default-breakpoints>
